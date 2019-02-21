@@ -1,0 +1,23 @@
+/* 
+  Localized.strings
+  Script_odont
+
+  Created by Régis Iozzino on 21/02/2019.
+  Copyright © 2019 Régis Iozzino. All rights reserved.
+*/
+
+/* WALKTHROUGH */
+"Walkthrough.SkipButton.Title.Skip" = "Passer";
+"Walkthrough.SkipButton.Title.Done" = "Comrpis !";
+
+"Walkthrough.Section.Title.Principle"       = "Principe";
+"Walkthrough.Section.Title.Types"           = "Types";
+"Walkthrough.Section.Title.Example"         = "Exemple";
+"Walkthrough.Section.Title.ScoringSystem"   = "Système de points";
+"Walkthrough.Section.Title.Application"     = "Application";
+
+"Walkthrough.Section.Description.Principle"       = "Principle description.";
+"Walkthrough.Section.Description.Types"           = "SCA Types.";
+"Walkthrough.Section.Description.Example"         = "An example.";
+"Walkthrough.Section.Description.ScoringSystem"   = "The Scoring System.";
+"Walkthrough.Section.Description.Application"     = "How to use the application ?";

@@ -12,6 +12,14 @@
 		AC38BB65221DE4C9008E829B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB63221DE4C9008E829B /* Main.storyboard */; };
 		AC38BB67221DE4CB008E829B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB66221DE4CB008E829B /* Assets.xcassets */; };
 		AC38BB6A221DE4CB008E829B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB68221DE4CB008E829B /* LaunchScreen.storyboard */; };
+		AC38BB73221DF03F008E829B /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB72221DF03F008E829B /* Walkthrough.storyboard */; };
+		AC38BB76221DFB2F008E829B /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB75221DFB2F008E829B /* String+localized.swift */; };
+		AC38BB78221DFCC4008E829B /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB77221DFCC4008E829B /* WalkthroughViewController.swift */; };
+		AC38BB7A221E89C0008E829B /* UIApplication+isFirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB79221E89C0008E829B /* UIApplication+isFirstLaunch.swift */; };
+		AC38BB7C221E9C54008E829B /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7B221E9C54008E829B /* WalkthroughPageViewController.swift */; };
+		AC38BB7E221E9FE1008E829B /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7D221E9FE1008E829B /* WalkthroughContentViewController.swift */; };
+		AC38BB80221EA451008E829B /* WalkthroughPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7F221EA451008E829B /* WalkthroughPageViewControllerDelegate.swift */; };
+		AC38BB83221EAA58008E829B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB85221EAA58008E829B /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,15 @@
 		AC38BB66221DE4CB008E829B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC38BB69221DE4CB008E829B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC38BB6B221DE4CB008E829B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC38BB72221DF03F008E829B /* Walkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Walkthrough.storyboard; sourceTree = "<group>"; };
+		AC38BB75221DFB2F008E829B /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
+		AC38BB77221DFCC4008E829B /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
+		AC38BB79221E89C0008E829B /* UIApplication+isFirstLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+isFirstLaunch.swift"; sourceTree = "<group>"; };
+		AC38BB7B221E9C54008E829B /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		AC38BB7D221E9FE1008E829B /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		AC38BB7F221EA451008E829B /* WalkthroughPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewControllerDelegate.swift; sourceTree = "<group>"; };
+		AC38BB84221EAA58008E829B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC38BB86221EAA67008E829B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +71,38 @@
 		AC38BB5E221DE4C9008E829B /* Script_odont */ = {
 			isa = PBXGroup;
 			children = (
+				AC38BB74221DFB1E008E829B /* Utils */,
+				AC38BB71221DF021008E829B /* Walkthrough */,
 				AC38BB5F221DE4C9008E829B /* AppDelegate.swift */,
 				AC38BB61221DE4C9008E829B /* ViewController.swift */,
 				AC38BB63221DE4C9008E829B /* Main.storyboard */,
 				AC38BB66221DE4CB008E829B /* Assets.xcassets */,
 				AC38BB68221DE4CB008E829B /* LaunchScreen.storyboard */,
+				AC38BB85221EAA58008E829B /* Localizable.strings */,
 				AC38BB6B221DE4CB008E829B /* Info.plist */,
 			);
 			path = Script_odont;
+			sourceTree = "<group>";
+		};
+		AC38BB71221DF021008E829B /* Walkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				AC38BB77221DFCC4008E829B /* WalkthroughViewController.swift */,
+				AC38BB7B221E9C54008E829B /* WalkthroughPageViewController.swift */,
+				AC38BB7F221EA451008E829B /* WalkthroughPageViewControllerDelegate.swift */,
+				AC38BB7D221E9FE1008E829B /* WalkthroughContentViewController.swift */,
+				AC38BB72221DF03F008E829B /* Walkthrough.storyboard */,
+			);
+			path = Walkthrough;
+			sourceTree = "<group>";
+		};
+		AC38BB74221DFB1E008E829B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AC38BB75221DFB2F008E829B /* String+localized.swift */,
+				AC38BB79221E89C0008E829B /* UIApplication+isFirstLaunch.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,6 +147,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = AC38BB53221DE4C9008E829B;
 			productRefGroup = AC38BB5D221DE4C9008E829B /* Products */;
@@ -123,6 +165,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC38BB6A221DE4CB008E829B /* LaunchScreen.storyboard in Resources */,
+				AC38BB73221DF03F008E829B /* Walkthrough.storyboard in Resources */,
+				AC38BB83221EAA58008E829B /* Localizable.strings in Resources */,
 				AC38BB67221DE4CB008E829B /* Assets.xcassets in Resources */,
 				AC38BB65221DE4C9008E829B /* Main.storyboard in Resources */,
 			);
@@ -135,7 +179,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC38BB7C221E9C54008E829B /* WalkthroughPageViewController.swift in Sources */,
 				AC38BB62221DE4C9008E829B /* ViewController.swift in Sources */,
+				AC38BB78221DFCC4008E829B /* WalkthroughViewController.swift in Sources */,
+				AC38BB76221DFB2F008E829B /* String+localized.swift in Sources */,
+				AC38BB7A221E89C0008E829B /* UIApplication+isFirstLaunch.swift in Sources */,
+				AC38BB80221EA451008E829B /* WalkthroughPageViewControllerDelegate.swift in Sources */,
+				AC38BB7E221E9FE1008E829B /* WalkthroughContentViewController.swift in Sources */,
 				AC38BB60221DE4C9008E829B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +209,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		AC38BB85221EAA58008E829B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC38BB84221EAA58008E829B /* en */,
+				AC38BB86221EAA67008E829B /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -166,6 +225,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -227,6 +287,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
