@@ -27,7 +27,10 @@ class ViewController: UIViewController
         if !checkFirstTime_ && UIApplication.isFirstLaunch
         {
             checkFirstTime_ = true
-            launchWalkthrough()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                 self.launchWalkthrough()
+            })
         }
     }
     

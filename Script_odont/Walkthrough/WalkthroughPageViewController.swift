@@ -10,13 +10,61 @@ import UIKit
 
 class WalkthroughPageViewController: UIPageViewController
 {
-    static let contentViewControllerId = "WalkthroughContentViewControllerId"
+    // -------------------------------------------------------------------------
+    // MARK: - PAGE VIEW DATA SOURCE
+    // -------------------------------------------------------------------------
+    fileprivate class SectionDataSource: NSObject, UIPageViewControllerDataSource
+    {
+        private var sections_: [WalkthroughSection]
+        
+        init(sections: [WalkthroughSection])
+        {
+            self.sections_ = sections
+        }
+        
+        fileprivate lazy var sectionControllers_: [UIViewController] = ({
+            var result = [UIViewController]()
+            
+            let storyboard = UIStoryboard(name: "Walkthrough", bundle: nil)
+            
+            for (i, section) in sections_.enumerated()
+            {
+                let newContentViewController = section.instantiateViewController(forStoryboard: storyboard, identifier: i)
+                
+                result.append(newContentViewController)
+            }
+            return result
+        }())
+        
+        func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?
+        {
+            let sectionIndex = viewController.view.tag
+            if sectionIndex < 1
+            {
+                return nil
+            }
+            
+            return sectionControllers_[sectionIndex - 1]
+        }
+        
+        func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?
+        {
+            let sectionIndex = viewController.view.tag
+            if sectionIndex > sectionControllers_.count - 2
+            {
+                return nil
+            }
+            
+            return sectionControllers_[sectionIndex + 1]
+        }
+    }
     
     // -------------------------------------------------------------------------
     // MARK: - SECTIONS
     // -------------------------------------------------------------------------
     enum WalkthroughSection
     {
+        case abbreviation
         case principle
         case types
         case example
@@ -26,6 +74,8 @@ class WalkthroughPageViewController: UIPageViewController
         var title: String {
             switch self
             {
+            case .abbreviation:
+                return "Walkthrough.Section.Title.Abbreviation".localized
             case .principle:
                 return "Walkthrough.Section.Title.Principle".localized
             case .types:
@@ -42,6 +92,8 @@ class WalkthroughPageViewController: UIPageViewController
         var description: String {
             switch self
             {
+            case .abbreviation:
+                return "Walkthrough.Section.Description.Abbreviation".localized
             case .principle:
                 return "Walkthrough.Section.Description.Principle".localized
             case .types:
@@ -54,13 +106,45 @@ class WalkthroughPageViewController: UIPageViewController
                 return "Walkthrough.Section.Description.Application".localized
             }
         }
+        
+        func instantiateViewController(forStoryboard storyboard: UIStoryboard, identifier: Int) -> UIViewController
+        {
+            switch self
+            {
+            case .principle:
+                let result = storyboard.instantiateViewController(withIdentifier: WalkthroughPrincipleViewController.storyboardId) as! WalkthroughPrincipleViewController
+                result.view.tag = identifier
+                return result
+            case .types:
+                let result = storyboard.instantiateViewController(withIdentifier: WalkthroughTypesViewController.storyboardId) as! WalkthroughTypesViewController
+                result.view.tag = identifier
+                return result
+            default:
+                break
+            }
+            
+            let newContentViewController
+                = storyboard.instantiateViewController(withIdentifier:
+                    WalkthroughContentViewController.storyboardId)
+                    as! WalkthroughContentViewController
+            setupContentSection(contentViewController: newContentViewController)
+            newContentViewController.view.tag = identifier
+            
+            return newContentViewController
+        }
+        
+        fileprivate func setupContentSection(
+            contentViewController: WalkthroughContentViewController)
+        {
+            contentViewController.sectionTitle = self.title
+            contentViewController.sectionDescription = self.description
+        }
     }
     
     private let sections_: [WalkthroughSection] =
-        [ .principle, .types, .example, .scoringSystem, .application]
+        [ .abbreviation, .principle,
+          .types, .example, .scoringSystem, .application]
     private var currentSection_ = 0
-    
-    private var sectionControllers_ = [WalkthroughContentViewController]()
     
     var sectionsCount: Int {
         return sections_.count
@@ -80,59 +164,31 @@ class WalkthroughPageViewController: UIPageViewController
         return sections_[currentSection_]
     }
     
-    var walkthroughDelegate: WalkthroughPageViewControllerDelegate? = nil
+    weak var walkthroughDelegate: WalkthroughPageViewControllerDelegate? = nil
+    
+    fileprivate var sectionDataSource_: SectionDataSource? = nil
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         self.delegate = self
-        self.dataSource = self
+        self.sectionDataSource_ = SectionDataSource(sections: sections_)
         
-        loadContent()
-        setupFirstContent()
+        dataSource = sectionDataSource_
+        
+        displayFirstView()
     }
     
     // -------------------------------------------------------------------------
     // MARK: - CONTENT VIEWS
     // -------------------------------------------------------------------------
-    fileprivate func loadContent()
+    fileprivate func displayFirstView()
     {
-        let storyboard = UIStoryboard(name: "Walkthrough", bundle: nil)
-        
-        for (i, section) in sections_.enumerated()
+        if let firstViewController = sectionDataSource_?.sectionControllers_.first
         {
-            guard let newContentViewController
-                = storyboard.instantiateViewController(withIdentifier:
-                    WalkthroughPageViewController.contentViewControllerId)
-                    as? WalkthroughContentViewController else
-            {
-                continue
-            }
-            
-            setupContentSection(contentViewController: newContentViewController,
-                                section: section)
-            newContentViewController.view.tag = i
-            sectionControllers_.append(newContentViewController)
+            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
-    }
-    
-    fileprivate func setupContentSection(
-        contentViewController: WalkthroughContentViewController,
-        section: WalkthroughSection)
-    {
-        contentViewController.sectionTitle = section.title
-        contentViewController.sectionDescription = section.description
-    }
-    
-    fileprivate func setupFirstContent()
-    {
-        guard let firstContent = sectionControllers_.first else
-        {
-            return
-        }
-        setViewControllers([firstContent], direction: .forward, animated: true,
-                           completion: nil)
     }
 }
 
@@ -155,36 +211,5 @@ extension WalkthroughPageViewController: UIPageViewControllerDelegate
             walkthroughDelegate?.walkthroughPageViewController(self,
                                        didTransistionToSectionAtIndex: newIndex)
         }
-    }
-}
-
-// MARK: - UIPageViewControllerDataSource
-extension WalkthroughPageViewController: UIPageViewControllerDataSource
-{
-    func pageViewController(
-                            _ pageViewController: UIPageViewController,
-                            viewControllerBefore viewController:
-                                UIViewController)
-        -> UIViewController?
-    {
-        if viewController.view.tag < 1
-        {
-            return nil
-        }
-        
-        return sectionControllers_[viewController.view.tag - 1]
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController,
-                            viewControllerAfter viewController:
-                                UIViewController)
-        -> UIViewController?
-    {
-        if viewController.view.tag > sectionControllers_.count - 2
-        {
-            return nil
-        }
-        
-        return sectionControllers_[viewController.view.tag + 1]
     }
 }

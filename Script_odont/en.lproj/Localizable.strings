@@ -10,14 +10,16 @@
 "Walkthrough.SkipButton.Title.Skip" = "Skip";
 "Walkthrough.SkipButton.Title.Done" = "Done";
 
-"Walkthrough.Section.Title.Principle"       = "Principle";
-"Walkthrough.Section.Title.Types"           = "Types";
-"Walkthrough.Section.Title.Example"         = "Example";
-"Walkthrough.Section.Title.ScoringSystem"   = "Scoring System";
-"Walkthrough.Section.Title.Application"     = "Application";
+"Walkthrough.Section.Title.Abbreviation"        = "Abbreviation";
+"Walkthrough.Section.Title.Principle"           = "Principle";
+"Walkthrough.Section.Title.Types"               = "Types";
+"Walkthrough.Section.Title.Example"             = "Example";
+"Walkthrough.Section.Title.ScoringSystem"       = "Scoring System";
+"Walkthrough.Section.Title.Application"         = "Application";
 
-"Walkthrough.Section.Description.Principle"       = "Principle description.";
-"Walkthrough.Section.Description.Types"           = "SCA Types.";
-"Walkthrough.Section.Description.Example"         = "An example.";
-"Walkthrough.Section.Description.ScoringSystem"   = "The Scoring System.";
-"Walkthrough.Section.Description.Application"     = "How to use the application ?";
+"Walkthrough.Section.Description.Abbreviation"  = "TCS stands for \"Test de Concordance de Scripts\"";
+"Walkthrough.Section.Description.Principle"     = "Principle description.";
+"Walkthrough.Section.Description.Types"         = "SCA Types.";
+"Walkthrough.Section.Description.Example"       = "An example.";
+"Walkthrough.Section.Description.ScoringSystem" = "The Scoring System.";
+"Walkthrough.Section.Description.Application"   = "How to use the application ?";

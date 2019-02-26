@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol WalkthroughPageViewControllerDelegate
+protocol WalkthroughPageViewControllerDelegate: class
 {
     func walkthroughPageViewController(
         _ walkthroughPageViewController: WalkthroughPageViewController,

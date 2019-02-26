@@ -16,8 +16,8 @@
 "Walkthrough.Section.Title.ScoringSystem"   = "Système de points";
 "Walkthrough.Section.Title.Application"     = "Application";
 
-"Walkthrough.Section.Description.Principle"       = "Principle description.";
-"Walkthrough.Section.Description.Types"           = "SCA Types.";
-"Walkthrough.Section.Description.Example"         = "An example.";
-"Walkthrough.Section.Description.ScoringSystem"   = "The Scoring System.";
-"Walkthrough.Section.Description.Application"     = "How to use the application ?";
+"Walkthrough.Section.Description.Principle"       = "Description des principes.";
+"Walkthrough.Section.Description.Types"           = "Types de TCS.";
+"Walkthrough.Section.Description.Example"         = "Un exemple.";
+"Walkthrough.Section.Description.ScoringSystem"   = "Le système de points";
+"Walkthrough.Section.Description.Application"     = "Comment utiliser l'application ?";
