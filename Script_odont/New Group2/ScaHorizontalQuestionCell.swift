@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScaHorizontalQuestionCell: UITableViewCell
+public class ScaHorizontalQuestionCell: UITableViewCell
 {
     @IBOutlet weak var hypothesisLabel: UILabel!
     @IBOutlet weak var newDataLabel: UILabel!
@@ -21,6 +21,8 @@ class ScaHorizontalQuestionCell: UITableViewCell
     
     fileprivate var scaleContainerButtons_ = [UIButton]()
     fileprivate var selectedScaleButton_: UIButton? = nil
+    
+    weak var delegate: ScaHorizontalQuestionCellDelegate? = nil
     
     fileprivate func clearScaleContainer_()
     {
@@ -39,6 +41,7 @@ class ScaHorizontalQuestionCell: UITableViewCell
             newButton.setTitle("\(i + 1)", for: .normal)
             newButton.setTitle("\(i + 1)", for: .selected)
             newButton.setTitleColor(color, for: .normal)
+            
             newButton.tag = i
             newButton.tintColor = color
             
@@ -68,25 +71,51 @@ class ScaHorizontalQuestionCell: UITableViewCell
         }
     }
     
-    var selectedScale: Int = -1 {
+    fileprivate var selectedScale_: Int = -1 {
         didSet {
             selectedScaleButton_?.isSelected = false
-            
-            if selectedScaleButton_ == scaleContainerButtons_[selectedScale]
+            if selectedScale_ < 0
             {
                 selectedScaleButton_ = nil
-                selectedScale = -1
             }
             else
             {
-                selectedScaleButton_ = scaleContainerButtons_[selectedScale]
-                selectedScaleButton_!.isSelected = true
+                selectedScaleButton_ = scaleContainerButtons_[selectedScale_]
             }
+            
+            selectedScaleButton_?.isSelected = true
+        }
+    }
+    
+    var selectedScale: Int {
+        set {
+            
+            if newValue == selectedScale_
+            {
+                selectedScale_ = -1
+            }
+            else
+            {
+                selectedScale_ = newValue
+            }
+         
+        }
+        get {
+            return selectedScale_
         }
     }
     
     @objc fileprivate func selectedScaleButtonPressed_(_ sender: UIButton)
     {
         selectedScale = sender.tag
+        if let answer = LikertScale.Degree(rawValue: sender.tag)
+        {
+            delegate?.scaHorizontalQuestionCell(self, didSelectAnswer: answer)
+        }
+    }
+    
+    func setAnswer(_ degree: LikertScale.Degree?)
+    {
+        selectedScale_ = degree?.rawValue ?? -1
     }
 }

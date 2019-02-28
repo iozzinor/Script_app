@@ -30,7 +30,7 @@
                                 <rect key="frame" x="123" y="318.5" width="129" height="30"/>
                                 <state key="normal" title="Test sca horizontal"/>
                                 <connections>
-                                    <segue destination="e3M-vo-lc7" kind="show" id="Uy7-Pi-emh"/>
+                                    <segue destination="e3M-vo-lc7" kind="show" identifier="MainToScaHorizontalSegueId" id="Uy7-Pi-emh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -54,7 +54,7 @@
                 <viewControllerPlaceholder storyboardName="ScaHorizontal" id="e3M-vo-lc7" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GDG-aL-lbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696" y="-85"/>
+            <point key="canvasLocation" x="798" y="-85"/>
         </scene>
     </scenes>
 </document>

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ScaExam
+public struct ScaExam
 {
-    var scas = [Sca]()
+    public var scas = [Sca]()
 }

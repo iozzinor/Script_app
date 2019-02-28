@@ -56,8 +56,13 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
         case question
         case scale
         
-        func cell(for indexPath: IndexPath, tableView: UITableView, sca: Sca) -> UITableViewCell
+        func cell(for indexPath: IndexPath, scaHorizontalViewController: ScaHorizontalViewController) -> UITableViewCell
         {
+            let tableView = scaHorizontalViewController.tableView!
+            let session = scaHorizontalViewController.scaSession
+            let currentSca = scaHorizontalViewController.currentSca_
+            
+            let sca = session.exam.scas[currentSca]
             switch self
             {
             case .wording:
@@ -67,6 +72,12 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
             case .question:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as ScaHorizontalQuestionCell
                 cell.question = sca.questions[indexPath.row - 1]
+                cell.tag = indexPath.row - 1
+                
+                // restore the answer
+                let answer = session[currentSca, indexPath.row - 1]
+                cell.setAnswer(answer)
+                cell.delegate = scaHorizontalViewController
                 return cell
             case .scale:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as ScaHorizontalScaleCell
@@ -79,11 +90,27 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     }
     
     @IBOutlet weak var progressItem: UIBarButtonItem!
+    @IBOutlet weak var previousButton: UIBarButtonItem!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
-    public var sca = Sca()
+    public var scaSession = ScaSession(exam: ScaExam(scas: [])) {
+        didSet {
+            if isViewLoaded
+            {
+                updateUi_()
+            }
+        }
+    }
     
-    fileprivate var currentQuestion_ = 0
+    fileprivate var currentSca_ = 0 {
+        didSet {
+            if isViewLoaded
+            {
+                updateUi_()
+            }
+        }
+    }
     
     public override func viewDidLoad()
     {
@@ -103,14 +130,6 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
         
         tableView.dataSource    = self
         tableView.delegate      = self
-        
-        // TEMP
-        sca.wording = "Un patient de 34 ans se présente en consultation pour des douleurs intenses sur 36 depuis plusieurs jours. Cette dent a déjà été reconstitué par un onlay MOD 4 ans plus tôt."
-        
-        sca.questions.append(ScaQuestion(hypothesis: "une fracture amélo-dentinaire", newData:" un sondage parodontal de 8 mm en vestibulaire"))
-        sca.questions.append(ScaQuestion(hypothesis: "une reprise carieuse et une pulpite sous l’onlay", newData:"  le test au froid est négatif"))
-        sca.questions.append(ScaQuestion(hypothesis: "une reprise carieuse et à une pulpite sous l’onlay", newData:"    Il y a une douleur à la palpation et à la percussion de la dent"))
-        sca.questions.append(ScaQuestion(hypothesis: "une surcharge occlusale", newData:"   le papier d’occlusion marque principalement sur les cuspides linguales"))
     }
     
     // -------------------------------------------------------------------------
@@ -119,11 +138,19 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     fileprivate func updateUi_()
     {
         updateProgress_()
+        updateNavigationButtons_()
+        tableView.reloadData()
     }
     
     fileprivate func updateProgress_()
     {
-        progressItem.title = "Question \(currentQuestion_) out of \(sca.questions.count)"
+        progressItem.title = "Question \(currentSca_ + 1) out of \(scaSession.exam.scas.count)"
+    }
+    
+    fileprivate func updateNavigationButtons_()
+    {
+        previousButton.isEnabled    = (currentSca_ > 0)
+        nextButton.isEnabled        = (currentSca_ < scaSession.exam.scas.count - 1)
     }
     
     // -------------------------------------------------------------------------
@@ -132,6 +159,30 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     @IBAction func cancel(_ sender: UIBarButtonItem)
     {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func previous(_ sender: UIBarButtonItem)
+    {
+        guard currentSca_ > 0 else
+        {
+            return
+        }
+        
+        currentSca_ -= 1
+        
+        updateNavigationButtons_()
+    }
+    
+    @IBAction func next(_ sender: UIBarButtonItem)
+    {
+        guard currentSca_ < scaSession.exam.scas.count - 1 else
+        {
+            return
+        }
+        
+        currentSca_ += 1
+        
+        updateNavigationButtons_()
     }
     
     // -------------------------------------------------------------------------
@@ -158,18 +209,30 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         let section = ScaSection.allCases[section]
-        return section.rows(for: sca).count
+        return section.rows(for: scaSession.exam.scas[currentSca_]).count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let section = ScaSection.allCases[indexPath.section]
-        let rows = section.rows(for: sca)
+        let rows = section.rows(for: scaSession.exam.scas[currentSca_])
         let row = rows[indexPath.row]
         
-        let cell = row.cell(for: indexPath, tableView: tableView, sca: sca)
+        let cell = row.cell(for: indexPath, scaHorizontalViewController: self)
         cell.accessoryType      = .none
         cell.selectionStyle     = .none
         return cell
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - SCA HORIZONTAL QUESTION CELL DELEGATE
+// -----------------------------------------------------------------------------
+extension ScaHorizontalViewController: ScaHorizontalQuestionCellDelegate
+{
+    public func scaHorizontalQuestionCell(_ scaHorizontalQuestionCell: ScaHorizontalQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
+    {
+        let questionIndex = scaHorizontalQuestionCell.tag
+        scaSession[currentSca_, questionIndex] = answer
     }
 }

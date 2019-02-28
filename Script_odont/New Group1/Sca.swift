@@ -13,10 +13,4 @@ public struct Sca
     public var wording = ""
     public var topic = ScaTopic.diagnostic
     public var questions = [ScaQuestion]()
-    
-    /// - returns: Whether the given sca is valid.
-    public static func isValid(_ sca: Sca, panelAnswer: ScaPanelAnswer) -> Bool
-    {
-        return false
-    }
 }

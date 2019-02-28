@@ -27,9 +27,19 @@ public enum ScaTopic: Int, CaseIterable
         switch self
         {
         case .diagnostic:
-            return LikertScale(negativeTwo: "L'hypothèse est pratiquement éliminée", negativeOne: "L'hypothèse devient moins probable", zero: "L'information n'a aucun effet sur l'hypothèse", one: "L'hypothèse devient plus probable", two: "Il ne peut s'agir pratiquement que de cette hypothèse")
+            return LikertScale(
+                negativeTwo: "L'hypothèse est pratiquement éliminée",
+                negativeOne: "L'hypothèse devient moins probable",
+                zero: "L'information n'a aucun effet sur l'hypothèse",
+                one: "L'hypothèse devient plus probable",
+                two: "Il ne peut s'agir pratiquement que de cette hypothèse")
         case .therapeutic:
-            return LikertScale(negativeTwo: "-2", negativeOne: "-1", zero: "0", one: "1", two: "2")
+            return LikertScale(
+                negativeTwo: "Absolument contre-indiqué",
+                negativeOne: "Moins indiqué",
+                zero: "Ni contre-indiqué ni indiqué",
+                one: "Indiqué",
+                two: "Indispensable")
         }
     }
 }

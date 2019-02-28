@@ -19,6 +19,9 @@
 		AC0D77D62228274D007F83D4 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D52228274D007F83D4 /* Appearance.swift */; };
 		AC0D77D8222831C5007F83D4 /* ScaExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D7222831C5007F83D4 /* ScaExam.swift */; };
 		AC0D77DA22283330007F83D4 /* ScaHorizontalWordingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D922283330007F83D4 /* ScaHorizontalWordingCell.swift */; };
+		AC0D77DC2228343C007F83D4 /* ScaSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77DB2228343C007F83D4 /* ScaSession.swift */; };
+		AC0D77DE22283838007F83D4 /* ScaAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77DD22283838007F83D4 /* ScaAnswer.swift */; };
+		AC0D77E022283FB6007F83D4 /* ScaHorizontalQuestionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77DF22283FB6007F83D4 /* ScaHorizontalQuestionCellDelegate.swift */; };
 		AC38BB60221DE4C9008E829B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB5F221DE4C9008E829B /* AppDelegate.swift */; };
 		AC38BB62221DE4C9008E829B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB61221DE4C9008E829B /* ViewController.swift */; };
 		AC38BB65221DE4C9008E829B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB63221DE4C9008E829B /* Main.storyboard */; };
@@ -56,6 +59,9 @@
 		AC0D77D52228274D007F83D4 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		AC0D77D7222831C5007F83D4 /* ScaExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaExam.swift; sourceTree = "<group>"; };
 		AC0D77D922283330007F83D4 /* ScaHorizontalWordingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaHorizontalWordingCell.swift; sourceTree = "<group>"; };
+		AC0D77DB2228343C007F83D4 /* ScaSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaSession.swift; sourceTree = "<group>"; };
+		AC0D77DD22283838007F83D4 /* ScaAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaAnswer.swift; sourceTree = "<group>"; };
+		AC0D77DF22283FB6007F83D4 /* ScaHorizontalQuestionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaHorizontalQuestionCellDelegate.swift; sourceTree = "<group>"; };
 		AC38BB5C221DE4C9008E829B /* Script_odont.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Script_odont.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC38BB5F221DE4C9008E829B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC38BB61221DE4C9008E829B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +105,8 @@
 			children = (
 				AC0D77C12225CD2B007F83D4 /* Sca.swift */,
 				AC0D77D7222831C5007F83D4 /* ScaExam.swift */,
+				AC0D77DD22283838007F83D4 /* ScaAnswer.swift */,
+				AC0D77DB2228343C007F83D4 /* ScaSession.swift */,
 				AC0D77D12225DD01007F83D4 /* ScaPanelAnswer.swift */,
 				AC0D77C92225D28B007F83D4 /* ScaQuestion.swift */,
 				AC0D77C32225CD60007F83D4 /* ScaTopic.swift */,
@@ -114,6 +122,7 @@
 				AC0D77C72225D240007F83D4 /* ScaHorizontalViewController.swift */,
 				AC0D77D922283330007F83D4 /* ScaHorizontalWordingCell.swift */,
 				AC0D77CF2225D7AD007F83D4 /* ScaHorizontalQuestionCell.swift */,
+				AC0D77DF22283FB6007F83D4 /* ScaHorizontalQuestionCellDelegate.swift */,
 				AC0D77D322281FDD007F83D4 /* ScaHorizontalScaleCell.swift */,
 				AC0D77CB2225D42F007F83D4 /* ScaHorizontal.storyboard */,
 				AC0D77D52228274D007F83D4 /* Appearance.swift */,
@@ -267,8 +276,10 @@
 				AC0D77D02225D7AD007F83D4 /* ScaHorizontalQuestionCell.swift in Sources */,
 				ACE70F9B221F3414008454FF /* WalkthroughPrincipleCell.swift in Sources */,
 				AC38BB62221DE4C9008E829B /* ViewController.swift in Sources */,
+				AC0D77DC2228343C007F83D4 /* ScaSession.swift in Sources */,
 				ACE70F99221F32B9008454FF /* UITableView+register.swift in Sources */,
 				AC0D77D8222831C5007F83D4 /* ScaExam.swift in Sources */,
+				AC0D77E022283FB6007F83D4 /* ScaHorizontalQuestionCellDelegate.swift in Sources */,
 				AC0D77D422281FDD007F83D4 /* ScaHorizontalScaleCell.swift in Sources */,
 				AC38BB78221DFCC4008E829B /* WalkthroughViewController.swift in Sources */,
 				AC0D77CA2225D28B007F83D4 /* ScaQuestion.swift in Sources */,
@@ -289,6 +300,7 @@
 				AC0D77C42225CD60007F83D4 /* ScaTopic.swift in Sources */,
 				AC38BB7E221E9FE1008E829B /* WalkthroughContentViewController.swift in Sources */,
 				AC38BB60221DE4C9008E829B /* AppDelegate.swift in Sources */,
+				AC0D77DE22283838007F83D4 /* ScaAnswer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
