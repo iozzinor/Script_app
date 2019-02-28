@@ -69,9 +69,15 @@ class ViewController: UIViewController
             second.questions.append(ScaQuestion(hypothesis: "réaliser un composite en technique direct", newData: "le test au froid est négatif"))
             second.questions.append(ScaQuestion(hypothesis: "réaliser une facette", newData: "la zone de collage est quasi intégralement dentinaire"))
             second.questions.append(ScaQuestion(hypothesis: "réaliser une facette", newData: "le patient est bruxomane"))
-
             
-            let exam = ScaExam(scas: [first, second])
+            var third = Sca()
+            third.topic = .patientCare
+            third.wording = "Un patient de 70 ans se présente pour son rendez-vous de contrôle 1 semaine après la pose d’une prothèse amovible complète bi-maxillaire. Il se plaint de douleurs"
+            third.questions.append(ScaQuestion(hypothesis: "Des prématurités et/ou interférences occlusales", newData: "Il y a des blessures gingivales"))
+            third.questions.append(ScaQuestion(hypothesis: "Une erreur de dimension verticale d’occlusion", newData: "La phonation est difficile"))
+            third.questions.append(ScaQuestion(hypothesis: "Une erreur lors des empreintes", newData: "Il n’y a ni sous-extensions, ni sur-extensions des bases prothétiques"))
+            
+            let exam = ScaExam(scas: [first, second, third])
             destination.scaSession = ScaSession(exam: exam)
         }
     }

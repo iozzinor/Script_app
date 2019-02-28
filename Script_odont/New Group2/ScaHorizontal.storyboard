@@ -31,8 +31,9 @@
                                             <action selector="cancel:" destination="eW0-9n-bZs" id="mEr-nX-Cvu"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Item" id="hGf-Ig-5Z9" userLabel="Progress"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="c0T-9Z-Oeq"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="uvs-EU-VxO"/>
+                                    <barButtonItem title="Information" id="hGf-Ig-5Z9" userLabel="Progress"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rkn-l2-WZ3"/>
                                     <barButtonItem title="Next" id="rAa-ig-lBx">
                                         <connections>
                                             <action selector="next:" destination="eW0-9n-bZs" id="wGN-3w-kum"/>
@@ -168,10 +169,11 @@
                         <viewLayoutGuide key="safeArea" id="lEG-Lx-pei"/>
                     </view>
                     <connections>
+                        <outlet property="informationItem" destination="hGf-Ig-5Z9" id="nwR-Ff-h78"/>
                         <outlet property="nextButton" destination="rAa-ig-lBx" id="dPH-Qh-mYm"/>
                         <outlet property="previousButton" destination="c56-Fp-WWV" id="YKa-Dw-x0Y"/>
-                        <outlet property="progressItem" destination="hGf-Ig-5Z9" id="sb0-cT-iGf"/>
                         <outlet property="tableView" destination="LBW-xq-j7p" id="LrF-8Z-TsM"/>
+                        <outlet property="toolbar" destination="auk-YP-Bd8" id="nM6-Wg-oML"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6X2-Qr-a2B" userLabel="First Responder" sceneMemberID="firstResponder"/>

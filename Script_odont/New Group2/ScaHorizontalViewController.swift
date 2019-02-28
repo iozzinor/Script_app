@@ -89,10 +89,19 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
         }
     }
     
-    @IBOutlet weak var progressItem: UIBarButtonItem!
+    fileprivate static let refreshTime_: TimeInterval = 0.5
+    
+    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var informationItem: UIBarButtonItem!
+    weak var informationView: UIStackView!
+    weak var progressLabel: UILabel!
+    weak var timeLabel: UILabel!
     @IBOutlet weak var previousButton: UIBarButtonItem!
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    
+    fileprivate var sessionTimer_: Timer? = nil
+    fileprivate var lastTime_: TimeInterval = 0.0
     
     public var scaSession = ScaSession(exam: ScaExam(scas: [])) {
         didSet {
@@ -112,11 +121,34 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
         }
     }
     
+    deinit
+    {
+        (UIApplication.shared.delegate as? AppDelegate)?.removeDelegate(self)
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()
         
         setup_()
+        
+        // register as application delegate
+        (UIApplication.shared.delegate as? AppDelegate)?.registerDelegate(self)
+    }
+    
+    public override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        destroyTimer_()
+        createTimer_()
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool)
+    {
+        super.viewDidDisappear(animated)
+        
+        destroyTimer_()
     }
     
     // -------------------------------------------------------------------------
@@ -124,12 +156,27 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     // -------------------------------------------------------------------------
     fileprivate func setup_()
     {
-        updateUi_()
+        let newInformationView = UIStackView()
+        newInformationView.axis = .horizontal
+        newInformationView.alignment = .center
+        newInformationView.distribution = .fill
+        newInformationView.spacing = 10.0
         
-        progressItem.isEnabled = false
+        let newProgressLabel = UILabel()
+        progressLabel = newProgressLabel
+        
+        let newTimeLabel = UILabel()
+        timeLabel = newTimeLabel
+        
+        newInformationView.addArrangedSubview(progressLabel)
+        newInformationView.addArrangedSubview(timeLabel)
+        
+        informationItem.customView = newInformationView
         
         tableView.dataSource    = self
         tableView.delegate      = self
+        
+        updateUi_()
     }
     
     // -------------------------------------------------------------------------
@@ -137,20 +184,57 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     // -------------------------------------------------------------------------
     fileprivate func updateUi_()
     {
-        updateProgress_()
+        updateProgressUi_()
+        updateTimeUi_()
         updateNavigationButtons_()
         tableView.reloadData()
     }
     
-    fileprivate func updateProgress_()
+    fileprivate func updateProgressUi_()
     {
-        progressItem.title = "Question \(currentSca_ + 1) out of \(scaSession.exam.scas.count)"
+        progressLabel.text = "Question \(currentSca_ + 1) out of \(scaSession.exam.scas.count)"
+    }
+    
+    fileprivate func updateTimeUi_()
+    {
+        let minutes = Int(scaSession.time) / 60
+        let seconds = Int(scaSession.time) % 60
+        
+        let timeString = String(format: "%02d:%02d", minutes, seconds)
+        
+        timeLabel.text = timeString
     }
     
     fileprivate func updateNavigationButtons_()
     {
         previousButton.isEnabled    = (currentSca_ > 0)
         nextButton.isEnabled        = (currentSca_ < scaSession.exam.scas.count - 1)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - TIME
+    // -------------------------------------------------------------------------
+    fileprivate func createTimer_()
+    {
+        lastTime_ = Date.timeIntervalSinceReferenceDate
+        sessionTimer_ = Timer.scheduledTimer(timeInterval: ScaHorizontalViewController.refreshTime_, target: self, selector: #selector(ScaHorizontalViewController.updateTime_), userInfo: nil, repeats: true)
+    }
+    
+    fileprivate func destroyTimer_()
+    {
+        sessionTimer_?.invalidate()
+        sessionTimer_ = nil
+    }
+    
+    @objc fileprivate func updateTime_(_ sender: Timer)
+    {
+        // compute the elapsed time
+        let elapsedTime = Date.timeIntervalSinceReferenceDate - lastTime_
+        scaSession.time += elapsedTime
+        lastTime_ = Date.timeIntervalSinceReferenceDate
+        
+        // display the time
+        updateTimeUi_()
     }
     
     // -------------------------------------------------------------------------
@@ -234,5 +318,21 @@ extension ScaHorizontalViewController: ScaHorizontalQuestionCellDelegate
     {
         let questionIndex = scaHorizontalQuestionCell.tag
         scaSession[currentSca_, questionIndex] = answer
+    }
+}
+
+// -----------------------------------------------------------------------------
+// UIApplicationDelegate
+// -----------------------------------------------------------------------------
+extension ScaHorizontalViewController: UIApplicationDelegate
+{
+    public func applicationWillResignActive(_ application: UIApplication)
+    {
+        destroyTimer_()
+    }
+    
+    public func applicationWillEnterForeground(_ application: UIApplication)
+    {
+        createTimer_()
     }
 }

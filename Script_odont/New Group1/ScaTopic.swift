@@ -12,6 +12,7 @@ public enum ScaTopic: Int, CaseIterable
 {
     case diagnostic
     case therapeutic
+    case patientCare
     
     public var name: String {
         switch self
@@ -20,6 +21,8 @@ public enum ScaTopic: Int, CaseIterable
             return "Diagnostic"
         case .therapeutic:
             return "Therapeutic"
+        case .patientCare:
+            return "Patient Care"
         }
     }
     
@@ -40,6 +43,13 @@ public enum ScaTopic: Int, CaseIterable
                 zero: "Ni contre-indiqué ni indiqué",
                 one: "Indiqué",
                 two: "Indispensable")
+        case .patientCare:
+            return LikertScale(
+                negativeTwo: "Absolument inutile",
+                negativeOne: "Peu utile",
+                zero: "Ni utile ni inutile",
+                one: "Utile",
+                two: "Très utile")
         }
     }
 }

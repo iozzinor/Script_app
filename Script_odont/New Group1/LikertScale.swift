@@ -10,7 +10,7 @@ import Foundation
 
 public struct LikertScale
 {
-    public enum Degree: Int
+    public enum Degree: Int, CaseIterable
     {
         case negativeTwo
         case negativeOne

@@ -12,6 +12,13 @@ import UIKit
 /// The intend is to unify the global user interface.
 struct Appearance
 {
+    /// General colors
+    struct Color
+    {
+        public static let `default` = UIColor.black
+        public static let missing = UIColor.gray
+    }
+    
     /// Appearance of sca related views.
     struct Sca
     {
