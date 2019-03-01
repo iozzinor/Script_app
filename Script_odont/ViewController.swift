@@ -18,7 +18,6 @@ class ViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -30,7 +29,7 @@ class ViewController: UIViewController
             checkFirstTime_ = true
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                 self.launchWalkthrough()
+                 self.launchWalkthrough_()
             })
         }
     }
@@ -84,7 +83,7 @@ class ViewController: UIViewController
         }
     }
     
-    fileprivate func launchWalkthrough()
+    fileprivate func launchWalkthrough_()
     {
         performSegue(withIdentifier: ViewController.walkthroughSegueId,
                      sender: self)

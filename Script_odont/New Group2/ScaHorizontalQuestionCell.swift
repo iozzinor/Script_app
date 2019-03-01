@@ -84,6 +84,8 @@ public class ScaHorizontalQuestionCell: UITableViewCell
             }
             
             selectedScaleButton_?.isSelected = true
+            
+            delegate?.scaHorizontalQuestionCell(self, didSelectAnswer: LikertScale.Degree(rawValue: selectedScale_))
         }
     }
     
@@ -108,10 +110,6 @@ public class ScaHorizontalQuestionCell: UITableViewCell
     @objc fileprivate func selectedScaleButtonPressed_(_ sender: UIButton)
     {
         selectedScale = sender.tag
-        if let answer = LikertScale.Degree(rawValue: sender.tag)
-        {
-            delegate?.scaHorizontalQuestionCell(self, didSelectAnswer: answer)
-        }
     }
     
     func setAnswer(_ degree: LikertScale.Degree?)
