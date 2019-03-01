@@ -35,4 +35,19 @@ public class ScaSession
             return answers_[scaIndex][questionIndex]
         }
     }
+    
+    public func isScaValid(_ index: Int) -> Bool
+    {
+        let sca = exam.scas[index]
+        
+        for questionIndex in 0..<sca.questions.count
+        {
+            if self[index, questionIndex] == nil
+            {
+                return false
+            }
+        }
+        
+        return true
+    }
 }

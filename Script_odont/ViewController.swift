@@ -78,7 +78,9 @@ class ViewController: UIViewController
             third.questions.append(ScaQuestion(hypothesis: "Une erreur lors des empreintes", newData: "Il n’y a ni sous-extensions, ni sur-extensions des bases prothétiques"))
             
             let exam = ScaExam(scas: [first, second, third])
-            destination.scaSession = ScaSession(exam: exam)
+            let session = ScaSession(exam: exam)
+            session.time = 50 
+            destination.scaSession = session
         }
     }
     

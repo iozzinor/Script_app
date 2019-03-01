@@ -106,6 +106,37 @@ public struct ScaPanelAnswer
         }
         
         // bimodal
+        for i in 1..<(currentResponses.count-1)
+        {
+            if currentResponses[i] != 0
+            {
+                continue
+            }
+            
+            var dataBefore = false
+            var dataAfter = false
+            for j in 0..<i
+            {
+                if currentResponses[j] > 0
+                {
+                    dataBefore = true
+                    break
+                }
+            }
+            for j in (i+1)..<currentResponses.count
+            {
+                if currentResponses[j] > 0
+                {
+                    dataAfter = true
+                    break
+                }
+            }
+            
+            if dataBefore && dataAfter
+            {
+                return .invalid(.bimodal)
+            }
+        }
         
         return .valid
     }

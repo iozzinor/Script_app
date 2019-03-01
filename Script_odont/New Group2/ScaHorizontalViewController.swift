@@ -10,10 +10,27 @@ import UIKit
 
 public class ScaHorizontalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
+    public static let toGoToSca = "ScaHorizontalToGoToScaSegueId"
+    
+    // -------------------------------------------------------------------------
+    // MARK: - VALIDATION STATUS
+    // -------------------------------------------------------------------------
+    fileprivate enum ValidationStatus
+    {
+        case valid
+        case invalid(ValidationError)
+    }
+    
+    fileprivate enum ValidationError
+    {
+        case insufficientTime(actual: TimeInterval, expected: TimeInterval)
+        case insufficientAnsweredScas(actual: Int, expected: Int)
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - SECTIONS
     // -------------------------------------------------------------------------
-    private enum ScaSection: Int, CaseIterable
+    fileprivate enum ScaSection: Int, CaseIterable
     {
         case drawing
         case information
@@ -50,7 +67,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     // -------------------------------------------------------------------------
     // MARK: - ROWS
     // -------------------------------------------------------------------------
-    private enum ScaRow
+    fileprivate enum ScaRow
     {
         case wording
         case question
@@ -89,6 +106,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
         }
     }
     
+    fileprivate static let minimumSessionTime_: TimeInterval = 60.0
     fileprivate static let refreshTime_: TimeInterval = 0.5
     
     @IBOutlet weak var toolbar: UIToolbar!
@@ -238,6 +256,31 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     }
     
     // -------------------------------------------------------------------------
+    // MARK: - VALIDATION
+    // -------------------------------------------------------------------------
+    fileprivate func sessionValidationStatus_() -> ValidationStatus
+    {
+        if scaSession.time < ScaHorizontalViewController.minimumSessionTime_
+        {
+            return .invalid(.insufficientTime(actual: scaSession.time, expected: ScaHorizontalViewController.minimumSessionTime_))
+        }
+        
+        var validScas = 0
+        for i in 0..<scaSession.exam.scas.count
+        {
+            if scaSession.isScaValid(i)
+            {
+                validScas += 1
+            }
+        }
+        if validScas < (scaSession.exam.scas.count / 2)
+        {
+            return .invalid(.insufficientAnsweredScas(actual: validScas, expected: scaSession.exam.scas.count / 2))
+        }
+        return .valid
+    }
+    
+    // -------------------------------------------------------------------------
     // MARK: - ACTIONS
     // -------------------------------------------------------------------------
     @IBAction func cancel(_ sender: UIBarButtonItem)
@@ -267,6 +310,77 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
         currentSca_ += 1
         
         updateNavigationButtons_()
+    }
+    
+    @IBAction func attemptSubmission(_ sender: UIBarButtonItem)
+    {
+        switch sessionValidationStatus_()
+        {
+        case .valid:
+            // send the session
+            break
+        case let .invalid(error):
+            destroyTimer_()
+            displayError_(error)
+        }
+    }
+    
+    fileprivate func displayError_(_ error: ValidationError)
+    {
+        let errorController = UIAlertController(title: "Submission error", message: "", preferredStyle: .alert)
+        switch error
+        {
+        case let .insufficientTime(actual: currentTime, expected: minimumTime):
+            errorController.message = "The session must be running for a minimum of \(minimumTime) seconds. It has been \(currentTime) seconds since its launch."
+        case let .insufficientAnsweredScas(actual: actual, expected: expected):
+            errorController.message = "Only \(actual) scas were answered. There must be at least \(expected) responses to submit the session."
+        }
+        
+        let cancelAction = UIAlertAction(title: "Ok", style: .default, handler: {
+            (_) -> Void in
+            self.createTimer_()
+        })
+        errorController.addAction(cancelAction)
+        
+        show(errorController, sender: nil)
+    }
+    
+    @IBAction func displayMoreOptions(_ sender: UIBarButtonItem)
+    {
+        destroyTimer_()
+        
+        let optionsController = UIAlertController(title: "Options", message: "Choose an option", preferredStyle: .actionSheet)
+        
+        // go to
+        let goToAction = UIAlertAction(title: "Go To", style: .default, handler: {
+            (_) -> Void in
+            self.performSegue(withIdentifier: ScaHorizontalViewController.toGoToSca, sender: self)
+        })
+        
+        // cancel
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (_) -> Void in
+            self.createTimer_()
+        })
+        
+        optionsController.addAction(goToAction)
+        optionsController.addAction(cancelAction)
+        
+        show(optionsController, sender: nil)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - SEGUE
+    // -------------------------------------------------------------------------
+    override public func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == ScaHorizontalViewController.toGoToSca,
+            let destination = (segue.destination as? UINavigationController)?.viewControllers.first as? GoToScaViewController
+        {
+            destination.session = scaSession
+            destination.currentSca = currentSca_
+            destination.delegate = self
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -334,5 +448,20 @@ extension ScaHorizontalViewController: UIApplicationDelegate
     public func applicationWillEnterForeground(_ application: UIApplication)
     {
         createTimer_()
+    }
+}
+
+// -----------------------------------------------------------------------------
+// GoToScaViewControllerDelegate
+// -----------------------------------------------------------------------------
+extension ScaHorizontalViewController: GoToScaViewControllerDelegate
+{
+    func goToScaViewControllerDidCancel(_ goToScaViewController: GoToScaViewController)
+    {
+    }
+    
+    func goToScaViewController(_ goToScaViewController: GoToScaViewController, didChooseSca scaIndex: Int)
+    {
+        currentSca_ = scaIndex
     }
 }
