@@ -11,80 +11,22 @@ import LocalAuthentication
 
 class LoginViewController: UIViewController
 {
-    // -------------------------------------------------------------------------
-    // MARK: - KEYCHAIN
-    // -------------------------------------------------------------------------
-    fileprivate enum KeychainConfiguration
-    {
-        static let service = "com.example.regis.script_odont.password"
-        static let accessGroup: String? = nil
-    }
+    static let toSigninSegueId = "LoginToSigninSegueId"
     
-    // -------------------------------------------------------------------------
-    // MARK: - BIOMETRIC AUTHENTICATION
-    // -------------------------------------------------------------------------
-    fileprivate struct BiometricAuthentication
-    {
-        let context = LAContext()
-        
-        func canEvaluatePolicy() -> Bool
-        {
-            return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
-        }
-        
-        var biometricType: LABiometryType
-        {
-            guard canEvaluatePolicy() else
-            {
-                return .none
-            }
-            return context.biometryType
-        }
-        
-        var authenticationName: String
-        {
-            let authenticationBiometricType = biometricType
-            switch authenticationBiometricType
-            {
-            case .none:
-                return ""
-            case .faceID:
-                return "Face ID"
-            case .touchID:
-                return "Touch ID"
-            }
-        }
-        
-        func authenticateUser(completion: @escaping (Error?) -> Void)
-        {
-            let authenticationReason = "Use \(authenticationName) to unlock the account."
-            
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: authenticationReason, reply: {
-                (success, error) -> Void in
-                
-                if success
-                {
-                    DispatchQueue.main.async {
-                        completion(nil)
-                    }
-                }
-                else if let error = error
-                {
-                    completion(error)
-                }
-            })
-        }
-    }
-    
+    @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var biometricButton: UIButton!
-    fileprivate let biometricAuthentication_ = BiometricAuthentication()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        biometricButton.isHidden = !biometricAuthentication_.canEvaluatePolicy()
-        biometricButton.setTitle(biometricAuthentication_.authenticationName, for: .normal)
+        if let userName = AuthenticationManager.shared.userName
+        {
+            userNameField.text = userName
+        }
+        
+        biometricButton.isHidden = !AuthenticationManager.shared.biometricAuthentication.canEvaluatePolicy()
+        biometricButton.setTitle(AuthenticationManager.shared.biometricAuthentication.authenticationName, for: .normal)
     }
     
     fileprivate func isPasswordValid(_ password: String) -> Bool
@@ -116,7 +58,7 @@ class LoginViewController: UIViewController
     
     @IBAction func biometricLoginAction(_ sender: UIButton)
     {
-        biometricAuthentication_.authenticateUser {
+        AuthenticationManager.shared.authenticateUserUsingBiometry {
             (error: Error?) -> Void in
             
             if let error = error
@@ -165,5 +107,13 @@ class LoginViewController: UIViewController
         default:
             return "Biometry may not be configured"
         }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - ACTIONS
+    // -------------------------------------------------------------------------
+    @IBAction func signin(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: LoginViewController.toSigninSegueId, sender: self)
     }
 }

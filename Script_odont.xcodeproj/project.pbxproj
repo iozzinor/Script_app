@@ -45,8 +45,11 @@
 		AC9F23DE222996C4002D38E5 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23DD222996C4002D38E5 /* AuthenticationManager.swift */; };
 		AC9F23E022299945002D38E5 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23DF22299945002D38E5 /* KeychainPasswordItem.swift */; };
 		AC9F23E22229D6A4002D38E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23E12229D6A4002D38E5 /* ViewController.swift */; };
-		AC9F23E52229D88E002D38E5 /* String+sha1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23E42229D88E002D38E5 /* String+sha1.swift */; };
+		AC9F23E52229D88E002D38E5 /* String+sha2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23E42229D88E002D38E5 /* String+sha2.swift */; };
 		AC9F23E72229D9AA002D38E5 /* String+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23E62229D9AA002D38E5 /* String+hex.swift */; };
+		AC9F23E9222A8D4E002D38E5 /* String+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23E8222A8D4E002D38E5 /* String+random.swift */; };
+		AC9F23EB222A90ED002D38E5 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23EA222A90ED002D38E5 /* SigninViewController.swift */; };
+		AC9F23ED222A93F4002D38E5 /* SigninLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23EC222A93F4002D38E5 /* SigninLabelCell.swift */; };
 		ACE70F8F221EFB6C008454FF /* WalkthroughPrincipleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* WalkthroughPrincipleViewController.swift */; };
 		ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */; };
 		ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F92221F214C008454FF /* WeakContainer.swift */; };
@@ -100,8 +103,11 @@
 		AC9F23DD222996C4002D38E5 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		AC9F23DF22299945002D38E5 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		AC9F23E12229D6A4002D38E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AC9F23E42229D88E002D38E5 /* String+sha1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+sha1.swift"; sourceTree = "<group>"; };
+		AC9F23E42229D88E002D38E5 /* String+sha2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+sha2.swift"; sourceTree = "<group>"; };
 		AC9F23E62229D9AA002D38E5 /* String+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+hex.swift"; sourceTree = "<group>"; };
+		AC9F23E8222A8D4E002D38E5 /* String+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+random.swift"; sourceTree = "<group>"; };
+		AC9F23EA222A90ED002D38E5 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		AC9F23EC222A93F4002D38E5 /* SigninLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninLabelCell.swift; sourceTree = "<group>"; };
 		ACE70F8E221EFB6C008454FF /* WalkthroughPrincipleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPrincipleViewController.swift; sourceTree = "<group>"; };
 		ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+storyboardId.swift"; sourceTree = "<group>"; };
 		ACE70F92221F214C008454FF /* WeakContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
@@ -231,7 +237,9 @@
 			isa = PBXGroup;
 			children = (
 				AC8F5B812229696000FAEFC5 /* LoginViewController.swift */,
+				AC9F23EA222A90ED002D38E5 /* SigninViewController.swift */,
 				AC8F5B832229697200FAEFC5 /* Login.storyboard */,
+				AC9F23EC222A93F4002D38E5 /* SigninLabelCell.swift */,
 				AC9F23DD222996C4002D38E5 /* AuthenticationManager.swift */,
 				AC9F23DF22299945002D38E5 /* KeychainPasswordItem.swift */,
 			);
@@ -242,7 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				AC9F23E62229D9AA002D38E5 /* String+hex.swift */,
-				AC9F23E42229D88E002D38E5 /* String+sha1.swift */,
+				AC9F23E8222A8D4E002D38E5 /* String+random.swift */,
+				AC9F23E42229D88E002D38E5 /* String+sha2.swift */,
 			);
 			path = Hash;
 			sourceTree = "<group>";
@@ -324,7 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACE70F9D221F516D008454FF /* WalkthroughTypesViewController.swift in Sources */,
-				AC9F23E52229D88E002D38E5 /* String+sha1.swift in Sources */,
+				AC9F23E52229D88E002D38E5 /* String+sha2.swift in Sources */,
 				AC8F5B7F2229676100FAEFC5 /* OtherViewController.swift in Sources */,
 				AC38BB7C221E9C54008E829B /* WalkthroughPageViewController.swift in Sources */,
 				ACE70F95221F2439008454FF /* WeakArray.swift in Sources */,
@@ -332,6 +341,7 @@
 				ACE70F9B221F3414008454FF /* WalkthroughPrincipleCell.swift in Sources */,
 				AC38BB62221DE4C9008E829B /* ScaBrowsingViewController.swift in Sources */,
 				AC0D77DC2228343C007F83D4 /* ScaSession.swift in Sources */,
+				AC9F23ED222A93F4002D38E5 /* SigninLabelCell.swift in Sources */,
 				ACE70F99221F32B9008454FF /* UITableView+register.swift in Sources */,
 				AC0D77D8222831C5007F83D4 /* ScaExam.swift in Sources */,
 				AC0D77E022283FB6007F83D4 /* ScaHorizontalQuestionCellDelegate.swift in Sources */,
@@ -347,6 +357,7 @@
 				AC0D77C82225D240007F83D4 /* ScaHorizontalViewController.swift in Sources */,
 				ACE70F8F221EFB6C008454FF /* WalkthroughPrincipleViewController.swift in Sources */,
 				AC8F5B7B222899DA00FAEFC5 /* GoToScaCell.swift in Sources */,
+				AC9F23EB222A90ED002D38E5 /* SigninViewController.swift in Sources */,
 				AC9F23E72229D9AA002D38E5 /* String+hex.swift in Sources */,
 				AC0D77D62228274D007F83D4 /* Appearance.swift in Sources */,
 				AC8F5B822229696000FAEFC5 /* LoginViewController.swift in Sources */,
@@ -363,6 +374,7 @@
 				AC0D77C42225CD60007F83D4 /* ScaTopic.swift in Sources */,
 				AC38BB7E221E9FE1008E829B /* WalkthroughContentViewController.swift in Sources */,
 				AC38BB60221DE4C9008E829B /* AppDelegate.swift in Sources */,
+				AC9F23E9222A8D4E002D38E5 /* String+random.swift in Sources */,
 				AC0D77DE22283838007F83D4 /* ScaAnswer.swift in Sources */,
 				AC9F23E022299945002D38E5 /* KeychainPasswordItem.swift in Sources */,
 			);
