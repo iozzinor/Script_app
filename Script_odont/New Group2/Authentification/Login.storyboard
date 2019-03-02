@@ -58,8 +58,15 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mO7-t7-dWz">
+                                        <rect key="frame" x="103.5" y="169.5" width="168" height="72.5"/>
+                                        <state key="normal" title="Biometric authentication"/>
+                                        <connections>
+                                            <action selector="biometricLoginAction:" destination="S0b-16-rWF" eventType="touchUpInside" id="SPH-SM-V6b"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaT-TM-2TS">
-                                        <rect key="frame" x="162.5" y="169.5" width="50" height="393"/>
+                                        <rect key="frame" x="162.5" y="262" width="50" height="300.5"/>
                                         <state key="normal" title="Log in !"/>
                                         <connections>
                                             <action selector="login:" destination="S0b-16-rWF" eventType="touchUpInside" id="ymC-eO-apj"/>
@@ -99,6 +106,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XZu-Ax-gGQ"/>
                     </view>
+                    <connections>
+                        <outlet property="biometricButton" destination="mO7-t7-dWz" id="c0u-09-z4Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZO-XH-xRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

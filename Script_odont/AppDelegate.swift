@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
         
+        AuthenticationManager.shared.authenticated = false
         for delegate in delegates_
         {
             delegate.applicationWillResignActive?(application)
@@ -58,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func applicationWillEnterForeground(_ application: UIApplication)
     {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        displayLogin_()
+        
         for delegate in delegates_
         {
             delegate.applicationWillEnterForeground?(application)
@@ -72,5 +75,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func applicationWillTerminate(_ application: UIApplication)
     {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    fileprivate func displayLogin_()
+    {
+        guard !AuthenticationManager.shared.authenticated,
+            let keyWindow = UIApplication.shared.keyWindow else
+        {
+            return
+        }
+        
+        let currentViewController = keyWindow.rootViewController?.presentedViewController ?? keyWindow.rootViewController
+        guard !(currentViewController is LoginViewController) else
+        {
+            return
+        }
+        
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        if let loginViewController = storyboard.instantiateInitialViewController()
+        {
+           currentViewController?.present(loginViewController, animated: true, completion: nil)
+        }
     }
 }
