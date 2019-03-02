@@ -49,9 +49,9 @@ class AuthenticationManager
             case .none:
                 return ""
             case .faceID:
-                return "Face ID"
+                return "Authentication.Biometry.FaceId.Name".localized
             case .touchID:
-                return "Touch ID"
+                return "Authentication.Biometry.TouchId.Name".localized
             }
         }
     }
@@ -121,7 +121,7 @@ class AuthenticationManager
     
     func authenticateUserUsingBiometry(completion: @escaping (Error?) -> Void)
     {
-        let authenticationReason = "Use \(biometricAuthentication.authenticationName) to unlock the account."
+        let authenticationReason = String.localizedStringWithFormat("Authentication.Reason".localized, biometricAuthentication.authenticationName)
         
         biometricAuthentication.context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: authenticationReason, reply: {
             (success, error) -> Void in

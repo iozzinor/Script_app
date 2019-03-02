@@ -6,6 +6,46 @@
   Copyright © 2019 Régis Iozzino. All rights reserved.
 */
 
+/* COMMON */
+"Common.Ok"     = "Ok";
+"Common.Cancel" = "Cancel";
+
+/* CORE */
+"Sca.Topic.Diagnostic" = "Diagnostic";
+"Sca.Topic.Therapeutic" = "Therapeutic";
+"Sca.Topic.Prognostic" = "Prognostic";
+
+"Sca.Topic.Diagnostic.NegativeTwo"  = "The hypothesis is almost discarded.";
+"Sca.Topic.Diagnostic.NegativeOne"  = "The hypothesis becomes less likely.";
+"Sca.Topic.Diagnostic.Zero"         = "The information does not affect the hypothesis.";
+"Sca.Topic.Diagnostic.One"          = "The hypothesis becomes more likely.";
+"Sca.Topic.Diagnostic.Two"          = "The hypothesis is almost the only one probable.";
+
+"Sca.Topic.Therapeutic.NegativeTwo"  = "Absolutely contraindicated";
+"Sca.Topic.Therapeutic.NegativeOne"  = "Less indicated";
+"Sca.Topic.Therapeutic.Zero"         = "Nor indicated nor contraindicated";
+"Sca.Topic.Therapeutic.One"          = "Indicated";
+"Sca.Topic.Therapeutic.Two"          = "Neede";
+
+"Sca.Topic.Prognostic.NegativeTwo"  = "";
+"Sca.Topic.Prognostic.NegativeOne"  = "";
+"Sca.Topic.Prognostic.Zero"         = "";
+"Sca.Topic.Prognostic.One"          = "";
+"Sca.Topic.Prognostic.Two"          = "";
+
+/* LOGIN */
+"Login.Error.AlertTitle"              = "Authentication";
+"Login.Error.AuthenticationFailed"    = "The authentication has failed.";
+"Login.Error.BiometryNotEnrolled"     = "Biometry is not enrolled.";
+"Login.Error.BiometryNotAvailable"    = "Biometry is not available.";
+"Login.Error.BiometryLocked"          = "Biometry is locked.";
+"Login.Error.BiometryNotConfigured"   = "Biometry may not be configured";
+
+/* AUTHENTICATION */
+"Authentication.Biometry.FaceId.Name"   = "Face ID";
+"Authentication.Biometry.TouchId.Name"  = "Touch ID";
+"Authentication.Reason"                 = "Use %@ to unlock your account.";
+
 /* WALKTHROUGH */
 "Walkthrough.SkipButton.Title.Skip" = "Skip";
 "Walkthrough.SkipButton.Title.Done" = "Done";
@@ -17,9 +57,34 @@
 "Walkthrough.Section.Title.ScoringSystem"       = "Scoring System";
 "Walkthrough.Section.Title.Application"         = "Application";
 
-"Walkthrough.Section.Description.Abbreviation"  = "TCS stands for \"Test de Concordance de Scripts\"";
+"Walkthrough.Section.Description.Abbreviation"  = "SCA stands for \"Script Concordance Assessment\".";
 "Walkthrough.Section.Description.Principle"     = "Principle description.";
 "Walkthrough.Section.Description.Types"         = "SCA Types.";
 "Walkthrough.Section.Description.Example"       = "An example.";
 "Walkthrough.Section.Description.ScoringSystem" = "The Scoring System.";
 "Walkthrough.Section.Description.Application"   = "How to use the application ?";
+
+"Walkthrough.Principle.Description.Drawing"     = "An SCA is typically represented using a drawing.";
+"Walkthrough.Principle.Description.Wording"     = "The titles of this drawing is the description of the patient case.";
+"Walkthrough.Principle.Description.Hypothesis"  = "The hypothesis are sorted in the first column.";
+"Walkthrough.Principle.Description.NewData"     = "Each new datum impacts the probability of the hypothesis mentionned above.";
+"Walkthrough.Principle.Description.LikertScale" = "The impact of a new datum is measured using the Likert scale: it uses 5 points ranging from -2 to 2.";
+"Walkthrough.Principle.Drawing.Wording"         = "Wording";
+"Walkthrough.Principle.Drawing.Think"           = "You thought...";
+"Walkthrough.Principle.Drawing.Find"            = "You find...";
+"Walkthrough.Principle.Drawing.LikertIndex"     = "Likert index";
+
+/* SCA EXAM */
+"ScaExam.Horizontal.Title.Information" = "Information";
+"ScaExam.Horizontal.Progress" = "Question %d out of %d";
+"ScaExam.Submission.Error.AlertTitle" = "Submit Error";
+"ScaExam.Submission.Error.InsufficientTime" = "The session must be running for a minimum of %f seconds. It has been %f seconds since its launch.";
+"ScaExam.Submission.Error.InsufficientAnswers" = "Only %d scas were answered. There must be at least %d responses to submit the session.";
+"ScaExam.Horizontal.Options.Title"      = "Options";
+"ScaExam.Horizontal.Options.Message"    = "Choose an option";
+"ScaExam.Horizontal.Options.GoTo"       = "Go To";
+
+"GoToSca.ScaIndex" = "Sca %d";
+
+/* OTHER VIEW CONTROLLER */
+"OtherViewController.ShowTutorial" = "Show Tutorial...";

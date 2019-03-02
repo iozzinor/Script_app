@@ -46,7 +46,7 @@ class OtherViewController: UITableViewController
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: OtherViewController.otherCellIdentifier, for: indexPath)
         cell.accessoryType = .none
-        cell.textLabel?.text = "Show Tutorial..."
+        cell.textLabel?.text = "OtherViewController.ShowTutorial".localized
         return cell
     }
 }

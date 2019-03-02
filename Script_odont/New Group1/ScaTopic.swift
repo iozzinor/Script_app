@@ -12,18 +12,26 @@ public enum ScaTopic: Int, CaseIterable
 {
     case diagnostic
     case therapeutic
-    case patientCare
+    case prognostic
     
     public var name: String {
         switch self
         {
         case .diagnostic:
-            return "Diagnostic"
+            return "Sca.Topic.Diagnostic".localized
         case .therapeutic:
-            return "Therapeutic"
-        case .patientCare:
-            return "Patient Care"
+            return "Sca.Topic.Therapeutic".localized
+        case .prognostic:
+            return "Sca.Topic.Prognostic".localized
         }
+    }
+    
+    public var next: ScaTopic {
+        if rawValue > ScaTopic.allCases.count - 2
+        {
+            return ScaTopic(rawValue: 0)!
+        }
+        return ScaTopic(rawValue: rawValue + 1)!
     }
     
     public var likertScale: LikertScale {
@@ -31,25 +39,25 @@ public enum ScaTopic: Int, CaseIterable
         {
         case .diagnostic:
             return LikertScale(
-                negativeTwo: "L'hypothèse est pratiquement éliminée",
-                negativeOne: "L'hypothèse devient moins probable",
-                zero: "L'information n'a aucun effet sur l'hypothèse",
-                one: "L'hypothèse devient plus probable",
-                two: "Il ne peut s'agir pratiquement que de cette hypothèse")
+                negativeTwo:    "Sca.Topic.Diagnostic.NegativeTwo".localized,
+                negativeOne:    "Sca.Topic.Diagnostic.NegativeOne".localized,
+                zero:           "Sca.Topic.Diagnostic.Zero".localized,
+                one:            "Sca.Topic.Diagnostic.One".localized,
+                two:            "Sca.Topic.Diagnostic.Two".localized)
         case .therapeutic:
             return LikertScale(
-                negativeTwo: "Absolument contre-indiqué",
-                negativeOne: "Moins indiqué",
-                zero: "Ni contre-indiqué ni indiqué",
-                one: "Indiqué",
-                two: "Indispensable")
-        case .patientCare:
+                negativeTwo:    "Sca.Topic.Therapeutic.NegativeTwo".localized,
+                negativeOne:    "Sca.Topic.Therapeutic.NegativeOne".localized,
+                zero:           "Sca.Topic.Therapeutic.Zero".localized,
+                one:            "Sca.Topic.Therapeutic.One".localized,
+                two:            "Sca.Topic.Therapeutic.Two".localized)
+        case .prognostic:
             return LikertScale(
-                negativeTwo: "Absolument inutile",
-                negativeOne: "Peu utile",
-                zero: "Ni utile ni inutile",
-                one: "Utile",
-                two: "Très utile")
+                negativeTwo:    "Sca.Topic.Prognostic.NegativeTwo".localized,
+                negativeOne:    "Sca.Topic.Prognostic.NegativeOne".localized,
+                zero:           "Sca.Topic.Prognostic.Zero".localized,
+                one:            "Sca.Topic.Prognostic.One".localized,
+                two:            "Sca.Topic.Prognostic.Two".localized)
         }
     }
 }

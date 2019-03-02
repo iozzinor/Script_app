@@ -34,11 +34,6 @@ class WeakArray<T>: Sequence
     
     fileprivate var objects_ = [WeakContainer<T>]()
     
-    deinit
-    {
-        print("weak array deinit")
-    }
-    
     subscript(index: Int) -> T?
     {
         get {

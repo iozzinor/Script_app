@@ -79,9 +79,9 @@ class LoginViewController: UIViewController
             return
         }
         
-        let errorAlert = UIAlertController(title: "Authentication", message: errorMessage, preferredStyle: .alert)
+        let errorAlert = UIAlertController(title: "Login.Error.AlertTitle".localized, message: errorMessage, preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "Common.Ok".localized, style: .default, handler: nil)
         
         errorAlert.addAction(okAction)
         
@@ -95,17 +95,17 @@ class LoginViewController: UIViewController
         switch error
         {
         case LAError.authenticationFailed:
-            return "The authentication has failed."
+            return "Login.Error.AuthenticationFailed".localized
         case LAError.userCancel, LAError.userFallback:
             return nil
         case LAError.biometryNotEnrolled:
-            return "Biometry is not enrolled."
+            return "Login.Error.BiometryNotEnrolled".localized
         case LAError.biometryNotAvailable:
-            return "Biometry is not available."
+            return "Login.Error.BiometryNotAvailable".localized
         case LAError.biometryLockout:
-            return "Biometry is locked."
+            return "Login.Error.BiometryLocked".localized
         default:
-            return "Biometry may not be configured"
+            return "Login.Error.BiometryNotConfigured".localized
         }
     }
     

@@ -6,18 +6,85 @@
   Copyright © 2019 Régis Iozzino. All rights reserved.
 */
 
+/* COMMON */
+"Common.Ok" = "Ok";
+"Common.Cancel" = "Annuler";
+
+/* CORE */
+"Sca.Topic.Diagnostic" = "Diagnostique";
+"Sca.Topic.Therapeutic" = "Thérapeutique";
+"Sca.Topic.Prognostic" = "Prognostique";
+
+"Sca.Topic.Diagnostic.NegativeTwo"  = "L'hypothèse est pratiquement éliminée";
+"Sca.Topic.Diagnostic.NegativeOne"  = "L'hypothèse devient moins probable";
+"Sca.Topic.Diagnostic.Zero"         = "L'information n'a aucun effet sur l'hypothèse";
+"Sca.Topic.Diagnostic.One"          = "L'hypothèse devient plus probable";
+"Sca.Topic.Diagnostic.Two"          = "Il ne peut s'agir pratiquement que de cette hypothèse";
+
+"Sca.Topic.Therapeutic.NegativeTwo"  = "Absolument contre-indiqué";
+"Sca.Topic.Therapeutic.NegativeOne"  = "Moins indiqué";
+"Sca.Topic.Therapeutic.Zero"         = "Ni indiqué ni contre-indiqué";
+"Sca.Topic.Therapeutic.One"          = "Indiqué";
+"Sca.Topic.Therapeutic.Two"          = "Indispensable";
+
+"Sca.Topic.Prognostic.NegativeTwo"  = "";
+"Sca.Topic.Prognostic.NegativeOne"  = "";
+"Sca.Topic.Prognostic.Zero"         = "";
+"Sca.Topic.Prognostic.One"          = "";
+"Sca.Topic.Prognostic.Two"          = "";
+
+/* LOGIN */
+"Login.Error.AlertTitle"              = "Authentification";
+"Login.Error.AuthenticationFailed"    = "L'authentification a échoué.";
+"Login.Error.BiometryNotEnrolled"     = "La reconnaissance biométrique n'est pas activée.";
+"Login.Error.BiometryNotAvailable"    = "La reconnaissance biométrique n'est pas disponible.";
+"Login.Error.BiometryLocked"          = "La reconnaissance biométrique est verrouillée.";
+"Login.Error.BiometryNotConfigured"   = "La reconnaissance n'est sûrement pas enclenchée.";
+
+/* AUTHENTICATION */
+"Authentication.Biometry.FaceId.Name"   = "Face ID";
+"Authentication.Biometry.TouchId.Name"  = "Touch ID";
+"Authentication.Reason"                 = "Utilisez %@ pour déverrouiller votre compte.";
+
 /* WALKTHROUGH */
 "Walkthrough.SkipButton.Title.Skip" = "Passer";
-"Walkthrough.SkipButton.Title.Done" = "Comrpis !";
+"Walkthrough.SkipButton.Title.Done" = "Compris !";
 
+"Walkthrough.Section.Title.Abbreviation"        = "Abréviation";
 "Walkthrough.Section.Title.Principle"       = "Principe";
 "Walkthrough.Section.Title.Types"           = "Types";
 "Walkthrough.Section.Title.Example"         = "Exemple";
 "Walkthrough.Section.Title.ScoringSystem"   = "Système de points";
 "Walkthrough.Section.Title.Application"     = "Application";
 
+"Walkthrough.Section.Description.Abbreviation"    = "TCS est l'acronyme de \"Test de Concordance de Scripts\".";
 "Walkthrough.Section.Description.Principle"       = "Description des principes.";
 "Walkthrough.Section.Description.Types"           = "Types de TCS.";
 "Walkthrough.Section.Description.Example"         = "Un exemple.";
 "Walkthrough.Section.Description.ScoringSystem"   = "Le système de points";
 "Walkthrough.Section.Description.Application"     = "Comment utiliser l'application ?";
+
+"Walkthrough.Principle.Description.Drawing"     = "Un TCS est classiquement représenté sous la forme d'une vignette.";
+"Walkthrough.Principle.Description.Wording"     = "Le titre de cette vignette est l'énoncé : il s'agit de la description du cas du patient.";
+"Walkthrough.Principle.Description.Hypothesis"  = "Les hyptohèses sont rangées dans la première colonne.";
+"Walkthrough.Principle.Description.NewData"     = "Chaque nouvelle donnée modifie la probabilité des hypothèses conçues auparavant.";
+"Walkthrough.Principle.Description.LikertScale" = "L'impact d'une nouvelle donnée sur une hypothèse peut être évalué avec l'échelle de Lickert en 5 points allant de -2 à 2.";
+"Walkthrough.Principle.Drawing.Wording"         = "Enoncé";
+"Walkthrough.Principle.Drawing.Think"           = "Vous pensiez...";
+"Walkthrough.Principle.Drawing.Find"            = "Vous trouvez...";
+"Walkthrough.Principle.Drawing.LikertIndex"     = "Indice de Likert";
+
+/* SCA EXAM */
+"ScaExam.Horizontal.Title.Information"      = "Information";
+"ScaExam.Horizontal.Progress"               = "Question %d sur %d";
+"ScaExam.Submission.Error.AlertTitle"       = "Erreur de soumission";
+"ScaExam.Submission.Error.InsufficientTime" = "La session doit avoir été lancé un minimum de %f seconds. Il s'est écoulé %f secondes pour le moment.";
+"ScaExam.Submission.Error.InsufficientAnswers" = "Seulement %d réponses ont été apportées. Il faut au moins avoir répondu à %d TCS pour soumettre la session.";
+"ScaExam.Horizontal.Options.Title"      = "Options";
+"ScaExam.Horizontal.Options.Message"    = "Choisissez une option.";
+"ScaExam.Horizontal.Options.GoTo"       = "Aller à";
+
+"GoToSca.ScaIndex" = "Sca %d";
+
+/* OTHER VIEW CONTROLLER */
+"OtherViewController.ShowTutorial" = "Lancer le tutoriel...";

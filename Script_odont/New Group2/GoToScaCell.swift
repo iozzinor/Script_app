@@ -16,7 +16,7 @@ class GoToScaCell: UITableViewCell
     
     func setSca(_ index: Int, wording: String, isValid: Bool)
     {
-        scaNumberLabel.text = "Sca \(index + 1)"
+        scaNumberLabel.text = String.localizedStringWithFormat("GoToSca.ScaIndex".localized, index + 1)
         scaWordingLabel.text = wording
         scaStatus.isValid = isValid
     }

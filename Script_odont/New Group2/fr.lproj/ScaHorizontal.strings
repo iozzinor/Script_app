@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "New Data"; ObjectID = "IP9-T7-nbq"; */
+"IP9-T7-nbq.text" = "Nouvelle donnée";
+
+/* Class = "UILabel"; text = "Question index"; ObjectID = "J3g-ZP-ygU"; */
+"J3g-ZP-ygU.text" = "Index de question";
+
+/* Class = "UILabel"; text = "Hypothesis"; ObjectID = "Pxz-1h-Ibr"; */
+"Pxz-1h-Ibr.text" = "Hypothèse";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "Rcs-6t-Cpr"; */
+"Rcs-6t-Cpr.title" = "Annuler";
+
+/* Class = "UINavigationItem"; title = "Select A Sca"; ObjectID = "bIv-b1-6Gh"; */
+"bIv-b1-6Gh.title" = "Sélection d'un TCS";
+
+/* Class = "UIBarButtonItem"; title = "Previous"; ObjectID = "c56-Fp-WWV"; */
+"c56-Fp-WWV.title" = "Précédent";
+
+/* Class = "UIBarButtonItem"; title = "Submit"; ObjectID = "c9w-WR-eoa"; */
+"c9w-WR-eoa.title" = "Soumettre";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cFd-Io-uAR"; */
+"cFd-Io-uAR.text" = "Label";
+
+/* Class = "UILabel"; text = "Code"; ObjectID = "cvA-Wk-RpH"; */
+"cvA-Wk-RpH.text" = "Code";
+
+/* Class = "UIBarButtonItem"; title = "More"; ObjectID = "ggh-6y-5EY"; */
+"ggh-6y-5EY.title" = "Plus";
+
+/* Class = "UIBarButtonItem"; title = "Information"; ObjectID = "hGf-Ig-5Z9"; */
+"hGf-Ig-5Z9.title" = "Information";
+
+/* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "rAa-ig-lBx"; */
+"rAa-ig-lBx.title" = "Suivant";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "rng-Q2-IqK"; */
+"rng-Q2-IqK.text" = "Description";
+
+/* Class = "UILabel"; text = "Question wording"; ObjectID = "wvI-9z-KeP"; */
+"wvI-9z-KeP.text" = "Enoncé";

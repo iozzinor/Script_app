@@ -59,7 +59,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
             case .drawing:
                 return nil
             case .information:
-                return "Information"
+                return "ScaExam.Horizontal.Title.Information".localized
             }
         }
     }
@@ -210,7 +210,8 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     
     fileprivate func updateProgressUi_()
     {
-        progressLabel.text = "Question \(currentSca_ + 1) out of \(scaSession.exam.scas.count)"
+        let progressString = String.localizedStringWithFormat("ScaExam.Horizontal.Progress".localized, currentSca_ + 1, scaSession.exam.scas.count)
+        progressLabel.text = progressString
     }
     
     fileprivate func updateTimeUi_()
@@ -327,16 +328,16 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     
     fileprivate func displayError_(_ error: ValidationError)
     {
-        let errorController = UIAlertController(title: "Submission error", message: "", preferredStyle: .alert)
+        let errorController = UIAlertController(title: "ScaExam.Submission.Error.AlertTitle".localized, message: "", preferredStyle: .alert)
         switch error
         {
         case let .insufficientTime(actual: currentTime, expected: minimumTime):
-            errorController.message = "The session must be running for a minimum of \(minimumTime) seconds. It has been \(currentTime) seconds since its launch."
+            errorController.message = String.localizedStringWithFormat("ScaExam.Submission.Error.InsufficientTime".localized, minimumTime, currentTime)
         case let .insufficientAnsweredScas(actual: actual, expected: expected):
-            errorController.message = "Only \(actual) scas were answered. There must be at least \(expected) responses to submit the session."
+            errorController.message = String.localizedStringWithFormat("ScaExam.Submission.Error.InsufficientAnswers".localized, actual, expected)
         }
         
-        let cancelAction = UIAlertAction(title: "Ok", style: .default, handler: {
+        let cancelAction = UIAlertAction(title: "Common.Ok".localized, style: .default, handler: {
             (_) -> Void in
             self.createTimer_()
         })
@@ -349,16 +350,16 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     {
         destroyTimer_()
         
-        let optionsController = UIAlertController(title: "Options", message: "Choose an option", preferredStyle: .actionSheet)
+        let optionsController = UIAlertController(title: "ScaExam.Horizontal.Options.Title".localized, message: "ScaExam.Horizontal.Options.Message".localized, preferredStyle: .actionSheet)
         
         // go to
-        let goToAction = UIAlertAction(title: "Go To", style: .default, handler: {
+        let goToAction = UIAlertAction(title: "ScaExam.Horizontal.Options.GoTo".localized, style: .default, handler: {
             (_) -> Void in
             self.performSegue(withIdentifier: ScaHorizontalViewController.toGoToSca, sender: self)
         })
         
         // cancel
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+        let cancelAction = UIAlertAction(title: "Common.Cancel".localized, style: .cancel, handler: {
             (_) -> Void in
             self.createTimer_()
         })

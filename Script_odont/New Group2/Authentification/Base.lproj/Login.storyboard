@@ -119,7 +119,7 @@
             </objects>
             <point key="canvasLocation" x="884" y="-691"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Sign In-->
         <scene sceneID="NWj-3S-7D9">
             <objects>
                 <tableViewController id="ata-Du-w0k" customClass="SigninViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
@@ -174,7 +174,7 @@
                             <outlet property="delegate" destination="ata-Du-w0k" id="pha-n4-OGQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="wzE-ji-1nF">
+                    <navigationItem key="navigationItem" title="Sign In" id="wzE-ji-1nF">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yr4-Ee-NnW">
                             <connections>
                                 <action selector="cancel:" destination="ata-Du-w0k" id="su9-dx-ADu"/>

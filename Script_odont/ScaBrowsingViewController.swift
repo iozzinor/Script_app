@@ -70,7 +70,7 @@ class ScaBrowsingViewController: UIViewController
             second.questions.append(ScaQuestion(hypothesis: "réaliser une facette", newData: "le patient est bruxomane"))
             
             var third = Sca()
-            third.topic = .patientCare
+            third.topic = .therapeutic
             third.wording = "Un patient de 70 ans se présente pour son rendez-vous de contrôle 1 semaine après la pose d’une prothèse amovible complète bi-maxillaire. Il se plaint de douleurs"
             third.questions.append(ScaQuestion(hypothesis: "Des prématurités et/ou interférences occlusales", newData: "Il y a des blessures gingivales"))
             third.questions.append(ScaQuestion(hypothesis: "Une erreur de dimension verticale d’occlusion", newData: "La phonation est difficile"))

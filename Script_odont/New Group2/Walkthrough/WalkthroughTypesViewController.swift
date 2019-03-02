@@ -15,30 +15,6 @@ class WalkthroughTypesViewController: UITableViewController
     // -------------------------------------------------------------------------
     // MARK: - SCA ROWS
     // -------------------------------------------------------------------------
-    enum ScaType: Int, CaseIterable
-    {
-        case diagnostic
-        case therapeutic
-        case prognostic
-        
-        var name: String {
-            switch self
-            {
-            case .diagnostic:
-                return "Diagnostic"
-            case .therapeutic:
-                return "Therapeutic"
-            case .prognostic:
-                return "Prognostic"
-            }
-        }
-        
-        var next: ScaType {
-            let index = (self.rawValue < ScaType.allCases.count - 1 ? self.rawValue + 1 : 0)
-            return ScaType(rawValue: index)!
-        }
-    }
-    
     enum ScaSection: Int, CaseIterable
     {
         case description
@@ -53,7 +29,7 @@ class WalkthroughTypesViewController: UITableViewController
             case .typeList:
                 var result = [ScaRow]()
                 
-                for i in 0..<ScaType.allCases.count
+                for i in 0..<ScaTopic.allCases.count
                 {
                     result.append(ScaRow.scaType(i))
                 }
@@ -77,7 +53,7 @@ class WalkthroughTypesViewController: UITableViewController
             case .description:
                 return "types description"
             case let .scaType(index):
-                return ScaType.allCases[index].name
+                return ScaTopic.allCases[index].name
             case .lickertScale:
                 return "lickert scale"
             }
@@ -97,7 +73,7 @@ class WalkthroughTypesViewController: UITableViewController
     
     fileprivate static let typeTime: Double = 2
     
-    fileprivate var currentType_ = ScaType.diagnostic
+    fileprivate var currentType_ = ScaTopic.diagnostic
     fileprivate var typeTimer_: Timer? = nil
     fileprivate var displayCounter_ = 1
     
@@ -139,7 +115,7 @@ class WalkthroughTypesViewController: UITableViewController
         }
         else
         {
-            currentType_ = ScaType(rawValue: indexPath.row)!
+            currentType_ = ScaTopic(rawValue: indexPath.row)!
         }
         
         displayCounter_ = -1
@@ -213,26 +189,10 @@ class WalkthroughTypesViewController: UITableViewController
     {
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 2)) as! WalkthroughTypesCell
         cell.categoryLabel.text = self.currentType_.name
-        switch self.currentType_
+        
+        for i in 0..<5
         {
-        case .diagnostic:
-            cell.lickertLabels[0].text = "hypothèse pratiquement éliminée"
-            cell.lickertLabels[1].text = "hypothèse devient moins probable"
-            cell.lickertLabels[2].text = "information n'a pas d'effet sur l'hypothèse"
-            cell.lickertLabels[3].text = "hypothèse devient plus probable"
-            cell.lickertLabels[4].text = "il ne peut s'agir pratiquement que de cette hypothèse"
-        case .prognostic:
-            cell.lickertLabels[0].text = "-2"
-            cell.lickertLabels[1].text = "-1"
-            cell.lickertLabels[2].text = " 0"
-            cell.lickertLabels[3].text = "+1"
-            cell.lickertLabels[4].text = "+2"
-        case .therapeutic:
-            cell.lickertLabels[0].text = "absolument contre-indiqué"
-            cell.lickertLabels[1].text = "moins indiqué"
-            cell.lickertLabels[2].text = "ni contre-indiqué ni indiqué"
-            cell.lickertLabels[3].text = "indiqué"
-            cell.lickertLabels[4].text = "indispensable"
+            cell.lickertLabels[i].text = currentType_.likertScale[i - 2]
         }
     }
     

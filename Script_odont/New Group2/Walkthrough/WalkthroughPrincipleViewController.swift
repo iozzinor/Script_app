@@ -30,15 +30,15 @@ class WalkthroughPrincipleViewController: UIViewController
             switch self
             {
             case .drawing:
-                return "Un TCS est classiquement représenté sous la forme d'une vignette."
+                return "Walkthrough.Principle.Description.Drawing".localized
             case .wording:
-                return "Le titre de cette vignette est l'énoncé : il s'agit de la description du cas du patient."
+                return "Walkthrough.Principle.Description.Wording".localized
             case .hypothesis:
-                return "Les hyptohèses sont rangées dans la première colonne."
+                return "Walkthrough.Principle.Description.Hypothesis".localized
             case .newData:
-                return "Chaque nouvelle donnée modifie la probabilité des hypothèses conçues auparavant."
+                return "Walkthrough.Principle.Description.NewData".localized
             case .lickertScale:
-                return "L'impact d'une nouvelle donnée sur une hypothèse peut être évalué avec l'échelle de Lickert en 5 points allant de -2 à 2."
+                return "Walkthrough.Principle.Description.LikertScale".localized
             }
         }
     }
@@ -241,11 +241,11 @@ extension WalkthroughPrincipleViewController: UITableViewDataSource
         switch indexPath.row
         {
         case 0:
-            cell.labels.first?.text = "Enonce"
+            cell.labels.first?.text = "Walkthrough.Principle.Drawing.Wording".localized
         case 1:
-            cell.labels[0].text = "Vous pensiez..."
-            cell.labels[1].text = "Vous trouvez..."
-            cell.labels[2].text = "Indice de Lickert"
+            cell.labels[0].text = "Walkthrough.Principle.Drawing.Think".localized
+            cell.labels[1].text = "Walkthrough.Principle.Drawing.Find".localized
+            cell.labels[2].text = "Walkthrough.Principle.Drawing.LikertIndex".localized
         case 4:
             cell.labels[0].text = ""
             cell.labels[1].text = "..."

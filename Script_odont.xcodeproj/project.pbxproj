@@ -12,7 +12,6 @@
 		AC0D77C62225CEFD007F83D4 /* LikertScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C52225CEFD007F83D4 /* LikertScale.swift */; };
 		AC0D77C82225D240007F83D4 /* ScaHorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C72225D240007F83D4 /* ScaHorizontalViewController.swift */; };
 		AC0D77CA2225D28B007F83D4 /* ScaQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C92225D28B007F83D4 /* ScaQuestion.swift */; };
-		AC0D77CC2225D42F007F83D4 /* ScaHorizontal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0D77CB2225D42F007F83D4 /* ScaHorizontal.storyboard */; };
 		AC0D77D02225D7AD007F83D4 /* ScaHorizontalQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77CF2225D7AD007F83D4 /* ScaHorizontalQuestionCell.swift */; };
 		AC0D77D22225DD01007F83D4 /* ScaPanelAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D12225DD01007F83D4 /* ScaPanelAnswer.swift */; };
 		AC0D77D422281FDD007F83D4 /* ScaHorizontalScaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D322281FDD007F83D4 /* ScaHorizontalScaleCell.swift */; };
@@ -35,13 +34,15 @@
 		AC38BB7E221E9FE1008E829B /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7D221E9FE1008E829B /* WalkthroughContentViewController.swift */; };
 		AC38BB80221EA451008E829B /* WalkthroughPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7F221EA451008E829B /* WalkthroughPageViewControllerDelegate.swift */; };
 		AC38BB83221EAA58008E829B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB85221EAA58008E829B /* Localizable.strings */; };
+		AC4904B1222B12A900BDEB4B /* QualificationTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */; };
+		AC4904B4222B238B00BDEB4B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4904B6222B238B00BDEB4B /* Login.storyboard */; };
+		AC4904B9222B244100BDEB4B /* ScaHorizontal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4904BB222B244100BDEB4B /* ScaHorizontal.storyboard */; };
 		AC8F5B77222894AB00FAEFC5 /* GoToScaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5B76222894AB00FAEFC5 /* GoToScaViewController.swift */; };
 		AC8F5B792228986000FAEFC5 /* GoToScaViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5B782228986000FAEFC5 /* GoToScaViewControllerDelegate.swift */; };
 		AC8F5B7B222899DA00FAEFC5 /* GoToScaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5B7A222899DA00FAEFC5 /* GoToScaCell.swift */; };
 		AC8F5B7D22289DC800FAEFC5 /* GoToScaStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5B7C22289DC800FAEFC5 /* GoToScaStatusView.swift */; };
 		AC8F5B7F2229676100FAEFC5 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5B7E2229676100FAEFC5 /* OtherViewController.swift */; };
 		AC8F5B822229696000FAEFC5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5B812229696000FAEFC5 /* LoginViewController.swift */; };
-		AC8F5B842229697200FAEFC5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8F5B832229697200FAEFC5 /* Login.storyboard */; };
 		AC9F23DE222996C4002D38E5 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23DD222996C4002D38E5 /* AuthenticationManager.swift */; };
 		AC9F23E022299945002D38E5 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23DF22299945002D38E5 /* KeychainPasswordItem.swift */; };
 		AC9F23E22229D6A4002D38E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23E12229D6A4002D38E5 /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		AC9F23E9222A8D4E002D38E5 /* String+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23E8222A8D4E002D38E5 /* String+random.swift */; };
 		AC9F23EB222A90ED002D38E5 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23EA222A90ED002D38E5 /* SigninViewController.swift */; };
 		AC9F23ED222A93F4002D38E5 /* SigninLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23EC222A93F4002D38E5 /* SigninLabelCell.swift */; };
+		AC9F23EF222B124B002D38E5 /* Qualification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23EE222B124B002D38E5 /* Qualification.swift */; };
 		ACE70F8F221EFB6C008454FF /* WalkthroughPrincipleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* WalkthroughPrincipleViewController.swift */; };
 		ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */; };
 		ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F92221F214C008454FF /* WeakContainer.swift */; };
@@ -67,7 +69,6 @@
 		AC0D77C52225CEFD007F83D4 /* LikertScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikertScale.swift; sourceTree = "<group>"; };
 		AC0D77C72225D240007F83D4 /* ScaHorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaHorizontalViewController.swift; sourceTree = "<group>"; };
 		AC0D77C92225D28B007F83D4 /* ScaQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaQuestion.swift; sourceTree = "<group>"; };
-		AC0D77CB2225D42F007F83D4 /* ScaHorizontal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScaHorizontal.storyboard; sourceTree = "<group>"; };
 		AC0D77CF2225D7AD007F83D4 /* ScaHorizontalQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaHorizontalQuestionCell.swift; sourceTree = "<group>"; };
 		AC0D77D12225DD01007F83D4 /* ScaPanelAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaPanelAnswer.swift; sourceTree = "<group>"; };
 		AC0D77D322281FDD007F83D4 /* ScaHorizontalScaleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaHorizontalScaleCell.swift; sourceTree = "<group>"; };
@@ -93,13 +94,17 @@
 		AC38BB7F221EA451008E829B /* WalkthroughPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewControllerDelegate.swift; sourceTree = "<group>"; };
 		AC38BB84221EAA58008E829B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC38BB86221EAA67008E829B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopic.swift; sourceTree = "<group>"; };
+		AC4904B5222B238B00BDEB4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		AC4904B8222B238E00BDEB4B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Login.strings; sourceTree = "<group>"; };
+		AC4904BA222B244100BDEB4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ScaHorizontal.storyboard; sourceTree = "<group>"; };
+		AC4904BD222B244300BDEB4B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ScaHorizontal.strings; sourceTree = "<group>"; };
 		AC8F5B76222894AB00FAEFC5 /* GoToScaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToScaViewController.swift; sourceTree = "<group>"; };
 		AC8F5B782228986000FAEFC5 /* GoToScaViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToScaViewControllerDelegate.swift; sourceTree = "<group>"; };
 		AC8F5B7A222899DA00FAEFC5 /* GoToScaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToScaCell.swift; sourceTree = "<group>"; };
 		AC8F5B7C22289DC800FAEFC5 /* GoToScaStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToScaStatusView.swift; sourceTree = "<group>"; };
 		AC8F5B7E2229676100FAEFC5 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		AC8F5B812229696000FAEFC5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		AC8F5B832229697200FAEFC5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		AC9F23DD222996C4002D38E5 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		AC9F23DF22299945002D38E5 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		AC9F23E12229D6A4002D38E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +113,7 @@
 		AC9F23E8222A8D4E002D38E5 /* String+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+random.swift"; sourceTree = "<group>"; };
 		AC9F23EA222A90ED002D38E5 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		AC9F23EC222A93F4002D38E5 /* SigninLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninLabelCell.swift; sourceTree = "<group>"; };
+		AC9F23EE222B124B002D38E5 /* Qualification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Qualification.swift; sourceTree = "<group>"; };
 		ACE70F8E221EFB6C008454FF /* WalkthroughPrincipleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPrincipleViewController.swift; sourceTree = "<group>"; };
 		ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+storyboardId.swift"; sourceTree = "<group>"; };
 		ACE70F92221F214C008454FF /* WeakContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
@@ -141,6 +147,8 @@
 				AC0D77C92225D28B007F83D4 /* ScaQuestion.swift */,
 				AC0D77C32225CD60007F83D4 /* ScaTopic.swift */,
 				AC0D77C52225CEFD007F83D4 /* LikertScale.swift */,
+				AC9F23EE222B124B002D38E5 /* Qualification.swift */,
+				AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */,
 			);
 			name = Core;
 			path = "New Group1";
@@ -160,7 +168,7 @@
 				AC8F5B782228986000FAEFC5 /* GoToScaViewControllerDelegate.swift */,
 				AC8F5B7A222899DA00FAEFC5 /* GoToScaCell.swift */,
 				AC8F5B7C22289DC800FAEFC5 /* GoToScaStatusView.swift */,
-				AC0D77CB2225D42F007F83D4 /* ScaHorizontal.storyboard */,
+				AC4904BB222B244100BDEB4B /* ScaHorizontal.storyboard */,
 				AC0D77D52228274D007F83D4 /* Appearance.swift */,
 			);
 			name = Graphics;
@@ -238,7 +246,7 @@
 			children = (
 				AC8F5B812229696000FAEFC5 /* LoginViewController.swift */,
 				AC9F23EA222A90ED002D38E5 /* SigninViewController.swift */,
-				AC8F5B832229697200FAEFC5 /* Login.storyboard */,
+				AC4904B6222B238B00BDEB4B /* Login.storyboard */,
 				AC9F23EC222A93F4002D38E5 /* SigninLabelCell.swift */,
 				AC9F23DD222996C4002D38E5 /* AuthenticationManager.swift */,
 				AC9F23DF22299945002D38E5 /* KeychainPasswordItem.swift */,
@@ -317,10 +325,10 @@
 			files = (
 				AC38BB6A221DE4CB008E829B /* LaunchScreen.storyboard in Resources */,
 				AC38BB73221DF03F008E829B /* Walkthrough.storyboard in Resources */,
-				AC8F5B842229697200FAEFC5 /* Login.storyboard in Resources */,
+				AC4904B4222B238B00BDEB4B /* Login.storyboard in Resources */,
 				AC38BB83221EAA58008E829B /* Localizable.strings in Resources */,
 				AC38BB67221DE4CB008E829B /* Assets.xcassets in Resources */,
-				AC0D77CC2225D42F007F83D4 /* ScaHorizontal.storyboard in Resources */,
+				AC4904B9222B244100BDEB4B /* ScaHorizontal.storyboard in Resources */,
 				AC38BB65221DE4C9008E829B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +363,7 @@
 				AC38BB7A221E89C0008E829B /* UIApplication+isFirstLaunch.swift in Sources */,
 				ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */,
 				AC0D77C82225D240007F83D4 /* ScaHorizontalViewController.swift in Sources */,
+				AC9F23EF222B124B002D38E5 /* Qualification.swift in Sources */,
 				ACE70F8F221EFB6C008454FF /* WalkthroughPrincipleViewController.swift in Sources */,
 				AC8F5B7B222899DA00FAEFC5 /* GoToScaCell.swift in Sources */,
 				AC9F23EB222A90ED002D38E5 /* SigninViewController.swift in Sources */,
@@ -368,6 +377,7 @@
 				AC8F5B77222894AB00FAEFC5 /* GoToScaViewController.swift in Sources */,
 				AC9F23E22229D6A4002D38E5 /* ViewController.swift in Sources */,
 				AC0D77C62225CEFD007F83D4 /* LikertScale.swift in Sources */,
+				AC4904B1222B12A900BDEB4B /* QualificationTopic.swift in Sources */,
 				AC0D77C22225CD2B007F83D4 /* Sca.swift in Sources */,
 				AC9F23DE222996C4002D38E5 /* AuthenticationManager.swift in Sources */,
 				AC0D77DA22283330007F83D4 /* ScaHorizontalWordingCell.swift in Sources */,
@@ -406,6 +416,24 @@
 				AC38BB86221EAA67008E829B /* fr */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		AC4904B6222B238B00BDEB4B /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC4904B5222B238B00BDEB4B /* Base */,
+				AC4904B8222B238E00BDEB4B /* fr */,
+			);
+			name = Login.storyboard;
+			sourceTree = "<group>";
+		};
+		AC4904BB222B244100BDEB4B /* ScaHorizontal.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC4904BA222B244100BDEB4B /* Base */,
+				AC4904BD222B244300BDEB4B /* fr */,
+			);
+			name = ScaHorizontal.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

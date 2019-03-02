@@ -52,13 +52,13 @@ class SigninViewController: UITableViewController
             switch self
             {
             case .userName:
-                cell.label.text = "Username: "
+                cell.label.text = "Username:"
                 cell.textField.placeholder = "The username..."
             case .password:
-                cell.label.text = "Password: "
+                cell.label.text = "Password:"
                 cell.textField.placeholder = "The password..."
             case .passwordVerification:
-                cell.label.text = "Password verification: "
+                cell.label.text = "Password verification:"
                 cell.textField.placeholder = "Enter the same password again..."
             case let .capability(number):
                 let result = UITableViewCell()
