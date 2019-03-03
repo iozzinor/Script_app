@@ -34,12 +34,10 @@ class SigninViewController: UITableViewController
                 switch qualification
                 {
                 case .student:
-                    return nil
+                    return "Signin.Section.Title.Qualifications".localized
                 default:
-                    break
+                    return String.localizedStringWithFormat("Signin.Section.Title.Qualification".localized, qualification.name)
                 }
-                
-                return String.localizedStringWithFormat("Signin.Section.Title.Qualification".localized, qualification.name)
             case .newQualification:
                 if signinViewController.cache_.qualifications.isEmpty
                 {
@@ -61,7 +59,24 @@ class SigninViewController: UITableViewController
             case .account:
                 return [ .userName, .password, .passwordVerification ]
             case let .qualification(qualification):
-                return [ .qualification(qualification) ]
+                var result = [ SigninRow.qualification(qualification) ]
+                switch qualification
+                {
+                case .student:
+                    return result
+                case let .teacher(topics):
+                    for topic in topics
+                    {
+                        result.append(.qualificationTopic(topic))
+                    }
+                case let .expert(topics):
+                    for topic in topics
+                    {
+                        result.append(.qualificationTopic(topic))
+                    }
+                }
+                result.append(.newQualificationTopic)
+                return result
             case .newQualification:
                 return [ .newQualification ]
             case .personalData:
@@ -95,6 +110,7 @@ class SigninViewController: UITableViewController
         case qualification(Qualification)
         case qualificationTopic(QualificationTopic)
         case newQualification
+        case newQualificationTopic
         
         case mailAddress
         case phoneNumber
@@ -111,14 +127,14 @@ class SigninViewController: UITableViewController
         var isRequired: Bool {
             switch self
             {
-            case .userName, .password, .passwordVerification, .qualification(_), .qualificationTopic(_), .newQualification, .mailAddress, .securityQuestion(_):
+            case .userName, .password, .passwordVerification, .qualification(_), .qualificationTopic(_), .newQualification, .newQualificationTopic, .mailAddress, .securityQuestion(_):
                 return true
             case .phoneNumber, .age, .address, .newSecurityQuestion, .submission, .error(_):
                 return false
             }
         }
         
-        func cell(for indexPath: IndexPath, tableView: UITableView) -> UITableViewCell
+        func cell(for indexPath: IndexPath, tableView: UITableView, textFieldDelegate: UITextFieldDelegate, tag: Int) -> UITableViewCell
         {
             switch self
             {
@@ -126,16 +142,23 @@ class SigninViewController: UITableViewController
             case .userName:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
                 cell.label.text = "Username:"
+                cell.textField.tag = tag
+                cell.textField.delegate = textFieldDelegate
+                cell.textField.isSecureTextEntry = false
                 return cell
             case .password:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
                 cell.label.text = "Password:"
+                cell.textField.tag = tag
+                cell.textField.delegate = textFieldDelegate
                 cell.textField.textContentType = UITextContentType.password
                 cell.textField.isSecureTextEntry = true
                 return cell
             case .passwordVerification:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
                 cell.label.text = "Password check:"
+                cell.textField.tag = tag
+                cell.textField.delegate = textFieldDelegate
                 cell.textField.textContentType = UITextContentType.password
                 cell.textField.isSecureTextEntry = true
                 return cell
@@ -154,29 +177,48 @@ class SigninViewController: UITableViewController
                 result.textLabel?.textColor = Appearance.Color.action
                 result.textLabel?.text = "New qualification"
                 return result
+            case . newQualificationTopic:
+                let result = UITableViewCell()
+                result.textLabel?.textColor = Appearance.Color.action
+                result.textLabel?.text = "New qualification topic"
+                return result
                 
             // personal data
             case .mailAddress:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
                 cell.label.text = "Mail Address:"
+                cell.textField.tag = tag
+                cell.textField.delegate = textFieldDelegate
+                cell.textField.isSecureTextEntry = false
                 return cell
             case .phoneNumber:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
                 cell.label.text = "Phone Number:"
+                cell.textField.tag = tag
+                cell.textField.delegate = textFieldDelegate
+                cell.textField.isSecureTextEntry = false
                 return cell
             case .age:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
                 cell.label.text = "Age:"
+                cell.textField.tag = tag
+                cell.textField.delegate = textFieldDelegate
+                cell.textField.isSecureTextEntry = false
                 return cell
             case .address:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
                 cell.label.text = "Address:"
+                cell.textField.tag = tag
+                cell.textField.delegate = textFieldDelegate
+                cell.textField.isSecureTextEntry = false
                 return cell
                 
             // security question
             case let .securityQuestion(securityQuestion):
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninSecurityQuestionCell
                 cell.setup(for: indexPath, securityQuestion: securityQuestion)
+                cell.answer.delegate = textFieldDelegate
+                cell.answer.tag = tag
                 return cell
             case .newSecurityQuestion:
                 let cell = UITableViewCell()
@@ -203,12 +245,65 @@ class SigninViewController: UITableViewController
             switch self
             {
             case .userName, .password, .passwordVerification,
-                 .qualification(_), .qualificationTopic(_), .newQualification, .mailAddress,
+                 .qualification(_), .qualificationTopic(_), .newQualification, .newQualificationTopic, .mailAddress,
                  .phoneNumber, .age, .address,
                  .newSecurityQuestion, .submission, .error(_):
                 return .none
             case .securityQuestion(_):
                 return .disclosureIndicator
+            }
+        }
+        
+        func isValid(forValue value: String, cache: SigninCache) -> Bool
+        {
+            switch self
+            {
+            case .userName:
+                return value.count > 5
+            case .password:
+                return PasswordPolicy.shared.isValid(password: value)
+            case .passwordVerification:
+                return !cache.passwordVerification.isEmpty && cache.password == value
+                
+            // qualification
+            case .qualification(_), .qualificationTopic(_), .newQualification, .newQualificationTopic:
+                return true
+                
+            // personal data
+            case .mailAddress:
+                return true
+            case .phoneNumber:
+                return true
+            case .age:
+                return true
+            case .address:
+               return true
+                
+            // security question
+            case .securityQuestion(_):
+                return !value.isEmpty
+            case .newSecurityQuestion, .submission, .error(_):
+                return true
+            }
+        }
+        
+        func updateCell(_ cell: UITableViewCell, valid: Bool, value: String)
+        {
+            switch self
+            {
+            case .userName, .password, .passwordVerification,
+                 .mailAddress, .phoneNumber, .age, .address:
+                let signinLabelCell = cell as! SigninLabelCell
+                signinLabelCell.label.textColor = valid ? UIColor.black : UIColor.red
+                signinLabelCell.textField.text = value
+                
+            case .securityQuestion(_):
+                let signinSecurityQuestionCell = cell as! SigninSecurityQuestionCell
+                signinSecurityQuestionCell.questionHeading.textColor = valid ? UIColor.black : UIColor.red
+                signinSecurityQuestionCell.answer.text = value
+               
+            default:
+                break
             }
         }
     }
@@ -218,12 +313,40 @@ class SigninViewController: UITableViewController
     // -------------------------------------------------------------------------
     fileprivate struct SigninCache
     {
+        var submitted = false
+        
         // account
         var username: String = ""
         var password: String = ""
+        var passwordVerification: String = ""
         
         // qualification
+        var qualificationToUpdateIndex = IndexPath()
         var qualifications: [Qualification] = []
+        
+        func qualificationIndexForSection(_ sectionIndex: Int) -> Int
+        {
+            var index = -1
+            
+            let currentSections = sections
+            for (i, section) in currentSections.enumerated()
+            {
+                if i > sectionIndex
+                {
+                    break
+                }
+                
+                switch section
+                {
+                case .qualification(_):
+                    index += 1
+                default:
+                    break
+                }
+            }
+            
+            return index
+        }
         
         // personal data
         var mailAddress: String = ""
@@ -239,6 +362,7 @@ class SigninViewController: UITableViewController
         ]
         var questionToUpdateIndex = IndexPath()
         
+        // sections
         var sections: [SigninSection] {
             var result = [ SigninSection.account ]
             
@@ -280,8 +404,99 @@ class SigninViewController: UITableViewController
             
             return result
         }
+        
+        func tag(for indexPath: IndexPath) -> Int
+        {
+            var result = 0
+            
+            let currentSections = sections
+            for (i, section) in currentSections.enumerated()
+            {
+                if i > indexPath.section - 1
+                {
+                    break
+                }
+                if i < currentSections.count - 1
+                {
+                    result += section.rows.count
+                }
+            }
+            result += indexPath.row
+            
+            return result
+        }
+        
+        // value
+        func value(for indexPath: IndexPath) -> String
+        {
+            let section = sections[indexPath.section]
+            let row = section.rows[indexPath.row]
+            
+            switch row
+            {
+            case .userName:
+                return username
+            case .password:
+                return password
+            case .passwordVerification:
+                return passwordVerification
+                
+            case .qualification(_), .qualificationTopic(_), .newQualification, .newQualificationTopic:
+                return ""
+                
+            case .mailAddress:
+                return mailAddress
+            case .phoneNumber:
+                return phoneNumber
+            case .age:
+                return age
+            case .address:
+                return address
+                
+            case let .securityQuestion(securityQuestion):
+                return securityQuestion.answer
+            case .newSecurityQuestion, .submission, .error(_):
+                return ""
+            }
+        }
+        
+        mutating func set(value: String, for indexPath: IndexPath)
+        {
+            let section = sections[indexPath.section]
+            let row = section.rows[indexPath.row]
+            
+            switch row
+            {
+            case .userName:
+                username = value
+            case .password:
+                password = value
+            case .passwordVerification:
+                passwordVerification = value
+                
+            case .qualification(_), .qualificationTopic(_), .newQualification, .newQualificationTopic:
+                break
+                
+            case .mailAddress:
+                mailAddress = value
+            case .phoneNumber:
+                phoneNumber = value
+            case .age:
+                 age = value
+            case .address:
+                 address = value
+                
+            case var .securityQuestion(securityQuestion):
+                securityQuestion.answer = value
+                securityQuestions[indexPath.row] = securityQuestion
+            case .newSecurityQuestion, .submission, .error(_):
+                break
+            }
+        }
     }
     
+    static let toQualificationPicker = "SigninToQualificationPickerSegueId"
+    static let toQualificationTopicPicker = "SigninToQualificationTopicPickerSegueId"
     static let toSecurityQuestionPicker = "SigninToSecurityQuestionPickerSegueId"
     
     fileprivate var cache_ = SigninCache()
@@ -309,7 +524,92 @@ class SigninViewController: UITableViewController
     
     fileprivate func submit_()
     {
+        cache_.submitted = true
+        tableView.reloadData()
+    }
+    
+    fileprivate func addQualification_()
+    {
+        performSegue(withIdentifier: SigninViewController.toQualificationPicker, sender: self)
+    }
+    
+    fileprivate func addQualificationTopic_()
+    {
+        performSegue(withIdentifier: SigninViewController.toQualificationTopicPicker, sender: self)
+    }
+    
+    fileprivate func deleteQualification_()
+    {
+        if cache_.qualifications.first! == .student
+        {
+            cache_.qualifications = []
+            tableView.reloadSections(IndexSet([cache_.qualificationToUpdateIndex.section]), with: .automatic)
+        }
+        else if cache_.qualifications.count == 1
+        {
+            cache_.qualifications = []
+            tableView.deleteSections(IndexSet([cache_.qualificationToUpdateIndex.section]), with: .automatic)
+        }
+        else
+        {
+            let qualificationIndex = cache_.qualificationIndexForSection(cache_.qualificationToUpdateIndex.section)
+            let removedQualification = cache_.qualifications.remove(at: qualificationIndex)
+            let topics: [QualificationTopic]
+            switch removedQualification
+            {
+            case .student:
+                return
+            case let .expert(qualificationTopics):
+                topics = qualificationTopics
+            case let .teacher(qualificationTopics):
+                topics = qualificationTopics
+            }
+            
+            switch qualificationIndex
+            {
+            case 0:
+                tableView.beginUpdates()
+                tableView.deleteSections(IndexSet([cache_.qualificationToUpdateIndex.section]), with: .automatic)
+                tableView.insertSections(IndexSet([cache_.qualificationToUpdateIndex.section + 1]), with: .automatic)
+                tableView.insertRows(at: [IndexPath(row: 0, section: cache_.qualificationToUpdateIndex.section + 1)
+                    ], with: .automatic)
+                tableView.endUpdates()
+            case 1:
+                tableView.beginUpdates()
+                for i in 1..<(topics.count + 2)
+                {
+                    let row = topics.count + 2 - i
+                    
+                    tableView.deleteRows(at: [IndexPath(row: row, section: cache_.qualificationToUpdateIndex.section)], with: .automatic)
+                }
+                tableView.endUpdates()
+                tableView.reloadRows(at: [IndexPath(row: 0, section: cache_.qualificationToUpdateIndex.section)], with: .automatic)
+            default:
+                break
+            }
+        }
+    }
+    
+    fileprivate func deleteQualificationTopic_()
+    {
+        let qualificationIndex = cache_.qualificationIndexForSection(cache_.qualificationToUpdateIndex.section)
+        let qualificationTopicIndex = cache_.qualificationToUpdateIndex.row - 1
         
+        let qualification = cache_.qualifications[qualificationIndex]
+        
+        switch qualification
+        {
+        case .student:
+            return
+        case var .teacher(topics):
+            topics.remove(at: qualificationTopicIndex)
+            cache_.qualifications[qualificationIndex] = .teacher(topics)
+        case var .expert(topics):
+            topics.remove(at: qualificationTopicIndex)
+            cache_.qualifications[qualificationIndex] = .expert(topics)
+        }
+        
+        tableView.deleteRows(at: [cache_.qualificationToUpdateIndex], with: .automatic)
     }
     
     fileprivate func deleteSecurityQuestion_(atPath indexPath: IndexPath)
@@ -365,6 +665,39 @@ class SigninViewController: UITableViewController
             target.pickedQuestions = cache_.securityQuestions.map { $0.heading }
             target.pickerDelegate = self
         }
+        else if segue.identifier == SigninViewController.toQualificationPicker,
+            let target = segue.destination as? QualificationPickerViewController
+        {
+            target.qualificationDelegate = self
+            target.pickedQualifications = cache_.qualifications
+            
+            if !cache_.qualifications.isEmpty && !cache_.qualifications.contains(.student)
+            {
+                var currentQualifications = cache_.qualifications
+                currentQualifications.append(.student)
+                target.pickedQualifications = currentQualifications
+            }
+        }
+        else  if segue.identifier == SigninViewController.toQualificationTopicPicker,
+                let target = segue.destination as? QualificationTopicPickerViewController
+        {
+            var currentTopics = [QualificationTopic]()
+            
+            for qualification in cache_.qualifications
+            {
+                switch qualification
+                {
+                case let .teacher(topics):
+                    currentTopics.append(contentsOf: topics)
+                case let .expert(topics):
+                    currentTopics.append(contentsOf: topics)
+                case .student:
+                    break
+                }
+            }
+            target.pickedQualificationTopics = currentTopics
+            target.qualificationTopicDelegate = self
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -377,7 +710,7 @@ class SigninViewController: UITableViewController
         
         switch row
         {
-        case .qualification(_), .qualificationTopic(_), .newQualification, .newSecurityQuestion:
+        case .qualification(_), .qualificationTopic(_), .newQualification, .newQualificationTopic, .newSecurityQuestion:
             return true
         case .securityQuestion(_):
             return cache_.securityQuestions.count > 3
@@ -396,7 +729,7 @@ class SigninViewController: UITableViewController
         {
         case .qualification(_), .qualificationTopic(_):
             return .delete
-        case .newQualification, .newSecurityQuestion:
+        case .newQualification, .newQualificationTopic, .newSecurityQuestion:
             return .insert
         case .securityQuestion(_):
             if cache_.securityQuestions.count > 3
@@ -417,6 +750,18 @@ class SigninViewController: UITableViewController
         
         switch row
         {
+        case .newQualification:
+            cache_.qualificationToUpdateIndex = indexPath
+            addQualification_()
+        case .qualification(_):
+            cache_.qualificationToUpdateIndex = indexPath
+            deleteQualification_()
+        case .qualificationTopic(_):
+            cache_.qualificationToUpdateIndex = indexPath
+            deleteQualificationTopic_()
+        case .newQualificationTopic:
+            cache_.qualificationToUpdateIndex = indexPath
+            addQualificationTopic_()
         case .securityQuestion(_):
             deleteSecurityQuestion_(atPath: indexPath)
         case .newSecurityQuestion:
@@ -435,13 +780,19 @@ class SigninViewController: UITableViewController
         
         switch row
         {
+        case .newQualification:
+            cache_.qualificationToUpdateIndex = indexPath
+            addQualification_()
+        case .newQualificationTopic:
+            cache_.qualificationToUpdateIndex = indexPath
+            addQualificationTopic_()
         case .securityQuestion(_):
             cache_.questionToUpdateIndex = indexPath
             performSegue(withIdentifier: SigninViewController.toSecurityQuestionPicker, sender: self)
         case .newSecurityQuestion:
             addSecurityQuestion_(newQuestionIndexPath: indexPath)
         case .submission:
-            print("submission")
+            submit_()
         default:
             break
         }
@@ -473,14 +824,122 @@ class SigninViewController: UITableViewController
         let section = cache_.sections[indexPath.section]
         let row = section.rows[indexPath.row]
         
-        let cell = row.cell(for: indexPath, tableView: tableView)
+        let cell = row.cell(for: indexPath, tableView: tableView,
+                            textFieldDelegate: self, tag: cache_.tag(for: indexPath))
         cell.accessoryType = row.accessoryType
         cell.selectionStyle = .none
         if let signinLabelCell = cell as? SigninLabelCell
         {
             signinLabelCell.textField?.placeholder = row.isRequired ? "Required" : "Optional"
         }
+        
+        if cache_.submitted
+        {
+            let value = cache_.value(for: indexPath)
+            let isValid = row.isValid(forValue: value, cache: cache_)
+            row.updateCell(cell, valid: isValid, value: value)
+        }
+        
         return cell
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - QualificationPickerViewControllerDelegate
+// -----------------------------------------------------------------------------
+extension SigninViewController: QualificationPickerViewControllerDelegate
+{
+    func qualificationPickerViewController(_ qualificationPickerViewController: QualificationPickerViewController, didPickQualification qualification: Qualification)
+    {
+        // refuse qualifications if the current one is student
+        if (cache_.qualifications.first ?? .expert([])) == .student
+        {
+            return
+        }
+        // accept all the qualifications if the current array is empty
+        else if cache_.qualifications.isEmpty
+        {
+            switch qualification
+            {
+            case .student:
+                cache_.qualifications.append(qualification)
+                tableView.reloadSections(IndexSet([cache_.qualificationToUpdateIndex.section]), with: .automatic)
+            case .expert(_), .teacher(_):
+                cache_.qualifications.append(qualification)
+                
+                let newSection = cache_.qualificationToUpdateIndex.section + 1
+                
+                tableView.beginUpdates()
+                tableView.insertSections(IndexSet([newSection]), with: .automatic)
+                tableView.insertRows(at: [IndexPath(row: 1, section: cache_.qualificationToUpdateIndex.section), IndexPath(row: 0, section: newSection)], with: .automatic)
+                tableView.endUpdates()
+                
+                tableView.reloadSections(IndexSet([cache_.qualificationToUpdateIndex.section]), with: .automatic)
+            }
+        }
+        // accept new teacher or new expert
+        else if cache_.qualifications.count == 1
+        {
+            switch cache_.qualifications.first!
+            {
+            case .teacher(_):
+                cache_.qualifications.append(qualification)
+                
+                tableView.insertRows(at: [IndexPath(row: 1, section: cache_.qualificationToUpdateIndex.section)], with: .automatic)
+                tableView.reloadSections(IndexSet([cache_.qualificationToUpdateIndex.section]), with: .automatic)
+            case .expert(_):
+                cache_.qualifications.insert(qualification, at: 0)
+                let newSection = cache_.qualificationToUpdateIndex.section
+                
+                tableView.beginUpdates()
+                tableView.deleteSections(IndexSet([newSection]), with: .automatic)
+                tableView.insertSections(IndexSet([newSection - 1]), with: .automatic)
+                tableView.insertRows(at: [IndexPath(row: 0, section: newSection - 1), IndexPath(row: 1, section: newSection - 1)], with: .automatic)
+                tableView.endUpdates()
+                
+            default:
+                break
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - QualificationTopicPickerViewControllerDelegate
+// -----------------------------------------------------------------------------
+extension SigninViewController: QualificationTopicPickerViewControllerDelegate
+{
+    func qualificationTopicPickerViewController(_ qualificationTopicPickerViewController: QualificationTopicPickerViewController, didPickQualificationTopic qualificationTopic: QualificationTopic)
+    {
+        let qualificationIndex = cache_.qualificationIndexForSection(cache_.qualificationToUpdateIndex.section)
+        let qualification = cache_.qualifications[qualificationIndex]
+        
+        var newTopics: [QualificationTopic]
+        switch qualification
+        {
+        case .student:
+            return
+        case let .teacher(topics):
+            newTopics = topics
+        case let .expert(topics):
+            newTopics = topics
+        }
+        
+        newTopics.append(qualificationTopic)
+        newTopics.sort(by: { $0.rawValue < $1.rawValue })
+        
+        switch qualification
+        {
+        case .student:
+            break
+        case .teacher(_):
+            cache_.qualifications[qualificationIndex] = .teacher(newTopics)
+        case .expert(_):
+            cache_.qualifications[qualificationIndex] = .expert(newTopics)
+        }
+        
+        tableView.insertRows(at: [IndexPath(row: newTopics.count + 1, section: cache_.qualificationToUpdateIndex.section)], with: .automatic)
+        tableView.reloadSections(IndexSet([cache_.qualificationToUpdateIndex.section]), with: .automatic)
     }
 }
 
@@ -494,5 +953,34 @@ extension SigninViewController: SecurityQuestionPickerViewControllerDelegate
         cache_.securityQuestions[cache_.questionToUpdateIndex.row] = SecurityQuestion(heading: securityQuestion, answer: "")
         
         tableView.reloadRows(at: [cache_.questionToUpdateIndex], with: .automatic)
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - TextFieldDelegate
+// -----------------------------------------------------------------------------
+extension SigninViewController: UITextFieldDelegate
+{
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason)
+    {
+        // retrieve the index path
+        let sections = cache_.sections
+        var currentTag = textField.tag
+        var indexPath = IndexPath(row: 0, section: 0)
+        
+        for (sectionIndex, section) in sections.enumerated()
+        {
+            let rows = section.rows
+            
+            if currentTag < rows.count
+            {
+                indexPath.section = sectionIndex
+                indexPath.row = currentTag
+                break
+            }
+            currentTag -= rows.count
+        }
+        
+        cache_.set(value: textField.text ?? "", for: indexPath)
     }
 }

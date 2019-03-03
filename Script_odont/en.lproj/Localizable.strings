@@ -69,6 +69,9 @@
 "Signin.Section.Title.PersonalData"         = "Personal Data";
 "Signin.Section.Title.SecurityQuestions"    = "Security Questions";
 
+/* QUALIFICATION TOPIC PICKER */
+"QualificationTopicPicker.NoTopicsRemaining" = "No qualification topics remaining.";
+
 /* AUTHENTICATION */
 "Authentication.Biometry.FaceId.Name"   = "Face ID";
 "Authentication.Biometry.TouchId.Name"  = "Touch ID";

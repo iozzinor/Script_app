@@ -237,6 +237,8 @@
                     </navigationItem>
                     <connections>
                         <segue destination="2DA-0R-oGm" kind="show" identifier="SigninToSecurityQuestionPickerSegueId" id="mmm-rm-g2J"/>
+                        <segue destination="bdk-QT-aTd" kind="show" identifier="SigninToQualificationPickerSegueId" id="5IQ-qd-6q3"/>
+                        <segue destination="o1c-In-akn" kind="show" identifier="SigninToQualificationTopicPickerSegueId" id="TwB-8h-tZa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42p-se-Vfx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,6 +281,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QgU-0g-jee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3609" y="-691"/>
+        </scene>
+        <!--Pick A Qualification Topic-->
+        <scene sceneID="ecq-MQ-GAC">
+            <objects>
+                <tableViewController title="Pick A Qualification Topic" id="o1c-In-akn" customClass="QualificationTopicPickerViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NU7-ZN-DFc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QualificationTopicPickerCellReuseId" id="tet-sY-BGl">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tet-sY-BGl" id="207-F8-PMI">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="o1c-In-akn" id="Hq2-30-qah"/>
+                            <outlet property="delegate" destination="o1c-In-akn" id="j56-VO-i2d"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EII-pm-AfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2745" y="70"/>
+        </scene>
+        <!--Pick A Qualification-->
+        <scene sceneID="xM8-BV-JxX">
+            <objects>
+                <tableViewController title="Pick A Qualification" id="bdk-QT-aTd" customClass="QualificationPickerViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oIq-Sl-ZVQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QualificationPickerCellReuseId" id="jqb-Yh-8Rr">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jqb-Yh-8Rr" id="7u6-40-8Bv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bdk-QT-aTd" id="6Wj-7J-6tF"/>
+                            <outlet property="delegate" destination="bdk-QT-aTd" id="5hg-fW-k3J"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3N-Nn-EJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3609" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3im-wU-VlP">

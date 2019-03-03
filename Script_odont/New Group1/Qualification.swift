@@ -27,3 +27,7 @@ enum Qualification
         }
     }
 }
+
+extension Qualification: Equatable
+{
+}
