@@ -34,16 +34,16 @@
 "Sca.Topic.Prognostic.Two"          = "";
 
 /* QUALIFICATION */
-"Qualification.Name.Student"    = "Student";
-"Qualification.Name.Teacher"    = "Teacher";
+"Qualification.Name.Student"    = "Etudiant";
+"Qualification.Name.Teacher"    = "Enseignant";
 "Qualification.Name.Expert"     = "Expert";
 
 /* QUALIFICATION TOPIC */
-"QualificationTopic.Name.Surgery"               = "Surgery";
-"QualificationTopic.Name.Endodontics"           = "Endodontics";
-"QualificationTopic.Name.Prosthodontics"        = "Prosthodontics";
-"QualificationTopic.Name.PediatricDentistry"    = "Pediatric Dentistry";
-"QualificationTopic.Name.Periodontics"          = "Periodontics";
+"QualificationTopic.Name.Surgery"               = "Chirurgie";
+"QualificationTopic.Name.Endodontics"           = "Endodontie";
+"QualificationTopic.Name.Prosthodontics"        = "Prothèse";
+"QualificationTopic.Name.PediatricDentistry"    = "Pédodontologie";
+"QualificationTopic.Name.Periodontics"          = "Parodontologie";
 
 "SecurityQuestion.Content.ChildhoodCity"        = "Dans quelle ville avez-vous grandi ?";
 "SecurityQuestion.Content.ParentMeetingCity"    = "Dans quelle ville se sont rencontrés vos parents ?";
@@ -68,6 +68,21 @@
 "Signin.Section.Title.Qualification"        = "Compétence %@";
 "Signin.Section.Title.PersonalData"         = "Informations personnelles";
 "Signin.Section.Title.SecurityQuestions"    = "Questions de sécurité";
+
+"Signin.Form.Label.Username"                = "Utilisateur :";
+"Signin.Form.Label.Password"                = "Mot de passe :";
+"Signin.Form.Label.PasswordVerification"    = "Vérification :";
+"Signin.Form.Label.Qualification"           = "Compétence %@";
+"Signin.Form.Label.NewQualification"        = "Nouvelle compétence";
+"Signin.Form.Label.NewQualificationTopic"   = "Nouveau thème de compétence";
+"Signin.Form.Label.MailAddress"             = "Adresse mail :";
+"Signin.Form.Label.PhoneNumber"             = "Téléphone :";
+"Signin.Form.Label.Age"                     = "Age :";
+"Signin.Form.Label.Address"                 = "Adresse:";
+"Signin.Form.Label.NewSecurityQuestion"     = "Nouvelle question de sécurité";
+"Signin.Form.Label.Submit"                  = "Soumettre";
+"Signin.Form.TextField.Required"            = "Nécessaire";
+"Signin.Form.TextField.Optional"            = "Facultatif";
 
 /* QUALIFICATION TOPIC PICKER */
 "QualificationTopicPicker.NoTopicsRemaining" = "Pas de thématique à ajouter.";

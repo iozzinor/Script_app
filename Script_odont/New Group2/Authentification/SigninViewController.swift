@@ -141,14 +141,14 @@ class SigninViewController: UITableViewController
             // account
             case .userName:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
-                cell.label.text = "Username:"
+                cell.label.text = "Signin.Form.Label.Username".localized
                 cell.textField.tag = tag
                 cell.textField.delegate = textFieldDelegate
                 cell.textField.isSecureTextEntry = false
                 return cell
             case .password:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
-                cell.label.text = "Password:"
+                cell.label.text = "Signin.Form.Label.Password".localized
                 cell.textField.tag = tag
                 cell.textField.delegate = textFieldDelegate
                 cell.textField.textContentType = UITextContentType.password
@@ -156,7 +156,7 @@ class SigninViewController: UITableViewController
                 return cell
             case .passwordVerification:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
-                cell.label.text = "Password check:"
+                cell.label.text = "Signin.Form.Label.PasswordVerification".localized
                 cell.textField.tag = tag
                 cell.textField.delegate = textFieldDelegate
                 cell.textField.textContentType = UITextContentType.password
@@ -166,7 +166,7 @@ class SigninViewController: UITableViewController
             // qualification
             case let .qualification(qualification):
                 let result = UITableViewCell()
-                result.textLabel?.text = "Qualification \(qualification.name.uppercased())"
+                result.textLabel?.text = String.localizedStringWithFormat("Signin.Form.Label.Qualification".localized, qualification.name.uppercased())
                 return result
             case let .qualificationTopic(qualificationTopic):
                 let result = UITableViewCell()
@@ -175,39 +175,39 @@ class SigninViewController: UITableViewController
             case .newQualification:
                 let result = UITableViewCell()
                 result.textLabel?.textColor = Appearance.Color.action
-                result.textLabel?.text = "New qualification"
+                result.textLabel?.text = "Signin.Form.Label.NewQualification".localized
                 return result
             case . newQualificationTopic:
                 let result = UITableViewCell()
                 result.textLabel?.textColor = Appearance.Color.action
-                result.textLabel?.text = "New qualification topic"
+                result.textLabel?.text = "Signin.Form.Label.NewQualificationTopic".localized
                 return result
                 
             // personal data
             case .mailAddress:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
-                cell.label.text = "Mail Address:"
+                cell.label.text = "Signin.Form.Label.MailAddress".localized
                 cell.textField.tag = tag
                 cell.textField.delegate = textFieldDelegate
                 cell.textField.isSecureTextEntry = false
                 return cell
             case .phoneNumber:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
-                cell.label.text = "Phone Number:"
+                cell.label.text = "Signin.Form.Label.PhoneNumber".localized
                 cell.textField.tag = tag
                 cell.textField.delegate = textFieldDelegate
                 cell.textField.isSecureTextEntry = false
                 return cell
             case .age:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
-                cell.label.text = "Age:"
+                cell.label.text = "Signin.Form.Label.Age".localized
                 cell.textField.tag = tag
                 cell.textField.delegate = textFieldDelegate
                 cell.textField.isSecureTextEntry = false
                 return cell
             case .address:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SigninLabelCell
-                cell.label.text = "Address:"
+                cell.label.text = "Signin.Form.Label.Address".localized
                 cell.textField.tag = tag
                 cell.textField.delegate = textFieldDelegate
                 cell.textField.isSecureTextEntry = false
@@ -222,7 +222,7 @@ class SigninViewController: UITableViewController
                 return cell
             case .newSecurityQuestion:
                 let cell = UITableViewCell()
-                cell.textLabel?.text = "New security question"
+                cell.textLabel?.text = "Signin.Form.Label.NewSecurityQuestion".localized
                 cell.textLabel?.textColor = Appearance.Color.action
                 return cell
                 
@@ -230,7 +230,7 @@ class SigninViewController: UITableViewController
                 let result = UITableViewCell()
                 result.textLabel?.textColor = Appearance.Color.action
                 result.textLabel?.textAlignment = .center
-                result.textLabel?.text = "Submit"
+                result.textLabel?.text = "Signin.Form.Label.Submit".localized
                 return result
                 
             case let .error(message):
@@ -830,7 +830,7 @@ class SigninViewController: UITableViewController
         cell.selectionStyle = .none
         if let signinLabelCell = cell as? SigninLabelCell
         {
-            signinLabelCell.textField?.placeholder = row.isRequired ? "Required" : "Optional"
+            signinLabelCell.textField?.placeholder = row.isRequired ? "Signin.Form.TextField.Required".localized : "Signin.Form.TextField.Optional".localized
         }
         
         if cache_.submitted

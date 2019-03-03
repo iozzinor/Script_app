@@ -69,6 +69,21 @@
 "Signin.Section.Title.PersonalData"         = "Personal Data";
 "Signin.Section.Title.SecurityQuestions"    = "Security Questions";
 
+"Signin.Form.Label.Username"                = "Username:";
+"Signin.Form.Label.Password"                = "Password:";
+"Signin.Form.Label.PasswordVerification"    = "Password check:";
+"Signin.Form.Label.Qualification"           = "Qualification %@";
+"Signin.Form.Label.NewQualification"        = "New qualification";
+"Signin.Form.Label.NewQualificationTopic"   = "New qualification topic";
+"Signin.Form.Label.MailAddress"             = "Mail Address:";
+"Signin.Form.Label.PhoneNumber"             = "Phone Number:";
+"Signin.Form.Label.Age"                     = "Age:";
+"Signin.Form.Label.Address"                 = "Address:";
+"Signin.Form.Label.NewSecurityQuestion"     = "New security question";
+"Signin.Form.Label.Submit"                  = "Submit";
+"Signin.Form.TextField.Required"            = "Required";
+"Signin.Form.TextField.Optional"            = "Optional";
+
 /* QUALIFICATION TOPIC PICKER */
 "QualificationTopicPicker.NoTopicsRemaining" = "No qualification topics remaining.";
 

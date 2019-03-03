@@ -25,3 +25,9 @@
 
 /* Class = "UINavigationItem"; title="Pick A Security Question"; ObjectID="2DA-0R-oGm"; */
 "2DA-0R-oGm.title" = "Choix question sécurité";
+
+/* Class = "UINavigationItem"; title="PPick A Qualification"; ObjectID="bdk-QT-aTd"; */
+"bdk-QT-aTd.title" = "Choix d'une compétence";
+
+/* Class = "UINavigationItem"; title="PPick A Qualification Topic"; ObjectID="o1c-In-akn"; */
+"o1c-In-akn.title" = "Choix d'un thème de compétence";
