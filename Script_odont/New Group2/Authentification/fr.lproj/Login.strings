@@ -22,3 +22,6 @@
 
 /* Class = "UINavigationItem"; title = "Sign In"; ObjectID = "wzE-ji-1nF"; */
 "wzE-ji-1nF.title" = "Création de compte";
+
+/* Class = "UINavigationItem"; title="Pick A Security Question"; ObjectID="2DA-0R-oGm"; */
+"2DA-0R-oGm.title" = "Choix question sécurité";

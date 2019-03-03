@@ -33,6 +33,27 @@
 "Sca.Topic.Prognostic.One"          = "";
 "Sca.Topic.Prognostic.Two"          = "";
 
+/* QUALIFICATION */
+"Qualification.Name.Student"    = "Student";
+"Qualification.Name.Teacher"    = "Teacher";
+"Qualification.Name.Expert"     = "Expert";
+
+/* QUALIFICATION TOPIC */
+"QualificationTopic.Name.Surgery"               = "Surgery";
+"QualificationTopic.Name.Endodontics"           = "Endodontics";
+"QualificationTopic.Name.Prosthodontics"        = "Prosthodontics";
+"QualificationTopic.Name.PediatricDentistry"    = "Pediatric Dentistry";
+"QualificationTopic.Name.Periodontics"          = "Periodontics";
+
+"SecurityQuestion.Content.ChildhoodCity"        = "Dans quelle ville avez-vous grandi ?";
+"SecurityQuestion.Content.ParentMeetingCity"    = "Dans quelle ville se sont rencontrés vos parents ?";
+"SecurityQuestion.Content.ChildhoodStreet"      = "Quel est le nom de la rue dans laquelle vous avez grandi ?";
+"SecurityQuestion.Content.FirstPet"             = "Comment s'appelait votre premier animal ?";
+"SecurityQuestion.Content.FavoriteBand"         = "Quel est votre groupe de musique préféré ?";
+"SecurityQuestion.Content.FavoriteSong"         = "Quel est votre chanson préférée ?";
+"SecurityQuestion.Content.FavoriteMovie"        = "Quel est votre film préféré ?";
+"SecurityQuestion.Content.DreamJob"             = "Quel est le métier de vos rêves ?";
+
 /* LOGIN */
 "Login.Error.AlertTitle"              = "Authentification";
 "Login.Error.AuthenticationFailed"    = "L'authentification a échoué.";
@@ -40,6 +61,13 @@
 "Login.Error.BiometryNotAvailable"    = "La reconnaissance biométrique n'est pas disponible.";
 "Login.Error.BiometryLocked"          = "La reconnaissance biométrique est verrouillée.";
 "Login.Error.BiometryNotConfigured"   = "La reconnaissance n'est sûrement pas enclenchée.";
+
+/* SIGNIN */
+"Signin.Section.Title.Account"              = "Compte";
+"Signin.Section.Title.Qualifications"       = "Compétences";
+"Signin.Section.Title.Qualification"        = "Compétence %@";
+"Signin.Section.Title.PersonalData"         = "Informations personnelles";
+"Signin.Section.Title.SecurityQuestions"    = "Questions de sécurité";
 
 /* AUTHENTICATION */
 "Authentication.Biometry.FaceId.Name"   = "Face ID";

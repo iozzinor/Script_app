@@ -37,6 +37,10 @@
 		AC4904B1222B12A900BDEB4B /* QualificationTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */; };
 		AC4904B4222B238B00BDEB4B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4904B6222B238B00BDEB4B /* Login.storyboard */; };
 		AC4904B9222B244100BDEB4B /* ScaHorizontal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4904BB222B244100BDEB4B /* ScaHorizontal.storyboard */; };
+		AC4904BF222B3AAF00BDEB4B /* SecurityQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904BE222B3AAF00BDEB4B /* SecurityQuestion.swift */; };
+		AC4904C1222B3C1600BDEB4B /* SigninSecurityQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904C0222B3C1600BDEB4B /* SigninSecurityQuestionCell.swift */; };
+		AC4904C3222B51F400BDEB4B /* SecurityQuestionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904C2222B51F400BDEB4B /* SecurityQuestionPickerViewController.swift */; };
+		AC4904C5222B54E700BDEB4B /* SecurityQuestionPickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904C4222B54E700BDEB4B /* SecurityQuestionPickerViewControllerDelegate.swift */; };
 		AC8F5B77222894AB00FAEFC5 /* GoToScaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5B76222894AB00FAEFC5 /* GoToScaViewController.swift */; };
 		AC8F5B792228986000FAEFC5 /* GoToScaViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5B782228986000FAEFC5 /* GoToScaViewControllerDelegate.swift */; };
 		AC8F5B7B222899DA00FAEFC5 /* GoToScaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5B7A222899DA00FAEFC5 /* GoToScaCell.swift */; };
@@ -99,6 +103,10 @@
 		AC4904B8222B238E00BDEB4B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Login.strings; sourceTree = "<group>"; };
 		AC4904BA222B244100BDEB4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ScaHorizontal.storyboard; sourceTree = "<group>"; };
 		AC4904BD222B244300BDEB4B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ScaHorizontal.strings; sourceTree = "<group>"; };
+		AC4904BE222B3AAF00BDEB4B /* SecurityQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityQuestion.swift; sourceTree = "<group>"; };
+		AC4904C0222B3C1600BDEB4B /* SigninSecurityQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninSecurityQuestionCell.swift; sourceTree = "<group>"; };
+		AC4904C2222B51F400BDEB4B /* SecurityQuestionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityQuestionPickerViewController.swift; sourceTree = "<group>"; };
+		AC4904C4222B54E700BDEB4B /* SecurityQuestionPickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityQuestionPickerViewControllerDelegate.swift; sourceTree = "<group>"; };
 		AC8F5B76222894AB00FAEFC5 /* GoToScaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToScaViewController.swift; sourceTree = "<group>"; };
 		AC8F5B782228986000FAEFC5 /* GoToScaViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToScaViewControllerDelegate.swift; sourceTree = "<group>"; };
 		AC8F5B7A222899DA00FAEFC5 /* GoToScaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToScaCell.swift; sourceTree = "<group>"; };
@@ -149,6 +157,7 @@
 				AC0D77C52225CEFD007F83D4 /* LikertScale.swift */,
 				AC9F23EE222B124B002D38E5 /* Qualification.swift */,
 				AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */,
+				AC4904BE222B3AAF00BDEB4B /* SecurityQuestion.swift */,
 			);
 			name = Core;
 			path = "New Group1";
@@ -246,8 +255,11 @@
 			children = (
 				AC8F5B812229696000FAEFC5 /* LoginViewController.swift */,
 				AC9F23EA222A90ED002D38E5 /* SigninViewController.swift */,
+				AC4904C2222B51F400BDEB4B /* SecurityQuestionPickerViewController.swift */,
+				AC4904C4222B54E700BDEB4B /* SecurityQuestionPickerViewControllerDelegate.swift */,
 				AC4904B6222B238B00BDEB4B /* Login.storyboard */,
 				AC9F23EC222A93F4002D38E5 /* SigninLabelCell.swift */,
+				AC4904C0222B3C1600BDEB4B /* SigninSecurityQuestionCell.swift */,
 				AC9F23DD222996C4002D38E5 /* AuthenticationManager.swift */,
 				AC9F23DF22299945002D38E5 /* KeychainPasswordItem.swift */,
 			);
@@ -356,7 +368,10 @@
 				AC0D77D422281FDD007F83D4 /* ScaHorizontalScaleCell.swift in Sources */,
 				AC38BB78221DFCC4008E829B /* WalkthroughViewController.swift in Sources */,
 				AC0D77CA2225D28B007F83D4 /* ScaQuestion.swift in Sources */,
+				AC4904C1222B3C1600BDEB4B /* SigninSecurityQuestionCell.swift in Sources */,
+				AC4904C5222B54E700BDEB4B /* SecurityQuestionPickerViewControllerDelegate.swift in Sources */,
 				AC38BB76221DFB2F008E829B /* String+localized.swift in Sources */,
+				AC4904C3222B51F400BDEB4B /* SecurityQuestionPickerViewController.swift in Sources */,
 				AC0D77D22225DD01007F83D4 /* ScaPanelAnswer.swift in Sources */,
 				ACE70F97221F3254008454FF /* UITableViewCell+reuseId.swift in Sources */,
 				AC8F5B7D22289DC800FAEFC5 /* GoToScaStatusView.swift in Sources */,
@@ -373,6 +388,7 @@
 				ACE70F9F221F59F3008454FF /* WalkthroughTypesCell.swift in Sources */,
 				AC38BB80221EA451008E829B /* WalkthroughPageViewControllerDelegate.swift in Sources */,
 				ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */,
+				AC4904BF222B3AAF00BDEB4B /* SecurityQuestion.swift in Sources */,
 				AC8F5B792228986000FAEFC5 /* GoToScaViewControllerDelegate.swift in Sources */,
 				AC8F5B77222894AB00FAEFC5 /* GoToScaViewController.swift in Sources */,
 				AC9F23E22229D6A4002D38E5 /* ViewController.swift in Sources */,

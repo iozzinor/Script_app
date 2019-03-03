@@ -13,4 +13,17 @@ enum Qualification
     case student
     case teacher([QualificationTopic])
     case expert([QualificationTopic])
+    
+    var name: String
+    {
+        switch self
+        {
+        case .student:
+            return "Qualification.Name.Student".localized
+        case .teacher(_):
+            return "Qualification.Name.Teacher".localized
+        case .expert:
+            return "Qualification.Name.Expert".localized
+        }
+    }
 }

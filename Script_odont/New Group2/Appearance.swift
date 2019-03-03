@@ -15,8 +15,14 @@ struct Appearance
     /// General colors
     struct Color
     {
+        /// The default color to use for the text.
         public static let `default` = UIColor.black
+        
+        /// The missing color.
         public static let missing = UIColor.gray
+        
+        /// The color used to indicate an action might be performed.
+        public static let action = UIColor.blue
     }
     
     /// Appearance of sca related views.
@@ -27,6 +33,7 @@ struct Appearance
     /// Appearance for likert scale.
     struct LikertScale
     {
+        /// Colors associated to the Likert scale.
         struct Color
         {
             public static let negativeTwo   = UIColor.red
@@ -35,6 +42,7 @@ struct Appearance
             public static let one           = UIColor.blue
             public static let two           = UIColor.green
             
+            /// All Likert scale colors.
             public static let all = [ negativeTwo, negativeOne, zero, one, two ]
         }
     }
