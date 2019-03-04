@@ -133,7 +133,7 @@
 
 /* SCA EXAM */
 "ScaExam.Horizontal.Title.Information"      = "Information";
-"ScaExam.Horizontal.Progress"               = "Question %d sur %d";
+"ScaExam.Horizontal.Progress"               = "%d sur %d";
 "ScaExam.Submission.Error.AlertTitle"       = "Erreur de soumission";
 "ScaExam.Submission.Error.InsufficientTime" = "La session doit avoir été lancé un minimum de %f seconds. Il s'est écoulé %f secondes pour le moment.";
 "ScaExam.Submission.Error.InsufficientAnswers" = "Seulement %d réponses ont été apportées. Il faut au moins avoir répondu à %d TCS pour soumettre la session.";
