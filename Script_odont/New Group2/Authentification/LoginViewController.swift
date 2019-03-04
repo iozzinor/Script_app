@@ -11,6 +11,7 @@ import LocalAuthentication
 
 class LoginViewController: UIViewController
 {
+    static let toRecoverPassworrdSegueId = "LoginToRecoverPasswordSegueId"
     static let toSigninSegueId = "LoginToSigninSegueId"
     
     @IBOutlet weak var userNameField: UITextField!
@@ -32,6 +33,11 @@ class LoginViewController: UIViewController
     fileprivate func isPasswordValid(_ password: String) -> Bool
     {
         return PasswordPolicy.shared.isValid(password: password)
+    }
+    
+    @IBAction func recoverPassword(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: LoginViewController.toRecoverPassworrdSegueId, sender: self)
     }
     
     @IBAction func login(_ sender: UIButton)

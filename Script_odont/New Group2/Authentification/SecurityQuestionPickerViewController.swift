@@ -14,6 +14,15 @@ class SecurityQuestionPickerViewController: UITableViewController
     
     fileprivate var questions_ = SecurityQuestion.Heading.allCases
     
+    var optional: Bool = false {
+        didSet {
+            if isViewLoaded
+            {
+                tableView.reloadData()
+            }
+        }
+    }
+    
     var pickedQuestions = [SecurityQuestion.Heading]() {
         didSet {
             // update questions
@@ -38,9 +47,15 @@ class SecurityQuestionPickerViewController: UITableViewController
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let pickedQuestion = questions_[indexPath.row]
-        
-        pickerDelegate?.securityQuestionPickerViewController(self, didPickSecurityQuestion: pickedQuestion)
+        if optional && indexPath.row == 0
+        {
+            pickerDelegate?.securityQuestionPickerViewController(self, didPickSecurityQuestion: nil)
+        }
+        else
+        {
+            let pickedQuestion = questions_[optional ? indexPath.row - 1 : indexPath.row]
+            pickerDelegate?.securityQuestionPickerViewController(self, didPickSecurityQuestion: pickedQuestion)
+        }
         
         navigationController?.popViewController(animated: true)
     }
@@ -55,13 +70,26 @@ class SecurityQuestionPickerViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        if optional
+        {
+            return questions_.count + 1
+        }
         return questions_.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: SecurityQuestionPickerViewController.cellId, for: indexPath)
-        cell.textLabel?.text = questions_[indexPath.row].content
+        
+        if optional && indexPath.row == 0
+        {
+            cell.textLabel?.text = "SecurityQuestionPicker.Label.None".localized
+        }
+        else
+        {
+            cell.textLabel?.text = questions_[optional ? indexPath.row - 1 : indexPath.row].content
+        }
+        
         return cell
     }
 }

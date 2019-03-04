@@ -84,8 +84,19 @@
 "Signin.Form.TextField.Required"            = "Required";
 "Signin.Form.TextField.Optional"            = "Optional";
 
+/* SECURITY QUESTION PICKER */
+"SecurityQuestionPicker.Label.None" = "None";
+
 /* QUALIFICATION TOPIC PICKER */
 "QualificationTopicPicker.NoTopicsRemaining" = "No qualification topics remaining.";
+
+/* RECOVER PASSWORD */
+"RecoverPassword.Header.AccountInformation" = "Account Information";
+"RecoverPassword.Header.SecurityQuestions"  = "Security Questions";
+"RecoverPassword.UserIdentifier.Label"      = "User identifier:";
+"RecoverPassword.UserIdentifier.TextField"  = "Username or email address";
+
+"RecoverPassword.Action.Recover"            = "Recover";
 
 /* AUTHENTICATION */
 "Authentication.Biometry.FaceId.Name"   = "Face ID";

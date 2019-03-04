@@ -10,5 +10,5 @@ import Foundation
 
 protocol SecurityQuestionPickerViewControllerDelegate: class
 {
-    func securityQuestionPickerViewController(_ securityQuestionPickerViewController: SecurityQuestionPickerViewController, didPickSecurityQuestion securityQuestion: SecurityQuestion.Heading)
+    func securityQuestionPickerViewController(_ securityQuestionPickerViewController: SecurityQuestionPickerViewController, didPickSecurityQuestion securityQuestion: SecurityQuestion.Heading?)
 }

@@ -215,7 +215,7 @@ class SigninViewController: UITableViewController
                 
             // security question
             case let .securityQuestion(securityQuestion):
-                let cell = tableView.dequeueReusableCell(for: indexPath) as SigninSecurityQuestionCell
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SecurityQuestionCell
                 cell.setup(for: indexPath, securityQuestion: securityQuestion)
                 cell.answer.delegate = textFieldDelegate
                 cell.answer.tag = tag
@@ -271,7 +271,9 @@ class SigninViewController: UITableViewController
                 
             // personal data
             case .mailAddress:
-                return true
+                let mailRegularExpression = try! NSRegularExpression(pattern: "^([A-Za-z0-9+-_.])+@([A-Za-z0-9+-_.])+[.]([A-Za-z0-9+-_.])+$", options: [.anchorsMatchLines])
+                let range = NSRange(location: 0, length: value.count)
+                return mailRegularExpression.matches(in: value, options: [], range: range).count > 0
             case .phoneNumber:
                 return true
             case .age:
@@ -298,7 +300,7 @@ class SigninViewController: UITableViewController
                 signinLabelCell.textField.text = value
                 
             case .securityQuestion(_):
-                let signinSecurityQuestionCell = cell as! SigninSecurityQuestionCell
+                let signinSecurityQuestionCell = cell as! SecurityQuestionCell
                 signinSecurityQuestionCell.questionHeading.textColor = valid ? UIColor.black : UIColor.red
                 signinSecurityQuestionCell.answer.text = value
                
@@ -507,6 +509,8 @@ class SigninViewController: UITableViewController
         
         tableView.allowsSelectionDuringEditing = true
         tableView.isEditing = true
+        
+        tableView.register(UINib(nibName: "SecurityQuestionCell", bundle: nil), forCellReuseIdentifier: SecurityQuestionCell.reuseId)
     }
     
     // -------------------------------------------------------------------------
@@ -948,9 +952,9 @@ extension SigninViewController: QualificationTopicPickerViewControllerDelegate
 // -----------------------------------------------------------------------------
 extension SigninViewController: SecurityQuestionPickerViewControllerDelegate
 {
-    func securityQuestionPickerViewController(_ securityQuestionPickerViewController: SecurityQuestionPickerViewController, didPickSecurityQuestion securityQuestion: SecurityQuestion.Heading)
+    func securityQuestionPickerViewController(_ securityQuestionPickerViewController: SecurityQuestionPickerViewController, didPickSecurityQuestion securityQuestion: SecurityQuestion.Heading?)
     {
-        cache_.securityQuestions[cache_.questionToUpdateIndex.row] = SecurityQuestion(heading: securityQuestion, answer: "")
+        cache_.securityQuestions[cache_.questionToUpdateIndex.row] = SecurityQuestion(heading: securityQuestion!, answer: "")
         
         tableView.reloadRows(at: [cache_.questionToUpdateIndex], with: .automatic)
     }

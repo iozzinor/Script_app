@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Answers to an SCA.
 public struct ScaAnswer
 {
     fileprivate var answers_: [[LikertScale.Degree]]
