@@ -35,15 +35,15 @@ public class ScaHorizontalQuestionCell: UITableViewCell
     
     fileprivate func setupScaleContainerButtons_()
     {
-        for (i, color) in Appearance.LikertScale.Color.all.enumerated()
+        for i in 0..<5
         {
             let newButton = UIButton(type: .system)
             newButton.setTitle("\(i - 2)", for: .normal)
             newButton.setTitle("\(i - 2)", for: .selected)
-            newButton.setTitleColor(color, for: .normal)
+            newButton.setTitleColor(Appearance.LikertScale.Color.default, for: .normal)
             
             newButton.tag = i
-            newButton.tintColor = color
+            newButton.tintColor = Appearance.LikertScale.Color.selected
             
             // select the currently selected answer button
             newButton.isSelected = (i == selectedScale)

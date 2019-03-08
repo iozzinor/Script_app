@@ -36,14 +36,8 @@ struct Appearance
         /// Colors associated to the Likert scale.
         struct Color
         {
-            public static let negativeTwo   = UIColor.red
-            public static let negativeOne   = UIColor.orange
-            public static let zero          = UIColor.yellow
-            public static let one           = UIColor.blue
-            public static let two           = UIColor.green
-            
-            /// All Likert scale colors.
-            public static let all = [ negativeTwo, negativeOne, zero, one, two ]
+            public static let `default` = UIColor.black
+            public static let selected = UIColor.blue
         }
     }
 }

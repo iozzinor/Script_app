@@ -140,6 +140,9 @@
 "ScaExam.Horizontal.Options.Title"      = "Options";
 "ScaExam.Horizontal.Options.Message"    = "Choose an option";
 "ScaExam.Horizontal.Options.GoTo"       = "Go To";
+"ScaExam.Horizontal.Headers.Hypothesis" = "Hypothesis";
+"ScaExam.Horizontal.Headers.NewData"    = "New Data";
+"ScaExam.Horizontal.Headers.Impact"     = "Impact";
 
 "GoToSca.ScaIndex" = "Sca %d";
 

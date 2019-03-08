@@ -48,6 +48,7 @@
 		AC4904CF222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904CE222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift */; };
 		AC4904D1222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904D0222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift */; };
 		AC53E36722329C2700CA4437 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E36622329C2700CA4437 /* Constants.swift */; };
+		AC53E3692232B2BA00CA4437 /* ScaHorizontalQuestionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E3682232B2BA00CA4437 /* ScaHorizontalQuestionHeaderCell.swift */; };
 		AC82731C222C93B90041AA0C /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC82731B222C93B90041AA0C /* RecoverPasswordViewController.swift */; };
 		AC82731E222C96EB0041AA0C /* SecurityQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC82731D222C96EB0041AA0C /* SecurityQuestionCell.xib */; };
 		AC87E2F8222CA24000D6B8CC /* UserIdentifierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87E2F7222CA24000D6B8CC /* UserIdentifierCell.swift */; };
@@ -124,6 +125,7 @@
 		AC4904CE222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopicPickerViewController.swift; sourceTree = "<group>"; };
 		AC4904D0222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopicPickerViewControllerDelegate.swift; sourceTree = "<group>"; };
 		AC53E36622329C2700CA4437 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AC53E3682232B2BA00CA4437 /* ScaHorizontalQuestionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaHorizontalQuestionHeaderCell.swift; sourceTree = "<group>"; };
 		AC82731B222C93B90041AA0C /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
 		AC82731D222C96EB0041AA0C /* SecurityQuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecurityQuestionCell.xib; sourceTree = "<group>"; };
 		AC87E2F7222CA24000D6B8CC /* UserIdentifierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdentifierCell.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				AC38BB71221DF021008E829B /* Walkthrough */,
 				AC0D77C72225D240007F83D4 /* ScaHorizontalViewController.swift */,
 				AC0D77D922283330007F83D4 /* ScaHorizontalWordingCell.swift */,
+				AC53E3682232B2BA00CA4437 /* ScaHorizontalQuestionHeaderCell.swift */,
 				AC0D77CF2225D7AD007F83D4 /* ScaHorizontalQuestionCell.swift */,
 				AC0D77DF22283FB6007F83D4 /* ScaHorizontalQuestionCellDelegate.swift */,
 				AC0D77D322281FDD007F83D4 /* ScaHorizontalScaleCell.swift */,
@@ -396,6 +399,7 @@
 				AC0D77DC2228343C007F83D4 /* ScaSession.swift in Sources */,
 				AC9F23ED222A93F4002D38E5 /* SigninLabelCell.swift in Sources */,
 				ACE70F99221F32B9008454FF /* UITableView+register.swift in Sources */,
+				AC53E3692232B2BA00CA4437 /* ScaHorizontalQuestionHeaderCell.swift in Sources */,
 				AC0D77D8222831C5007F83D4 /* ScaExam.swift in Sources */,
 				AC0D77E022283FB6007F83D4 /* ScaHorizontalQuestionCellDelegate.swift in Sources */,
 				AC0D77D422281FDD007F83D4 /* ScaHorizontalScaleCell.swift in Sources */,

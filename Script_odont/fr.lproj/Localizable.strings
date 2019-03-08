@@ -140,7 +140,9 @@
 "ScaExam.Horizontal.Options.Title"      = "Options";
 "ScaExam.Horizontal.Options.Message"    = "Choisissez une option.";
 "ScaExam.Horizontal.Options.GoTo"       = "Aller à";
-
+"ScaExam.Horizontal.Headers.Hypothesis" = "Hypothèse";
+"ScaExam.Horizontal.Headers.NewData"    = "Nouvelle donnée";
+"ScaExam.Horizontal.Headers.Impact"     = "Impact";
 "GoToSca.ScaIndex" = "Sca %d";
 
 /* OTHER VIEW CONTROLLER */

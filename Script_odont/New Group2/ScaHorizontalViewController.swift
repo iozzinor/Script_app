@@ -40,7 +40,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
             switch self
             {
             case .drawing:
-                var result: [ScaRow] = [ .wording ]
+                var result: [ScaRow] = [ .wording, .questionHeader ]
                 result.append(contentsOf: Array<ScaRow>(repeating: .question, count: sca.questions.count))
                 
                 return result
@@ -70,6 +70,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     fileprivate enum ScaRow
     {
         case wording
+        case questionHeader
         case question
         case scale
         
@@ -86,13 +87,19 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
                 let cell = tableView.dequeueReusableCell(for: indexPath) as ScaHorizontalWordingCell
                 cell.wordingLabel.text = sca.wording
                 return cell
+            case .questionHeader:
+                let cell = tableView.dequeueReusableCell(for: indexPath) as ScaHorizontalQuestionHeaderCell
+                cell.hypothesisLabel.text   = "ScaExam.Horizontal.Headers.Hypothesis".localized
+                cell.newDataLabel.text      = "ScaExam.Horizontal.Headers.NewData".localized
+                cell.likertScaleLabel.text  = "ScaExam.Horizontal.Headers.Impact".localized
+                return cell
             case .question:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as ScaHorizontalQuestionCell
-                cell.question = sca.questions[indexPath.row - 1]
-                cell.tag = indexPath.row - 1
+                cell.question = sca.questions[indexPath.row - 2]
+                cell.tag = indexPath.row - 2
                 
                 // restore the answer
-                let answer = session[currentSca, indexPath.row - 1]
+                let answer = session[currentSca, indexPath.row - 2]
                 cell.setAnswer(answer)
                 cell.delegate = scaHorizontalViewController
                 return cell
@@ -100,7 +107,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
                 let cell = tableView.dequeueReusableCell(for: indexPath) as ScaHorizontalScaleCell
                 
                 let likertScale = sca.topic.likertScale
-                cell.setScale(code: indexPath.row - 2, description: likertScale[indexPath.row - 2])
+                cell.setScale(code: indexPath.row - 3, description: likertScale[indexPath.row - 3])
                 return cell
             }
         }
@@ -290,7 +297,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     {
         if scaSession.time < ScaHorizontalViewController.minimumSessionTime_
         {
-            return .invalid(.insufficientTime(actual: scaSession.time, expected: ScaHorizontalViewController.minimumSessionTime_))
+            return .valid // time is only checked server-side
         }
         
         var validScas = 0
