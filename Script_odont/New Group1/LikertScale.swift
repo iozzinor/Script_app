@@ -1,5 +1,5 @@
 //
-//  LikertScale.swift
+//  LikertSctle.swift
 //  Script_odont
 //
 //  Created by Régis Iozzino on 26/02/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct LikertScale
+public struct LikertSctle
 {
     public enum Degree: Int, CaseIterable
     {

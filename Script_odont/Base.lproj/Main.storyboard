@@ -128,23 +128,23 @@
         <!--Navigation TCS-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ScaBrowsingViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SctBrowsingViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="xpv-L0-g2l">
-                                <rect key="frame" x="123" y="300" width="129" height="67"/>
+                                <rect key="frame" x="124.5" y="300" width="126" height="67"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPM-Mc-0uK">
-                                        <rect key="frame" x="0.0" y="0.0" width="129" height="30"/>
-                                        <state key="normal" title="Test sca horizontal"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="126" height="30"/>
+                                        <state key="normal" title="Test sct horizontal"/>
                                         <connections>
-                                            <segue destination="e3M-vo-lc7" kind="show" identifier="MainToScaHorizontalSegueId" id="Uy7-Pi-emh"/>
+                                            <segue destination="e3M-vo-lc7" kind="show" identifier="MainToSctHorizontalSegueId" id="Uy7-Pi-emh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ke-Fh-qvK">
-                                        <rect key="frame" x="14.5" y="37" width="100" height="30"/>
+                                        <rect key="frame" x="13" y="37" width="100" height="30"/>
                                         <state key="normal" title="Test user login"/>
                                         <connections>
                                             <segue destination="z4b-24-S5e" kind="presentation" id="k6k-TB-744"/>
@@ -177,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="464" y="-781"/>
         </scene>
-        <!--ScaHorizontal-->
+        <!--SctHorizontal-->
         <scene sceneID="jmf-Ii-ENH">
             <objects>
-                <viewControllerPlaceholder storyboardName="ScaHorizontal" id="e3M-vo-lc7" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="SctHorizontal" id="e3M-vo-lc7" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GDG-aL-lbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="607" y="-640"/>

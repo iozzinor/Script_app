@@ -19,7 +19,7 @@ class WalkthroughPrincipleViewController: UIViewController
         case wording
         case hypothesis
         case newData
-        case lickertScale
+        case lickertSctle
         
         var next: Step {
             let newValue = (self.rawValue < Step.allCases.count - 1 ? self.rawValue + 1 : 0)
@@ -37,8 +37,8 @@ class WalkthroughPrincipleViewController: UIViewController
                 return "Walkthrough.Principle.Description.Hypothesis".localized
             case .newData:
                 return "Walkthrough.Principle.Description.NewData".localized
-            case .lickertScale:
-                return "Walkthrough.Principle.Description.LikertScale".localized
+            case .lickertSctle:
+                return "Walkthrough.Principle.Description.LikertSctle".localized
             }
         }
     }
@@ -157,7 +157,7 @@ class WalkthroughPrincipleViewController: UIViewController
         case .newData:
             firstLabel  = firstCell.labels[1]
             lastLabel   = lastCell.labels[1]
-        case .lickertScale:
+        case .lickertSctle:
             firstLabel  = firstCell.labels[2]
             lastLabel   = lastCell.labels[2]
         }

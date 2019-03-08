@@ -11,27 +11,27 @@
 "Common.Cancel" = "Cancel";
 
 /* CORE */
-"Sca.Topic.Diagnostic" = "Diagnostic";
-"Sca.Topic.Therapeutic" = "Therapeutic";
-"Sca.Topic.Prognostic" = "Prognostic";
+"Sct.Topic.Diagnostic" = "Diagnostic";
+"Sct.Topic.Therapeutic" = "Therapeutic";
+"Sct.Topic.Prognostic" = "Prognostic";
 
-"Sca.Topic.Diagnostic.NegativeTwo"  = "The hypothesis is almost discarded.";
-"Sca.Topic.Diagnostic.NegativeOne"  = "The hypothesis becomes less likely.";
-"Sca.Topic.Diagnostic.Zero"         = "The information does not affect the hypothesis.";
-"Sca.Topic.Diagnostic.One"          = "The hypothesis becomes more likely.";
-"Sca.Topic.Diagnostic.Two"          = "The hypothesis is almost the only one probable.";
+"Sct.Topic.Diagnostic.NegativeTwo"  = "The hypothesis is almost disctrded.";
+"Sct.Topic.Diagnostic.NegativeOne"  = "The hypothesis becomes less likely.";
+"Sct.Topic.Diagnostic.Zero"         = "The information does not affect the hypothesis.";
+"Sct.Topic.Diagnostic.One"          = "The hypothesis becomes more likely.";
+"Sct.Topic.Diagnostic.Two"          = "The hypothesis is almost the only one probable.";
 
-"Sca.Topic.Therapeutic.NegativeTwo"  = "Absolutely contraindicated";
-"Sca.Topic.Therapeutic.NegativeOne"  = "Less indicated";
-"Sca.Topic.Therapeutic.Zero"         = "Nor indicated nor contraindicated";
-"Sca.Topic.Therapeutic.One"          = "Indicated";
-"Sca.Topic.Therapeutic.Two"          = "Neede";
+"Sct.Topic.Therapeutic.NegativeTwo"  = "Absolutely contraindicated";
+"Sct.Topic.Therapeutic.NegativeOne"  = "Less indicated";
+"Sct.Topic.Therapeutic.Zero"         = "Nor indicated nor contraindicated";
+"Sct.Topic.Therapeutic.One"          = "Indicated";
+"Sct.Topic.Therapeutic.Two"          = "Neede";
 
-"Sca.Topic.Prognostic.NegativeTwo"  = "";
-"Sca.Topic.Prognostic.NegativeOne"  = "";
-"Sca.Topic.Prognostic.Zero"         = "";
-"Sca.Topic.Prognostic.One"          = "";
-"Sca.Topic.Prognostic.Two"          = "";
+"Sct.Topic.Prognostic.NegativeTwo"  = "";
+"Sct.Topic.Prognostic.NegativeOne"  = "";
+"Sct.Topic.Prognostic.Zero"         = "";
+"Sct.Topic.Prognostic.One"          = "";
+"Sct.Topic.Prognostic.Two"          = "";
 
 /* QUALIFICATION */
 "Qualification.Name.Student"    = "Student";
@@ -114,37 +114,37 @@
 "Walkthrough.Section.Title.ScoringSystem"       = "Scoring System";
 "Walkthrough.Section.Title.Application"         = "Application";
 
-"Walkthrough.Section.Description.Abbreviation"  = "SCA stands for \"Script Concordance Assessment\".";
+"Walkthrough.Section.Description.Abbreviation"  = "SCT stands for \"Script Concordance Assessment\".";
 "Walkthrough.Section.Description.Principle"     = "Principle description.";
-"Walkthrough.Section.Description.Types"         = "SCA Types.";
+"Walkthrough.Section.Description.Types"         = "SCT Types.";
 "Walkthrough.Section.Description.Example"       = "An example.";
 "Walkthrough.Section.Description.ScoringSystem" = "The Scoring System.";
 "Walkthrough.Section.Description.Application"   = "How to use the application ?";
 
-"Walkthrough.Principle.Description.Drawing"     = "An SCA is typically represented using a drawing.";
+"Walkthrough.Principle.Description.Drawing"     = "An SCT is typically represented using a drawing.";
 "Walkthrough.Principle.Description.Wording"     = "The titles of this drawing is the description of the patient case.";
 "Walkthrough.Principle.Description.Hypothesis"  = "The hypothesis are sorted in the first column.";
 "Walkthrough.Principle.Description.NewData"     = "Each new datum impacts the probability of the hypothesis mentionned above.";
-"Walkthrough.Principle.Description.LikertScale" = "The impact of a new datum is measured using the Likert scale: it uses 5 points ranging from -2 to 2.";
+"Walkthrough.Principle.Description.LikertSctle" = "The impact of a new datum is measured using the Likert scale: it uses 5 points ranging from -2 to 2.";
 "Walkthrough.Principle.Drawing.Wording"         = "Wording";
 "Walkthrough.Principle.Drawing.Think"           = "You thought...";
 "Walkthrough.Principle.Drawing.Find"            = "You find...";
 "Walkthrough.Principle.Drawing.LikertIndex"     = "Likert index";
 
-/* SCA EXAM */
-"ScaExam.Horizontal.Title.Information" = "Information";
-"ScaExam.Horizontal.Progress" = "Question %d out of %d";
-"ScaExam.Submission.Error.AlertTitle" = "Submit Error";
-"ScaExam.Submission.Error.InsufficientTime" = "The session must be running for a minimum of %f seconds. It has been %f seconds since its launch.";
-"ScaExam.Submission.Error.InsufficientAnswers" = "Only %d scas were answered. There must be at least %d responses to submit the session.";
-"ScaExam.Horizontal.Options.Title"      = "Options";
-"ScaExam.Horizontal.Options.Message"    = "Choose an option";
-"ScaExam.Horizontal.Options.GoTo"       = "Go To";
-"ScaExam.Horizontal.Headers.Hypothesis" = "Hypothesis";
-"ScaExam.Horizontal.Headers.NewData"    = "New Data";
-"ScaExam.Horizontal.Headers.Impact"     = "Impact";
+/* SCT EXAM */
+"SctExam.Horizontal.Title.Information" = "Information";
+"SctExam.Horizontal.Progress" = "Question %d out of %d";
+"SctExam.Submission.Error.AlertTitle" = "Submit Error";
+"SctExam.Submission.Error.InsufficientTime" = "The session must be running for a minimum of %f seconds. It has been %f seconds since its launch.";
+"SctExam.Submission.Error.InsufficientAnswers" = "Only %d scts were answered. There must be at least %d responses to submit the session.";
+"SctExam.Horizontal.Options.Title"      = "Options";
+"SctExam.Horizontal.Options.Message"    = "Choose an option";
+"SctExam.Horizontal.Options.GoTo"       = "Go To";
+"SctExam.Horizontal.Headers.Hypothesis" = "Hypothesis";
+"SctExam.Horizontal.Headers.NewData"    = "New Data";
+"SctExam.Horizontal.Headers.Impact"     = "Impact";
 
-"GoToSca.ScaIndex" = "Sca %d";
+"GoToSct.SctIndex" = "Sct %d";
 
 /* OTHER VIEW CONTROLLER */
 "OtherViewController.ShowTutorial" = "Show Tutorial...";

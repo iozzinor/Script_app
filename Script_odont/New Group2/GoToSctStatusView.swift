@@ -1,5 +1,5 @@
 //
-//  GoToScaStatus.swift
+//  GoToSctStatus.swift
 //  Script_odont
 //
 //  Created by Régis Iozzino on 28/02/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GoToScaStatusView: UIView
+class GoToSctStatusView: UIView
 {
     var isValid: Bool = false {
         didSet {

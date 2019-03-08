@@ -1,5 +1,5 @@
 //
-//  GoToSca.swift
+//  GoToSct.swift
 //  Script_odont
 //
 //  Created by Régis Iozzino on 28/02/2019.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class GoToScaViewController: UITableViewController
+class GoToSctViewController: UITableViewController
 {
-    var session = ScaSession(exam: ScaExam(scas: [])) {
+    var session = SctSession(exam: SctExam(scts: [])) {
         didSet {
             if isViewLoaded
             {
@@ -18,7 +18,7 @@ class GoToScaViewController: UITableViewController
             }
         }
     }
-    var currentSca = -1  {
+    var currentSct = -1  {
         didSet {
             if isViewLoaded
             {
@@ -27,7 +27,7 @@ class GoToScaViewController: UITableViewController
         }
     }
     
-    weak var delegate: GoToScaViewControllerDelegate? = nil
+    weak var delegate: GoToSctViewControllerDelegate? = nil
     
     override func viewDidLoad()
     {
@@ -41,13 +41,13 @@ class GoToScaViewController: UITableViewController
     // -------------------------------------------------------------------------
     @IBAction func cancel(_ sender: UIBarButtonItem)
     {
-        delegate?.goToScaViewControllerDidCancel(self)
+        delegate?.goToSctViewControllerDidCancel(self)
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func done(_ sender: UIBarButtonItem)
     {
-        delegate?.goToScaViewController(self, didChooseSca: currentSca)
+        delegate?.goToSctViewController(self, didChooseSct: currentSct)
         dismiss(animated: true, completion: nil)
     }
     
@@ -56,8 +56,8 @@ class GoToScaViewController: UITableViewController
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let previousIndex = IndexPath(row: currentSca, section: 0)
-        currentSca = indexPath.row
+        let previousIndex = IndexPath(row: currentSct, section: 0)
+        currentSct = indexPath.row
         
         let previousCell = tableView.cellForRow(at: previousIndex)
         previousCell?.accessoryType = .none
@@ -76,17 +76,17 @@ class GoToScaViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return session.exam.scas.count
+        return session.exam.scts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(for: indexPath) as GoToScaCell
+        let cell = tableView.dequeueReusableCell(for: indexPath) as GoToSctCell
         
-        let sca = session.exam.scas[indexPath.row]
+        let sct = session.exam.scts[indexPath.row]
             
-        cell.accessoryType = (indexPath.row == currentSca ? .checkmark : .none)
-        cell.setSca(indexPath.row, wording: sca.wording, isValid: session.isScaValid(indexPath.row))
+        cell.accessoryType = (indexPath.row == currentSct ? .checkmark : .none)
+        cell.setSct(indexPath.row, wording: sct.wording, isValid: session.isSctValid(indexPath.row))
         
         return cell
     }

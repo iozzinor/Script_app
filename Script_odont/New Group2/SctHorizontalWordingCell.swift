@@ -1,5 +1,5 @@
 //
-//  ScaHorizontalWordingCell.swift
+//  SctHorizontalWordingCell.swift
 //  Script_odont
 //
 //  Created by Régis Iozzino on 28/02/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScaHorizontalWordingCell: UITableViewCell
+class SctHorizontalWordingCell: UITableViewCell
 {
     @IBOutlet weak var wordingLabel: UILabel!
 }

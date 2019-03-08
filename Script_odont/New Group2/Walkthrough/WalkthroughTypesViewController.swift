@@ -13,49 +13,49 @@ class WalkthroughTypesViewController: UITableViewController
     static let cellReuseId = "WalkthroughTypesDefaultCellReuseId"
     
     // -------------------------------------------------------------------------
-    // MARK: - SCA ROWS
+    // MARK: - SCT ROWS
     // -------------------------------------------------------------------------
-    enum ScaSection: Int, CaseIterable
+    enum SctSection: Int, CaseIterable
     {
         case description
         case typeList
-        case lickertScale
+        case lickertSctle
         
-        var rows: [ScaRow] {
+        var rows: [SctRow] {
             switch self
             {
             case .description:
                 return [ .description ]
             case .typeList:
-                var result = [ScaRow]()
+                var result = [SctRow]()
                 
-                for i in 0..<ScaTopic.allCases.count
+                for i in 0..<SctTopic.allCases.count
                 {
-                    result.append(ScaRow.scaType(i))
+                    result.append(SctRow.sctType(i))
                 }
                 
                 return result
-            case .lickertScale:
-                return [ .lickertScale ]
+            case .lickertSctle:
+                return [ .lickertSctle ]
             }
         }
     }
     
-    enum ScaRow
+    enum SctRow
     {
         case description
-        case scaType(Int)
-        case lickertScale
+        case sctType(Int)
+        case lickertSctle
         
         var title: String {
             switch self
             {
             case .description:
                 return "types description"
-            case let .scaType(index):
-                return ScaTopic.allCases[index].name
-            case .lickertScale:
-                return "lickert scale"
+            case let .sctType(index):
+                return SctTopic.allCases[index].name
+            case .lickertSctle:
+                return "lickert sctle"
             }
         }
         
@@ -65,7 +65,7 @@ class WalkthroughTypesViewController: UITableViewController
             {
             case .description:
                 return false
-            case .scaType, .lickertScale:
+            case .sctType, .lickertSctle:
                 return true
             }
         }
@@ -73,7 +73,7 @@ class WalkthroughTypesViewController: UITableViewController
     
     fileprivate static let typeTime: Double = 2
     
-    fileprivate var currentType_ = ScaTopic.diagnostic
+    fileprivate var currentType_ = SctTopic.diagnostic
     fileprivate var typeTimer_: Timer? = nil
     fileprivate var displayCounter_ = 1
     
@@ -99,7 +99,7 @@ class WalkthroughTypesViewController: UITableViewController
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
-        let section = ScaSection.allCases[indexPath.section]
+        let section = SctSection.allCases[indexPath.section]
         let row = section.rows[indexPath.row]
         
         return row.isSelectable ? indexPath : nil
@@ -115,7 +115,7 @@ class WalkthroughTypesViewController: UITableViewController
         }
         else
         {
-            currentType_ = ScaTopic(rawValue: indexPath.row)!
+            currentType_ = SctTopic(rawValue: indexPath.row)!
         }
         
         displayCounter_ = -1
@@ -192,7 +192,7 @@ class WalkthroughTypesViewController: UITableViewController
         
         for i in 0..<5
         {
-            cell.lickertLabels[i].text = currentType_.likertScale[i - 2]
+            cell.lickertLabels[i].text = currentType_.likertSctle[i - 2]
         }
     }
     
@@ -201,12 +201,12 @@ class WalkthroughTypesViewController: UITableViewController
     // -------------------------------------------------------------------------
     override func numberOfSections(in tableView: UITableView) -> Int
     {
-        return ScaSection.allCases.count
+        return SctSection.allCases.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return ScaSection.allCases[section].rows.count
+        return SctSection.allCases[section].rows.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -215,7 +215,7 @@ class WalkthroughTypesViewController: UITableViewController
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: WalkthroughTypesViewController.cellReuseId, for: indexPath)
             
-            let section = ScaSection.allCases[indexPath.section]
+            let section = SctSection.allCases[indexPath.section]
             let row = section.rows[indexPath.row]
             
             cell.textLabel?.text = row.title

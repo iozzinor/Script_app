@@ -1,5 +1,5 @@
 //
-//  ScaHorizontalScaleCell.swift
+//  SctHorizontalSctleCell.swift
 //  Script_odont
 //
 //  Created by Régis Iozzino on 28/02/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScaHorizontalScaleCell: UITableViewCell
+class SctHorizontalScaleCell: UITableViewCell
 {
     @IBOutlet weak var scaleCode: UILabel!
     @IBOutlet weak var scaleText: UILabel!

@@ -1,5 +1,5 @@
 //
-//  ScaQuestion.swift
+//  SctQuestion.swift
 //  Script_odont
 //
 //  Created by Régis Iozzino on 26/02/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ScaQuestion
+public struct SctQuestion
 {
     public var hypothesis: String = ""
     public var newData: String = ""

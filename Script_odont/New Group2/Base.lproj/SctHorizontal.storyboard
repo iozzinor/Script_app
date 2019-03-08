@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sca Horizontal View Controller-->
+        <!--Sct Horizontal View Controller-->
         <scene sceneID="sHR-f9-gVP">
             <objects>
-                <viewController id="eW0-9n-bZs" customClass="ScaHorizontalViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eW0-9n-bZs" customClass="SctHorizontalViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1cU-Ls-12E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +71,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScaHorizontalWordingCellReuseId" id="KV1-vX-HCX" customClass="ScaHorizontalWordingCell" customModule="Script_odont" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SctHorizontalWordingCellReuseId" id="KV1-vX-HCX" customClass="SctHorizontalWordingCell" customModule="Script_odont" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KV1-vX-HCX" id="JT4-jV-BrK">
@@ -79,7 +79,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFd-Io-uAR">
-                                                    <rect key="frame" x="21" y="11" width="333" height="21.5"/>
+                                                    <rect key="frame" x="21" y="11" width="625" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -96,7 +96,7 @@
                                             <outlet property="wordingLabel" destination="cFd-Io-uAR" id="tiV-R0-OVJ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScaHorizontalQuestionHeaderCellReuseId" id="TPr-42-BAB" customClass="ScaHorizontalQuestionHeaderCell" customModule="Script_odont" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SctHorizontalQuestionHeaderCellReuseId" id="TPr-42-BAB" customClass="SctHorizontalQuestionHeaderCell" customModule="Script_odont" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TPr-42-BAB" id="MSe-dH-WVQ">
@@ -104,22 +104,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="7RO-l6-Ken">
-                                                    <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="627" height="43.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hypothesis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Pk-QQ-v1B">
-                                                            <rect key="frame" x="0.0" y="0.0" width="122" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="228" height="43.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlL-js-vAp">
-                                                            <rect key="frame" x="122" y="0.0" width="121.5" height="43.5"/>
+                                                            <rect key="frame" x="228" y="0.0" width="228" height="43.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="um0-rx-RTl">
-                                                            <rect key="frame" x="243.5" y="0.0" width="91.5" height="43.5"/>
+                                                            <rect key="frame" x="456" y="0.0" width="171" height="43.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -140,11 +140,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="hypothesisLabel" destination="8Pk-QQ-v1B" id="OsA-VJ-4sU"/>
-                                            <outlet property="likertScaleLabel" destination="um0-rx-RTl" id="Svz-YI-wbh"/>
+                                            <outlet property="likertScaleLabel" destination="um0-rx-RTl" id="0bR-pF-1F9"/>
                                             <outlet property="newDataLabel" destination="RlL-js-vAp" id="zOp-ka-nd7"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScaHorizontalQuestionCellReuseId" id="GNO-b4-fzY" customClass="ScaHorizontalQuestionCell" customModule="Script_odont" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SctHorizontalQuestionCellReuseId" id="GNO-b4-fzY" customClass="SctHorizontalQuestionCell" customModule="Script_odont" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GNO-b4-fzY" id="LOP-Fq-d2f">
@@ -152,22 +152,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FzO-go-QHe">
-                                                    <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="627" height="43.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hypothesis" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxz-1h-Ibr">
-                                                            <rect key="frame" x="0.0" y="0.0" width="122" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="228" height="43.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Data" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IP9-T7-nbq">
-                                                            <rect key="frame" x="122" y="0.0" width="121.5" height="43.5"/>
+                                                            <rect key="frame" x="228" y="0.0" width="228" height="43.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0gz-SA-g09">
-                                                            <rect key="frame" x="243.5" y="0.0" width="91.5" height="43.5"/>
+                                                            <rect key="frame" x="456" y="0.0" width="171" height="43.5"/>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
@@ -192,7 +192,7 @@
                                             <outlet property="scalesContainer" destination="0gz-SA-g09" id="mWP-M9-v3b"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScaHorizontalScaleCellReuseId" id="xi0-yT-gX6" customClass="ScaHorizontalScaleCell" customModule="Script_odont" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SctHorizontalScaleCellReuseId" id="xi0-yT-gX6" userLabel="SctHorizontalScaleCellReuseId" customClass="SctHorizontalScaleCell" customModule="Script_odont" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="187.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xi0-yT-gX6" id="0Fp-Lf-axo">
@@ -224,8 +224,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="scaleCode" destination="cvA-Wk-RpH" id="7QC-Te-fDc"/>
-                                            <outlet property="scaleText" destination="rng-Q2-IqK" id="Kg5-Ce-zmc"/>
+                                            <outlet property="scaleCode" destination="cvA-Wk-RpH" id="Mzv-hJ-hbc"/>
+                                            <outlet property="scaleText" destination="rng-Q2-IqK" id="Fyt-XG-Zao"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -254,23 +254,23 @@
                         <outlet property="rotateView" destination="BVY-Ci-Are" id="umX-7f-a9L"/>
                         <outlet property="tableView" destination="LBW-xq-j7p" id="LrF-8Z-TsM"/>
                         <outlet property="toolbar" destination="auk-YP-Bd8" id="nM6-Wg-oML"/>
-                        <segue destination="IvR-bP-zxa" kind="presentation" identifier="ScaHorizontalToGoToScaSegueId" id="Vw8-wN-fyX"/>
+                        <segue destination="IvR-bP-zxa" kind="presentation" identifier="SctHorizontalToGoToSctSegueId" id="Vw8-wN-fyX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6X2-Qr-a2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="421.60000000000002" y="-206.44677661169416"/>
         </scene>
-        <!--Select A Sca-->
+        <!--Select A Sct-->
         <scene sceneID="Vm2-dm-97p">
             <objects>
-                <tableViewController id="HZ4-RN-rK6" customClass="GoToScaViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="HZ4-RN-rK6" customClass="GoToSctViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UDQ-4l-iWC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoToScaCellReuseId" id="DcG-jv-d5o" customClass="GoToScaCell" customModule="Script_odont" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoToSctCellReuseId" id="DcG-jv-d5o" customClass="GoToSctCell" customModule="Script_odont" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DcG-jv-d5o" id="sGX-YY-H8Z">
@@ -283,7 +283,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="12F-Rb-RJP">
                                                     <rect key="frame" x="20" y="0.0" width="335" height="22"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZm-Ei-YO6" customClass="GoToScaStatusView" customModule="Script_odont" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZm-Ei-YO6" customClass="GoToSctStatusView" customModule="Script_odont" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="3.5" width="14.5" height="14.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" secondItem="OZm-Ei-YO6" secondAttribute="width" id="OAX-sw-Klr"/>
@@ -321,9 +321,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="scaNumberLabel" destination="J3g-ZP-ygU" id="NQs-iG-h6d"/>
-                                    <outlet property="scaStatus" destination="OZm-Ei-YO6" id="XH2-K7-Skk"/>
-                                    <outlet property="scaWordingLabel" destination="wvI-9z-KeP" id="VUg-DT-B0L"/>
+                                    <outlet property="sctNumberLabel" destination="J3g-ZP-ygU" id="NQs-iG-h6d"/>
+                                    <outlet property="sctStatus" destination="OZm-Ei-YO6" id="XH2-K7-Skk"/>
+                                    <outlet property="sctWordingLabel" destination="wvI-9z-KeP" id="VUg-DT-B0L"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -332,7 +332,7 @@
                             <outlet property="delegate" destination="HZ4-RN-rK6" id="Ute-Ht-9Jl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select A Sca" id="bIv-b1-6Gh">
+                    <navigationItem key="navigationItem" title="Select A Sct" id="bIv-b1-6Gh">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="JkM-IS-8Wu">
                             <connections>
                                 <action selector="cancel:" destination="HZ4-RN-rK6" id="iXr-YZ-tDD"/>

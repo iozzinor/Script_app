@@ -39,7 +39,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationLandsctpeRight</string>
 	</array>
 	<key>NSFaceIDUsageDescription</key>
 	<string>TouchID is needed to unlock the account.</string>

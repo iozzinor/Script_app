@@ -1,5 +1,5 @@
 //
-//  ScaPanelAnswer.swift
+//  SctPanelAnswer.swift
 //  Script_odont
 //
 //  Created by Régis Iozzino on 26/02/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ScaPanelAnswer
+public struct SctPanelAnswer
 {
     // -------------------------------------------------------------------------
     // MARK: - VALIDATION
@@ -30,53 +30,53 @@ public struct ScaPanelAnswer
     
     public static let minimumPeerReviews = 10
     
-    public var exam: ScaExam
-    fileprivate var answers_: [ScaAnswer]
+    public var exam: SctExam
+    fileprivate var answers_: [SctAnswer]
     
-    public init(exam: ScaExam)
+    public init(exam: SctExam)
     {
         self.exam = exam
         self.answers_ = []
     }
 
-    public subscript(answerIndex: Int, scaIndex: Int, questionIndex: Int) -> LikertScale.Degree
+    public subscript(answerIndex: Int, sctIndex: Int, questionIndex: Int) -> LikertSctle.Degree
     {
         set {
             if answerIndex > answers_.count - 1
             {
-                answers_.append(ScaAnswer(exam: exam))
+                answers_.append(SctAnswer(exam: exam))
             }
             
-            answers_[answerIndex][scaIndex, questionIndex] = newValue
+            answers_[answerIndex][sctIndex, questionIndex] = newValue
         }
         get {
-            return answers_[answerIndex][scaIndex, questionIndex]
+            return answers_[answerIndex][sctIndex, questionIndex]
         }
     }
     
-    /// - returns: The validity status for each question in an sca.
-    public func checkValidity(scaIndex: Int) -> [ValidationStatus]
+    /// - returns: The validity status for each question in an sct.
+    public func checkValidity(sctIndex: Int) -> [ValidationStatus]
     {
         var result = [ValidationStatus]()
         
-        for i in 0..<exam.scas[scaIndex].questions.count
+        for i in 0..<exam.scts[sctIndex].questions.count
         {
-            result.append(checkValidity(scaIndex: scaIndex, questionIndex: i))
+            result.append(checkValidity(sctIndex: sctIndex, questionIndex: i))
         }
         
         return result
     }
     
     /// - returns: The validity status for a given question.
-    public func checkValidity(scaIndex: Int, questionIndex: Int) -> ValidationStatus
+    public func checkValidity(sctIndex: Int, questionIndex: Int) -> ValidationStatus
     {
         // peers count
-        if answers_.count < ScaPanelAnswer.minimumPeerReviews
+        if answers_.count < SctPanelAnswer.minimumPeerReviews
         {
-            return .invalid(.insufficientPeers(expected: ScaPanelAnswer.minimumPeerReviews, actual: answers_.count))
+            return .invalid(.insufficientPeers(expected: SctPanelAnswer.minimumPeerReviews, actual: answers_.count))
         }
         
-        let currentResponses = responses(forSca: scaIndex, questionIndex: questionIndex)
+        let currentResponses = responses(forSct: sctIndex, questionIndex: questionIndex)
         // variance
         let variance = variance_(currentResponses)
         if variance < 0.5 || variance > 1.0
@@ -144,22 +144,22 @@ public struct ScaPanelAnswer
     // -------------------------------------------------------------------------
     // MARK: - POINTS
     // -------------------------------------------------------------------------
-    func responses(forSca scaIndex: Int, questionIndex: Int) -> [Int]
+    func responses(forSct sctIndex: Int, questionIndex: Int) -> [Int]
     {
-        var result = Array<Int>(repeating: 0, count: LikertScale.Degree.allCases.count)
+        var result = Array<Int>(repeating: 0, count: LikertSctle.Degree.allCases.count)
         
         for answer in answers_
         {
-            let degree = answer[scaIndex, questionIndex]
+            let degree = answer[sctIndex, questionIndex]
             result[degree.rawValue] += 1
         }
         
         return result
     }
     
-    func points(forSca scaIndex: Int, questionIndex: Int) -> [Double]
+    func points(forSct sctIndex: Int, questionIndex: Int) -> [Double]
     {
-        let currentReponses = responses(forSca: scaIndex, questionIndex: questionIndex)
+        let currentReponses = responses(forSct: sctIndex, questionIndex: questionIndex)
         return points(forResponses: currentReponses)
     }
     

@@ -1,5 +1,5 @@
 //
-//  ScaHorizontalViewController.swift
+//  SctHorizontalViewController.swift
 //  Script_odont
 //
 //  Created by Régis Iozzino on 26/02/2019.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-public class ScaHorizontalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+public class SctHorizontalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
-    public static let toGoToSca = "ScaHorizontalToGoToScaSegueId"
+    public static let toGoToSct = "SctHorizontalToGoToSctSegueId"
     
     // -------------------------------------------------------------------------
     // MARK: - VALIDATION STATUS
@@ -24,33 +24,33 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     fileprivate enum ValidationError
     {
         case insufficientTime(actual: TimeInterval, expected: TimeInterval)
-        case insufficientAnsweredScas(actual: Int, expected: Int)
+        case insufficientAnsweredScts(actual: Int, expected: Int)
     }
     
     // -------------------------------------------------------------------------
     // MARK: - SECTIONS
     // -------------------------------------------------------------------------
-    fileprivate enum ScaSection: Int, CaseIterable
+    fileprivate enum SctSection: Int, CaseIterable
     {
         case drawing
         case information
         
-        func rows(for sca: Sca) -> [ScaRow]
+        func rows(for sct: Sct) -> [SctRow]
         {
             switch self
             {
             case .drawing:
-                var result: [ScaRow] = [ .wording, .questionHeader ]
-                result.append(contentsOf: Array<ScaRow>(repeating: .question, count: sca.questions.count))
+                var result: [SctRow] = [ .wording, .questionHeader ]
+                result.append(contentsOf: Array<SctRow>(repeating: .question, count: sct.questions.count))
                 
                 return result
             case .information:
-                return Array<ScaRow>(repeating: .scale, count: 5)
+                return Array<SctRow>(repeating: .scale, count: 5)
             }
         }
         
-        func allRows(for sca: Sca) -> [ScaRow] {
-            return ScaSection.allCases.flatMap { $0.rows(for: sca) }
+        func allRows(for sct: Sct) -> [SctRow] {
+            return SctSection.allCases.flatMap { $0.rows(for: sct) }
         }
         
         var title: String? {
@@ -59,7 +59,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
             case .drawing:
                 return nil
             case .information:
-                return "ScaExam.Horizontal.Title.Information".localized
+                return "SctExam.Horizontal.Title.Information".localized
             }
         }
     }
@@ -67,48 +67,48 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     // -------------------------------------------------------------------------
     // MARK: - ROWS
     // -------------------------------------------------------------------------
-    fileprivate enum ScaRow
+    fileprivate enum SctRow
     {
         case wording
         case questionHeader
         case question
         case scale
         
-        func cell(for indexPath: IndexPath, scaHorizontalViewController: ScaHorizontalViewController) -> UITableViewCell
+        func cell(for indexPath: IndexPath, sctHorizontalViewController: SctHorizontalViewController) -> UITableViewCell
         {
-            let tableView = scaHorizontalViewController.tableView!
-            let session = scaHorizontalViewController.scaSession
-            let currentSca = scaHorizontalViewController.currentSca_
+            let tableView = sctHorizontalViewController.tableView!
+            let session = sctHorizontalViewController.sctSession
+            let currentSct = sctHorizontalViewController.currentSct_
             
-            let sca = session.exam.scas[currentSca]
+            let sct = session.exam.scts[currentSct]
             switch self
             {
             case .wording:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as ScaHorizontalWordingCell
-                cell.wordingLabel.text = sca.wording
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SctHorizontalWordingCell
+                cell.wordingLabel.text = sct.wording
                 return cell
             case .questionHeader:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as ScaHorizontalQuestionHeaderCell
-                cell.hypothesisLabel.text   = "ScaExam.Horizontal.Headers.Hypothesis".localized
-                cell.newDataLabel.text      = "ScaExam.Horizontal.Headers.NewData".localized
-                cell.likertScaleLabel.text  = "ScaExam.Horizontal.Headers.Impact".localized
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SctHorizontalQuestionHeaderCell
+                cell.hypothesisLabel.text   = "SctExam.Horizontal.Headers.Hypothesis".localized
+                cell.newDataLabel.text      = "SctExam.Horizontal.Headers.NewData".localized
+                cell.likertScaleLabel.text  = "SctExam.Horizontal.Headers.Impact".localized
                 return cell
             case .question:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as ScaHorizontalQuestionCell
-                cell.question = sca.questions[indexPath.row - 2]
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SctHorizontalQuestionCell
+                cell.question = sct.questions[indexPath.row - 2]
                 cell.tag = indexPath.row - 2
-                cell.isLast = (indexPath.row - 1 == sca.questions.count)
+                cell.isLast = (indexPath.row - 1 == sct.questions.count)
                 
                 // restore the answer
-                let answer = session[currentSca, indexPath.row - 2]
+                let answer = session[currentSct, indexPath.row - 2]
                 cell.setAnswer(answer)
-                cell.delegate = scaHorizontalViewController
+                cell.delegate = sctHorizontalViewController
                 return cell
             case .scale:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as ScaHorizontalScaleCell
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SctHorizontalScaleCell
                 
-                let likertScale = sca.topic.likertScale
-                cell.setScale(code: indexPath.row - 2, description: likertScale[indexPath.row - 2])
+                let likertSctle = sct.topic.likertSctle
+                cell.setScale(code: indexPath.row - 2, description: likertSctle[indexPath.row - 2])
                 return cell
             }
         }
@@ -131,7 +131,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     fileprivate var lastTime_: TimeInterval = 0.0
     fileprivate var orientationHorizontal_ = Constants.isDeviceOrientationHorizontal
     
-    public var scaSession = ScaSession(exam: ScaExam(scas: [])) {
+    public var sctSession = SctSession(exam: SctExam(scts: [])) {
         didSet {
             if isViewLoaded
             {
@@ -140,7 +140,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
         }
     }
     
-    fileprivate var currentSca_ = 0 {
+    fileprivate var currentSct_ = 0 {
         didSet {
             if isViewLoaded
             {
@@ -164,7 +164,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
         (UIApplication.shared.delegate as? AppDelegate)?.registerDelegate(self)
         
         // device changed notification
-        NotificationCenter.default.addObserver(self, selector: #selector(ScaHorizontalViewController.deviceOrientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SctHorizontalViewController.deviceOrientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     public override func viewWillAppear(_ animated: Bool)
@@ -225,14 +225,14 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     
     fileprivate func updateProgressUi_()
     {
-        let progressString = String.localizedStringWithFormat("ScaExam.Horizontal.Progress".localized, currentSca_ + 1, scaSession.exam.scas.count)
+        let progressString = String.localizedStringWithFormat("SctExam.Horizontal.Progress".localized, currentSct_ + 1, sctSession.exam.scts.count)
         progressLabel.text = progressString
     }
     
     fileprivate func updateTimeUi_()
     {
-        let minutes = Int(scaSession.time) / 60
-        let seconds = Int(scaSession.time) % 60
+        let minutes = Int(sctSession.time) / 60
+        let seconds = Int(sctSession.time) % 60
         
         let timeString = String(format: "%02d:%02d", minutes, seconds)
         
@@ -241,8 +241,8 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     
     fileprivate func updateNavigationButtons_()
     {
-        previousButton.isEnabled    = (currentSca_ > 0)
-        nextButton.isEnabled        = (currentSca_ < scaSession.exam.scas.count - 1)
+        previousButton.isEnabled    = (currentSct_ > 0)
+        nextButton.isEnabled        = (currentSct_ < sctSession.exam.scts.count - 1)
     }
     
     // -------------------------------------------------------------------------
@@ -251,7 +251,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     fileprivate func createTimer_()
     {
         lastTime_ = Date.timeIntervalSinceReferenceDate
-        sessionTimer_ = Timer.scheduledTimer(timeInterval: ScaHorizontalViewController.refreshTime_, target: self, selector: #selector(ScaHorizontalViewController.updateTime_), userInfo: nil, repeats: true)
+        sessionTimer_ = Timer.scheduledTimer(timeInterval: SctHorizontalViewController.refreshTime_, target: self, selector: #selector(SctHorizontalViewController.updateTime_), userInfo: nil, repeats: true)
     }
     
     fileprivate func destroyTimer_()
@@ -264,7 +264,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     {
         // compute the elapsed time
         let elapsedTime = Date.timeIntervalSinceReferenceDate - lastTime_
-        scaSession.time += elapsedTime
+        sctSession.time += elapsedTime
         lastTime_ = Date.timeIntervalSinceReferenceDate
         
         // display the time
@@ -296,22 +296,22 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     // -------------------------------------------------------------------------
     fileprivate func sessionValidationStatus_() -> ValidationStatus
     {
-        if scaSession.time < ScaHorizontalViewController.minimumSessionTime_
+        if sctSession.time < SctHorizontalViewController.minimumSessionTime_
         {
             return .valid // time is only checked server-side
         }
         
-        var validScas = 0
-        for i in 0..<scaSession.exam.scas.count
+        var validScts = 0
+        for i in 0..<sctSession.exam.scts.count
         {
-            if scaSession.isScaValid(i)
+            if sctSession.isSctValid(i)
             {
-                validScas += 1
+                validScts += 1
             }
         }
-        if validScas < (scaSession.exam.scas.count / 2)
+        if validScts < (sctSession.exam.scts.count / 2)
         {
-            return .invalid(.insufficientAnsweredScas(actual: validScas, expected: scaSession.exam.scas.count / 2))
+            return .invalid(.insufficientAnsweredScts(actual: validScts, expected: sctSession.exam.scts.count / 2))
         }
         return .valid
     }
@@ -326,24 +326,24 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     
     @IBAction func previous(_ sender: UIBarButtonItem)
     {
-        guard currentSca_ > 0 else
+        guard currentSct_ > 0 else
         {
             return
         }
         
-        currentSca_ -= 1
+        currentSct_ -= 1
         
         updateNavigationButtons_()
     }
     
     @IBAction func next(_ sender: UIBarButtonItem)
     {
-        guard currentSca_ < scaSession.exam.scas.count - 1 else
+        guard currentSct_ < sctSession.exam.scts.count - 1 else
         {
             return
         }
         
-        currentSca_ += 1
+        currentSct_ += 1
         
         updateNavigationButtons_()
     }
@@ -363,13 +363,13 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     
     fileprivate func displayError_(_ error: ValidationError)
     {
-        let errorController = UIAlertController(title: "ScaExam.Submission.Error.AlertTitle".localized, message: "", preferredStyle: .alert)
+        let errorController = UIAlertController(title: "SctExam.Submission.Error.AlertTitle".localized, message: "", preferredStyle: .alert)
         switch error
         {
         case let .insufficientTime(actual: currentTime, expected: minimumTime):
-            errorController.message = String.localizedStringWithFormat("ScaExam.Submission.Error.InsufficientTime".localized, minimumTime, currentTime)
-        case let .insufficientAnsweredScas(actual: actual, expected: expected):
-            errorController.message = String.localizedStringWithFormat("ScaExam.Submission.Error.InsufficientAnswers".localized, actual, expected)
+            errorController.message = String.localizedStringWithFormat("SctExam.Submission.Error.InsufficientTime".localized, minimumTime, currentTime)
+        case let .insufficientAnsweredScts(actual: actual, expected: expected):
+            errorController.message = String.localizedStringWithFormat("SctExam.Submission.Error.InsufficientAnswers".localized, actual, expected)
         }
         
         let cancelAction = UIAlertAction(title: "Common.Ok".localized, style: .default, handler: {
@@ -385,12 +385,12 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     {
         destroyTimer_()
         
-        let optionsController = UIAlertController(title: "ScaExam.Horizontal.Options.Title".localized, message: "ScaExam.Horizontal.Options.Message".localized, preferredStyle: .actionSheet)
+        let optionsController = UIAlertController(title: "SctExam.Horizontal.Options.Title".localized, message: "SctExam.Horizontal.Options.Message".localized, preferredStyle: .actionSheet)
         
         // go to
-        let goToAction = UIAlertAction(title: "ScaExam.Horizontal.Options.GoTo".localized, style: .default, handler: {
+        let goToAction = UIAlertAction(title: "SctExam.Horizontal.Options.GoTo".localized, style: .default, handler: {
             (_) -> Void in
-            self.performSegue(withIdentifier: ScaHorizontalViewController.toGoToSca, sender: self)
+            self.performSegue(withIdentifier: SctHorizontalViewController.toGoToSct, sender: self)
         })
         
         // cancel
@@ -410,11 +410,11 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     // -------------------------------------------------------------------------
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == ScaHorizontalViewController.toGoToSca,
-            let destination = (segue.destination as? UINavigationController)?.viewControllers.first as? GoToScaViewController
+        if segue.identifier == SctHorizontalViewController.toGoToSct,
+            let destination = (segue.destination as? UINavigationController)?.viewControllers.first as? GoToSctViewController
         {
-            destination.session = scaSession
-            destination.currentSca = currentSca_
+            destination.session = sctSession
+            destination.currentSct = currentSct_
             destination.delegate = self
         }
     }
@@ -432,27 +432,27 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     // -------------------------------------------------------------------------
     public func numberOfSections(in tableView: UITableView) -> Int
     {
-        return ScaSection.allCases.count
+        return SctSection.allCases.count
     }
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
-        return ScaSection.allCases[section].title
+        return SctSection.allCases[section].title
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        let section = ScaSection.allCases[section]
-        return section.rows(for: scaSession.exam.scas[currentSca_]).count
+        let section = SctSection.allCases[section]
+        return section.rows(for: sctSession.exam.scts[currentSct_]).count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let section = ScaSection.allCases[indexPath.section]
-        let rows = section.rows(for: scaSession.exam.scas[currentSca_])
+        let section = SctSection.allCases[indexPath.section]
+        let rows = section.rows(for: sctSession.exam.scts[currentSct_])
         let row = rows[indexPath.row]
         
-        let cell = row.cell(for: indexPath, scaHorizontalViewController: self)
+        let cell = row.cell(for: indexPath, sctHorizontalViewController: self)
         cell.accessoryType      = .none
         cell.selectionStyle     = .none
         return cell
@@ -460,21 +460,21 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
 }
 
 // -----------------------------------------------------------------------------
-// MARK: - SCA HORIZONTAL QUESTION CELL DELEGATE
+// MARK: - SCT HORIZONTAL QUESTION CELL DELEGATE
 // -----------------------------------------------------------------------------
-extension ScaHorizontalViewController: ScaHorizontalQuestionCellDelegate
+extension SctHorizontalViewController: SctHorizontalQuestionCellDelegate
 {
-    public func scaHorizontalQuestionCell(_ scaHorizontalQuestionCell: ScaHorizontalQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
+    public func sctHorizontalQuestionCell(_ sctHorizontalQuestionCell: SctHorizontalQuestionCell, didSelectAnswer answer: LikertSctle.Degree?)
     {
-        let questionIndex = scaHorizontalQuestionCell.tag
-        scaSession[currentSca_, questionIndex] = answer
+        let questionIndex = sctHorizontalQuestionCell.tag
+        sctSession[currentSct_, questionIndex] = answer
     }
 }
 
 // -----------------------------------------------------------------------------
 // UIApplicationDelegate
 // -----------------------------------------------------------------------------
-extension ScaHorizontalViewController: UIApplicationDelegate
+extension SctHorizontalViewController: UIApplicationDelegate
 {
     public func applicationWillResignActive(_ application: UIApplication)
     {
@@ -488,16 +488,16 @@ extension ScaHorizontalViewController: UIApplicationDelegate
 }
 
 // -----------------------------------------------------------------------------
-// GoToScaViewControllerDelegate
+// GoToSctViewControllerDelegate
 // -----------------------------------------------------------------------------
-extension ScaHorizontalViewController: GoToScaViewControllerDelegate
+extension SctHorizontalViewController: GoToSctViewControllerDelegate
 {
-    func goToScaViewControllerDidCancel(_ goToScaViewController: GoToScaViewController)
+    func goToSctViewControllerDidCancel(_ goToSctViewController: GoToSctViewController)
     {
     }
     
-    func goToScaViewController(_ goToScaViewController: GoToScaViewController, didChooseSca scaIndex: Int)
+    func goToSctViewController(_ goToSctViewController: GoToSctViewController, didChooseSct sctIndex: Int)
     {
-        currentSca_ = scaIndex
+        currentSct_ = sctIndex
     }
 }

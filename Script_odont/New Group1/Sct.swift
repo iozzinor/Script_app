@@ -1,5 +1,5 @@
 //
-//  Sca.swift
+//  Sct.swift
 //  Script_odont
 //
 //  Created by Régis Iozzino on 26/02/2019.
@@ -8,15 +8,15 @@
 
 import Foundation
 
-/// An SCA (Script Concordance Assessment).
-public struct Sca
+/// An SCT (Script Concordance Assessment).
+public struct Sct
 {
     /// The wording of the patient's problem.
     public var wording = ""
     
-    /// The SCA topic.
-    public var topic = ScaTopic.diagnostic
+    /// The SCT topic.
+    public var topic = SctTopic.diagnostic
     
     /// Questions related the the patient's case.
-    public var questions = [ScaQuestion]()
+    public var questions = [SctQuestion]()
 }

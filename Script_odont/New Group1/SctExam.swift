@@ -1,5 +1,5 @@
 //
-//  ScaExam.swift
+//  SctExam.swift
 //  Script_odont
 //
 //  Created by Régis Iozzino on 28/02/2019.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// A set of SCAs.
-public struct ScaExam
+/// A set of SCTs.
+public struct SctExam
 {
-    public var scas = [Sca]()
+    public var scts = [Sct]()
 }

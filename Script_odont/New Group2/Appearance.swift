@@ -25,8 +25,8 @@ struct Appearance
         public static let action = UIColor.blue
     }
     
-    /// Appearance of sca related views.
-    struct ScaHorizontal
+    /// Appearance of sct related views.
+    struct SctHorizontal
     {
         struct Table
         {
