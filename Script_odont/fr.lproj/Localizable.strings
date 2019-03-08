@@ -132,7 +132,7 @@
 "Walkthrough.Principle.Drawing.LikertIndex"     = "Indice de Likert";
 
 /* SCA EXAM */
-"ScaExam.Horizontal.Title.Information"      = "Information";
+"ScaExam.Horizontal.Title.Information"      = "Informations";
 "ScaExam.Horizontal.Progress"               = "%d sur %d";
 "ScaExam.Submission.Error.AlertTitle"       = "Erreur de soumission";
 "ScaExam.Submission.Error.InsufficientTime" = "La session doit avoir été lancé un minimum de %f seconds. Il s'est écoulé %f secondes pour le moment.";

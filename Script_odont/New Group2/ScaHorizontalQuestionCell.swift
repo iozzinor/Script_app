@@ -38,8 +38,8 @@ public class ScaHorizontalQuestionCell: UITableViewCell
         for (i, color) in Appearance.LikertScale.Color.all.enumerated()
         {
             let newButton = UIButton(type: .system)
-            newButton.setTitle("\(i + 1)", for: .normal)
-            newButton.setTitle("\(i + 1)", for: .selected)
+            newButton.setTitle("\(i - 2)", for: .normal)
+            newButton.setTitle("\(i - 2)", for: .selected)
             newButton.setTitleColor(color, for: .normal)
             
             newButton.tag = i
