@@ -117,9 +117,11 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
     @IBOutlet weak var previousButton: UIBarButtonItem!
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var rotateView: UIView!
     
     fileprivate var sessionTimer_: Timer? = nil
     fileprivate var lastTime_: TimeInterval = 0.0
+    fileprivate var orientationHorizontal_ = Constants.isDeviceOrientationHorizontal
     
     public var scaSession = ScaSession(exam: ScaExam(scas: [])) {
         didSet {
@@ -152,6 +154,9 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
         
         // register as application delegate
         (UIApplication.shared.delegate as? AppDelegate)?.registerDelegate(self)
+        
+        // device changed notification
+        NotificationCenter.default.addObserver(self, selector: #selector(ScaHorizontalViewController.deviceOrientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     public override func viewWillAppear(_ animated: Bool)
@@ -195,6 +200,8 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
         tableView.delegate      = self
         
         updateUi_()
+        
+        updateDeviceOrientation_()
     }
     
     // -------------------------------------------------------------------------
@@ -254,6 +261,26 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
         
         // display the time
         updateTimeUi_()
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - DEVICE ORIENTATION
+    // -------------------------------------------------------------------------
+    @objc fileprivate func deviceOrientationChanged(_ sender: Any)
+    {
+        let newOrientationHorizontal = Constants.isDeviceOrientationHorizontal
+        if newOrientationHorizontal != orientationHorizontal_
+        {
+            orientationHorizontal_ = newOrientationHorizontal
+            
+            updateDeviceOrientation_()
+        }
+    }
+    
+    fileprivate func updateDeviceOrientation_()
+    {
+        rotateView.isHidden = orientationHorizontal_
+        tableView.isHidden = !orientationHorizontal_
     }
     
     // -------------------------------------------------------------------------

@@ -18,6 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVY-Ci-Are">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please rotate the device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wn-qv-5rm">
+                                        <rect key="frame" x="95.5" y="313" width="184" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="7Wn-qv-5rm" firstAttribute="centerY" secondItem="BVY-Ci-Are" secondAttribute="centerY" id="9zx-YD-kGw"/>
+                                    <constraint firstItem="7Wn-qv-5rm" firstAttribute="centerX" secondItem="BVY-Ci-Are" secondAttribute="centerX" id="JSo-aO-Wkd"/>
+                                </constraints>
+                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auk-YP-Bd8">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
@@ -168,11 +184,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="lEG-Lx-pei" firstAttribute="bottom" secondItem="BVY-Ci-Are" secondAttribute="bottom" id="1Rh-51-7O2"/>
                             <constraint firstItem="lEG-Lx-pei" firstAttribute="bottom" secondItem="LBW-xq-j7p" secondAttribute="bottom" id="LtM-Rv-ePE"/>
                             <constraint firstItem="LBW-xq-j7p" firstAttribute="leading" secondItem="lEG-Lx-pei" secondAttribute="leading" id="VdZ-9M-XPX"/>
                             <constraint firstItem="auk-YP-Bd8" firstAttribute="leading" secondItem="lEG-Lx-pei" secondAttribute="leading" id="W7W-xd-qAi"/>
                             <constraint firstItem="LBW-xq-j7p" firstAttribute="top" secondItem="auk-YP-Bd8" secondAttribute="bottom" id="XLZ-c1-Rxm"/>
                             <constraint firstItem="auk-YP-Bd8" firstAttribute="top" secondItem="lEG-Lx-pei" secondAttribute="top" id="eBi-h9-fIw"/>
+                            <constraint firstItem="BVY-Ci-Are" firstAttribute="top" secondItem="lEG-Lx-pei" secondAttribute="top" id="icJ-fe-hRN"/>
+                            <constraint firstItem="lEG-Lx-pei" firstAttribute="trailing" secondItem="BVY-Ci-Are" secondAttribute="trailing" id="k5u-dp-jx1"/>
+                            <constraint firstItem="BVY-Ci-Are" firstAttribute="leading" secondItem="lEG-Lx-pei" secondAttribute="leading" id="l5K-Zv-BeR"/>
                             <constraint firstItem="lEG-Lx-pei" firstAttribute="trailing" secondItem="LBW-xq-j7p" secondAttribute="trailing" id="qfA-r2-ufT"/>
                             <constraint firstAttribute="trailing" secondItem="auk-YP-Bd8" secondAttribute="trailing" id="u1t-mY-Uvw"/>
                         </constraints>
@@ -182,6 +202,7 @@
                         <outlet property="informationItem" destination="hGf-Ig-5Z9" id="nwR-Ff-h78"/>
                         <outlet property="nextButton" destination="rAa-ig-lBx" id="dPH-Qh-mYm"/>
                         <outlet property="previousButton" destination="c56-Fp-WWV" id="YKa-Dw-x0Y"/>
+                        <outlet property="rotateView" destination="BVY-Ci-Are" id="umX-7f-a9L"/>
                         <outlet property="tableView" destination="LBW-xq-j7p" id="LrF-8Z-TsM"/>
                         <outlet property="toolbar" destination="auk-YP-Bd8" id="nM6-Wg-oML"/>
                         <segue destination="IvR-bP-zxa" kind="presentation" identifier="ScaHorizontalToGoToScaSegueId" id="Vw8-wN-fyX"/>
@@ -189,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6X2-Qr-a2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="-206"/>
+            <point key="canvasLocation" x="421.60000000000002" y="-206.44677661169416"/>
         </scene>
         <!--Select A Sca-->
         <scene sceneID="Vm2-dm-97p">
