@@ -97,6 +97,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
                 let cell = tableView.dequeueReusableCell(for: indexPath) as ScaHorizontalQuestionCell
                 cell.question = sca.questions[indexPath.row - 2]
                 cell.tag = indexPath.row - 2
+                cell.isLast = (indexPath.row - 1 == sca.questions.count)
                 
                 // restore the answer
                 let answer = session[currentSca, indexPath.row - 2]
@@ -107,7 +108,7 @@ public class ScaHorizontalViewController: UIViewController, UITableViewDelegate,
                 let cell = tableView.dequeueReusableCell(for: indexPath) as ScaHorizontalScaleCell
                 
                 let likertScale = sca.topic.likertScale
-                cell.setScale(code: indexPath.row - 3, description: likertScale[indexPath.row - 3])
+                cell.setScale(code: indexPath.row - 2, description: likertScale[indexPath.row - 2])
                 return cell
             }
         }

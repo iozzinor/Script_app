@@ -49,6 +49,7 @@
 		AC4904D1222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904D0222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift */; };
 		AC53E36722329C2700CA4437 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E36622329C2700CA4437 /* Constants.swift */; };
 		AC53E3692232B2BA00CA4437 /* ScaHorizontalQuestionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E3682232B2BA00CA4437 /* ScaHorizontalQuestionHeaderCell.swift */; };
+		AC53E36B2232B75200CA4437 /* UIView+border.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E36A2232B75200CA4437 /* UIView+border.swift */; };
 		AC82731C222C93B90041AA0C /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC82731B222C93B90041AA0C /* RecoverPasswordViewController.swift */; };
 		AC82731E222C96EB0041AA0C /* SecurityQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC82731D222C96EB0041AA0C /* SecurityQuestionCell.xib */; };
 		AC87E2F8222CA24000D6B8CC /* UserIdentifierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87E2F7222CA24000D6B8CC /* UserIdentifierCell.swift */; };
@@ -126,6 +127,7 @@
 		AC4904D0222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopicPickerViewControllerDelegate.swift; sourceTree = "<group>"; };
 		AC53E36622329C2700CA4437 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AC53E3682232B2BA00CA4437 /* ScaHorizontalQuestionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaHorizontalQuestionHeaderCell.swift; sourceTree = "<group>"; };
+		AC53E36A2232B75200CA4437 /* UIView+border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+border.swift"; sourceTree = "<group>"; };
 		AC82731B222C93B90041AA0C /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
 		AC82731D222C96EB0041AA0C /* SecurityQuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecurityQuestionCell.xib; sourceTree = "<group>"; };
 		AC87E2F7222CA24000D6B8CC /* UserIdentifierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdentifierCell.swift; sourceTree = "<group>"; };
@@ -265,11 +267,12 @@
 				ACE70F92221F214C008454FF /* WeakContainer.swift */,
 				ACE70F94221F2439008454FF /* WeakArray.swift */,
 				AC38BB75221DFB2F008E829B /* String+localized.swift */,
+				AC53E36622329C2700CA4437 /* Constants.swift */,
 				AC38BB79221E89C0008E829B /* UIApplication+isFirstLaunch.swift */,
 				ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */,
 				ACE70F96221F3254008454FF /* UITableViewCell+reuseId.swift */,
 				ACE70F98221F32B9008454FF /* UITableView+register.swift */,
-				AC53E36622329C2700CA4437 /* Constants.swift */,
+				AC53E36A2232B75200CA4437 /* UIView+border.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				AC4904C7222BBE6100BDEB4B /* PasswordPolicy.swift in Sources */,
 				AC53E36722329C2700CA4437 /* Constants.swift in Sources */,
 				AC9F23E72229D9AA002D38E5 /* String+hex.swift in Sources */,
+				AC53E36B2232B75200CA4437 /* UIView+border.swift in Sources */,
 				AC0D77D62228274D007F83D4 /* Appearance.swift in Sources */,
 				AC8F5B822229696000FAEFC5 /* LoginViewController.swift in Sources */,
 				AC4904CF222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift in Sources */,

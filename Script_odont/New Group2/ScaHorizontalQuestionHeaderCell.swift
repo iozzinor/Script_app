@@ -10,7 +10,22 @@ import UIKit
 
 class ScaHorizontalQuestionHeaderCell: UITableViewCell
 {
-    @IBOutlet weak var hypothesisLabel: UILabel!
-    @IBOutlet weak var newDataLabel: UILabel!
-    @IBOutlet weak var likertScaleLabel: UILabel!
+    @IBOutlet weak var hypothesisLabel: UILabel! {
+        didSet
+        {
+            hypothesisLabel.addBorders(with: Appearance.ScaHorizontal.Table.borderColor, lineWidth: Appearance.ScaHorizontal.Table.borderWidth, positions: [.left, .top])
+        }
+    }
+    @IBOutlet weak var newDataLabel: UILabel! {
+        didSet
+        {
+            newDataLabel.addBorders(with: Appearance.ScaHorizontal.Table.borderColor, lineWidth: Appearance.ScaHorizontal.Table.borderWidth, positions: [.left, .top])
+        }
+    }
+    @IBOutlet weak var likertScaleLabel: UILabel! {
+        didSet
+        {
+                likertScaleLabel.addBorders(with: Appearance.ScaHorizontal.Table.borderColor, lineWidth: Appearance.ScaHorizontal.Table.borderWidth, positions: [.left, .top, .right])
+        }
+    }
 }

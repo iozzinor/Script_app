@@ -10,12 +10,28 @@ import UIKit
 
 public class ScaHorizontalQuestionCell: UITableViewCell
 {
-    @IBOutlet weak var hypothesisLabel: UILabel!
-    @IBOutlet weak var newDataLabel: UILabel!
+    @IBOutlet weak var hypothesisLabel: UILabel! {
+        didSet
+        {
+            hypothesisLabel.addBorders(with: Appearance.ScaHorizontal.Table.borderColor, lineWidth: Appearance.ScaHorizontal.Table.borderWidth, positions: [.left, .top])
+        }
+    }
+    @IBOutlet weak var newDataLabel: UILabel! {
+        didSet
+        {
+            newDataLabel.addBorders(with: Appearance.ScaHorizontal.Table.borderColor, lineWidth: Appearance.ScaHorizontal.Table.borderWidth, positions: [.left, .top])
+        }
+    }
     @IBOutlet weak var scalesContainer: UIStackView! {
         didSet {
             clearScaleContainer_()
             setupScaleContainerButtons_()
+            
+            if scalesContainer.tag != 1
+            {
+                scalesContainer.tag = 1
+                scalesContainer.addBorders(with: Appearance.ScaHorizontal.Table.borderColor, lineWidth: Appearance.ScaHorizontal.Table.borderWidth, positions: [.left, .top, .right])
+            }
         }
     }
     
@@ -23,6 +39,31 @@ public class ScaHorizontalQuestionCell: UITableViewCell
     fileprivate var selectedScaleButton_: UIButton? = nil
     
     weak var delegate: ScaHorizontalQuestionCellDelegate? = nil
+    
+    var isLast = false
+    {
+        didSet
+        {
+            if isLast
+            {
+                if hypothesisLabel.tag != 1
+                {
+                    hypothesisLabel.tag = 1
+                    hypothesisLabel.addBorder(with: Appearance.ScaHorizontal.Table.borderColor, lineWidth: Appearance.ScaHorizontal.Table.borderWidth, position: .bottom)
+                }
+                if newDataLabel.tag != 1
+                {
+                    newDataLabel.tag = 1
+                    newDataLabel.addBorder(with: Appearance.ScaHorizontal.Table.borderColor, lineWidth: Appearance.ScaHorizontal.Table.borderWidth, position: .bottom)
+                }
+                if (scalesContainer.tag >> 1) != 1
+                {
+                    scalesContainer.tag |= 2
+                    scalesContainer.addBorder(with: Appearance.ScaHorizontal.Table.borderColor, lineWidth: Appearance.ScaHorizontal.Table.borderWidth, position: .bottom)
+                }
+            }
+        }
+    }
     
     fileprivate func clearScaleContainer_()
     {

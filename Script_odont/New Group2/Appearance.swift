@@ -26,8 +26,13 @@ struct Appearance
     }
     
     /// Appearance of sca related views.
-    struct Sca
+    struct ScaHorizontal
     {
+        struct Table
+        {
+            public static let borderColor = UIColor.black
+            public static let borderWidth: CGFloat = 2.0
+        }
     }
     
     /// Appearance for likert scale.
