@@ -67,10 +67,12 @@ class SctUnfinishedViewController: UITableViewController
             let sctUnfinished = sctUnfinishedViewController.sctUnfinished
             
             let cell = tableView.dequeueReusableCell(withIdentifier: SctUnfinishedViewController.cellId, for: indexPath)
+            cell.textLabel?.textColor = Appearance.Color.default
             switch self
             {
             case .topic:
                 cell.textLabel?.text = sctUnfinished.session.exam.scts.first?.topic.name
+                cell.textLabel?.textColor = Appearance.Color.color(for: sctUnfinished.session.exam.scts.first?.topic ?? .diagnostic)
             case .meanScore:
                 cell.textLabel?.text = ""
                 

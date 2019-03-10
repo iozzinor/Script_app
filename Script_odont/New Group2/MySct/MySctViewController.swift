@@ -16,7 +16,7 @@ class MySctViewController: UIViewController
     fileprivate enum MySctSection
     {
         case unfinished([SctUnfinished])
-        case finished
+        case finished([SctFinished])
         
         var title: String? {
             switch self
@@ -36,8 +36,10 @@ class MySctViewController: UIViewController
                 return unfinishedScts.map {
                     return MySctRow.unfinished($0)
                 }
-            case .finished:
-                return Array<MySctRow>(repeating: .finished, count: 5)
+            case let .finished(finishedScts):
+                return finishedScts.map {
+                    return MySctRow.finished($0)
+                }
             }
         }
     }
@@ -48,7 +50,7 @@ class MySctViewController: UIViewController
     fileprivate enum MySctRow
     {
         case unfinished(SctUnfinished)
-        case finished
+        case finished(SctFinished)
         
         func cell(for indexPath: IndexPath, mySctViewController: MySctViewController) -> UITableViewCell
         {
@@ -59,12 +61,13 @@ class MySctViewController: UIViewController
             case let .unfinished(sctUnfinished):
                 let cell = tableView.dequeueReusableCell(for: indexPath) as MySctUnfinishedCell
                 cell.setSctUnfinished(sctUnfinished)
-                
                 cell.accessoryType = .disclosureIndicator
-                
                 return cell
-            case .finished:
-                return UITableViewCell()
+            case let .finished(sctFinished):
+                let cell = tableView.dequeueReusableCell(for: indexPath) as MySctFinishedCell
+                cell.setSctFinished(sctFinished)
+                cell.accessoryType = .disclosureIndicator
+                return cell
             }
         }
     }
@@ -83,7 +86,7 @@ class MySctViewController: UIViewController
         
         var unfinishedScts = [SctUnfinished]()
         
-        for _ in 0..<5
+        for _ in 0..<10
         {
             let topic = SctTopic(rawValue: Int(arc4random() % 3)) ?? .diagnostic
             scts[0].topic = topic
@@ -104,9 +107,43 @@ class MySctViewController: UIViewController
         return unfinishedScts
     }
     
+    private static func defaultFinishedScts_() -> [SctFinished]
+    {
+        var scts = [Sct]()
+        
+        let sctsCount = Int(arc4random() % 10) + 2
+        for _ in 0..<sctsCount
+        {
+            scts.append(Sct(wording: "", topic: .diagnostic, questions: Array<SctQuestion>(repeating: SctQuestion(), count: 10)))
+        }
+        
+        var finishedScts = [SctFinished]()
+        
+        for _ in 0..<5
+        {
+            let topic = SctTopic(rawValue: Int(arc4random() % 3)) ?? .diagnostic
+            scts[0].topic = topic
+            let exam = SctExam(scts: scts)
+            let session = SctSession(exam: exam)
+            
+            let answeredQuestions = Int(arc4random() % 30) + 5
+            let duration = Double(Int(arc4random() % 300) + 50)
+            let startDate = Date(timeIntervalSinceNow: Double(Int(arc4random() % 10 * (3600 * 24))))
+            
+            let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), score: Int(arc4random() % 100 + 1))
+            
+            finishedScts.append(sctUnfinished)
+        }
+        
+        finishedScts.sort(by: { $0.startDate > $1.startDate })
+        
+        return finishedScts
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     
-    fileprivate var sections_: [MySctSection] = [ .unfinished(MySctViewController.defaultUnfinishedScts_()), .finished]
+    fileprivate var sections_: [MySctSection] = [ .unfinished(MySctViewController.defaultUnfinishedScts_()),
+                                                  .finished(MySctViewController.defaultFinishedScts_())]
     fileprivate var sctUnfinished_: SctUnfinished? = nil
     
     override func viewDidLoad()

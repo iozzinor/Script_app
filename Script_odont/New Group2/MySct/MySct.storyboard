@@ -106,6 +106,85 @@
                                             <outlet property="topicLabel" destination="WqP-lP-3vK" id="g03-jX-qo1"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MySctFinishedCellReuseId" id="2f2-BC-Qy1" customClass="MySctFinishedCell" customModule="Script_odont" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2f2-BC-Qy1" id="cDK-fp-6w2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ksf-kQ-zEt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="38.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aVY-69-3Wh">
+                                                            <rect key="frame" x="20" y="0.0" width="335" height="19.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbz-u3-fHp">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="152.5" height="19.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub0-c7-0iI">
+                                                                    <rect key="frame" x="152.5" y="0.0" width="182.5" height="19.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="fbz-u3-fHp" firstAttribute="width" secondItem="aVY-69-3Wh" secondAttribute="width" multiplier="5:11" id="jX1-50-75H"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aj0-wz-IMf">
+                                                            <rect key="frame" x="20" y="19.5" width="335" height="19"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRl-d6-2uB">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="152.5" height="19"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answered questions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWs-LM-ctM">
+                                                                    <rect key="frame" x="152.5" y="0.0" width="91" height="19"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0e-MX-23X">
+                                                                    <rect key="frame" x="243.5" y="0.0" width="91.5" height="19"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="VRl-d6-2uB" firstAttribute="width" secondItem="aj0-wz-IMf" secondAttribute="width" multiplier="5:11" id="l1X-Sh-lMa"/>
+                                                                <constraint firstItem="k0e-MX-23X" firstAttribute="width" secondItem="tWs-LM-ctM" secondAttribute="width" id="tjU-sK-qWd"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="aj0-wz-IMf" firstAttribute="leading" secondItem="aVY-69-3Wh" secondAttribute="leading" id="E0k-9j-0ga"/>
+                                                        <constraint firstItem="aVY-69-3Wh" firstAttribute="leading" secondItem="Ksf-kQ-zEt" secondAttribute="leading" constant="20" symbolic="YES" id="x1w-la-dGH"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Ksf-kQ-zEt" secondAttribute="trailing" id="DAu-Lu-Ebb"/>
+                                                <constraint firstItem="Ksf-kQ-zEt" firstAttribute="leading" secondItem="cDK-fp-6w2" secondAttribute="leading" id="jSk-SR-lVN"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ksf-kQ-zEt" secondAttribute="bottom" constant="5" id="lcS-op-dMb"/>
+                                                <constraint firstItem="Ksf-kQ-zEt" firstAttribute="top" secondItem="cDK-fp-6w2" secondAttribute="top" id="tFJ-gY-Vxf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="answeredQuestionsLabel" destination="tWs-LM-ctM" id="oMX-2r-d7m"/>
+                                            <outlet property="durationLabel" destination="k0e-MX-23X" id="kHM-6y-flo"/>
+                                            <outlet property="scoreLabel" destination="ub0-c7-0iI" id="o8m-xK-It0"/>
+                                            <outlet property="startDateLabel" destination="fbz-u3-fHp" id="R9W-gS-SLG"/>
+                                            <outlet property="topicLabel" destination="VRl-d6-2uB" id="DEn-Ae-TPN"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>

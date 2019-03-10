@@ -76,6 +76,7 @@
 		AC9F23EB222A90ED002D38E5 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23EA222A90ED002D38E5 /* SigninViewController.swift */; };
 		AC9F23ED222A93F4002D38E5 /* SigninLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23EC222A93F4002D38E5 /* SigninLabelCell.swift */; };
 		AC9F23EF222B124B002D38E5 /* Qualification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23EE222B124B002D38E5 /* Qualification.swift */; };
+		ACB8C8A822351AE000C7F77C /* SctFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8C8A722351AE000C7F77C /* SctFinished.swift */; };
 		ACE70F8F221EFB6C008454FF /* WalkthroughPrincipleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* WalkthroughPrincipleViewController.swift */; };
 		ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */; };
 		ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F92221F214C008454FF /* WeakContainer.swift */; };
@@ -162,6 +163,7 @@
 		AC9F23EA222A90ED002D38E5 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		AC9F23EC222A93F4002D38E5 /* SigninLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninLabelCell.swift; sourceTree = "<group>"; };
 		AC9F23EE222B124B002D38E5 /* Qualification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Qualification.swift; sourceTree = "<group>"; };
+		ACB8C8A722351AE000C7F77C /* SctFinished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctFinished.swift; sourceTree = "<group>"; };
 		ACE70F8E221EFB6C008454FF /* WalkthroughPrincipleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPrincipleViewController.swift; sourceTree = "<group>"; };
 		ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+storyboardId.swift"; sourceTree = "<group>"; };
 		ACE70F92221F214C008454FF /* WeakContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */,
 				AC4904BE222B3AAF00BDEB4B /* SecurityQuestion.swift */,
 				AC53E3752233AD9B00CA4437 /* SctUnfinished.swift */,
+				ACB8C8A722351AE000C7F77C /* SctFinished.swift */,
 			);
 			name = Core;
 			path = "New Group1";
@@ -479,6 +482,7 @@
 				AC53E37422331B8500CA4437 /* MySctViewController.swift in Sources */,
 				AC9F23EB222A90ED002D38E5 /* SigninViewController.swift in Sources */,
 				AC4904C7222BBE6100BDEB4B /* PasswordPolicy.swift in Sources */,
+				ACB8C8A822351AE000C7F77C /* SctFinished.swift in Sources */,
 				AC53E36722329C2700CA4437 /* Constants.swift in Sources */,
 				AC9F23E72229D9AA002D38E5 /* String+hex.swift in Sources */,
 				AC53E36B2232B75200CA4437 /* UIView+border.swift in Sources */,
