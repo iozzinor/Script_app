@@ -19,7 +19,7 @@ class DrawingWalkthroughViewController: UIViewController
         case wording
         case hypothesis
         case newData
-        case lickertSctle
+        case lickertScale
         
         var next: Step {
             let newValue = (self.rawValue < Step.allCases.count - 1 ? self.rawValue + 1 : 0)
@@ -30,15 +30,15 @@ class DrawingWalkthroughViewController: UIViewController
             switch self
             {
             case .drawing:
-                return "Walkthrough.Principle.Description.Drawing".localized
+                return "DrawingWalkthrough.Description.Drawing".localized
             case .wording:
-                return "Walkthrough.Principle.Description.Wording".localized
+                return "DrawingWalkthrough.Description.Wording".localized
             case .hypothesis:
-                return "Walkthrough.Principle.Description.Hypothesis".localized
+                return "DrawingWalkthrough.Description.Hypothesis".localized
             case .newData:
-                return "Walkthrough.Principle.Description.NewData".localized
-            case .lickertSctle:
-                return "Walkthrough.Principle.Description.LikertSctle".localized
+                return "DrawingWalkthrough.Description.NewData".localized
+            case .lickertScale:
+                return "DrawingWalkthrough.Description.LikertScale".localized
             }
         }
     }
@@ -131,7 +131,7 @@ class DrawingWalkthroughViewController: UIViewController
                 self.stepLabel.alpha = 1
         })
         
-        let firstCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! DrawingWalkthroughCell
+        /*let firstCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! DrawingWalkthroughCell
         let lastCell = tableView.cellForRow(at: IndexPath(row: 5, section: 0)) as! DrawingWalkthroughCell
         let firstLabel: UITextView
         let lastLabel: UITextView
@@ -167,7 +167,15 @@ class DrawingWalkthroughViewController: UIViewController
         let width = firstFrame.width
         let height = lastFrame.maxY - firstFrame.minY
         
-        focusView.frame = CGRect(x: firstFrame.minX, y: firstFrame.minY, width: width, height: height)
+        focusView.frame = CGRect(x: firstFrame.minX, y: firstFrame.minY, width: width, height: height)*/
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - Actions
+    // -------------------------------------------------------------------------
+    @IBAction func done(_ sender: UIBarButtonItem)
+    {
+        dismiss(animated: true, completion: nil)
     }
     
     // -------------------------------------------------------------------------
@@ -241,11 +249,11 @@ extension DrawingWalkthroughViewController: UITableViewDataSource
         switch indexPath.row
         {
         case 0:
-            cell.labels.first?.text = "Walkthrough.Principle.Drawing.Wording".localized
+            cell.labels.first?.text = "DrawingWalkthrough.Drawing.Wording".localized
         case 1:
-            cell.labels[0].text = "Walkthrough.Principle.Drawing.Think".localized
-            cell.labels[1].text = "Walkthrough.Principle.Drawing.Find".localized
-            cell.labels[2].text = "Walkthrough.Principle.Drawing.LikertIndex".localized
+            cell.labels[0].text = "DrawingWalkthrough.Drawing.Think".localized
+            cell.labels[1].text = "DrawingWalkthrough.Drawing.Find".localized
+            cell.labels[2].text = "DrawingWalkthrough.Drawing.LikertIndex".localized
         case 4:
             cell.labels[0].text = ""
             cell.labels[1].text = "..."
@@ -259,3 +267,4 @@ extension DrawingWalkthroughViewController: UITableViewDataSource
         return cell
     }
 }
+

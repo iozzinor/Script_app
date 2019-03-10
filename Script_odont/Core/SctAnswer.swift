@@ -11,7 +11,7 @@ import Foundation
 /// Answers to an SCT.
 public struct SctAnswer
 {
-    fileprivate var answers_: [[LikertSctle.Degree]]
+    fileprivate var answers_: [[LikertScale.Degree]]
     
     public init(exam: SctExam)
     {
@@ -19,12 +19,12 @@ public struct SctAnswer
         
         for sct in exam.scts
         {
-            let newAnswers = Array<LikertSctle.Degree>(repeating: .zero, count: sct.questions.count)
+            let newAnswers = Array<LikertScale.Degree>(repeating: .zero, count: sct.questions.count)
             answers_.append(newAnswers)
         }
     }
     
-    public subscript(sctIndex: Int, questionIndex: Int) -> LikertSctle.Degree {
+    public subscript(sctIndex: Int, questionIndex: Int) -> LikertScale.Degree {
         set {
             answers_[sctIndex][questionIndex] = newValue
         }

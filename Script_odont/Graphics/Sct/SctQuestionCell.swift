@@ -112,39 +112,39 @@ public class SctQuestionCell: UITableViewCell
         }
     }
     
-    fileprivate var selectedSctle_: Int = -1 {
+    fileprivate var selectedScale_: Int = -1 {
         didSet {
             selectedSctleButton_?.isSelected = false
-            if selectedSctle_ < 0
+            if selectedScale_ < 0
             {
                 selectedSctleButton_ = nil
             }
             else
             {
-                selectedSctleButton_ = scaleContainerButtons_[selectedSctle_]
+                selectedSctleButton_ = scaleContainerButtons_[selectedScale_]
             }
             
             selectedSctleButton_?.isSelected = true
             
-            delegate?.sctHorizontalQuestionCell(self, didSelectAnswer: LikertSctle.Degree(rawValue: selectedSctle_))
+            delegate?.sctQuestionCell(self, didSelectAnswer: LikertScale.Degree(rawValue: selectedScale_))
         }
     }
     
     var selectedSctle: Int {
         set {
             
-            if newValue == selectedSctle_
+            if newValue == selectedScale_
             {
-                selectedSctle_ = -1
+                selectedScale_ = -1
             }
             else
             {
-                selectedSctle_ = newValue
+                selectedScale_ = newValue
             }
          
         }
         get {
-            return selectedSctle_
+            return selectedScale_
         }
     }
     
@@ -153,8 +153,8 @@ public class SctQuestionCell: UITableViewCell
         selectedSctle = sender.tag
     }
     
-    func setAnswer(_ degree: LikertSctle.Degree?)
+    func setAnswer(_ degree: LikertScale.Degree?)
     {
-        selectedSctle_ = degree?.rawValue ?? -1
+        selectedScale_ = degree?.rawValue ?? -1
     }
 }

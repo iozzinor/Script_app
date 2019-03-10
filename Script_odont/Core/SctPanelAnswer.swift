@@ -39,7 +39,7 @@ public struct SctPanelAnswer
         self.answers_ = []
     }
 
-    public subscript(answerIndex: Int, sctIndex: Int, questionIndex: Int) -> LikertSctle.Degree
+    public subscript(answerIndex: Int, sctIndex: Int, questionIndex: Int) -> LikertScale.Degree
     {
         set {
             if answerIndex > answers_.count - 1
@@ -146,7 +146,7 @@ public struct SctPanelAnswer
     // -------------------------------------------------------------------------
     func responses(forSct sctIndex: Int, questionIndex: Int) -> [Int]
     {
-        var result = Array<Int>(repeating: 0, count: LikertSctle.Degree.allCases.count)
+        var result = Array<Int>(repeating: 0, count: LikertScale.Degree.allCases.count)
         
         for answer in answers_
         {

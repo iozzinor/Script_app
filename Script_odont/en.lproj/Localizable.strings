@@ -130,6 +130,18 @@
 "WelcomeWalkthroughExample.Success.Title"   = "First SCT";
 "WelcomeWalkthroughExample.Success.Message" = "Congratulations! You just solved your first SCT!";
 
+/* DRAWING WALKTHROUGH */
+"DrawingWalkthrough.Description.Drawing"    = "Drawing.";
+"DrawingWalkthrough.Description.Wording"    = "Wording.";
+"DrawingWalkthrough.Description.Hypothesis" = "Hypothesis.";
+"DrawingWalkthrough.Description.NewData"    = "New Data.";
+"DrawingWalkthrough.Description.LikertScale"            = "Likert Scale.";
+
+"DrawingWalkthrough.Drawing.Wording"        = "Wording";
+"DrawingWalkthrough.Drawing.Think"          = "You thought...";
+"DrawingWalkthrough.Drawing.Find"           = "You find...";
+"DrawingWalkthrough.Drawing.LikertIndex"    = "Likert index";
+
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information" = "Information";
 "SctExam.Horizontal.Progress" = "Question %d out of %d";
@@ -151,6 +163,7 @@
 
 /* WALKTHROUGHS VIEW CONTROLLER */
 "Walkthroughs.Show.Welcome" = "Welcome...";
+"Walkthroughs.Show.Drawing" = "Drawing...";
 
 /* MY SCT*/
 "MySct.Section.Unfinished" = "Unfinished";

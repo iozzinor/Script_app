@@ -10,5 +10,5 @@ import Foundation
 
 public protocol SctQuestionCellDelegate: class
 {
-    func sctHorizontalQuestionCell(_ sctHorizontalQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertSctle.Degree?)
+    func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
 }

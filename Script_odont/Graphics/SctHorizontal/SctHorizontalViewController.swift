@@ -474,13 +474,13 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
 }
 
 // -----------------------------------------------------------------------------
-// MARK: - SCT HORIZONTAL QUESTION CELL DELEGATE
+// MARK: - SCT QUESTION CELL DELEGATE
 // -----------------------------------------------------------------------------
 extension SctHorizontalViewController: SctQuestionCellDelegate
 {
-    public func sctHorizontalQuestionCell(_ sctHorizontalQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertSctle.Degree?)
+    public func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
     {
-        let questionIndex = sctHorizontalQuestionCell.tag
+        let questionIndex = sctQuestionCell.tag
         sctSession[currentSct_, questionIndex] = answer
     }
 }

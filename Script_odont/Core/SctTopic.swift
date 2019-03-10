@@ -34,25 +34,25 @@ public enum SctTopic: Int, CaseIterable
         return SctTopic(rawValue: rawValue + 1)!
     }
     
-    public var likertScale: LikertSctle {
+    public var likertScale: LikertScale {
         switch self
         {
         case .diagnostic:
-            return LikertSctle(
+            return LikertScale(
                 negativeTwo:    "Sct.Topic.Diagnostic.NegativeTwo".localized,
                 negativeOne:    "Sct.Topic.Diagnostic.NegativeOne".localized,
                 zero:           "Sct.Topic.Diagnostic.Zero".localized,
                 one:            "Sct.Topic.Diagnostic.One".localized,
                 two:            "Sct.Topic.Diagnostic.Two".localized)
         case .therapeutic:
-            return LikertSctle(
+            return LikertScale(
                 negativeTwo:    "Sct.Topic.Therapeutic.NegativeTwo".localized,
                 negativeOne:    "Sct.Topic.Therapeutic.NegativeOne".localized,
                 zero:           "Sct.Topic.Therapeutic.Zero".localized,
                 one:            "Sct.Topic.Therapeutic.One".localized,
                 two:            "Sct.Topic.Therapeutic.Two".localized)
         case .prognostic:
-            return LikertSctle(
+            return LikertScale(
                 negativeTwo:    "Sct.Topic.Prognostic.NegativeTwo".localized,
                 negativeOne:    "Sct.Topic.Prognostic.NegativeOne".localized,
                 zero:           "Sct.Topic.Prognostic.Zero".localized,

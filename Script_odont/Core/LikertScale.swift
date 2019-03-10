@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct LikertSctle
+public struct LikertScale
 {
     public enum Degree: Int, CaseIterable
     {

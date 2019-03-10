@@ -151,6 +151,7 @@
 
 /* WALKTHROUGHS VIEW CONTROLLER */
 "Walkthroughs.Show.Welcome" = "Bienvenue...";
+"Walkthroughs.Show.Drawing" = "Vignette...";
 
 /* MY SCT*/
 "MySct.Section.Unfinished" = "Non finis";
