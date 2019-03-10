@@ -13,7 +13,7 @@
 /* CORE */
 "Sct.Topic.Diagnostic" = "Diagnostique";
 "Sct.Topic.Therapeutic" = "Thérapeutique";
-"Sct.Topic.Prognostic" = "Prognostique";
+"Sct.Topic.Prognostic" = "Pronostique";
 
 "Sct.Topic.Diagnostic.NegativeTwo"  = "L'hypothèse est pratiquement éliminée";
 "Sct.Topic.Diagnostic.NegativeOne"  = "L'hypothèse devient moins probable";
@@ -147,4 +147,12 @@
 "GoToSct.SctIndex" = "Tcs %d";
 
 /* OTHER VIEW CONTROLLER */
-"OtherViewController.ShowTutorial" = "Lancer le tutoriel...";
+"OtherViewController.Tutorials" = "Tutoriels";
+"OtherViewController.Leaderboard" = "Classement";
+
+/* WALKTHROUGHS VIEW CONTROLLER */
+"Walkthroughs.Show.Welcome" = "Bienvenue...";
+
+/* MY SCT*/
+"MySct.Section.Unfinished" = "Non finis";
+"MySct.Section.Finished" = "Finis";

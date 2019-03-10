@@ -34,7 +34,7 @@ public enum SctTopic: Int, CaseIterable
         return SctTopic(rawValue: rawValue + 1)!
     }
     
-    public var likertSctle: LikertSctle {
+    public var likertScale: LikertSctle {
         switch self
         {
         case .diagnostic:

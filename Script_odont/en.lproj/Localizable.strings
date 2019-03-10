@@ -147,4 +147,12 @@
 "GoToSct.SctIndex" = "Sct %d";
 
 /* OTHER VIEW CONTROLLER */
-"OtherViewController.ShowTutorial" = "Show Tutorial...";
+"OtherViewController.Tutorials" = "Tutorials";
+"OtherViewController.Leaderboard" = "Leaderboard";
+
+/* WALKTHROUGHS VIEW CONTROLLER */
+"Walkthroughs.Show.Welcome" = "Welcome...";
+
+/* MY SCT*/
+"MySct.Section.Unfinished" = "Unfinished";
+"MySct.Section.Finished" = "Finished";

@@ -18,10 +18,13 @@ class ViewController: UITabBarController
     {
         super.viewDidAppear(animated)
         
+        #if DEBUG
+        #else
         if firstDisplay_
         {
             firstDisplay_ = false
             performSegue(withIdentifier: ViewController.mainToLogin, sender: nil)
         }
+        #endif
     }
 }

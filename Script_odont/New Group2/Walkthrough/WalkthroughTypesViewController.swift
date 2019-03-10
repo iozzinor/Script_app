@@ -192,7 +192,7 @@ class WalkthroughTypesViewController: UITableViewController
         
         for i in 0..<5
         {
-            cell.lickertLabels[i].text = currentType_.likertSctle[i - 2]
+            cell.lickertLabels[i].text = currentType_.likertScale[i - 2]
         }
     }
     

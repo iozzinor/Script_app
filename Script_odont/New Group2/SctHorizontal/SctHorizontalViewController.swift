@@ -107,7 +107,7 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
             case .scale:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SctHorizontalScaleCell
                 
-                let likertSctle = sct.topic.likertSctle
+                let likertSctle = sct.topic.likertScale
                 cell.setScale(code: indexPath.row - 2, description: likertSctle[indexPath.row - 2])
                 return cell
             }

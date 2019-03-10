@@ -1,32 +1,24 @@
 //
-//  OtherViewController.swift
+//  WalkthroughsViewController.swift
 //  Script_odont
 //
-//  Created by Régis Iozzino on 01/03/2019.
+//  Created by Régis Iozzino on 08/03/2019.
 //  Copyright © 2019 Régis Iozzino. All rights reserved.
 //
 
 import UIKit
 
-class OtherViewController: UITableViewController
+class WalkthroughsViewController: UITableViewController
 {
-    static let otherCellIdentifier = "OtherCellReuseId"
-    static let toWalkthrough = "OtherToWalkthroughSegueId"
-    
-    // -------------------------------------------------------------------------
-    // MARK: - SEGUES
-    // -------------------------------------------------------------------------
-    fileprivate func displayWalkthrough_()
-    {
-        performSegue(withIdentifier: OtherViewController.toWalkthrough, sender: self)
-    }
+    static let cellId = "WalkthroughsCellReuseId"
+    static let toWalkthroughSegueId = "WalkthroughsToWalkthroughSegueId"
     
     // -------------------------------------------------------------------------
     // MARK: - UITableViewDelegate
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        displayWalkthrough_()
+        performSegue(withIdentifier: WalkthroughsViewController.toWalkthroughSegueId, sender: self)
     }
     
     // -------------------------------------------------------------------------
@@ -44,9 +36,9 @@ class OtherViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: OtherViewController.otherCellIdentifier, for: indexPath)
-        cell.accessoryType = .none
-        cell.textLabel?.text = "OtherViewController.ShowTutorial".localized
+        let cell = tableView.dequeueReusableCell(withIdentifier: WalkthroughsViewController.cellId, for: indexPath)
+        cell.textLabel?.text = "Walkthroughs.Show.Welcome".localized
+        
         return cell
     }
 }
