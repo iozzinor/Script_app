@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WalkthroughViewController: UIViewController
+class WelcomeWalkthroughViewController: UIViewController
 {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var skipButton: UIButton!
@@ -32,14 +32,15 @@ class WalkthroughViewController: UIViewController
     {
         skipButton.layer.cornerRadius = skipButton.frame.height / 2
         skipButton.clipsToBounds = true
+        skipButton.setTitle("WelcomeWalkthrough.SkipButton.Title.Skip".localized, for: .normal)
     }
     
-    fileprivate func setup(walkthroughPageViewController: WalkthroughPageViewController)
+    fileprivate func setup(welcomeWalkthroughPageViewController: WelcomeWalkthroughPageViewController)
     {
-        setupPageControl(walkthroughPageViewController: walkthroughPageViewController)
+        setupPageControl(walkthroughPageViewController: welcomeWalkthroughPageViewController)
     }
     
-    fileprivate func setupPageControl(walkthroughPageViewController: WalkthroughPageViewController)
+    fileprivate func setupPageControl(walkthroughPageViewController: WelcomeWalkthroughPageViewController)
     {
         pageControl.numberOfPages = walkthroughPageViewController.sectionsCount
         pageControl.currentPage = walkthroughPageViewController.currentSectionIndex
@@ -59,10 +60,10 @@ class WalkthroughViewController: UIViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if let walkthroughPageViewController = segue.destination
-            as? WalkthroughPageViewController
+            as? WelcomeWalkthroughPageViewController
         {
-            setup(walkthroughPageViewController: walkthroughPageViewController)
-            walkthroughPageViewController.walkthroughDelegate = self
+            setup(welcomeWalkthroughPageViewController: walkthroughPageViewController)
+            walkthroughPageViewController.welcomeWalkthroughDelegate = self
         }
     }
 }
@@ -70,19 +71,19 @@ class WalkthroughViewController: UIViewController
 // -------------------------------------------------------------------------
 // MARK: - WalkthroughPageViewControllerDelegate
 // -------------------------------------------------------------------------
-extension WalkthroughViewController: WalkthroughPageViewControllerDelegate
+extension WelcomeWalkthroughViewController: WelcomeWalkthroughPageViewControllerDelegate
 {
-    func walkthroughPageViewController(_ walkthroughPageViewController: WalkthroughPageViewController, didTransistionToSectionAtIndex sectionIndex: Int)
+    func welcomeWalkthroughPageViewController(_ welcomeWalkthroughPageViewController: WelcomeWalkthroughPageViewController, didTransistionToSectionAtIndex sectionIndex: Int)
     {
         pageControl.currentPage = sectionIndex
         
-        if sectionIndex == walkthroughPageViewController.sectionsCount - 1
+        if sectionIndex == welcomeWalkthroughPageViewController.sectionsCount - 1
         {
-            skipButton.setTitle("Walkthrough.SkipButton.Title.Done".localized, for: .normal)
+            skipButton.setTitle("WelcomeWalkthrough.SkipButton.Title.Done".localized, for: .normal)
         }
         else
         {
-            skipButton.setTitle("Walkthrough.SkipButton.Title.Skip".localized, for: .normal)
+            skipButton.setTitle("WelcomeWalkthrough.SkipButton.Title.Skip".localized, for: .normal)
         }
     }
 }

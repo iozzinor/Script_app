@@ -103,33 +103,32 @@
 "Authentication.Biometry.TouchId.Name"  = "Touch ID";
 "Authentication.Reason"                 = "Utilisez %@ pour déverrouiller votre compte.";
 
-/* WALKTHROUGH */
-"Walkthrough.SkipButton.Title.Skip" = "Passer";
-"Walkthrough.SkipButton.Title.Done" = "Compris !";
+/* WELCOME WALKTHROUGH */
+"WelcomeWalkthrough.SkipButton.Title.Skip" = "Passer";
+"WelcomeWalkthrough.SkipButton.Title.Done" = "Compris !";
 
-"Walkthrough.Section.Title.Abbreviation"        = "Abréviation";
-"Walkthrough.Section.Title.Principle"       = "Principe";
-"Walkthrough.Section.Title.Types"           = "Types";
-"Walkthrough.Section.Title.Example"         = "Exemple";
-"Walkthrough.Section.Title.ScoringSystem"   = "Système de points";
-"Walkthrough.Section.Title.Application"     = "Application";
+"WelcomeWalkthrough.Section.Title.Sct"          = "Mais au fait, qu'est-ce qu'un TCS ?";
+"WelcomeWalkthrough.Section.Title.Uncertainty"  = "Principle";
 
-"Walkthrough.Section.Description.Abbreviation"    = "TCS est l'acronyme de \"Test de Concordance de Scripts\".";
-"Walkthrough.Section.Description.Principle"       = "Description des principes.";
-"Walkthrough.Section.Description.Types"           = "Types de TCS.";
-"Walkthrough.Section.Description.Example"         = "Un exemple.";
-"Walkthrough.Section.Description.ScoringSystem"   = "Le système de points";
-"Walkthrough.Section.Description.Application"     = "Comment utiliser l'application ?";
+"WelcomeWalkthrough.Section.Description.Welcome"      = "Bienvenue sur SCT-app, l'application pour faire des Tests de Concordance de Script !";
+"WelcomeWalkthrough.Section.Description.Sct"          = "Les TCS sont des outils standardisés qui permettent d'évaluer le raisonnement et les capacités à prendre des décisions dans des cas complexes, ou en sitation d'incertitude.";
+"WelcomeWalkthrough.Section.Description.Uncertainty"  = "Situtation d'incertitude";
 
-"Walkthrough.Principle.Description.Drawing"     = "Un TCS est classiquement représenté sous la forme d'une vignette.";
-"Walkthrough.Principle.Description.Wording"     = "Le titre de cette vignette est l'énoncé : il s'agit de la description du cas du patient.";
-"Walkthrough.Principle.Description.Hypothesis"  = "Les hyptohèses sont rangées dans la première colonne.";
-"Walkthrough.Principle.Description.NewData"     = "Chaque nouvelle donnée modifie la probabilité des hypothèses conçues auparavant.";
-"Walkthrough.Principle.Description.LikertSctle" = "L'impact d'une nouvelle donnée sur une hypothèse peut être évalué avec l'échelle de Lickert en 5 points allant de -2 à 2.";
-"Walkthrough.Principle.Drawing.Wording"         = "Enoncé";
-"Walkthrough.Principle.Drawing.Think"           = "Vous pensiez...";
-"Walkthrough.Principle.Drawing.Find"            = "Vous trouvez...";
-"Walkthrough.Principle.Drawing.LikertIndex"     = "Indice de Likert";
+/* WELCOME WALKTHROUGH EXAMPLE */
+"WelcomeWalkthroughExample.Label.Title.Scenario"        = "Un scenario";
+"WelcomeWalkthroughExample.Label.Title.Hypothesis"      = "Une hypothèse";
+"WelcomeWalkthroughExample.Label.Title.Information"     = "Une information";
+"WelcomeWalkthroughExample.Label.Title.Impact"          = "L'impact de l'information sur l'hypothèse";
+"WelcomeWalkthroughExample.Label.Title.SelectImpact"    = "Selectionnez l'impact";
+
+"WelcomeWalkthroughExample.Label.Description.Scenario"    = "Vous vous apprêtez à partir en voiture. Il neige. Votre voiture est garée dans la rue. Elle ne démarre pas.";
+"WelcomeWalkthroughExample.Label.Description.Hypothesis"  = "Votre réservoir est vide.";
+"WelcomeWalkthroughExample.Label.Description.Information" = "Vous avez roulé la veille avec le témoin de réserve du réservoir.";
+
+"WelcomeWalkthroughExample.ImpactButton.Title" = "%d : %@";
+
+"WelcomeWalkthroughExample.Success.Title"   = "Premier TCS";
+"WelcomeWalkthroughExample.Success.Message" = "Bravo ! Vous venez de répondre à votre premier TCS sur TCS-App !";
 
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information"      = "Informations";

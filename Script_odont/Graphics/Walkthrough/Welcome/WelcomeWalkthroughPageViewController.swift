@@ -8,16 +8,16 @@
 
 import UIKit
 
-class WalkthroughPageViewController: UIPageViewController
+class WelcomeWalkthroughPageViewController: UIPageViewController
 {
     // -------------------------------------------------------------------------
     // MARK: - PAGE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
     fileprivate class SectionDataSource: NSObject, UIPageViewControllerDataSource
     {
-        private var sections_: [WalkthroughSection]
+        private var sections_: [WelcomeWalkthroughSection]
         
-        init(sections: [WalkthroughSection])
+        init(sections: [WelcomeWalkthroughSection])
         {
             self.sections_ = sections
         }
@@ -25,7 +25,7 @@ class WalkthroughPageViewController: UIPageViewController
         fileprivate lazy var sectionControllers_: [UIViewController] = ({
             var result = [UIViewController]()
             
-            let storyboard = UIStoryboard(name: "Walkthrough", bundle: nil)
+            let storyboard = UIStoryboard(name: "WelcomeWalkthrough", bundle: nil)
             
             for (i, section) in sections_.enumerated()
             {
@@ -62,48 +62,33 @@ class WalkthroughPageViewController: UIPageViewController
     // -------------------------------------------------------------------------
     // MARK: - SECTIONS
     // -------------------------------------------------------------------------
-    enum WalkthroughSection
+    enum WelcomeWalkthroughSection
     {
-        case abbreviation
-        case principle
-        case types
-        case example
-        case scoringSystem
-        case application
+        case welcome
+        case sct
+        case uncertainty
         
         var title: String {
             switch self
             {
-            case .abbreviation:
-                return "Walkthrough.Section.Title.Abbreviation".localized
-            case .principle:
-                return "Walkthrough.Section.Title.Principle".localized
-            case .types:
-                return "Walkthrough.Section.Title.Types".localized
-            case .example:
-                return "Walkthrough.Section.Title.Example".localized
-            case .scoringSystem:
-                return "Walkthrough.Section.Title.ScoringSystem".localized
-            case .application:
-                return "Walkthrough.Section.Title.Application".localized
+            case .welcome:
+                return ""
+            case .sct:
+                return "WelcomeWalkthrough.Section.Title.Sct".localized
+            case .uncertainty:
+                return "WelcomeWalkthrough.Section.Title.Uncertainty".localized
             }
         }
         
         var description: String {
             switch self
             {
-            case .abbreviation:
-                return "Walkthrough.Section.Description.Abbreviation".localized
-            case .principle:
-                return "Walkthrough.Section.Description.Principle".localized
-            case .types:
-                return "Walkthrough.Section.Description.Types".localized
-            case .example:
-                return "Walkthrough.Section.Description.Example".localized
-            case .scoringSystem:
-                return "Walkthrough.Section.Description.ScoringSystem".localized
-            case .application:
-                return "Walkthrough.Section.Description.Application".localized
+            case .welcome:
+                return "WelcomeWalkthrough.Section.Description.Welcome".localized
+            case .sct:
+                return "WelcomeWalkthrough.Section.Description.Sct".localized
+            case .uncertainty:
+                return "WelcomeWalkthrough.Section.Description.Uncertainty".localized
             }
         }
         
@@ -111,22 +96,18 @@ class WalkthroughPageViewController: UIPageViewController
         {
             switch self
             {
-            case .principle:
-                let result = storyboard.instantiateViewController(withIdentifier: WalkthroughPrincipleViewController.storyboardId) as! WalkthroughPrincipleViewController
-                result.view.tag = identifier
-                return result
-            case .types:
-                let result = storyboard.instantiateViewController(withIdentifier: WalkthroughTypesViewController.storyboardId) as! WalkthroughTypesViewController
-                result.view.tag = identifier
-                return result
-            default:
+            case .uncertainty:
+                let viewController = storyboard.instantiateViewController(withIdentifier: WelcomeWalkthroughExampleViewController.storyboardId) as! WelcomeWalkthroughExampleViewController
+                viewController.view.tag = identifier
+                return viewController
+            case .welcome, .sct:
                 break
             }
             
             let newContentViewController
                 = storyboard.instantiateViewController(withIdentifier:
-                    WalkthroughContentViewController.storyboardId)
-                    as! WalkthroughContentViewController
+                    WelcomeWalkthroughContentViewController.storyboardId)
+                    as! WelcomeWalkthroughContentViewController
             setupContentSection(contentViewController: newContentViewController)
             newContentViewController.view.tag = identifier
             
@@ -134,23 +115,21 @@ class WalkthroughPageViewController: UIPageViewController
         }
         
         fileprivate func setupContentSection(
-            contentViewController: WalkthroughContentViewController)
+            contentViewController: WelcomeWalkthroughContentViewController)
         {
             contentViewController.sectionTitle = self.title
             contentViewController.sectionDescription = self.description
         }
     }
     
-    private let sections_: [WalkthroughSection] =
-        [ .abbreviation, .principle,
-          .types, .example, .scoringSystem, .application]
+    private let sections_: [WelcomeWalkthroughSection] = [ .welcome, .sct, .uncertainty ]
     private var currentSection_ = 0
     
     var sectionsCount: Int {
         return sections_.count
     }
     
-    var sections: [WalkthroughSection] {
+    var sections: [WelcomeWalkthroughSection] {
         return sections_
     }
     
@@ -160,11 +139,11 @@ class WalkthroughPageViewController: UIPageViewController
         }
     }
     
-    var currentSection: WalkthroughSection {
+    var currentSection: WelcomeWalkthroughSection {
         return sections_[currentSection_]
     }
     
-    weak var walkthroughDelegate: WalkthroughPageViewControllerDelegate? = nil
+    weak var welcomeWalkthroughDelegate: WelcomeWalkthroughPageViewControllerDelegate? = nil
     
     fileprivate var sectionDataSource_: SectionDataSource? = nil
     
@@ -193,7 +172,7 @@ class WalkthroughPageViewController: UIPageViewController
 }
 
 // MARK: - UIPageViewControllerDelegate
-extension WalkthroughPageViewController: UIPageViewControllerDelegate
+extension WelcomeWalkthroughPageViewController: UIPageViewControllerDelegate
 {
     func pageViewController(_ pageViewController: UIPageViewController,
                             willTransitionTo pendingViewControllers:
@@ -208,7 +187,7 @@ extension WalkthroughPageViewController: UIPageViewControllerDelegate
     {
         if let newIndex = pageViewController.viewControllers?.first?.view.tag
         {
-            walkthroughDelegate?.walkthroughPageViewController(self,
+            welcomeWalkthroughDelegate?.welcomeWalkthroughPageViewController(self,
                                        didTransistionToSectionAtIndex: newIndex)
         }
     }

@@ -8,13 +8,29 @@
 
 import UIKit
 
-class WalkthroughContentViewController: UIViewController
+class WelcomeWalkthroughContentViewController: UIViewController
 {
     @IBOutlet weak var sectionTitleLabel: UILabel!
     @IBOutlet weak var sectionDescriptionLabel: UILabel!
     
-    var sectionTitle: String = ""
-    var sectionDescription: String = ""
+    var sectionTitle: String = "" {
+        didSet
+        {
+            if isViewLoaded
+            {
+                sectionTitleLabel.text = sectionTitle
+            }
+        }
+    }
+    var sectionDescription: String = "" {
+        didSet
+        {
+            if isViewLoaded
+            {
+                sectionDescriptionLabel.text = sectionDescription
+            }
+        }
+    }
     
     override func viewDidLoad()
     {

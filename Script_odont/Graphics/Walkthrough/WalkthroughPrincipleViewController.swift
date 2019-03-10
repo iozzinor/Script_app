@@ -70,7 +70,7 @@ class WalkthroughPrincipleViewController: UIViewController
         
         (UIApplication.shared.delegate as? AppDelegate)?.registerDelegate(self)
         
-        titleLabel.text = WalkthroughPageViewController.WalkthroughSection.principle.title
+        titleLabel.text = WelcomeWalkthroughPageViewController.WelcomeWalkthroughSection.welcome.title
         
         tableView.delegate = self
         tableView.dataSource = self

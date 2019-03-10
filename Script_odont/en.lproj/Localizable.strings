@@ -103,33 +103,32 @@
 "Authentication.Biometry.TouchId.Name"  = "Touch ID";
 "Authentication.Reason"                 = "Use %@ to unlock your account.";
 
-/* WALKTHROUGH */
-"Walkthrough.SkipButton.Title.Skip" = "Skip";
-"Walkthrough.SkipButton.Title.Done" = "Done";
+/* WELCOME WALKTHROUGH */
+"WelcomeWalkthrough.SkipButton.Title.Skip" = "Skip";
+"WelcomeWalkthrough.SkipButton.Title.Done" = "Done";
 
-"Walkthrough.Section.Title.Abbreviation"        = "Abbreviation";
-"Walkthrough.Section.Title.Principle"           = "Principle";
-"Walkthrough.Section.Title.Types"               = "Types";
-"Walkthrough.Section.Title.Example"             = "Example";
-"Walkthrough.Section.Title.ScoringSystem"       = "Scoring System";
-"Walkthrough.Section.Title.Application"         = "Application";
+"WelcomeWalkthrough.Section.Title.Sct"          = "What is an SCT ?";
+"WelcomeWalkthrough.Section.Title.Uncertainty"  = "Uncertain Situation";
 
-"Walkthrough.Section.Description.Abbreviation"  = "SCT stands for \"Script Concordance Assessment\".";
-"Walkthrough.Section.Description.Principle"     = "Principle description.";
-"Walkthrough.Section.Description.Types"         = "SCT Types.";
-"Walkthrough.Section.Description.Example"       = "An example.";
-"Walkthrough.Section.Description.ScoringSystem" = "The Scoring System.";
-"Walkthrough.Section.Description.Application"   = "How to use the application ?";
+"WelcomeWalkthrough.Section.Description.Welcome"      = "Welcome to SCT-app, the application to take Script Concordance Tests!";
+"WelcomeWalkthrough.Section.Description.Sct"          = "SCTs are standardized tools that enable to evaluate one's ability to reason, or make pertinent choices in complex cases, or during uncertain situations.";
+"WelcomeWalkthrough.Section.Description.Uncertainty"  = "Principle";
 
-"Walkthrough.Principle.Description.Drawing"     = "An SCT is typically represented using a drawing.";
-"Walkthrough.Principle.Description.Wording"     = "The titles of this drawing is the description of the patient case.";
-"Walkthrough.Principle.Description.Hypothesis"  = "The hypothesis are sorted in the first column.";
-"Walkthrough.Principle.Description.NewData"     = "Each new datum impacts the probability of the hypothesis mentionned above.";
-"Walkthrough.Principle.Description.LikertSctle" = "The impact of a new datum is measured using the Likert scale: it uses 5 points ranging from -2 to 2.";
-"Walkthrough.Principle.Drawing.Wording"         = "Wording";
-"Walkthrough.Principle.Drawing.Think"           = "You thought...";
-"Walkthrough.Principle.Drawing.Find"            = "You find...";
-"Walkthrough.Principle.Drawing.LikertIndex"     = "Likert index";
+/* WELCOME WALKTHROUGH EXAMPLE */
+"WelcomeWalkthroughExample.Label.Title.Scenario"        = "A scenario";
+"WelcomeWalkthroughExample.Label.Title.Hypothesis"      = "An hypothesis";
+"WelcomeWalkthroughExample.Label.Title.Information"     = "An information";
+"WelcomeWalkthroughExample.Label.Title.Impact"          = "The impact";
+"WelcomeWalkthroughExample.Label.Title.SelectImpact"    = "Select the impact";
+
+"WelcomeWalkthroughExample.Label.Description.Scenario"    = "You are on the edge to go driving. It is snowing. Your car is parked alongside the street. It does not start.";
+"WelcomeWalkthroughExample.Label.Description.Hypothesis"  = "The storage tank might be empty.";
+"WelcomeWalkthroughExample.Label.Description.Information" = "The tank warning light was on yesterday.";
+
+"WelcomeWalkthroughExample.ImpactButton.Title" = "%d: %@";
+
+"WelcomeWalkthroughExample.Success.Title"   = "First SCT";
+"WelcomeWalkthroughExample.Success.Message" = "Congratulations! You just solved your first SCT!";
 
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information" = "Information";

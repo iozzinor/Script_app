@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="934" y="73"/>
         </scene>
-        <!--Walkthrough-->
+        <!--WelcomeWalkthrough-->
         <scene sceneID="HcB-Kw-IS5">
             <objects>
-                <viewControllerPlaceholder storyboardName="Walkthrough" id="YPk-lX-lwp" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="WelcomeWalkthrough" id="YPk-lX-lwp" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="X9l-ny-BCn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDZ-o1-Rx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
