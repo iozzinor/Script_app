@@ -203,8 +203,7 @@
 				AC53E3752233AD9B00CA4437 /* SctUnfinished.swift */,
 				ACB8C8A722351AE000C7F77C /* SctFinished.swift */,
 			);
-			name = Core;
-			path = "New Group1";
+			path = Core;
 			sourceTree = "<group>";
 		};
 		AC0D77C02225CD1A007F83D4 /* Graphics */ = {
@@ -212,13 +211,13 @@
 			children = (
 				AC8F5B802229694C00FAEFC5 /* Authentification */,
 				AC38BB71221DF021008E829B /* Walkthrough */,
+				ACB8C8A92235211F00C7F77C /* SctBrowsing */,
 				AC53E37222331B5600CA4437 /* MySct */,
 				AC53E36C2233128D00CA4437 /* SctHorizontal */,
 				AC53E36D223312D600CA4437 /* Other */,
 				AC0D77D52228274D007F83D4 /* Appearance.swift */,
 			);
-			name = Graphics;
-			path = "New Group2";
+			path = Graphics;
 			sourceTree = "<group>";
 		};
 		AC38BB53221DE4C9008E829B = {
@@ -245,7 +244,6 @@
 				AC38BB74221DFB1E008E829B /* Utils */,
 				AC38BB5F221DE4C9008E829B /* AppDelegate.swift */,
 				AC9F23E12229D6A4002D38E5 /* ViewController.swift */,
-				AC38BB61221DE4C9008E829B /* SctBrowsingViewController.swift */,
 				AC38BB63221DE4C9008E829B /* Main.storyboard */,
 				AC38BB66221DE4CB008E829B /* Assets.xcassets */,
 				AC38BB68221DE4CB008E829B /* LaunchScreen.storyboard */,
@@ -361,6 +359,14 @@
 				AC9F23E42229D88E002D38E5 /* String+sha2.swift */,
 			);
 			path = Hash;
+			sourceTree = "<group>";
+		};
+		ACB8C8A92235211F00C7F77C /* SctBrowsing */ = {
+			isa = PBXGroup;
+			children = (
+				AC38BB61221DE4C9008E829B /* SctBrowsingViewController.swift */,
+			);
+			path = SctBrowsing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
