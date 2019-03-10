@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SctHorizontalWordingCell: UITableViewCell
+class SctWordingCell: UITableViewCell
 {
     @IBOutlet weak var wordingLabel: UILabel!
 }

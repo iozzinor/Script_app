@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SctHorizontalQuestionHeaderCell: UITableViewCell
+class SctQuestionHeaderCell: UITableViewCell
 {
     @IBOutlet weak var hypothesisLabel: UILabel! {
         didSet

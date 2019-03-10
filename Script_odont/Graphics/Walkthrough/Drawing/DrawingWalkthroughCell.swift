@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WalkthroughPrincipleCell: UITableViewCell
+class DrawingWalkthroughCell: UITableViewCell
 {
     @IBOutlet weak var stackView: UIStackView!
     

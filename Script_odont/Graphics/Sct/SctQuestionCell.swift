@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SctHorizontalQuestionCell: UITableViewCell
+public class SctQuestionCell: UITableViewCell
 {
     @IBOutlet weak var hypothesisLabel: UILabel! {
         didSet
@@ -38,7 +38,7 @@ public class SctHorizontalQuestionCell: UITableViewCell
     fileprivate var scaleContainerButtons_ = [UIButton]()
     fileprivate var selectedSctleButton_: UIButton? = nil
     
-    weak var delegate: SctHorizontalQuestionCellDelegate? = nil
+    weak var delegate: SctQuestionCellDelegate? = nil
     
     var isLast = false
     {
@@ -95,7 +95,7 @@ public class SctHorizontalQuestionCell: UITableViewCell
             }
             
             // button target
-            newButton.addTarget(self, action: #selector(SctHorizontalQuestionCell.selectedSctleButtonPressed_), for: .touchUpInside)
+            newButton.addTarget(self, action: #selector(SctQuestionCell.selectedSctleButtonPressed_), for: .touchUpInside)
             
             scaleContainerButtons_.append(newButton)
             scalesContainer.addArrangedSubview(newButton)

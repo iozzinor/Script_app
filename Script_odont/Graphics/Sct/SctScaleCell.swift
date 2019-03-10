@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SctHorizontalScaleCell: UITableViewCell
+class SctScaleCell: UITableViewCell
 {
     @IBOutlet weak var scaleCode: UILabel!
     @IBOutlet weak var scaleText: UILabel!

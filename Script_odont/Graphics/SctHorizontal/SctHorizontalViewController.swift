@@ -84,17 +84,17 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
             switch self
             {
             case .wording:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as SctHorizontalWordingCell
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SctWordingCell
                 cell.wordingLabel.text = sct.wording
                 return cell
             case .questionHeader:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as SctHorizontalQuestionHeaderCell
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionHeaderCell
                 cell.hypothesisLabel.text   = "SctExam.Horizontal.Headers.Hypothesis".localized
                 cell.newDataLabel.text      = "SctExam.Horizontal.Headers.NewData".localized
                 cell.likertScaleLabel.text  = "SctExam.Horizontal.Headers.Impact".localized
                 return cell
             case .question:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as SctHorizontalQuestionCell
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionCell
                 cell.question = sct.questions[indexPath.row - 2]
                 cell.tag = indexPath.row - 2
                 cell.isLast = (indexPath.row - 1 == sct.questions.count)
@@ -105,7 +105,7 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
                 cell.delegate = sctHorizontalViewController
                 return cell
             case .scale:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as SctHorizontalScaleCell
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SctScaleCell
                 
                 let likertSctle = sct.topic.likertScale
                 cell.setScale(code: indexPath.row - 2, description: likertSctle[indexPath.row - 2])
@@ -187,6 +187,16 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
     // -------------------------------------------------------------------------
     fileprivate func setup_()
     {
+        setupInformationView_()
+        setupTableView_()
+        
+        updateUi_()
+        
+        updateDeviceOrientation_()
+    }
+    
+    fileprivate func setupInformationView_()
+    {
         let newInformationView = UIStackView()
         newInformationView.axis = .horizontal
         newInformationView.alignment = .center
@@ -203,13 +213,17 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
         newInformationView.addArrangedSubview(timeLabel)
         
         informationItem.customView = newInformationView
-        
+    }
+    
+    fileprivate func setupTableView_()
+    {
         tableView.dataSource    = self
         tableView.delegate      = self
         
-        updateUi_()
-        
-        updateDeviceOrientation_()
+        tableView.registerNibCell(SctWordingCell.self)
+        tableView.registerNibCell(SctQuestionHeaderCell.self)
+        tableView.registerNibCell(SctQuestionCell.self)
+        tableView.registerNibCell(SctScaleCell.self)
     }
     
     // -------------------------------------------------------------------------
@@ -462,9 +476,9 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
 // -----------------------------------------------------------------------------
 // MARK: - SCT HORIZONTAL QUESTION CELL DELEGATE
 // -----------------------------------------------------------------------------
-extension SctHorizontalViewController: SctHorizontalQuestionCellDelegate
+extension SctHorizontalViewController: SctQuestionCellDelegate
 {
-    public func sctHorizontalQuestionCell(_ sctHorizontalQuestionCell: SctHorizontalQuestionCell, didSelectAnswer answer: LikertSctle.Degree?)
+    public func sctHorizontalQuestionCell(_ sctHorizontalQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertSctle.Degree?)
     {
         let questionIndex = sctHorizontalQuestionCell.tag
         sctSession[currentSct_, questionIndex] = answer

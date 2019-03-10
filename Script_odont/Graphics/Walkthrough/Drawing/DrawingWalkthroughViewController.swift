@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WalkthroughPrincipleViewController: UIViewController
+class DrawingWalkthroughViewController: UIViewController
 {
     // -------------------------------------------------------------------------
     // STEP
@@ -112,7 +112,7 @@ class WalkthroughPrincipleViewController: UIViewController
         else
         {
             displayStepLabel = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + (WalkthroughPrincipleViewController.stepTime_ - 1.5), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + (DrawingWalkthroughViewController.stepTime_ - 1.5), execute: {
                 
                 UIView.animate(withDuration: 1, animations: {
                     self.stepLabel?.alpha = 0
@@ -131,8 +131,8 @@ class WalkthroughPrincipleViewController: UIViewController
                 self.stepLabel.alpha = 1
         })
         
-        let firstCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! WalkthroughPrincipleCell
-        let lastCell = tableView.cellForRow(at: IndexPath(row: 5, section: 0)) as! WalkthroughPrincipleCell
+        let firstCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! DrawingWalkthroughCell
+        let lastCell = tableView.cellForRow(at: IndexPath(row: 5, section: 0)) as! DrawingWalkthroughCell
         let firstLabel: UITextView
         let lastLabel: UITextView
         
@@ -144,7 +144,7 @@ class WalkthroughPrincipleViewController: UIViewController
             
             return
         case .wording:
-            let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! WalkthroughPrincipleCell
+            let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! DrawingWalkthroughCell
             let firstLabel = firstCell.labels.first!
             let frame = firstLabel.convert(firstLabel.frame, to: tableView)
             
@@ -175,7 +175,7 @@ class WalkthroughPrincipleViewController: UIViewController
     // -------------------------------------------------------------------------
     fileprivate func createTimer_()
     {
-        stepTimer_ = Timer.scheduledTimer(timeInterval: WalkthroughPrincipleViewController.stepTime_, target: self, selector: #selector(WalkthroughPrincipleViewController.updateStep_), userInfo: nil, repeats: true)
+        stepTimer_ = Timer.scheduledTimer(timeInterval: DrawingWalkthroughViewController.stepTime_, target: self, selector: #selector(DrawingWalkthroughViewController.updateStep_), userInfo: nil, repeats: true)
     }
     
     fileprivate func destroyTimer_()
@@ -188,7 +188,7 @@ class WalkthroughPrincipleViewController: UIViewController
 // -----------------------------------------------------------------------------
 // UIApplicationDelegate
 // -----------------------------------------------------------------------------
-extension WalkthroughPrincipleViewController: UIApplicationDelegate
+extension DrawingWalkthroughViewController: UIApplicationDelegate
 {
     func applicationWillResignActive(_ application: UIApplication)
     {
@@ -204,7 +204,7 @@ extension WalkthroughPrincipleViewController: UIApplicationDelegate
 // -----------------------------------------------------------------------------
 // UITableViewDelegate
 // -----------------------------------------------------------------------------
-extension WalkthroughPrincipleViewController: UITableViewDelegate
+extension DrawingWalkthroughViewController: UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
@@ -220,7 +220,7 @@ extension WalkthroughPrincipleViewController: UITableViewDelegate
 // -----------------------------------------------------------------------------
 // UITableViewDataSource
 // -----------------------------------------------------------------------------
-extension WalkthroughPrincipleViewController: UITableViewDataSource
+extension DrawingWalkthroughViewController: UITableViewDataSource
 {
     func numberOfSections(in tableView: UITableView) -> Int
     {
@@ -234,7 +234,7 @@ extension WalkthroughPrincipleViewController: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(for: indexPath) as WalkthroughPrincipleCell
+        let cell = tableView.dequeueReusableCell(for: indexPath) as DrawingWalkthroughCell
         
         cell.cellsCount = (indexPath.row == 0 ? 1 : 3)
     

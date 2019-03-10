@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SctWordingCellReuseId" id="GNY-lf-GY7" userLabel="SctWordingCellReuseId" customClass="SctWordingCell" customModule="Script_odont" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GNY-lf-GY7" id="TbB-gU-Zjf">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5A0-3Q-dxa">
+                        <rect key="frame" x="22" y="11" width="331" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5A0-3Q-dxa" firstAttribute="centerY" secondItem="TbB-gU-Zjf" secondAttribute="centerY" id="1cn-5j-yhv"/>
+                    <constraint firstItem="5A0-3Q-dxa" firstAttribute="leading" secondItem="TbB-gU-Zjf" secondAttribute="leadingMargin" constant="6" id="9Lz-yQ-LsT"/>
+                    <constraint firstItem="5A0-3Q-dxa" firstAttribute="top" secondItem="TbB-gU-Zjf" secondAttribute="topMargin" id="dlQ-c1-4ob"/>
+                    <constraint firstItem="5A0-3Q-dxa" firstAttribute="centerX" secondItem="TbB-gU-Zjf" secondAttribute="centerX" id="grR-ws-5lA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="wordingLabel" destination="5A0-3Q-dxa" id="Ehh-t6-KaK"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol SctHorizontalQuestionCellDelegate: class
+public protocol SctQuestionCellDelegate: class
 {
-    func sctHorizontalQuestionCell(_ sctHorizontalQuestionCell: SctHorizontalQuestionCell, didSelectAnswer answer: LikertSctle.Degree?)
+    func sctHorizontalQuestionCell(_ sctHorizontalQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertSctle.Degree?)
 }
