@@ -142,7 +142,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Scenario description." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bgN-So-y2X">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Scenario description." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bgN-So-y2X">
                                         <rect key="frame" x="20" y="25.5" width="335" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration">

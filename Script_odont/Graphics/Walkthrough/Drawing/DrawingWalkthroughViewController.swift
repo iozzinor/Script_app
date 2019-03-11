@@ -80,6 +80,9 @@ class DrawingWalkthroughViewController: SctViewController
         focusView.layer.borderColor = UIColor.red.cgColor
         focusView.layer.borderWidth = 3
         tableView.addSubview(focusView)
+        
+        // register for device orientation
+        NotificationCenter.default.addObserver(self, selector: #selector(DrawingWalkthroughViewController.deviceOrientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -102,6 +105,14 @@ class DrawingWalkthroughViewController: SctViewController
         super.viewWillDisappear(animated)
         
         destroyTimer_()
+    }
+    
+    // -------------------------------------------------------------------------
+    // DEVICE ORIENTATION
+    // -------------------------------------------------------------------------
+    @objc fileprivate func deviceOrientationDidChange(_ sender: Any)
+    {
+        updateFocusViewFrame_()
     }
     
     @objc fileprivate func updateStep_(_ sender: Any)
