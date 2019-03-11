@@ -54,6 +54,11 @@
 "SecurityQuestion.Content.FavoriteMovie"        = "Quel est votre film préféré ?";
 "SecurityQuestion.Content.DreamJob"             = "Quel est le métier de vos rêves ?";
 
+/* SCT QUESTION HEADER CELL */
+"SctQuestionHeaderCell.Hypothesis" = "Hypothèse";
+"SctQuestionHeaderCell.NewData"    = "Nouvelle donnée";
+"SctQuestionHeaderCell.Impact"     = "Impact";
+
 /* LOGIN */
 "Login.Error.AlertTitle"              = "Authentification";
 "Login.Error.AuthenticationFailed"    = "L'authentification a échoué.";
@@ -139,9 +144,6 @@
 "SctExam.Horizontal.Options.Title"      = "Options";
 "SctExam.Horizontal.Options.Message"    = "Choisissez une option.";
 "SctExam.Horizontal.Options.GoTo"       = "Aller à";
-"SctExam.Horizontal.Headers.Hypothesis" = "Hypothèse";
-"SctExam.Horizontal.Headers.NewData"    = "Nouvelle donnée";
-"SctExam.Horizontal.Headers.Impact"     = "Impact";
 
 "GoToSct.SctIndex" = "Tcs %d";
 

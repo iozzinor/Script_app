@@ -8,8 +8,17 @@
 
 import UIKit
 
-class SctQuestionHeaderCell: UITableViewCell
+public class SctQuestionHeaderCell: UITableViewCell
 {
+    public struct Title
+    {
+        let hypothesis: String
+        let newData: String
+        let likertScale: String
+        
+        static let `default` = Title(hypothesis: "SctQuestionHeaderCell.Hypothesis".localized, newData: "SctQuestionHeaderCell.NewData".localized, likertScale: "SctQuestionHeaderCell.Impact".localized)
+    }
+    
     @IBOutlet weak var hypothesisLabel: UILabel! {
         didSet
         {
@@ -27,5 +36,12 @@ class SctQuestionHeaderCell: UITableViewCell
         {
                 likertScaleLabel.addBorders(with: Appearance.SctHorizontal.Table.borderColor, lineWidth: Appearance.SctHorizontal.Table.borderWidth, positions: [.left, .top, .right])
         }
+    }
+    
+    func setTitle(_ title: Title)
+    {
+        hypothesisLabel.text = title.hypothesis
+        newDataLabel.text = title.newData
+        likertScaleLabel.text = title.likertScale
     }
 }

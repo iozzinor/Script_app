@@ -61,7 +61,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
         {
             let currentSct = dataSource?.currentSctIndex ?? 0
             
-            let session = dataSource?.session ?? SctSession(exam: SctExam())
+            let session = dataSource?.session
             let sct = dataSource?.currentSct ?? Sct()
             switch self
             {
@@ -71,20 +71,22 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 return cell
             case .questionHeader:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionHeaderCell
-                cell.hypothesisLabel.text   = "SctExam.Horizontal.Headers.Hypothesis".localized
-                cell.newDataLabel.text      = "SctExam.Horizontal.Headers.NewData".localized
-                cell.likertScaleLabel.text  = "SctExam.Horizontal.Headers.Impact".localized
+                cell.setTitle(dataSource?.questionHeaderTitle ?? .default)
                 return cell
             case .question:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionCell
                 cell.question = sct.questions[indexPath.row - 2]
                 cell.tag = indexPath.row - 2
                 cell.isLast = (indexPath.row - 1 == sct.questions.count)
+                cell.canChooseLikertScale = dataSource?.canChooseLikertScale ?? false
                 
-                // restore the answer
-                let answer = session[currentSct, indexPath.row - 2]
-                cell.setAnswer(answer)
-                cell.delegate = dataSource
+                if let session = session
+                {
+                    // restore the answer
+                    let answer = session[currentSct, indexPath.row - 2]
+                    cell.setAnswer(answer)
+                    cell.delegate = dataSource
+                }
                 return cell
             case .scale:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SctScaleCell
@@ -96,12 +98,12 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    var dataSource: SctViewDataSource? = nil
+    weak var dataSource: SctViewDataSource? = nil
     
-    var sections: [SctSection] {
+    fileprivate var sections_: [SctSection] {
         return dataSource?.sections ?? []
     }
-    var currentSct: Sct {
+    fileprivate var currentSct_: Sct {
         return dataSource?.currentSct ?? Sct()
     }
     
@@ -132,24 +134,24 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
     // -------------------------------------------------------------------------
     public func numberOfSections(in tableView: UITableView) -> Int
     {
-        return SctSection.allCases.count
+        return sections_.count
     }
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
-        return SctSection.allCases[section].title
+        return sections_[section].title
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        let section = sections[section]
-        return section.rows(for: currentSct).count
+        let section = sections_[section]
+        return section.rows(for: currentSct_).count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let section = sections[indexPath.section]
-        let rows = section.rows(for: currentSct)
+        let section = sections_[indexPath.section]
+        let rows = section.rows(for: currentSct_)
         let row = rows[indexPath.row]
         
         let cell = row.cell(for: indexPath, tableView: tableView, dataSource: dataSource)

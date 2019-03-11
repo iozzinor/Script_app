@@ -10,9 +10,14 @@ import Foundation
 
 public protocol SctViewDataSource: SctQuestionCellDelegate
 {
-    var sections: [SctViewController.SctSection] { get }
+    var sections: [SctViewController.SctSection] { get}
+    
     var currentSctIndex: Int { get }
     var currentSct: Sct { get }
+    
+    var questionHeaderTitle: SctQuestionHeaderCell.Title? { get}
 
     var session: SctSession? { get }
+    
+    var canChooseLikertScale: Bool { get }
 }

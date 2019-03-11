@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SctHorizontalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+public class SctHorizontalViewController: SctViewController, SctViewDataSource
 {
     public static let toGoToSct = "SctHorizontalToGoToSctSegueId"
     
@@ -25,93 +25,6 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
     {
         case insufficientTime(actual: TimeInterval, expected: TimeInterval)
         case insufficientAnsweredScts(actual: Int, expected: Int)
-    }
-    
-    // -------------------------------------------------------------------------
-    // MARK: - SECTIONS
-    // -------------------------------------------------------------------------
-    fileprivate enum SctSection: Int, CaseIterable
-    {
-        case drawing
-        case information
-        
-        func rows(for sct: Sct) -> [SctRow]
-        {
-            switch self
-            {
-            case .drawing:
-                var result: [SctRow] = [ .wording, .questionHeader ]
-                result.append(contentsOf: Array<SctRow>(repeating: .question, count: sct.questions.count))
-                
-                return result
-            case .information:
-                return Array<SctRow>(repeating: .scale, count: 5)
-            }
-        }
-        
-        func allRows(for sct: Sct) -> [SctRow] {
-            return SctSection.allCases.flatMap { $0.rows(for: sct) }
-        }
-        
-        var title: String? {
-            switch self
-            {
-            case .drawing:
-                return nil
-            case .information:
-                return "SctExam.Horizontal.Title.Information".localized
-            }
-        }
-    }
-    
-    // -------------------------------------------------------------------------
-    // MARK: - ROWS
-    // -------------------------------------------------------------------------
-    fileprivate enum SctRow
-    {
-        case wording
-        case questionHeader
-        case question
-        case scale
-        
-        func cell(for indexPath: IndexPath, sctHorizontalViewController: SctHorizontalViewController) -> UITableViewCell
-        {
-            let tableView = sctHorizontalViewController.tableView!
-            let session = sctHorizontalViewController.sctSession
-            let currentSct = sctHorizontalViewController.currentSct_
-            
-            let sct = session.exam.scts[currentSct]
-            switch self
-            {
-            case .wording:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as SctWordingCell
-                cell.wordingLabel.text = sct.wording
-                return cell
-            case .questionHeader:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionHeaderCell
-                cell.hypothesisLabel.text   = "SctExam.Horizontal.Headers.Hypothesis".localized
-                cell.newDataLabel.text      = "SctExam.Horizontal.Headers.NewData".localized
-                cell.likertScaleLabel.text  = "SctExam.Horizontal.Headers.Impact".localized
-                return cell
-            case .question:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionCell
-                cell.question = sct.questions[indexPath.row - 2]
-                cell.tag = indexPath.row - 2
-                cell.isLast = (indexPath.row - 1 == sct.questions.count)
-                
-                // restore the answer
-                let answer = session[currentSct, indexPath.row - 2]
-                cell.setAnswer(answer)
-                cell.delegate = sctHorizontalViewController
-                return cell
-            case .scale:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as SctScaleCell
-                
-                let likertSctle = sct.topic.likertScale
-                cell.setScale(code: indexPath.row - 2, description: likertSctle[indexPath.row - 2])
-                return cell
-            }
-        }
     }
     
     fileprivate static let minimumSessionTime_: TimeInterval = 60.0
@@ -131,7 +44,7 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
     fileprivate var lastTime_: TimeInterval = 0.0
     fileprivate var orientationHorizontal_ = Constants.isDeviceOrientationHorizontal
     
-    public var sctSession = SctSession(exam: SctExam(scts: [])) {
+    var sctSession = SctSession(exam: SctExam(scts: [])) {
         didSet {
             if isViewLoaded
             {
@@ -140,7 +53,14 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
         }
     }
     
-    fileprivate var currentSct_ = 0 {
+    public var sections: [SctViewController.SctSection] {
+        return SctViewController.SctSection.allCases
+    }
+    public var session: SctSession? {
+        return sctSession
+    }
+    
+    public var currentSctIndex = 0 {
         didSet {
             if isViewLoaded
             {
@@ -148,6 +68,15 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
             }
         }
     }
+    
+    public var currentSct: Sct
+    {
+        return sctSession.exam.scts[currentSctIndex]
+    }
+    
+    public var questionHeaderTitle: SctQuestionHeaderCell.Title? = nil
+    
+    public let canChooseLikertScale: Bool = true
     
     deinit
     {
@@ -159,6 +88,8 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
         super.viewDidLoad()
         
         setup_()
+        
+        dataSource = self
         
         // register as application delegate
         (UIApplication.shared.delegate as? AppDelegate)?.registerDelegate(self)
@@ -188,7 +119,7 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
     fileprivate func setup_()
     {
         setupInformationView_()
-        setupTableView_()
+        setupTableView(tableView)
         
         updateUi_()
         
@@ -215,17 +146,6 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
         informationItem.customView = newInformationView
     }
     
-    fileprivate func setupTableView_()
-    {
-        tableView.dataSource    = self
-        tableView.delegate      = self
-        
-        tableView.registerNibCell(SctWordingCell.self)
-        tableView.registerNibCell(SctQuestionHeaderCell.self)
-        tableView.registerNibCell(SctQuestionCell.self)
-        tableView.registerNibCell(SctScaleCell.self)
-    }
-    
     // -------------------------------------------------------------------------
     // MARK: - UPDATE UI
     // -------------------------------------------------------------------------
@@ -239,7 +159,7 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
     
     fileprivate func updateProgressUi_()
     {
-        let progressString = String.localizedStringWithFormat("SctExam.Horizontal.Progress".localized, currentSct_ + 1, sctSession.exam.scts.count)
+        let progressString = String.localizedStringWithFormat("SctExam.Horizontal.Progress".localized, currentSctIndex + 1, sctSession.exam.scts.count)
         progressLabel.text = progressString
     }
     
@@ -255,8 +175,8 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
     
     fileprivate func updateNavigationButtons_()
     {
-        previousButton.isEnabled    = (currentSct_ > 0)
-        nextButton.isEnabled        = (currentSct_ < sctSession.exam.scts.count - 1)
+        previousButton.isEnabled    = (currentSctIndex > 0)
+        nextButton.isEnabled        = (currentSctIndex < sctSession.exam.scts.count - 1)
     }
     
     // -------------------------------------------------------------------------
@@ -340,24 +260,24 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
     
     @IBAction func previous(_ sender: UIBarButtonItem)
     {
-        guard currentSct_ > 0 else
+        guard currentSctIndex > 0 else
         {
             return
         }
         
-        currentSct_ -= 1
+        currentSctIndex -= 1
         
         updateNavigationButtons_()
     }
     
     @IBAction func next(_ sender: UIBarButtonItem)
     {
-        guard currentSct_ < sctSession.exam.scts.count - 1 else
+        guard currentSctIndex < sctSession.exam.scts.count - 1 else
         {
             return
         }
         
-        currentSct_ += 1
+        currentSctIndex += 1
         
         updateNavigationButtons_()
     }
@@ -428,48 +348,9 @@ public class SctHorizontalViewController: UIViewController, UITableViewDelegate,
             let destination = (segue.destination as? UINavigationController)?.viewControllers.first as? GoToSctViewController
         {
             destination.session = sctSession
-            destination.currentSct = currentSct_
+            destination.currentSct = currentSctIndex
             destination.delegate = self
         }
-    }
-    
-    // -------------------------------------------------------------------------
-    // MARK: - TABLE VIEW DELEGATE
-    // -------------------------------------------------------------------------
-    public func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
-    {
-        return nil
-    }
-    
-    // -------------------------------------------------------------------------
-    // MARK: - TABLE VIEW DATA SOURCE
-    // -------------------------------------------------------------------------
-    public func numberOfSections(in tableView: UITableView) -> Int
-    {
-        return SctSection.allCases.count
-    }
-    
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-    {
-        return SctSection.allCases[section].title
-    }
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        let section = SctSection.allCases[section]
-        return section.rows(for: sctSession.exam.scts[currentSct_]).count
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let section = SctSection.allCases[indexPath.section]
-        let rows = section.rows(for: sctSession.exam.scts[currentSct_])
-        let row = rows[indexPath.row]
-        
-        let cell = row.cell(for: indexPath, sctHorizontalViewController: self)
-        cell.accessoryType      = .none
-        cell.selectionStyle     = .none
-        return cell
     }
 }
 
@@ -481,7 +362,7 @@ extension SctHorizontalViewController: SctQuestionCellDelegate
     public func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
     {
         let questionIndex = sctQuestionCell.tag
-        sctSession[currentSct_, questionIndex] = answer
+        sctSession[currentSctIndex, questionIndex] = answer
     }
 }
 
@@ -512,6 +393,6 @@ extension SctHorizontalViewController: GoToSctViewControllerDelegate
     
     func goToSctViewController(_ goToSctViewController: GoToSctViewController, didChooseSct sctIndex: Int)
     {
-        currentSct_ = sctIndex
+        currentSctIndex = sctIndex
     }
 }

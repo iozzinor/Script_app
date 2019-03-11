@@ -15,7 +15,7 @@
 "Sct.Topic.Therapeutic" = "Therapeutic";
 "Sct.Topic.Prognostic" = "Prognostic";
 
-"Sct.Topic.Diagnostic.NegativeTwo"  = "The hypothesis is almost disctrded.";
+"Sct.Topic.Diagnostic.NegativeTwo"  = "The hypothesis is almost discarded.";
 "Sct.Topic.Diagnostic.NegativeOne"  = "The hypothesis becomes less likely.";
 "Sct.Topic.Diagnostic.Zero"         = "The information does not affect the hypothesis.";
 "Sct.Topic.Diagnostic.One"          = "The hypothesis becomes more likely.";
@@ -53,6 +53,11 @@
 "SecurityQuestion.Content.FavoriteSong"         = "Which song do you prefer ?";
 "SecurityQuestion.Content.FavoriteMovie"        = "What is your favorite movie ?";
 "SecurityQuestion.Content.DreamJob"             = "What is your dream job ?";
+
+/* SCT QUESTION HEADER CELL */
+"SctQuestionHeaderCell.Hypothesis" = "Hypothesis";
+"SctQuestionHeaderCell.NewData"    = "New Data";
+"SctQuestionHeaderCell.Impact"     = "Impact";
 
 /* LOGIN */
 "Login.Error.AlertTitle"              = "Authentication";
@@ -151,9 +156,6 @@
 "SctExam.Horizontal.Options.Title"      = "Options";
 "SctExam.Horizontal.Options.Message"    = "Choose an option";
 "SctExam.Horizontal.Options.GoTo"       = "Go To";
-"SctExam.Horizontal.Headers.Hypothesis" = "Hypothesis";
-"SctExam.Horizontal.Headers.NewData"    = "New Data";
-"SctExam.Horizontal.Headers.Impact"     = "Impact";
 
 "GoToSct.SctIndex" = "Sct %d";
 

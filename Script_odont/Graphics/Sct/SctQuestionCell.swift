@@ -65,6 +65,27 @@ public class SctQuestionCell: UITableViewCell
         }
     }
     
+    var canChooseLikertScale = true {
+        didSet {
+            guard canChooseLikertScale != oldValue else
+            {
+                return
+            }
+            
+            for button in scaleContainerButtons_
+            {
+                if canChooseLikertScale
+                {
+                    button.addTarget(self, action: #selector(SctQuestionCell.selectedSctleButtonPressed_), for: .touchUpInside)
+                }
+                else
+                {
+                    button.removeTarget(self, action: #selector(SctQuestionCell.selectedSctleButtonPressed_), for: .touchUpInside)
+                }
+            }
+        }
+    }
+    
     fileprivate func clearSctleContainer_()
     {
         for arrangedSubview in scaleContainerButtons_

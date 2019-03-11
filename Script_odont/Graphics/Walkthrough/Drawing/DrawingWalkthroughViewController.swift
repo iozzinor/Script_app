@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DrawingWalkthroughViewController: UIViewController
+class DrawingWalkthroughViewController: SctViewController
 {
     // -------------------------------------------------------------------------
     // STEP
@@ -70,19 +70,16 @@ class DrawingWalkthroughViewController: UIViewController
         
         (UIApplication.shared.delegate as? AppDelegate)?.registerDelegate(self)
         
-        titleLabel.text = WelcomeWalkthroughPageViewController.WelcomeWalkthroughSection.welcome.title
+        setupTableView(tableView)
+        dataSource = self
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        titleLabel.text = WelcomeWalkthroughPageViewController.WelcomeWalkthroughSection.welcome.title
         
         focusView                   = UIView()
         focusView.backgroundColor   = UIColor.clear
         focusView.layer.borderColor = UIColor.red.cgColor
         focusView.layer.borderWidth = 3
         tableView.addSubview(focusView)
-        
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor.white
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -209,38 +206,51 @@ extension DrawingWalkthroughViewController: UIApplicationDelegate
     }
 }
 
-// -----------------------------------------------------------------------------
-// UITableViewDelegate
-// -----------------------------------------------------------------------------
-extension DrawingWalkthroughViewController: UITableViewDelegate
-{
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        // display the focus frame when the table has been rendered
-        if indexPath.row == 5
-        {
-            focusView.frame = tableView.frame
-            focusView.frame.origin = CGPoint.zero
-        }
-    }
-}
 
 // -----------------------------------------------------------------------------
-// UITableViewDataSource
+// MARK: - SctViewDataSource
 // -----------------------------------------------------------------------------
-extension DrawingWalkthroughViewController: UITableViewDataSource
+extension DrawingWalkthroughViewController: SctViewDataSource
 {
-    func numberOfSections(in tableView: UITableView) -> Int
-    {
-        return 1
+    var sections: [SctViewController.SctSection] {
+        return [ .drawing ]
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return 6
+    var currentSctIndex: Int {
+        return 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    var currentSct: Sct {
+        let wording = "DrawingWalkthrough.Drawing.Wording".localized
+        
+        var questions = [SctQuestion]()
+        questions.append(SctQuestion(hypothesis: "", newData: "..."))
+        
+        for i in 1...2
+        {
+            questions.append(SctQuestion(hypothesis: "H\(i)", newData: "D\(i)"))
+        }
+        return Sct(wording: wording, topic: .diagnostic, questions: questions)
+    }
+    
+    var questionHeaderTitle: SctQuestionHeaderCell.Title? {
+        return SctQuestionHeaderCell.Title(hypothesis: "DrawingWalkthrough.Drawing.Think".localized, newData: "DrawingWalkthrough.Drawing.Find".localized, likertScale: "DrawingWalkthrough.Drawing.LikertIndex".localized)
+    }
+    
+    var session: SctSession? {
+        return nil
+    }
+    
+    var canChooseLikertScale: Bool {
+        return false
+    }
+    
+    func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
+    {
+    }
+}
+    
+    /*func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(for: indexPath) as DrawingWalkthroughCell
         
@@ -249,22 +259,9 @@ extension DrawingWalkthroughViewController: UITableViewDataSource
         switch indexPath.row
         {
         case 0:
-            cell.labels.first?.text = "DrawingWalkthrough.Drawing.Wording".localized
-        case 1:
-            cell.labels[0].text = "DrawingWalkthrough.Drawing.Think".localized
-            cell.labels[1].text = "DrawingWalkthrough.Drawing.Find".localized
-            cell.labels[2].text = "DrawingWalkthrough.Drawing.LikertIndex".localized
-        case 4:
-            cell.labels[0].text = ""
-            cell.labels[1].text = "..."
-            cell.labels[2].text = ""
-        default:
-            cell.labels[0].text = "H\(indexPath.row - 2)"
-            cell.labels[1].text = "D\(indexPath.row - 2)"
-            cell.labels[2].text = "I\(indexPath.row - 2)"
+ 
         }
         
         return cell
-    }
-}
+    }*/
 
