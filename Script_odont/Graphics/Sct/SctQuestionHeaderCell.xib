@@ -21,20 +21,20 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="XNt-0d-chD">
                         <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hypothesis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8x7-Gl-SEO">
-                                <rect key="frame" x="0.0" y="0.0" width="122" height="43.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hypothesis" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8x7-Gl-SEO">
+                                <rect key="frame" x="0.0" y="0.0" width="91.5" height="43.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHZ-LF-rbo">
-                                <rect key="frame" x="122" y="0.0" width="121.5" height="43.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHZ-LF-rbo">
+                                <rect key="frame" x="91.5" y="0.0" width="91" height="43.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jV6-0B-rC7">
-                                <rect key="frame" x="243.5" y="0.0" width="91.5" height="43.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impact" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jV6-0B-rC7">
+                                <rect key="frame" x="182.5" y="0.0" width="152.5" height="43.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -43,7 +43,19 @@
                         <constraints>
                             <constraint firstItem="lHZ-LF-rbo" firstAttribute="width" secondItem="8x7-Gl-SEO" secondAttribute="width" id="qSL-kT-CQ2"/>
                             <constraint firstItem="8x7-Gl-SEO" firstAttribute="width" secondItem="XNt-0d-chD" secondAttribute="width" multiplier="4:11" id="syz-ph-UD3"/>
+                            <constraint firstItem="8x7-Gl-SEO" firstAttribute="width" secondItem="XNt-0d-chD" secondAttribute="width" multiplier="3:11" id="waR-DP-XHw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="waR-DP-XHw"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="syz-ph-UD3"/>
+                                <include reference="waR-DP-XHw"/>
+                            </mask>
+                        </variation>
                     </stackView>
                 </subviews>
                 <constraints>

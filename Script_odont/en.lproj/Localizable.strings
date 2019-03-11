@@ -136,11 +136,11 @@
 "WelcomeWalkthroughExample.Success.Message" = "Congratulations! You just solved your first SCT!";
 
 /* DRAWING WALKTHROUGH */
-"DrawingWalkthrough.Description.Drawing"    = "Drawing.";
-"DrawingWalkthrough.Description.Wording"    = "Wording.";
-"DrawingWalkthrough.Description.Hypothesis" = "Hypothesis.";
-"DrawingWalkthrough.Description.NewData"    = "New Data.";
-"DrawingWalkthrough.Description.LikertScale"            = "Likert Scale.";
+"DrawingWalkthrough.Description.Drawing"        = "An SCT is typically represented using a drawing.";
+"DrawingWalkthrough.Description.Wording"        = "The patient case is described in the first row.";
+"DrawingWalkthrough.Description.Hypothesis"     = "Hypothesis are gathered in the first column.";
+"DrawingWalkthrough.Description.NewData"        = "New data are stored in the second one.";
+"DrawingWalkthrough.Description.LikertScale"    = "The last column holds the impact of the new data.";
 
 "DrawingWalkthrough.Drawing.Wording"        = "Wording";
 "DrawingWalkthrough.Drawing.Think"          = "You thought...";

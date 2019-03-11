@@ -92,6 +92,11 @@ class DrawingWalkthroughViewController: SctViewController
         createTimer_()
     }
     
+    override func viewDidAppear(_ animated: Bool)
+    {
+        updateFocusViewFrame_()
+    }
+    
     override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(animated)
@@ -121,50 +126,92 @@ class DrawingWalkthroughViewController: SctViewController
     
     fileprivate func updateStepUi_()
     {
+        updateStepLabel_()
+        updateFocusViewFrame_()
+    }
+    
+    fileprivate func updateStepLabel_()
+    {
         stepLabel.text = currentStep_.description
         stepLabel.alpha = 0
         UIView.animate(withDuration: 1.0, animations:
             {
                 self.stepLabel.alpha = 1
         })
+    }
+    
+    fileprivate func updateFocusViewFrame_()
+    {
+        let wordingCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? SctWordingCell
         
-        /*let firstCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! DrawingWalkthroughCell
-        let lastCell = tableView.cellForRow(at: IndexPath(row: 5, section: 0)) as! DrawingWalkthroughCell
-        let firstLabel: UITextView
-        let lastLabel: UITextView
-        
+        var newFrame: CGRect? = nil
         switch currentStep_
         {
         case .drawing:
-            focusView.frame = tableView.frame
-            focusView.frame.origin = CGPoint.zero
-            
-            return
+            newFrame = drawingFrame()
         case .wording:
-            let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! DrawingWalkthroughCell
-            let firstLabel = firstCell.labels.first!
-            let frame = firstLabel.convert(firstLabel.frame, to: tableView)
-            
-            focusView.frame = frame
-            
-            return
+            newFrame = wordingCell?.frame
         case .hypothesis:
-            firstLabel  = firstCell.labels[0]
-            lastLabel   = lastCell.labels[0]
+            newFrame = hypothesisFrame()
         case .newData:
-            firstLabel  = firstCell.labels[1]
-            lastLabel   = lastCell.labels[1]
-        case .lickertSctle:
-            firstLabel  = firstCell.labels[2]
-            lastLabel   = lastCell.labels[2]
+            newFrame = newDataFrame()
+        case .lickertScale:
+            newFrame = likertScaleFrame()
         }
-        let firstFrame  = firstLabel.convert(firstLabel.bounds, to: tableView)
-        let lastFrame   = lastLabel.convert(lastLabel.bounds, to: tableView)
         
-        let width = firstFrame.width
-        let height = lastFrame.maxY - firstFrame.minY
+        if newFrame != nil
+        {
+            focusView.frame = newFrame!
+        }
+    }
+    
+    fileprivate func drawingFrame() -> CGRect?
+    {
+        guard let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? SctWordingCell,
+            let lastCell = tableView.cellForRow(at: IndexPath(row: 4, section: 0)) as? SctQuestionCell else
+        {
+            return nil
+        }
         
-        focusView.frame = CGRect(x: firstFrame.minX, y: firstFrame.minY, width: width, height: height)*/
+        let x = firstCell.frame.minX
+        let y = firstCell.frame.minY
+        let width = firstCell.frame.width
+        let height = lastCell.frame.maxY - firstCell.frame.minY
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
+    
+    fileprivate func hypothesisFrame() -> CGRect?
+    {
+        return frameForColumn(headerLabelGetter: {$0.hypothesisLabel}, labelGetter: {$0.hypothesisLabel})
+    }
+    
+    fileprivate func newDataFrame() -> CGRect?
+    {
+        return frameForColumn(headerLabelGetter: {$0.newDataLabel}, labelGetter: {$0.newDataLabel})
+    }
+    
+    fileprivate func likertScaleFrame() -> CGRect?
+    {
+        return frameForColumn(headerLabelGetter: {$0.likertScaleLabel}, labelGetter: {$0.scalesContainer})
+    }
+    
+    fileprivate func frameForColumn(headerLabelGetter: (SctQuestionHeaderCell) -> UILabel, labelGetter: (SctQuestionCell) -> UIView) -> CGRect?
+    {
+        guard let firstCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? SctQuestionHeaderCell,
+            let lastCell = tableView.cellForRow(at: IndexPath(row: 4, section: 0)) as? SctQuestionCell else
+        {
+            return nil
+        }
+        
+        let firstLabel = headerLabelGetter(firstCell)
+        let lastLabel = labelGetter(lastCell)
+        
+        let x = (firstLabel.superview?.frame.minX ?? 0) + firstLabel.frame.minX
+        let y = firstCell.frame.minY
+        let width = lastLabel.frame.width
+        let height = lastCell.frame.maxY - firstCell.frame.minY
+        
+        return CGRect(x: x, y: y, width: width, height: height)
     }
     
     // -------------------------------------------------------------------------
@@ -205,7 +252,6 @@ extension DrawingWalkthroughViewController: UIApplicationDelegate
         createTimer_()
     }
 }
-
 
 // -----------------------------------------------------------------------------
 // MARK: - SctViewDataSource
@@ -249,19 +295,3 @@ extension DrawingWalkthroughViewController: SctViewDataSource
     {
     }
 }
-    
-    /*func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCell(for: indexPath) as DrawingWalkthroughCell
-        
-        cell.cellsCount = (indexPath.row == 0 ? 1 : 3)
-    
-        switch indexPath.row
-        {
-        case 0:
- 
-        }
-        
-        return cell
-    }*/
-

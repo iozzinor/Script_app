@@ -135,6 +135,18 @@
 "WelcomeWalkthroughExample.Success.Title"   = "Premier TCS";
 "WelcomeWalkthroughExample.Success.Message" = "Bravo ! Vous venez de répondre à votre premier TCS sur TCS-App !";
 
+/* DRAWING WALKTHROUGH */
+"DrawingWalkthrough.Description.Drawing"        = "Un TCS est classiquement représenté sous la forme d'une vignette.";
+"DrawingWalkthrough.Description.Wording"        = "Le cas du patient est décrit dans la première rangée.";
+"DrawingWalkthrough.Description.Hypothesis"     = "Les hypothèses sont rangées dans la première colonne.";
+"DrawingWalkthrough.Description.NewData"        = "Les nouvelles informations sont alignées dans la deuxième colonne.";
+"DrawingWalkthrough.Description.LikertScale"    = "La dernière colonne contient les impacts de ces données sur les hypothèses.";
+
+"DrawingWalkthrough.Drawing.Wording"        = "Enoncé.";
+"DrawingWalkthrough.Drawing.Think"          = "Vous pensiez...";
+"DrawingWalkthrough.Drawing.Find"           = "Vous trouvez...";
+"DrawingWalkthrough.Drawing.LikertIndex"    = "Indice de Likert";
+
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information"      = "Informations";
 "SctExam.Horizontal.Progress"               = "%d sur %d";

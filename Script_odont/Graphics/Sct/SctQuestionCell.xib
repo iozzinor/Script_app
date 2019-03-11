@@ -22,28 +22,40 @@
                         <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hypothesis" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0O-Lc-RJy">
-                                <rect key="frame" x="0.0" y="0.0" width="122" height="43.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="91.5" height="43.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Data" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFC-9C-UQs">
-                                <rect key="frame" x="122" y="0.0" width="121.5" height="43.5"/>
+                                <rect key="frame" x="91.5" y="0.0" width="91" height="43.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0FL-tr-YCU">
-                                <rect key="frame" x="243.5" y="0.0" width="91.5" height="43.5"/>
+                                <rect key="frame" x="182.5" y="0.0" width="152.5" height="43.5"/>
                             </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="eFC-9C-UQs" firstAttribute="top" secondItem="5qL-uc-M0c" secondAttribute="top" id="Asg-A9-Uyp"/>
-                            <constraint firstItem="eFC-9C-UQs" firstAttribute="width" secondItem="5qL-uc-M0c" secondAttribute="width" multiplier="4:11" id="PSf-H3-wFu"/>
+                            <constraint firstItem="eFC-9C-UQs" firstAttribute="width" secondItem="u0O-Lc-RJy" secondAttribute="width" id="Bw7-KG-Rmg"/>
                             <constraint firstItem="u0O-Lc-RJy" firstAttribute="width" secondItem="5qL-uc-M0c" secondAttribute="width" multiplier="4:11" id="Sbb-Ya-WLs"/>
                             <constraint firstItem="0FL-tr-YCU" firstAttribute="top" secondItem="5qL-uc-M0c" secondAttribute="top" id="agB-XX-wqU"/>
                             <constraint firstItem="u0O-Lc-RJy" firstAttribute="top" secondItem="5qL-uc-M0c" secondAttribute="top" id="hsV-Lc-eEz"/>
+                            <constraint firstItem="u0O-Lc-RJy" firstAttribute="width" secondItem="5qL-uc-M0c" secondAttribute="width" multiplier="3:11" id="uRS-N9-XZo"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uRS-N9-XZo"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="Sbb-Ya-WLs"/>
+                                <include reference="uRS-N9-XZo"/>
+                            </mask>
+                        </variation>
                     </stackView>
                 </subviews>
                 <constraints>
