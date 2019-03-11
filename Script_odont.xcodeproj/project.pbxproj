@@ -23,6 +23,8 @@
 		AC0D77E022283FB6007F83D4 /* SctQuestionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77DF22283FB6007F83D4 /* SctQuestionCellDelegate.swift */; };
 		AC0E4E982236C663003996AF /* DrawingExampleWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4E972236C663003996AF /* DrawingExampleWalkthroughViewController.swift */; };
 		AC0E4E9A2236C6CC003996AF /* DrawingExampleWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0E4E992236C6CC003996AF /* DrawingExampleWalkthrough.storyboard */; };
+		AC0E4E9E2236E136003996AF /* SctTopicWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4E9D2236E136003996AF /* SctTopicWalkthroughViewController.swift */; };
+		AC0E4EA02236E144003996AF /* SctTopicWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0E4E9F2236E144003996AF /* SctTopicWalkthrough.storyboard */; };
 		AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3962235B7B400A3B813 /* Other.storyboard */; };
 		AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */; };
 		AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */; };
@@ -112,6 +114,8 @@
 		AC0D77DF22283FB6007F83D4 /* SctQuestionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctQuestionCellDelegate.swift; sourceTree = "<group>"; };
 		AC0E4E972236C663003996AF /* DrawingExampleWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingExampleWalkthroughViewController.swift; sourceTree = "<group>"; };
 		AC0E4E992236C6CC003996AF /* DrawingExampleWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DrawingExampleWalkthrough.storyboard; sourceTree = "<group>"; };
+		AC0E4E9D2236E136003996AF /* SctTopicWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctTopicWalkthroughViewController.swift; sourceTree = "<group>"; };
+		AC0E4E9F2236E144003996AF /* SctTopicWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SctTopicWalkthrough.storyboard; sourceTree = "<group>"; };
 		AC31E3952235B7B400A3B813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Other.storyboard; sourceTree = "<group>"; };
 		AC31E3982235B7B700A3B813 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Other.strings; sourceTree = "<group>"; };
 		AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScaleCell.xib; sourceTree = "<group>"; };
@@ -245,6 +249,15 @@
 			path = DrawingExample;
 			sourceTree = "<group>";
 		};
+		AC0E4E9C2236E110003996AF /* SctTopic */ = {
+			isa = PBXGroup;
+			children = (
+				AC0E4E9D2236E136003996AF /* SctTopicWalkthroughViewController.swift */,
+				AC0E4E9F2236E144003996AF /* SctTopicWalkthrough.storyboard */,
+			);
+			path = SctTopic;
+			sourceTree = "<group>";
+		};
 		AC31E3992235B83500A3B813 /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +324,7 @@
 				AC74B69B22353DE900B31571 /* Welcome */,
 				AC31E3992235B83500A3B813 /* Drawing */,
 				AC0E4E962236C63D003996AF /* DrawingExample */,
+				AC0E4E9C2236E110003996AF /* SctTopic */,
 			);
 			path = Walkthrough;
 			sourceTree = "<group>";
@@ -485,6 +499,7 @@
 				AC38BB6A221DE4CB008E829B /* LaunchScreen.storyboard in Resources */,
 				AC82731E222C96EB0041AA0C /* SecurityQuestionCell.xib in Resources */,
 				AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */,
+				AC0E4EA02236E144003996AF /* SctTopicWalkthrough.storyboard in Resources */,
 				AC0E4E9A2236C6CC003996AF /* DrawingExampleWalkthrough.storyboard in Resources */,
 				AC31E3A32235BCC300A3B813 /* SctWordingCell.xib in Resources */,
 				AC38BB73221DF03F008E829B /* WelcomeWalkthrough.storyboard in Resources */,
@@ -560,6 +575,7 @@
 				AC4904CF222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift in Sources */,
 				AC38BB80221EA451008E829B /* WelcomeWalkthroughPageViewControllerDelegate.swift in Sources */,
 				ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */,
+				AC0E4E9E2236E136003996AF /* SctTopicWalkthroughViewController.swift in Sources */,
 				AC4904BF222B3AAF00BDEB4B /* SecurityQuestion.swift in Sources */,
 				AC8F5B792228986000FAEFC5 /* GoToSctViewControllerDelegate.swift in Sources */,
 				AC8F5B77222894AB00FAEFC5 /* GoToSctViewController.swift in Sources */,

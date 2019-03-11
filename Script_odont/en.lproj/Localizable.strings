@@ -167,6 +167,7 @@
 "Walkthroughs.Show.Welcome" = "Welcome...";
 "Walkthroughs.Show.Drawing" = "Drawing...";
 "Walkthroughs.Show.DrawingExample" = "Drawing Example...";
+"Walkthroughs.Show.SctTopic" = "Sct Topic...";
 
 /* MY SCT*/
 "MySct.Section.Unfinished" = "Unfinished";

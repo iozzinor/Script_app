@@ -167,6 +167,7 @@
 "Walkthroughs.Show.Welcome" = "Bienvenue...";
 "Walkthroughs.Show.Drawing" = "Vignette...";
 "Walkthroughs.Show.DrawingExample" = "Exemple de vignette...";
+"Walkthroughs.Show.SctTopic" = "Thème TCS...";
 
 /* MY SCT*/
 "MySct.Section.Unfinished" = "Non finis";

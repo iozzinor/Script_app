@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E02-67-79E">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Loe-cK-1v3">
+            <objects>
+                <navigationController id="E02-67-79E" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vqa-Xc-bHA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="b42-zd-cfM" kind="relationship" relationship="rootViewController" id="eJZ-cc-3EY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XE1-yJ-Idn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-854" y="-286"/>
+        </scene>
+        <!--Sct Topic Walkthrough View Controller-->
+        <scene sceneID="X83-jQ-LeB">
+            <objects>
+                <viewController id="b42-zd-cfM" customClass="SctTopicWalkthroughViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5jV-7H-22b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QSd-PU-Zah">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nMM-q6-Rtg">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="566"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </tableView>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="w3J-rG-Bzy">
+                                        <rect key="frame" x="0.0" y="566" width="375" height="37"/>
+                                        <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="selectTopic:" destination="b42-zd-cfM" eventType="valueChanged" id="rhx-FY-NFR"/>
+                                        </connections>
+                                    </pageControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nMM-q6-Rtg" firstAttribute="leading" secondItem="QSd-PU-Zah" secondAttribute="leading" id="1TH-A4-cfm"/>
+                                    <constraint firstItem="w3J-rG-Bzy" firstAttribute="leading" secondItem="QSd-PU-Zah" secondAttribute="leading" id="qYt-cx-Ytf"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dcp-U0-6AZ" firstAttribute="trailing" secondItem="QSd-PU-Zah" secondAttribute="trailing" id="9sK-31-c1K"/>
+                            <constraint firstItem="QSd-PU-Zah" firstAttribute="leading" secondItem="5jV-7H-22b" secondAttribute="leading" id="EUD-Ar-vwV"/>
+                            <constraint firstItem="QSd-PU-Zah" firstAttribute="top" secondItem="Dcp-U0-6AZ" secondAttribute="top" id="TZt-2Z-rV0"/>
+                            <constraint firstAttribute="bottom" secondItem="QSd-PU-Zah" secondAttribute="bottom" id="aUu-iv-XMo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Dcp-U0-6AZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZJy-2v-tst">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jYb-DE-o1o">
+                            <connections>
+                                <action selector="done:" destination="b42-zd-cfM" id="m6o-V0-7zW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pageControl" destination="w3J-rG-Bzy" id="a5Z-PY-kfr"/>
+                        <outlet property="tableView" destination="nMM-q6-Rtg" id="wZb-Ac-9Rk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2dR-4h-S6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10" y="-285"/>
+        </scene>
+    </scenes>
+</document>
