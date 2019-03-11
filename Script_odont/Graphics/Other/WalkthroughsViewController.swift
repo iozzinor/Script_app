@@ -13,6 +13,7 @@ class WalkthroughsViewController: UITableViewController
     static let cellId = "WalkthroughsCellReuseId"
     static let toWelcomeWalkthroughSegueId = "WalkthroughsToWelcomeWalkthroughSegueId"
     static let toDrawingWalkthroughSegueId = "WalkthroughsToDrawingWalkthroughSegueId"
+    static let toDrawingExampleWalkthroughSegueId = "WalkthroughsToDrawingExampleWalkthroughSegueId"
     
     // -------------------------------------------------------------------------
     // MARK: - ROW
@@ -21,6 +22,7 @@ class WalkthroughsViewController: UITableViewController
     {
         case welcome
         case drawing
+        case drawingExample
         
         var title: String
         {
@@ -30,11 +32,13 @@ class WalkthroughsViewController: UITableViewController
                 return "Walkthroughs.Show.Welcome".localized
             case .drawing:
                 return "Walkthroughs.Show.Drawing".localized
+            case .drawingExample:
+                return "Walkthroughs.Show.DrawingExample".localized
             }
         }
     }
     
-    fileprivate var rows_: [WalkthroughRow] = [.welcome, .drawing]
+    fileprivate var rows_: [WalkthroughRow] = [.welcome, .drawing, .drawingExample]
     
     // -------------------------------------------------------------------------
     // MARK: - UITableViewDelegate
@@ -49,6 +53,8 @@ class WalkthroughsViewController: UITableViewController
             performSegue(withIdentifier: WalkthroughsViewController.toWelcomeWalkthroughSegueId, sender: self)
         case .drawing:
             performSegue(withIdentifier: WalkthroughsViewController.toDrawingWalkthroughSegueId, sender: self)
+        case .drawingExample:
+            performSegue(withIdentifier: WalkthroughsViewController.toDrawingExampleWalkthroughSegueId, sender: self)
         }
     }
     

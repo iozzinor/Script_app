@@ -79,13 +79,13 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell.tag = indexPath.row - 2
                 cell.isLast = (indexPath.row - 1 == sct.questions.count)
                 cell.canChooseLikertScale = dataSource?.canChooseLikertScale ?? false
+                cell.delegate = dataSource
                 
                 if let session = session
                 {
                     // restore the answer
                     let answer = session[currentSct, indexPath.row - 2]
                     cell.setAnswer(answer)
-                    cell.delegate = dataSource
                 }
                 return cell
             case .scale:

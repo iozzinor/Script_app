@@ -67,6 +67,7 @@
                     <connections>
                         <segue destination="YPk-lX-lwp" kind="presentation" identifier="WalkthroughsToWelcomeWalkthroughSegueId" id="ODM-k8-rNa"/>
                         <segue destination="zMB-5M-vL6" kind="presentation" identifier="WalkthroughsToDrawingWalkthroughSegueId" id="B3h-Ur-GbI"/>
+                        <segue destination="2p5-Xe-eIe" kind="presentation" identifier="WalkthroughsToDrawingExampleWalkthroughSegueId" id="KsX-vL-sPm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vW7-cn-ZFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -90,6 +91,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1H-yv-qra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1561" y="145"/>
+        </scene>
+        <!--DrawingExampleWalkthrough-->
+        <scene sceneID="ID1-Lb-3aR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DrawingExampleWalkthrough" id="2p5-Xe-eIe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z7l-Vl-GVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1602" y="198"/>
         </scene>
     </scenes>
 </document>

@@ -312,8 +312,8 @@ class WelcomeWalkthroughExampleViewController: UIViewController
         sender.transform = CGAffineTransform(translationX: 20, y: 0)
         
         let cachedColor = sender.titleColor(for: .normal) ?? UIColor.blue
-        sender.setTitleColor(UIColor.red, for: .normal)
-        sender.setTitleColor(UIColor.red, for: .selected)
+        sender.setTitleColor(Appearance.Color.error, for: .normal)
+        sender.setTitleColor(Appearance.Color.error, for: .selected)
         
         UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.1, initialSpringVelocity: 4.0, options:  [.curveEaseOut], animations: {
             

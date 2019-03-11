@@ -18,6 +18,12 @@ struct Appearance
         /// The default color to use for the text.
         public static let `default` = UIColor.black
         
+        /// The default color to use to indicate an error occured.
+        public static let error = UIColor.red
+        
+        /// The default color to use to indicate the correct answer has been selected.
+        public static let correct = UIColor.green
+        
         /// The missing color.
         public static let missing = UIColor.gray
         
