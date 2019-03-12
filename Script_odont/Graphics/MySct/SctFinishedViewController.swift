@@ -10,7 +10,7 @@ import UIKit
 
 class SctFinishedViewController: SctDetailViewController
 {
-    var sctFinished: SctFinished =
+    fileprivate var sctFinished_: SctFinished =
         SctFinished(session: SctSession(exam: SctExam()),
                       answeredQuestions: 1,
                       duration: 30.0,
@@ -18,12 +18,14 @@ class SctFinishedViewController: SctDetailViewController
                       endDate: Date(),
                       statistics:
             SctStatistics(id: 0, meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60), score: 200, vote: nil)
+    
+    func setSctFinished(_ sctFinished: SctFinished)
     {
-        didSet {
-            if isViewLoaded
-            {
-                reloadData()
-            }
+        sctFinished_ = sctFinished
+        
+        if isViewLoaded
+        {
+            reloadData()
         }
     }
     
@@ -34,8 +36,34 @@ class SctFinishedViewController: SctDetailViewController
     {
         super.viewDidLoad()
         
+        delegate = self
         dataSource = self
         setupTableView(tableView)
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - SCT DETAIL VIEW DELEGATE
+// -----------------------------------------------------------------------------
+extension SctFinishedViewController: SctDetailViewDelegate
+{
+    func sctDetailView(_ sctDetailViewController: SctDetailViewController, didPerformVote vote: Int)
+    {
+        sctFinished_.vote = vote
+        tableView.insertRows(at: [IndexPath(row: 1, section: 1)], with: .automatic)
+        tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
+    }
+    
+    func sctDetailView(_ sctDetailViewController: SctDetailViewController, didUpdateVote vote: Int)
+    {
+        sctFinished_.vote = vote
+    }
+    
+    func sctDetailView(didRemoveVote sctDetailViewController: SctDetailViewController)
+    {
+        sctFinished_.vote = nil
+        tableView.deleteRows(at: [IndexPath(row: 1, section: 1)], with: .automatic)
+        tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
     }
 }
 
@@ -45,15 +73,15 @@ class SctFinishedViewController: SctDetailViewController
 extension SctFinishedViewController: SctDetailViewDataSource
 {
     var exam: SctExam {
-        return sctFinished.session.exam
+        return sctFinished_.session.exam
     }
     
     var statistics: SctStatistics {
-        return sctFinished.statistics
+        return sctFinished_.statistics
     }
     
     var answeredQuestionsCount: Int {
-        return sctFinished.answeredQuestions
+        return sctFinished_.answeredQuestions
     }
     
     var unfinished: SctUnfinished? {
@@ -61,7 +89,7 @@ extension SctFinishedViewController: SctDetailViewDataSource
     }
     
     var finished: SctFinished? {
-        return sctFinished
+        return sctFinished_
     }
     
     func rows(for section: SctDetailViewController.SctDetailSection, at index: Int) -> [SctDetailViewController.SctDetailRow]
@@ -73,7 +101,7 @@ extension SctFinishedViewController: SctDetailViewDataSource
         case .lastSession:
             return []
         case .rate:
-            if sctFinished.vote != nil
+            if sctFinished_.vote != nil
             {
                 return [.myVote, .removeVote]
             }

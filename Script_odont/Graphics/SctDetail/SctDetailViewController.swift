@@ -124,20 +124,25 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 
             // rate
             case .myVote:
-                let result = tableView.dequeueReusableCell(for: indexPath) as SctRateCell
-                result.rateLabel?.text = "SctDetail.TableCell.MyVote".localized
-                result.rate = dataSource.finished?.vote ?? 0.0
+                let result = tableView.dequeueReusableCell(for: indexPath) as SctUpdateRateCell
+                result.updateLabel?.text = "SctDetail.TableCell.MyVote".localized
+                result.selectedStar = (dataSource.finished?.vote ?? 1) - 1
+                result.selectionStyle = .none
+                result.delegate = sctDetailViewController
                 return result
             case .performVote:
                 let result = tableView.dequeueReusableCell(for: indexPath) as SctPerformRateCell
                 result.performRateButton.setTitle("SctDetail.TableCell.PerformVote".localized, for: .normal)
-                
-                sctDetailViewController.performRateCell = result
+                result.delegate = sctDetailViewController
+                result.selectionStyle = .none
+                sctDetailViewController.performRateCell_ = result
+                result.reset()
                 return result
             case .removeVote:
                 cell.textLabel?.text = "SctDetail.TableCell.RemoveVote".localized
                 cell.textLabel?.textColor = Appearance.Color.action
                 cell.detailTextLabel?.text = ""
+                sctDetailViewController.removeRateIndex_ = indexPath
                 
             // completed session
             case .completionDate:
@@ -186,8 +191,8 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    var delegate: SctDetailViewDelegate? = nil
-    var dataSource: SctDetailViewDataSource? = nil {
+    weak var delegate: SctDetailViewDelegate? = nil
+    weak var dataSource: SctDetailViewDataSource? = nil {
         didSet {
             reloadData()
         }
@@ -200,7 +205,8 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         return dataSource?.rows(for: section, at: index) ?? []
     }
     fileprivate weak var tableView_: UITableView!
-    fileprivate var performRateCell: SctPerformRateCell? = nil
+    fileprivate var performRateCell_: SctPerformRateCell? = nil
+    fileprivate var removeRateIndex_: IndexPath? = nil
     
     override func viewDidLoad()
     {
@@ -218,6 +224,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: SctDetailViewController.cellId)
         tableView.registerNibCell(SctRateCell.self)
         tableView.registerNibCell(SctPerformRateCell.self)
+        tableView.registerNibCell(SctUpdateRateCell.self)
     }
     
     func reloadData()
@@ -247,11 +254,39 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
         let selectedCell = tableView.cellForRow(at: indexPath)
-        if selectedCell != performRateCell
+        // perform rate
+        if selectedCell == performRateCell_
         {
-            performRateCell?.cancelVote()
+            if !(performRateCell_?.isDisplayingStars ?? true)
+            {
+                return indexPath
+            }
+            performRateCell_?.cancelVote()
+        }
+        else if (performRateCell_?.isDisplayingStars ?? false)
+        {
+            performRateCell_?.cancelVote()
+        }
+            
+        // remove rate
+        if removeRateIndex_ == indexPath
+        {
+            return indexPath
         }
         return nil
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let selectedCell = tableView.cellForRow(at: indexPath)
+        if selectedCell == performRateCell_
+        {
+            performRateCell_?.displayStars()
+        }
+        else if removeRateIndex_ == indexPath
+        {
+            delegate?.sctDetailView(didRemoveVote: self)
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -282,5 +317,33 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         let row = currentRows[indexPath.row]
         
         return row.cell(for: indexPath, sctDetailViewController: self)
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - SCT PERFORM RATE CELL DELEGATE
+// -----------------------------------------------------------------------------
+extension SctDetailViewController: SctPerformRateCellDelegate
+{
+    func sctPerformRateCell(didCancelPerformRate sctPerformRateCell: SctPerformRateCell)
+    {
+    }
+    
+    func sctPerformRateCell(_ sctPerformRateCell: SctPerformRateCell, didChooseRate rate: Int)
+    {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            self.delegate?.sctDetailView(self, didPerformVote: rate)
+        })
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - SCT UPDATE RATE CELL DELEGATE
+// -----------------------------------------------------------------------------
+extension SctDetailViewController: SctUpdateRateCellDelegate
+{
+    func sctUpdateRateCell(_ sctUpdateRateCell: SctUpdateRateCell, didChooseRate rate: Int)
+    {
+        delegate?.sctDetailView(self, didUpdateVote: rate)
     }
 }

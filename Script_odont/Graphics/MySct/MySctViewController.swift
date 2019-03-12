@@ -143,7 +143,7 @@ class MySctViewController: UIViewController
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
                                            launchesCount:               Constants.random(min: 300, max: 1000),
                                            meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)))
-            let vote: Double? = nil//(Constants.random(min: 0, max: 100) % 2 == 0 ? nil : 3.75)
+            let vote: Int? = nil//(Constants.random(min: 0, max: 100) % 2 == 0 ? nil : 3.75)
             
             let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), statistics: statistics, score: Double(arc4random() % 100 + 1), vote: vote)
             
@@ -185,7 +185,7 @@ class MySctViewController: UIViewController
             let target = segue.destination as? SctFinishedViewController,
             let sctFinished = sctFinished_
         {
-            target.sctFinished = sctFinished
+            target.setSctFinished(sctFinished)
         }
     }
 }

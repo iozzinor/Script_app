@@ -11,7 +11,7 @@ import Foundation
 protocol SctDetailViewDelegate: class
 {
     // vote
-    func sctDetailView(_ sctDetailViewController: SctDetailViewController, didPerformVote vote: Double)
-    func sctDetailView(_ sctDetailViewController: SctDetailViewController, didUpdateVote vote: Double)
+    func sctDetailView(_ sctDetailViewController: SctDetailViewController, didPerformVote vote: Int)
+    func sctDetailView(_ sctDetailViewController: SctDetailViewController, didUpdateVote vote: Int)
     func sctDetailView(didRemoveVote sctDetailViewController: SctDetailViewController)
 }

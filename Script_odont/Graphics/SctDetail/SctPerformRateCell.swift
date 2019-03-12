@@ -15,18 +15,55 @@ class SctPerformRateCell: UITableViewCell
     @IBOutlet weak var performRateButton: UIButton!
     @IBOutlet weak var starsContainer: UIStackView!
     
+    weak var delegate: SctPerformRateCellDelegate? = nil
+    var isDisplayingStars: Bool {
+        return isDisplayingStars_
+    }
+    
     fileprivate var stars_ = [RateStar]()
-    fileprivate var selectedStar_ = -1
     fileprivate var isDisplayingStars_ = false
     
     fileprivate var cancellationTimer_: Timer? = nil
     
     @IBAction func displayStars(_ sender: UIButton)
     {
-        if selectedStar_ < 0
+        displayStars()
+    }
+    
+    func reset()
+    {
+        for star in stars_
+        {
+            star.isEnabled = true
+            star.setIsSelected(false, animated: false)
+        }
+        isDisplayingStars_ = false
+        performRateButton.isHidden = false
+        performRateButton.alpha = 1.0
+        performRateButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        starsContainer.isHidden = true
+        starsContainer.alpha = 0.0
+    }
+    
+    func displayStars()
+    {
+        if stars_.isEmpty
         {
             prepareStars_()
         }
+        
+        isDisplayingStars_ = true
+        // hide perform rate and display stars
+        animateOut_(view: performRateButton, completion: {
+            (_) -> Void in
+            
+            self.performRateButton.isHidden = true
+            self.starsContainer.isHidden = false
+            self.animateIn_(view: self.starsContainer)
+        })
+        
+        // launch cancellation timer
+        cancellationTimer_ = Timer.scheduledTimer(timeInterval: SctPerformRateCell.cancellationDuration, target: self, selector: #selector(SctPerformRateCell.cancellationTimerFired_), userInfo: nil, repeats: false)
     }
     
     fileprivate func prepareStars_()
@@ -43,19 +80,6 @@ class SctPerformRateCell: UITableViewCell
                 starsContainer.addArrangedSubview(newStar)
             }
         }
-        
-        isDisplayingStars_ = true
-        // hide perform rate and display stars
-        animateOut_(view: performRateButton, completion: {
-            (_) -> Void in
-            
-            self.performRateButton.isHidden = true
-            self.starsContainer.isHidden = false
-            self.animateIn_(view: self.starsContainer)
-        })
-        
-        // launch cancellation timer
-        cancellationTimer_ = Timer.scheduledTimer(timeInterval: SctPerformRateCell.cancellationDuration, target: self, selector: #selector(SctPerformRateCell.cancellationTimerFired_), userInfo: nil, repeats: false)
     }
     
     @objc fileprivate func cancellationTimerFired_(_ sender: Timer)
@@ -82,6 +106,8 @@ class SctPerformRateCell: UITableViewCell
                 self.performRateButton.isHidden = false
                 self.animateIn_(view: self.performRateButton)
             })
+            
+            delegate?.sctPerformRateCell(didCancelPerformRate: self)
         }
         
         isDisplayingStars_ = false
@@ -120,19 +146,16 @@ class SctPerformRateCell: UITableViewCell
         for (i, star) in stars_.enumerated()
         {
             let isSelected = (i <= starIndex)
-            let animated: Bool
-            if i != starIndex
+            
+            if i == starIndex
             {
-                animated = true
-            }
-            else
-            {
-                animated = selectedStar_ < starIndex
-                star.setIsSelected(false, animated: false)
+                sender.setIsSelected(false, animated: false)
             }
             star.isEnabled = false
-            star.setIsSelected(isSelected, animated: animated)
+            
+            star.setIsSelected(isSelected, animated: true)
         }
-        selectedStar_ = starIndex
+        
+        delegate?.sctPerformRateCell(self, didChooseRate: starIndex + 1)
     }
 }

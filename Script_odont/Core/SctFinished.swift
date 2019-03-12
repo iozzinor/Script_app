@@ -20,5 +20,5 @@ struct SctFinished
     var statistics: SctStatistics
     
     var score: Double
-    var vote: Double?
+    var vote: Int?
 }

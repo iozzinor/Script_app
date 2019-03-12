@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmN-yh-jVc">
-                        <rect key="frame" x="171.5" y="0.0" width="32" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                         <state key="normal" title="Vote"/>
                         <connections>
-                            <action selector="displayStars:" destination="Vgn-ZC-IMa" eventType="touchUpInside" id="set-Zy-7g2"/>
+                            <action selector="displayStars:" destination="Vgn-ZC-IMa" eventType="touchUpInside" id="JOD-gw-CiN"/>
                         </connections>
                     </button>
                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UF8-ZT-BHD">
@@ -30,6 +30,7 @@
                     </stackView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="FmN-yh-jVc" firstAttribute="leading" secondItem="NFq-pA-LL8" secondAttribute="leading" id="5SN-nP-FZB"/>
                     <constraint firstItem="FmN-yh-jVc" firstAttribute="centerX" secondItem="NFq-pA-LL8" secondAttribute="centerX" id="5tb-an-2Eb"/>
                     <constraint firstItem="UF8-ZT-BHD" firstAttribute="top" secondItem="NFq-pA-LL8" secondAttribute="top" id="Akx-8L-737"/>
                     <constraint firstItem="FmN-yh-jVc" firstAttribute="centerY" secondItem="NFq-pA-LL8" secondAttribute="centerY" id="DDw-ko-mot"/>
