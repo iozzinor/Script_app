@@ -34,4 +34,29 @@ struct Constants
         dateFormatter.dateStyle = .short
         return dateFormatter.string(for: date) ?? ""
     }
+    
+    /// - returns: The textual representation of the duration expressed in seconds.
+    static func durationString(forTimeInterval timeInterval: TimeInterval) -> String
+    {
+        let minutes = Int(timeInterval) / 60
+        let seconds = Int(timeInterval) % 60
+        
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
+    /// If the max value is lower than the min one, then they are switched.
+    /// - returns: A random number in the range [min; max].
+    static func random(min: Int, max: Int) -> Int
+    {
+        if min == max
+        {
+            return min
+        }
+        else if min > max
+        {
+            return random(min: max, max: min)
+        }
+        
+        return Int(arc4random()) % (max - min + 1) + min
+    }
 }

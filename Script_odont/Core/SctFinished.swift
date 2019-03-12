@@ -17,5 +17,7 @@ struct SctFinished
     var startDate: Date
     var endDate: Date
     
+    var statistics: SctStatistics
+    
     var score: Int
 }

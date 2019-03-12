@@ -33,7 +33,7 @@ class MySctUnfinishedCell: UITableViewCell
     func setSctUnfinished(_ sctUnfinished: SctUnfinished)
     {
         topicLabel.layer.cornerRadius = topicLabel.frame.height / 2.0
-        topicLabel.layer.backgroundColor = Appearance.Color.color(for: sctUnfinished.session.exam.scts.first?.topic ?? .diagnostic).cgColor
+        topicLabel.layer.backgroundColor = Appearance.Color.color(for: sctUnfinished.session.topic).cgColor
         
         startDateLabel.text = Constants.dateString(for: sctUnfinished.startDate)
         if let firstSct = sctUnfinished.session.exam.scts.first
@@ -46,8 +46,6 @@ class MySctUnfinishedCell: UITableViewCell
         
         percentLabel.text = "\(Int(100.0 * Float(sctUnfinished.answeredQuestions) / Float(totalQuestions)))%"
         
-        let minutes = Int(sctUnfinished.duration / 60.0)
-        let seconds = Int(sctUnfinished.duration) % 60
-        durationLabel.text = String(format: "%02d:%02d", minutes, seconds)
+        durationLabel.text = Constants.durationString(forTimeInterval: sctUnfinished.duration)
     }
 }

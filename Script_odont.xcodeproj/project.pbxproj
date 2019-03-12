@@ -25,6 +25,7 @@
 		AC0E4E9A2236C6CC003996AF /* DrawingExampleWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0E4E992236C6CC003996AF /* DrawingExampleWalkthrough.storyboard */; };
 		AC0E4E9E2236E136003996AF /* SctTopicWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4E9D2236E136003996AF /* SctTopicWalkthroughViewController.swift */; };
 		AC0E4EA02236E144003996AF /* SctTopicWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0E4E9F2236E144003996AF /* SctTopicWalkthrough.storyboard */; };
+		AC0E4EA222370CF3003996AF /* SctStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EA122370CF3003996AF /* SctStatistics.swift */; };
 		AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3962235B7B400A3B813 /* Other.storyboard */; };
 		AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */; };
 		AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */; };
@@ -116,6 +117,8 @@
 		AC0E4E992236C6CC003996AF /* DrawingExampleWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DrawingExampleWalkthrough.storyboard; sourceTree = "<group>"; };
 		AC0E4E9D2236E136003996AF /* SctTopicWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctTopicWalkthroughViewController.swift; sourceTree = "<group>"; };
 		AC0E4E9F2236E144003996AF /* SctTopicWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SctTopicWalkthrough.storyboard; sourceTree = "<group>"; };
+		AC0E4EA122370CF3003996AF /* SctStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctStatistics.swift; sourceTree = "<group>"; };
+		AC0E4EA422371109003996AF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		AC31E3952235B7B400A3B813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Other.storyboard; sourceTree = "<group>"; };
 		AC31E3982235B7B700A3B813 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Other.strings; sourceTree = "<group>"; };
 		AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScaleCell.xib; sourceTree = "<group>"; };
@@ -221,6 +224,7 @@
 				AC4904BE222B3AAF00BDEB4B /* SecurityQuestion.swift */,
 				AC53E3752233AD9B00CA4437 /* SctUnfinished.swift */,
 				ACB8C8A722351AE000C7F77C /* SctFinished.swift */,
+				AC0E4EA122370CF3003996AF /* SctStatistics.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -550,6 +554,7 @@
 				AC4904C9222BBE7200BDEB4B /* PasswordTrait.swift in Sources */,
 				AC38BB76221DFB2F008E829B /* String+localized.swift in Sources */,
 				ACA60F722235CCEF0094881A /* SctViewController.swift in Sources */,
+				AC0E4EA222370CF3003996AF /* SctStatistics.swift in Sources */,
 				AC4904C3222B51F400BDEB4B /* SecurityQuestionPickerViewController.swift in Sources */,
 				AC0D77D22225DD01007F83D4 /* SctPanelAnswer.swift in Sources */,
 				ACE70F97221F3254008454FF /* UITableViewCell+reuseId.swift in Sources */,
@@ -613,6 +618,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				AC38BB64221DE4C9008E829B /* Base */,
+				AC0E4EA422371109003996AF /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

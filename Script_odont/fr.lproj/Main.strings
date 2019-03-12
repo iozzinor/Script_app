@@ -1,0 +1,21 @@
+
+/* Class = "UITabBarItem"; title = "My SCT"; ObjectID = "3ZK-BF-0Ya"; */
+"3ZK-BF-0Ya.title" = "Mes TCS";
+
+/* Class = "UIButton"; normalTitle = "Test user login"; ObjectID = "9Ke-Fh-qvK"; */
+"9Ke-Fh-qvK.normalTitle" = "Test de connexion utilisateur";
+
+/* Class = "UITabBarItem"; title = "My Sct"; ObjectID = "DZT-GH-zz9"; */
+"DZT-GH-zz9.title" = "My Sct";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "W4G-3f-fh2"; */
+"W4G-3f-fh2.title" = "Paramètres";
+
+/* Class = "UITabBarItem"; title = "Others"; ObjectID = "ZNr-We-81Z"; */
+"ZNr-We-81Z.title" = "Autres";
+
+/* Class = "UIButton"; normalTitle = "Test sct horizontal"; ObjectID = "cPM-Mc-0uK"; */
+"cPM-Mc-0uK.normalTitle" = "Test TCS horizontal";
+
+/* Class = "UITabBarItem"; title = "SCT Browsing"; ObjectID = "ikR-sF-PBK"; */
+"ikR-sF-PBK.title" = "Navigation TCS";

@@ -86,18 +86,25 @@ class MySctViewController: UIViewController
         
         var unfinishedScts = [SctUnfinished]()
         
-        for _ in 0..<10
+        for i in 0..<10
         {
-            let topic = SctTopic(rawValue: Int(arc4random() % 3)) ?? .diagnostic
+            let topic = SctTopic(rawValue: Constants.random(min: 0, max: 2)) ?? .diagnostic
             scts[0].topic = topic
             let exam = SctExam(scts: scts)
             let session = SctSession(exam: exam)
             
-            let answeredQuestions = Int(arc4random() % 30) + 5
-            let duration = Double(Int(arc4random() % 300) + 50)
-            let startDate = Date(timeIntervalSinceNow: Double(Int(arc4random() % 10 * (3600 * 24))))
+            let answeredQuestions = Constants.random(min: 5, max: 30)
+            let duration = Double(Constants.random(min: 50, max: 350))
+            let startDate = Date(timeIntervalSinceNow: Double(Constants.random(min: 0, max: 10) * (3600 * 24)))
             
-            let sctUnfinished = SctUnfinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, lastDate: Date())
+            let statistics = SctStatistics(id: i + 1,
+                                           meanScore:         Double(Constants.random(min: 5, max: 95)),
+                                           meanDuration:                Double(Constants.random(min: 120, max: 300)),
+                                           meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
+                                           launchesCount:               Constants.random(min: 300, max: 1000),
+                                           meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)))
+            
+            let sctUnfinished = SctUnfinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, lastDate: Date(), statistics: statistics)
             
             unfinishedScts.append(sctUnfinished)
         }
@@ -119,7 +126,7 @@ class MySctViewController: UIViewController
         
         var finishedScts = [SctFinished]()
         
-        for _ in 0..<5
+        for i in 0..<5
         {
             let topic = SctTopic(rawValue: Int(arc4random() % 3)) ?? .diagnostic
             scts[0].topic = topic
@@ -129,8 +136,14 @@ class MySctViewController: UIViewController
             let answeredQuestions = Int(arc4random() % 30) + 5
             let duration = Double(Int(arc4random() % 300) + 50)
             let startDate = Date(timeIntervalSinceNow: Double(Int(arc4random() % 10 * (3600 * 24))))
+            let statistics = SctStatistics(id: i + 1,
+                                           meanScore:         Double(Constants.random(min: 5, max: 95)),
+                                           meanDuration:                Double(Constants.random(min: 120, max: 300)),
+                                           meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
+                                           launchesCount:               Constants.random(min: 300, max: 1000),
+                                           meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)))
             
-            let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), score: Int(arc4random() % 100 + 1))
+            let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), statistics: statistics, score: Int(arc4random() % 100 + 1))
             
             finishedScts.append(sctUnfinished)
         }

@@ -16,4 +16,6 @@ struct SctUnfinished
     
     var startDate: Date
     var lastDate: Date
+    
+    var statistics: SctStatistics
 }

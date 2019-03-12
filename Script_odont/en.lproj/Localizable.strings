@@ -147,6 +147,25 @@
 "DrawingWalkthrough.Drawing.Find"           = "You find...";
 "DrawingWalkthrough.Drawing.LikertIndex"    = "Likert index";
 
+/* SCT UNFINISHED */
+"MySct.SctUnfinished.Title"                 = "SCT %d";
+"MySct.SctUnfinished.Section.General"       = "General";
+"MySct.SctUnfinished.Section.Duration"      = "Duration";
+"MySct.SctUnfinished.Section.Popularity"    = "Popularity";
+
+"MySct.SctUnfinished.TableCell.MeanScore"                   = "Mean score:";
+"MySct.SctUnfinished.TableCell.AnsweredQuestionsCount"      = "Answered Questions Count:";
+"MySct.SctUnfinished.TableCell.ActualDuration"              = "Actual:";
+"MySct.SctUnfinished.TableCell.EstimatedDuration"           = "Estimated:";
+"MySct.SctUnfinished.TableCell.MeanDuration"                = "Mean:";
+"MySct.SctUnfinished.TableCell.MeanVotes"                   = "Mean Votes:";
+"MySct.SctUnfinished.TableCell.LaunchesCount"               = "Launches Count:";
+"MySct.SctUnfinished.TableCell.MeanCompletionPercentage"    = "Mean Completion Percentage:";
+
+"MySct.SctUnfinished.TableCell.Detail.MeanScore"                = "%@ / %d";
+"MySct.SctUnfinished.TableCell.Detail.AnsweredQuestionsCount"   = "%d / %d";
+"MySct.SctUnfinished.TableCell.Detail.MeanCompletionPerentage"  = "%@%%";
+
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information" = "Information";
 "SctExam.Horizontal.Progress" = "Question %d out of %d";

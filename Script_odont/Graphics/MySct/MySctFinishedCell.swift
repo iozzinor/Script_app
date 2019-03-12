@@ -21,7 +21,7 @@ class MySctFinishedCell: UITableViewCell
         let startDateString = Constants.dateString(for: sctFinished.startDate)
         startDateLabel.text = startDateString
         
-        topicLabel.text = sctFinished.session.exam.scts.first?.topic.name
+        topicLabel.text = sctFinished.session.topic.name
         topicLabel.layer.cornerRadius = topicLabel.frame.height / 2.0
         topicLabel.layer.backgroundColor = Appearance.Color.color(for: sctFinished.session.exam.scts.first?.topic ?? .diagnostic).cgColor
         
@@ -29,8 +29,6 @@ class MySctFinishedCell: UITableViewCell
         
         answeredQuestionsLabel.text = "\(sctFinished.answeredQuestions)"
         
-        let minutes = Int(sctFinished.duration / 60.0)
-        let seconds = Int(sctFinished.duration) % 60
-        durationLabel.text = String(format: "%02d:%02d", minutes, seconds)
+        durationLabel.text = Constants.durationString(forTimeInterval: sctFinished.duration)
     }
 }
