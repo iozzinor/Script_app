@@ -18,4 +18,6 @@ protocol SctDetailViewDataSource: class
     
     var unfinished: SctUnfinished? { get }
     var finished: SctFinished? { get }
+    
+    func rows(for section: SctDetailViewController.SctDetailSection, at index: Int) -> [SctDetailViewController.SctDetailRow] 
 }

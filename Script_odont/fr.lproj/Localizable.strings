@@ -63,6 +63,7 @@
 "SctDetail.Title"                 = "TCS %d";
 "SctDetail.Section.General"       = "Général";
 "SctDetail.Section.LastSession"   = "Dernière session";
+"SctDetail.Section.Rate"          = "Vote";
 "SctDetail.Section.Results"       = "Résultats";
 "SctDetail.Section.Duration"      = "Durées";
 "SctDetail.Section.Popularity"    = "Popularité";
@@ -79,6 +80,9 @@
 "SctDetail.TableCell.ActualDuration"              = "Durée :";
 "SctDetail.TableCell.AnsweredQuestionsCount"      = "Questions répondues :";
 
+"SctDetail.TableCell.MyVote"                      = "Mon vote :";
+"SctDetail.TableCell.PerformVote"                 = "Voter";
+"SctDetail.TableCell.RemoveVote"                  = "Supprimer vote";
 "SctDetail.TableCell.CompletionDate"              = "Date fin :";
 "SctDetail.TableCell.CompletionDuration"          = "Durée finale :";
 "SctDetail.TableCell.CompletionScore"             = "Score final :";

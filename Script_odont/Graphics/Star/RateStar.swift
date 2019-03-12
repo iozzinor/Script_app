@@ -18,14 +18,28 @@ class RateStar: UIControl
     @IBInspectable var outerRatio: CGFloat = 1.0
     @IBInspectable var starPoints: Int = 5
     @IBInspectable var starColor: UIColor = UIColor.blue
+    @IBInspectable var disabledColor: UIColor = UIColor.gray
     
+    override var isEnabled: Bool
+    {
+        didSet
+        {
+            if isEnabled != oldValue
+            {
+                if !isAnimating_
+                {
+                    updateMainLayer_()
+                }
+            }
+        }
+    }
     override var isSelected: Bool
     {
         didSet
         {
             if isSelected != oldValue
             {
-                if animationEnabled_
+                if animationEnabled_ && !preventAnimation
                 {
                     toggleSelection_()
                 }
@@ -40,6 +54,8 @@ class RateStar: UIControl
     fileprivate var mainLayer_ = CAShapeLayer()
     fileprivate var isAnimating_ = false
     fileprivate var animationEnabled_ = false
+    
+    var preventAnimation = false
     
     override init(frame: CGRect)
     {
@@ -91,6 +107,27 @@ class RateStar: UIControl
         sendActions(for: .valueChanged)
     }
     
+    func setIsSelected(_ selected: Bool, animated: Bool)
+    {
+        if isSelected != selected
+        {
+            toggle(animated: animated)
+        }
+    }
+    
+    func toggle(animated: Bool)
+    {
+        let animationEnabledCached = animationEnabled_
+        let preventCache = preventAnimation
+        
+        animationEnabled_ = animated
+        preventAnimation = !animated
+        isSelected = !isSelected
+        
+        animationEnabled_ = animationEnabledCached
+        preventAnimation = preventCache
+    }
+    
     fileprivate func toggleSelection_()
     {
         isAnimating_ = true
@@ -114,7 +151,7 @@ class RateStar: UIControl
         mainLayer_.frame = layerFrame
         
         // draw the path
-        mainLayer_.fillColor = starColor.cgColor
+        mainLayer_.fillColor = isEnabled ? starColor.cgColor : disabledColor.cgColor
         mainLayer_.strokeColor = nil
         mainLayer_.lineWidth = 0
         

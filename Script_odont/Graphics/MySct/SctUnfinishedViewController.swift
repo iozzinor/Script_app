@@ -44,6 +44,25 @@ class SctUnfinishedViewController: SctDetailViewController
 // -----------------------------------------------------------------------------
 extension SctUnfinishedViewController: SctDetailViewDataSource
 {
+    func rows(for section: SctDetailViewController.SctDetailSection, at index: Int) -> [SctDetailViewController.SctDetailRow]
+    {
+        switch section
+        {
+        case .general:
+            return [.topic, .meanScore, .questionsCount]
+        case .lastSession:
+            return [.lastDate, .actualDuration, .answeredQuestionsCount]
+        case .rate:
+            return []
+        case .results:
+            return []
+        case .duration:
+            return [.estimatedDuration, .meanDuration]
+        case .popularity:
+            return [.votes, .launchesCount, .meanCompletionPercentage]
+        }
+    }
+    
     var exam: SctExam {
         return sctUnfinished.session.exam
     }

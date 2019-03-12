@@ -63,6 +63,7 @@
 "SctDetail.Title"                 = "SCT %d";
 "SctDetail.Section.General"       = "General";
 "SctDetail.Section.LastSession"   = "Last Session";
+"SctDetail.Section.Rate"          = "Rate";
 "SctDetail.Section.Results"       = "Results";
 "SctDetail.Section.Duration"      = "Duration";
 "SctDetail.Section.Popularity"    = "Popularity";
@@ -79,6 +80,9 @@
 "SctDetail.TableCell.ActualDuration"              = "Duration:";
 "SctDetail.TableCell.AnsweredQuestionsCount"      = "Answered Questions Count:";
 
+"SctDetail.TableCell.MyVote"                      = "My Vote:";
+"SctDetail.TableCell.PerformVote"                 = "Vote";
+"SctDetail.TableCell.RemoveVote"                  = "Remove Vote";
 "SctDetail.TableCell.CompletionDate"              = "Completion Date:";
 "SctDetail.TableCell.CompletionDuration"          = "Completion Duration:";
 "SctDetail.TableCell.CompletionScore"             = "Completion Score:";

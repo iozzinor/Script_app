@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SctPerformRateCellReuseId" id="Vgn-ZC-IMa" customClass="SctPerformRateCell" customModule="Script_odont" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vgn-ZC-IMa" id="NFq-pA-LL8">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmN-yh-jVc">
+                        <rect key="frame" x="171.5" y="0.0" width="32" height="43.5"/>
+                        <state key="normal" title="Vote"/>
+                        <connections>
+                            <action selector="displayStars:" destination="Vgn-ZC-IMa" eventType="touchUpInside" id="set-Zy-7g2"/>
+                        </connections>
+                    </button>
+                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UF8-ZT-BHD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="FmN-yh-jVc" firstAttribute="centerX" secondItem="NFq-pA-LL8" secondAttribute="centerX" id="5tb-an-2Eb"/>
+                    <constraint firstItem="UF8-ZT-BHD" firstAttribute="top" secondItem="NFq-pA-LL8" secondAttribute="top" id="Akx-8L-737"/>
+                    <constraint firstItem="FmN-yh-jVc" firstAttribute="centerY" secondItem="NFq-pA-LL8" secondAttribute="centerY" id="DDw-ko-mot"/>
+                    <constraint firstItem="UF8-ZT-BHD" firstAttribute="leading" secondItem="NFq-pA-LL8" secondAttribute="leading" id="MbE-Ak-vCk"/>
+                    <constraint firstAttribute="bottom" secondItem="UF8-ZT-BHD" secondAttribute="bottom" id="Ml4-NK-r38"/>
+                    <constraint firstItem="FmN-yh-jVc" firstAttribute="top" secondItem="NFq-pA-LL8" secondAttribute="top" id="Qf4-0x-Qoa"/>
+                    <constraint firstAttribute="trailing" secondItem="UF8-ZT-BHD" secondAttribute="trailing" id="jyh-vb-81J"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="performRateButton" destination="FmN-yh-jVc" id="oB8-ru-WjY"/>
+                <outlet property="starsContainer" destination="UF8-ZT-BHD" id="ov7-J5-Ro8"/>
+            </connections>
+            <point key="canvasLocation" x="6" y="43"/>
+        </tableViewCell>
+    </objects>
+</document>

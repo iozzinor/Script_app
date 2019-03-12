@@ -87,7 +87,7 @@ class MySctViewController: UIViewController
         
         var unfinishedScts = [SctUnfinished]()
         
-        for i in 0..<10
+        for i in 0..<5
         {
             let topic = SctTopic(rawValue: Constants.random(min: 0, max: 2)) ?? .diagnostic
             scts[0].topic = topic
@@ -143,8 +143,9 @@ class MySctViewController: UIViewController
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
                                            launchesCount:               Constants.random(min: 300, max: 1000),
                                            meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)))
+            let vote: Double? = nil//(Constants.random(min: 0, max: 100) % 2 == 0 ? nil : 3.75)
             
-            let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), statistics: statistics, score: Double(arc4random() % 100 + 1))
+            let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), statistics: statistics, score: Double(arc4random() % 100 + 1), vote: vote)
             
             finishedScts.append(sctUnfinished)
         }

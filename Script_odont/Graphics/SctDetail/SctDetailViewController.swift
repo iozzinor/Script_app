@@ -19,6 +19,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     {
         case general
         case lastSession
+        case rate
         case results
         case duration
         case popularity
@@ -30,29 +31,14 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 return "SctDetail.Section.General".localized
             case .lastSession:
                 return "SctDetail.Section.LastSession".localized
+            case .rate:
+                return "SctDetail.Section.Rate".localized
             case .results:
                 return "SctDetail.Section.Results".localized
             case .duration:
                 return "SctDetail.Section.Duration".localized
             case .popularity:
                 return "SctDetail.Section.Popularity".localized
-            }
-        }
-        
-        var rows: [SctDetailRow]
-        {
-            switch self
-            {
-            case .general:
-                return [.topic, .meanScore, .questionsCount]
-            case .lastSession:
-                return [.lastDate, .actualDuration, .answeredQuestionsCount]
-            case .results:
-                return [.completionDate, .completionScore, .completionDuration]
-            case .duration:
-                return [.estimatedDuration, .meanDuration]
-            case .popularity:
-                return [.votes, .launchesCount, .meanCompletionPercentage]
             }
         }
     }
@@ -73,6 +59,9 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         case answeredQuestionsCount
         
         // completed session
+        case myVote
+        case performVote
+        case removeVote
         case completionDate
         case completionScore
         case completionDuration
@@ -93,6 +82,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 return UITableViewCell()
             }
             
+            let tableView = sctDetailViewController.tableView_!
             let cell = UITableViewCell(style: .value1, reuseIdentifier: SctDetailViewController.cellId)
             cell.textLabel?.textColor = Appearance.Color.default
             cell.selectionStyle = .none
@@ -132,6 +122,23 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.textLabel?.text = "SctDetail.TableCell.AnsweredQuestionsCount".localized
                 cell.detailTextLabel?.text = String.localizedStringWithFormat("SctDetail.TableCell.Detail.AnsweredQuestionsCount".localized, answeredQuestionsCount, totalQuestionsCount)
                 
+            // rate
+            case .myVote:
+                let result = tableView.dequeueReusableCell(for: indexPath) as SctRateCell
+                result.rateLabel?.text = "SctDetail.TableCell.MyVote".localized
+                result.rate = dataSource.finished?.vote ?? 0.0
+                return result
+            case .performVote:
+                let result = tableView.dequeueReusableCell(for: indexPath) as SctPerformRateCell
+                result.performRateButton.setTitle("SctDetail.TableCell.PerformVote".localized, for: .normal)
+                
+                sctDetailViewController.performRateCell = result
+                return result
+            case .removeVote:
+                cell.textLabel?.text = "SctDetail.TableCell.RemoveVote".localized
+                cell.textLabel?.textColor = Appearance.Color.action
+                cell.detailTextLabel?.text = ""
+                
             // completed session
             case .completionDate:
                 cell.textLabel?.text = "SctDetail.TableCell.CompletionDate".localized
@@ -159,8 +166,10 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 
             // popularity
             case .votes:
-                cell.textLabel?.text = "SctDetail.TableCell.MeanVotes".localized
-                cell.detailTextLabel?.text = numberFormatter.string(from: NSNumber(value: dataSource.statistics.meanVotes))
+                let result = tableView.dequeueReusableCell(for: indexPath) as SctRateCell
+                result.rateLabel.text = "SctDetail.TableCell.MeanVotes".localized
+                result.rate = dataSource.statistics.meanVotes
+                return result
             case .launchesCount:
                 cell.textLabel?.text = "SctDetail.TableCell.LaunchesCount".localized
                 numberFormatter.minimumFractionDigits = 0
@@ -177,11 +186,21 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    var dataSource: SctDetailViewDataSource? = nil
+    var delegate: SctDetailViewDelegate? = nil
+    var dataSource: SctDetailViewDataSource? = nil {
+        didSet {
+            reloadData()
+        }
+    }
     fileprivate var sections_: [SctDetailSection] {
         return dataSource?.sections ?? []
     }
+    fileprivate func rows_(for section: SctDetailSection, at index: Int) -> [SctDetailRow]
+    {
+        return dataSource?.rows(for: section, at: index) ?? []
+    }
     fileprivate weak var tableView_: UITableView!
+    fileprivate var performRateCell: SctPerformRateCell? = nil
     
     override func viewDidLoad()
     {
@@ -197,6 +216,8 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource    = self
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: SctDetailViewController.cellId)
+        tableView.registerNibCell(SctRateCell.self)
+        tableView.registerNibCell(SctPerformRateCell.self)
     }
     
     func reloadData()
@@ -225,6 +246,11 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     // -------------------------------------------------------------------------
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
+        let selectedCell = tableView.cellForRow(at: indexPath)
+        if selectedCell != performRateCell
+        {
+            performRateCell?.cancelVote()
+        }
         return nil
     }
     
@@ -239,7 +265,8 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         let currentSection = sections_[section]
-        return currentSection.rows.count
+        let currentRows = rows_(for: currentSection, at: section)
+        return currentRows.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
@@ -251,7 +278,8 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let section = sections_[indexPath.section]
-        let row = section.rows[indexPath.row]
+        let currentRows = rows_(for: section, at: indexPath.section)
+        let row = currentRows[indexPath.row]
         
         return row.cell(for: indexPath, sctDetailViewController: self)
     }
