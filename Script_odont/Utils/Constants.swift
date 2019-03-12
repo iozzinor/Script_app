@@ -59,4 +59,37 @@ struct Constants
         
         return Int(arc4random()) % (max - min + 1) + min
     }
+    
+    /// If min and max are equal, then min is returned, regarless of the input value.
+    /// If min is greater than max, then they are switched.
+    /// - returns: The bounded value.
+    static func bound<T: Comparable>(_ value: T, min: T, max: T) -> T
+    {
+        if min == max
+        {
+            return min
+        }
+        else if min > max
+        {
+            return bound(value, min: max, max: min)
+        }
+        else if value < min
+        {
+            return min
+        }
+        else if value > max
+        {
+            return max
+        }
+        return value
+    }
+    
+    static func inRange<T: Comparable>(_ value: T, min: T, max: T) -> Bool
+    {
+        if min > max
+        {
+            return inRange(value, min: max, max: min)
+        }
+        return !(value < min || value > max)
+    }
 }

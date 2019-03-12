@@ -9,34 +9,42 @@
 import UIKit
 
 @IBDesignable
-class RateStartView: UIView
+class RateStar: UIControl
 {
     public static let starAnimationDuration = 0.5
     public static let diskAnimationDuration = 0.25
     
     @IBInspectable var innerRatio: CGFloat = 0.5
     @IBInspectable var outerRatio: CGFloat = 1.0
-    @IBInspectable var starPoints = 5
-    @IBInspectable var starColor = UIColor.blue
+    @IBInspectable var starPoints: Int = 5
+    @IBInspectable var starColor: UIColor = UIColor.blue
     
-    @IBInspectable var selected = true
+    override var isSelected: Bool
     {
         didSet
         {
-            if selected != oldValue
+            if isSelected != oldValue
             {
-                toggleSelection_()
+                if animationEnabled_
+                {
+                    toggleSelection_()
+                }
+                else
+                {
+                    updateMainLayer_()
+                }
             }
         }
     }
     
     fileprivate var mainLayer_ = CAShapeLayer()
     fileprivate var isAnimating_ = false
+    fileprivate var animationEnabled_ = false
     
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-    
+        
         setup_()
     }
     
@@ -55,6 +63,7 @@ class RateStartView: UIView
     override func layoutSubviews()
     {
         super.layoutSubviews()
+        
         updateMainLayer_()
     }
     
@@ -65,7 +74,7 @@ class RateStartView: UIView
     {
         layer.addSublayer(mainLayer_)
         
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(RateStartView.toggle_)))
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(RateStar.toggle_)))
     }
     
     // -------------------------------------------------------------------------
@@ -77,7 +86,9 @@ class RateStartView: UIView
         {
             return
         }
-        selected = !selected
+        animationEnabled_ = true
+        isSelected = !isSelected
+        sendActions(for: .valueChanged)
     }
     
     fileprivate func toggleSelection_()
@@ -108,7 +119,7 @@ class RateStartView: UIView
         mainLayer_.lineWidth = 0
         
         let path: UIBezierPath
-        if selected
+        if isSelected
         {
             path = selectedPath_(layerFrame: layerFrame)
         }
@@ -132,40 +143,11 @@ class RateStartView: UIView
     {
         let size = min(layerFrame.size.width, layerFrame.size.height)
         let center = CGPoint(x: layerFrame.midX, y: layerFrame.midY)
-        let angle = CGFloat.pi / CGFloat(starPoints)
         let maxRadius = size / 2
         let innerRadius = innerRatio * maxRadius
         let outerRadius = outerRatio * maxRadius
         
-        let path = UIBezierPath()
-        
-        for i in 0..<(starPoints * 2)
-        {
-            let currentAngle = angle * CGFloat(i)
-            let radius = (i % 2 == 1 ? innerRadius : outerRadius)
-            
-            let x = center.x + radius * cos(currentAngle)
-            let y = center.y + radius * sin(currentAngle)
-            let point = CGPoint(x: x, y: y)
-            
-            if i == 0
-            {
-                path.move(to: point)
-            }
-            else
-            {
-                path.addLine(to: point)
-            }
-        }
-        path.close()
-        
-        var rotation = CGAffineTransform.identity
-        rotation = rotation.translatedBy(x: center.x, y: center.y)
-        rotation = rotation.rotated(by: -CGFloat.pi / 2)
-        rotation = rotation.translatedBy(x: -center.x, y: -center.y)
-        path.apply(rotation)
-        
-        return path
+        return UIBezierPath(starCenter: center, innerRadius: innerRadius, outerRadius: outerRadius, points: starPoints)
     }
     
     fileprivate func unselectedPath_(layerFrame: CGRect) -> UIBezierPath
@@ -204,22 +186,22 @@ class RateStartView: UIView
     // -------------------------------------------------------------------------
     fileprivate func addToggleAnimation_()
     {
-        if selected
+        if isSelected
         {
             addDiskToggleAnimation_(select: true, beginTime: 0.0)
-            addStarToggleAnimation_(select: true, beginTime: RateStartView.diskAnimationDuration)
+            addStarToggleAnimation_(select: true, beginTime: RateStar.diskAnimationDuration)
         }
         else
         {
             addStarToggleAnimation_(select: false, beginTime: 0.0)
-            addDiskToggleAnimation_(select: false, beginTime: RateStartView.starAnimationDuration)
+            addDiskToggleAnimation_(select: false, beginTime: RateStar.starAnimationDuration)
         }
     }
     
     fileprivate func addStarToggleAnimation_(select: Bool, beginTime: Double)
     {
         let animation = CABasicAnimation(keyPath: "path")
-        animation.duration = RateStartView.starAnimationDuration
+        animation.duration = RateStar.starAnimationDuration
         animation.beginTime = CACurrentMediaTime() + beginTime
         animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         if select
@@ -245,7 +227,7 @@ class RateStartView: UIView
         func animation(keyPath: String) -> CABasicAnimation
         {
             let diskAnimation = CABasicAnimation(keyPath: keyPath)
-            diskAnimation.duration = RateStartView.diskAnimationDuration
+            diskAnimation.duration = RateStar.diskAnimationDuration
             diskAnimation.beginTime = CACurrentMediaTime() + beginTime
             if select
             {

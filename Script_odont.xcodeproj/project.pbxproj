@@ -29,7 +29,9 @@
 		AC0E4EA62237EB84003996AF /* SctDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EA52237EB84003996AF /* SctDetailViewController.swift */; };
 		AC0E4EA92237ECF6003996AF /* SctDetailViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EA82237ECF6003996AF /* SctDetailViewDataSource.swift */; };
 		AC0E4EAB2237FB87003996AF /* SctFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EAA2237FB87003996AF /* SctFinishedViewController.swift */; };
-		AC0E4EAD223801D5003996AF /* RateStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EAC223801D5003996AF /* RateStartView.swift */; };
+		AC0E4EAD223801D5003996AF /* RateStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EAC223801D5003996AF /* RateStar.swift */; };
+		AC0E4EB022382995003996AF /* UIBezierPath+star.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EAF22382995003996AF /* UIBezierPath+star.swift */; };
+		AC0E4EB222383A45003996AF /* PartialRateStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EB122383A45003996AF /* PartialRateStar.swift */; };
 		AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3962235B7B400A3B813 /* Other.storyboard */; };
 		AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */; };
 		AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */; };
@@ -126,7 +128,9 @@
 		AC0E4EA52237EB84003996AF /* SctDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctDetailViewController.swift; sourceTree = "<group>"; };
 		AC0E4EA82237ECF6003996AF /* SctDetailViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctDetailViewDataSource.swift; sourceTree = "<group>"; };
 		AC0E4EAA2237FB87003996AF /* SctFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctFinishedViewController.swift; sourceTree = "<group>"; };
-		AC0E4EAC223801D5003996AF /* RateStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateStartView.swift; sourceTree = "<group>"; };
+		AC0E4EAC223801D5003996AF /* RateStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateStar.swift; sourceTree = "<group>"; };
+		AC0E4EAF22382995003996AF /* UIBezierPath+star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+star.swift"; sourceTree = "<group>"; };
+		AC0E4EB122383A45003996AF /* PartialRateStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialRateStar.swift; sourceTree = "<group>"; };
 		AC31E3952235B7B400A3B813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Other.storyboard; sourceTree = "<group>"; };
 		AC31E3982235B7B700A3B813 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Other.strings; sourceTree = "<group>"; };
 		AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScaleCell.xib; sourceTree = "<group>"; };
@@ -284,7 +288,9 @@
 		AC0E4EAE223826EA003996AF /* Star */ = {
 			isa = PBXGroup;
 			children = (
-				AC0E4EAC223801D5003996AF /* RateStartView.swift */,
+				AC0E4EAC223801D5003996AF /* RateStar.swift */,
+				AC0E4EB122383A45003996AF /* PartialRateStar.swift */,
+				AC0E4EAF22382995003996AF /* UIBezierPath+star.swift */,
 			);
 			path = Star;
 			sourceTree = "<group>";
@@ -572,6 +578,7 @@
 				AC0D77D8222831C5007F83D4 /* SctExam.swift in Sources */,
 				AC0D77E022283FB6007F83D4 /* SctQuestionCellDelegate.swift in Sources */,
 				AC0D77D422281FDD007F83D4 /* SctScaleCell.swift in Sources */,
+				AC0E4EB222383A45003996AF /* PartialRateStar.swift in Sources */,
 				AC38BB78221DFCC4008E829B /* WelcomeWalkthroughViewController.swift in Sources */,
 				AC0D77CA2225D28B007F83D4 /* SctQuestion.swift in Sources */,
 				AC4904C1222B3C1600BDEB4B /* SecurityQuestionCell.swift in Sources */,
@@ -618,13 +625,14 @@
 				AC0D77C62225CEFD007F83D4 /* LikertScale.swift in Sources */,
 				AC53E3762233AD9B00CA4437 /* SctUnfinished.swift in Sources */,
 				AC4904B1222B12A900BDEB4B /* QualificationTopic.swift in Sources */,
-				AC0E4EAD223801D5003996AF /* RateStartView.swift in Sources */,
+				AC0E4EAD223801D5003996AF /* RateStar.swift in Sources */,
 				AC4904CD222BC16B00BDEB4B /* QualificationPickerViewControllerDelegate.swift in Sources */,
 				AC0D77C22225CD2B007F83D4 /* Sct.swift in Sources */,
 				AC9F23DE222996C4002D38E5 /* AuthenticationManager.swift in Sources */,
 				AC82731C222C93B90041AA0C /* RecoverPasswordViewController.swift in Sources */,
 				AC0D77DA22283330007F83D4 /* SctWordingCell.swift in Sources */,
 				AC0D77C42225CD60007F83D4 /* SctTopic.swift in Sources */,
+				AC0E4EB022382995003996AF /* UIBezierPath+star.swift in Sources */,
 				AC74B69E22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift in Sources */,
 				AC38BB60221DE4C9008E829B /* AppDelegate.swift in Sources */,
 				AC9F23E9222A8D4E002D38E5 /* String+random.swift in Sources */,

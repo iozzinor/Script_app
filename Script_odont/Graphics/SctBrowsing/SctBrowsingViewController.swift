@@ -15,9 +15,16 @@ class SctBrowsingViewController: UIViewController
     
     fileprivate var checkFirstTime_ = false
     
+    @IBOutlet weak var rateStar: RateStar!
+    @IBOutlet weak var partialRateStar: PartialRateStar!
+    @IBOutlet weak var slider: UISlider!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        rateStar.isSelected = true
+        slider.addTarget(self, action: #selector(SctBrowsingViewController.sliderChanged_), for: .valueChanged)
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -32,6 +39,14 @@ class SctBrowsingViewController: UIViewController
                  self.launchWalkthrough_()
             })
         }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - ACTIONS
+    // -------------------------------------------------------------------------
+    @objc fileprivate func sliderChanged_()
+    {
+        partialRateStar.value = Double(slider.value)
     }
     
     // -------------------------------------------------------------------------
