@@ -75,8 +75,8 @@
 "SctDetail.TableCell.LaunchesCount"               = "Nombre de lancements :";
 "SctDetail.TableCell.MeanCompletionPercentage"    = "Complétion moyenne :";
 
-"SctDetail.TableCell.LastDate"                    = "Dernière date :";
-"SctDetail.TableCell.ActualDuration"              = "Effective :";
+"SctDetail.TableCell.LastDate"                    = "Date :";
+"SctDetail.TableCell.ActualDuration"              = "Durée :";
 "SctDetail.TableCell.AnsweredQuestionsCount"      = "Questions répondues :";
 
 "SctDetail.TableCell.CompletionDate"              = "Date fin :";

@@ -29,6 +29,7 @@
 		AC0E4EA62237EB84003996AF /* SctDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EA52237EB84003996AF /* SctDetailViewController.swift */; };
 		AC0E4EA92237ECF6003996AF /* SctDetailViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EA82237ECF6003996AF /* SctDetailViewDataSource.swift */; };
 		AC0E4EAB2237FB87003996AF /* SctFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EAA2237FB87003996AF /* SctFinishedViewController.swift */; };
+		AC0E4EAD223801D5003996AF /* RateStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EAC223801D5003996AF /* RateStartView.swift */; };
 		AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3962235B7B400A3B813 /* Other.storyboard */; };
 		AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */; };
 		AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */; };
@@ -125,6 +126,7 @@
 		AC0E4EA52237EB84003996AF /* SctDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctDetailViewController.swift; sourceTree = "<group>"; };
 		AC0E4EA82237ECF6003996AF /* SctDetailViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctDetailViewDataSource.swift; sourceTree = "<group>"; };
 		AC0E4EAA2237FB87003996AF /* SctFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctFinishedViewController.swift; sourceTree = "<group>"; };
+		AC0E4EAC223801D5003996AF /* RateStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateStartView.swift; sourceTree = "<group>"; };
 		AC31E3952235B7B400A3B813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Other.storyboard; sourceTree = "<group>"; };
 		AC31E3982235B7B700A3B813 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Other.strings; sourceTree = "<group>"; };
 		AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScaleCell.xib; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		AC0D77C02225CD1A007F83D4 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				AC0E4EAE223826EA003996AF /* Star */,
 				AC31E39B2235B96600A3B813 /* Sct */,
 				AC0E4EA72237EB9F003996AF /* SctDetail */,
 				AC8F5B802229694C00FAEFC5 /* Authentification */,
@@ -276,6 +279,14 @@
 				AC0E4EA82237ECF6003996AF /* SctDetailViewDataSource.swift */,
 			);
 			path = SctDetail;
+			sourceTree = "<group>";
+		};
+		AC0E4EAE223826EA003996AF /* Star */ = {
+			isa = PBXGroup;
+			children = (
+				AC0E4EAC223801D5003996AF /* RateStartView.swift */,
+			);
+			path = Star;
 			sourceTree = "<group>";
 		};
 		AC31E3992235B83500A3B813 /* Drawing */ = {
@@ -607,6 +618,7 @@
 				AC0D77C62225CEFD007F83D4 /* LikertScale.swift in Sources */,
 				AC53E3762233AD9B00CA4437 /* SctUnfinished.swift in Sources */,
 				AC4904B1222B12A900BDEB4B /* QualificationTopic.swift in Sources */,
+				AC0E4EAD223801D5003996AF /* RateStartView.swift in Sources */,
 				AC4904CD222BC16B00BDEB4B /* QualificationPickerViewControllerDelegate.swift in Sources */,
 				AC0D77C22225CD2B007F83D4 /* Sct.swift in Sources */,
 				AC9F23DE222996C4002D38E5 /* AuthenticationManager.swift in Sources */,
