@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SctStatistics
+public struct SctStatistics
 {
     /// The id.
     var id: Int

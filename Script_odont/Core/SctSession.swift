@@ -50,22 +50,4 @@ public class SctSession
         
         return true
     }
-    
-    public var topic: SctTopic {
-        return exam.scts.first?.topic ?? .diagnostic
-    }
-    
-    public var totalQuestionsCount: Int {
-        var result = 0
-        for sct in exam.scts
-        {
-            result += sct.questions.count
-        }
-        return result
-    }
-    
-    /// The estimated duration in seconds, based on the number of questions.
-    public var estimatedDuration: TimeInterval {
-        return Double(totalQuestionsCount) * 20.0
-    }
 }

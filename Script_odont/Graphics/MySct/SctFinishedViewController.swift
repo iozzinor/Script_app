@@ -1,34 +1,34 @@
 //
-//  MySctUnfinishedViewController.swift
+//  SctFinishedViewController.swift
 //  Script_odont
 //
-//  Created by Régis Iozzino on 09/03/2019.
+//  Created by Régis Iozzino on 12/03/2019.
 //  Copyright © 2019 Régis Iozzino. All rights reserved.
 //
 
 import UIKit
 
-class SctUnfinishedViewController: SctDetailViewController
+class SctFinishedViewController: SctDetailViewController
 {
-    var sctUnfinished: SctUnfinished =
-        SctUnfinished(session: SctSession(exam: SctExam()),
+    var sctFinished: SctFinished =
+        SctFinished(session: SctSession(exam: SctExam()),
                       answeredQuestions: 1,
                       duration: 30.0,
                       startDate: Date(),
-                      lastDate: Date(),
+                      endDate: Date(),
                       statistics:
-            SctStatistics(id: 0, meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60))
-    {
+            SctStatistics(id: 0, meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60), score: 200)
+        {
         didSet {
             if isViewLoaded
             {
-               reloadData()
+                reloadData()
             }
         }
     }
     
     @IBOutlet weak var tableView: UITableView!
-    let sections: [SctDetailViewController.SctDetailSection] = [.general, .lastSession, .duration, .popularity]
+    let sections: [SctDetailViewController.SctDetailSection] = [.general, .results, .duration, .popularity]
     
     override func viewDidLoad()
     {
@@ -42,25 +42,25 @@ class SctUnfinishedViewController: SctDetailViewController
 // -----------------------------------------------------------------------------
 // MARK: - SCT DETAIL VIEW DATA SOURCE
 // -----------------------------------------------------------------------------
-extension SctUnfinishedViewController: SctDetailViewDataSource
+extension SctFinishedViewController: SctDetailViewDataSource
 {
     var exam: SctExam {
-        return sctUnfinished.session.exam
+        return sctFinished.session.exam
     }
     
     var statistics: SctStatistics {
-        return sctUnfinished.statistics
+        return sctFinished.statistics
     }
     
     var answeredQuestionsCount: Int {
-        return sctUnfinished.answeredQuestions
+        return sctFinished.answeredQuestions
     }
     
     var unfinished: SctUnfinished? {
-        return sctUnfinished
+        return nil
     }
     
     var finished: SctFinished? {
-        return nil
+        return sctFinished
     }
 }

@@ -19,5 +19,5 @@ struct SctFinished
     
     var statistics: SctStatistics
     
-    var score: Int
+    var score: Double
 }

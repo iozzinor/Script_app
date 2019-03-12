@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SctUnfinished
+public struct SctUnfinished
 {
     var session: SctSession
     var answeredQuestions: Int

@@ -33,7 +33,7 @@ class MySctUnfinishedCell: UITableViewCell
     func setSctUnfinished(_ sctUnfinished: SctUnfinished)
     {
         topicLabel.layer.cornerRadius = topicLabel.frame.height / 2.0
-        topicLabel.layer.backgroundColor = Appearance.Color.color(for: sctUnfinished.session.topic).cgColor
+        topicLabel.layer.backgroundColor = Appearance.Color.color(for: sctUnfinished.session.exam.topic).cgColor
         
         startDateLabel.text = Constants.dateString(for: sctUnfinished.startDate)
         if let firstSct = sctUnfinished.session.exam.scts.first

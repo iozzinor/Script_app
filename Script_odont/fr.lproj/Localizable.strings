@@ -59,6 +59,34 @@
 "SctQuestionHeaderCell.NewData"    = "Nouvelle donnée";
 "SctQuestionHeaderCell.Impact"     = "Impact";
 
+/* SCT DETAIL */
+"SctDetail.Title"                 = "TCS %d";
+"SctDetail.Section.General"       = "Général";
+"SctDetail.Section.LastSession"   = "Dernière session";
+"SctDetail.Section.Results"       = "Résultats";
+"SctDetail.Section.Duration"      = "Durées";
+"SctDetail.Section.Popularity"    = "Popularité";
+
+"SctDetail.TableCell.MeanScore"                   = "Score moyen :";
+"SctDetail.TableCell.QuestionsCount"              = "Nombre de questions :";
+"SctDetail.TableCell.EstimatedDuration"           = "Estimée :";
+"SctDetail.TableCell.MeanDuration"                = "Moyenne :";
+"SctDetail.TableCell.MeanVotes"                   = "Moyenne des votes :";
+"SctDetail.TableCell.LaunchesCount"               = "Nombre de lancements :";
+"SctDetail.TableCell.MeanCompletionPercentage"    = "Complétion moyenne :";
+
+"SctDetail.TableCell.LastDate"                    = "Dernière date :";
+"SctDetail.TableCell.ActualDuration"              = "Effective :";
+"SctDetail.TableCell.AnsweredQuestionsCount"      = "Questions répondues :";
+
+"SctDetail.TableCell.CompletionDate"              = "Date fin :";
+"SctDetail.TableCell.CompletionDuration"          = "Durée finale :";
+"SctDetail.TableCell.CompletionScore"             = "Score final :";
+
+"SctDetail.TableCell.Detail.Score"                    = "%@ / %d";
+"SctDetail.TableCell.Detail.AnsweredQuestionsCount"   = "%d / %d";
+"SctDetail.TableCell.Detail.MeanCompletionPerentage"  = "%@%%";
+
 /* LOGIN */
 "Login.Error.AlertTitle"              = "Authentification";
 "Login.Error.AuthenticationFailed"    = "L'authentification a échoué.";
@@ -147,26 +175,7 @@
 "DrawingWalkthrough.Drawing.Find"           = "Vous trouvez...";
 "DrawingWalkthrough.Drawing.LikertIndex"    = "Indice de Likert";
 
-/* SCT UNFINISHED */
-"MySct.SctUnfinished.Section.General"       = "Général";
-"MySct.SctUnfinished.Section.Duration"      = "Durées";
-"MySct.SctUnfinished.Section.Popularity"    = "Popularité";
-
-"MySct.SctUnfinished.TableCell.MeanScore"                   = "Score moyen :";
-"MySct.SctUnfinished.TableCell.AnsweredQuestionsCount"      = "Questions répondues :";
-"MySct.SctUnfinished.TableCell.ActualDuration"              = "Effective :";
-"MySct.SctUnfinished.TableCell.EstimatedDuration"           = "Estimée :";
-"MySct.SctUnfinished.TableCell.MeanDuration"                = "Moyenne :";
-"MySct.SctUnfinished.TableCell.MeanVotes"                   = "Moyenne des votes :";
-"MySct.SctUnfinished.TableCell.LaunchesCount"               = "Nombre de lancements :";
-"MySct.SctUnfinished.TableCell.MeanCompletionPercentage"    = "Complétion moyenne :";
-
-"MySct.SctUnfinished.TableCell.Detail.MeanScore"                = "%@ / %d";
-"MySct.SctUnfinished.TableCell.Detail.AnsweredQuestionsCount"   = "%d / %d";
-"MySct.SctUnfinished.TableCell.Detail.MeanCompletionPerentage"  = "%@%%";
-
 /* SCT EXAM */
-"MySct.SctUnfinished.Title"                 = "TCS %d";
 "SctExam.Horizontal.Title.Information"      = "Informations";
 "SctExam.Horizontal.Progress"               = "%d sur %d";
 "SctExam.Submission.Error.AlertTitle"       = "Erreur de soumission";

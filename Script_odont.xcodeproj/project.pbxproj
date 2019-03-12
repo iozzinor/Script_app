@@ -26,6 +26,9 @@
 		AC0E4E9E2236E136003996AF /* SctTopicWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4E9D2236E136003996AF /* SctTopicWalkthroughViewController.swift */; };
 		AC0E4EA02236E144003996AF /* SctTopicWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0E4E9F2236E144003996AF /* SctTopicWalkthrough.storyboard */; };
 		AC0E4EA222370CF3003996AF /* SctStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EA122370CF3003996AF /* SctStatistics.swift */; };
+		AC0E4EA62237EB84003996AF /* SctDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EA52237EB84003996AF /* SctDetailViewController.swift */; };
+		AC0E4EA92237ECF6003996AF /* SctDetailViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EA82237ECF6003996AF /* SctDetailViewDataSource.swift */; };
+		AC0E4EAB2237FB87003996AF /* SctFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EAA2237FB87003996AF /* SctFinishedViewController.swift */; };
 		AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3962235B7B400A3B813 /* Other.storyboard */; };
 		AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */; };
 		AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */; };
@@ -119,6 +122,9 @@
 		AC0E4E9F2236E144003996AF /* SctTopicWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SctTopicWalkthrough.storyboard; sourceTree = "<group>"; };
 		AC0E4EA122370CF3003996AF /* SctStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctStatistics.swift; sourceTree = "<group>"; };
 		AC0E4EA422371109003996AF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		AC0E4EA52237EB84003996AF /* SctDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctDetailViewController.swift; sourceTree = "<group>"; };
+		AC0E4EA82237ECF6003996AF /* SctDetailViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctDetailViewDataSource.swift; sourceTree = "<group>"; };
+		AC0E4EAA2237FB87003996AF /* SctFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctFinishedViewController.swift; sourceTree = "<group>"; };
 		AC31E3952235B7B400A3B813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Other.storyboard; sourceTree = "<group>"; };
 		AC31E3982235B7B700A3B813 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Other.strings; sourceTree = "<group>"; };
 		AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScaleCell.xib; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				AC31E39B2235B96600A3B813 /* Sct */,
+				AC0E4EA72237EB9F003996AF /* SctDetail */,
 				AC8F5B802229694C00FAEFC5 /* Authentification */,
 				AC38BB71221DF021008E829B /* Walkthrough */,
 				ACB8C8A92235211F00C7F77C /* SctBrowsing */,
@@ -260,6 +267,15 @@
 				AC0E4E9F2236E144003996AF /* SctTopicWalkthrough.storyboard */,
 			);
 			path = SctTopic;
+			sourceTree = "<group>";
+		};
+		AC0E4EA72237EB9F003996AF /* SctDetail */ = {
+			isa = PBXGroup;
+			children = (
+				AC0E4EA52237EB84003996AF /* SctDetailViewController.swift */,
+				AC0E4EA82237ECF6003996AF /* SctDetailViewDataSource.swift */,
+			);
+			path = SctDetail;
 			sourceTree = "<group>";
 		};
 		AC31E3992235B83500A3B813 /* Drawing */ = {
@@ -380,6 +396,7 @@
 				AC53E3792233AE3B00CA4437 /* MySctUnfinishedCell.swift */,
 				AC53E3772233AE3100CA4437 /* MySctFinishedCell.swift */,
 				AC53E37D22345F4500CA4437 /* SctUnfinishedViewController.swift */,
+				AC0E4EAA2237FB87003996AF /* SctFinishedViewController.swift */,
 				AC53E37B2233AF5E00CA4437 /* MySct.storyboard */,
 			);
 			path = MySct;
@@ -560,6 +577,7 @@
 				ACE70F97221F3254008454FF /* UITableViewCell+reuseId.swift in Sources */,
 				AC8F5B7D22289DC800FAEFC5 /* GoToSctStatusView.swift in Sources */,
 				AC38BB7A221E89C0008E829B /* UIApplication+isFirstLaunch.swift in Sources */,
+				AC0E4EA92237ECF6003996AF /* SctDetailViewDataSource.swift in Sources */,
 				ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */,
 				AC0D77C82225D240007F83D4 /* SctHorizontalViewController.swift in Sources */,
 				AC53E36F2233130700CA4437 /* WalkthroughsViewController.swift in Sources */,
@@ -585,6 +603,7 @@
 				AC8F5B792228986000FAEFC5 /* GoToSctViewControllerDelegate.swift in Sources */,
 				AC8F5B77222894AB00FAEFC5 /* GoToSctViewController.swift in Sources */,
 				AC9F23E22229D6A4002D38E5 /* ViewController.swift in Sources */,
+				AC0E4EA62237EB84003996AF /* SctDetailViewController.swift in Sources */,
 				AC0D77C62225CEFD007F83D4 /* LikertScale.swift in Sources */,
 				AC53E3762233AD9B00CA4437 /* SctUnfinished.swift in Sources */,
 				AC4904B1222B12A900BDEB4B /* QualificationTopic.swift in Sources */,
@@ -597,6 +616,7 @@
 				AC74B69E22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift in Sources */,
 				AC38BB60221DE4C9008E829B /* AppDelegate.swift in Sources */,
 				AC9F23E9222A8D4E002D38E5 /* String+random.swift in Sources */,
+				AC0E4EAB2237FB87003996AF /* SctFinishedViewController.swift in Sources */,
 				AC0D77DE22283838007F83D4 /* SctAnswer.swift in Sources */,
 				AC9F23E022299945002D38E5 /* KeychainPasswordItem.swift in Sources */,
 			);

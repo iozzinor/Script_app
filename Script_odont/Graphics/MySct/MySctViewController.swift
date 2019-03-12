@@ -73,6 +73,7 @@ class MySctViewController: UIViewController
     }
     
     public static let toSctUnfinished = "MySctToSctUnfinishedSegueId"
+    public static let toSctFinished = "MySctToSctFinishedSegueId"
     
     private static func defaultUnfinishedScts_() -> [SctUnfinished]
     {
@@ -143,7 +144,7 @@ class MySctViewController: UIViewController
                                            launchesCount:               Constants.random(min: 300, max: 1000),
                                            meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)))
             
-            let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), statistics: statistics, score: Int(arc4random() % 100 + 1))
+            let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), statistics: statistics, score: Double(arc4random() % 100 + 1))
             
             finishedScts.append(sctUnfinished)
         }
@@ -158,6 +159,7 @@ class MySctViewController: UIViewController
     fileprivate var sections_: [MySctSection] = [ .unfinished(MySctViewController.defaultUnfinishedScts_()),
                                                   .finished(MySctViewController.defaultFinishedScts_())]
     fileprivate var sctUnfinished_: SctUnfinished? = nil
+    fileprivate var sctFinished_: SctFinished? = nil
     
     override func viewDidLoad()
     {
@@ -178,6 +180,12 @@ class MySctViewController: UIViewController
         {
             target.sctUnfinished = sctUnfinished
         }
+        else if segue.identifier == MySctViewController.toSctFinished,
+            let target = segue.destination as? SctFinishedViewController,
+            let sctFinished = sctFinished_
+        {
+            target.sctFinished = sctFinished
+        }
     }
 }
 
@@ -193,11 +201,12 @@ extension MySctViewController: UITableViewDelegate
         
         switch row
         {
-        case .finished:
-            break
         case let .unfinished(sctUnfinished):
             sctUnfinished_ = sctUnfinished
             performSegue(withIdentifier: MySctViewController.toSctUnfinished, sender: self)
+        case let .finished(sctFinished):
+            sctFinished_ = sctFinished
+            performSegue(withIdentifier: MySctViewController.toSctFinished, sender: self)
         }
     }
 }
