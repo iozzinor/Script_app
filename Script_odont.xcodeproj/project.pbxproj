@@ -48,6 +48,7 @@
 		AC372C5E223942C7009F1DAD /* SctPerformRateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC372C5C223942C6009F1DAD /* SctPerformRateCell.xib */; };
 		AC372C5F223942C7009F1DAD /* SctRateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC372C5D223942C7009F1DAD /* SctRateCell.xib */; };
 		AC372C61223942E6009F1DAD /* SctUpdateRateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC372C60223942E6009F1DAD /* SctUpdateRateCell.xib */; };
+		AC372C64223947F3009F1DAD /* SctScoreDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C63223947F3009F1DAD /* SctScoreDiagram.swift */; };
 		AC38BB60221DE4C9008E829B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB5F221DE4C9008E829B /* AppDelegate.swift */; };
 		AC38BB62221DE4C9008E829B /* SctBrowsingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB61221DE4C9008E829B /* SctBrowsingViewController.swift */; };
 		AC38BB65221DE4C9008E829B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB63221DE4C9008E829B /* Main.storyboard */; };
@@ -156,6 +157,7 @@
 		AC372C5C223942C6009F1DAD /* SctPerformRateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SctPerformRateCell.xib; sourceTree = "<group>"; };
 		AC372C5D223942C7009F1DAD /* SctRateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SctRateCell.xib; sourceTree = "<group>"; };
 		AC372C60223942E6009F1DAD /* SctUpdateRateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SctUpdateRateCell.xib; sourceTree = "<group>"; };
+		AC372C63223947F3009F1DAD /* SctScoreDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctScoreDiagram.swift; sourceTree = "<group>"; };
 		AC38BB5C221DE4C9008E829B /* Script_odont.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Script_odont.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC38BB5F221DE4C9008E829B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC38BB61221DE4C9008E829B /* SctBrowsingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctBrowsingViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				AC0E4EAE223826EA003996AF /* Star */,
 				AC31E39B2235B96600A3B813 /* Sct */,
 				AC0E4EA72237EB9F003996AF /* SctDetail */,
+				AC372C62223947D9009F1DAD /* SctScoreDiagram */,
 				AC8F5B802229694C00FAEFC5 /* Authentification */,
 				AC38BB71221DF021008E829B /* Walkthrough */,
 				ACB8C8A92235211F00C7F77C /* SctBrowsing */,
@@ -347,6 +350,14 @@
 				ACA60F732235D2340094881A /* SctViewDataSource.swift */,
 			);
 			path = Sct;
+			sourceTree = "<group>";
+		};
+		AC372C62223947D9009F1DAD /* SctScoreDiagram */ = {
+			isa = PBXGroup;
+			children = (
+				AC372C63223947F3009F1DAD /* SctScoreDiagram.swift */,
+			);
+			path = SctScoreDiagram;
 			sourceTree = "<group>";
 		};
 		AC38BB53221DE4C9008E829B = {
@@ -598,6 +609,7 @@
 				AC8F5B7F2229676100FAEFC5 /* OtherViewController.swift in Sources */,
 				AC38BB7C221E9C54008E829B /* WelcomeWalkthroughPageViewController.swift in Sources */,
 				ACE70F95221F2439008454FF /* WeakArray.swift in Sources */,
+				AC372C64223947F3009F1DAD /* SctScoreDiagram.swift in Sources */,
 				AC0D77D02225D7AD007F83D4 /* SctQuestionCell.swift in Sources */,
 				AC4904D1222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift in Sources */,
 				AC87E2F8222CA24000D6B8CC /* UserIdentifierCell.swift in Sources */,
