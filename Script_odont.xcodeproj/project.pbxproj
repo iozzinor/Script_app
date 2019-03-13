@@ -39,6 +39,15 @@
 		AC31E3A12235BCBA00A3B813 /* SctQuestionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A02235BCBA00A3B813 /* SctQuestionHeaderCell.xib */; };
 		AC31E3A32235BCC300A3B813 /* SctWordingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A22235BCC300A3B813 /* SctWordingCell.xib */; };
 		AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A42235BE1E00A3B813 /* DrawingWalkthrough.storyboard */; };
+		AC372C56223942BE009F1DAD /* SctPerformRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C50223942BE009F1DAD /* SctPerformRateCell.swift */; };
+		AC372C57223942BE009F1DAD /* SctDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C51223942BE009F1DAD /* SctDetailViewDelegate.swift */; };
+		AC372C58223942BE009F1DAD /* SctPerformRateCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C52223942BE009F1DAD /* SctPerformRateCellDelegate.swift */; };
+		AC372C59223942BE009F1DAD /* SctRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C53223942BE009F1DAD /* SctRateCell.swift */; };
+		AC372C5A223942BE009F1DAD /* SctUpdateRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C54223942BE009F1DAD /* SctUpdateRateCell.swift */; };
+		AC372C5B223942BE009F1DAD /* SctUpdateRateCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C55223942BE009F1DAD /* SctUpdateRateCellDelegate.swift */; };
+		AC372C5E223942C7009F1DAD /* SctPerformRateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC372C5C223942C6009F1DAD /* SctPerformRateCell.xib */; };
+		AC372C5F223942C7009F1DAD /* SctRateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC372C5D223942C7009F1DAD /* SctRateCell.xib */; };
+		AC372C61223942E6009F1DAD /* SctUpdateRateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC372C60223942E6009F1DAD /* SctUpdateRateCell.xib */; };
 		AC38BB60221DE4C9008E829B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB5F221DE4C9008E829B /* AppDelegate.swift */; };
 		AC38BB62221DE4C9008E829B /* SctBrowsingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB61221DE4C9008E829B /* SctBrowsingViewController.swift */; };
 		AC38BB65221DE4C9008E829B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB63221DE4C9008E829B /* Main.storyboard */; };
@@ -138,6 +147,15 @@
 		AC31E3A02235BCBA00A3B813 /* SctQuestionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctQuestionHeaderCell.xib; sourceTree = "<group>"; };
 		AC31E3A22235BCC300A3B813 /* SctWordingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctWordingCell.xib; sourceTree = "<group>"; };
 		AC31E3A42235BE1E00A3B813 /* DrawingWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DrawingWalkthrough.storyboard; sourceTree = "<group>"; };
+		AC372C50223942BE009F1DAD /* SctPerformRateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctPerformRateCell.swift; sourceTree = "<group>"; };
+		AC372C51223942BE009F1DAD /* SctDetailViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctDetailViewDelegate.swift; sourceTree = "<group>"; };
+		AC372C52223942BE009F1DAD /* SctPerformRateCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctPerformRateCellDelegate.swift; sourceTree = "<group>"; };
+		AC372C53223942BE009F1DAD /* SctRateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctRateCell.swift; sourceTree = "<group>"; };
+		AC372C54223942BE009F1DAD /* SctUpdateRateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctUpdateRateCell.swift; sourceTree = "<group>"; };
+		AC372C55223942BE009F1DAD /* SctUpdateRateCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctUpdateRateCellDelegate.swift; sourceTree = "<group>"; };
+		AC372C5C223942C6009F1DAD /* SctPerformRateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SctPerformRateCell.xib; sourceTree = "<group>"; };
+		AC372C5D223942C7009F1DAD /* SctRateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SctRateCell.xib; sourceTree = "<group>"; };
+		AC372C60223942E6009F1DAD /* SctUpdateRateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SctUpdateRateCell.xib; sourceTree = "<group>"; };
 		AC38BB5C221DE4C9008E829B /* Script_odont.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Script_odont.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC38BB5F221DE4C9008E829B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC38BB61221DE4C9008E829B /* SctBrowsingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctBrowsingViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +299,15 @@
 			children = (
 				AC0E4EA52237EB84003996AF /* SctDetailViewController.swift */,
 				AC0E4EA82237ECF6003996AF /* SctDetailViewDataSource.swift */,
+				AC372C51223942BE009F1DAD /* SctDetailViewDelegate.swift */,
+				AC372C52223942BE009F1DAD /* SctPerformRateCellDelegate.swift */,
+				AC372C53223942BE009F1DAD /* SctRateCell.swift */,
+				AC372C5D223942C7009F1DAD /* SctRateCell.xib */,
+				AC372C50223942BE009F1DAD /* SctPerformRateCell.swift */,
+				AC372C5C223942C6009F1DAD /* SctPerformRateCell.xib */,
+				AC372C54223942BE009F1DAD /* SctUpdateRateCell.swift */,
+				AC372C55223942BE009F1DAD /* SctUpdateRateCellDelegate.swift */,
+				AC372C60223942E6009F1DAD /* SctUpdateRateCell.xib */,
 			);
 			path = SctDetail;
 			sourceTree = "<group>";
@@ -535,13 +562,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC38BB6A221DE4CB008E829B /* LaunchScreen.storyboard in Resources */,
+				AC372C5F223942C7009F1DAD /* SctRateCell.xib in Resources */,
 				AC82731E222C96EB0041AA0C /* SecurityQuestionCell.xib in Resources */,
 				AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */,
 				AC0E4EA02236E144003996AF /* SctTopicWalkthrough.storyboard in Resources */,
 				AC0E4E9A2236C6CC003996AF /* DrawingExampleWalkthrough.storyboard in Resources */,
 				AC31E3A32235BCC300A3B813 /* SctWordingCell.xib in Resources */,
+				AC372C61223942E6009F1DAD /* SctUpdateRateCell.xib in Resources */,
 				AC38BB73221DF03F008E829B /* WelcomeWalkthrough.storyboard in Resources */,
 				AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */,
+				AC372C5E223942C7009F1DAD /* SctPerformRateCell.xib in Resources */,
 				AC4904B4222B238B00BDEB4B /* Login.storyboard in Resources */,
 				AC31E3A12235BCBA00A3B813 /* SctQuestionHeaderCell.xib in Resources */,
 				AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */,
@@ -562,6 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */,
+				AC372C56223942BE009F1DAD /* SctPerformRateCell.swift in Sources */,
 				AC74B69C223542A000B31571 /* WelcomeWalkthroughContentViewController.swift in Sources */,
 				AC9F23E52229D88E002D38E5 /* String+sha2.swift in Sources */,
 				AC8F5B7F2229676100FAEFC5 /* OtherViewController.swift in Sources */,
@@ -594,6 +625,7 @@
 				AC0D77D22225DD01007F83D4 /* SctPanelAnswer.swift in Sources */,
 				ACE70F97221F3254008454FF /* UITableViewCell+reuseId.swift in Sources */,
 				AC8F5B7D22289DC800FAEFC5 /* GoToSctStatusView.swift in Sources */,
+				AC372C59223942BE009F1DAD /* SctRateCell.swift in Sources */,
 				AC38BB7A221E89C0008E829B /* UIApplication+isFirstLaunch.swift in Sources */,
 				AC0E4EA92237ECF6003996AF /* SctDetailViewDataSource.swift in Sources */,
 				ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */,
@@ -601,6 +633,7 @@
 				AC53E36F2233130700CA4437 /* WalkthroughsViewController.swift in Sources */,
 				AC0E4E982236C663003996AF /* DrawingExampleWalkthroughViewController.swift in Sources */,
 				AC9F23EF222B124B002D38E5 /* Qualification.swift in Sources */,
+				AC372C5B223942BE009F1DAD /* SctUpdateRateCellDelegate.swift in Sources */,
 				AC8F5B7B222899DA00FAEFC5 /* GoToSctCell.swift in Sources */,
 				AC53E37422331B8500CA4437 /* MySctViewController.swift in Sources */,
 				AC9F23EB222A90ED002D38E5 /* SigninViewController.swift in Sources */,
@@ -619,7 +652,9 @@
 				AC0E4E9E2236E136003996AF /* SctTopicWalkthroughViewController.swift in Sources */,
 				AC4904BF222B3AAF00BDEB4B /* SecurityQuestion.swift in Sources */,
 				AC8F5B792228986000FAEFC5 /* GoToSctViewControllerDelegate.swift in Sources */,
+				AC372C5A223942BE009F1DAD /* SctUpdateRateCell.swift in Sources */,
 				AC8F5B77222894AB00FAEFC5 /* GoToSctViewController.swift in Sources */,
+				AC372C58223942BE009F1DAD /* SctPerformRateCellDelegate.swift in Sources */,
 				AC9F23E22229D6A4002D38E5 /* ViewController.swift in Sources */,
 				AC0E4EA62237EB84003996AF /* SctDetailViewController.swift in Sources */,
 				AC0D77C62225CEFD007F83D4 /* LikertScale.swift in Sources */,
@@ -633,6 +668,7 @@
 				AC0D77DA22283330007F83D4 /* SctWordingCell.swift in Sources */,
 				AC0D77C42225CD60007F83D4 /* SctTopic.swift in Sources */,
 				AC0E4EB022382995003996AF /* UIBezierPath+star.swift in Sources */,
+				AC372C57223942BE009F1DAD /* SctDetailViewDelegate.swift in Sources */,
 				AC74B69E22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift in Sources */,
 				AC38BB60221DE4C9008E829B /* AppDelegate.swift in Sources */,
 				AC9F23E9222A8D4E002D38E5 /* String+random.swift in Sources */,
@@ -824,6 +860,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 89BP7N4885;
 				INFOPLIST_FILE = Script_odont/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -841,6 +878,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 89BP7N4885;
 				INFOPLIST_FILE = Script_odont/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

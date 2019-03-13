@@ -134,7 +134,10 @@ class RateStar: UIControl
         
         CATransaction.begin()
         CATransaction.setCompletionBlock({
-            self.updateMainLayer_()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+                //self.updateMainLayer_()
+            })
             self.isAnimating_ = false
         })
         addToggleAnimation_()
@@ -223,6 +226,7 @@ class RateStar: UIControl
     // -------------------------------------------------------------------------
     fileprivate func addToggleAnimation_()
     {
+        mainLayer_.removeAllAnimations()
         if isSelected
         {
             addDiskToggleAnimation_(select: true, beginTime: 0.0)
@@ -243,6 +247,10 @@ class RateStar: UIControl
         animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         if select
         {
+            DispatchQueue.main.asyncAfter(deadline: .now() + beginTime, execute: {
+                self.mainLayer_.path = self.selectedPath_(layerFrame: self.layerFrame_()).cgPath
+            })
+            
             animation.fromValue = unselectedPath_(layerFrame: layerFrame_()).cgPath
             animation.toValue   = selectedPath_(layerFrame: layerFrame_()).cgPath
         }
