@@ -179,6 +179,13 @@
 "DrawingWalkthrough.Drawing.Find"           = "You find...";
 "DrawingWalkthrough.Drawing.LikertIndex"    = "Likert index";
 
+/* SCT BROWSING */
+"ScrBrowsing.Section.New.Title"             = "New";
+"ScrBrowsing.Section.Top.Title"             = "Top";
+"ScrBrowsing.Section.Personnalized.Title"   = "Personnalized";
+"ScrBrowsing.Section.Topics.Title"          = "Topics";
+"ScrBrowsing.Section.Search.Title"          = "Search";
+
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information" = "Information";
 "SctExam.Horizontal.Progress" = "Question %d out of %d";

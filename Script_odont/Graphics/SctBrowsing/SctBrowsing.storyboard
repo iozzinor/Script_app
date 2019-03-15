@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cKs-Fb-bwm">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--WelcomeWalkthrough-->
+        <scene sceneID="1tY-PU-7J5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WelcomeWalkthrough" id="pVX-h5-qlX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nGP-SY-teH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1272" y="-993"/>
+        </scene>
+        <!--SCT Browsing-->
+        <scene sceneID="ibu-8B-gNH">
+            <objects>
+                <viewController id="cKs-Fb-bwm" customClass="SctBrowsingViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fJN-LU-5ym">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPv-wJ-AFv">
+                                <rect key="frame" x="0.0" y="20" width="375" height="30"/>
+                                <state key="normal" title="Test sct horizontal"/>
+                                <connections>
+                                    <segue destination="XnG-73-xjh" kind="presentation" identifier="MainToSctHorizontalSegueId" id="73z-4a-Aex"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wyj-6G-jxh">
+                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SPv-wJ-AFv" firstAttribute="leading" secondItem="Mhu-0a-i4K" secondAttribute="leading" id="4oe-e3-Yt4"/>
+                            <constraint firstItem="wyj-6G-jxh" firstAttribute="leading" secondItem="Mhu-0a-i4K" secondAttribute="leading" id="CPq-RD-Qql"/>
+                            <constraint firstItem="Mhu-0a-i4K" firstAttribute="trailing" secondItem="SPv-wJ-AFv" secondAttribute="trailing" id="Pef-IH-ne9"/>
+                            <constraint firstItem="SPv-wJ-AFv" firstAttribute="top" secondItem="Mhu-0a-i4K" secondAttribute="top" id="WSK-N5-WxS"/>
+                            <constraint firstItem="wyj-6G-jxh" firstAttribute="top" secondItem="SPv-wJ-AFv" secondAttribute="bottom" id="aEe-of-xpm"/>
+                            <constraint firstItem="Mhu-0a-i4K" firstAttribute="bottom" secondItem="wyj-6G-jxh" secondAttribute="bottom" id="cTX-Sa-Mik"/>
+                            <constraint firstItem="Mhu-0a-i4K" firstAttribute="trailing" secondItem="wyj-6G-jxh" secondAttribute="trailing" id="fdu-A2-bBe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mhu-0a-i4K"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="SCT Browsing" id="tQP-SM-ACi"/>
+                    <connections>
+                        <outlet property="tableView" destination="wyj-6G-jxh" id="ju1-Ja-znM"/>
+                        <segue destination="pVX-h5-qlX" kind="presentation" identifier="MainToWalkthroughSegueId" id="Cbd-WR-exR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nQK-tK-4El" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="658" y="-1066"/>
+        </scene>
+        <!--SctHorizontal-->
+        <scene sceneID="UYY-mj-SJK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SctHorizontal" id="XnG-73-xjh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fBR-Ai-goI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1265" y="-1093"/>
+        </scene>
+    </scenes>
+</document>
