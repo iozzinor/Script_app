@@ -107,6 +107,8 @@
 		ACA60F722235CCEF0094881A /* SctViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA60F712235CCEF0094881A /* SctViewController.swift */; };
 		ACA60F742235D2340094881A /* SctViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA60F732235D2340094881A /* SctViewDataSource.swift */; };
 		ACB8C8A822351AE000C7F77C /* SctFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8C8A722351AE000C7F77C /* SctFinished.swift */; };
+		ACD1B39C223BD5590065F07E /* SctScoreDiagramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */; };
+		ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */; };
 		ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */; };
 		ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F92221F214C008454FF /* WeakContainer.swift */; };
 		ACE70F95221F2439008454FF /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F94221F2439008454FF /* WeakArray.swift */; };
@@ -221,6 +223,8 @@
 		ACA60F712235CCEF0094881A /* SctViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctViewController.swift; sourceTree = "<group>"; };
 		ACA60F732235D2340094881A /* SctViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctViewDataSource.swift; sourceTree = "<group>"; };
 		ACB8C8A722351AE000C7F77C /* SctFinished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctFinished.swift; sourceTree = "<group>"; };
+		ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctScoreDiagramCell.swift; sourceTree = "<group>"; };
+		ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScoreDiagramCell.xib; sourceTree = "<group>"; };
 		ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWalkthroughViewController.swift; sourceTree = "<group>"; };
 		ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+storyboardId.swift"; sourceTree = "<group>"; };
 		ACE70F92221F214C008454FF /* WeakContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
@@ -311,6 +315,8 @@
 				AC372C54223942BE009F1DAD /* SctUpdateRateCell.swift */,
 				AC372C55223942BE009F1DAD /* SctUpdateRateCellDelegate.swift */,
 				AC372C60223942E6009F1DAD /* SctUpdateRateCell.xib */,
+				ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */,
+				ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */,
 			);
 			path = SctDetail;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */,
 				AC31E39F2235BC8500A3B813 /* SctQuestionCell.xib in Resources */,
 				AC53E37C2233AF5E00CA4437 /* MySct.storyboard in Resources */,
+				ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */,
 				AC38BB83221EAA58008E829B /* Localizable.strings in Resources */,
 				AC38BB67221DE4CB008E829B /* Assets.xcassets in Resources */,
 				AC4904B9222B244100BDEB4B /* SctHorizontal.storyboard in Resources */,
@@ -647,6 +654,7 @@
 				AC9F23EF222B124B002D38E5 /* Qualification.swift in Sources */,
 				AC372C5B223942BE009F1DAD /* SctUpdateRateCellDelegate.swift in Sources */,
 				AC8F5B7B222899DA00FAEFC5 /* GoToSctCell.swift in Sources */,
+				ACD1B39C223BD5590065F07E /* SctScoreDiagramCell.swift in Sources */,
 				AC53E37422331B8500CA4437 /* MySctViewController.swift in Sources */,
 				AC9F23EB222A90ED002D38E5 /* SigninViewController.swift in Sources */,
 				ACA60F742235D2340094881A /* SctViewDataSource.swift in Sources */,

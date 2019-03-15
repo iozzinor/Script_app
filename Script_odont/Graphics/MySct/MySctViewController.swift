@@ -98,12 +98,19 @@ class MySctViewController: UIViewController
             let duration = Double(Constants.random(min: 50, max: 350))
             let startDate = Date(timeIntervalSinceNow: Double(Constants.random(min: 0, max: 10) * (3600 * 24)))
             
+            var scoresDistribution = [Int]()
+            for _ in 0..<5
+            {
+                scoresDistribution.append(Constants.random(min: 10, max: 100))
+            }
+            
             let statistics = SctStatistics(id: i + 1,
                                            meanScore:         Double(Constants.random(min: 5, max: 95)),
                                            meanDuration:                Double(Constants.random(min: 120, max: 300)),
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
                                            launchesCount:               Constants.random(min: 300, max: 1000),
-                                           meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)))
+                                           meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)),
+                                           scoresDistribution: scoresDistribution)
             
             let sctUnfinished = SctUnfinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, lastDate: Date(), statistics: statistics)
             
@@ -137,12 +144,19 @@ class MySctViewController: UIViewController
             let answeredQuestions = Int(arc4random() % 30) + 5
             let duration = Double(Int(arc4random() % 300) + 50)
             let startDate = Date(timeIntervalSinceNow: Double(Int(arc4random() % 10 * (3600 * 24))))
+            var scoresDistribution = [Int]()
+            for _ in 0..<5
+            {
+                scoresDistribution.append(Constants.random(min: 10, max: 100))
+            }
             let statistics = SctStatistics(id: i + 1,
                                            meanScore:         Double(Constants.random(min: 5, max: 95)),
                                            meanDuration:                Double(Constants.random(min: 120, max: 300)),
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
                                            launchesCount:               Constants.random(min: 300, max: 1000),
-                                           meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)))
+                                           meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)),
+                                           scoresDistribution: scoresDistribution)
+            
             let vote: Int? = nil//(Constants.random(min: 0, max: 100) % 2 == 0 ? nil : 3.75)
             
             let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), statistics: statistics, score: Double(arc4random() % 100 + 1), vote: vote)

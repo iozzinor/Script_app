@@ -27,4 +27,7 @@ public struct SctStatistics
     
     /// The mean completion percentage.
     var meanCompletionPercentage: Double
+    
+    /// The scores distribution.
+    var scoresDistribution: [Int]
 }

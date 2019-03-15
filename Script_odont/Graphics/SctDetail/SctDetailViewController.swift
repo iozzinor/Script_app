@@ -52,6 +52,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         case topic
         case meanScore
         case questionsCount
+        case scoreDiagram
         
         // last session
         case lastDate
@@ -108,6 +109,11 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             case .questionsCount:
                 cell.textLabel?.text = "SctDetail.TableCell.QuestionsCount".localized
                 cell.detailTextLabel?.text = "\(totalQuestionsCount)"
+            case .scoreDiagram:
+                let result = tableView.dequeueReusableCell(for: indexPath) as SctScoreDiagramCell
+                result.scoresDistribution = dataSource.statistics.scoresDistribution
+                result.selectionStyle = .none
+                return result
                 
             // last session
             case .lastDate:
@@ -225,6 +231,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.registerNibCell(SctRateCell.self)
         tableView.registerNibCell(SctPerformRateCell.self)
         tableView.registerNibCell(SctUpdateRateCell.self)
+        tableView.registerNibCell(SctScoreDiagramCell.self)
     }
     
     func reloadData()
