@@ -93,6 +93,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="YyQ-A3-FQv" kind="show" identifier="SctSearchToQualificationTopicsPickerSegueId" id="xJj-ra-Eh6"/>
+                        <segue destination="ggA-sN-IZ3" kind="presentation" identifier="SctSearchToSctSearchCriterionPickerSegueId" id="fbn-Tt-u4B"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZh-0a-tpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,6 +136,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SvM-1R-aZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3215" y="-539"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9sV-NQ-1Hk">
+            <objects>
+                <navigationController id="ggA-sN-IZ3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gQZ-yM-WUM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gY1-oA-jwu" kind="relationship" relationship="rootViewController" id="1kq-pw-9tV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o1Q-wv-wGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2396" y="228"/>
+        </scene>
+        <!--Sct Search Criterion Picker View Controller-->
+        <scene sceneID="Uj3-PB-l2m">
+            <objects>
+                <tableViewController id="gY1-oA-jwu" customClass="SctSearchCriterionPickerViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f6b-He-qbh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SctSearchCriterionPickerCellReuseId" textLabel="h2e-b7-lhd" style="IBUITableViewCellStyleDefault" id="fa8-Yf-gQQ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fa8-Yf-gQQ" id="Fqa-XH-quD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h2e-b7-lhd">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gY1-oA-jwu" id="mBf-bp-Lvh"/>
+                            <outlet property="delegate" destination="gY1-oA-jwu" id="5LK-9M-PCO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="hV8-I5-KJs">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xGF-MX-wfR">
+                            <connections>
+                                <action selector="cancel:" destination="gY1-oA-jwu" id="kA0-cu-an4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="eHA-g0-Cvk">
+                            <connections>
+                                <action selector="done:" destination="gY1-oA-jwu" id="Att-Be-TVe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MH6-nc-6xz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3214" y="227"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LeK-SQ-boV">

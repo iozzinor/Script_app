@@ -14,9 +14,18 @@ import Foundation
 enum SctSearchCriterion
 {
     static let all: [SctSearchCriterion] = [
-        .topics([]), .releaseDate(Date(), Date()),
+        .topics([.surgery]),
+        .releaseDate(Date(), Date()),
         .questionsCount(0, 0), .duration(0.0, 0.0)
     ]
+    
+    static func pickableCriteria(alreadyPicked pickedCriteria: [SctSearchCriterion]) -> [SctSearchCriterion]
+    {
+        let pickedNames = pickedCriteria.map { $0.name }
+        return SctSearchCriterion.all.filter {
+            return !pickedNames.contains($0.name) || $0.multipleAppearancesAllowed
+        }
+    }
     
     case topics([QualificationTopic])
     case releaseDate(Date, Date)

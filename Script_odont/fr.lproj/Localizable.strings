@@ -208,6 +208,8 @@
 "SctSearch.PickQualificationTopics.Title"   = "Choisir les thèmes";
 "SctSearch.PerformSearch.Title"             = "Rechercher";
 
+"SctSearchCriterionPicker.NavigationItem.Title" = "Choix nouveau critère";
+
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information"      = "Informations";
 "SctExam.Horizontal.Progress"               = "%d sur %d";

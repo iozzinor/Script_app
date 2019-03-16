@@ -110,6 +110,8 @@
 		ACC83F68223D649A0064BE6F /* SctSearchCriterion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F67223D649A0064BE6F /* SctSearchCriterion.swift */; };
 		ACC83F6A223D650D0064BE6F /* QualificationTopicsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F69223D650D0064BE6F /* QualificationTopicsPickerViewController.swift */; };
 		ACC83F6C223D6C590064BE6F /* QualificationTopicsPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F6B223D6C590064BE6F /* QualificationTopicsPickerDelegate.swift */; };
+		ACC83F6E223D70C40064BE6F /* SctSearchCriterionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F6D223D70C40064BE6F /* SctSearchCriterionPickerViewController.swift */; };
+		ACC83F70223D70D30064BE6F /* SctSearchCriterionPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F6F223D70D30064BE6F /* SctSearchCriterionPickerDelegate.swift */; };
 		ACD1B39C223BD5590065F07E /* SctScoreDiagramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */; };
 		ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */; };
 		ACD1B3A0223BE1320065F07E /* SctSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B39F223BE1320065F07E /* SctSearchViewController.swift */; };
@@ -241,6 +243,8 @@
 		ACC83F67223D649A0064BE6F /* SctSearchCriterion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctSearchCriterion.swift; sourceTree = "<group>"; };
 		ACC83F69223D650D0064BE6F /* QualificationTopicsPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopicsPickerViewController.swift; sourceTree = "<group>"; };
 		ACC83F6B223D6C590064BE6F /* QualificationTopicsPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopicsPickerDelegate.swift; sourceTree = "<group>"; };
+		ACC83F6D223D70C40064BE6F /* SctSearchCriterionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctSearchCriterionPickerViewController.swift; sourceTree = "<group>"; };
+		ACC83F6F223D70D30064BE6F /* SctSearchCriterionPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctSearchCriterionPickerDelegate.swift; sourceTree = "<group>"; };
 		ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctScoreDiagramCell.swift; sourceTree = "<group>"; };
 		ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScoreDiagramCell.xib; sourceTree = "<group>"; };
 		ACD1B39F223BE1320065F07E /* SctSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctSearchViewController.swift; sourceTree = "<group>"; };
@@ -557,6 +561,8 @@
 				ACD1B3B1223C51B10065F07E /* SctBrowsingCell.xib */,
 				ACC83F67223D649A0064BE6F /* SctSearchCriterion.swift */,
 				ACD1B39F223BE1320065F07E /* SctSearchViewController.swift */,
+				ACC83F6D223D70C40064BE6F /* SctSearchCriterionPickerViewController.swift */,
+				ACC83F6F223D70D30064BE6F /* SctSearchCriterionPickerDelegate.swift */,
 				ACC83F69223D650D0064BE6F /* QualificationTopicsPickerViewController.swift */,
 				ACC83F6B223D6C590064BE6F /* QualificationTopicsPickerDelegate.swift */,
 				ACD1B3A1223BE1C80065F07E /* SctBrowsing.storyboard */,
@@ -660,6 +666,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD1B3AE223C4C730065F07E /* SctLaunchInformation.swift in Sources */,
+				ACC83F70223D70D30064BE6F /* SctSearchCriterionPickerDelegate.swift in Sources */,
 				AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */,
 				AC372C56223942BE009F1DAD /* SctPerformRateCell.swift in Sources */,
 				AC74B69C223542A000B31571 /* WelcomeWalkthroughContentViewController.swift in Sources */,
@@ -755,6 +762,7 @@
 				AC0E4EAB2237FB87003996AF /* SctFinishedViewController.swift in Sources */,
 				AC0D77DE22283838007F83D4 /* SctAnswer.swift in Sources */,
 				AC9F23E022299945002D38E5 /* KeychainPasswordItem.swift in Sources */,
+				ACC83F6E223D70C40064BE6F /* SctSearchCriterionPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

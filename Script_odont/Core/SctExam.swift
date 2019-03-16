@@ -11,6 +11,8 @@ import Foundation
 /// A set of SCTs.
 public struct SctExam
 {
+    public static let maximumTotalQuestionsCount = 65536
+    
     public var scts = [Sct]()
     
     public var topic: SctTopic {

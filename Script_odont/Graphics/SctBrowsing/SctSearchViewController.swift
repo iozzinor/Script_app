@@ -105,6 +105,7 @@ class SctSearchViewController: UITableViewController
     static let addCriterionCellId = "SctSearchAddCriterionCellReuseId"
     
     static let toQualificationTopicsSegueId = "SctSearchToQualificationTopicsPickerSegueId"
+    static let toSctSearchPickerSegueId = "SctSearchToSctSearchCriterionPickerSegueId"
     
     // -------------------------------------------------------------------------
     // MARK: - PROPERTIES
@@ -120,7 +121,10 @@ class SctSearchViewController: UITableViewController
         }
         
         // add criterion
-        result.append((section: .newCriterion, rows: [.addCriterion]))
+        if !SctSearchCriterion.pickableCriteria(alreadyPicked: criteria_).isEmpty
+        {
+            result.append((section: .newCriterion, rows: [.addCriterion]))
+        }
         
         // search
         result.append((section: .search, rows: [.performSearch]))
@@ -155,7 +159,7 @@ class SctSearchViewController: UITableViewController
         tableView.isEditing = true
         tableView.allowsSelectionDuringEditing = true
         
-        criteria_.append(.topics([]))
+        criteria_.append(SctSearchCriterion.all.first!)
     }
     
     // -------------------------------------------------------------------------
@@ -164,6 +168,29 @@ class SctSearchViewController: UITableViewController
     fileprivate var searchEnabled_: Bool
     {
         return !criteria_.isEmpty
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - CRITERIA MANAGMENT
+    // -------------------------------------------------------------------------
+    fileprivate func removeCriterion_(indexPath: IndexPath)
+    {
+        let insertAddCriterion = SctSearchCriterion.pickableCriteria(alreadyPicked: criteria_).isEmpty
+        criteria_.remove(at: indexPath.section)
+        
+        if insertAddCriterion
+        {
+            var sectionsToReload = [Int]()
+            for i in 0..<(criteria_.count+1)
+            {
+                sectionsToReload.append(i)
+            }
+            tableView.reloadSections(IndexSet(sectionsToReload), with: .automatic)
+        }
+        else
+        {
+            tableView.deleteSections(IndexSet([indexPath.section]), with: .automatic)
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -179,6 +206,14 @@ class SctSearchViewController: UITableViewController
     // -------------------------------------------------------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        // criterion picker
+        if segue.identifier == SctSearchViewController.toSctSearchPickerSegueId,
+            let target = (segue.destination as? UINavigationController)?.viewControllers.first as? SctSearchCriterionPickerViewController
+        {
+            target.delegate = self
+            target.setPickedCriteria(criteria_)
+        }
+        // qualification topics
         if segue.identifier == SctSearchViewController.toQualificationTopicsSegueId,
             let target = segue.destination as? QualificationTopicsPickerViewController,
             currentIndexPath_ != nil
@@ -196,7 +231,7 @@ class SctSearchViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDelegate
+    // MARK: - UITableViewDelegate SELECTION
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
@@ -204,9 +239,9 @@ class SctSearchViewController: UITableViewController
         
         switch row
         {
-        case .addCriterion, .criterion(_), .qualificationTopic(_):
+        case .criterion(_), .qualificationTopic(_):
             return nil
-        case .pickQualificationTopics, .performSearch:
+        case .addCriterion, .pickQualificationTopics, .performSearch:
             return indexPath
         }
     }
@@ -217,7 +252,9 @@ class SctSearchViewController: UITableViewController
         
         switch row
         {
-        case .addCriterion, .criterion(_), .qualificationTopic(_):
+        case .addCriterion:
+            performSegue(withIdentifier: SctSearchViewController.toSctSearchPickerSegueId, sender: self)
+        case .criterion(_), .qualificationTopic(_):
             break
         case .pickQualificationTopics:
             currentIndexPath_ = indexPath
@@ -227,6 +264,9 @@ class SctSearchViewController: UITableViewController
         }
     }
     
+    // -------------------------------------------------------------------------
+    // MARK: - UITableViewDelegate EDIT
+    // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
         let row = sections_[indexPath.section].rows[indexPath.row]
@@ -252,6 +292,21 @@ class SctSearchViewController: UITableViewController
             return .delete
         case .qualificationTopic(_), .pickQualificationTopics, .performSearch:
             return .none
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+    {
+        let row = sections_[indexPath.section].rows[indexPath.row]
+        
+        switch row
+        {
+        case .addCriterion:
+            performSegue(withIdentifier: SctSearchViewController.toSctSearchPickerSegueId, sender: self)
+        case .criterion(_):
+            removeCriterion_(indexPath: indexPath)
+        default:
+            break
         }
     }
     
@@ -281,6 +336,30 @@ class SctSearchViewController: UITableViewController
         cell.accessoryType = row.accessoryType(for: indexPath, tableView: tableView, sctSearchViewController: self)
         cell.selectionStyle = row.selectionStyle(for: indexPath, tableView: tableView, sctSearchViewController: self)
         return cell
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - SCT SEARCH CRITERION PICKER DELEGATE
+// -----------------------------------------------------------------------------
+extension SctSearchViewController: SctSearchCriterionPickerDelegate
+{
+    func sctSearchCriterionPicker(didCancelPick sctSearchCriterionPickerViewContorller: SctSearchCriterionPickerViewController)
+    {
+    }
+    
+    func sctSearchCriterionPicker(_ sctSearchCriterionPickerViewController: SctSearchCriterionPickerViewController, didPickCriterion pickedCriterion: SctSearchCriterion)
+    {
+        criteria_.append(pickedCriterion)
+        
+        if SctSearchCriterion.pickableCriteria(alreadyPicked: criteria_).isEmpty
+        {
+            tableView.reloadSections(IndexSet([criteria_.count - 1]), with: .automatic)
+        }
+        else
+        {
+            tableView.insertSections(IndexSet([criteria_.count - 1]), with: .automatic)
+        }
     }
 }
 
