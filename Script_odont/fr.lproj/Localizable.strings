@@ -198,6 +198,16 @@
 "ScrBrowsing.Section.Personnalized.Description"   = "Une liste de TCS créée spécialement pour vous.";
 "ScrBrowsing.Section.Topics.Description"          = "Les TCS par thème.";
 
+/* SCT SEARCH */
+"SctSearch.Criterion.Topics.Name"           = "Thèmes";
+"SctSearch.Criterion.ReleaseDate.Name"      = "Date de publication";
+"SctSearch.Criterion.QuestionsCount.Name"   = "Nombre de questions";
+"SctSearch.Criterion.Duration.Name"         = "Durée";
+
+"SctSearch.AddCriterion.Title"              = "Ajouter citère";
+"SctSearch.PickQualificationTopics.Title"   = "Choisir les thèmes";
+"SctSearch.PerformSearch.Title"             = "Rechercher";
+
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information"      = "Informations";
 "SctExam.Horizontal.Progress"               = "%d sur %d";

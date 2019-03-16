@@ -12,10 +12,10 @@ class ButtonCell: UITableViewCell
 {
     @IBOutlet weak var buttonLabel: UILabel!
     
-    func setTitle(_ title: String)
+    func setTitle(_ title: String, enabled: Bool = true)
     {
         buttonLabel.text = title
-        buttonLabel.prepareToDisplayRoundStyle()
+        buttonLabel.prepareToDisplayRoundStyle(enabled: enabled)
         
         buttonLabel.textColor = UIColor.white
     }

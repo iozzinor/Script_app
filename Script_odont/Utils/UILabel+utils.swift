@@ -23,9 +23,10 @@ extension UILabel
     // -------------------------------------------------------------------------
     // MARK: - BUTTON STYLE
     // -------------------------------------------------------------------------
-    public func prepareToDisplayRoundStyle()
+    public func prepareToDisplayRoundStyle(enabled: Bool = true)
     {
-        layer.backgroundColor = UIColor.blue.cgColor
+        let color = (enabled ? UIColor.blue : UIColor.gray)
+        layer.backgroundColor = color.cgColor
         layer.cornerRadius = frame.height / 2
     }
 }

@@ -198,6 +198,16 @@
 "ScrBrowsing.Section.Personnalized.Description"   = "A set of SCTs that has specially been designed for you.";
 "ScrBrowsing.Section.Topics.Description"          = "STCs by topics.";
 
+/* SCT SEARCH */
+"SctSearch.Criterion.Topics.Name"           = "Topics";
+"SctSearch.Criterion.ReleaseDate.Name"      = "Release Date";
+"SctSearch.Criterion.QuestionsCount.Name"   = "Questions Count";
+"SctSearch.Criterion.Duration.Name"         = "Duration";
+
+"SctSearch.AddCriterion.Title"              = "Add Criterion";
+"SctSearch.PickQualificationTopics.Title"   = "Pick Qualification Topics";
+"SctSearch.PerformSearch.Title"             = "Search";
+
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information" = "Information";
 "SctExam.Horizontal.Progress" = "Question %d out of %d";
