@@ -180,11 +180,23 @@
 "DrawingWalkthrough.Drawing.LikertIndex"    = "Indice de Likert";
 
 /* SCT BROWSING */
+"SctBrowsing.LatestPeriod.Day.Name"     = "Aujourd'hui";
+"SctBrowsing.LatestPeriod.Week.Name"    = "Cette semaine";
+"SctBrowsing.LatestPeriod.Month.Name"   = "Ce mois";
+
+"SctBrowsing.NewSct.Time" = "Il y a %@.";
+"SctBrowsing.Search.Title"  = "Ce n'est pas suffisant ? Recherchez !";
+
 "ScrBrowsing.Section.New.Title"             = "Nouveaux";
 "ScrBrowsing.Section.Top.Title"             = "Tendance";
 "ScrBrowsing.Section.Personnalized.Title"   = "Pour vous";
 "ScrBrowsing.Section.Topics.Title"          = "Thèmes";
 "ScrBrowsing.Section.Search.Title"          = "Recherche";
+
+"ScrBrowsing.Section.New.Description"             = "Les derniers TCS.";
+"ScrBrowsing.Section.Top.Description"             = "Les meilleurs TCS.";
+"ScrBrowsing.Section.Personnalized.Description"   = "Une liste de TCS créée spécialement pour vous.";
+"ScrBrowsing.Section.Topics.Description"          = "Les TCS par thème.";
 
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information"      = "Informations";

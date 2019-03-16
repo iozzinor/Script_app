@@ -21,9 +21,7 @@ class MySctFinishedCell: UITableViewCell
         let startDateString = Constants.dateString(for: sctFinished.startDate)
         startDateLabel.text = startDateString
         
-        topicLabel.text = sctFinished.session.exam.topic.name
-        topicLabel.layer.cornerRadius = topicLabel.frame.height / 2.0
-        topicLabel.layer.backgroundColor = Appearance.Color.color(for: sctFinished.session.exam.scts.first?.topic ?? .diagnostic).cgColor
+        topicLabel.prepareToDisplay(topic: sctFinished.session.exam.topic)
         
         scoreLabel.text = "\(sctFinished.score)%"
         

@@ -10,6 +10,9 @@ import UIKit
 
 extension UIView
 {
+    // -------------------------------------------------------------------------
+    // MARK: - BORDER
+    // -------------------------------------------------------------------------
     enum BorderPosition
     {
         case top
@@ -62,5 +65,25 @@ extension UIView
         {
             addBorder(with: color, lineWidth: lineWidth, position: position)
         }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - ADAPT
+    // -------------------------------------------------------------------------
+    func addSubviewAdjusting(_ subview: UIView)
+    {
+        func makeConstraint(first: UIView, second: UIView, attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint
+        {
+            return NSLayoutConstraint(item: first, attribute: attribute, relatedBy: .equal, toItem: second, attribute: attribute, multiplier: 1.0, constant: 0.0)
+        }
+        
+        self.addSubview(subview)
+        
+        let top     = makeConstraint(first: self, second: subview, attribute: .top)
+        let right   = makeConstraint(first: self, second: subview, attribute: .right)
+        let left    = makeConstraint(first: self, second: subview, attribute: .left)
+        let bottom  = makeConstraint(first: self, second: subview, attribute: .bottom)
+        
+        self.addConstraints([top, right, left, bottom])
     }
 }

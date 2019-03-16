@@ -32,14 +32,9 @@ class MySctUnfinishedCell: UITableViewCell
     
     func setSctUnfinished(_ sctUnfinished: SctUnfinished)
     {
-        topicLabel.layer.cornerRadius = topicLabel.frame.height / 2.0
-        topicLabel.layer.backgroundColor = Appearance.Color.color(for: sctUnfinished.session.exam.topic).cgColor
+        topicLabel.prepareToDisplay(topic: sctUnfinished.session.exam.topic)
         
         startDateLabel.text = Constants.dateString(for: sctUnfinished.startDate)
-        if let firstSct = sctUnfinished.session.exam.scts.first
-        {
-            topicLabel.text = firstSct.topic.name
-        }
         answeredQuestionsLabel.text = "\(sctUnfinished.answeredQuestions)"
         let totalQuestions = totalQuestionsCount_(sctUnfinished)
         progressView.progress = Float(sctUnfinished.answeredQuestions) / Float(totalQuestions)

@@ -76,7 +76,7 @@
 		AC4904D1222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904D0222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift */; };
 		AC53E36722329C2700CA4437 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E36622329C2700CA4437 /* Constants.swift */; };
 		AC53E3692232B2BA00CA4437 /* SctQuestionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E3682232B2BA00CA4437 /* SctQuestionHeaderCell.swift */; };
-		AC53E36B2232B75200CA4437 /* UIView+border.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E36A2232B75200CA4437 /* UIView+border.swift */; };
+		AC53E36B2232B75200CA4437 /* UIView+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E36A2232B75200CA4437 /* UIView+utils.swift */; };
 		AC53E36F2233130700CA4437 /* WalkthroughsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E36E2233130700CA4437 /* WalkthroughsViewController.swift */; };
 		AC53E37422331B8500CA4437 /* MySctViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E37322331B8500CA4437 /* MySctViewController.swift */; };
 		AC53E3762233AD9B00CA4437 /* SctUnfinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E3752233AD9B00CA4437 /* SctUnfinished.swift */; };
@@ -111,10 +111,20 @@
 		ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */; };
 		ACD1B3A0223BE1320065F07E /* SctSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B39F223BE1320065F07E /* SctSearchViewController.swift */; };
 		ACD1B3A2223BE1C80065F07E /* SctBrowsing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3A1223BE1C80065F07E /* SctBrowsing.storyboard */; };
+		ACD1B3A4223BF6490065F07E /* UILabel+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B3A3223BF6490065F07E /* UILabel+utils.swift */; };
+		ACD1B3A6223BFF580065F07E /* SctBrowsingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B3A5223BFF580065F07E /* SctBrowsingSection.swift */; };
+		ACD1B3A8223C42DE0065F07E /* SctLatestPeriodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B3A7223C42DE0065F07E /* SctLatestPeriodCell.swift */; };
+		ACD1B3AA223C43AD0065F07E /* SctLatestPeriodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3A9223C43AD0065F07E /* SctLatestPeriodCell.xib */; };
+		ACD1B3AE223C4C730065F07E /* SctLaunchInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B3AD223C4C730065F07E /* SctLaunchInformation.swift */; };
+		ACD1B3B0223C510B0065F07E /* SctBrowsingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B3AF223C510B0065F07E /* SctBrowsingCell.swift */; };
+		ACD1B3B2223C51B10065F07E /* SctBrowsingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3B1223C51B10065F07E /* SctBrowsingCell.xib */; };
+		ACD1B3B4223CDDC50065F07E /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3B3223CDDC50065F07E /* Localizable.stringsdict */; };
+		ACD1B3B8223D068F0065F07E /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B3B7223D068F0065F07E /* ButtonCell.swift */; };
+		ACD1B3BA223D06F80065F07E /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3B9223D06F80065F07E /* ButtonCell.xib */; };
 		ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */; };
 		ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F92221F214C008454FF /* WeakContainer.swift */; };
 		ACE70F95221F2439008454FF /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F94221F2439008454FF /* WeakArray.swift */; };
-		ACE70F97221F3254008454FF /* UITableViewCell+reuseId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F96221F3254008454FF /* UITableViewCell+reuseId.swift */; };
+		ACE70F97221F3254008454FF /* UITableViewCell+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F96221F3254008454FF /* UITableViewCell+utils.swift */; };
 		ACE70F99221F32B9008454FF /* UITableView+register.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F98221F32B9008454FF /* UITableView+register.swift */; };
 /* End PBXBuildFile section */
 
@@ -195,7 +205,7 @@
 		AC4904D0222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopicPickerViewControllerDelegate.swift; sourceTree = "<group>"; };
 		AC53E36622329C2700CA4437 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AC53E3682232B2BA00CA4437 /* SctQuestionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctQuestionHeaderCell.swift; sourceTree = "<group>"; };
-		AC53E36A2232B75200CA4437 /* UIView+border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+border.swift"; sourceTree = "<group>"; };
+		AC53E36A2232B75200CA4437 /* UIView+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+utils.swift"; sourceTree = "<group>"; };
 		AC53E36E2233130700CA4437 /* WalkthroughsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughsViewController.swift; sourceTree = "<group>"; };
 		AC53E37322331B8500CA4437 /* MySctViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySctViewController.swift; sourceTree = "<group>"; };
 		AC53E3752233AD9B00CA4437 /* SctUnfinished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctUnfinished.swift; sourceTree = "<group>"; };
@@ -229,11 +239,21 @@
 		ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScoreDiagramCell.xib; sourceTree = "<group>"; };
 		ACD1B39F223BE1320065F07E /* SctSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctSearchViewController.swift; sourceTree = "<group>"; };
 		ACD1B3A1223BE1C80065F07E /* SctBrowsing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SctBrowsing.storyboard; sourceTree = "<group>"; };
+		ACD1B3A3223BF6490065F07E /* UILabel+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+utils.swift"; sourceTree = "<group>"; };
+		ACD1B3A5223BFF580065F07E /* SctBrowsingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctBrowsingSection.swift; sourceTree = "<group>"; };
+		ACD1B3A7223C42DE0065F07E /* SctLatestPeriodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctLatestPeriodCell.swift; sourceTree = "<group>"; };
+		ACD1B3A9223C43AD0065F07E /* SctLatestPeriodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctLatestPeriodCell.xib; sourceTree = "<group>"; };
+		ACD1B3AD223C4C730065F07E /* SctLaunchInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctLaunchInformation.swift; sourceTree = "<group>"; };
+		ACD1B3AF223C510B0065F07E /* SctBrowsingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctBrowsingCell.swift; sourceTree = "<group>"; };
+		ACD1B3B1223C51B10065F07E /* SctBrowsingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctBrowsingCell.xib; sourceTree = "<group>"; };
+		ACD1B3B3223CDDC50065F07E /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		ACD1B3B7223D068F0065F07E /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		ACD1B3B9223D06F80065F07E /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWalkthroughViewController.swift; sourceTree = "<group>"; };
 		ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+storyboardId.swift"; sourceTree = "<group>"; };
 		ACE70F92221F214C008454FF /* WeakContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
 		ACE70F94221F2439008454FF /* WeakArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakArray.swift; sourceTree = "<group>"; };
-		ACE70F96221F3254008454FF /* UITableViewCell+reuseId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+reuseId.swift"; sourceTree = "<group>"; };
+		ACE70F96221F3254008454FF /* UITableViewCell+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+utils.swift"; sourceTree = "<group>"; };
 		ACE70F98221F32B9008454FF /* UITableView+register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+register.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -265,6 +285,7 @@
 				AC53E3752233AD9B00CA4437 /* SctUnfinished.swift */,
 				ACB8C8A722351AE000C7F77C /* SctFinished.swift */,
 				AC0E4EA122370CF3003996AF /* SctStatistics.swift */,
+				ACD1B3AD223C4C730065F07E /* SctLaunchInformation.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -283,6 +304,8 @@
 				AC53E36C2233128D00CA4437 /* SctHorizontal */,
 				AC53E36D223312D600CA4437 /* Other */,
 				AC0D77D52228274D007F83D4 /* Appearance.swift */,
+				ACD1B3B7223D068F0065F07E /* ButtonCell.swift */,
+				ACD1B3B9223D06F80065F07E /* ButtonCell.xib */,
 			);
 			path = Graphics;
 			sourceTree = "<group>";
@@ -398,6 +421,7 @@
 				AC38BB66221DE4CB008E829B /* Assets.xcassets */,
 				AC38BB68221DE4CB008E829B /* LaunchScreen.storyboard */,
 				AC38BB85221EAA58008E829B /* Localizable.strings */,
+				ACD1B3B3223CDDC50065F07E /* Localizable.stringsdict */,
 				AC38BB6B221DE4CB008E829B /* Info.plist */,
 			);
 			path = Script_odont;
@@ -424,9 +448,10 @@
 				AC53E36622329C2700CA4437 /* Constants.swift */,
 				AC38BB79221E89C0008E829B /* UIApplication+isFirstLaunch.swift */,
 				ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */,
-				ACE70F96221F3254008454FF /* UITableViewCell+reuseId.swift */,
+				ACE70F96221F3254008454FF /* UITableViewCell+utils.swift */,
 				ACE70F98221F32B9008454FF /* UITableView+register.swift */,
-				AC53E36A2232B75200CA4437 /* UIView+border.swift */,
+				AC53E36A2232B75200CA4437 /* UIView+utils.swift */,
+				ACD1B3A3223BF6490065F07E /* UILabel+utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -518,7 +543,12 @@
 		ACB8C8A92235211F00C7F77C /* SctBrowsing */ = {
 			isa = PBXGroup;
 			children = (
+				ACD1B3A5223BFF580065F07E /* SctBrowsingSection.swift */,
 				AC38BB61221DE4C9008E829B /* SctBrowsingViewController.swift */,
+				ACD1B3A7223C42DE0065F07E /* SctLatestPeriodCell.swift */,
+				ACD1B3A9223C43AD0065F07E /* SctLatestPeriodCell.xib */,
+				ACD1B3AF223C510B0065F07E /* SctBrowsingCell.swift */,
+				ACD1B3B1223C51B10065F07E /* SctBrowsingCell.xib */,
 				ACD1B39F223BE1320065F07E /* SctSearchViewController.swift */,
 				ACD1B3A1223BE1C80065F07E /* SctBrowsing.storyboard */,
 			);
@@ -586,6 +616,7 @@
 			files = (
 				ACD1B3A2223BE1C80065F07E /* SctBrowsing.storyboard in Resources */,
 				AC38BB6A221DE4CB008E829B /* LaunchScreen.storyboard in Resources */,
+				ACD1B3B4223CDDC50065F07E /* Localizable.stringsdict in Resources */,
 				AC372C5F223942C7009F1DAD /* SctRateCell.xib in Resources */,
 				AC82731E222C96EB0041AA0C /* SecurityQuestionCell.xib in Resources */,
 				AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */,
@@ -598,10 +629,13 @@
 				AC372C5E223942C7009F1DAD /* SctPerformRateCell.xib in Resources */,
 				AC4904B4222B238B00BDEB4B /* Login.storyboard in Resources */,
 				AC31E3A12235BCBA00A3B813 /* SctQuestionHeaderCell.xib in Resources */,
+				ACD1B3BA223D06F80065F07E /* ButtonCell.xib in Resources */,
 				AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */,
 				AC31E39F2235BC8500A3B813 /* SctQuestionCell.xib in Resources */,
 				AC53E37C2233AF5E00CA4437 /* MySct.storyboard in Resources */,
+				ACD1B3B2223C51B10065F07E /* SctBrowsingCell.xib in Resources */,
 				ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */,
+				ACD1B3AA223C43AD0065F07E /* SctLatestPeriodCell.xib in Resources */,
 				AC38BB83221EAA58008E829B /* Localizable.strings in Resources */,
 				AC38BB67221DE4CB008E829B /* Assets.xcassets in Resources */,
 				AC4904B9222B244100BDEB4B /* SctHorizontal.storyboard in Resources */,
@@ -616,6 +650,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD1B3AE223C4C730065F07E /* SctLaunchInformation.swift in Sources */,
 				AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */,
 				AC372C56223942BE009F1DAD /* SctPerformRateCell.swift in Sources */,
 				AC74B69C223542A000B31571 /* WelcomeWalkthroughContentViewController.swift in Sources */,
@@ -632,6 +667,7 @@
 				AC9F23ED222A93F4002D38E5 /* SigninLabelCell.swift in Sources */,
 				ACE70F99221F32B9008454FF /* UITableView+register.swift in Sources */,
 				AC53E3692232B2BA00CA4437 /* SctQuestionHeaderCell.swift in Sources */,
+				ACD1B3B0223C510B0065F07E /* SctBrowsingCell.swift in Sources */,
 				AC0D77D8222831C5007F83D4 /* SctExam.swift in Sources */,
 				AC0D77E022283FB6007F83D4 /* SctQuestionCellDelegate.swift in Sources */,
 				AC0D77D422281FDD007F83D4 /* SctScaleCell.swift in Sources */,
@@ -649,7 +685,7 @@
 				AC0E4EA222370CF3003996AF /* SctStatistics.swift in Sources */,
 				AC4904C3222B51F400BDEB4B /* SecurityQuestionPickerViewController.swift in Sources */,
 				AC0D77D22225DD01007F83D4 /* SctPanelAnswer.swift in Sources */,
-				ACE70F97221F3254008454FF /* UITableViewCell+reuseId.swift in Sources */,
+				ACE70F97221F3254008454FF /* UITableViewCell+utils.swift in Sources */,
 				AC8F5B7D22289DC800FAEFC5 /* GoToSctStatusView.swift in Sources */,
 				ACD1B3A0223BE1320065F07E /* SctSearchViewController.swift in Sources */,
 				AC372C59223942BE009F1DAD /* SctRateCell.swift in Sources */,
@@ -668,21 +704,25 @@
 				ACA60F742235D2340094881A /* SctViewDataSource.swift in Sources */,
 				AC4904C7222BBE6100BDEB4B /* PasswordPolicy.swift in Sources */,
 				ACB8C8A822351AE000C7F77C /* SctFinished.swift in Sources */,
+				ACD1B3A8223C42DE0065F07E /* SctLatestPeriodCell.swift in Sources */,
 				AC53E36722329C2700CA4437 /* Constants.swift in Sources */,
+				ACD1B3B8223D068F0065F07E /* ButtonCell.swift in Sources */,
 				AC9F23E72229D9AA002D38E5 /* String+hex.swift in Sources */,
-				AC53E36B2232B75200CA4437 /* UIView+border.swift in Sources */,
+				AC53E36B2232B75200CA4437 /* UIView+utils.swift in Sources */,
 				AC53E37A2233AE3B00CA4437 /* MySctUnfinishedCell.swift in Sources */,
 				AC0D77D62228274D007F83D4 /* Appearance.swift in Sources */,
 				AC8F5B822229696000FAEFC5 /* LoginViewController.swift in Sources */,
 				AC4904CF222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift in Sources */,
 				AC38BB80221EA451008E829B /* WelcomeWalkthroughPageViewControllerDelegate.swift in Sources */,
 				ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */,
+				ACD1B3A6223BFF580065F07E /* SctBrowsingSection.swift in Sources */,
 				AC0E4E9E2236E136003996AF /* SctTopicWalkthroughViewController.swift in Sources */,
 				AC4904BF222B3AAF00BDEB4B /* SecurityQuestion.swift in Sources */,
 				AC8F5B792228986000FAEFC5 /* GoToSctViewControllerDelegate.swift in Sources */,
 				AC372C5A223942BE009F1DAD /* SctUpdateRateCell.swift in Sources */,
 				AC8F5B77222894AB00FAEFC5 /* GoToSctViewController.swift in Sources */,
 				AC372C58223942BE009F1DAD /* SctPerformRateCellDelegate.swift in Sources */,
+				ACD1B3A4223BF6490065F07E /* UILabel+utils.swift in Sources */,
 				AC9F23E22229D6A4002D38E5 /* ViewController.swift in Sources */,
 				AC0E4EA62237EB84003996AF /* SctDetailViewController.swift in Sources */,
 				AC0D77C62225CEFD007F83D4 /* LikertScale.swift in Sources */,

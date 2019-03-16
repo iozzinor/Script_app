@@ -8,8 +8,63 @@
 
 import UIKit
 
+let releaseDate = Date(timeIntervalSinceNow: -50)
+
+fileprivate func sctLaunchInformation_() -> SctLaunchInformation
+{
+    let topic = SctTopic(rawValue: Constants.random(min: 0, max: SctTopic.allCases.count - 1))!
+    
+    var exam = SctExam()
+    exam.scts.append(Sct(wording: "", topic: topic, questions: []))
+    
+    return SctLaunchInformation(exam: exam, statistics: SctStatistics(id: 1,
+                                                                           meanScore: 10.0,
+                                                                           meanDuration: 34,
+                                                                           meanVotes: Double(Constants.random(min: 100, max: 500)) / 100.0,
+                                                                           launchesCount: Constants.random(min: 0, max: 10),
+                                                                           meanCompletionPercentage: 89, scoresDistribution: [],
+                                                                           releaseDate: releaseDate))
+}
+
 class SctBrowsingViewController: UIViewController
 {
+    // -------------------------------------------------------------------------
+    // MARK: - LATEST PERIOD
+    // -------------------------------------------------------------------------
+    fileprivate enum LatestPeriod
+    {
+        case day
+        case week
+        case month
+        
+        var name: String {
+            switch self
+            {
+            case .day:
+                return "SctBrowsing.LatestPeriod.Day.Name".localized
+            case .week:
+                return "SctBrowsing.LatestPeriod.Week.Name".localized
+            case .month:
+                return "SctBrowsing.LatestPeriod.Month.Name".localized
+            }
+        }
+    }
+    
+    fileprivate struct LatestDate
+    {
+        var period: LatestPeriod
+        var sctCount: Int
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - QUALIFICATION TOPIC LIST
+    // -------------------------------------------------------------------------
+    fileprivate struct QualificationTopicList
+    {
+        var topic: QualificationTopic
+        var count: Int
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - BROWSING SECTION
     // -------------------------------------------------------------------------
@@ -54,17 +109,51 @@ class SctBrowsingViewController: UIViewController
             }
         }
         
+        var headerDescription: String? {
+            switch self
+            {
+            case .new:
+                return "ScrBrowsing.Section.New.Description".localized
+            case .top:
+                return "ScrBrowsing.Section.Top.Description".localized
+            case .personnalized:
+                return "ScrBrowsing.Section.Personnalized.Description".localized
+            case .topics:
+                return "ScrBrowsing.Section.Topics.Description".localized
+            case .search:
+                return nil
+            }
+        }
+        
+        var displaySeeAll: Bool {
+            switch self
+            {
+            case .personnalized, .top:
+                return true
+            case .new, .topics, .search:
+                return false
+            }
+        }
+        
         var rows: [BrowsingRow] {
             switch self
             {
             case .new:
-                return Array<BrowsingRow>(repeating: .newSct(Sct()), count: 10)
+                var result =  Array<BrowsingRow>(repeating: .newSct(sctLaunchInformation_()), count: 10)
+                
+                result.append(.newDate(LatestDate(period: .day,     sctCount: 10)))
+                result.append(.newDate(LatestDate(period: .week,    sctCount: 100)))
+                result.append(.newDate(LatestDate(period: .month,   sctCount: 2)))
+                
+                return result
             case .top:
-                return Array<BrowsingRow>(repeating: .top(Sct()), count: 10)
+                var result = Array<BrowsingRow>(repeating: .topLaunch(sctLaunchInformation_()), count: 5)
+                result.append(contentsOf: Array<BrowsingRow>(repeating: .topRate(sctLaunchInformation_()), count: 5))
+                return result
             case .personnalized:
-                return []
+                return Array<BrowsingRow>(repeating: .personnalizedSct(sctLaunchInformation_()), count: 5)
             case .topics:
-                return QualificationTopic.allCases.map { .topic($0) }
+                return QualificationTopic.allCases.map { .topic(QualificationTopicList(topic: $0, count: 5)) }
             case .search:
                 return [.search]
             }
@@ -76,56 +165,175 @@ class SctBrowsingViewController: UIViewController
     // -------------------------------------------------------------------------
     fileprivate enum BrowsingRow
     {
-        case newSct(Sct)
-        case newDate()
-        case top(Sct)
+        case newSct(SctLaunchInformation)
+        case newDate(LatestDate)
         
-        case topic(QualificationTopic)
+        case topLaunch(SctLaunchInformation)
+        case topRate(SctLaunchInformation)
+        
+        case topic(QualificationTopicList)
+        
+        case personnalizedSct(SctLaunchInformation)
         
         case search
         
         func cell(for indexPath: IndexPath, tableView: UITableView, sctBrowsingViewController: SctBrowsingViewController) -> UITableViewCell
         {
-            let cell = UITableViewCell()
-            cell.accessoryType = .none
+            let numberFormatter = NumberFormatter()
+            numberFormatter.locale = Locale.current
+            numberFormatter.minimumFractionDigits = 1
+            numberFormatter.maximumFractionDigits = 1
+            numberFormatter.maximumIntegerDigits = 9
+            numberFormatter.minimumIntegerDigits = 1
             
             switch self
             {
-            case let .newSct(sct):
-                cell.textLabel?.text = "New SCT \(sct.questions.count)"
-            case .search:
-                cell.textLabel?.text = "Want more ? Click here !"
-                cell.accessoryType = .disclosureIndicator
-            case let .topic(topic):
+            case let .newSct(sctLaunchInformation):
+                let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
+                result.setSctLaunchInformation(sctLaunchInformation)
                 
-                let result = UITableViewCell(style: .value1, reuseIdentifier: nil)
-                result.textLabel?.text = topic.name
-                result.detailTextLabel?.text = "\(Constants.random(min: 10, max: 20))"
-                result.selectionStyle = .none
+                let seconds = -Int(sctLaunchInformation.statistics.releaseDate.timeIntervalSinceNow)
+                let minutes = seconds / 60
+                let hours = minutes / 60
                 
-                result.accessoryType = .disclosureIndicator
+                let durationText: String
+                if hours > 0
+                {
+                    durationText = String.localizedStringWithFormat("Time.Hour".localized, hours)
+                }
+                else if minutes > 0
+                {
+                    durationText = String.localizedStringWithFormat("Time.Minute".localized, minutes)
+                }
+                else
+                {
+                    durationText = String.localizedStringWithFormat("Time.Second".localized, seconds)
+                }
+                result.informationLabel.text = String.localizedStringWithFormat("SctBrowsing.NewSct.Time".localized, durationText)
+                
                 return result
-            default:
-                break
+            case let .newDate(latestDate):
+                let result = tableView.dequeueReusableCell(for: indexPath) as SctLatestPeriodCell
+                
+                result.setPeriod(latestDate.period.name, sctsCount: latestDate.sctCount)
+                
+                return result
+                
+            case let .topLaunch(sctLaunchInformation):
+                let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
+                result.setSctLaunchInformation(sctLaunchInformation)
+                result.informationLabel.text = String.localizedStringWithFormat("SctBrowsing.LaunchCount".localized, sctLaunchInformation.statistics.launchesCount)
+                return result
+            case let .topRate(sctLaunchInformation):
+                let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
+                result.setSctLaunchInformation(sctLaunchInformation)
+                let meanVotes = sctLaunchInformation.statistics.meanVotes
+                result.informationLabel.text = numberFormatter.string(from: NSNumber(value: meanVotes))
+                return result
+                
+            case let .topic(topicList):
+                let result = tableView.dequeueReusableCell(withIdentifier: SctBrowsingViewController.topicCellId, for: indexPath)
+                result.textLabel?.text = topicList.topic.name
+                result.detailTextLabel?.text = "\(topicList.count)"
+                return result
+                
+            case let .personnalizedSct(sctLaunchInformation):
+                let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
+                result.setSctLaunchInformation(sctLaunchInformation)
+                result.informationLabel.text = ""
+                
+                return result
+                
+            case .search:
+                let result = tableView.dequeueReusableCell(for: indexPath) as ButtonCell
+                result.setTitle("SctBrowsing.Search.Title".localized)
+                
+                return result
             }
-            return cell
+        }
+        
+        func accessoryType(for indexPath: IndexPath, tableView: UITableView, sctBrowsingViewController: SctBrowsingViewController) -> UITableViewCell.AccessoryType
+        {
+            switch self
+            {
+            case .search:
+                return .none
+            case .newSct(_), .newDate(_), .topLaunch(_), .topRate(_), .topic(_), .personnalizedSct(_):
+                return .disclosureIndicator
+            }
+        }
+        
+        func selectionStyle(for indexPath: IndexPath, tableView: UITableView, sctBrowsingViewController: SctBrowsingViewController) -> UITableViewCell.SelectionStyle
+        {
+            return .none
         }
     }
     
-    static let scaHorizontalSegueId = "MainToSctHorizontalSegueId"
-    static let walkthroughSegueId = "MainToWalkthroughSegueId"
+    static let scaHorizontalSegueId = "SctBrowsingToSctHorizontalSegueId"
+    static let walkthroughSegueId = "SctBrowsingToWalkthroughSegueId"
+    static let searchSegueId = "SctBrowsingToSctSearchSegueId"
+    
+    static let topicCellId = "SctBrowsingTopicCellReuseId"
+    static let searchCellId = "SctBrowsingSearchCellReuseId"
+    
+    fileprivate static let sectionSeparatorHeight_:     CGFloat = 1.0
+    fileprivate static let sectionSeparatorWidthRatio_: CGFloat = 0.8
     
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate var checkFirstTime_ = false
     fileprivate let sections_: [BrowsingSection] = [.new, .top, .topics, .personnalized, .search]
+    fileprivate var sectionHeaders_ = [SctBrowsingSection]()
+    fileprivate var sectionFooters_ = [UIView?]()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        setupTableView_()
+        setupSectionHeaders_()
+        setupSectionFooters_()
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - SETUP
+    // -------------------------------------------------------------------------
+    fileprivate func setupTableView_()
+    {
         tableView.delegate = self
         tableView.dataSource = self
+     
+        tableView.registerNibCell(SctLatestPeriodCell.self)
+        tableView.registerNibCell(SctBrowsingCell.self)
+        tableView.registerNibCell(ButtonCell.self)
+    }
+    
+    fileprivate func setupSectionHeaders_()
+    {
+        for (i, section) in sections_.enumerated()
+        {
+            let newSectionHeader = SctBrowsingSection()
+            newSectionHeader.sectionTitle = section.headerTitle ?? ""
+            newSectionHeader.sectionDescription = section.headerDescription
+            
+            if section.displaySeeAll
+            {
+                newSectionHeader.registerForSeeAllAction(target: self, selector: #selector(SctBrowsingViewController.showAll_), buttonTag: i)
+            }
+            
+            sectionHeaders_.append(newSectionHeader)
+        }
+    }
+    
+    fileprivate func setupSectionFooters_()
+    {
+        for _ in 0..<(sections_.count - 1)
+        {
+            let newView = UIView()
+            newView.backgroundColor = UIColor.gray
+            sectionFooters_.append(newView)
+        }
+        sectionFooters_.append(nil)
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -191,10 +399,23 @@ class SctBrowsingViewController: UIViewController
         }
     }
     
+    // -------------------------------------------------------------------------
+    // MARK: - SEGUES
+    // -------------------------------------------------------------------------
     fileprivate func launchWalkthrough_()
     {
         performSegue(withIdentifier: SctBrowsingViewController.walkthroughSegueId,
                      sender: self)
+    }
+    
+    @objc fileprivate func showAll_(sender: UIButton)
+    {
+        print("show all for section \(sender.tag)")
+    }
+    
+    fileprivate func launchSearch_()
+    {
+        performSegue(withIdentifier: SctBrowsingViewController.searchSegueId, sender: self)
     }
 }
 
@@ -203,7 +424,18 @@ class SctBrowsingViewController: UIViewController
 // -----------------------------------------------------------------------------
 extension SctBrowsingViewController: UITableViewDelegate
 {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let section = sections_[indexPath.section]
+        
+        switch section
+        {
+        case .search:
+            launchSearch_()
+        case .new, .personnalized, .top, .topics:
+            break
+        }
+    }
 }
 
 // -----------------------------------------------------------------------------
@@ -211,10 +443,21 @@ extension SctBrowsingViewController: UITableViewDelegate
 // -----------------------------------------------------------------------------
 extension SctBrowsingViewController: UITableViewDataSource
 {
+    // header
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         let currentSection = sections_[section]
         return currentSection.headerTitle
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        return sectionHeaders_[section]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        return sectionHeaders_[section].preferredHeight
     }
     
     func numberOfSections(in tableView: UITableView) -> Int
@@ -222,6 +465,29 @@ extension SctBrowsingViewController: UITableViewDataSource
         return sections_.count
     }
     
+    // footer
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    {
+        let footerWidth = tableView.frame.width * SctBrowsingViewController.sectionSeparatorWidthRatio_
+        let emptySpace = tableView.frame.width - footerWidth
+        
+        let footerMask = CAShapeLayer()
+        footerMask.path = UIBezierPath(rect: CGRect(x: emptySpace / 2, y: 0, width: footerWidth, height: SctBrowsingViewController.sectionSeparatorHeight_)).cgPath
+        sectionFooters_[section]?.layer.mask = footerMask
+        
+        return sectionFooters_[section]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
+    {
+        if sectionFooters_[section] != nil
+        {
+            return SctBrowsingViewController.sectionSeparatorHeight_
+        }
+        return 0.0
+    }
+    
+    // cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         let currentSection = sections_[section]
@@ -233,6 +499,9 @@ extension SctBrowsingViewController: UITableViewDataSource
         let section = sections_[indexPath.section]
         let row = section.rows[indexPath.row]
         
-        return row.cell(for: indexPath, tableView: tableView, sctBrowsingViewController: self)
+        let cell = row.cell(for: indexPath, tableView: tableView, sctBrowsingViewController: self)
+        cell.accessoryType = row.accessoryType(for: indexPath, tableView: tableView, sctBrowsingViewController: self)
+        cell.selectionStyle = row.selectionStyle(for: indexPath, tableView: tableView, sctBrowsingViewController: self)
+        return cell
     }
 }

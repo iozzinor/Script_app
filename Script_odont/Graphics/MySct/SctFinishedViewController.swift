@@ -17,7 +17,7 @@ class SctFinishedViewController: SctDetailViewController
                       startDate: Date(),
                       endDate: Date(),
                       statistics:
-            SctStatistics(id: 0, meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: []), score: 200, vote: nil)
+            SctStatistics(id: 0, meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date()), score: 200, vote: nil)
     
     func setSctFinished(_ sctFinished: SctFinished)
     {

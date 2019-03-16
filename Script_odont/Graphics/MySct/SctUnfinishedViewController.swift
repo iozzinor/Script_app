@@ -17,7 +17,7 @@ class SctUnfinishedViewController: SctDetailViewController
                       startDate: Date(),
                       lastDate: Date(),
                       statistics:
-            SctStatistics(id: 0, meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: []))
+            SctStatistics(id: 0, meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date()))
     {
         didSet {
             if isViewLoaded

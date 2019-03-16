@@ -105,12 +105,13 @@ class MySctViewController: UIViewController
             }
             
             let statistics = SctStatistics(id: i + 1,
-                                           meanScore:         Double(Constants.random(min: 5, max: 95)),
+                                           meanScore:                   Double(Constants.random(min: 5, max: 95)),
                                            meanDuration:                Double(Constants.random(min: 120, max: 300)),
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
                                            launchesCount:               Constants.random(min: 300, max: 1000),
                                            meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)),
-                                           scoresDistribution: scoresDistribution)
+                                           scoresDistribution:          scoresDistribution,
+                                           releaseDate:                 Date())
             
             let sctUnfinished = SctUnfinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, lastDate: Date(), statistics: statistics)
             
@@ -155,7 +156,8 @@ class MySctViewController: UIViewController
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
                                            launchesCount:               Constants.random(min: 300, max: 1000),
                                            meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)),
-                                           scoresDistribution: scoresDistribution)
+                                           scoresDistribution: scoresDistribution,
+                                           releaseDate: Date())
             
             let vote: Int? = nil//(Constants.random(min: 0, max: 100) % 2 == 0 ? nil : 3.75)
             

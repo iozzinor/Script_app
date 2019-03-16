@@ -180,11 +180,23 @@
 "DrawingWalkthrough.Drawing.LikertIndex"    = "Likert index";
 
 /* SCT BROWSING */
+"SctBrowsing.LatestPeriod.Day.Name"     = "Today";
+"SctBrowsing.LatestPeriod.Week.Name"    = "This week";
+"SctBrowsing.LatestPeriod.Month.Name"   = "This month";
+
+"SctBrowsing.NewSct.Time"   = "There was %@.";
+"SctBrowsing.Search.Title"  = "Want more ? Make a search !";
+
 "ScrBrowsing.Section.New.Title"             = "New";
 "ScrBrowsing.Section.Top.Title"             = "Top";
 "ScrBrowsing.Section.Personnalized.Title"   = "Personnalized";
 "ScrBrowsing.Section.Topics.Title"          = "Topics";
 "ScrBrowsing.Section.Search.Title"          = "Search";
+
+"ScrBrowsing.Section.New.Description"             = "Latest and greatest SCTs.";
+"ScrBrowsing.Section.Top.Description"             = "Best SCTs.";
+"ScrBrowsing.Section.Personnalized.Description"   = "A set of SCTs that has specially been designed for you.";
+"ScrBrowsing.Section.Topics.Description"          = "STCs by topics.";
 
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information" = "Information";
