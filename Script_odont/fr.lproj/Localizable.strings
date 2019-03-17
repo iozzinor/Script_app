@@ -243,6 +243,8 @@
 "SctSearchResult.NoScts"                = "Pas de TCS trouvé.";
 
 /* SCT EXAM */
+"SctExam.Horizontal.RotateLabel.Title" = "Merci de tourner l'appareil (ou votre tête)";
+
 "SctExam.Horizontal.Title.Information"      = "Informations";
 "SctExam.Horizontal.Progress"               = "%d sur %d";
 "SctExam.Submission.Error.AlertTitle"       = "Erreur de soumission";

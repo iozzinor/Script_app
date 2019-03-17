@@ -98,6 +98,10 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
         NotificationCenter.default.addObserver(self, selector: #selector(SctHorizontalViewController.deviceOrientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
     public override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
@@ -119,6 +123,7 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     fileprivate func setup_()
     {
         setupInformationView_()
+        setupRotateView_()
         setupTableView(tableView)
         
         updateUi_()
@@ -144,6 +149,22 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
         newInformationView.addArrangedSubview(timeLabel)
         
         informationItem.customView = newInformationView
+    }
+    
+    fileprivate func setupRotateView_()
+    {
+        rotateView.layer.cornerRadius = 5.0
+        
+        let rotateLabel = UILabel()
+        rotateLabel.text = "SctExam.Horizontal.RotateLabel.Title".localized
+        rotateLabel.translatesAutoresizingMaskIntoConstraints = false
+        rotateView.addSubview(rotateLabel)
+        rotateLabel.sizeToFit()
+        
+        let centerX = NSLayoutConstraint(item: rotateLabel, attribute: .centerX, relatedBy: .equal, toItem: rotateView, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+        let centerY = NSLayoutConstraint(item: rotateLabel, attribute: .centerY, relatedBy: .equal, toItem: rotateView, attribute: .centerY, multiplier: 1.0, constant: 0.0)
+        
+        rotateView.addConstraints([centerX, centerY])
     }
     
     // -------------------------------------------------------------------------
@@ -222,7 +243,33 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     fileprivate func updateDeviceOrientation_()
     {
         rotateView.isHidden = orientationHorizontal_
-        tableView.isHidden = !orientationHorizontal_
+        view.bringSubviewToFront(rotateView)
+        
+        if !orientationHorizontal_
+        {
+           displayRotateView_()
+        }
+    }
+    
+    fileprivate func displayRotateView_()
+    {
+        rotateView.alpha = 0.0
+        UIView.animate(withDuration: 1.0, animations: {
+            self.rotateView.alpha = 1.0
+        }, completion: {
+            (_) -> Void in
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                self.hideRotateView_()
+            })
+        })
+    }
+    
+    fileprivate func hideRotateView_()
+    {
+        UIView.animate(withDuration: 1.0, animations: {
+            self.rotateView.alpha = 0.0
+        })
     }
     
     // -------------------------------------------------------------------------

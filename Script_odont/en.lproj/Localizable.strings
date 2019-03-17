@@ -243,6 +243,8 @@
 "SctSearchResult.NoScts"                = "No SCTs found.";
 
 /* SCT EXAM */
+"SctExam.Horizontal.RotateLabel.Title" = "Please rotate the device (or your head)";
+
 "SctExam.Horizontal.Title.Information" = "Information";
 "SctExam.Horizontal.Progress" = "Question %d out of %d";
 "SctExam.Submission.Error.AlertTitle" = "Submit Error";
