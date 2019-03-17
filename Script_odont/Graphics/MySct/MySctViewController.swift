@@ -178,12 +178,29 @@ class MySctViewController: UIViewController
     fileprivate var sctUnfinished_: SctUnfinished? = nil
     fileprivate var sctFinished_: SctFinished? = nil
     
+    // -------------------------------------------------------------------------
+    // MARK: - VIEW CYCLE
+    // -------------------------------------------------------------------------
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
     }
     
     // -------------------------------------------------------------------------

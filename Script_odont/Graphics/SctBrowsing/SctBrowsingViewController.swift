@@ -327,6 +327,9 @@ class SctBrowsingViewController: UIViewController
         }
     }
     
+    // -------------------------------------------------------------------------
+    // MARK: - VIEW CYCLE
+    // -------------------------------------------------------------------------
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -334,6 +337,20 @@ class SctBrowsingViewController: UIViewController
         setupTableView_()
         setupSectionHeaders_()
         setupSectionFooters_()
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
     }
     
     // -------------------------------------------------------------------------

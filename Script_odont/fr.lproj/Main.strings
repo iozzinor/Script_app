@@ -10,8 +10,8 @@
 /* Class = "UITabBarItem"; title = "My Sct"; ObjectID = "DZT-GH-zz9"; */
 "DZT-GH-zz9.title" = "My Sct";
 
-/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "W4G-3f-fh2"; */
-"W4G-3f-fh2.title" = "Paramètres";
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "lgJ-jI-vQV"; */
+"lgJ-jI-vQV.title" = "Paramètres";
 
 /* Class = "UITabBarItem"; title = "Others"; ObjectID = "ZNr-We-81Z"; */
 "ZNr-We-81Z.title" = "Autres";

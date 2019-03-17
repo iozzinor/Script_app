@@ -120,6 +120,9 @@
 		ACC83F7B223E4B5C0064BE6F /* SctBrowsing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC83F7D223E4B5C0064BE6F /* SctBrowsing.storyboard */; };
 		ACC83F82223E516C0064BE6F /* SctsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F81223E516C0064BE6F /* SctsListViewController.swift */; };
 		ACC83F84223E66DA0064BE6F /* SctLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F83223E66DA0064BE6F /* SctLaunchViewController.swift */; };
+		ACC83F85223E89630064BE6F /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = ACC83F87223E89630064BE6F /* Localizable.stringsdict */; };
+		ACC83F8B223E96E70064BE6F /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC83F8A223E96E70064BE6F /* Settings.storyboard */; };
+		ACC83F8D223E96F30064BE6F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F8C223E96F30064BE6F /* SettingsViewController.swift */; };
 		ACD1B39C223BD5590065F07E /* SctScoreDiagramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */; };
 		ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */; };
 		ACD1B3A0223BE1320065F07E /* SctSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B39F223BE1320065F07E /* SctSearchViewController.swift */; };
@@ -130,7 +133,6 @@
 		ACD1B3AE223C4C730065F07E /* SctLaunchInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B3AD223C4C730065F07E /* SctLaunchInformation.swift */; };
 		ACD1B3B0223C510B0065F07E /* SctBrowsingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B3AF223C510B0065F07E /* SctBrowsingCell.swift */; };
 		ACD1B3B2223C51B10065F07E /* SctBrowsingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3B1223C51B10065F07E /* SctBrowsingCell.xib */; };
-		ACD1B3B4223CDDC50065F07E /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3B3223CDDC50065F07E /* Localizable.stringsdict */; };
 		ACD1B3B8223D068F0065F07E /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B3B7223D068F0065F07E /* ButtonCell.swift */; };
 		ACD1B3BA223D06F80065F07E /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3B9223D06F80065F07E /* ButtonCell.xib */; };
 		ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */; };
@@ -261,6 +263,10 @@
 		ACC83F7F223E4B600064BE6F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SctBrowsing.strings; sourceTree = "<group>"; };
 		ACC83F81223E516C0064BE6F /* SctsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctsListViewController.swift; sourceTree = "<group>"; };
 		ACC83F83223E66DA0064BE6F /* SctLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctLaunchViewController.swift; sourceTree = "<group>"; };
+		ACC83F86223E89630064BE6F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		ACC83F88223E89640064BE6F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = fr; path = fr.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		ACC83F8A223E96E70064BE6F /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		ACC83F8C223E96F30064BE6F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctScoreDiagramCell.swift; sourceTree = "<group>"; };
 		ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScoreDiagramCell.xib; sourceTree = "<group>"; };
 		ACD1B39F223BE1320065F07E /* SctSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctSearchViewController.swift; sourceTree = "<group>"; };
@@ -271,7 +277,6 @@
 		ACD1B3AD223C4C730065F07E /* SctLaunchInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctLaunchInformation.swift; sourceTree = "<group>"; };
 		ACD1B3AF223C510B0065F07E /* SctBrowsingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctBrowsingCell.swift; sourceTree = "<group>"; };
 		ACD1B3B1223C51B10065F07E /* SctBrowsingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctBrowsingCell.xib; sourceTree = "<group>"; };
-		ACD1B3B3223CDDC50065F07E /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		ACD1B3B7223D068F0065F07E /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		ACD1B3B9223D06F80065F07E /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWalkthroughViewController.swift; sourceTree = "<group>"; };
@@ -327,6 +332,7 @@
 				ACB8C8A92235211F00C7F77C /* SctBrowsing */,
 				AC53E37222331B5600CA4437 /* MySct */,
 				AC53E36C2233128D00CA4437 /* SctHorizontal */,
+				ACC83F89223E96D50064BE6F /* Settings */,
 				AC53E36D223312D600CA4437 /* Other */,
 				AC0D77D52228274D007F83D4 /* Appearance.swift */,
 				ACD1B3B7223D068F0065F07E /* ButtonCell.swift */,
@@ -446,7 +452,7 @@
 				AC38BB66221DE4CB008E829B /* Assets.xcassets */,
 				AC38BB68221DE4CB008E829B /* LaunchScreen.storyboard */,
 				AC38BB85221EAA58008E829B /* Localizable.strings */,
-				ACD1B3B3223CDDC50065F07E /* Localizable.stringsdict */,
+				ACC83F87223E89630064BE6F /* Localizable.stringsdict */,
 				AC38BB6B221DE4CB008E829B /* Info.plist */,
 			);
 			path = Script_odont;
@@ -592,6 +598,15 @@
 			path = SctBrowsing;
 			sourceTree = "<group>";
 		};
+		ACC83F89223E96D50064BE6F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ACC83F8C223E96F30064BE6F /* SettingsViewController.swift */,
+				ACC83F8A223E96E70064BE6F /* Settings.storyboard */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -653,7 +668,7 @@
 			files = (
 				ACC83F7B223E4B5C0064BE6F /* SctBrowsing.storyboard in Resources */,
 				AC38BB6A221DE4CB008E829B /* LaunchScreen.storyboard in Resources */,
-				ACD1B3B4223CDDC50065F07E /* Localizable.stringsdict in Resources */,
+				ACC83F85223E89630064BE6F /* Localizable.stringsdict in Resources */,
 				AC372C5F223942C7009F1DAD /* SctRateCell.xib in Resources */,
 				AC82731E222C96EB0041AA0C /* SecurityQuestionCell.xib in Resources */,
 				AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */,
@@ -666,6 +681,7 @@
 				AC372C5E223942C7009F1DAD /* SctPerformRateCell.xib in Resources */,
 				AC4904B4222B238B00BDEB4B /* Login.storyboard in Resources */,
 				AC31E3A12235BCBA00A3B813 /* SctQuestionHeaderCell.xib in Resources */,
+				ACC83F8B223E96E70064BE6F /* Settings.storyboard in Resources */,
 				ACD1B3BA223D06F80065F07E /* ButtonCell.xib in Resources */,
 				AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */,
 				AC31E39F2235BC8500A3B813 /* SctQuestionCell.xib in Resources */,
@@ -730,6 +746,7 @@
 				ACE70F97221F3254008454FF /* UITableViewCell+utils.swift in Sources */,
 				ACC83F6A223D650D0064BE6F /* QualificationTopicsPickerViewController.swift in Sources */,
 				ACC83F72223DA4CC0064BE6F /* DurationPickerCell.swift in Sources */,
+				ACC83F8D223E96F30064BE6F /* SettingsViewController.swift in Sources */,
 				AC8F5B7D22289DC800FAEFC5 /* GoToSctStatusView.swift in Sources */,
 				ACD1B3A0223BE1320065F07E /* SctSearchViewController.swift in Sources */,
 				AC372C59223942BE009F1DAD /* SctRateCell.swift in Sources */,
@@ -858,6 +875,15 @@
 				ACC83F7F223E4B600064BE6F /* fr */,
 			);
 			name = SctBrowsing.storyboard;
+			sourceTree = "<group>";
+		};
+		ACC83F87223E89630064BE6F /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACC83F86223E89630064BE6F /* en */,
+				ACC83F88223E89640064BE6F /* fr */,
+			);
+			name = Localizable.stringsdict;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -28,6 +28,6 @@ extension UILabel
         textAlignment = .center
         let color = (enabled ? UIColor.blue : UIColor.gray)
         layer.backgroundColor = color.cgColor
-        layer.cornerRadius = frame.height / 2
+        layer.cornerRadius = frame.height / 4
     }
 }

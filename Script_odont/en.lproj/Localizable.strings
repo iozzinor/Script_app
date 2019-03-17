@@ -226,8 +226,8 @@
 
 "SctSearch.DurationPicker.Minimum" = "Minimum:";
 "SctSearch.DurationPicker.Maximum" = "Maximum:";
-"SctSearch.DurationPicker.Minimum.Date" = "After:";
-"SctSearch.DurationPicker.Maximum.Date" = "Before:";
+"SctSearch.DurationPicker.Minimum.Date" = "Since:";
+"SctSearch.DurationPicker.Maximum.Date" = "Until:";
 "SctSearch.DurationPicker.Minimum.QuestionsCount" = "Minimum Questions:";
 "SctSearch.DurationPicker.Maximum.QuestionsCount" = "Maximum Questions:";
 
@@ -256,7 +256,12 @@
 
 "GoToSct.SctIndex" = "Sct %d";
 
+/* SETTINGS VIEW CONTROLLER */
+"Settings.NavigationItem.Title" = "Settings";
+
 /* OTHER VIEW CONTROLLER */
+"OtherViewController.NavigationItem.Title" = "Others";
+
 "OtherViewController.Tutorials" = "Tutorials";
 "OtherViewController.Leaderboard" = "Leaderboard";
 

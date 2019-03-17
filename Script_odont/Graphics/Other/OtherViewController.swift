@@ -33,6 +33,16 @@ class OtherViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
+    // MARK: - VIEW CYCLE
+    // -------------------------------------------------------------------------
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        navigationItem.title = "OtherViewController.NavigationItem.Title".localized
+    }
+    
+    // -------------------------------------------------------------------------
     // MARK: - SEGUES
     // -------------------------------------------------------------------------
     fileprivate func displayWalkthroughs_()

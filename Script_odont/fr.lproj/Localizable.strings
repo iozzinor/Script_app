@@ -226,8 +226,8 @@
 
 "SctSearch.DurationPicker.Minimum" = "Minimum :";
 "SctSearch.DurationPicker.Maximum" = "Maximum :";
-"SctSearch.DurationPicker.Minimum.Date" = "Après le :";
-"SctSearch.DurationPicker.Maximum.Date" = "Avant le :";
+"SctSearch.DurationPicker.Minimum.Date" = "Depuis le :";
+"SctSearch.DurationPicker.Maximum.Date" = "Jusqu'au :";
 "SctSearch.DurationPicker.Minimum.QuestionsCount" = "Questions minimum :";
 "SctSearch.DurationPicker.Maximum.QuestionsCount" = "Questions maximum :";
 
@@ -248,7 +248,7 @@
 "SctExam.Horizontal.Title.Information"      = "Informations";
 "SctExam.Horizontal.Progress"               = "%d sur %d";
 "SctExam.Submission.Error.AlertTitle"       = "Erreur de soumission";
-"SctExam.Submission.Error.InsufficientTime" = "La session doit avoir été lancé un minimum de %f seconds. Il s'est écoulé %f secondes pour le moment.";
+"SctExam.Submission.Error.InsufficientTime" = "La session doit avoir été lancé un minimum de %f secondes. Il s'est écoulé %f secondes pour le moment.";
 "SctExam.Submission.Error.InsufficientAnswers" = "Seulement %d réponses ont été apportées. Il faut au moins avoir répondu à %d TCS pour soumettre la session.";
 "SctExam.Horizontal.Options.Title"      = "Options";
 "SctExam.Horizontal.Options.Message"    = "Choisissez une option.";
@@ -256,7 +256,12 @@
 
 "GoToSct.SctIndex" = "Tcs %d";
 
+/* SETTINGS VIEW CONTROLLER */
+"Settings.NavigationItem.Title" = "Paramètres";
+
 /* OTHER VIEW CONTROLLER */
+"OtherViewController.NavigationItem.Title" = "Autres";
+
 "OtherViewController.Tutorials" = "Tutoriels";
 "OtherViewController.Leaderboard" = "Classement";
 
