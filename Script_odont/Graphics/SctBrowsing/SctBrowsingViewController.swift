@@ -266,7 +266,7 @@ class SctBrowsingViewController: UIViewController
     
     fileprivate var checkFirstTime_ = false
     fileprivate let sections_: [BrowsingSection] = [.new, .top, .topics, .personnalized, .search]
-    fileprivate var sectionHeaders_ = [SctBrowsingSection]()
+    fileprivate var sectionHeaders_ = [DetailHeader]()
     fileprivate var sectionFooters_ = [UIView?]()
     fileprivate var launchInformation_: SctLaunchInformation? = nil
     fileprivate var sctsList_: SctsListViewController.SctsList? = nil
@@ -370,7 +370,7 @@ class SctBrowsingViewController: UIViewController
     {
         for (i, section) in sections_.enumerated()
         {
-            let newSectionHeader = SctBrowsingSection()
+            let newSectionHeader = DetailHeader()
             newSectionHeader.sectionTitle = section.headerTitle ?? ""
             newSectionHeader.sectionDescription = section.headerDescription
             

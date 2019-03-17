@@ -28,18 +28,54 @@ class MySctViewController: UIViewController
             }
         }
         
+        var headerDescription: String?
+        {
+            switch self
+            {
+            case .unfinished:
+                return "MySct.Section.Unfinished.Description".localized
+            case .finished:
+                return "MySct.Section.Finished.Description".localized
+            }
+        }
+        
         var rows: [MySctRow]
         {
             switch self
             {
             case let .unfinished(unfinishedScts):
-                return unfinishedScts.map {
+                let lastIndex = min(unfinishedScts.count, MySctViewController.maximumDisplayedScts_)
+                let range = unfinishedScts.startIndex..<(unfinishedScts.index(unfinishedScts.startIndex, offsetBy: lastIndex))
+                let result = unfinishedScts[range]
+                return result.map {
                     return MySctRow.unfinished($0)
                 }
             case let .finished(finishedScts):
-                return finishedScts.map {
+                let lastIndex = min(finishedScts.count, MySctViewController.maximumDisplayedScts_)
+                let range = finishedScts.startIndex..<(finishedScts.index(finishedScts.startIndex, offsetBy: lastIndex))
+                let result = finishedScts[range]
+                return result.map {
                     return MySctRow.finished($0)
                 }
+            }
+        }
+        
+        var maximumRows: Int?
+        {
+            switch self
+            {
+            case .finished(_), .unfinished(_):
+                return MySctViewController.maximumDisplayedScts_
+            }
+        }
+        
+        var displaySeeAll: Bool {
+            switch self
+            {
+            case let .unfinished(unfinishedScts):
+                return unfinishedScts.count > MySctViewController.maximumDisplayedScts_
+            case let .finished(finishedScts):
+                return finishedScts.count > MySctViewController.maximumDisplayedScts_
             }
         }
     }
@@ -74,6 +110,10 @@ class MySctViewController: UIViewController
     
     public static let toSctUnfinished = "MySctToSctUnfinishedSegueId"
     public static let toSctFinished = "MySctToSctFinishedSegueId"
+    public static let toSctsUnfinishedSegueId = "MySctToSctsUnfinishedListSegueId"
+    public static let toSctsFinishedSegueId = "MySctToSctsFinishedListSegueId"
+    
+    fileprivate static let maximumDisplayedScts_ = 10
     
     private static func defaultUnfinishedScts_() -> [SctUnfinished]
     {
@@ -87,7 +127,7 @@ class MySctViewController: UIViewController
         
         var unfinishedScts = [SctUnfinished]()
         
-        for i in 0..<5
+        for i in 0..<13
         {
             let topic = SctTopic(rawValue: Constants.random(min: 0, max: 2)) ?? .diagnostic
             scts[0].topic = topic
@@ -151,7 +191,7 @@ class MySctViewController: UIViewController
                 scoresDistribution.append(Constants.random(min: 10, max: 100))
             }
             let statistics = SctStatistics(id: i + 1,
-                                           meanScore:         Double(Constants.random(min: 5, max: 95)),
+                                           meanScore:                   Double(Constants.random(min: 5, max: 95)),
                                            meanDuration:                Double(Constants.random(min: 120, max: 300)),
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
                                            launchesCount:               Constants.random(min: 300, max: 1000),
@@ -161,7 +201,7 @@ class MySctViewController: UIViewController
             
             let vote: Int? = nil//(Constants.random(min: 0, max: 100) % 2 == 0 ? nil : 3.75)
             
-            let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), statistics: statistics, score: Double(arc4random() % 100 + 1), vote: vote)
+            let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), statistics: statistics, score: Double(Int(arc4random()) % exam.totalQuestionsCount + 1), vote: vote)
             
             finishedScts.append(sctUnfinished)
         }
@@ -173,10 +213,13 @@ class MySctViewController: UIViewController
     
     @IBOutlet weak var tableView: UITableView!
     
+    fileprivate var sectionHeaders_ = [DetailHeader]()
     fileprivate var sections_: [MySctSection] = [ .unfinished(MySctViewController.defaultUnfinishedScts_()),
                                                   .finished(MySctViewController.defaultFinishedScts_())]
     fileprivate var sctUnfinished_: SctUnfinished? = nil
     fileprivate var sctFinished_: SctFinished? = nil
+    fileprivate var unfinishedScts_: [SctUnfinished]? = nil
+    fileprivate var finishedScts_: [SctFinished]? = nil
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -185,8 +228,8 @@ class MySctViewController: UIViewController
     {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        setupSectionHeaders_()
+        setupTableView_()
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -204,21 +247,80 @@ class MySctViewController: UIViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - Segues
+    // MARK: - SETUP
+    // -------------------------------------------------------------------------
+    fileprivate func setupSectionHeaders_()
+    {
+        for section in sections_
+        {
+            let newHeader = DetailHeader()
+            newHeader.sectionTitle = section.title ?? ""
+            newHeader.sectionDescription = section.headerDescription
+            
+            sectionHeaders_.append(newHeader)
+        }
+    }
+    
+    fileprivate func setupTableView_()
+    {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.registerNibCell(MySctUnfinishedCell.self)
+        tableView.registerNibCell(MySctFinishedCell.self)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - ACTIONS
+    // -------------------------------------------------------------------------
+    @objc fileprivate func seeAll_(_ sender: UIButton)
+    {
+        let sectionIndex = sender.tag
+        let section = sections_[sectionIndex]
+        
+        switch section
+        {
+        case let .unfinished(unfinishedScts):
+            unfinishedScts_ = unfinishedScts
+            performSegue(withIdentifier: MySctViewController.toSctsUnfinishedSegueId, sender: self)
+        case let .finished(finishedScts):
+            finishedScts_ = finishedScts
+            performSegue(withIdentifier: MySctViewController.toSctsFinishedSegueId, sender: self)
+        }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - SEGUES
     // -------------------------------------------------------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        // unfinished
         if segue.identifier == MySctViewController.toSctUnfinished,
             let target = segue.destination as? SctUnfinishedViewController,
             let sctUnfinished = sctUnfinished_
         {
             target.sctUnfinished = sctUnfinished
         }
+        // finished
         else if segue.identifier == MySctViewController.toSctFinished,
             let target = segue.destination as? SctFinishedViewController,
             let sctFinished = sctFinished_
         {
             target.setSctFinished(sctFinished)
+        }
+        // unfinished list
+        else if segue.identifier == MySctViewController.toSctsUnfinishedSegueId,
+            let target = segue.destination as? SctsUnfinishedListViewController,
+            let unfinishedScts = unfinishedScts_
+        {
+            target.unfinishedScts = unfinishedScts
+        }
+        // finished list
+        else if segue.identifier == MySctViewController.toSctsFinishedSegueId,
+            let target = segue.destination as? SctsFinishedListViewController,
+            let finishedScts = finishedScts_
+        {
+            target.finishedScts = finishedScts
         }
     }
 }
@@ -250,6 +352,27 @@ extension MySctViewController: UITableViewDelegate
 // -----------------------------------------------------------------------------
 extension MySctViewController: UITableViewDataSource
 {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        let currentSection = sections_[section]
+        let sectionHeader = sectionHeaders_[section]
+        if currentSection.displaySeeAll
+        {
+            sectionHeader.registerForSeeAllAction(target: self, selector: #selector(MySctViewController.seeAll_), buttonTag: section)
+        }
+        else
+        {
+            sectionHeader.unregisterForSeeAllAction(target: self, selector: #selector(MySctViewController.seeAll_))
+        }
+        
+        return sectionHeaders_[section]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        return sectionHeaders_[section].preferredHeight
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         return sections_[section].title

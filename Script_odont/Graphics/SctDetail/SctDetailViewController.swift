@@ -122,6 +122,13 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 let result = tableView.dequeueReusableCell(for: indexPath) as SctScoreDiagramCell
                 result.scoresDistribution = dataSource.statistics.scoresDistribution
                 result.selectionStyle = .none
+                
+                if let finished = dataSource.finished
+                {
+                    let percentRange = 100.0 / Double(dataSource.statistics.scoresDistribution.count)
+                    result.scoreDiagram.selectedBarIndex = Int(finished.score / Double(dataSource.exam.totalQuestionsCount) * 100.0 / percentRange)
+                }
+                
                 return result
                 
             // last session

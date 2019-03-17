@@ -275,5 +275,14 @@
 "MySct.Section.Unfinished" = "Non finis";
 "MySct.Section.Finished" = "Finis";
 
+"MySct.Section.Unfinished.Description"  = "Les TCS commencés et à terminer.";
+"MySct.Section.Finished.Description"    = "Les TCS que vous avez terminés.";
+
+/* SCTS UNFINISHED LIST */
+"SctsUnfinishedList.NavigationItem.Title" = "TCS entamés";
+
+/* SCTS FINISHED LIST */
+"SctsFinishedList.NavigationItem.Title" = "TCS terminés";
+
 /* CONSTANTS */
 "Constants.Duration.String.Format.Short" = "%02dM:%02dS";

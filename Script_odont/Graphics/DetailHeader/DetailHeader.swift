@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SctBrowsingSection: UIView
+class DetailHeader: UIView
 {
     fileprivate static let titleWidthRatio_: CGFloat = 0.9
     fileprivate static let topSpace_: CGFloat = 5.0
@@ -73,18 +73,18 @@ class SctBrowsingSection: UIView
         
         if descriptionLabel_.isHidden
         {
-            return SctBrowsingSection.topSpace_ + preferredTitleHeight_ + SctBrowsingSection.bottomSpace_
+            return DetailHeader.topSpace_ + preferredTitleHeight_ + DetailHeader.bottomSpace_
         }
         
-        return SctBrowsingSection.topSpace_
+        return DetailHeader.topSpace_
             + preferredTitleHeight_
-            + SctBrowsingSection.spacing_
+            + DetailHeader.spacing_
             + preferredDescriptionHeight_
-            + SctBrowsingSection.bottomSpace_
+            + DetailHeader.bottomSpace_
     }
     
     fileprivate var preferredTitleHeight_: CGFloat {
-        return titleLabel_.sizeThatFits(UIScreen.main.bounds.size).height + 2 * SctBrowsingSection.spacing_
+        return titleLabel_.sizeThatFits(UIScreen.main.bounds.size).height + 2 * DetailHeader.spacing_
     }
     
     fileprivate var preferredDescriptionHeight_: CGFloat {
@@ -96,9 +96,20 @@ class SctBrowsingSection: UIView
     // -------------------------------------------------------------------------
     func registerForSeeAllAction(target: Any?, selector: Selector, buttonTag: Int)
     {
+        unregisterForSeeAllAction(target: target, selector: selector)
         seeAllButton_.isHidden = false
         seeAllButton_.tag = buttonTag
         seeAllButton_.addTarget(target, action: selector, for: .touchUpInside)
+    }
+    
+    func unregisterForSeeAllAction(target: Any?, selector: Selector)
+    {
+        if let target = target as? AnyHashable,
+            seeAllButton_.allTargets.contains(target)
+        {
+            seeAllButton_.removeTarget(target, action: selector, for: .touchUpInside)
+        }
+        seeAllButton_.isHidden = true
     }
     
     // -------------------------------------------------------------------------
@@ -126,17 +137,17 @@ class SctBrowsingSection: UIView
         verticalStackView_.alignment = .center
         verticalStackView_.axis = .vertical
         verticalStackView_.distribution = .fillProportionally
-        verticalStackView_.spacing = SctBrowsingSection.spacing_
+        verticalStackView_.spacing = DetailHeader.spacing_
         
         // arranged subviews
         verticalStackView_.addArrangedSubview(titleStackView_)
         verticalStackView_.addArrangedSubview(descriptionLabel_)
         
         // constraints
-        let top = NSLayoutConstraint(item: verticalStackView_, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: SctBrowsingSection.topSpace_)
+        let top = NSLayoutConstraint(item: verticalStackView_, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: DetailHeader.topSpace_)
         let right = NSLayoutConstraint(item: verticalStackView_, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: 0.0)
         let left = NSLayoutConstraint(item: verticalStackView_, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 0.0)
-        let bottom = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: verticalStackView_, attribute: .bottom, multiplier: 1.0, constant: SctBrowsingSection.bottomSpace_)
+        let bottom = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: verticalStackView_, attribute: .bottom, multiplier: 1.0, constant: DetailHeader.bottomSpace_)
         
         self.addConstraints([top, right, left, bottom])
     }
@@ -149,7 +160,7 @@ class SctBrowsingSection: UIView
         titleStackView_.alignment = .center
         titleStackView_.axis = .horizontal
         titleStackView_.distribution = .fillProportionally
-        titleStackView_.spacing = SctBrowsingSection.spacing_
+        titleStackView_.spacing = DetailHeader.spacing_
         
         // arranged subviews
         titleStackView_.addArrangedSubview(titleLabel_)
@@ -164,7 +175,7 @@ class SctBrowsingSection: UIView
     
     fileprivate func setupTitleLabel_()
     {
-        let width = NSLayoutConstraint(item: titleLabel_, attribute: .width, relatedBy: .equal, toItem: seeAllButton_, attribute: .width, multiplier: SctBrowsingSection.titleWidthRatio_, constant: 0.0)
+        let width = NSLayoutConstraint(item: titleLabel_, attribute: .width, relatedBy: .equal, toItem: seeAllButton_, attribute: .width, multiplier: DetailHeader.titleWidthRatio_, constant: 0.0)
         titleStackView_.addConstraints([width])
         
         titleLabel_.textColor = Appearance.Color.default

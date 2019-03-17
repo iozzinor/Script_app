@@ -272,8 +272,17 @@
 "Walkthroughs.Show.SctTopic" = "Sct Topic...";
 
 /* MY SCT*/
-"MySct.Section.Unfinished" = "Unfinished";
-"MySct.Section.Finished" = "Finished";
+"MySct.Section.Unfinished"  = "Unfinished";
+"MySct.Section.Finished"    = "Finished";
+
+"MySct.Section.Unfinished.Description"  = "SCTs you have started but not ended yet.";
+"MySct.Section.Finished.Description"    = "SCTs you have taken.";
+
+/* SCTS UNFINISHED LIST */
+"SctsUnfinishedList.NavigationItem.Title" = "Unfinished SCTs";
+
+/* SCTS FINISHED LIST */
+"SctsFinishedList.NavigationItem.Title" = "Finished SCTs";
 
 /* CONSTANTS */
 "Constants.Duration.String.Format.Short" = "%02dM:%02dS";
