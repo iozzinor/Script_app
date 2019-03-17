@@ -22,13 +22,13 @@ class SctUnfinishedViewController: SctDetailViewController
         didSet {
             if isViewLoaded
             {
-               reloadData()
+               super.reloadData()
             }
         }
     }
     
     @IBOutlet weak var tableView: UITableView!
-    let sections: [SctDetailViewController.SctDetailSection] = [.general, .lastSession, .duration, .popularity, .resume]
+    let sections: [SctDetailViewController.SctDetailSection] = [.general, .lastSession, .duration, .popularity, .other]
     
     override func viewDidLoad()
     {
@@ -59,7 +59,10 @@ extension SctUnfinishedViewController: SctDetailViewDelegate
     
     func sctDetailView(didResume sctDetailViewController: SctDetailViewController)
     {
-        print("resumed !")
+    }
+    
+    func sctDetailView(didLaunch sctDetailViewController: SctDetailViewController)
+    {
     }
 }
 
@@ -84,7 +87,7 @@ extension SctUnfinishedViewController: SctDetailViewDataSource
             return [.estimatedDuration, .meanDuration]
         case .popularity:
             return [.votes, .launchesCount, .meanCompletionPercentage]
-        case .resume:
+        case .other:
             return [.resume]
         }
     }

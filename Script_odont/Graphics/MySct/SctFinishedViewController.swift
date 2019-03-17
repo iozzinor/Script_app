@@ -25,7 +25,7 @@ class SctFinishedViewController: SctDetailViewController
         
         if isViewLoaded
         {
-            reloadData()
+            super.reloadData()
         }
     }
     
@@ -67,6 +67,10 @@ extension SctFinishedViewController: SctDetailViewDelegate
     }
     
     func sctDetailView(didResume sctDetailViewController: SctDetailViewController)
+    {
+    }
+    
+    func sctDetailView(didLaunch sctDetailViewController: SctDetailViewController)
     {
     }
 }
@@ -118,7 +122,7 @@ extension SctFinishedViewController: SctDetailViewDataSource
         case .popularity:
             return [.votes, .launchesCount, .meanCompletionPercentage]
             
-        case .resume:
+        case .other:
             return []
         }
     }

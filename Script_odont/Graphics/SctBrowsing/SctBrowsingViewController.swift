@@ -255,6 +255,7 @@ class SctBrowsingViewController: UIViewController
     static let walkthroughSegueId = "SctBrowsingToWalkthroughSegueId"
     static let searchSegueId = "SctBrowsingToSctSearchSegueId"
     static let toSctsListSegueId = "SctBrowsingToSctsListSegueId"
+    static let toSctLaunchSegueId = "SctBrowsingToSctLaunchSegueId"
     
     static let topicCellId = "SctBrowsingTopicCellReuseId"
     static let searchCellId = "SctBrowsingSearchCellReuseId"
@@ -268,6 +269,7 @@ class SctBrowsingViewController: UIViewController
     fileprivate let sections_: [BrowsingSection] = [.new, .top, .topics, .personnalized, .search]
     fileprivate var sectionHeaders_ = [SctBrowsingSection]()
     fileprivate var sectionFooters_ = [UIView?]()
+    fileprivate var launchInformation_: SctLaunchInformation? = nil
     fileprivate var sctsList_: SctsListViewController.SctsList? = nil
     
     // -------------------------------------------------------------------------
@@ -401,6 +403,8 @@ class SctBrowsingViewController: UIViewController
             prepareForSctHorizontal_(segue: segue, sender: sender)
         case SctBrowsingViewController.toSctsListSegueId:
             prepareForSctsList_(segue: segue, sender: sender)
+        case SctBrowsingViewController.toSctLaunchSegueId:
+            prepareForSctLaunch_(segue: segue, sender: sender)
         default:
             break
         }
@@ -441,6 +445,15 @@ class SctBrowsingViewController: UIViewController
         }
     }
     
+    fileprivate func prepareForSctLaunch_(segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let destination = segue.destination as? SctLaunchViewController,
+            let launchInformation = launchInformation_
+        {
+            destination.launchInformation = launchInformation 
+        }
+    }
+    
     fileprivate func prepareForSctsList_(segue: UIStoryboardSegue, sender: Any?)
     {
         if let destination = segue.destination as? SctsListViewController,
@@ -477,6 +490,12 @@ class SctBrowsingViewController: UIViewController
         }
     }
     
+    fileprivate func displayLaunchInformation(_ launchInformation: SctLaunchInformation)
+    {
+        launchInformation_ = launchInformation
+        performSegue(withIdentifier: SctBrowsingViewController.toSctLaunchSegueId, sender: self)
+    }
+    
     fileprivate func displaySctsList_(_ list: SctsListViewController.SctsList)
     {
         sctsList_ = list
@@ -501,8 +520,9 @@ extension SctBrowsingViewController: UITableViewDelegate
         
         switch row
         {
-        case .newSct(_):
-            break
+        case let .newSct(launchInformation), let .topLaunch(launchInformation),
+             let .topRate(launchInformation), let .personnalizedSct(launchInformation):
+            displayLaunchInformation(launchInformation)
         case let .newDate(latestDate):
             
             let listCategory: SctsListViewController.SctsList.Category
@@ -522,9 +542,6 @@ extension SctBrowsingViewController: UITableViewDelegate
             let listCategory = SctsListViewController.SctsList.Category.topic(qualificationTopicList.topic)
             let list = SctsListViewController.SctsList(category: listCategory, launchInformation: qualificationTopicList.launchInformation)
             displaySctsList_(list)
-            
-        case .topLaunch(_), .topRate(_), .personnalizedSct(_):
-            break
             
         case .search:
             launchSearch_()

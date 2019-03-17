@@ -16,7 +16,7 @@ extension SctSearchCriterion
         case let .topics(topics):
             return "\(topics.count)"
         case let .duration(minimum, maximum):
-            return "\(Constants.durationString(forTimeInterval: minimum)) - \(Constants.durationString(forTimeInterval: maximum))"
+            return "\(Constants.durationString(forTimeInterval: minimum * SctSearchViewController.maximumDuration)) - \(Constants.durationString(forTimeInterval: maximum * SctSearchViewController.maximumDuration))"
         case let .questionsCount(minimum, maximum):
             return "\(minimum) - \(maximum)"
         case let .releaseDate(minimum, maximum):
@@ -55,6 +55,7 @@ class SctSearchResultViewController: UITableViewController
         case summaryCriterionExplanation(SctSearchCriterion)
         case allScts
         case noScts
+        case sct(SctLaunchInformation)
         
         func cell(for indexPath: IndexPath, tableView: UITableView, sctSearchResultViewController: SctSearchResultViewController) -> UITableViewCell
         {
@@ -74,17 +75,30 @@ class SctSearchResultViewController: UITableViewController
                 cell.textLabel?.text = "SctSearchResult.NoScts".localized
                 cell.textLabel?.textColor = Appearance.Color.missing
                 return cell
+            case let .sct(launchInformation):
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
+                cell.setSctLaunchInformation(launchInformation)
+                cell.informationLabel.text = ""
+                return cell
             }
         }
         
         var accessroryType: UITableViewCell.AccessoryType {
-            return .none
+            switch self
+            {
+            case .summaryCriterionExplanation(_), .allScts, .noScts:
+                return .none
+            case .sct(_):
+                return .disclosureIndicator
+            }
         }
         
         var selectionStyle: UITableViewCell.SelectionStyle {
             return .none
         }
     }
+    
+    static let toSctLaunchSegueId = "SctSearchResultToSctLaunchSegueId"
     
     static let summaryCriterionCellId = "SctSearchResultSummaryCriterionCellId"
     
@@ -110,7 +124,8 @@ class SctSearchResultViewController: UITableViewController
             }
         }
     }
-    fileprivate var retrievedScts_ = [Sct]()
+    fileprivate var pickedLaunchInformation_: SctLaunchInformation? = nil
+    fileprivate var retrievedScts_: [SctLaunchInformation] = []
     fileprivate var sections_: [(section: SearchResultSection, rows: [SearchResultRow])]
     {
         var result = [(section: SearchResultSection, rows: [SearchResultRow])]()
@@ -136,8 +151,32 @@ class SctSearchResultViewController: UITableViewController
         {
             result.append((section: .results, rows: [.noScts]))
         }
+        else
+        {
+            result.append((section: .results, rows: retrievedScts_.map { .sct($0) }))
+        }
         
         return result
+    }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        tableView.registerNibCell(SctBrowsingCell.self)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - SEGUE
+    // -------------------------------------------------------------------------
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == SctSearchResultViewController.toSctLaunchSegueId,
+            let target = segue.destination as? SctLaunchViewController,
+            let launchInformation = pickedLaunchInformation_
+        {
+            target.launchInformation = launchInformation
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -151,6 +190,32 @@ class SctSearchResultViewController: UITableViewController
     // -------------------------------------------------------------------------
     // MARK: - UI TABLE VIEW DELEGATE
     // -------------------------------------------------------------------------
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
+    {
+        let row = sections_[indexPath.section].rows[indexPath.row]
+        
+        switch row
+        {
+        case .sct(_):
+            return indexPath
+        case .summaryCriterionExplanation(_), .allScts, .noScts:
+            return nil
+        }
+    }
+        
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let row = sections_[indexPath.section].rows[indexPath.row]
+        
+        switch row
+        {
+        case let .sct(launchInformation):
+            pickedLaunchInformation_ = launchInformation
+            performSegue(withIdentifier: SctSearchResultViewController.toSctLaunchSegueId, sender: self)
+        case .summaryCriterionExplanation(_), .allScts, .noScts:
+            break
+        }
+    }
     
     // -------------------------------------------------------------------------
     // MARK: - UI TABLE VIEW DATE SOURCE

@@ -23,7 +23,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         case results
         case duration
         case popularity
-        case resume
+        case other
         
         var headerTitle: String? {
             switch self
@@ -40,7 +40,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 return "SctDetail.Section.Duration".localized
             case .popularity:
                 return "SctDetail.Section.Popularity".localized
-            case .resume:
+            case .other:
                 return nil
             }
         }
@@ -81,6 +81,9 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         
         // resume
         case resume
+        
+        // launch
+        case launch
         
         func cell(for indexPath: IndexPath, sctDetailViewController: SctDetailViewController) -> UITableViewCell
         {
@@ -202,6 +205,11 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             case .resume:
                 cell.textLabel?.text = "SctDetail.TableCell.Resume".localized
                 cell.textLabel?.textColor = Appearance.Color.action
+                
+            // launch
+            case .launch:
+                cell.textLabel?.text = "SctDetail.TableCell.Launch".localized
+                cell.textLabel?.textColor = Appearance.Color.action
             }
             return cell
         }
@@ -294,10 +302,10 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             return indexPath
         }
         
-        // resume
+        // other
         switch currentRow
         {
-        case .resume:
+        case .resume, .launch:
             return indexPath
         default:
             break
@@ -321,10 +329,13 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             delegate?.sctDetailView(didRemoveVote: self)
         }
         
+        // other
         switch currentRow
         {
         case .resume:
             delegate?.sctDetailView(didResume: self)
+        case .launch:
+            delegate?.sctDetailView(didLaunch: self)
         default:
             break
         }

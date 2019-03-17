@@ -90,6 +90,7 @@
 "SctDetail.TableCell.CompletionScore"             = "Completion Score:";
 
 "SctDetail.TableCell.Resume"                      = "Resume";
+"SctDetail.TableCell.Launch"                      = "Launch";
 
 "SctDetail.TableCell.Detail.Score"                    = "%@ / %d";
 "SctDetail.TableCell.Detail.AnsweredQuestionsCount"   = "%d / %d";

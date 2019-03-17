@@ -49,8 +49,11 @@ class SctsListViewController: UITableViewController
         var launchInformation: [SctLaunchInformation]
     }
     
+    static let toSctLaunchSegueId = "SctsListToSctLaunchSegueId"
+    
     fileprivate var noSctsLabel_ = UILabel()
     fileprivate var sctsList_ = SctsList(category: .today, launchInformation: [])
+    fileprivate var pickedIndex_ = -1
     var sctsList: SctsList
     {
         set
@@ -98,8 +101,25 @@ class SctsListViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
+    // MARK: - SEGUE
+    // -------------------------------------------------------------------------
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == SctsListViewController.toSctLaunchSegueId,
+            let target = segue.destination as? SctLaunchViewController
+        {
+            target.launchInformation = sctsList.launchInformation[pickedIndex_]
+        }
+    }
+    
+    // -------------------------------------------------------------------------
     // MARK: - UI TABLE VIEW DELEGATE
     // -------------------------------------------------------------------------
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        pickedIndex_ = indexPath.row
+        performSegue(withIdentifier: SctsListViewController.toSctLaunchSegueId, sender: self)
+    }
     
     // -------------------------------------------------------------------------
     // MARK: - UI TABLE VIEW DATA SOURCE

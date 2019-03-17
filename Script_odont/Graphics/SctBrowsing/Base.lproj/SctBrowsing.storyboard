@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="WelcomeWalkthrough" id="pVX-h5-qlX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGP-SY-teH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1272" y="-993"/>
+            <point key="canvasLocation" x="1440" y="-1014"/>
         </scene>
         <!--SCT Search-->
         <scene sceneID="X1X-we-dxP">
@@ -258,6 +258,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Wxu-3E-pfT" kind="show" identifier="SctSearchResultToSctLaunchSegueId" id="MIr-MN-8MF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nkh-RT-bpe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -426,10 +429,13 @@
                             <outlet property="delegate" destination="MM1-2K-Dzp" id="yGL-kb-nhA"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="Wxu-3E-pfT" kind="show" identifier="SctsListToSctLaunchSegueId" id="zLj-gE-UB0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fU-MN-f9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="657" y="-235"/>
+            <point key="canvasLocation" x="503" y="-1969"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LeK-SQ-boV">
@@ -528,11 +534,42 @@
                         <segue destination="pVX-h5-qlX" kind="presentation" identifier="SctBrowsingToWalkthroughSegueId" id="Cbd-WR-exR"/>
                         <segue destination="nbO-90-dGb" kind="presentation" identifier="SctBrowsingToSctSearchSegueId" id="svv-kv-r6i"/>
                         <segue destination="MM1-2K-Dzp" kind="show" identifier="SctBrowsingToSctsListSegueId" id="qLz-vc-br6"/>
+                        <segue destination="Wxu-3E-pfT" kind="show" identifier="SctBrowsingToSctLaunchSegueId" id="7A0-t0-jfc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQK-tK-4El" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658" y="-1066"/>
+            <point key="canvasLocation" x="503" y="-1066"/>
+        </scene>
+        <!--Sct Launch View Controller-->
+        <scene sceneID="B2y-QY-4n3">
+            <objects>
+                <viewController id="Wxu-3E-pfT" customClass="SctLaunchViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5eR-6U-9G0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="9QH-NQ-3Nl">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9QH-NQ-3Nl" firstAttribute="leading" secondItem="5eR-6U-9G0" secondAttribute="leading" id="Hd5-Xc-CLS"/>
+                            <constraint firstItem="Lag-X4-ROK" firstAttribute="trailing" secondItem="9QH-NQ-3Nl" secondAttribute="trailing" id="JYc-R4-ygV"/>
+                            <constraint firstItem="Lag-X4-ROK" firstAttribute="bottom" secondItem="9QH-NQ-3Nl" secondAttribute="bottom" id="WHh-CB-E0j"/>
+                            <constraint firstItem="9QH-NQ-3Nl" firstAttribute="top" secondItem="Lag-X4-ROK" secondAttribute="top" id="oFF-2k-4NX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lag-X4-ROK"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="9QH-NQ-3Nl" id="xf4-1b-WXU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qZB-To-VXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1441" y="-1968"/>
         </scene>
         <!--SctHorizontal-->
         <scene sceneID="UYY-mj-SJK">
@@ -540,7 +577,10 @@
                 <viewControllerPlaceholder storyboardName="SctHorizontal" id="XnG-73-xjh" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBR-Ai-goI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1265" y="-1093"/>
+            <point key="canvasLocation" x="1441" y="-1094"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MIr-MN-8MF"/>
+    </inferredMetricsTieBreakers>
 </document>

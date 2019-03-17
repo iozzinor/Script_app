@@ -17,4 +17,7 @@ protocol SctDetailViewDelegate: class
     
     // resume
     func sctDetailView(didResume sctDetailViewController: SctDetailViewController)
+    
+    // launch
+    func sctDetailView(didLaunch sctDetailViewController: SctDetailViewController)
 }

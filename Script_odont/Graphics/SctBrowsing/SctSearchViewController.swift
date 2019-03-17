@@ -107,6 +107,7 @@ class SctSearchViewController: UITableViewController
                 return cell
                 
             case let .minimumDurationPicker(minimumDuration):
+                sctSearchViewController.durationCriterionIndex_ = indexPath.section
                 let cell = tableView.dequeueReusableCell(for: indexPath) as DurationPickerCell
                 sctSearchViewController.minimumDurationCell_ = cell
                 
@@ -117,6 +118,7 @@ class SctSearchViewController: UITableViewController
                 cell.valueLabel.text = Constants.durationString(forTimeInterval: minimumDuration)
                 return cell
             case let .maximumDurationPicker(maximumDuration):
+                sctSearchViewController.durationCriterionIndex_ = indexPath.section
                 let cell = tableView.dequeueReusableCell(for: indexPath) as DurationPickerCell
                 sctSearchViewController.maximumDurationCell_ = cell
                 
@@ -215,8 +217,9 @@ class SctSearchViewController: UITableViewController
     fileprivate var minimumQuestionsTextField_: UITextField? = nil
     fileprivate var maximumQuestionsTextField_: UITextField? = nil
     
-    fileprivate var minimumDuration_: Float = 0.0
-    fileprivate var maximumDuration_: Float = 1.0
+    fileprivate var durationCriterionIndex_ = 0
+    fileprivate var minimumDuration_ = 0.0
+    fileprivate var maximumDuration_ = 1.0
     fileprivate var minimumDurationCell_: DurationPickerCell? = nil
     fileprivate var maximumDurationCell_: DurationPickerCell? = nil
     
@@ -288,26 +291,30 @@ class SctSearchViewController: UITableViewController
         if sender.tag == SctSearchViewController.minimumTag_
         {
             // can not be greater than maximumDuration_
-            if sender.value > maximumDuration_
+            if sender.value > Float(maximumDuration_)
             {
-                maximumDuration_ = sender.value
-                maximumDurationCell_?.slider.value = maximumDuration_
+                maximumDuration_ = Double(sender.value)
+                maximumDurationCell_?.slider.value = Float(maximumDuration_)
                 maximumDurationCell_?.valueLabel.text = newString
             }
-            minimumDuration_ = sender.value
+            minimumDuration_ = Double(sender.value)
             minimumDurationCell_?.valueLabel.text = newString
         }
         else
         {
-            if sender.value < minimumDuration_
+            var value = sender.value
+            if sender.value < Float(minimumDuration_)
             {
-                minimumDuration_ = sender.value
-                minimumDurationCell_?.slider.value = sender.value
-                minimumDurationCell_?.valueLabel.text = newString
+                value = Float(minimumDuration_)
+                maximumDurationCell_?.slider.value = value
             }
-            maximumDuration_ = sender.value
-            maximumDurationCell_?.valueLabel.text = newString
+            maximumDuration_ = Double(value)
+            maximumDurationCell_?.valueLabel.text = Constants.durationString(forTimeInterval: Double(value) * SctSearchViewController.maximumDuration)
         }
+        
+        // update criteria
+        criteria_[durationCriterionIndex_] = .duration(minimumDuration_,
+                                                       maximumDuration_)
     }
     
     fileprivate func checkSearchAll_()

@@ -13,25 +13,36 @@ class SctLatestPeriodCell: UITableViewCell
     @IBOutlet weak var periodLabel: UILabel!
     @IBOutlet weak var sctsCountLabel: UILabel!
     
+    let notificationColor = UIColor.blue.withAlphaComponent(0.8)
+    
+    fileprivate var circleLayer_: CALayer? = nil
+    
     func setPeriod(_ period: String, sctsCount: Int)
     {
         periodLabel.text = period
         sctsCountLabel.text = "\(sctsCount)"
         
-        if sctsCountLabel.tag < 1
+        if circleLayer_ == nil
         {
-            sctsCountLabel.tag = 1
-            
+            setupCircleLayer_()
             sctsCountLabel.textAlignment = .center
-            sctsCountLabel.textColor = UIColor.white
+            sctsCountLabel.textColor = notificationColor
         }
         
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = CGRect(origin: CGPoint.zero, size: sctsCountLabel.frame.size)
-        maskLayer.path = UIBezierPath(ovalIn: maskLayer.frame).cgPath
-        maskLayer.fillColor = UIColor.black.cgColor
+        let size = min(sctsCountLabel.frame.size.width, sctsCountLabel.frame.size.height)
+        let newSize = CGSize(width: size, height: size)
+        sctsCountLabel.layer.frame.size = newSize
+        circleLayer_?.frame.size = newSize
+        circleLayer_?.cornerRadius = size / 2.0
+    }
+    
+    fileprivate func setupCircleLayer_()
+    {
+        circleLayer_ = CALayer()
+        circleLayer_?.borderColor = notificationColor.cgColor
+        circleLayer_?.borderWidth = 2.0
+        circleLayer_?.backgroundColor = nil
         
-        sctsCountLabel.layer.mask = maskLayer
-        sctsCountLabel.layer.backgroundColor = UIColor.red.withAlphaComponent(0.9).cgColor
+        sctsCountLabel.layer.addSublayer(circleLayer_!)
     }
 }

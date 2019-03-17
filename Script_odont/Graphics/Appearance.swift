@@ -36,11 +36,11 @@ struct Appearance
             switch topic
             {
             case .diagnostic:
-                return UIColor.yellow
+                return UIColor(red: 0 / 255.0, green: 191 / 255.0, blue: 255 / 255.0, alpha: 1.0)
             case .prognostic:
-                return UIColor.red
+                return UIColor(red: 30 / 255.0, green: 144 / 255.0, blue: 255 / 255.0, alpha: 1.0)
             case .therapeutic:
-                return UIColor.blue
+                return UIColor(red: 100 / 255.0, green: 149 / 255.0, blue: 237 / 255.0, alpha: 1.0)
             }
         }
     }
