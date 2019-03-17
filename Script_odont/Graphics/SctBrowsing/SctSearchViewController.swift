@@ -55,11 +55,6 @@ class SctSearchViewController: UITableViewController
         
         func cell(for indexPath: IndexPath, tableView: UITableView, sctSearchViewController: SctSearchViewController) -> UITableViewCell
         {
-            let numberFormatter = NumberFormatter()
-            numberFormatter.minimumIntegerDigits = 1
-            numberFormatter.maximumFractionDigits = 1
-            numberFormatter.minimumFractionDigits = 0
-            
             switch self
             {
             case let .criterion(criterion):

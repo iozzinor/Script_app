@@ -187,10 +187,6 @@
 /* SCT BROWSING */
 "SctBrowsingSection.SeeAll" = "Voir tout";
 
-"SctBrowsing.LatestPeriod.Day.Name"     = "Aujourd'hui";
-"SctBrowsing.LatestPeriod.Week.Name"    = "Cette semaine";
-"SctBrowsing.LatestPeriod.Month.Name"   = "Ce mois";
-
 "SctBrowsing.NewSct.Time" = "Il y a %@.";
 "SctBrowsing.Search.Title"  = "Ce n'est pas suffisant ? Recherchez !";
 
@@ -256,21 +252,6 @@
 
 "GoToSct.SctIndex" = "Tcs %d";
 
-/* SETTINGS VIEW CONTROLLER */
-"Settings.NavigationItem.Title" = "Paramètres";
-
-/* OTHER VIEW CONTROLLER */
-"OtherViewController.NavigationItem.Title" = "Autres";
-
-"OtherViewController.Tutorials" = "Tutoriels";
-"OtherViewController.Leaderboard" = "Classement";
-
-/* WALKTHROUGHS VIEW CONTROLLER */
-"Walkthroughs.Show.Welcome" = "Bienvenue...";
-"Walkthroughs.Show.Drawing" = "Vignette...";
-"Walkthroughs.Show.DrawingExample" = "Exemple de vignette...";
-"Walkthroughs.Show.SctTopic" = "Thème TCS...";
-
 /* MY SCT*/
 "MySct.Section.Unfinished" = "Non finis";
 "MySct.Section.Finished" = "Finis";
@@ -286,3 +267,40 @@
 
 /* CONSTANTS */
 "Constants.Duration.String.Format.Short" = "%02dM:%02dS";
+
+/* SETTINGS VIEW CONTROLLER */
+"Settings.NavigationItem.Title" = "Paramètres";
+
+/* OTHER VIEW CONTROLLER */
+"OtherViewController.NavigationItem.Title" = "Autres";
+
+"OtherViewController.Tutorials" = "Tutoriels";
+"OtherViewController.Leaderboard" = "Classement";
+
+/* WALKTHROUGHS VIEW CONTROLLER */
+"Walkthroughs.Show.Welcome" = "Bienvenue...";
+"Walkthroughs.Show.Drawing" = "Vignette...";
+"Walkthroughs.Show.DrawingExample" = "Exemple de vignette...";
+"Walkthroughs.Show.SctTopic" = "Thème TCS...";
+
+/* LEADERBOARD */
+"Leaderboard.Section.TopTen.Title"  = "Top dix";
+"Leaderboard.Section.User.Title"    = "Mon classement";
+
+"Leaderboard.NavigationItem.Title" = "Classement";
+
+"Leaderboard.User.Rank"             = "Classement :";
+"Leaderboard.User.AnsweredSctExams" = "Nombre d'examens passés :";
+"Leaderboard.User.MeanScore"        = "Score moyen :";
+
+/* PERIOD LEADERBOARD */
+"PeriodLeaderboard.NavigationItemTitle.Day"     = "Classement du jour";
+"PeriodLeaderboard.NavigationItemTitle.Week"    = "Classement de la semaine";
+"PeriodLeaderboard.NavigationItemTitle.Month"   = "Classement du mois";
+"PeriodLeaderboard.NavigationItemTitle.Year"    = "Classement de l'année";
+
+/* LATEST PERIOD */
+"LatestPeriod.Day.Name"     = "Aujourd'hui";
+"LatestPeriod.Week.Name"    = "Cette semaine";
+"LatestPeriod.Month.Name"   = "Ce mois";
+"LatestPeriod.Year.Name"   = "Cette année";

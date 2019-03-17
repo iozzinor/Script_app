@@ -187,10 +187,6 @@
 /* SCT BROWSING */
 "SctBrowsingSection.SeeAll" = "See All";
 
-"SctBrowsing.LatestPeriod.Day.Name"     = "Today";
-"SctBrowsing.LatestPeriod.Week.Name"    = "This week";
-"SctBrowsing.LatestPeriod.Month.Name"   = "This month";
-
 "SctBrowsing.NewSct.Time"   = "There was %@.";
 "SctBrowsing.Search.Title"  = "Want more ? Make a search !";
 
@@ -256,21 +252,6 @@
 
 "GoToSct.SctIndex" = "Sct %d";
 
-/* SETTINGS VIEW CONTROLLER */
-"Settings.NavigationItem.Title" = "Settings";
-
-/* OTHER VIEW CONTROLLER */
-"OtherViewController.NavigationItem.Title" = "Others";
-
-"OtherViewController.Tutorials" = "Tutorials";
-"OtherViewController.Leaderboard" = "Leaderboard";
-
-/* WALKTHROUGHS VIEW CONTROLLER */
-"Walkthroughs.Show.Welcome" = "Welcome...";
-"Walkthroughs.Show.Drawing" = "Drawing...";
-"Walkthroughs.Show.DrawingExample" = "Drawing Example...";
-"Walkthroughs.Show.SctTopic" = "Sct Topic...";
-
 /* MY SCT*/
 "MySct.Section.Unfinished"  = "Unfinished";
 "MySct.Section.Finished"    = "Finished";
@@ -286,3 +267,40 @@
 
 /* CONSTANTS */
 "Constants.Duration.String.Format.Short" = "%02dM:%02dS";
+
+/* SETTINGS VIEW CONTROLLER */
+"Settings.NavigationItem.Title" = "Settings";
+
+/* OTHER VIEW CONTROLLER */
+"OtherViewController.NavigationItem.Title" = "Others";
+
+"OtherViewController.Tutorials" = "Tutorials";
+"OtherViewController.Leaderboard" = "Leaderboard";
+
+/* WALKTHROUGHS VIEW CONTROLLER */
+"Walkthroughs.Show.Welcome" = "Welcome...";
+"Walkthroughs.Show.Drawing" = "Drawing...";
+"Walkthroughs.Show.DrawingExample" = "Drawing Example...";
+"Walkthroughs.Show.SctTopic" = "Sct Topic...";
+
+/* LEADERBOARD */
+"Leaderboard.Section.TopTen.Title"  = "Top Ten";
+"Leaderboard.Section.User.Title"    = "My Ranking";
+
+"Leaderboard.NavigationItem.Title" = "Leaderboard";
+
+"Leaderboard.User.Rank"             = "Rank:";
+"Leaderboard.User.AnsweredSctExams" = "Total Answered Sct Exams:";
+"Leaderboard.User.MeanScore"        = "Mean Score:";
+
+/* PERIOD LEADERBOARD */
+"PeriodLeaderboard.NavigationItemTitle.Day"     = "Leaderboard of the day";
+"PeriodLeaderboard.NavigationItemTitle.Week"    = "Leaderboard of the week";
+"PeriodLeaderboard.NavigationItemTitle.Month"   = "Leaderboard of the month";
+"PeriodLeaderboard.NavigationItemTitle.Year"    = "Leaderboard of the year";
+
+/* LATEST PERIOD */
+"LatestPeriod.Day.Name"     = "Today";
+"LatestPeriod.Week.Name"    = "This week";
+"LatestPeriod.Month.Name"   = "This month";
+"LatestPeriod.Year.Name"    = "This year";

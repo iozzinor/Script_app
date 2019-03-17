@@ -28,28 +28,6 @@ fileprivate func sctLaunchInformation_() -> SctLaunchInformation
 
 class SctBrowsingViewController: UIViewController
 {
-    // -------------------------------------------------------------------------
-    // MARK: - LATEST PERIOD
-    // -------------------------------------------------------------------------
-    fileprivate enum LatestPeriod
-    {
-        case day
-        case week
-        case month
-        
-        var name: String {
-            switch self
-            {
-            case .day:
-                return "SctBrowsing.LatestPeriod.Day.Name".localized
-            case .week:
-                return "SctBrowsing.LatestPeriod.Week.Name".localized
-            case .month:
-                return "SctBrowsing.LatestPeriod.Month.Name".localized
-            }
-        }
-    }
-    
     fileprivate struct LatestDate
     {
         var period: LatestPeriod
@@ -161,13 +139,6 @@ class SctBrowsingViewController: UIViewController
         
         func cell(for indexPath: IndexPath, tableView: UITableView, sctBrowsingViewController: SctBrowsingViewController) -> UITableViewCell
         {
-            let numberFormatter = NumberFormatter()
-            numberFormatter.locale = Locale.current
-            numberFormatter.minimumFractionDigits = 1
-            numberFormatter.maximumFractionDigits = 1
-            numberFormatter.maximumIntegerDigits = 9
-            numberFormatter.minimumIntegerDigits = 1
-            
             switch self
             {
             case let .newSct(sctLaunchInformation):
@@ -210,7 +181,7 @@ class SctBrowsingViewController: UIViewController
                 let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
                 result.setSctLaunchInformation(sctLaunchInformation)
                 let meanVotes = sctLaunchInformation.statistics.meanVotes
-                result.informationLabel.text = numberFormatter.string(from: NSNumber(value: meanVotes))
+                result.informationLabel.text = Constants.formatReal(meanVotes)
                 return result
                 
             case let .topic(topicList):
@@ -504,16 +475,7 @@ extension SctBrowsingViewController: UITableViewDelegate
             displayLaunchInformation(launchInformation)
         case let .newDate(latestDate):
             
-            let listCategory: SctsListViewController.SctsList.Category
-            switch latestDate.period
-            {
-            case .day:
-                listCategory = .today
-            case .week:
-                listCategory = .lastWeek
-            case .month:
-                listCategory = .lastMonth
-            }
+            let listCategory = SctsListViewController.SctsList.Category.period(latestDate.period)
             let list = SctsListViewController.SctsList(category: listCategory, launchInformation: latestDate.launchInformation)
             displaySctsList_(list)
             

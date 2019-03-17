@@ -11,6 +11,19 @@ import UIKit
 /// Utils fonctions and constants.
 struct Constants
 {
+    fileprivate static let numberFormatter_: NumberFormatter = ({
+        let result = NumberFormatter()
+        result.locale = Locale.current
+        result.minimumFractionDigits = 1
+        result.maximumFractionDigits = 1
+        result.maximumIntegerDigits = 9
+        result.minimumIntegerDigits = 1
+        return result
+    })()
+    
+    // -------------------------------------------------------------------------
+    // MARK: - ORIENTATION
+    // -------------------------------------------------------------------------
     /// - returns: The current device orientation.
     static var deviceOrientation: UIDeviceOrientation {
         return UIDevice.current.orientation
@@ -27,6 +40,9 @@ struct Constants
         }
     }
     
+    // -------------------------------------------------------------------------
+    // MARK: - DATE
+    // -------------------------------------------------------------------------
     /// - returns: The local short representation of a date.
     static func dateString(for date: Date) -> String
     {
@@ -44,6 +60,9 @@ struct Constants
         return String(format: "Constants.Duration.String.Format.Short".localized, minutes, seconds)
     }
     
+    // -------------------------------------------------------------------------
+    // MARK: - RANDOM
+    // -------------------------------------------------------------------------
     /// If the max value is lower than the min one, then they are switched.
     /// - returns: A random number in the range [min; max].
     static func random(min: Int, max: Int) -> Int
@@ -60,6 +79,9 @@ struct Constants
         return Int(arc4random()) % (max - min + 1) + min
     }
     
+    // -------------------------------------------------------------------------
+    // MARK: - BOUND
+    // -------------------------------------------------------------------------
     /// If min and max are equal, then min is returned, regarless of the input value.
     /// If min is greater than max, then they are switched.
     /// - returns: The bounded value.
@@ -91,5 +113,13 @@ struct Constants
             return inRange(value, min: max, max: min)
         }
         return !(value < min || value > max)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - NUMBER FORMATTING
+    // -------------------------------------------------------------------------
+    static func formatReal(_ value: Double) -> String
+    {
+        return numberFormatter_.string(from: NSNumber(value: value)) ?? ""
     }
 }

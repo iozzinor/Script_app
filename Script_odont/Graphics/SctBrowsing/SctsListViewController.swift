@@ -17,9 +17,7 @@ class SctsListViewController: UITableViewController
     {
         enum Category
         {
-            case today
-            case lastWeek
-            case lastMonth
+            case period(LatestPeriod)
             case top
             case personnalized
             case topic(QualificationTopic)
@@ -28,12 +26,18 @@ class SctsListViewController: UITableViewController
             {
                 switch self
                 {
-                case .today:
-                    return "SctsList.Category.Today.Name".localized
-                case .lastWeek:
-                    return "SctsList.Category.LastWeek.Name".localized
-                case .lastMonth:
-                    return "SctsList.Category.LastMonth.Name".localized
+                case let .period(latestPeriod):
+                    switch latestPeriod
+                    {
+                    case .day:
+                        return "SctsList.Category.Today.Name".localized
+                    case .week:
+                        return "SctsList.Category.LastWeek.Name".localized
+                    case .month:
+                        return "SctsList.Category.LastMonth.Name".localized
+                    case .year:
+                        return ""
+                    }
                 case .top:
                     return "SctsList.Category.Top.Name".localized
                 case .personnalized:
@@ -52,7 +56,7 @@ class SctsListViewController: UITableViewController
     static let toSctLaunchSegueId = "SctsListToSctLaunchSegueId"
     
     fileprivate var noSctsLabel_ = UILabel()
-    fileprivate var sctsList_ = SctsList(category: .today, launchInformation: [])
+    fileprivate var sctsList_ = SctsList(category: .period(.day), launchInformation: [])
     fileprivate var pickedIndex_ = -1
     var sctsList: SctsList
     {

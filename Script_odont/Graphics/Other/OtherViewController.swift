@@ -12,6 +12,7 @@ class OtherViewController: UITableViewController
 {
     static let otherCellIdentifier = "OtherCellReuseId"
     static let toWalkthroughs = "OtherToWalkthroughsSegueId"
+    static let toLeaderboardSegueId = "OtherToLeaderboardSegueId"
     
     // -------------------------------------------------------------------------
     // MARK: - ROWS
@@ -50,6 +51,11 @@ class OtherViewController: UITableViewController
         performSegue(withIdentifier: OtherViewController.toWalkthroughs, sender: self)
     }
     
+    fileprivate func displayLeaderboard_()
+    {
+        performSegue(withIdentifier: OtherViewController.toLeaderboardSegueId, sender: self)
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - UITableViewDelegate
     // -------------------------------------------------------------------------
@@ -60,7 +66,7 @@ class OtherViewController: UITableViewController
         switch row
         {
         case .leaderboard:
-            break
+            displayLeaderboard_()
         case .walkthroughs:
             displayWalkthroughs_()
         }

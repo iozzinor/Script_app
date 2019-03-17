@@ -97,12 +97,6 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.textLabel?.textColor = Appearance.Color.default
             cell.selectionStyle = .none
             
-            let numberFormatter = NumberFormatter()
-            numberFormatter.locale = Locale.current
-            numberFormatter.minimumFractionDigits = 1
-            numberFormatter.maximumFractionDigits = 1
-            numberFormatter.maximumIntegerDigits = 9
-            numberFormatter.minimumIntegerDigits = 1
             let totalQuestionsCount = dataSource.exam.totalQuestionsCount
             switch self
             {
@@ -113,7 +107,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.detailTextLabel?.text = ""
             case .meanScore:
                 cell.textLabel?.text = "SctDetail.TableCell.MeanScore".localized
-                let meanScore = numberFormatter.string(from: NSNumber(value: dataSource.statistics.meanVotes))!
+                let meanScore = Constants.formatReal(dataSource.statistics.meanVotes)
                 cell.detailTextLabel?.text = String.localizedStringWithFormat("SctDetail.TableCell.Detail.Score".localized, meanScore, totalQuestionsCount)
             case .questionsCount:
                 cell.textLabel?.text = "SctDetail.TableCell.QuestionsCount".localized
@@ -176,7 +170,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.textLabel?.text = "SctDetail.TableCell.CompletionScore".localized
                 
                 let score = dataSource.finished?.score ?? 0
-                let scoreString = numberFormatter.string(from: NSNumber(value: score))!
+                let scoreString = Constants.formatReal(score)
                 cell.detailTextLabel?.text = String.localizedStringWithFormat("SctDetail.TableCell.Detail.Score".localized, scoreString, totalQuestionsCount)
             case .completionDuration:
                 cell.textLabel?.text = "SctDetail.TableCell.CompletionDuration".localized
@@ -199,13 +193,11 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 return result
             case .launchesCount:
                 cell.textLabel?.text = "SctDetail.TableCell.LaunchesCount".localized
-                numberFormatter.minimumFractionDigits = 0
-                numberFormatter.maximumFractionDigits = 0
-                cell.detailTextLabel?.text = numberFormatter.string(from: NSNumber(value: dataSource.statistics.launchesCount))
+                cell.detailTextLabel?.text = "\(dataSource.statistics.launchesCount)"
             case .meanCompletionPercentage:
                 cell.textLabel?.text = "SctDetail.TableCell.MeanCompletionPercentage".localized
                 
-                let meanCompletionPercentage = numberFormatter.string(from: NSNumber(value: dataSource.statistics.meanCompletionPercentage))!
+                let meanCompletionPercentage = Constants.formatReal(dataSource.statistics.meanCompletionPercentage)
                 cell.detailTextLabel?.text = String.localizedStringWithFormat("SctDetail.TableCell.Detail.MeanCompletionPerentage".localized, meanCompletionPercentage)
                 
             // resume
