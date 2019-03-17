@@ -413,6 +413,24 @@
             </objects>
             <point key="canvasLocation" x="3214" y="227"/>
         </scene>
+        <!--Scts List View Controller-->
+        <scene sceneID="VwO-LV-spC">
+            <objects>
+                <tableViewController id="MM1-2K-Dzp" customClass="SctsListViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="8hs-qT-VHR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="MM1-2K-Dzp" id="F9N-Xv-jcc"/>
+                            <outlet property="delegate" destination="MM1-2K-Dzp" id="yGL-kb-nhA"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1fU-MN-f9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="657" y="-235"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="LeK-SQ-boV">
             <objects>
@@ -509,6 +527,7 @@
                         <outlet property="tableView" destination="wyj-6G-jxh" id="ju1-Ja-znM"/>
                         <segue destination="pVX-h5-qlX" kind="presentation" identifier="SctBrowsingToWalkthroughSegueId" id="Cbd-WR-exR"/>
                         <segue destination="nbO-90-dGb" kind="presentation" identifier="SctBrowsingToSctSearchSegueId" id="svv-kv-r6i"/>
+                        <segue destination="MM1-2K-Dzp" kind="show" identifier="SctBrowsingToSctsListSegueId" id="qLz-vc-br6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQK-tK-4El" sceneMemberID="firstResponder"/>

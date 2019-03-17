@@ -202,6 +202,15 @@
 "ScrBrowsing.Section.Personnalized.Description"   = "Une liste de TCS créée spécialement pour vous.";
 "ScrBrowsing.Section.Topics.Description"          = "Les TCS par thème.";
 
+/* SCTS LIST */
+"SctsList.Category.Today.Name"          = "Les TCS du jour";
+"SctsList.Category.LastWeek.Name"       = "Les TCS de la semaine";
+"SctsList.Category.LastMonth.Name"      = "Les TCS du mois";
+"SctsList.Category.Top.Name"            = "Les meilleurs TCS";
+"SctsList.Category.Personnalized.Name"  = "Sélection de TCS pour vous";
+
+"SctsList.NoScts" = "Pas de TCS à afficher.";
+
 /* SCT SEARCH */
 "SctSearch.Criterion.Topics.Name"           = "Thèmes";
 "SctSearch.Criterion.ReleaseDate.Name"      = "Date de publication";

@@ -202,6 +202,15 @@
 "ScrBrowsing.Section.Personnalized.Description"   = "A set of SCTs that has specially been designed for you.";
 "ScrBrowsing.Section.Topics.Description"          = "STCs by topics.";
 
+/* SCTS LIST */
+"SctsList.Category.Today.Name"          = "Today SCTs";
+"SctsList.Category.LastWeek.Name"       = "Last Week SCTs";
+"SctsList.Category.LastMonth.Name"      = "Last Month SCTs";
+"SctsList.Category.Top.Name"            = "Top SCTs";
+"SctsList.Category.Personnalized.Name"  = "Personnalized SCTs";
+
+"SctsList.NoScts" = "No SCTs to display.";
+
 /* SCT SEARCH */
 "SctSearch.Criterion.Topics.Name"           = "Topics";
 "SctSearch.Criterion.ReleaseDate.Name"      = "Release Date";

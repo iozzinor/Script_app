@@ -118,6 +118,7 @@
 		ACC83F78223E2A2A0064BE6F /* QuestionsCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F77223E2A2A0064BE6F /* QuestionsCountCell.swift */; };
 		ACC83F7A223E349C0064BE6F /* SctSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F79223E349C0064BE6F /* SctSearchResultViewController.swift */; };
 		ACC83F7B223E4B5C0064BE6F /* SctBrowsing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC83F7D223E4B5C0064BE6F /* SctBrowsing.storyboard */; };
+		ACC83F82223E516C0064BE6F /* SctsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F81223E516C0064BE6F /* SctsListViewController.swift */; };
 		ACD1B39C223BD5590065F07E /* SctScoreDiagramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */; };
 		ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */; };
 		ACD1B3A0223BE1320065F07E /* SctSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B39F223BE1320065F07E /* SctSearchViewController.swift */; };
@@ -257,6 +258,7 @@
 		ACC83F79223E349C0064BE6F /* SctSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctSearchResultViewController.swift; sourceTree = "<group>"; };
 		ACC83F7C223E4B5C0064BE6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SctBrowsing.storyboard; sourceTree = "<group>"; };
 		ACC83F7F223E4B600064BE6F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SctBrowsing.strings; sourceTree = "<group>"; };
+		ACC83F81223E516C0064BE6F /* SctsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctsListViewController.swift; sourceTree = "<group>"; };
 		ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctScoreDiagramCell.swift; sourceTree = "<group>"; };
 		ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScoreDiagramCell.xib; sourceTree = "<group>"; };
 		ACD1B39F223BE1320065F07E /* SctSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctSearchViewController.swift; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 			children = (
 				ACD1B3A5223BFF580065F07E /* SctBrowsingSection.swift */,
 				AC38BB61221DE4C9008E829B /* SctBrowsingViewController.swift */,
+				ACC83F81223E516C0064BE6F /* SctsListViewController.swift */,
 				ACD1B3A7223C42DE0065F07E /* SctLatestPeriodCell.swift */,
 				ACD1B3A9223C43AD0065F07E /* SctLatestPeriodCell.xib */,
 				ACD1B3AF223C510B0065F07E /* SctBrowsingCell.swift */,
@@ -760,6 +763,7 @@
 				AC8F5B77222894AB00FAEFC5 /* GoToSctViewController.swift in Sources */,
 				AC372C58223942BE009F1DAD /* SctPerformRateCellDelegate.swift in Sources */,
 				ACC83F7A223E349C0064BE6F /* SctSearchResultViewController.swift in Sources */,
+				ACC83F82223E516C0064BE6F /* SctsListViewController.swift in Sources */,
 				ACC83F74223DB4500064BE6F /* DatePickerViewController.swift in Sources */,
 				ACD1B3A4223BF6490065F07E /* UILabel+utils.swift in Sources */,
 				AC9F23E22229D6A4002D38E5 /* ViewController.swift in Sources */,
