@@ -41,7 +41,7 @@ struct Constants
         let minutes = Int(timeInterval) / 60
         let seconds = Int(timeInterval) % 60
         
-        return String(format: "%02d:%02d", minutes, seconds)
+        return String(format: "Constants.Duration.String.Format.Short".localized, minutes, seconds)
     }
     
     /// If the max value is lower than the min one, then they are switched.

@@ -66,20 +66,20 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answered questions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDQ-i4-b3Q">
-                                                                    <rect key="frame" x="157.5" y="0.0" width="86" height="16.5"/>
+                                                                    <rect key="frame" x="157.5" y="0.0" width="57.5" height="16.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUT-Zf-h7Z">
-                                                                    <rect key="frame" x="248.5" y="0.0" width="86.5" height="16.5"/>
+                                                                    <rect key="frame" x="220" y="0.0" width="115" height="16.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="YUT-Zf-h7Z" firstAttribute="width" secondItem="QDQ-i4-b3Q" secondAttribute="width" id="3az-cq-rxt"/>
+                                                                <constraint firstItem="YUT-Zf-h7Z" firstAttribute="width" secondItem="QDQ-i4-b3Q" secondAttribute="width" multiplier="2" id="3az-cq-rxt"/>
                                                                 <constraint firstItem="WqP-lP-3vK" firstAttribute="width" secondItem="G0T-fj-JGs" secondAttribute="width" multiplier="5:11" id="RBv-Ho-cL6"/>
                                                             </constraints>
                                                         </stackView>
@@ -146,13 +146,13 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answered questions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWs-LM-ctM">
-                                                                    <rect key="frame" x="152.5" y="0.0" width="91" height="19"/>
+                                                                    <rect key="frame" x="152.5" y="0.0" width="60.5" height="19"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0e-MX-23X">
-                                                                    <rect key="frame" x="243.5" y="0.0" width="91.5" height="19"/>
+                                                                    <rect key="frame" x="213" y="0.0" width="122" height="19"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -160,7 +160,7 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="VRl-d6-2uB" firstAttribute="width" secondItem="aj0-wz-IMf" secondAttribute="width" multiplier="5:11" id="l1X-Sh-lMa"/>
-                                                                <constraint firstItem="k0e-MX-23X" firstAttribute="width" secondItem="tWs-LM-ctM" secondAttribute="width" id="tjU-sK-qWd"/>
+                                                                <constraint firstItem="k0e-MX-23X" firstAttribute="width" secondItem="tWs-LM-ctM" secondAttribute="width" multiplier="2" id="tjU-sK-qWd"/>
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>

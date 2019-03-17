@@ -41,11 +41,25 @@ class SctSearchViewController: UITableViewController
         case qualificationTopic(QualificationTopic)
         case pickQualificationTopics
         
+        case minimumReleaseDate(Date)
+        case maximumReleaseDate(Date)
+        
+        case minimumQuestionsCount(Int)
+        case maximumQuestionsCount(Int)
+        
+        case minimumDurationPicker(Double)
+        case maximumDurationPicker(Double)
+        
         case addCriterion
         case performSearch
         
         func cell(for indexPath: IndexPath, tableView: UITableView, sctSearchViewController: SctSearchViewController) -> UITableViewCell
         {
+            let numberFormatter = NumberFormatter()
+            numberFormatter.minimumIntegerDigits = 1
+            numberFormatter.maximumFractionDigits = 1
+            numberFormatter.minimumFractionDigits = 0
+            
             switch self
             {
             case let .criterion(criterion):
@@ -62,6 +76,57 @@ class SctSearchViewController: UITableViewController
                 cell.textLabel?.text = "SctSearch.PickQualificationTopics.Title".localized
                 return cell
                 
+            case let .minimumReleaseDate(minimumDate):
+                let cell = tableView.dequeueReusableCell(withIdentifier: SctSearchViewController.releaseDateCellId, for: indexPath)
+                cell.textLabel?.text = "SctSearch.DurationPicker.Minimum.Date".localized
+                cell.detailTextLabel?.text = Constants.dateString(for: minimumDate)
+                return cell
+            case let .maximumReleaseDate(maximumDate):
+                let cell = tableView.dequeueReusableCell(withIdentifier: SctSearchViewController.releaseDateCellId, for: indexPath)
+                cell.textLabel?.text = "SctSearch.DurationPicker.Maximum.Date".localized
+                cell.detailTextLabel?.text = Constants.dateString(for: maximumDate)
+                return cell
+                
+            case let .minimumQuestionsCount(minimumQuestions):
+                sctSearchViewController.questionsCountCriterionIndex_ = indexPath.section
+                let cell = tableView.dequeueReusableCell(for: indexPath) as QuestionsCountCell
+                cell.questionsCountLabel.text = "SctSearch.DurationPicker.Minimum.QuestionsCount".localized
+                cell.questionsCountTextField.text = "\(minimumQuestions)"
+                cell.questionsCountTextField.delegate = sctSearchViewController
+                cell.questionsCountTextField.tag = SctSearchViewController.minimumTag_
+                sctSearchViewController.minimumQuestionsTextField_ = cell.questionsCountTextField
+                return cell
+            case let .maximumQuestionsCount(maximumQuestions):
+                sctSearchViewController.questionsCountCriterionIndex_ = indexPath.section
+                let cell = tableView.dequeueReusableCell(for: indexPath) as QuestionsCountCell
+                cell.questionsCountLabel.text = "SctSearch.DurationPicker.Maximum.QuestionsCount".localized
+                cell.questionsCountTextField.text = "\(maximumQuestions)"
+                cell.questionsCountTextField.delegate = sctSearchViewController
+                cell.questionsCountTextField.tag = SctSearchViewController.maximumTag_
+                sctSearchViewController.maximumQuestionsTextField_ = cell.questionsCountTextField
+                return cell
+                
+            case let .minimumDurationPicker(minimumDuration):
+                let cell = tableView.dequeueReusableCell(for: indexPath) as DurationPickerCell
+                sctSearchViewController.minimumDurationCell_ = cell
+                
+                cell.slider.tag = SctSearchViewController.minimumTag_
+                cell.slider.addTarget(self, action: #selector(SctSearchViewController.updateDuration_), for: .valueChanged)
+                cell.durationLabel.text = "SctSearch.DurationPicker.Minimum".localized
+                cell.slider.value = Float(minimumDuration / SctSearchViewController.maximumDuration)
+                cell.valueLabel.text = Constants.durationString(forTimeInterval: minimumDuration)
+                return cell
+            case let .maximumDurationPicker(maximumDuration):
+                let cell = tableView.dequeueReusableCell(for: indexPath) as DurationPickerCell
+                sctSearchViewController.maximumDurationCell_ = cell
+                
+                cell.slider.tag = SctSearchViewController.maximumTag_
+                cell.slider.addTarget(self, action: #selector(SctSearchViewController.updateDuration_), for: .valueChanged)
+                cell.durationLabel.text = "SctSearch.DurationPicker.Maximum".localized
+                cell.slider.value = Float(maximumDuration / SctSearchViewController.maximumDuration)
+                cell.valueLabel.text = Constants.durationString(forTimeInterval: TimeInterval(maximumDuration))
+                return cell
+                
             case .addCriterion:
                 let cell = tableView.dequeueReusableCell(withIdentifier: SctSearchViewController.addCriterionCellId, for: indexPath)
                 cell.textLabel?.textColor = Appearance.Color.action
@@ -69,7 +134,7 @@ class SctSearchViewController: UITableViewController
                 return cell
             case .performSearch:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as ButtonCell
-                cell.setTitle("SctSearch.PerformSearch.Title".localized, enabled: sctSearchViewController.searchEnabled_)
+                cell.setTitle("SctSearch.PerformSearch.Title".localized)
                 return cell
             }
         }
@@ -78,22 +143,19 @@ class SctSearchViewController: UITableViewController
         {
             switch self
             {
-            case .criterion(_), .qualificationTopic, .addCriterion, .performSearch:
+            case .criterion(_), .qualificationTopic, .addCriterion,
+                 .minimumQuestionsCount(_), .maximumQuestionsCount(_),
+                 .minimumDurationPicker(_), .maximumDurationPicker(_), .performSearch:
                 return .none
-            case .pickQualificationTopics:
+            case .pickQualificationTopics,
+                .minimumReleaseDate(_), .maximumReleaseDate(_):
                 return .disclosureIndicator
             }
         }
         
         func selectionStyle(for indexPath: IndexPath, tableView: UITableView, sctSearchViewController: SctSearchViewController) -> UITableViewCell.SelectionStyle
         {
-            switch self
-            {
-            case .criterion(_), .qualificationTopic, .addCriterion, .performSearch:
-                return .none
-            case .pickQualificationTopics:
-                return .none
-            }
+            return .none
         }
     }
     
@@ -103,9 +165,18 @@ class SctSearchViewController: UITableViewController
     static let criterionNameCellId = "SctSearchCriterionNameCellReuseId"
     static let qualificationTopicCellId = "SctSearchQualificationTopicCellReuseId"
     static let addCriterionCellId = "SctSearchAddCriterionCellReuseId"
+    static let releaseDateCellId = "SctSearchReleaseDateCellReuseId"
     
     static let toQualificationTopicsSegueId = "SctSearchToQualificationTopicsPickerSegueId"
-    static let toSctSearchPickerSegueId = "SctSearchToSctSearchCriterionPickerSegueId"
+    static let toSctSearchPickerSegueId     = "SctSearchToSctSearchCriterionPickerSegueId"
+    static let toDatePicker                 = "SctSearchToDatePickerSegueId"
+    static let toSctSearchResultSegueId     = "SctSearchToSctSearchResultSeguId"
+    
+    /// The maximum SCT duration in seconds.
+    static let maximumDuration = 7200.0
+    
+    fileprivate static let minimumTag_ = 0
+    fileprivate static let maximumTag_ = 1
     
     // -------------------------------------------------------------------------
     // MARK: - PROPERTIES
@@ -133,6 +204,22 @@ class SctSearchViewController: UITableViewController
     }
     fileprivate var currentIndexPath_: IndexPath? = nil
     
+    fileprivate var pickMinimumDate_ = false
+    fileprivate var minimumDate_ = Date(timeIntervalSinceNow: -7 * 24 * 3600.0)
+    fileprivate var maximumDate_ = Date()
+    
+    fileprivate var questionsCountCriterionIndex_ = 0
+    fileprivate var updateMinimumQuestionsCount_ = false
+    fileprivate var minimumQuestionsCount_ = 0
+    fileprivate var maximumQuestionsCount_ = SctExam.maximumTotalQuestionsCount
+    fileprivate var minimumQuestionsTextField_: UITextField? = nil
+    fileprivate var maximumQuestionsTextField_: UITextField? = nil
+    
+    fileprivate var minimumDuration_: Float = 0.0
+    fileprivate var maximumDuration_: Float = 1.0
+    fileprivate var minimumDurationCell_: DurationPickerCell? = nil
+    fileprivate var maximumDurationCell_: DurationPickerCell? = nil
+    
     fileprivate func rowsForCriterion_(_ searchCriterion: SctSearchCriterion) -> [SearchRow]
     {
         var result = [SearchRow.criterion(searchCriterion)]
@@ -141,12 +228,15 @@ class SctSearchViewController: UITableViewController
         case let .topics(topics):
             result.append(contentsOf: topics.map { .qualificationTopic($0) })
             result.append(.pickQualificationTopics)
-        case .questionsCount(_, _):
-            break
-        case .releaseDate(_, _):
-            break
+        case let .questionsCount(minimumQuestions, maximumQuestions):
+            result.append(.minimumQuestionsCount(minimumQuestions))
+            result.append(.maximumQuestionsCount(maximumQuestions))
+        case let .releaseDate(minimumDate, maximumDate):
+            result.append(.minimumReleaseDate(minimumDate))
+            result.append(.maximumReleaseDate(maximumDate))
         case let .duration(start, end):
-            break
+            result.append(.minimumDurationPicker(start))
+            result.append(.maximumDurationPicker(end))
         }
         return result
     }
@@ -158,16 +248,6 @@ class SctSearchViewController: UITableViewController
         tableView.registerNibCell(ButtonCell.self)
         tableView.isEditing = true
         tableView.allowsSelectionDuringEditing = true
-        
-        criteria_.append(SctSearchCriterion.all.first!)
-    }
-    
-    // -------------------------------------------------------------------------
-    // MARK: - SEARCH MANAGMENT
-    // -------------------------------------------------------------------------
-    fileprivate var searchEnabled_: Bool
-    {
-        return !criteria_.isEmpty
     }
     
     // -------------------------------------------------------------------------
@@ -201,6 +281,51 @@ class SctSearchViewController: UITableViewController
         dismiss(animated: true, completion: nil)
     }
     
+    @objc fileprivate func updateDuration_(_ sender: UISlider)
+    {
+        let newString = Constants.durationString(forTimeInterval: Double(sender.value) * SctSearchViewController.maximumDuration)
+        // minimum
+        if sender.tag == SctSearchViewController.minimumTag_
+        {
+            // can not be greater than maximumDuration_
+            if sender.value > maximumDuration_
+            {
+                maximumDuration_ = sender.value
+                maximumDurationCell_?.slider.value = maximumDuration_
+                maximumDurationCell_?.valueLabel.text = newString
+            }
+            minimumDuration_ = sender.value
+            minimumDurationCell_?.valueLabel.text = newString
+        }
+        else
+        {
+            if sender.value < minimumDuration_
+            {
+                minimumDuration_ = sender.value
+                minimumDurationCell_?.slider.value = sender.value
+                minimumDurationCell_?.valueLabel.text = newString
+            }
+            maximumDuration_ = sender.value
+            maximumDurationCell_?.valueLabel.text = newString
+        }
+    }
+    
+    fileprivate func checkSearchAll_()
+    {
+        let searchAllAlert = UIAlertController(title: "SctSearch.SearchAllAlert.Title".localized, message: "SctSearch.SearchAllAlert.Message".localized, preferredStyle: .alert)
+        
+        let yesAction = UIAlertAction(title: "Common.Yes".localized, style: .default, handler: {
+            (_) -> Void in
+            self.performSegue(withIdentifier: SctSearchViewController.toSctSearchResultSegueId, sender: self)
+        })
+        let noAction = UIAlertAction(title: "Common.No".localized, style: .cancel, handler: nil)
+        
+        searchAllAlert.addAction(noAction)
+        searchAllAlert.addAction(yesAction)
+        
+        present(searchAllAlert, animated: true, completion: nil)
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - SEGUE
     // -------------------------------------------------------------------------
@@ -228,6 +353,30 @@ class SctSearchViewController: UITableViewController
                 break
             }
         }
+        // date picker
+        else if segue.identifier == SctSearchViewController.toDatePicker,
+            let target = segue.destination as? DatePickerViewController
+        {
+            target.delegate = self
+            
+            if pickMinimumDate_
+            {
+                target.maximumDate = maximumDate_
+                target.date = minimumDate_
+            }
+            else
+            {
+                target.minimumDate = minimumDate_
+                target.date = maximumDate_
+                target.maximumDate = Date()
+            }
+        }
+        // search result
+        else if segue.identifier == SctSearchViewController.toSctSearchResultSegueId,
+            let target = (segue.destination as? UINavigationController)?.viewControllers.first as? SctSearchResultViewController
+        {
+            target.criteria = criteria_
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -239,9 +388,12 @@ class SctSearchViewController: UITableViewController
         
         switch row
         {
-        case .criterion(_), .qualificationTopic(_):
+        case .criterion(_), .qualificationTopic(_),
+             .minimumQuestionsCount(_), .maximumQuestionsCount(_),
+             .minimumDurationPicker, .maximumDurationPicker:
             return nil
-        case .addCriterion, .pickQualificationTopics, .performSearch:
+        case .addCriterion, .pickQualificationTopics,
+             .minimumReleaseDate(_), .maximumReleaseDate(_), .performSearch:
             return indexPath
         }
     }
@@ -254,13 +406,32 @@ class SctSearchViewController: UITableViewController
         {
         case .addCriterion:
             performSegue(withIdentifier: SctSearchViewController.toSctSearchPickerSegueId, sender: self)
-        case .criterion(_), .qualificationTopic(_):
+        case .criterion(_), .qualificationTopic(_),
+             .minimumQuestionsCount(_), .maximumQuestionsCount(_),
+             .minimumDurationPicker, .maximumDurationPicker:
             break
+        case let .minimumReleaseDate(date):
+            currentIndexPath_ = indexPath
+            pickMinimumDate_ = true
+            minimumDate_ = date
+            performSegue(withIdentifier: SctSearchViewController.toDatePicker, sender: self)
+        case let .maximumReleaseDate(date):
+            currentIndexPath_ = indexPath
+            pickMinimumDate_ = false
+            maximumDate_ = date
+            performSegue(withIdentifier: SctSearchViewController.toDatePicker, sender: self)
         case .pickQualificationTopics:
             currentIndexPath_ = indexPath
             performSegue(withIdentifier: SctSearchViewController.toQualificationTopicsSegueId, sender: self)
         case .performSearch:
-            break
+            if !criteria_.isEmpty
+            {
+                performSegue(withIdentifier: SctSearchViewController.toSctSearchResultSegueId, sender: self)
+            }
+            else
+            {
+                checkSearchAll_()
+            }
         }
     }
     
@@ -275,7 +446,10 @@ class SctSearchViewController: UITableViewController
         {
         case .addCriterion, .criterion(_):
             return true
-        case .qualificationTopic(_), .pickQualificationTopics, .performSearch:
+        case .qualificationTopic(_), .pickQualificationTopics,
+             .minimumQuestionsCount(_), .maximumQuestionsCount(_),
+             .minimumReleaseDate(_), .maximumReleaseDate(_),
+             .minimumDurationPicker, .maximumDurationPicker, .performSearch:
             return false
         }
     }
@@ -290,7 +464,10 @@ class SctSearchViewController: UITableViewController
             return .insert
         case .criterion(_):
             return .delete
-        case .qualificationTopic(_), .pickQualificationTopics, .performSearch:
+        case .qualificationTopic(_), .pickQualificationTopics,
+             .minimumQuestionsCount(_), .maximumQuestionsCount(_),
+             .minimumReleaseDate(_), .maximumReleaseDate(_),
+             .minimumDurationPicker, .maximumDurationPicker, .performSearch:
             return .none
         }
     }
@@ -351,6 +528,17 @@ extension SctSearchViewController: SctSearchCriterionPickerDelegate
     func sctSearchCriterionPicker(_ sctSearchCriterionPickerViewController: SctSearchCriterionPickerViewController, didPickCriterion pickedCriterion: SctSearchCriterion)
     {
         criteria_.append(pickedCriterion)
+        switch pickedCriterion
+        {
+        case let .questionsCount(minimumQuestions, maximumQuestions):
+            minimumQuestionsCount_ = minimumQuestions
+            maximumQuestionsCount_ = maximumQuestions
+        case let .releaseDate(minimumDate, maximumDate):
+            minimumDate_ = minimumDate
+            maximumDate_ = maximumDate
+        default:
+            break
+        }
         
         if SctSearchCriterion.pickableCriteria(alreadyPicked: criteria_).isEmpty
         {
@@ -379,5 +567,79 @@ extension SctSearchViewController: QualificationTopicsPickerDelegate
         tableView.reloadSections(IndexSet([criterionIndex]), with: .automatic)
         
         currentIndexPath_ = nil
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - DATE PICKER DELEGATE
+// -----------------------------------------------------------------------------
+extension SctSearchViewController: DatePickerDelegate
+{
+    func datePicker(_ datePickerViewController: DatePickerViewController, didPickDate date: Date)
+    {
+        if pickMinimumDate_
+        {
+            minimumDate_ = date
+        }
+        else
+        {
+            maximumDate_ = date
+        }
+        
+        guard currentIndexPath_ != nil else
+        {
+            return
+        }
+        
+        let newReleaseDate = SctSearchCriterion.releaseDate(minimumDate_, maximumDate_)
+        let sectionIndex = currentIndexPath_!.section
+        criteria_[sectionIndex] = newReleaseDate
+        tableView.reloadSections(IndexSet([sectionIndex]), with: .automatic)
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - UI TEXT FIELD DELEGATE
+// -----------------------------------------------------------------------------
+extension SctSearchViewController: UITextFieldDelegate
+{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        for character in string
+        {
+            if Int("\(character)") == nil
+            {
+                return false
+            }
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        let typedValue = Int(textField.text ?? "") ?? 0
+        let newValue = Constants.bound(typedValue, min: 0, max: SctExam.maximumTotalQuestionsCount)
+        if textField.tag == SctSearchViewController.minimumTag_
+        {
+            if newValue > maximumQuestionsCount_
+            {
+                maximumQuestionsCount_ = newValue
+                maximumQuestionsTextField_?.text = "\(newValue)"
+            }
+            minimumQuestionsCount_ = newValue
+            minimumQuestionsTextField_?.text = "\(newValue)"
+        }
+        else
+        {
+            if newValue < minimumQuestionsCount_
+            {
+                minimumQuestionsCount_ = newValue
+                minimumQuestionsTextField_?.text = "\(newValue)"
+            }
+            maximumQuestionsCount_ = newValue
+            maximumQuestionsTextField_?.text = "\(newValue)"
+        }
+        
+        criteria_[questionsCountCriterionIndex_] = .questionsCount(minimumQuestionsCount_, maximumQuestionsCount_)
     }
 }

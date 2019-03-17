@@ -1,0 +1,60 @@
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "3C8-Fx-q4I"; */
+"3C8-Fx-q4I.text" = "Titre";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "4ZL-OY-F52"; */
+"4ZL-OY-F52.text" = "Détail";
+
+/* Class = "UIViewController"; title = "Pick Date"; ObjectID = "6bY-nC-PR6"; */
+"6bY-nC-PR6.title" = "Choix date";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "C59-97-JnC"; */
+"C59-97-JnC.text" = "Titre";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "LW4-hG-XtG"; */
+"LW4-hG-XtG.text" = "Titre";
+
+/* Class = "UINavigationItem"; title = "Search Result"; ObjectID = "Msw-tj-EqB"; */
+"Msw-tj-EqB.title" = "Résultat recherche";
+
+/* Class = "UINavigationItem"; title = "SCT Search"; ObjectID = "Ops-kJ-dv3"; */
+"Ops-kJ-dv3.title" = "Recherche TCS";
+
+/* Class = "UIButton"; normalTitle = "Test sct horizontal"; ObjectID = "SPv-wJ-AFv"; */
+"SPv-wJ-AFv.normalTitle" = "Test TCS horizontal";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "SQs-MZ-pgo"; */
+"SQs-MZ-pgo.text" = "Label";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "VV8-hk-dOO"; */
+"VV8-hk-dOO.text" = "Titre";
+
+/* Class = "UITableViewController"; title = "Pick Qualification Topics"; ObjectID = "YyQ-A3-FQv"; */
+"YyQ-A3-FQv.title" = "Choix thèmes qualification";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "axO-Ao-icx"; */
+"axO-Ao-icx.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "eLO-9q-wAx"; */
+"eLO-9q-wAx.text" = "Label";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "h2e-b7-lhd"; */
+"h2e-b7-lhd.text" = "Titre";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "h8l-HN-FQM"; */
+"h8l-HN-FQM.text" = "Titre";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "mhl-Q4-l3u"; */
+"mhl-Q4-l3u.text" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "nCd-LG-Nr7"; */
+"nCd-LG-Nr7.text" = "Titre";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "sZo-ct-L99"; */
+"sZo-ct-L99.text" = "Détail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "sjs-HN-SY1"; */
+"sjs-HN-SY1.text" = "Titre";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "yfa-j0-q5k"; */
+"yfa-j0-q5k.text" = "Titre";

@@ -15,8 +15,9 @@ enum SctSearchCriterion
 {
     static let all: [SctSearchCriterion] = [
         .topics([.surgery]),
-        .releaseDate(Date(), Date()),
-        .questionsCount(0, 0), .duration(0.0, 0.0)
+        .releaseDate(Date(timeIntervalSinceNow: -7 * 24 * 3600.0), Date()),
+        .questionsCount(0, 0),
+        .duration(0.0, SctSearchViewController.maximumDuration)
     ]
     
     static func pickableCriteria(alreadyPicked pickedCriteria: [SctSearchCriterion]) -> [SctSearchCriterion]

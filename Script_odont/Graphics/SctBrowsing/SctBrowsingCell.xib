@@ -25,27 +25,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VV-pb-wCX">
-                                        <rect key="frame" x="0.0" y="0.0" width="122" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="152.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questions count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svz-eW-RTV">
-                                        <rect key="frame" x="127" y="0.0" width="121.5" height="20.5"/>
+                                        <rect key="frame" x="157.5" y="0.0" width="60.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvI-tb-FZV">
-                                        <rect key="frame" x="253.5" y="0.0" width="81.5" height="20.5"/>
+                                        <rect key="frame" x="223" y="0.0" width="112" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Svz-eW-RTV" firstAttribute="width" secondItem="ohc-ZB-iZG" secondAttribute="width" multiplier="4:11" id="36G-SM-ClX"/>
-                                    <constraint firstItem="0VV-pb-wCX" firstAttribute="width" secondItem="ohc-ZB-iZG" secondAttribute="width" multiplier="4:11" id="Qxz-HL-rbH"/>
+                                    <constraint firstItem="Svz-eW-RTV" firstAttribute="width" secondItem="ohc-ZB-iZG" secondAttribute="width" multiplier="2:11" id="36G-SM-ClX"/>
+                                    <constraint firstItem="0VV-pb-wCX" firstAttribute="width" secondItem="ohc-ZB-iZG" secondAttribute="width" multiplier="5:11" id="Qxz-HL-rbH"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eK8-Em-Aao">

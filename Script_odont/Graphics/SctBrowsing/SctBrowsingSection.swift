@@ -179,7 +179,7 @@ class SctBrowsingSection: UIView
     fileprivate func setupSeeAllButton_()
     {
         seeAllButton_.isHidden = true
-        seeAllButton_.setTitle("See all", for: .normal)
+        seeAllButton_.setTitle("SctBrowsingSection.SeeAll".localized, for: .normal)
     }
     
     fileprivate func setupDescriptionLabel_()

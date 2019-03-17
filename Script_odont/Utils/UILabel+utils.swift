@@ -25,6 +25,7 @@ extension UILabel
     // -------------------------------------------------------------------------
     public func prepareToDisplayRoundStyle(enabled: Bool = true)
     {
+        textAlignment = .center
         let color = (enabled ? UIColor.blue : UIColor.gray)
         layer.backgroundColor = color.cgColor
         layer.cornerRadius = frame.height / 2

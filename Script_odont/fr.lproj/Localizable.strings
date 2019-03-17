@@ -7,8 +7,10 @@
 */
 
 /* COMMON */
-"Common.Ok" = "Ok";
+"Common.Ok"     = "Ok";
 "Common.Cancel" = "Annuler";
+"Common.Yes"    = "Oui";
+"Common.No"     = "Non";
 
 /* CORE */
 "Sct.Topic.Diagnostic" = "Diagnostique";
@@ -180,6 +182,8 @@
 "DrawingWalkthrough.Drawing.LikertIndex"    = "Indice de Likert";
 
 /* SCT BROWSING */
+"SctBrowsingSection.SeeAll" = "Voir tout";
+
 "SctBrowsing.LatestPeriod.Day.Name"     = "Aujourd'hui";
 "SctBrowsing.LatestPeriod.Week.Name"    = "Cette semaine";
 "SctBrowsing.LatestPeriod.Month.Name"   = "Ce mois";
@@ -204,11 +208,27 @@
 "SctSearch.Criterion.QuestionsCount.Name"   = "Nombre de questions";
 "SctSearch.Criterion.Duration.Name"         = "Durée";
 
-"SctSearch.AddCriterion.Title"              = "Ajouter citère";
+"SctSearch.AddCriterion.Title"              = "Ajouter critère";
 "SctSearch.PickQualificationTopics.Title"   = "Choisir les thèmes";
 "SctSearch.PerformSearch.Title"             = "Rechercher";
 
+"SctSearch.DurationPicker.Minimum" = "Minimum :";
+"SctSearch.DurationPicker.Maximum" = "Maximum :";
+"SctSearch.DurationPicker.Minimum.Date" = "Après le :";
+"SctSearch.DurationPicker.Maximum.Date" = "Avant le :";
+"SctSearch.DurationPicker.Minimum.QuestionsCount" = "Questions minimum :";
+"SctSearch.DurationPicker.Maximum.QuestionsCount" = "Questions maximum :";
+
 "SctSearchCriterionPicker.NavigationItem.Title" = "Choix nouveau critère";
+
+"SctSearch.SearchAllAlert.Title"    = "Afficher tout";
+"SctSearch.SearchAllAlert.Message"  = "Aucun critère de recherche n'a été mentionné. Voulez-vous afficher l'ensemble des TCS ?";
+
+/* SCT SEARCH RESULT */
+"SctSearchResult.Section.Summary.Title" = "Résumé recherche";
+"SctSearchResult.Section.Results.Title" = "Résultats";
+"SctSearchResult.AllScts"               = "Tous les TCS.";
+"SctSearchResult.NoScts"                = "Pas de TCS trouvé.";
 
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information"      = "Informations";
@@ -235,3 +255,6 @@
 /* MY SCT*/
 "MySct.Section.Unfinished" = "Non finis";
 "MySct.Section.Finished" = "Finis";
+
+/* CONSTANTS */
+"Constants.Duration.String.Format.Short" = "%02dM:%02dS";

@@ -9,6 +9,8 @@
 /* COMMON */
 "Common.Ok"     = "Ok";
 "Common.Cancel" = "Cancel";
+"Common.Yes"    = "Yes";
+"Common.No"     = "No";
 
 /* CORE */
 "Sct.Topic.Diagnostic" = "Diagnostic";
@@ -180,6 +182,8 @@
 "DrawingWalkthrough.Drawing.LikertIndex"    = "Likert index";
 
 /* SCT BROWSING */
+"SctBrowsingSection.SeeAll" = "See All";
+
 "SctBrowsing.LatestPeriod.Day.Name"     = "Today";
 "SctBrowsing.LatestPeriod.Week.Name"    = "This week";
 "SctBrowsing.LatestPeriod.Month.Name"   = "This month";
@@ -208,7 +212,23 @@
 "SctSearch.PickQualificationTopics.Title"   = "Pick Qualification Topics";
 "SctSearch.PerformSearch.Title"             = "Search";
 
+"SctSearch.DurationPicker.Minimum" = "Minimum:";
+"SctSearch.DurationPicker.Maximum" = "Maximum:";
+"SctSearch.DurationPicker.Minimum.Date" = "After:";
+"SctSearch.DurationPicker.Maximum.Date" = "Before:";
+"SctSearch.DurationPicker.Minimum.QuestionsCount" = "Minimum Questions:";
+"SctSearch.DurationPicker.Maximum.QuestionsCount" = "Maximum Questions:";
+
 "SctSearchCriterionPicker.NavigationItem.Title" = "Pick New Criterion";
+
+"SctSearch.SearchAllAlert.Title"    = "Search All";
+"SctSearch.SearchAllAlert.Message"  = "No criteria have been added. Do you want to display all the SCTs ?";
+
+/* SCT SEARCH RESULT */
+"SctSearchResult.Section.Summary.Title" = "Search Summary";
+"SctSearchResult.Section.Results.Title" = "Results";
+"SctSearchResult.AllScts"               = "All SCTs.";
+"SctSearchResult.NoScts"                = "No SCTs found.";
 
 /* SCT EXAM */
 "SctExam.Horizontal.Title.Information" = "Information";
@@ -235,3 +255,6 @@
 /* MY SCT*/
 "MySct.Section.Unfinished" = "Unfinished";
 "MySct.Section.Finished" = "Finished";
+
+/* CONSTANTS */
+"Constants.Duration.String.Format.Short" = "%02dM:%02dS";
