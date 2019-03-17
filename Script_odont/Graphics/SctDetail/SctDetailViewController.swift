@@ -23,6 +23,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         case results
         case duration
         case popularity
+        case resume
         
         var headerTitle: String? {
             switch self
@@ -39,6 +40,8 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 return "SctDetail.Section.Duration".localized
             case .popularity:
                 return "SctDetail.Section.Popularity".localized
+            case .resume:
+                return nil
             }
         }
     }
@@ -75,6 +78,9 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         case votes
         case launchesCount
         case meanCompletionPercentage
+        
+        // resume
+        case resume
         
         func cell(for indexPath: IndexPath, sctDetailViewController: SctDetailViewController) -> UITableViewCell
         {
@@ -192,6 +198,10 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 let meanCompletionPercentage = numberFormatter.string(from: NSNumber(value: dataSource.statistics.meanCompletionPercentage))!
                 cell.detailTextLabel?.text = String.localizedStringWithFormat("SctDetail.TableCell.Detail.MeanCompletionPerentage".localized, meanCompletionPercentage)
                 
+            // resume
+            case .resume:
+                cell.textLabel?.text = "SctDetail.TableCell.Resume".localized
+                cell.textLabel?.textColor = Appearance.Color.action
             }
             return cell
         }
@@ -260,6 +270,9 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     // -------------------------------------------------------------------------
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
+        let currentSection = sections_[indexPath.section]
+        let currentRow = rows_(for: currentSection, at: indexPath.section)[indexPath.row]
+        
         let selectedCell = tableView.cellForRow(at: indexPath)
         // perform rate
         if selectedCell == performRateCell_
@@ -280,11 +293,24 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         {
             return indexPath
         }
+        
+        // resume
+        switch currentRow
+        {
+        case .resume:
+            return indexPath
+        default:
+            break
+        }
+        
         return nil
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        let currentSection = sections_[indexPath.section]
+        let currentRow = rows_(for: currentSection, at: indexPath.section)[indexPath.row]
+        
         let selectedCell = tableView.cellForRow(at: indexPath)
         if selectedCell == performRateCell_
         {
@@ -293,6 +319,14 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         else if removeRateIndex_ == indexPath
         {
             delegate?.sctDetailView(didRemoveVote: self)
+        }
+        
+        switch currentRow
+        {
+        case .resume:
+            delegate?.sctDetailView(didResume: self)
+        default:
+            break
         }
     }
     

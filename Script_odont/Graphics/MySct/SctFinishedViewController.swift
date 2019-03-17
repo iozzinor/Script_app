@@ -65,6 +65,10 @@ extension SctFinishedViewController: SctDetailViewDelegate
         tableView.deleteRows(at: [IndexPath(row: 1, section: 1)], with: .automatic)
         tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
     }
+    
+    func sctDetailView(didResume sctDetailViewController: SctDetailViewController)
+    {
+    }
 }
 
 // -----------------------------------------------------------------------------
@@ -113,6 +117,9 @@ extension SctFinishedViewController: SctDetailViewDataSource
             return [.estimatedDuration, .meanDuration]
         case .popularity:
             return [.votes, .launchesCount, .meanCompletionPercentage]
+            
+        case .resume:
+            return []
         }
     }
 }

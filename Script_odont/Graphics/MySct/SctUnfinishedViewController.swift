@@ -28,14 +28,38 @@ class SctUnfinishedViewController: SctDetailViewController
     }
     
     @IBOutlet weak var tableView: UITableView!
-    let sections: [SctDetailViewController.SctDetailSection] = [.general, .lastSession, .duration, .popularity]
+    let sections: [SctDetailViewController.SctDetailSection] = [.general, .lastSession, .duration, .popularity, .resume]
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        delegate = self
         dataSource = self
         setupTableView(tableView)
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - SCT DETAIL VIEW DELEGATE
+// -----------------------------------------------------------------------------
+extension SctUnfinishedViewController: SctDetailViewDelegate
+{
+    func sctDetailView(_ sctDetailViewController: SctDetailViewController, didPerformVote vote: Int)
+    {
+    }
+    
+    func sctDetailView(_ sctDetailViewController: SctDetailViewController, didUpdateVote vote: Int)
+    {
+    }
+    
+    func sctDetailView(didRemoveVote sctDetailViewController: SctDetailViewController)
+    {
+    }
+    
+    func sctDetailView(didResume sctDetailViewController: SctDetailViewController)
+    {
+        print("resumed !")
     }
 }
 
@@ -60,6 +84,8 @@ extension SctUnfinishedViewController: SctDetailViewDataSource
             return [.estimatedDuration, .meanDuration]
         case .popularity:
             return [.votes, .launchesCount, .meanCompletionPercentage]
+        case .resume:
+            return [.resume]
         }
     }
     

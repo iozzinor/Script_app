@@ -14,4 +14,7 @@ protocol SctDetailViewDelegate: class
     func sctDetailView(_ sctDetailViewController: SctDetailViewController, didPerformVote vote: Int)
     func sctDetailView(_ sctDetailViewController: SctDetailViewController, didUpdateVote vote: Int)
     func sctDetailView(didRemoveVote sctDetailViewController: SctDetailViewController)
+    
+    // resume
+    func sctDetailView(didResume sctDetailViewController: SctDetailViewController)
 }

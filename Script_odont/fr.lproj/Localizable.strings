@@ -89,6 +89,8 @@
 "SctDetail.TableCell.CompletionDuration"          = "Durée finale :";
 "SctDetail.TableCell.CompletionScore"             = "Score final :";
 
+"SctDetail.TableCell.Resume"                      = "Reprendre";
+
 "SctDetail.TableCell.Detail.Score"                    = "%@ / %d";
 "SctDetail.TableCell.Detail.AnsweredQuestionsCount"   = "%d / %d";
 "SctDetail.TableCell.Detail.MeanCompletionPerentage"  = "%@%%";
