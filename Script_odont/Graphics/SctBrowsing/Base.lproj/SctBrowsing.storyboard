@@ -461,15 +461,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPv-wJ-AFv">
-                                <rect key="frame" x="0.0" y="20" width="375" height="30"/>
-                                <state key="normal" title="Test sct horizontal"/>
-                                <connections>
-                                    <segue destination="XnG-73-xjh" kind="presentation" identifier="SctBrowsingToSctHorizontalSegueId" id="73z-4a-Aex"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wyj-6G-jxh">
-                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SctBrowsingTopicCellReuseId" textLabel="nCd-LG-Nr7" detailTextLabel="4ZL-OY-F52" style="IBUITableViewCellStyleValue1" id="EMt-qu-Cik">
@@ -518,11 +511,8 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="SPv-wJ-AFv" firstAttribute="leading" secondItem="Mhu-0a-i4K" secondAttribute="leading" id="4oe-e3-Yt4"/>
                             <constraint firstItem="wyj-6G-jxh" firstAttribute="leading" secondItem="Mhu-0a-i4K" secondAttribute="leading" id="CPq-RD-Qql"/>
-                            <constraint firstItem="Mhu-0a-i4K" firstAttribute="trailing" secondItem="SPv-wJ-AFv" secondAttribute="trailing" id="Pef-IH-ne9"/>
-                            <constraint firstItem="SPv-wJ-AFv" firstAttribute="top" secondItem="Mhu-0a-i4K" secondAttribute="top" id="WSK-N5-WxS"/>
-                            <constraint firstItem="wyj-6G-jxh" firstAttribute="top" secondItem="SPv-wJ-AFv" secondAttribute="bottom" id="aEe-of-xpm"/>
+                            <constraint firstItem="wyj-6G-jxh" firstAttribute="top" secondItem="Mhu-0a-i4K" secondAttribute="top" id="byY-ZH-49c"/>
                             <constraint firstItem="Mhu-0a-i4K" firstAttribute="bottom" secondItem="wyj-6G-jxh" secondAttribute="bottom" id="cTX-Sa-Mik"/>
                             <constraint firstItem="Mhu-0a-i4K" firstAttribute="trailing" secondItem="wyj-6G-jxh" secondAttribute="trailing" id="fdu-A2-bBe"/>
                         </constraints>
@@ -550,7 +540,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="9QH-NQ-3Nl">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -565,6 +555,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="9QH-NQ-3Nl" id="xf4-1b-WXU"/>
+                        <segue destination="XnG-73-xjh" kind="presentation" identifier="SctLaunchToSctHorizontalSegueId" id="yI4-q5-MVp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZB-To-VXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -577,10 +568,10 @@
                 <viewControllerPlaceholder storyboardName="SctHorizontal" id="XnG-73-xjh" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBR-Ai-goI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1441" y="-1094"/>
+            <point key="canvasLocation" x="1441" y="-2557"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MIr-MN-8MF"/>
+        <segue reference="7A0-t0-jfc"/>
     </inferredMetricsTieBreakers>
 </document>
