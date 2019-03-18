@@ -48,7 +48,14 @@ class PeriodLeaderboardViewController: LeaderboardViewController
         result.append((section: .topTen, rows: bestTenUsers_.map { LeaderboardRow.foreignCandidate($0)} ))
         
         // user
-        result.append((section: .user, rows: [.foreignCandidate(userStatistics_)]))
+        if Constants.random(min: 0, max: 99) % 2 == 0
+        {
+            result.append((section: .user, rows: [.foreignCandidate(userStatistics_)]))
+        }
+        else
+        {
+            result.append((section: .user, rows: [.userNotRanked]))
+        }
     
         return result
     }

@@ -255,15 +255,32 @@
 /* MY SCT*/
 "MySct.Section.Unfinished"  = "Unfinished";
 "MySct.Section.Finished"    = "Finished";
+"MySct.Section.Progress"    = "My Progress";
 
 "MySct.Section.Unfinished.Description"  = "SCTs you have started but not ended yet.";
 "MySct.Section.Finished.Description"    = "SCTs you have taken.";
+
+"MySct.Progress.Title" = "See My Progress";
 
 /* SCTS UNFINISHED LIST */
 "SctsUnfinishedList.NavigationItem.Title" = "Unfinished SCTs";
 
 /* SCTS FINISHED LIST */
 "SctsFinishedList.NavigationItem.Title" = "Finished SCTs";
+
+/* PROGRESS CELL */
+"ProgressCell.Period.Today"           = "Today";
+"ProgressCell.Period.WeekFormat"      = "%@ - %@";
+"ProgressCell.Period.MonthFormat"     = "MMMM YYYY";
+
+/* MY PROGRESS */
+"MyProgress.Section.Data.Title"             = "SCT Scores (percentages)";
+"MyProgress.NavigationItem.Title"           = "My Progress";
+"MyProgress.Data.Count.Title"               = "Scores Count:";
+"MyProgress.Data.MeanScore.Title"           = "Mean Score:";
+"MyProgress.Data.AnsweredSctExams.Title"    = "Answered Sct Exams:";
+"MyProgress.NoProgression"                  = "No progression.";
+"MyProgress.Explanation"                    = "Scores are normalized according to the maximum score possible.";
 
 /* CONSTANTS */
 "Constants.Duration.String.Format.Short" = "%02dM:%02dS";
@@ -289,6 +306,7 @@
 
 "Leaderboard.NavigationItem.Title" = "Leaderboard";
 
+"Leaderboard.User.NotRanked"        = "Your are not currently ranked.";
 "Leaderboard.User.Rank"             = "Rank:";
 "Leaderboard.User.AnsweredSctExams" = "Total Answered Sct Exams:";
 "Leaderboard.User.MeanScore"        = "Mean Score:";
@@ -304,3 +322,14 @@
 "LatestPeriod.Week.Name"    = "This week";
 "LatestPeriod.Month.Name"   = "This month";
 "LatestPeriod.Year.Name"    = "This year";
+
+/* PERIOD */
+"Period.Day.Name.Short"     = "D";
+"Period.Week.Name.Short"    = "W";
+"Period.Month.Name.Short"   = "M";
+"Period.Year.Name.Short"    = "Y";
+
+"Period.Day.Name"     = "Day";
+"Period.Week.Name"    = "Week";
+"Period.Month.Name"   = "Month";
+"Period.Year.Name"    = "Year";

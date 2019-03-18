@@ -60,6 +60,7 @@ class LeaderboardViewController: UITableViewController
         
         case foreignCandidate(CandidateStatistics)
         
+        case userNotRanked
         case userRank(Int)
         case userAnsweredSctExams(Int)
         case userMeanScore(Double)
@@ -81,6 +82,11 @@ class LeaderboardViewController: UITableViewController
                 return cell
                 
             // user
+            case .userNotRanked:
+                let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+                cell.textLabel?.textColor = Appearance.Color.missing
+                cell.textLabel?.text = "Leaderboard.User.NotRanked".localized
+                return cell
             case let .userRank(rank):
                 let cell = tableView.dequeueReusableCell(withIdentifier: LeaderboardViewController.userCellId, for: indexPath)
                 cell.textLabel?.text = "Leaderboard.User.Rank".localized
@@ -105,7 +111,7 @@ class LeaderboardViewController: UITableViewController
             {
             case .period(_):
                 return .disclosureIndicator
-            case .foreignCandidate(_), .userRank(_), .userAnsweredSctExams(_), .userMeanScore(_):
+            case .foreignCandidate(_), .userNotRanked, .userRank(_), .userAnsweredSctExams(_), .userMeanScore(_):
                 return .none
             }
         }
@@ -186,7 +192,7 @@ class LeaderboardViewController: UITableViewController
         {
         case .period(_):
             return indexPath
-        case .foreignCandidate(_), .userRank(_), .userAnsweredSctExams(_), .userMeanScore(_):
+        case .foreignCandidate(_), .userNotRanked, .userRank(_), .userAnsweredSctExams(_), .userMeanScore(_):
             return nil
         }
     }
@@ -200,7 +206,7 @@ class LeaderboardViewController: UITableViewController
         case let .period(latestPeriod):
             currentPeriod_ = latestPeriod
             performSegue(withIdentifier: LeaderboardViewController.toPeriodLeaderboardSegueId, sender: self)
-        case .foreignCandidate(_), .userRank(_), .userAnsweredSctExams(_), .userMeanScore(_):
+        case .foreignCandidate(_), .userNotRanked, .userRank(_), .userAnsweredSctExams(_), .userMeanScore(_):
             break
         }
     }

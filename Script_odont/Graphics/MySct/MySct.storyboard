@@ -39,6 +39,7 @@
                         <segue destination="ewE-Wr-xud" kind="show" identifier="MySctToSctFinishedSegueId" id="jQZ-pT-Wvx"/>
                         <segue destination="t2D-my-nyU" kind="show" identifier="MySctToSctsUnfinishedListSegueId" id="anL-SH-Fjq"/>
                         <segue destination="WUa-01-4HM" kind="show" identifier="MySctToSctsFinishedListSegueId" id="BQL-Yd-Bc5"/>
+                        <segue destination="tPt-vj-VAm" kind="show" identifier="MySctToMyProgressSegueId" id="1if-oc-6Dh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09I-Kv-FuE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -126,6 +127,126 @@
             </objects>
             <point key="canvasLocation" x="838" y="1106"/>
         </scene>
+        <!--My Progress View Controller-->
+        <scene sceneID="tWe-60-MgZ">
+            <objects>
+                <tableViewController id="tPt-vj-VAm" customClass="MyProgressViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ctb-sr-vHi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProgressCellReuseId" id="Mll-rk-5pX" customClass="ProgressCell" customModule="Script_odont" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mll-rk-5pX" id="Ix5-9i-Hsf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZA9-f0-V5q">
+                                            <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sZD-xe-wmr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="5"/>
+                                                    <subviews>
+                                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o2q-q0-Dfw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="1"/>
+                                                            <segments>
+                                                                <segment title="First"/>
+                                                                <segment title="Second"/>
+                                                            </segments>
+                                                        </segmentedControl>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfv-ZF-vuR">
+                                                            <rect key="frame" x="0.0" y="5" width="335" height="0.0"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="hfv-ZF-vuR" firstAttribute="leading" secondItem="sZD-xe-wmr" secondAttribute="leading" id="2Tm-6C-sM4"/>
+                                                        <constraint firstItem="o2q-q0-Dfw" firstAttribute="leading" secondItem="sZD-xe-wmr" secondAttribute="leading" id="gZE-nZ-mgv"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clL-Zd-riV" customClass="ScoreProgressDiagram" customModule="Script_odont" customModuleProvider="target">
+                                                    <rect key="frame" x="151" y="10" width="33.5" height="33.5"/>
+                                                    <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="clL-Zd-riV" secondAttribute="height" id="zkO-aQ-E5u"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="clL-Zd-riV" firstAttribute="leading" secondItem="ZA9-f0-V5q" secondAttribute="leading" id="2KN-jZ-7dk"/>
+                                                <constraint firstItem="sZD-xe-wmr" firstAttribute="leading" secondItem="ZA9-f0-V5q" secondAttribute="leading" id="dJF-jm-U2W"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ZA9-f0-V5q" firstAttribute="leading" secondItem="Ix5-9i-Hsf" secondAttribute="leading" constant="20" symbolic="YES" id="EjM-8s-iFk"/>
+                                        <constraint firstItem="ZA9-f0-V5q" firstAttribute="top" secondItem="Ix5-9i-Hsf" secondAttribute="top" id="Xii-Ce-fO2"/>
+                                        <constraint firstAttribute="trailing" secondItem="ZA9-f0-V5q" secondAttribute="trailing" constant="20" symbolic="YES" id="ckX-28-FL0"/>
+                                        <constraint firstAttribute="bottom" secondItem="ZA9-f0-V5q" secondAttribute="bottom" id="fIw-eX-Mxc"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="periodControl" destination="o2q-q0-Dfw" id="Cjb-nD-lNd"/>
+                                    <outlet property="periodLabel" destination="hfv-ZF-vuR" id="mUO-o7-FZO"/>
+                                    <outlet property="scoreProgressDiagram" destination="clL-Zd-riV" id="bd9-Ox-fq4"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyProgressInformationCellReuseId" textLabel="t1L-L2-31f" detailTextLabel="fI0-9b-UW7" style="IBUITableViewCellStyleValue1" id="hhG-Nz-edq">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hhG-Nz-edq" id="kp4-9f-WfZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t1L-L2-31f">
+                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" restorationIdentifier="MyProgressInformationCellReuseId" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fI0-9b-UW7">
+                                            <rect key="frame" x="315" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MyProgressExplanationCellReuseId" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyProgressExplanationCellReuseId" textLabel="vGq-t2-pGi" style="IBUITableViewCellStyleDefault" id="FJa-GD-gZ4">
+                                <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FJa-GD-gZ4" id="i8R-YP-K9c">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vGq-t2-pGi">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tPt-vj-VAm" id="1Vl-8j-Hyt"/>
+                            <outlet property="delegate" destination="tPt-vj-VAm" id="8JS-Mw-WZD"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FF9-LY-1BI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-655.20000000000005" y="1181.5592203898052"/>
+        </scene>
         <!--Scts Finished List View Controller-->
         <scene sceneID="cYB-nb-m7Y">
             <objects>
@@ -149,7 +270,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BIt-Ro-eUd"/>
-        <segue reference="z2l-ah-eo3"/>
+        <segue reference="jQZ-pT-Wvx"/>
+        <segue reference="nLj-YW-UxA"/>
     </inferredMetricsTieBreakers>
 </document>

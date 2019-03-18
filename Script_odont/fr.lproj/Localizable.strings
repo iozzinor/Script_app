@@ -253,17 +253,34 @@
 "GoToSct.SctIndex" = "Tcs %d";
 
 /* MY SCT*/
-"MySct.Section.Unfinished" = "Non finis";
-"MySct.Section.Finished" = "Finis";
+"MySct.Section.Unfinished"  = "Non finis";
+"MySct.Section.Finished"    = "Finis";
+"MySct.Section.Progress"    = "Ma progression";
 
 "MySct.Section.Unfinished.Description"  = "Les TCS commencés et à terminer.";
 "MySct.Section.Finished.Description"    = "Les TCS que vous avez terminés.";
+
+"MySct.Progress.Title" = "Voir ma progression";
 
 /* SCTS UNFINISHED LIST */
 "SctsUnfinishedList.NavigationItem.Title" = "TCS entamés";
 
 /* SCTS FINISHED LIST */
 "SctsFinishedList.NavigationItem.Title" = "TCS terminés";
+
+/* PROGRESS CELL */
+"ProgressCell.Period.Today"           = "Aujourd'hui";
+"ProgressCell.Period.WeekFormat"      = "%@ - %@";
+"ProgressCell.Period.MonthFormat"     = "MMMM YYYY";
+
+/* MY PROGRESS */
+"MyProgress.Section.Data.Title"             = "Scores TCS (pourcentages)";
+"MyProgress.NavigationItem.Title"           = "Ma progression";
+"MyProgress.Data.Count.Title"               = "Nombre de résulats :";
+"MyProgress.Data.MeanScore.Title"           = "Score moyen :";
+"MyProgress.Data.AnsweredSctExams.Title"    = "Nombre d'examens passés :";
+"MyProgress.NoProgression"                  = "Pas de progression.";
+"MyProgress.Explanation"                    = "Les scores sont affichés en pourcentage du score maximal possible.";
 
 /* CONSTANTS */
 "Constants.Duration.String.Format.Short" = "%02dM:%02dS";
@@ -289,6 +306,7 @@
 
 "Leaderboard.NavigationItem.Title" = "Classement";
 
+"Leaderboard.User.NotRanked"        = "Vous n'êtes actuellement pas classé.";
 "Leaderboard.User.Rank"             = "Classement :";
 "Leaderboard.User.AnsweredSctExams" = "Nombre d'examens passés :";
 "Leaderboard.User.MeanScore"        = "Score moyen :";
@@ -304,3 +322,14 @@
 "LatestPeriod.Week.Name"    = "Cette semaine";
 "LatestPeriod.Month.Name"   = "Ce mois";
 "LatestPeriod.Year.Name"   = "Cette année";
+
+/* PERIOD */
+"Period.Day.Name.Short"     = "J";
+"Period.Week.Name.Short"    = "S";
+"Period.Month.Name.Short"   = "M";
+"Period.Year.Name.Short"    = "A";
+
+"Period.Day.Name"     = "Jour";
+"Period.Week.Name"    = "Semaine";
+"Period.Month.Name"   = "Mois";
+"Period.Year.Name"    = "Année";

@@ -30,6 +30,9 @@ struct Appearance
         /// The color used to indicate an action might be performed.
         public static let action = UIColor.blue
         
+        /// The color of table view separator.
+        public static let tableViewSeparator = UIColor.lightGray
+        
         /// The color for the given topic
         public static func color(for topic: SctTopic) -> UIColor
         {

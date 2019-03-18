@@ -17,6 +17,7 @@ class MySctViewController: UIViewController
     {
         case unfinished([SctUnfinished])
         case finished([SctFinished])
+        case progress
         
         var title: String? {
             switch self
@@ -25,6 +26,8 @@ class MySctViewController: UIViewController
                 return "MySct.Section.Unfinished".localized
             case .finished:
                 return "MySct.Section.Finished".localized
+            case .progress:
+                return "MySct.Section.Progress".localized
             }
         }
         
@@ -36,6 +39,8 @@ class MySctViewController: UIViewController
                 return "MySct.Section.Unfinished.Description".localized
             case .finished:
                 return "MySct.Section.Finished.Description".localized
+            case .progress:
+                return nil
             }
         }
         
@@ -57,6 +62,9 @@ class MySctViewController: UIViewController
                 return result.map {
                     return MySctRow.finished($0)
                 }
+                
+            case .progress:
+                return [.progress]
             }
         }
         
@@ -66,6 +74,8 @@ class MySctViewController: UIViewController
             {
             case .finished(_), .unfinished(_):
                 return MySctViewController.maximumDisplayedScts_
+            case .progress:
+                return 1
             }
         }
         
@@ -76,6 +86,8 @@ class MySctViewController: UIViewController
                 return unfinishedScts.count > MySctViewController.maximumDisplayedScts_
             case let .finished(finishedScts):
                 return finishedScts.count > MySctViewController.maximumDisplayedScts_
+            case .progress:
+                return false
             }
         }
     }
@@ -87,6 +99,7 @@ class MySctViewController: UIViewController
     {
         case unfinished(SctUnfinished)
         case finished(SctFinished)
+        case progress
         
         func cell(for indexPath: IndexPath, mySctViewController: MySctViewController) -> UITableViewCell
         {
@@ -97,14 +110,21 @@ class MySctViewController: UIViewController
             case let .unfinished(sctUnfinished):
                 let cell = tableView.dequeueReusableCell(for: indexPath) as MySctUnfinishedCell
                 cell.setSctUnfinished(sctUnfinished)
-                cell.accessoryType = .disclosureIndicator
                 return cell
             case let .finished(sctFinished):
                 let cell = tableView.dequeueReusableCell(for: indexPath) as MySctFinishedCell
                 cell.setSctFinished(sctFinished)
-                cell.accessoryType = .disclosureIndicator
+                return cell
+            case .progress:
+                let cell = UITableViewCell()
+                cell.textLabel?.text = "MySct.Progress.Title".localized
                 return cell
             }
+        }
+        
+        var accessoryType: UITableViewCell.AccessoryType
+        {
+            return .disclosureIndicator
         }
     }
     
@@ -112,6 +132,7 @@ class MySctViewController: UIViewController
     public static let toSctFinished = "MySctToSctFinishedSegueId"
     public static let toSctsUnfinishedSegueId = "MySctToSctsUnfinishedListSegueId"
     public static let toSctsFinishedSegueId = "MySctToSctsFinishedListSegueId"
+    public static let toMySctProgressSegueId = "MySctToMyProgressSegueId"
     
     fileprivate static let maximumDisplayedScts_ = 10
     
@@ -214,8 +235,10 @@ class MySctViewController: UIViewController
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate var sectionHeaders_ = [DetailHeader]()
+    fileprivate var sectionFooters_ = [DetailFooter?]()
     fileprivate var sections_: [MySctSection] = [ .unfinished(MySctViewController.defaultUnfinishedScts_()),
-                                                  .finished(MySctViewController.defaultFinishedScts_())]
+                                                  .finished(MySctViewController.defaultFinishedScts_()),
+                                                  .progress]
     fileprivate var sctUnfinished_: SctUnfinished? = nil
     fileprivate var sctFinished_: SctFinished? = nil
     fileprivate var unfinishedScts_: [SctUnfinished]? = nil
@@ -229,6 +252,7 @@ class MySctViewController: UIViewController
         super.viewDidLoad()
         
         setupSectionHeaders_()
+        setupSectionFooters_()
         setupTableView_()
     }
     
@@ -260,6 +284,16 @@ class MySctViewController: UIViewController
             sectionHeaders_.append(newHeader)
         }
     }
+    fileprivate func setupSectionFooters_()
+    {
+        for _ in 0..<(sections_.count - 1)
+        {
+            let newFooter = DetailFooter()
+            newFooter.backgroundColor = UIColor.white
+            sectionFooters_.append(newFooter)
+        }
+        sectionFooters_.append(nil)
+    }
     
     fileprivate func setupTableView_()
     {
@@ -286,6 +320,8 @@ class MySctViewController: UIViewController
         case let .finished(finishedScts):
             finishedScts_ = finishedScts
             performSegue(withIdentifier: MySctViewController.toSctsFinishedSegueId, sender: self)
+        case .progress:
+            break
         }
     }
     
@@ -343,6 +379,8 @@ extension MySctViewController: UITableViewDelegate
         case let .finished(sctFinished):
             sctFinished_ = sctFinished
             performSegue(withIdentifier: MySctViewController.toSctFinished, sender: self)
+        case .progress:
+            performSegue(withIdentifier: MySctViewController.toMySctProgressSegueId, sender: self)
         }
     }
 }
@@ -352,6 +390,7 @@ extension MySctViewController: UITableViewDelegate
 // -----------------------------------------------------------------------------
 extension MySctViewController: UITableViewDataSource
 {
+    // header
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         let currentSection = sections_[section]
@@ -378,6 +417,17 @@ extension MySctViewController: UITableViewDataSource
         return sections_[section].title
     }
     
+    // footer
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    {
+        sectionFooters_[section]?.updateSize(forWidth: tableView.frame.width)
+        return sectionFooters_[section]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return sectionFooters_[section]?.height ?? 0.0
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return sections_.count
@@ -396,6 +446,7 @@ extension MySctViewController: UITableViewDataSource
         
         let cell = row.cell(for: indexPath, mySctViewController: self)
         cell.selectionStyle = .none
+        cell.accessoryType = row.accessoryType
         return cell
     }
 }

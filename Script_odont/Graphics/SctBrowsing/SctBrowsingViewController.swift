@@ -238,7 +238,7 @@ class SctBrowsingViewController: UIViewController
     fileprivate var checkFirstTime_ = false
     fileprivate let sections_: [BrowsingSection] = [.new, .top, .topics, .personnalized, .search]
     fileprivate var sectionHeaders_ = [DetailHeader]()
-    fileprivate var sectionFooters_ = [UIView?]()
+    fileprivate var sectionFooters_ = [DetailFooter?]()
     fileprivate var launchInformation_: SctLaunchInformation? = nil
     fileprivate var sctsList_: SctsListViewController.SctsList? = nil
     
@@ -358,9 +358,9 @@ class SctBrowsingViewController: UIViewController
     {
         for _ in 0..<(sections_.count - 1)
         {
-            let newView = UIView()
-            newView.backgroundColor = UIColor.gray
-            sectionFooters_.append(newView)
+            let newFooter = DetailFooter()
+            newFooter.backgroundColor = UIColor.white
+            sectionFooters_.append(newFooter)
         }
         sectionFooters_.append(nil)
     }
@@ -520,23 +520,14 @@ extension SctBrowsingViewController: UITableViewDataSource
     // footer
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
     {
-        let footerWidth = tableView.frame.width * SctBrowsingViewController.sectionSeparatorWidthRatio_
-        let emptySpace = tableView.frame.width - footerWidth
-        
-        let footerMask = CAShapeLayer()
-        footerMask.path = UIBezierPath(rect: CGRect(x: emptySpace / 2, y: 0, width: footerWidth, height: SctBrowsingViewController.sectionSeparatorHeight_)).cgPath
-        sectionFooters_[section]?.layer.mask = footerMask
+        sectionFooters_[section]?.updateSize(forWidth: tableView.frame.width)
         
         return sectionFooters_[section]
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
     {
-        if sectionFooters_[section] != nil
-        {
-            return SctBrowsingViewController.sectionSeparatorHeight_
-        }
-        return 0.0
+        return sectionFooters_[section]?.height ?? 0.0
     }
     
     // cells
