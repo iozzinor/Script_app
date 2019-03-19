@@ -17,7 +17,6 @@ protocol ScoreProgressDiagramDataSource: class
     
     // sections
     func numberOfSections(in scoreProgressDiagram: ScoreProgressDiagram) -> Int
-    func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, numberOfSubsectionsInSection section: Int) -> Int
     func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, titleForSection section: Int) -> String?
     
     // subsections
@@ -25,5 +24,5 @@ protocol ScoreProgressDiagramDataSource: class
     
     // score
     func numberOfScores(for scoreProgressDiagram: ScoreProgressDiagram) -> Int
-    func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, scoreForTime time: Int) -> Double
+    func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, scoreForTime time: Int) -> ScoreProgressDiagram.ScorePoint
 }

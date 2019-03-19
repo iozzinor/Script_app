@@ -63,6 +63,7 @@ class MyProgressViewController: UITableViewController
                 let cell = tableView.dequeueReusableCell(for: indexPath) as ProgressCell
                 cell.delegate = myProgressViewController
                 cell.scoreProgressDiagram.dataSource = myProgressViewController
+                myProgressViewController.scoreProgressDiagram_ = cell.scoreProgressDiagram
                 return cell
                 
             case .noProgression:
@@ -142,8 +143,13 @@ class MyProgressViewController: UITableViewController
             {
                 tableView.reloadSections(IndexSet(sectionsToReload), with: .automatic)
             }
+            
+            scoreProgressDiagram_?.reloadData()
         }
     }
+    
+    fileprivate weak var scoreProgressDiagram_: ScoreProgressDiagram?
+    fileprivate var currentPeriod_ = Period.day
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -199,6 +205,8 @@ extension MyProgressViewController: ProgressCellDelegate
 {
     func progressCell(_ progressCell: ProgressCell, didChoosePeriod period: Period)
     {
+        currentPeriod_ = period
+        
         // MARK: - TEMP
         // add random progress
         if Constants.random(min: 0, max: 1) == 0
@@ -232,7 +240,8 @@ extension MyProgressViewController: ScoreProgressDiagramDataSource
     
     func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, titleForHorizontalSeparation horizontalSeparationIndex: Int) -> String?
     {
-        return "\(horizontalSeparationIndex * 10)%"
+        let percentage = (horizontalSeparationIndex + 1) * 10
+        return "\(percentage)%"
     }
     
     func ordinatesAxisTitle(for scoreProgressDiagram: ScoreProgressDiagram) -> String
@@ -242,31 +251,27 @@ extension MyProgressViewController: ScoreProgressDiagramDataSource
     
     func numberOfSections(in scoreProgressDiagram: ScoreProgressDiagram) -> Int
     {
-        return 4
-    }
-    
-    func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, numberOfSubsectionsInSection section: Int) -> Int
-    {
-        return 0
+        return currentPeriod_.rawValue
     }
     
     func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, titleForSection section: Int) -> String?
     {
-        return nil
+        return "\(section + 1)"
     }
     
     func numberOfSubsections(in scoreProgressDiagram: ScoreProgressDiagram) -> Int
     {
-        return 0
+        return Period.allCases.count - 1 - currentPeriod_.rawValue
     }
     
     func numberOfScores(for scoreProgressDiagram: ScoreProgressDiagram) -> Int
     {
-        return 1
+        return 5
     }
     
-    func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, scoreForTime time: Int) -> Double
+    func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, scoreForTime time: Int) -> ScoreProgressDiagram.ScorePoint
     {
-        return 50.0
+        
+        return ScoreProgressDiagram.ScorePoint(score: 50.0, time: Double(time + 1) * (100.0) / 6.0)
     }
 }
