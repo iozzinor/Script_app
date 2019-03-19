@@ -170,7 +170,6 @@
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clL-Zd-riV" customClass="ScoreProgressDiagram" customModule="Script_odont" customModuleProvider="target">
                                                     <rect key="frame" x="151" y="10" width="33.5" height="33.5"/>
-                                                    <color key="backgroundColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="clL-Zd-riV" secondAttribute="height" id="zkO-aQ-E5u"/>
                                                     </constraints>

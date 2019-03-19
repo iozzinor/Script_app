@@ -62,6 +62,7 @@ class MyProgressViewController: UITableViewController
             case .diagram:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as ProgressCell
                 cell.delegate = myProgressViewController
+                cell.scoreProgressDiagram.dataSource = myProgressViewController
                 return cell
                 
             case .noProgression:
@@ -160,7 +161,7 @@ class MyProgressViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UI TABLE VIEW DATA SOURCe
+    // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
@@ -216,5 +217,56 @@ extension MyProgressViewController: ProgressCellDelegate
                                        answeredSctExams: Constants.random(min: 10, max: 30),
                                        scores: scores)
         }
+    }
+}
+
+// -------------------------------------------------------------------------
+// MARK: - SCORE PROGRESS DIAGRAM DATA SOURCE
+// -------------------------------------------------------------------------
+extension MyProgressViewController: ScoreProgressDiagramDataSource
+{
+    func numberOfHorizontalSeparations(in scoreProgressDiagram: ScoreProgressDiagram) -> Int
+    {
+        return 10
+    }
+    
+    func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, titleForHorizontalSeparation horizontalSeparationIndex: Int) -> String?
+    {
+        return "\(horizontalSeparationIndex * 10)%"
+    }
+    
+    func ordinatesAxisTitle(for scoreProgressDiagram: ScoreProgressDiagram) -> String
+    {
+        return "Score"
+    }
+    
+    func numberOfSections(in scoreProgressDiagram: ScoreProgressDiagram) -> Int
+    {
+        return 4
+    }
+    
+    func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, numberOfSubsectionsInSection section: Int) -> Int
+    {
+        return 0
+    }
+    
+    func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, titleForSection section: Int) -> String?
+    {
+        return nil
+    }
+    
+    func numberOfSubsections(in scoreProgressDiagram: ScoreProgressDiagram) -> Int
+    {
+        return 0
+    }
+    
+    func numberOfScores(for scoreProgressDiagram: ScoreProgressDiagram) -> Int
+    {
+        return 1
+    }
+    
+    func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, scoreForTime time: Int) -> Double
+    {
+        return 50.0
     }
 }

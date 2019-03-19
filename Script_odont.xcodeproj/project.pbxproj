@@ -120,6 +120,9 @@
 		ACC81AC422401DC0000990EA /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC81AC322401DC0000990EA /* ProgressCell.swift */; };
 		ACC81AC622403EB4000990EA /* ProgressCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC81AC522403EB4000990EA /* ProgressCellDelegate.swift */; };
 		ACC81AC82240470E000990EA /* Progression.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC81AC72240470E000990EA /* Progression.swift */; };
+		ACC81ACA22404A0A000990EA /* ScoreProgressDiagramDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC81AC922404A0A000990EA /* ScoreProgressDiagramDataSource.swift */; };
+		ACC81ACC22404B59000990EA /* ScoreProgressDiagramDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC81ACB22404B59000990EA /* ScoreProgressDiagramDelegate.swift */; };
+		ACC81ACE224056E0000990EA /* DashPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC81ACD224056E0000990EA /* DashPattern.swift */; };
 		ACC83F68223D649A0064BE6F /* SctSearchCriterion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F67223D649A0064BE6F /* SctSearchCriterion.swift */; };
 		ACC83F6A223D650D0064BE6F /* QualificationTopicsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F69223D650D0064BE6F /* QualificationTopicsPickerViewController.swift */; };
 		ACC83F6C223D6C590064BE6F /* QualificationTopicsPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F6B223D6C590064BE6F /* QualificationTopicsPickerDelegate.swift */; };
@@ -280,6 +283,9 @@
 		ACC81AC322401DC0000990EA /* ProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCell.swift; sourceTree = "<group>"; };
 		ACC81AC522403EB4000990EA /* ProgressCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCellDelegate.swift; sourceTree = "<group>"; };
 		ACC81AC72240470E000990EA /* Progression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progression.swift; sourceTree = "<group>"; };
+		ACC81AC922404A0A000990EA /* ScoreProgressDiagramDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreProgressDiagramDataSource.swift; sourceTree = "<group>"; };
+		ACC81ACB22404B59000990EA /* ScoreProgressDiagramDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreProgressDiagramDelegate.swift; sourceTree = "<group>"; };
+		ACC81ACD224056E0000990EA /* DashPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashPattern.swift; sourceTree = "<group>"; };
 		ACC83F67223D649A0064BE6F /* SctSearchCriterion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctSearchCriterion.swift; sourceTree = "<group>"; };
 		ACC83F69223D650D0064BE6F /* QualificationTopicsPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopicsPickerViewController.swift; sourceTree = "<group>"; };
 		ACC83F6B223D6C590064BE6F /* QualificationTopicsPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopicsPickerDelegate.swift; sourceTree = "<group>"; };
@@ -376,6 +382,7 @@
 				AC0D77D52228274D007F83D4 /* Appearance.swift */,
 				ACD1B3B7223D068F0065F07E /* ButtonCell.swift */,
 				ACD1B3B9223D06F80065F07E /* ButtonCell.xib */,
+				ACC81ACD224056E0000990EA /* DashPattern.swift */,
 			);
 			path = Graphics;
 			sourceTree = "<group>";
@@ -653,6 +660,8 @@
 			isa = PBXGroup;
 			children = (
 				ACC52C4C223EFDCE00B974BA /* ScoreProgressDiagram.swift */,
+				ACC81ACB22404B59000990EA /* ScoreProgressDiagramDelegate.swift */,
+				ACC81AC922404A0A000990EA /* ScoreProgressDiagramDataSource.swift */,
 			);
 			path = ScoreProgressDiagram;
 			sourceTree = "<group>";
@@ -796,6 +805,7 @@
 				AC9F23ED222A93F4002D38E5 /* SigninLabelCell.swift in Sources */,
 				AC9D150C223ED3F900131490 /* LatestPeriod.swift in Sources */,
 				ACE70F99221F32B9008454FF /* UITableView+register.swift in Sources */,
+				ACC81ACC22404B59000990EA /* ScoreProgressDiagramDelegate.swift in Sources */,
 				AC53E3692232B2BA00CA4437 /* SctQuestionHeaderCell.swift in Sources */,
 				ACD1B3B0223C510B0065F07E /* SctBrowsingCell.swift in Sources */,
 				AC0D77D8222831C5007F83D4 /* SctExam.swift in Sources */,
@@ -848,6 +858,7 @@
 				AC53E36722329C2700CA4437 /* Constants.swift in Sources */,
 				ACD1B3B8223D068F0065F07E /* ButtonCell.swift in Sources */,
 				AC9F23E72229D9AA002D38E5 /* String+hex.swift in Sources */,
+				ACC81ACE224056E0000990EA /* DashPattern.swift in Sources */,
 				AC53E36B2232B75200CA4437 /* UIView+utils.swift in Sources */,
 				AC53E37A2233AE3B00CA4437 /* MySctUnfinishedCell.swift in Sources */,
 				AC0D77D62228274D007F83D4 /* Appearance.swift in Sources */,
@@ -889,6 +900,7 @@
 				AC9F23E9222A8D4E002D38E5 /* String+random.swift in Sources */,
 				AC0E4EAB2237FB87003996AF /* SctFinishedViewController.swift in Sources */,
 				AC0D77DE22283838007F83D4 /* SctAnswer.swift in Sources */,
+				ACC81ACA22404A0A000990EA /* ScoreProgressDiagramDataSource.swift in Sources */,
 				ACC81AC2223F0EA3000990EA /* MyProgressViewController.swift in Sources */,
 				ACC52C4A223EF62C00B974BA /* PeriodLeaderboardViewController.swift in Sources */,
 				AC9F23E022299945002D38E5 /* KeychainPasswordItem.swift in Sources */,
