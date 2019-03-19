@@ -241,21 +241,45 @@ extension MyProgressViewController: ScoreProgressDiagramDataSource
     func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, titleForHorizontalSeparation horizontalSeparationIndex: Int) -> String?
     {
         let percentage = (horizontalSeparationIndex + 1) * 10
-        return "\(percentage)%"
+        return String.localizedStringWithFormat("MyProgress.OrdinatesAxis.Legend".localized, percentage)
     }
     
     func ordinatesAxisTitle(for scoreProgressDiagram: ScoreProgressDiagram) -> String
     {
-        return "Score"
+        return "MyProgress.OrdinatesAxis.Title".localized
     }
     
     func numberOfSections(in scoreProgressDiagram: ScoreProgressDiagram) -> Int
     {
+        switch currentPeriod_
+        {
+        case .day:
+            break
+        case .week:
+            break
+        case .month:
+            break
+        case .year:
+            return Constants.monthNames.count
+        }
         return currentPeriod_.rawValue
     }
     
     func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, titleForSection section: Int) -> String?
     {
+        switch currentPeriod_
+        {
+        case .day:
+            break
+        case .week:
+            break
+        case .month:
+            break
+        case .year:
+            let uppercaseMonth = Constants.monthNames[section].uppercased()
+            let firstLetter = uppercaseMonth[uppercaseMonth.startIndex..<uppercaseMonth.index(after: uppercaseMonth.startIndex)]
+            return String(firstLetter)
+        }
         return "\(section + 1)"
     }
     
@@ -266,13 +290,14 @@ extension MyProgressViewController: ScoreProgressDiagramDataSource
     
     func numberOfScores(for scoreProgressDiagram: ScoreProgressDiagram) -> Int
     {
-        return 5
+        return progression_?.scores.count ?? 0
     }
     
     func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, scoreForTime time: Int) -> ScoreProgressDiagram.ScorePoint
     {
-        let score = Double(time + 1) * (100.0) / 6.0//Double(Constants.random(min: 0, max: 1000)) / 10.0
-        let time = Double(time + 1) * (100.0) / 6.0
+        let timeCount = progression_?.scores.count ?? 1
+        let score = progression_?.scores[time] ?? 0.0
+        let time = Double(time + 1) * (100.0) / Double(timeCount + 1)
         
         return ScoreProgressDiagram.ScorePoint(score: score, time: time)
     }

@@ -282,6 +282,9 @@
 "MyProgress.NoProgression"                  = "Pas de progression.";
 "MyProgress.Explanation"                    = "Les scores sont affichés en pourcentage du score maximal possible.";
 
+"MyProgress.OrdinatesAxis.Legend"   = "%d%%";
+"MyProgress.OrdinatesAxis.Title" = "Scores (pourcentage)";
+
 /* CONSTANTS */
 "Constants.Duration.String.Format.Short" = "%02dM:%02dS";
 

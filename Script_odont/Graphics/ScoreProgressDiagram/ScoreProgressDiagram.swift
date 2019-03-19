@@ -21,6 +21,15 @@ class ScoreProgressDiagram: UIView
     }
     
     // -------------------------------------------------------------------------
+    // MARK: - DIAGRAM TYPE
+    // -------------------------------------------------------------------------
+    @objc enum DiagramType: Int, CaseIterable
+    {
+        case fill
+        case line
+    }
+    
+    // -------------------------------------------------------------------------
     // MARK: - HORIZONTAL SEPARATION
     // -------------------------------------------------------------------------
     fileprivate struct HorizontalSeparation
@@ -118,8 +127,11 @@ class ScoreProgressDiagram: UIView
     @IBInspectable var scorePointLineWidth: CGFloat = 2.0
     
     // diagram
+    @IBInspectable var diagramType: DiagramType = DiagramType.fill
     @IBInspectable var diagramTopGradientColor: UIColor = UIColor.blue.withAlphaComponent(0.2)
-    @IBInspectable var diagramBottomGradientColor: UIColor = UIColor.blue.withAlphaComponent(0.8)
+    @IBInspectable var diagramBottomGradientColor: UIColor = UIColor.blue.withAlphaComponent(0.6)
+    @IBInspectable var diagramStrokeColor: UIColor = UIColor.blue
+    @IBInspectable var diagramStrokeWidth: CGFloat = 2.0
     
     weak var delegate: ScoreProgressDiagramDelegate? = nil
     weak var dataSource: ScoreProgressDiagramDataSource? = nil
@@ -486,7 +498,7 @@ class ScoreProgressDiagram: UIView
         
         let scorePositions = scorePositions_(diagramRect: diagramRect)
         drawScorePoints_(scorePositions)
-        drawIntegralLayer_(diagramRect: diagramRect, positions: scorePositions)
+        drawIntegral_(diagramRect: diagramRect, positions: scorePositions)
     }
     
     fileprivate func scorePositions_(diagramRect: CGRect) -> [CGPoint]
@@ -529,7 +541,18 @@ class ScoreProgressDiagram: UIView
         context.restoreGState()
     }
     
-    fileprivate func drawIntegralLayer_(diagramRect: CGRect, positions: [CGPoint])
+    fileprivate func drawIntegral_(diagramRect: CGRect, positions: [CGPoint])
+    {
+        switch diagramType
+        {
+        case .fill:
+            drawIntegralFilling_(diagramRect: diagramRect, positions: positions)
+        case .line:
+            drawIntegralStroking_(diagramRect: diagramRect, positions: positions)
+        }
+    }
+    
+    fileprivate func drawIntegralFilling_(diagramRect: CGRect, positions: [CGPoint])
     {
         let integralPath = integralPath_(positions: positions, diagramRect: diagramRect)
         
@@ -555,6 +578,48 @@ class ScoreProgressDiagram: UIView
         context.drawPath(using: .fill)
         
         context.restoreGState()
+    }
+    
+    fileprivate func drawIntegralStroking_(diagramRect: CGRect, positions: [CGPoint])
+    {
+        guard let first = positions.first else
+        {
+            return
+        }
+        
+        let strokePath = UIBezierPath()
+        strokePath.lineWidth = diagramStrokeWidth
+        diagramStrokeColor.setStroke()
+        
+        var previousPoint = first
+        for i in 1..<positions.count
+        {
+            let currentPoint = positions[i]
+            let centersDeltaX = currentPoint.x - previousPoint.x
+            let centersDeltaY = currentPoint.y - previousPoint.y
+            
+            if centersDeltaX == 0.0 && centersDeltaY == 0
+            {
+                continue
+            }
+            
+            let length = sqrt(pow(centersDeltaX, 2) + pow(centersDeltaY,
+                2))
+            let ratio = scorePointSize / 2.0 / length
+            
+            let deltaX = centersDeltaX * ratio
+            let deltaY = centersDeltaY * ratio
+            
+            let startPoint = CGPoint(x: previousPoint.x + deltaX, y: previousPoint.y + deltaY)
+            let endPoint = CGPoint(x: currentPoint.x - deltaX, y: currentPoint.y - deltaY)
+            
+            strokePath.move(to: startPoint)
+            strokePath.addLine(to: endPoint)
+            
+            previousPoint = currentPoint
+        }
+        
+        strokePath.stroke()
     }
     
     // -------------------------------------------------------------------------

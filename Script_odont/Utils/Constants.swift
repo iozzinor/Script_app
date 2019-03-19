@@ -60,6 +60,28 @@ struct Constants
         return String(format: "Constants.Duration.String.Format.Short".localized, minutes, seconds)
     }
     
+    /// An array of localized month names.
+    static let monthNames: [String] =
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        
+        var result = [String]()
+        
+        var components = DateComponents(calendar: Calendar.current, timeZone: nil, era: nil, year: nil, month: nil, day: nil, hour: nil, minute: nil, second: nil, nanosecond: nil, weekday: nil, weekdayOrdinal: nil, quarter: nil, weekOfMonth: nil, weekOfYear: nil, yearForWeekOfYear: nil)
+        for month in 1..<13
+        {
+            components.month = month
+            
+            if let date = Calendar.current.date(from: components)
+            {
+                result.append(dateFormatter.string(from: date))
+            }
+        }
+        
+        return result
+    }()
+    
     // -------------------------------------------------------------------------
     // MARK: - RANDOM
     // -------------------------------------------------------------------------
