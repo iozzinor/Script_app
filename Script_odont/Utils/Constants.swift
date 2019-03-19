@@ -60,6 +60,28 @@ struct Constants
         return String(format: "Constants.Duration.String.Format.Short".localized, minutes, seconds)
     }
     
+    // An array of localized day names.
+    static let dayNames: [String] =
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E"
+        
+        var result = [String]()
+        
+        var components = DateComponents(calendar: Calendar.current, timeZone: nil, era: nil, year: nil, month: nil, day: nil, hour: nil, minute: nil, second: nil, nanosecond: nil, weekday: nil, weekdayOrdinal: nil, quarter: nil, weekOfMonth: nil, weekOfYear: 1, yearForWeekOfYear: nil)
+        for weekday in 1..<8
+        {
+            components.weekday = weekday
+            
+            if let date = Calendar.current.date(from: components)
+            {
+                result.append(dateFormatter.string(from: date))
+            }
+        }
+        
+        return result
+    }()
+    
     /// An array of localized month names.
     static let monthNames: [String] =
     {
@@ -80,6 +102,59 @@ struct Constants
         }
         
         return result
+    }()
+    
+    /// The last day of the current week.
+    static var lastWeekday: Date
+    {
+        let today = Date()
+        var components = Calendar.current.dateComponents(Set([Calendar.Component.yearForWeekOfYear, .weekOfYear, .hour, .minute, .second]), from: today)
+        components.weekday = 7
+        
+        return Calendar.current.date(from: components) ?? today
+    }
+    
+    /// - returns: The first day of the current week.
+    static var firstWeekday: Date
+    {
+        return Date(timeIntervalSinceReferenceDate: lastWeekday.timeIntervalSinceReferenceDate - 6 * 24 * 3600.0)
+    }
+    
+    /// - returns: The number of days in the current month.
+    static var daysInCurrentMonth: Int
+    {
+        func getDay(for date: Date) -> Int
+        {
+            let components = Calendar.current.dateComponents(Set([Calendar.Component.day]), from: date)
+            return components.day ?? -1
+        }
+        
+        func getMonth(for date: Date) -> Int
+        {
+            let components = Calendar.current.dateComponents(Set([Calendar.Component.month]), from: date)
+            return components.month ?? -1
+        }
+        
+        let today = Date()
+        let currentMonth = getMonth(for: today)
+        var date = today
+        var month = currentMonth
+        var result = getDay(for: today)
+        
+        while month == currentMonth
+        {
+            result += 1
+            date = Date(timeIntervalSinceReferenceDate: date.timeIntervalSinceReferenceDate + 24 * 3600.0)
+            month = getMonth(for: date)
+        }
+        
+        return result - 1
+    }
+    
+    /// Whether the current date format has a 12-hour cycle.
+    static var isTwelveHourDateFormat: Bool = {
+        let formatter = DateFormatter.dateFormat(fromTemplate: "j", options: 0, locale: Locale.current)!
+        return formatter.contains("a")
     }()
     
     // -------------------------------------------------------------------------

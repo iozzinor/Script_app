@@ -99,6 +99,21 @@ class MyProgressViewController: UITableViewController
     public static let informationCellId = "MyProgressInformationCellReuseId"
     public static let explanationCellId = "MyProgressExplanationCellReuseId"
     
+    fileprivate static let hourDateFormatter_: DateFormatter = {
+        let result = DateFormatter()
+        
+        if Constants.isTwelveHourDateFormat
+        {
+            result.dateFormat = "h"
+        }
+        else
+        {
+            result.dateFormat = "H"
+        }
+        
+        return result
+    }()
+    
     fileprivate var sections_: [(section: ProgressSection, rows: [ProgressRow])] {
         var result = [(section: ProgressSection, rows: [ProgressRow])]()
         
@@ -150,6 +165,27 @@ class MyProgressViewController: UITableViewController
     
     fileprivate weak var scoreProgressDiagram_: ScoreProgressDiagram?
     fileprivate var currentPeriod_ = Period.day
+    
+    fileprivate var todayHours_: [Date] = {
+        var result = [Date]()
+        
+        let currentDate = Date()
+        var components = Calendar.current.dateComponents(Set([Calendar.Component.day, .month, .year, .hour]), from: currentDate)
+        components.minute = 0
+        components.second = 0
+        
+        for i in 0..<8
+        {
+            components.hour = i * 3
+            
+            if let date = Calendar.current.date(from: components)
+            {
+                result.append(date)
+            }
+        }
+        
+        return result
+    }()
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -254,15 +290,14 @@ extension MyProgressViewController: ScoreProgressDiagramDataSource
         switch currentPeriod_
         {
         case .day:
-            break
+            return todayHours_.count
         case .week:
-            break
+            return Constants.dayNames.count
         case .month:
-            break
+            return Int(ceil(Double(Constants.daysInCurrentMonth) / 7))
         case .year:
             return Constants.monthNames.count
         }
-        return currentPeriod_.rawValue
     }
     
     func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, titleForSection section: Int) -> String?
@@ -270,22 +305,28 @@ extension MyProgressViewController: ScoreProgressDiagramDataSource
         switch currentPeriod_
         {
         case .day:
-            break
+            let hourDate = todayHours_[section]
+            return MyProgressViewController.hourDateFormatter_.string(from: hourDate)
         case .week:
-            break
+            return Constants.dayNames[section]
         case .month:
-            break
+            return "\(section * 7 + 1)"
         case .year:
             let uppercaseMonth = Constants.monthNames[section].uppercased()
             let firstLetter = uppercaseMonth[uppercaseMonth.startIndex..<uppercaseMonth.index(after: uppercaseMonth.startIndex)]
             return String(firstLetter)
         }
-        return "\(section + 1)"
     }
     
     func numberOfSubsections(in scoreProgressDiagram: ScoreProgressDiagram) -> Int
     {
-        return Period.allCases.count - 1 - currentPeriod_.rawValue
+        switch currentPeriod_
+        {
+        case .day:
+            return 2
+        case .week, .month, .year:
+            return 0
+        }
     }
     
     func numberOfScores(for scoreProgressDiagram: ScoreProgressDiagram) -> Int

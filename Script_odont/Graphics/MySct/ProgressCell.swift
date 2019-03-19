@@ -76,17 +76,10 @@ class ProgressCell: UITableViewCell
             periodLabel.text = "ProgressCell.Period.Today".localized
         // <short start> - <short end>
         case .week:
-            var endComponents = calendar.dateComponents(Set([Calendar.Component.weekOfYear, .weekday, .year, .hour, .minute, .second]), from: today)
-            endComponents.weekday = 7
+            let startString = ProgressCell.weekFormatter_.string(from: Constants.firstWeekday)
+            let endString   = ProgressCell.weekFormatter_.string(from: Constants.lastWeekday)
             
-            if let endDate = calendar.date(from: endComponents)
-            {
-                let startDate = endDate.addingTimeInterval(-6 * 24 * 3600.0)
-                let startString = ProgressCell.weekFormatter_.string(from: startDate)
-                let endString   = ProgressCell.weekFormatter_.string(from: endDate)
-                
-                periodLabel.text = String.localizedStringWithFormat("ProgressCell.Period.WeekFormat".localized, startString, endString)
-            }
+            periodLabel.text = String.localizedStringWithFormat("ProgressCell.Period.WeekFormat".localized, startString, endString)
             
         // <month> <year>
         case .month:
