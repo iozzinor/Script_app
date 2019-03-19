@@ -22,9 +22,5 @@ protocol ScoreProgressDiagramDelegate: class
     
     // subsection
     func subsectionDashPattern(for scoreProgressDiagram: ScoreProgressDiagram) -> DashPattern
-    
-    // data
-    func minimumDisplayedScore(for scoreProgressDiagram: ScoreProgressDiagram) -> Double
-    func maximumDisplayedScore(for scoreProgressDiagram: ScoreProgressDiagram) -> Double
 }
 

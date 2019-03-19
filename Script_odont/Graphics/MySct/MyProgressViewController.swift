@@ -271,7 +271,9 @@ extension MyProgressViewController: ScoreProgressDiagramDataSource
     
     func scoreProgressDiagram(_ scoreProgressDiagram: ScoreProgressDiagram, scoreForTime time: Int) -> ScoreProgressDiagram.ScorePoint
     {
+        let score = Double(time + 1) * (100.0) / 6.0//Double(Constants.random(min: 0, max: 1000)) / 10.0
+        let time = Double(time + 1) * (100.0) / 6.0
         
-        return ScoreProgressDiagram.ScorePoint(score: 50.0, time: Double(time + 1) * (100.0) / 6.0)
+        return ScoreProgressDiagram.ScorePoint(score: score, time: time)
     }
 }

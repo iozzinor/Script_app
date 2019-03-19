@@ -45,8 +45,6 @@ class ScoreProgressDiagram: UIView
         var sections:              [Section]
         var subsections:           Int
         var scores:                [ScorePoint]
-        var minimumDisplayedScore: Double
-        var maximumDisplayedScore: Double
         
         var ordinatesAxisTitle: String
         
@@ -60,8 +58,6 @@ class ScoreProgressDiagram: UIView
             self.sections = []
             self.subsections = 0
             self.scores = []
-            self.minimumDisplayedScore = ScoreProgressDiagram.defaultMinimumDisplayedScore_
-            self.maximumDisplayedScore = ScoreProgressDiagram.defaultMaximumDisplayedScore_
             
             self.ordinatesAxisTitle = ""
             
@@ -82,9 +78,6 @@ class ScoreProgressDiagram: UIView
     fileprivate static let defaultHorizontalSeparationsCount = 5
     fileprivate static let defaultSectionDashPattern = DashPattern(alternateLengths: [4.0, 1.0], phase: 0.0)
     fileprivate static let defaultSubsectionDashPattern = DashPattern(alternateLengths: [2.0, 1.0], phase: 0.0)
-    
-    fileprivate static let defaultMinimumDisplayedScore_ = 0.0
-    fileprivate static let defaultMaximumDisplayedScore_ = 100.0
     
     @IBInspectable var clearColor: UIColor = UIColor.white
     
@@ -123,6 +116,10 @@ class ScoreProgressDiagram: UIView
     @IBInspectable var scorePointColor: UIColor = UIColor.blue
     @IBInspectable var scorePointSize: CGFloat = 5.0
     @IBInspectable var scorePointLineWidth: CGFloat = 2.0
+    
+    // diagram
+    @IBInspectable var diagramTopGradientColor: UIColor = UIColor.blue.withAlphaComponent(0.2)
+    @IBInspectable var diagramBottomGradientColor: UIColor = UIColor.blue.withAlphaComponent(0.8)
     
     weak var delegate: ScoreProgressDiagramDelegate? = nil
     weak var dataSource: ScoreProgressDiagramDataSource? = nil
@@ -208,9 +205,6 @@ class ScoreProgressDiagram: UIView
         
         if let delegate = delegate
         {
-            result.minimumDisplayedScore = delegate.minimumDisplayedScore(for: self)
-            result.maximumDisplayedScore = delegate.maximumDisplayedScore(for: self)
-            
             result.horizontalSeparationDashPattern = delegate.horizontalSeparationDashPattern(for: self)
             result.sectionDashPattern = delegate.sectionDashPattern(for: self)
             result.subsectionDashPattern = delegate.subsectionDashPattern(for: self)
@@ -488,12 +482,35 @@ class ScoreProgressDiagram: UIView
     
     fileprivate func drawDiagram_(forGridRect gridRect: CGRect, sectionHeight: CGFloat)
     {
+        let diagramRect = CGRect(x: gridRect.minX, y: gridRect.minY, width: gridRect.width, height: gridRect.height - sectionHeight)
+        
+        let scorePositions = scorePositions_(diagramRect: diagramRect)
+        drawScorePoints_(scorePositions)
+        drawIntegralLayer_(diagramRect: diagramRect, positions: scorePositions)
+    }
+    
+    fileprivate func scorePositions_(diagramRect: CGRect) -> [CGPoint]
+    {
+        var result = [CGPoint]()
+        
+        for scorePoint in progressData_.scores
+        {
+            let x = diagramRect.width * CGFloat(scorePoint.time / 100.0) + diagramRect.minX
+            let y = diagramRect.height * CGFloat(scorePoint.score / 100.0) + diagramRect.minY
+            
+            result.append(CGPoint(x: x, y: y))
+        }
+        
+        return result
+    }
+    
+    fileprivate func drawScorePoints_(_ positions: [CGPoint])
+    {
         guard let context = UIGraphicsGetCurrentContext() else
         {
             return
         }
         
-        let diagramRect = CGRect(x: gridRect.minX, y: gridRect.minY, width: gridRect.width, height: gridRect.height - sectionHeight)
         let scorePointPath = UIBezierPath(ovalIn: CGRect(x: -scorePointSize / 2.0, y: -scorePointSize / 2.0, width: scorePointSize, height: scorePointSize))
         scorePointPath.lineWidth = scorePointLineWidth
         scorePointColor.setStroke()
@@ -501,27 +518,62 @@ class ScoreProgressDiagram: UIView
         var previousPoint = CGPoint.zero
         
         context.saveGState()
-        for scorePoint in progressData_.scores
+        for scorePosition in positions
         {
-            let x = diagramRect.width * CGFloat(scorePoint.time / 100.0) + diagramRect.minX
-            let y = diagramRect.height * CGFloat(scorePoint.score / 100.0) + diagramRect.minY
-            
-            context.translateBy(x: x - previousPoint.x, y: y - previousPoint.y)
+            context.translateBy(x: scorePosition.x - previousPoint.x, y: scorePosition.y - previousPoint.y)
             
             scorePointPath.stroke()
             
-            previousPoint = CGPoint(x: x, y: y)
+            previousPoint = scorePosition
         }
         context.restoreGState()
     }
     
-    fileprivate func getScorePositions_() -> [CGPoint]
+    fileprivate func drawIntegralLayer_(diagramRect: CGRect, positions: [CGPoint])
     {
-        var result = [CGPoint]()
-        return result
+        let integralPath = integralPath_(positions: positions, diagramRect: diagramRect)
+        
+        guard let context = UIGraphicsGetCurrentContext() else
+        {
+            return
+        }
+        
+        let startPoint = CGPoint(x: diagramRect.midX,   y: diagramRect.minY)
+        let endPoint = CGPoint(x: diagramRect.midX,     y: diagramRect.maxY)
+        
+        context.saveGState()
+        
+        context.addPath(integralPath)
+        context.clip(using: .winding)
+        
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let gradient = CGGradient(colorsSpace: colorSpace,
+                                  colors: [diagramTopGradientColor.cgColor, diagramBottomGradientColor.cgColor] as CFArray,
+                                  locations: [0.0, 1.0])!
+        
+        context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
+        context.drawPath(using: .fill)
+        
+        context.restoreGState()
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - DIAGRAM LAYER
+    // MARK: - DIAGRAM PATH
     // -------------------------------------------------------------------------
+    fileprivate func integralPath_(positions: [CGPoint], diagramRect: CGRect) -> CGPath
+    {
+        guard let first = positions.first,
+            let last = positions.last else
+        {
+            return CGPath(rect: CGRect(), transform: nil)
+        }
+        let integralPath = UIBezierPath()
+        integralPath.move(to: CGPoint(x: first.x, y: diagramRect.maxY))
+        for position in positions
+        {
+            integralPath.addLine(to: position)
+        }
+        integralPath.addLine(to: CGPoint(x: last.x, y: diagramRect.maxY))
+        return integralPath.cgPath
+    }
 }
