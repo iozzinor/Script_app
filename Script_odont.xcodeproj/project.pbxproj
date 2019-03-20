@@ -158,6 +158,9 @@
 		ACDC49A622421D4A00B43534 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A522421D4A00B43534 /* Reachability.swift */; };
 		ACDC49A8224221F800B43534 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A7224221F800B43534 /* NetworkStatus.swift */; };
 		ACDC49AB2242366B00B43534 /* AsynchronousTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49AA2242366B00B43534 /* AsynchronousTableManager.swift */; };
+		ACDC49AF224240BA00B43534 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49AE224240BA00B43534 /* TableSection.swift */; };
+		ACDC49B1224240D200B43534 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49B0224240D200B43534 /* TableRow.swift */; };
+		ACDC49B32242413700B43534 /* AsynchronousTableManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49B22242413700B43534 /* AsynchronousTableManagerDelegate.swift */; };
 		ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */; };
 		ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F92221F214C008454FF /* WeakContainer.swift */; };
 		ACE70F95221F2439008454FF /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F94221F2439008454FF /* WeakArray.swift */; };
@@ -326,6 +329,9 @@
 		ACDC49A522421D4A00B43534 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		ACDC49A7224221F800B43534 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		ACDC49AA2242366B00B43534 /* AsynchronousTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousTableManager.swift; sourceTree = "<group>"; };
+		ACDC49AE224240BA00B43534 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
+		ACDC49B0224240D200B43534 /* TableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
+		ACDC49B22242413700B43534 /* AsynchronousTableManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousTableManagerDelegate.swift; sourceTree = "<group>"; };
 		ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWalkthroughViewController.swift; sourceTree = "<group>"; };
 		ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+storyboardId.swift"; sourceTree = "<group>"; };
 		ACE70F92221F214C008454FF /* WeakContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
@@ -697,6 +703,9 @@
 			isa = PBXGroup;
 			children = (
 				ACDC49AA2242366B00B43534 /* AsynchronousTableManager.swift */,
+				ACDC49B22242413700B43534 /* AsynchronousTableManagerDelegate.swift */,
+				ACDC49AE224240BA00B43534 /* TableSection.swift */,
+				ACDC49B0224240D200B43534 /* TableRow.swift */,
 			);
 			path = AsynchronousTableManager;
 			sourceTree = "<group>";
@@ -823,6 +832,7 @@
 				ACE70F99221F32B9008454FF /* UITableView+register.swift in Sources */,
 				ACC81ACC22404B59000990EA /* ScoreProgressDiagramDelegate.swift in Sources */,
 				AC53E3692232B2BA00CA4437 /* SctQuestionHeaderCell.swift in Sources */,
+				ACDC49B1224240D200B43534 /* TableRow.swift in Sources */,
 				ACD1B3B0223C510B0065F07E /* SctBrowsingCell.swift in Sources */,
 				AC0D77D8222831C5007F83D4 /* SctExam.swift in Sources */,
 				AC0D77E022283FB6007F83D4 /* SctQuestionCellDelegate.swift in Sources */,
@@ -842,6 +852,7 @@
 				AC53E3782233AE3100CA4437 /* MySctFinishedCell.swift in Sources */,
 				AC4904C9222BBE7200BDEB4B /* PasswordTrait.swift in Sources */,
 				AC9D150A223ED31A00131490 /* LeaderboardViewController.swift in Sources */,
+				ACDC49AF224240BA00B43534 /* TableSection.swift in Sources */,
 				AC38BB76221DFB2F008E829B /* String+localized.swift in Sources */,
 				ACA60F722235CCEF0094881A /* SctViewController.swift in Sources */,
 				AC0E4EA222370CF3003996AF /* SctStatistics.swift in Sources */,
@@ -849,6 +860,7 @@
 				AC0D77D22225DD01007F83D4 /* SctPanelAnswer.swift in Sources */,
 				ACE70F97221F3254008454FF /* UITableViewCell+utils.swift in Sources */,
 				ACC83F6A223D650D0064BE6F /* QualificationTopicsPickerViewController.swift in Sources */,
+				ACDC49B32242413700B43534 /* AsynchronousTableManagerDelegate.swift in Sources */,
 				ACC83F72223DA4CC0064BE6F /* DurationPickerCell.swift in Sources */,
 				ACC83F8D223E96F30064BE6F /* SettingsViewController.swift in Sources */,
 				AC8F5B7D22289DC800FAEFC5 /* GoToSctStatusView.swift in Sources */,

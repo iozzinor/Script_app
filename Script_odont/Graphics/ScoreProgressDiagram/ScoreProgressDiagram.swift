@@ -14,9 +14,21 @@ class ScoreProgressDiagram: UIView
     // -------------------------------------------------------------------------
     // MARK: - SCORE POINT
     // -------------------------------------------------------------------------
+    /// A score point.
+    ///
+    /// It describes the position of a score.
     struct ScorePoint
     {
+        /// The score.
+        ///
+        /// It represents the ordinates of the point.
+        /// It should be included in the interval `[0.0; 100.0]`.
         var score: Double
+        
+        /// The time.
+        ///
+        /// It represents the abscissa of the point.
+        /// It should be included in the interval `[0.0; 100.0]`.
         var time: Double
     }
     
