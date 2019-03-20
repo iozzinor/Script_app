@@ -155,6 +155,8 @@
 		ACD1B3B8223D068F0065F07E /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B3B7223D068F0065F07E /* ButtonCell.swift */; };
 		ACD1B3BA223D06F80065F07E /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3B9223D06F80065F07E /* ButtonCell.xib */; };
 		ACDC49A22242171D00B43534 /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A12242171D00B43534 /* String+md5.swift */; };
+		ACDC49A622421D4A00B43534 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A522421D4A00B43534 /* Reachability.swift */; };
+		ACDC49A8224221F800B43534 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A7224221F800B43534 /* NetworkStatus.swift */; };
 		ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */; };
 		ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F92221F214C008454FF /* WeakContainer.swift */; };
 		ACE70F95221F2439008454FF /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F94221F2439008454FF /* WeakArray.swift */; };
@@ -320,6 +322,8 @@
 		ACD1B3B7223D068F0065F07E /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		ACD1B3B9223D06F80065F07E /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		ACDC49A12242171D00B43534 /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
+		ACDC49A522421D4A00B43534 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		ACDC49A7224221F800B43534 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWalkthroughViewController.swift; sourceTree = "<group>"; };
 		ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+storyboardId.swift"; sourceTree = "<group>"; };
 		ACE70F92221F214C008454FF /* WeakContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
@@ -530,6 +534,8 @@
 				ACE70F98221F32B9008454FF /* UITableView+register.swift */,
 				AC53E36A2232B75200CA4437 /* UIView+utils.swift */,
 				ACD1B3A3223BF6490065F07E /* UILabel+utils.swift */,
+				ACDC49A7224221F800B43534 /* NetworkStatus.swift */,
+				ACDC49A522421D4A00B43534 /* Reachability.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -816,6 +822,7 @@
 				AC0E4EB222383A45003996AF /* PartialRateStar.swift in Sources */,
 				AC38BB78221DFCC4008E829B /* WelcomeWalkthroughViewController.swift in Sources */,
 				AC0D77CA2225D28B007F83D4 /* SctQuestion.swift in Sources */,
+				ACDC49A8224221F800B43534 /* NetworkStatus.swift in Sources */,
 				ACC83F96223EC83D0064BE6F /* SctsFinishedListViewController.swift in Sources */,
 				AC4904C1222B3C1600BDEB4B /* SecurityQuestionCell.swift in Sources */,
 				AC4904C5222B54E700BDEB4B /* SecurityQuestionPickerViewControllerDelegate.swift in Sources */,
@@ -905,6 +912,7 @@
 				ACC52C4A223EF62C00B974BA /* PeriodLeaderboardViewController.swift in Sources */,
 				AC9F23E022299945002D38E5 /* KeychainPasswordItem.swift in Sources */,
 				ACC81AC0223F0D43000990EA /* Period.swift in Sources */,
+				ACDC49A622421D4A00B43534 /* Reachability.swift in Sources */,
 				ACC83F6E223D70C40064BE6F /* SctSearchCriterionPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
