@@ -155,6 +155,7 @@
 		ACD1B3B2223C51B10065F07E /* SctBrowsingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3B1223C51B10065F07E /* SctBrowsingCell.xib */; };
 		ACD1B3B8223D068F0065F07E /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B3B7223D068F0065F07E /* ButtonCell.swift */; };
 		ACD1B3BA223D06F80065F07E /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3B9223D06F80065F07E /* ButtonCell.xib */; };
+		ACDC49A22242171D00B43534 /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A12242171D00B43534 /* String+md5.swift */; };
 		ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */; };
 		ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F92221F214C008454FF /* WeakContainer.swift */; };
 		ACE70F95221F2439008454FF /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F94221F2439008454FF /* WeakArray.swift */; };
@@ -320,6 +321,7 @@
 		ACD1B3B1223C51B10065F07E /* SctBrowsingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctBrowsingCell.xib; sourceTree = "<group>"; };
 		ACD1B3B7223D068F0065F07E /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		ACD1B3B9223D06F80065F07E /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		ACDC49A12242171D00B43534 /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
 		ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWalkthroughViewController.swift; sourceTree = "<group>"; };
 		ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+storyboardId.swift"; sourceTree = "<group>"; };
 		ACE70F92221F214C008454FF /* WeakContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
@@ -626,6 +628,7 @@
 				AC9F23E62229D9AA002D38E5 /* String+hex.swift */,
 				AC9F23E8222A8D4E002D38E5 /* String+random.swift */,
 				AC9F23E42229D88E002D38E5 /* String+sha2.swift */,
+				ACDC49A12242171D00B43534 /* String+md5.swift */,
 			);
 			path = Hash;
 			sourceTree = "<group>";
@@ -898,6 +901,7 @@
 				AC74B69E22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift in Sources */,
 				AC38BB60221DE4C9008E829B /* AppDelegate.swift in Sources */,
 				AC9F23E9222A8D4E002D38E5 /* String+random.swift in Sources */,
+				ACDC49A22242171D00B43534 /* String+md5.swift in Sources */,
 				AC0E4EAB2237FB87003996AF /* SctFinishedViewController.swift in Sources */,
 				AC0D77DE22283838007F83D4 /* SctAnswer.swift in Sources */,
 				ACC81ACA22404A0A000990EA /* ScoreProgressDiagramDataSource.swift in Sources */,
