@@ -12,7 +12,7 @@
 "Common.Yes"    = "Yes";
 "Common.No"     = "No";
 
-/* CORE */
+/* SCT TOPIC */
 "Sct.Topic.Diagnostic" = "Diagnostic";
 "Sct.Topic.Therapeutic" = "Therapeutic";
 "Sct.Topic.Prognostic" = "Prognostic";
@@ -55,6 +55,22 @@
 "SecurityQuestion.Content.FavoriteSong"         = "Which song do you prefer ?";
 "SecurityQuestion.Content.FavoriteMovie"        = "What is your favorite movie ?";
 "SecurityQuestion.Content.DreamJob"             = "What is your dream job ?";
+
+/* PERIOD */
+"Period.Day.Name.Short"     = "D";
+"Period.Week.Name.Short"    = "W";
+"Period.Month.Name.Short"   = "M";
+"Period.Year.Name.Short"    = "Y";
+
+"Period.Day.Name"     = "Day";
+"Period.Week.Name"    = "Week";
+"Period.Month.Name"   = "Month";
+"Period.Year.Name"    = "Year";
+
+"Period.Day.Name.Latest"     = "Today";
+"Period.Week.Name.Latest"    = "This week";
+"Period.Month.Name.Latest"   = "This month";
+"Period.Year.Name.Latest"    = "This year";
 
 /* SCT QUESTION HEADER CELL */
 "SctQuestionHeaderCell.Hypothesis" = "Hypothesis";
@@ -319,20 +335,3 @@
 "PeriodLeaderboard.NavigationItemTitle.Week"    = "Leaderboard of the week";
 "PeriodLeaderboard.NavigationItemTitle.Month"   = "Leaderboard of the month";
 "PeriodLeaderboard.NavigationItemTitle.Year"    = "Leaderboard of the year";
-
-/* LATEST PERIOD */
-"LatestPeriod.Day.Name"     = "Today";
-"LatestPeriod.Week.Name"    = "This week";
-"LatestPeriod.Month.Name"   = "This month";
-"LatestPeriod.Year.Name"    = "This year";
-
-/* PERIOD */
-"Period.Day.Name.Short"     = "D";
-"Period.Week.Name.Short"    = "W";
-"Period.Month.Name.Short"   = "M";
-"Period.Year.Name.Short"    = "Y";
-
-"Period.Day.Name"     = "Day";
-"Period.Week.Name"    = "Week";
-"Period.Month.Name"   = "Month";
-"Period.Year.Name"    = "Year";

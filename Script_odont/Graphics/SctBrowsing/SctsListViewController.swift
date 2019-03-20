@@ -17,7 +17,7 @@ class SctsListViewController: UITableViewController
     {
         enum Category
         {
-            case period(LatestPeriod)
+            case period(Period)
             case top
             case personnalized
             case topic(QualificationTopic)

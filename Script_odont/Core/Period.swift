@@ -44,4 +44,19 @@ enum Period: Int, CaseIterable
             return "Period.Year.Name".localized
         }
     }
+    
+    var latestName: String
+    {
+        switch self
+        {
+        case .day:
+            return "Period.Day.Name.Latest".localized
+        case .week:
+            return "Period.Week.Name.Latest".localized
+        case .month:
+            return "Period.Month.Name.Latest".localized
+        case .year:
+            return "Period.Year.Name.Latest".localized
+        }
+    }
 }

@@ -12,7 +12,7 @@
 "Common.Yes"    = "Oui";
 "Common.No"     = "Non";
 
-/* CORE */
+/* SCT TOPIC */
 "Sct.Topic.Diagnostic" = "Diagnostique";
 "Sct.Topic.Therapeutic" = "Thérapeutique";
 "Sct.Topic.Prognostic" = "Pronostique";
@@ -55,6 +55,22 @@
 "SecurityQuestion.Content.FavoriteSong"         = "Quel est votre chanson préférée ?";
 "SecurityQuestion.Content.FavoriteMovie"        = "Quel est votre film préféré ?";
 "SecurityQuestion.Content.DreamJob"             = "Quel est le métier de vos rêves ?";
+
+/* PERIOD */
+"Period.Day.Name.Short"     = "J";
+"Period.Week.Name.Short"    = "S";
+"Period.Month.Name.Short"   = "M";
+"Period.Year.Name.Short"    = "A";
+
+"Period.Day.Name"     = "Jour";
+"Period.Week.Name"    = "Semaine";
+"Period.Month.Name"   = "Mois";
+"Period.Year.Name"    = "Année";
+
+"Period.Day.Name.Latest"     = "Aujourd'hui";
+"Period.Week.Name.Latest"    = "Cette semaine";
+"Period.Month.Name.Latest"   = "Ce mois";
+"Period.Year.Name.Latest"    = "Cette année";
 
 /* SCT QUESTION HEADER CELL */
 "SctQuestionHeaderCell.Hypothesis" = "Hypothèse";
@@ -319,20 +335,3 @@
 "PeriodLeaderboard.NavigationItemTitle.Week"    = "Classement de la semaine";
 "PeriodLeaderboard.NavigationItemTitle.Month"   = "Classement du mois";
 "PeriodLeaderboard.NavigationItemTitle.Year"    = "Classement de l'année";
-
-/* LATEST PERIOD */
-"LatestPeriod.Day.Name"     = "Aujourd'hui";
-"LatestPeriod.Week.Name"    = "Cette semaine";
-"LatestPeriod.Month.Name"   = "Ce mois";
-"LatestPeriod.Year.Name"   = "Cette année";
-
-/* PERIOD */
-"Period.Day.Name.Short"     = "J";
-"Period.Week.Name.Short"    = "S";
-"Period.Month.Name.Short"   = "M";
-"Period.Year.Name.Short"    = "A";
-
-"Period.Day.Name"     = "Jour";
-"Period.Week.Name"    = "Semaine";
-"Period.Month.Name"   = "Mois";
-"Period.Year.Name"    = "Année";

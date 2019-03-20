@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension LatestPeriod
+extension Period
 {
     fileprivate var navigationItemTitle_: String
     {
@@ -28,7 +28,7 @@ extension LatestPeriod
 
 class PeriodLeaderboardViewController: LeaderboardViewController
 {
-    var period: LatestPeriod = .day
+    var period: Period = .day
     {
         didSet
         {

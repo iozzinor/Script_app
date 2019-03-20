@@ -56,7 +56,7 @@ class LeaderboardViewController: UITableViewController
     // -------------------------------------------------------------------------
     enum LeaderboardRow
     {
-        case period(LatestPeriod)
+        case period(Period)
         
         case foreignCandidate(CandidateStatistics)
         
@@ -70,9 +70,9 @@ class LeaderboardViewController: UITableViewController
             switch self
             {
             // period
-            case let .period(latestPeriod):
+            case let .period(period):
                 let cell = tableView.dequeueReusableCell(withIdentifier: LeaderboardViewController.periodCellId, for: indexPath)
-                cell.textLabel?.text = latestPeriod.name
+                cell.textLabel?.text = period.latestName
                 return cell
                 
             // foreign candidate
@@ -127,7 +127,7 @@ class LeaderboardViewController: UITableViewController
     static let periodCellId = "LeaderboardPeriodCellReuseId"
     static let userCellId   = "LeaderboardUserCellReuseId"
     
-    fileprivate var currentPeriod_ = LatestPeriod.day
+    fileprivate var currentPeriod_ = Period.day
     
     var bestTenUsers_: [CandidateStatistics] = defaultForeignCandidates_()
     var userStatistics_ = CandidateStatistics(name: "", rank: 100, answeredSctExams: 1000, meanScore: 75.0)
@@ -137,7 +137,7 @@ class LeaderboardViewController: UITableViewController
         var result = [(section: LeaderboardSection, rows: [LeaderboardRow])]()
         
         // period
-        result.append((section: .periods, rows: LatestPeriod.allCases.map { LeaderboardRow.period($0) }))
+        result.append((section: .periods, rows: Period.allCases.map { LeaderboardRow.period($0) }))
         
         // top ten
         result.append((section: .topTen, rows: bestTenUsers_.map { LeaderboardRow.foreignCandidate($0)} ))

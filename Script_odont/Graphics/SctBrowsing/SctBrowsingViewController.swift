@@ -30,7 +30,7 @@ class SctBrowsingViewController: UIViewController
 {
     fileprivate struct LatestDate
     {
-        var period: LatestPeriod
+        var period: Period
         var launchInformation: [SctLaunchInformation]
         var sctCount: Int {
             return launchInformation.count
@@ -168,7 +168,7 @@ class SctBrowsingViewController: UIViewController
             case let .newDate(latestDate):
                 let result = tableView.dequeueReusableCell(for: indexPath) as SctLatestPeriodCell
                 
-                result.setPeriod(latestDate.period.name, sctsCount: latestDate.sctCount)
+                result.setPeriod(latestDate.period.latestName, sctsCount: latestDate.sctCount)
                 
                 return result
                 
