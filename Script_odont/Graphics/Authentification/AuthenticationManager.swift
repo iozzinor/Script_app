@@ -117,6 +117,27 @@ class AuthenticationManager
             }
             return result
         }
+        set {
+            concurrentAuthenticationQueue_.async(flags: .barrier) {
+                self.userName_ = newValue
+            }
+        }
+    }
+    
+    var salt: String? {
+        get {
+            var result: String? = nil
+            concurrentAuthenticationQueue_.sync {
+                result = self.salt_
+            }
+            return result
+        }
+        set
+        {
+            concurrentAuthenticationQueue_.async(flags: .barrier) {
+                self.salt_ = newValue
+            }
+        }
     }
     
     func authenticateUserUsingBiometry(completion: @escaping (Error?) -> Void)
@@ -139,5 +160,12 @@ class AuthenticationManager
                 completion(error)
             }
         })
+    }
+    
+    func storeAccountInformation()
+    {
+        // store the user name and the salt
+        UserDefaults.standard.set(userName_, forKey: AuthenticationManager.userNameKey_)
+        UserDefaults.standard.set(salt_, forKey: AuthenticationManager.saltKey_)
     }
 }

@@ -20,6 +20,7 @@ class ViewController: UITabBarController
         
         #if DEBUG
         #else
+        
         if firstDisplay_
         {
             firstDisplay_ = false

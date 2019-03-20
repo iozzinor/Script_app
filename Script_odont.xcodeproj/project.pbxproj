@@ -157,6 +157,7 @@
 		ACDC49A22242171D00B43534 /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A12242171D00B43534 /* String+md5.swift */; };
 		ACDC49A622421D4A00B43534 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A522421D4A00B43534 /* Reachability.swift */; };
 		ACDC49A8224221F800B43534 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A7224221F800B43534 /* NetworkStatus.swift */; };
+		ACDC49AB2242366B00B43534 /* AsynchronousTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49AA2242366B00B43534 /* AsynchronousTableManager.swift */; };
 		ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */; };
 		ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F92221F214C008454FF /* WeakContainer.swift */; };
 		ACE70F95221F2439008454FF /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F94221F2439008454FF /* WeakArray.swift */; };
@@ -324,6 +325,7 @@
 		ACDC49A12242171D00B43534 /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
 		ACDC49A522421D4A00B43534 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		ACDC49A7224221F800B43534 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
+		ACDC49AA2242366B00B43534 /* AsynchronousTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousTableManager.swift; sourceTree = "<group>"; };
 		ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWalkthroughViewController.swift; sourceTree = "<group>"; };
 		ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+storyboardId.swift"; sourceTree = "<group>"; };
 		ACE70F92221F214C008454FF /* WeakContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 		AC0D77C02225CD1A007F83D4 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				ACDC49A92242364D00B43534 /* AsynchronousTableManager */,
 				AC0E4EAE223826EA003996AF /* Star */,
 				ACC83F8E223E99090064BE6F /* DetailHeader */,
 				AC31E39B2235B96600A3B813 /* Sct */,
@@ -690,6 +693,14 @@
 			path = DetailHeader;
 			sourceTree = "<group>";
 		};
+		ACDC49A92242364D00B43534 /* AsynchronousTableManager */ = {
+			isa = PBXGroup;
+			children = (
+				ACDC49AA2242366B00B43534 /* AsynchronousTableManager.swift */,
+			);
+			path = AsynchronousTableManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -871,6 +882,7 @@
 				AC8F5B822229696000FAEFC5 /* LoginViewController.swift in Sources */,
 				AC4904CF222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift in Sources */,
 				AC38BB80221EA451008E829B /* WelcomeWalkthroughPageViewControllerDelegate.swift in Sources */,
+				ACDC49AB2242366B00B43534 /* AsynchronousTableManager.swift in Sources */,
 				ACC52C4F223EFFC300B974BA /* DetailFooter.swift in Sources */,
 				ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */,
 				ACD1B3A6223BFF580065F07E /* DetailHeader.swift in Sources */,
