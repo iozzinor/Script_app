@@ -65,7 +65,7 @@ struct Appearance
         struct Color
         {
             public static let `default` = UIColor.black
-            public static let selected = UIColor.blue
+            public static let selected = UIColor.blue.withAlphaComponent(0.3)
         }
     }
 }

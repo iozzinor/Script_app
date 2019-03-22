@@ -108,6 +108,9 @@
 		ACA60F722235CCEF0094881A /* SctViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA60F712235CCEF0094881A /* SctViewController.swift */; };
 		ACA60F742235D2340094881A /* SctViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA60F732235D2340094881A /* SctViewDataSource.swift */; };
 		ACB8C8A822351AE000C7F77C /* SctFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8C8A722351AE000C7F77C /* SctFinished.swift */; };
+		ACBCF42522425993007CA02F /* AsynchronousTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF42422425993007CA02F /* AsynchronousTableViewController.swift */; };
+		ACBCF4272242CA18007CA02F /* ErrorDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF4262242CA18007CA02F /* ErrorDisplayer.swift */; };
+		ACBCF4292242D033007CA02F /* ErrorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF4282242D033007CA02F /* ErrorButtonView.swift */; };
 		ACC52C3F223EE57E00B974BA /* CandidateStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC52C3E223EE57E00B974BA /* CandidateStatistics.swift */; };
 		ACC52C41223EEE6C00B974BA /* CandidateStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC52C40223EEE6C00B974BA /* CandidateStatisticsCell.swift */; };
 		ACC52C44223EF38200B974BA /* CandidateStatisticsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC52C46223EF38200B974BA /* CandidateStatisticsCell.xib */; };
@@ -157,10 +160,8 @@
 		ACDC49A22242171D00B43534 /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A12242171D00B43534 /* String+md5.swift */; };
 		ACDC49A622421D4A00B43534 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A522421D4A00B43534 /* Reachability.swift */; };
 		ACDC49A8224221F800B43534 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A7224221F800B43534 /* NetworkStatus.swift */; };
-		ACDC49AB2242366B00B43534 /* AsynchronousTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49AA2242366B00B43534 /* AsynchronousTableManager.swift */; };
 		ACDC49AF224240BA00B43534 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49AE224240BA00B43534 /* TableSection.swift */; };
 		ACDC49B1224240D200B43534 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49B0224240D200B43534 /* TableRow.swift */; };
-		ACDC49B32242413700B43534 /* AsynchronousTableManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49B22242413700B43534 /* AsynchronousTableManagerDelegate.swift */; };
 		ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */; };
 		ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F92221F214C008454FF /* WeakContainer.swift */; };
 		ACE70F95221F2439008454FF /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F94221F2439008454FF /* WeakArray.swift */; };
@@ -276,6 +277,9 @@
 		ACA60F712235CCEF0094881A /* SctViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctViewController.swift; sourceTree = "<group>"; };
 		ACA60F732235D2340094881A /* SctViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctViewDataSource.swift; sourceTree = "<group>"; };
 		ACB8C8A722351AE000C7F77C /* SctFinished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctFinished.swift; sourceTree = "<group>"; };
+		ACBCF42422425993007CA02F /* AsynchronousTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousTableViewController.swift; sourceTree = "<group>"; };
+		ACBCF4262242CA18007CA02F /* ErrorDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDisplayer.swift; sourceTree = "<group>"; };
+		ACBCF4282242D033007CA02F /* ErrorButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorButtonView.swift; sourceTree = "<group>"; };
 		ACC52C3E223EE57E00B974BA /* CandidateStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateStatistics.swift; sourceTree = "<group>"; };
 		ACC52C40223EEE6C00B974BA /* CandidateStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateStatisticsCell.swift; sourceTree = "<group>"; };
 		ACC52C45223EF38200B974BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CandidateStatisticsCell.xib; sourceTree = "<group>"; };
@@ -328,10 +332,8 @@
 		ACDC49A12242171D00B43534 /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
 		ACDC49A522421D4A00B43534 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		ACDC49A7224221F800B43534 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
-		ACDC49AA2242366B00B43534 /* AsynchronousTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousTableManager.swift; sourceTree = "<group>"; };
 		ACDC49AE224240BA00B43534 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		ACDC49B0224240D200B43534 /* TableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
-		ACDC49B22242413700B43534 /* AsynchronousTableManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousTableManagerDelegate.swift; sourceTree = "<group>"; };
 		ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWalkthroughViewController.swift; sourceTree = "<group>"; };
 		ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+storyboardId.swift"; sourceTree = "<group>"; };
 		ACE70F92221F214C008454FF /* WeakContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
@@ -702,10 +704,11 @@
 		ACDC49A92242364D00B43534 /* AsynchronousTableManager */ = {
 			isa = PBXGroup;
 			children = (
-				ACDC49AA2242366B00B43534 /* AsynchronousTableManager.swift */,
-				ACDC49B22242413700B43534 /* AsynchronousTableManagerDelegate.swift */,
+				ACBCF42422425993007CA02F /* AsynchronousTableViewController.swift */,
 				ACDC49AE224240BA00B43534 /* TableSection.swift */,
 				ACDC49B0224240D200B43534 /* TableRow.swift */,
+				ACBCF4262242CA18007CA02F /* ErrorDisplayer.swift */,
+				ACBCF4282242D033007CA02F /* ErrorButtonView.swift */,
 			);
 			path = AsynchronousTableManager;
 			sourceTree = "<group>";
@@ -825,6 +828,7 @@
 				AC4904D1222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift in Sources */,
 				AC87E2F8222CA24000D6B8CC /* UserIdentifierCell.swift in Sources */,
 				ACC81AC82240470E000990EA /* Progression.swift in Sources */,
+				ACBCF4272242CA18007CA02F /* ErrorDisplayer.swift in Sources */,
 				AC38BB62221DE4C9008E829B /* SctBrowsingViewController.swift in Sources */,
 				ACC83F78223E2A2A0064BE6F /* QuestionsCountCell.swift in Sources */,
 				AC0D77DC2228343C007F83D4 /* SctSession.swift in Sources */,
@@ -860,7 +864,6 @@
 				AC0D77D22225DD01007F83D4 /* SctPanelAnswer.swift in Sources */,
 				ACE70F97221F3254008454FF /* UITableViewCell+utils.swift in Sources */,
 				ACC83F6A223D650D0064BE6F /* QualificationTopicsPickerViewController.swift in Sources */,
-				ACDC49B32242413700B43534 /* AsynchronousTableManagerDelegate.swift in Sources */,
 				ACC83F72223DA4CC0064BE6F /* DurationPickerCell.swift in Sources */,
 				ACC83F8D223E96F30064BE6F /* SettingsViewController.swift in Sources */,
 				AC8F5B7D22289DC800FAEFC5 /* GoToSctStatusView.swift in Sources */,
@@ -894,7 +897,6 @@
 				AC8F5B822229696000FAEFC5 /* LoginViewController.swift in Sources */,
 				AC4904CF222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift in Sources */,
 				AC38BB80221EA451008E829B /* WelcomeWalkthroughPageViewControllerDelegate.swift in Sources */,
-				ACDC49AB2242366B00B43534 /* AsynchronousTableManager.swift in Sources */,
 				ACC52C4F223EFFC300B974BA /* DetailFooter.swift in Sources */,
 				ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */,
 				ACD1B3A6223BFF580065F07E /* DetailHeader.swift in Sources */,
@@ -902,6 +904,7 @@
 				AC4904BF222B3AAF00BDEB4B /* SecurityQuestion.swift in Sources */,
 				AC8F5B792228986000FAEFC5 /* GoToSctViewControllerDelegate.swift in Sources */,
 				AC372C5A223942BE009F1DAD /* SctUpdateRateCell.swift in Sources */,
+				ACBCF42522425993007CA02F /* AsynchronousTableViewController.swift in Sources */,
 				AC8F5B77222894AB00FAEFC5 /* GoToSctViewController.swift in Sources */,
 				AC372C58223942BE009F1DAD /* SctPerformRateCellDelegate.swift in Sources */,
 				ACC83F7A223E349C0064BE6F /* SctSearchResultViewController.swift in Sources */,
@@ -924,6 +927,7 @@
 				ACC83F6C223D6C590064BE6F /* QualificationTopicsPickerDelegate.swift in Sources */,
 				AC0D77C42225CD60007F83D4 /* SctTopic.swift in Sources */,
 				AC0E4EB022382995003996AF /* UIBezierPath+star.swift in Sources */,
+				ACBCF4292242D033007CA02F /* ErrorButtonView.swift in Sources */,
 				AC372C57223942BE009F1DAD /* SctDetailViewDelegate.swift in Sources */,
 				AC74B69E22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift in Sources */,
 				AC38BB60221DE4C9008E829B /* AppDelegate.swift in Sources */,

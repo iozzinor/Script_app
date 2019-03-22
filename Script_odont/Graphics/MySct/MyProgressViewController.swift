@@ -63,6 +63,7 @@ class MyProgressViewController: UITableViewController
                 let cell = tableView.dequeueReusableCell(for: indexPath) as ProgressCell
                 cell.delegate = myProgressViewController
                 cell.scoreProgressDiagram.dataSource = myProgressViewController
+                cell.scoreProgressDiagram.diagramType = .line
                 myProgressViewController.scoreProgressDiagram_ = cell.scoreProgressDiagram
                 return cell
                 
