@@ -18,6 +18,8 @@ fileprivate func sctLaunchInformation_() -> SctLaunchInformation
     exam.scts.append(Sct(wording: "", topic: topic, questions: []))
     
     return SctLaunchInformation(exam: exam, statistics: SctStatistics(id: 1,
+                                                                        authorLastName: "Tartanpion",
+                                                                        authorFirstName: "Jean",
                                                                            meanScore: 10.0,
                                                                            meanDuration: 34,
                                                                            meanVotes: Double(Constants.random(min: 100, max: 500)) / 100.0,

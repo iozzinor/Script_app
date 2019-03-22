@@ -21,6 +21,8 @@ class SctBrowsingCell: UITableViewCell
             setupStars_()
         }
     }
+    @IBOutlet weak var authorLastNameLabel: UILabel!
+    @IBOutlet weak var authorFirstNameLabel: UILabel!
     
     fileprivate var stars_ = [PartialRateStar]()
     
@@ -48,6 +50,9 @@ class SctBrowsingCell: UITableViewCell
         durationLabel.text = Constants.durationString(forTimeInterval: sctLaunchInformation.exam.estimatedDuration)
         
         setMeanVote_(sctLaunchInformation.statistics.meanVotes)
+        
+        authorLastNameLabel.text = sctLaunchInformation.statistics.authorLastName.uppercased()
+        authorFirstNameLabel.text = sctLaunchInformation.statistics.authorFirstName
     }
     
     fileprivate func setMeanVote_(_ vote: Double)

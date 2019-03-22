@@ -17,7 +17,9 @@ class SctUnfinishedViewController: SctDetailViewController
                       startDate: Date(),
                       lastDate: Date(),
                       statistics:
-            SctStatistics(id: 0, meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date()))
+            SctStatistics(id: 0,
+                          authorLastName: "Tartanpion",
+                          authorFirstName: "Jean", meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date()))
     {
         didSet {
             if isViewLoaded
@@ -76,7 +78,7 @@ extension SctUnfinishedViewController: SctDetailViewDataSource
         switch section
         {
         case .general:
-            return [.topic, .meanScore, .questionsCount, .scoreDiagram]
+            return [.topic, .authorLastName, .authorFirstName, .meanScore, .questionsCount, .scoreDiagram]
         case .lastSession:
             return [.lastDate, .actualDuration, .answeredQuestionsCount]
         case .rate:

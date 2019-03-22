@@ -13,6 +13,12 @@ public struct SctStatistics
     /// The id.
     var id: Int
     
+    /// The author last name.
+    var authorLastName: String
+    
+    /// The author first name.
+    var authorFirstName: String
+    
     /// The mean score.
     var meanScore: Double
     

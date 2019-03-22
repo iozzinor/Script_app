@@ -15,6 +15,8 @@ class MySctFinishedCell: UITableViewCell
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var answeredQuestionsLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var authorLastNameLabel: UILabel!
+    @IBOutlet weak var authorFirstNameLabel: UILabel!
     
     func setSctFinished(_ sctFinished: SctFinished)
     {
@@ -28,5 +30,8 @@ class MySctFinishedCell: UITableViewCell
         answeredQuestionsLabel.text = "\(sctFinished.answeredQuestions)"
         
         durationLabel.text = Constants.durationString(forTimeInterval: sctFinished.duration)
+        
+        authorLastNameLabel.text = sctFinished.statistics.authorLastName.uppercased()
+        authorFirstNameLabel.text = sctFinished.statistics.authorFirstName
     }
 }

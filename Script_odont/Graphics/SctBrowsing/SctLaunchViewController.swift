@@ -44,7 +44,9 @@ class SctLaunchViewController: SctDetailViewController
     @IBOutlet weak var tableView: UITableView!
     
     var launchInformation = SctLaunchInformation(exam: SctExam(scts: []),
-                                                 statistics: SctStatistics(id: 0, meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date()))
+                                                 statistics: SctStatistics(id: 0,
+                                                                           authorLastName: "Tartanpion",
+                                                                           authorFirstName: "Jean",meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date()))
     {
         didSet
         {
@@ -136,7 +138,7 @@ extension SctLaunchViewController: SctDetailViewDataSource
         switch section
         {
         case .general:
-            return [.topic, .meanScore, .questionsCount, .scoreDiagram]
+            return [.topic, .authorLastName, .authorFirstName, .meanScore, .questionsCount, .scoreDiagram]
         case .lastSession, .rate, .results:
             return []
         case .duration:

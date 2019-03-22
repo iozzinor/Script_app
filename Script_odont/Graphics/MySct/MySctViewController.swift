@@ -166,6 +166,8 @@ class MySctViewController: UIViewController
             }
             
             let statistics = SctStatistics(id: i + 1,
+                                           authorLastName: "Tartanpion",
+                                           authorFirstName: "Jean",
                                            meanScore:                   Double(Constants.random(min: 5, max: 95)),
                                            meanDuration:                Double(Constants.random(min: 120, max: 300)),
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
@@ -212,6 +214,8 @@ class MySctViewController: UIViewController
                 scoresDistribution.append(Constants.random(min: 10, max: 100))
             }
             let statistics = SctStatistics(id: i + 1,
+                                           authorLastName: "Tartanpion",
+                                           authorFirstName: "Jean",
                                            meanScore:                   Double(Constants.random(min: 5, max: 95)),
                                            meanDuration:                Double(Constants.random(min: 120, max: 300)),
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,

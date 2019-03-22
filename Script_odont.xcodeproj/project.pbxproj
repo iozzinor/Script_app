@@ -507,6 +507,7 @@
 			children = (
 				AC0D77BF2225CD11007F83D4 /* Core */,
 				AC0D77C02225CD1A007F83D4 /* Graphics */,
+				ACAD5DD222451E5F0041E484 /* Network */,
 				AC38BB74221DFB1E008E829B /* Utils */,
 				AC38BB5F221DE4C9008E829B /* AppDelegate.swift */,
 				AC9F23E12229D6A4002D38E5 /* ViewController.swift */,
@@ -545,8 +546,6 @@
 				ACE70F98221F32B9008454FF /* UITableView+register.swift */,
 				AC53E36A2232B75200CA4437 /* UIView+utils.swift */,
 				ACD1B3A3223BF6490065F07E /* UILabel+utils.swift */,
-				ACDC49A7224221F800B43534 /* NetworkStatus.swift */,
-				ACDC49A522421D4A00B43534 /* Reachability.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -645,6 +644,15 @@
 				ACDC49A12242171D00B43534 /* String+md5.swift */,
 			);
 			path = Hash;
+			sourceTree = "<group>";
+		};
+		ACAD5DD222451E5F0041E484 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				ACDC49A7224221F800B43534 /* NetworkStatus.swift */,
+				ACDC49A522421D4A00B43534 /* Reachability.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		ACB8C8A92235211F00C7F77C /* SctBrowsing */ = {

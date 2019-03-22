@@ -41,6 +41,8 @@ class ErrorButtonView: UIView
         errorLabel_.translatesAutoresizingMaskIntoConstraints = false
         errorLabel_.lineBreakMode = .byWordWrapping
         errorLabel_.numberOfLines = 0
+        errorLabel_.textAlignment = .center
+        errorLabel_.textColor = Appearance.Color.missing
         
         let left = NSLayoutConstraint(item: errorLabel_, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 5.0)
         let centerX = NSLayoutConstraint(item: errorLabel_, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0.0)

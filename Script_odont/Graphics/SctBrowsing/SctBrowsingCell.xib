@@ -48,17 +48,34 @@
                                     <constraint firstItem="0VV-pb-wCX" firstAttribute="width" secondItem="ohc-ZB-iZG" secondAttribute="width" multiplier="5:11" id="Qxz-HL-rbH"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GY9-6b-7Fc">
+                                <rect key="frame" x="0.0" y="20.5" width="335" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mj-Hs-LlW">
+                                        <rect key="frame" x="0.0" y="0.0" width="165" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaX-gm-cuK">
+                                        <rect key="frame" x="170" y="0.0" width="165" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eK8-Em-Aao">
-                                <rect key="frame" x="0.0" y="20.5" width="335" height="23"/>
+                                <rect key="frame" x="0.0" y="41" width="335" height="2.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qn-I9-Yjd">
-                                        <rect key="frame" x="0.0" y="0.0" width="218.5" height="23"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="218.5" height="2.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PxT-Aj-ded">
-                                        <rect key="frame" x="223.5" y="0.0" width="111.5" height="23"/>
+                                        <rect key="frame" x="223.5" y="0.0" width="111.5" height="2.5"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -77,6 +94,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="authorFirstNameLabel" destination="vaX-gm-cuK" id="mH7-Nh-C1Y"/>
+                <outlet property="authorLastNameLabel" destination="2mj-Hs-LlW" id="9Wl-xy-QfU"/>
                 <outlet property="durationLabel" destination="OvI-tb-FZV" id="cFx-eF-LNr"/>
                 <outlet property="informationLabel" destination="1Qn-I9-Yjd" id="VQ2-Ev-TXq"/>
                 <outlet property="questionsCountLabel" destination="Svz-eW-RTV" id="pF7-Qb-W5B"/>

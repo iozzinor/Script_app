@@ -82,8 +82,6 @@ class AsynchronousTableViewController<Section: TableSection, Row: TableRow, Erro
         case .fetching(_):
             return loadingView_
         case let .error(error):
-            tableView_.backgroundColor = UIColor.orange
-            
             errorView_.prepareFor(error: error)
             
             return errorView_

@@ -86,6 +86,8 @@
 "SctDetail.Section.Duration"      = "Durées";
 "SctDetail.Section.Popularity"    = "Popularité";
 
+"SctDetail.TableCell.AuthorLastName"              = "Nom auteur:";
+"SctDetail.TableCell.AuthorFirstName"             = "Prénom auteur:";
 "SctDetail.TableCell.MeanScore"                   = "Score moyen :";
 "SctDetail.TableCell.QuestionsCount"              = "Nombre de questions :";
 "SctDetail.TableCell.EstimatedDuration"           = "Estimée :";

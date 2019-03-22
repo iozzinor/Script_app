@@ -53,6 +53,8 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     {
         // general
         case topic
+        case authorLastName
+        case authorFirstName
         case meanScore
         case questionsCount
         case scoreDiagram
@@ -105,6 +107,12 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.textLabel?.text = dataSource.exam.topic.name
                 cell.textLabel?.textColor = Appearance.Color.color(for: dataSource.exam.topic)
                 cell.detailTextLabel?.text = ""
+            case .authorLastName:
+                cell.textLabel?.text = "SctDetail.TableCell.AuthorLastName".localized
+                cell.detailTextLabel?.text = dataSource.statistics.authorLastName.uppercased()
+            case .authorFirstName:
+                cell.textLabel?.text = "SctDetail.TableCell.AuthorFirstName".localized
+                cell.detailTextLabel?.text = dataSource.statistics.authorFirstName
             case .meanScore:
                 cell.textLabel?.text = "SctDetail.TableCell.MeanScore".localized
                 let meanScore = Constants.formatReal(dataSource.statistics.meanVotes)

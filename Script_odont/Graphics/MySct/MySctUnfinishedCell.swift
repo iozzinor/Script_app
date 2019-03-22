@@ -16,6 +16,8 @@ class MySctUnfinishedCell: UITableViewCell
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var authorLastNameLabel: UILabel!
+    @IBOutlet weak var authorFirstNameLabel: UILabel!
     
     fileprivate func totalQuestionsCount_(_ sctUnfinished: SctUnfinished) -> Int
     {
@@ -42,5 +44,8 @@ class MySctUnfinishedCell: UITableViewCell
         percentLabel.text = "\(Int(100.0 * Float(sctUnfinished.answeredQuestions) / Float(totalQuestions)))%"
         
         durationLabel.text = Constants.durationString(forTimeInterval: sctUnfinished.duration)
+        
+        authorLastNameLabel.text = sctUnfinished.statistics.authorLastName.uppercased()
+        authorFirstNameLabel.text = sctUnfinished.statistics.authorFirstName
     }
 }
