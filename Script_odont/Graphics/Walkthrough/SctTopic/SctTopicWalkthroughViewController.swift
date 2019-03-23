@@ -105,4 +105,8 @@ extension SctTopicWalkthroughViewController: SctViewDataSource
     func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
     {
     }
+    
+    func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didClickImageView imageView: UIImageView)
+    {
+    }
 }

@@ -205,7 +205,11 @@ public class DrawingExampleWalkthroughViewController: SctViewController
                 stepViews_[0] = [(result as! SctWordingCell).wordingLabel]
             case 2:
                 stepViews_[1] = [(result as! SctQuestionCell).hypothesisLabel]
-                stepViews_[2] = [(result as! SctQuestionCell).newDataLabel]
+                if let newDataLabel = (result as! SctQuestionCell).newDataLabel
+                {
+                    
+                    stepViews_[2] = [newDataLabel]
+                }
                 stepViews_[3] = ((result as! SctQuestionCell).scalesContainer.arrangedSubviews as! [UIButton]).map { $0.titleLabel! }
             default:
                 break
@@ -270,7 +274,7 @@ extension DrawingExampleWalkthroughViewController: SctViewDataSource
         var sct = Sct()
         sct.topic = .diagnostic
         sct.wording = "WelcomeWalkthroughExample.Label.Description.Scenario".localized
-        sct.questions.append(SctQuestion(hypothesis: "WelcomeWalkthroughExample.Label.Description.Hypothesis".localized, newData: "WelcomeWalkthroughExample.Label.Description.Information".localized))
+        sct.questions.append(SctQuestion(hypothesis: "WelcomeWalkthroughExample.Label.Description.Hypothesis".localized, newData: SctData(text: "WelcomeWalkthroughExample.Label.Description.Information".localized)))
         
         return sct
     }
@@ -310,6 +314,10 @@ extension DrawingExampleWalkthroughViewController: SctViewDataSource
         {
             correctAnswer_(sender)
         }
+    }
+    
+    public func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didClickImageView imageView: UIImageView)
+    {
     }
     
     fileprivate func incorrectAnswer_(_ sender: UIButton)

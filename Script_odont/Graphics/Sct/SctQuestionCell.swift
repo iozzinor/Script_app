@@ -16,16 +16,17 @@ public class SctQuestionCell: UITableViewCell
             hypothesisLabel.addBorders(with: Appearance.SctHorizontal.Table.borderColor, lineWidth: Appearance.SctHorizontal.Table.borderWidth, positions: [.left, .top])
         }
     }
-    @IBOutlet weak var newDataLabel: UILabel! {
+    @IBOutlet weak var newDataView: UIView! {
         didSet
         {
-            newDataLabel.addBorders(with: Appearance.SctHorizontal.Table.borderColor, lineWidth: Appearance.SctHorizontal.Table.borderWidth, positions: [.left, .top])
+            setupDataView_()
+            newDataView.addBorders(with: Appearance.SctHorizontal.Table.borderColor, lineWidth: Appearance.SctHorizontal.Table.borderWidth, positions: [.left, .top])
         }
     }
     @IBOutlet weak var scalesContainer: UIStackView! {
         didSet {
-            clearSctleContainer_()
-            setupSctleContainerButtons_()
+            clearScaleContainer_()
+            setupScaleContainerButtons_()
             
             if scalesContainer.tag != 1
             {
@@ -35,8 +36,30 @@ public class SctQuestionCell: UITableViewCell
         }
     }
     
+    var newDataLabel: UILabel? {
+        switch question.newData.content
+        {
+        case .text(_):
+            return newDataLabel_
+        case .image(_):
+            return nil
+        }
+    }
+    
+    fileprivate var newDataViews_: [UIView] = []
+    fileprivate var previousDataView_ = UIView()
+    {
+        didSet
+        {
+            oldValue.isHidden = true
+            previousDataView_.isHidden = false
+        }
+    }
+    fileprivate var newDataLabel_ = UILabel()
+    fileprivate var newDataImageView_ = UIImageView()
+    
     fileprivate var scaleContainerButtons_ = [UIButton]()
-    fileprivate var selectedSctleButton_: UIButton? = nil
+    fileprivate var selectedScaleButton_: UIButton? = nil
     
     weak var delegate: SctQuestionCellDelegate? = nil
     
@@ -44,22 +67,19 @@ public class SctQuestionCell: UITableViewCell
     {
         didSet
         {
-            if isLast
+            if isLast != oldValue
             {
-                if hypothesisLabel.tag != 1
+                if isLast
                 {
-                    hypothesisLabel.tag = 1
                     hypothesisLabel.addBorder(with: Appearance.SctHorizontal.Table.borderColor, lineWidth: Appearance.SctHorizontal.Table.borderWidth, position: .bottom)
-                }
-                if newDataLabel.tag != 1
-                {
-                    newDataLabel.tag = 1
-                    newDataLabel.addBorder(with: Appearance.SctHorizontal.Table.borderColor, lineWidth: Appearance.SctHorizontal.Table.borderWidth, position: .bottom)
-                }
-                if (scalesContainer.tag >> 1) != 1
-                {
-                    scalesContainer.tag |= 2
+                    newDataView.addBorder(with: Appearance.SctHorizontal.Table.borderColor, lineWidth: Appearance.SctHorizontal.Table.borderWidth, position: .bottom)
                     scalesContainer.addBorder(with: Appearance.SctHorizontal.Table.borderColor, lineWidth: Appearance.SctHorizontal.Table.borderWidth, position: .bottom)
+                }
+                else
+                {
+                    hypothesisLabel.removeBorders([.bottom])
+                    newDataView.removeBorders([.bottom])
+                    scalesContainer.removeBorders([.bottom])
                 }
             }
         }
@@ -76,17 +96,17 @@ public class SctQuestionCell: UITableViewCell
             {
                 if canChooseLikertScale
                 {
-                    button.addTarget(self, action: #selector(SctQuestionCell.selectedSctleButtonPressed_), for: .touchUpInside)
+                    button.addTarget(self, action: #selector(SctQuestionCell.selectedScaleButtonPressed_), for: .touchUpInside)
                 }
                 else
                 {
-                    button.removeTarget(self, action: #selector(SctQuestionCell.selectedSctleButtonPressed_), for: .touchUpInside)
+                    button.removeTarget(self, action: #selector(SctQuestionCell.selectedScaleButtonPressed_), for: .touchUpInside)
                 }
             }
         }
     }
     
-    fileprivate func clearSctleContainer_()
+    fileprivate func clearScaleContainer_()
     {
         for arrangedSubview in scaleContainerButtons_
         {
@@ -95,7 +115,60 @@ public class SctQuestionCell: UITableViewCell
         scaleContainerButtons_ = []
     }
     
-    fileprivate func setupSctleContainerButtons_()
+    // -------------------------------------------------------------------------
+    // MARK: - SETUP
+    // -------------------------------------------------------------------------
+    fileprivate func setupDataView_()
+    {
+        // clear
+        for subview in newDataView.subviews
+        {
+            subview.removeFromSuperview()
+        }
+        newDataViews_.removeAll()
+        
+        // add subviews
+        newDataViews_.append(newDataLabel_)
+        newDataViews_.append(newDataImageView_)
+        
+        for newSubview in newDataViews_
+        {
+            newSubview.translatesAutoresizingMaskIntoConstraints = false
+            newDataView.addSubview(newSubview)
+            newSubview.isHidden = true
+        }
+        
+        setupNewDataLabel_()
+        setupNewDataImageView_()
+    }
+    
+    fileprivate func setupNewDataLabel_()
+    {
+        newDataLabel_.numberOfLines = 0
+        newDataLabel_.lineBreakMode = .byWordWrapping
+        
+        newDataView.adjustSubview(newDataLabel_)
+        previousDataView_ = newDataLabel_
+        newDataLabel_.isHidden = false
+    }
+    
+    fileprivate func setupNewDataImageView_()
+    {
+        newDataView.adjustSubview(newDataImageView_)
+        let widthHeightRatio = NSLayoutConstraint(item: newDataImageView_, attribute: .height, relatedBy: .equal, toItem: newDataImageView_, attribute: .width, multiplier: 1.0, constant: 0.0)
+        newDataImageView_.addConstraint(widthHeightRatio)
+        
+        // touch listener
+        let newDataImageGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SctQuestionCell.imageViewTapped_))
+        newDataImageGestureRecognizer.numberOfTapsRequired = 1
+        newDataImageGestureRecognizer.numberOfTouchesRequired = 1
+        newDataImageView_.gestureRecognizers?.removeAll()
+        newDataImageView_.addGestureRecognizer(newDataImageGestureRecognizer)
+        newDataImageView_.isUserInteractionEnabled = true
+        newDataImageView_.contentMode = .scaleAspectFit
+    }
+    
+    fileprivate func setupScaleContainerButtons_()
     {
         for i in 0..<5
         {
@@ -108,19 +181,27 @@ public class SctQuestionCell: UITableViewCell
             newButton.tintColor = Appearance.LikertScale.Color.selected
             
             // select the currently selected answer button
-            newButton.isSelected = (i == selectedSctle)
+            newButton.isSelected = (i == selectedScale)
             if newButton.isSelected
             {
-                selectedSctleButton_?.isSelected = false
-                selectedSctleButton_ = newButton
+                selectedScaleButton_?.isSelected = false
+                selectedScaleButton_ = newButton
             }
             
             // button target
-            newButton.addTarget(self, action: #selector(SctQuestionCell.selectedSctleButtonPressed_), for: .touchUpInside)
+            newButton.addTarget(self, action: #selector(SctQuestionCell.selectedScaleButtonPressed_), for: .touchUpInside)
             
             scaleContainerButtons_.append(newButton)
             scalesContainer.addArrangedSubview(newButton)
         }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - ACTIONS
+    // -------------------------------------------------------------------------
+    @objc fileprivate func imageViewTapped_(sender: UITapGestureRecognizer)
+    {
+        delegate?.sctQuestionCell(self, didClickImageView: newDataImageView_)
     }
     
     // -------------------------------------------------------------------------
@@ -129,29 +210,39 @@ public class SctQuestionCell: UITableViewCell
     var question: SctQuestion = SctQuestion() {
         didSet {
             hypothesisLabel.text = question.hypothesis
-            newDataLabel.text = question.newData
+            
+            switch question.newData.content
+            {
+            case let .text(text):
+                newDataLabel_.text = text
+                newDataLabel_.sizeToFit()
+                previousDataView_ = newDataLabel_
+            case let .image(image):
+                newDataImageView_.image = image
+                previousDataView_ = newDataImageView_
+            }
         }
     }
     
     fileprivate var selectedScale_: Int = -1 {
         didSet {
-            selectedSctleButton_?.isSelected = false
+            selectedScaleButton_?.isSelected = false
             if selectedScale_ < 0
             {
-                selectedSctleButton_ = nil
+                selectedScaleButton_ = nil
             }
             else
             {
-                selectedSctleButton_ = scaleContainerButtons_[selectedScale_]
+                selectedScaleButton_ = scaleContainerButtons_[selectedScale_]
             }
             
-            selectedSctleButton_?.isSelected = true
+            selectedScaleButton_?.isSelected = true
             
             delegate?.sctQuestionCell(self, didSelectAnswer: LikertScale.Degree(rawValue: selectedScale_))
         }
     }
     
-    var selectedSctle: Int {
+    var selectedScale: Int {
         set {
             
             if newValue == selectedScale_
@@ -169,9 +260,9 @@ public class SctQuestionCell: UITableViewCell
         }
     }
     
-    @objc fileprivate func selectedSctleButtonPressed_(_ sender: UIButton)
+    @objc fileprivate func selectedScaleButtonPressed_(_ sender: UIButton)
     {
-        selectedSctle = sender.tag
+        selectedScale = sender.tag
     }
     
     func setAnswer(_ degree: LikertScale.Degree?)

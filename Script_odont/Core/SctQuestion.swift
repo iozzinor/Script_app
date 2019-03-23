@@ -11,5 +11,5 @@ import Foundation
 public struct SctQuestion
 {
     public var hypothesis: String = ""
-    public var newData: String = ""
+    public var newData = SctData()
 }

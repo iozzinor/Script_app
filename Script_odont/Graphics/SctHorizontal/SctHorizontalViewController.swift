@@ -11,6 +11,7 @@ import UIKit
 public class SctHorizontalViewController: SctViewController, SctViewDataSource
 {
     public static let toGoToSct = "SctHorizontalToGoToSctSegueId"
+    public static let toImageDetail = "SctHorizontalToImageDetailSegueId"
     
     // -------------------------------------------------------------------------
     // MARK: - VALIDATION STATUS
@@ -43,6 +44,11 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     fileprivate var sessionTimer_: Timer? = nil
     fileprivate var lastTime_: TimeInterval = 0.0
     fileprivate var orientationHorizontal_ = Constants.isDeviceOrientationHorizontal
+    
+    var senderImageView: UIImageView? = nil
+    fileprivate var detailImage_: UIImage? {
+        return senderImageView?.image
+    }
     
     var sctSession = SctSession(exam: SctExam(scts: [])) {
         didSet {
@@ -391,12 +397,21 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     // -------------------------------------------------------------------------
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        // go to
         if segue.identifier == SctHorizontalViewController.toGoToSct,
             let destination = (segue.destination as? UINavigationController)?.viewControllers.first as? GoToSctViewController
         {
             destination.session = sctSession
             destination.currentSct = currentSctIndex
             destination.delegate = self
+        }
+        // image detail
+        if segue.identifier == SctHorizontalViewController.toImageDetail,
+            let target = segue.destination as? ImageDetailViewController,
+            let image = detailImage_
+        {
+            target.image = image
+            target.transitioningDelegate = target
         }
     }
 }
@@ -410,6 +425,12 @@ extension SctHorizontalViewController: SctQuestionCellDelegate
     {
         let questionIndex = sctQuestionCell.tag
         sctSession[currentSctIndex, questionIndex] = answer
+    }
+    
+    public func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didClickImageView imageView: UIImageView)
+    {
+        senderImageView = imageView
+        performSegue(withIdentifier: SctHorizontalViewController.toImageDetail, sender: self)
     }
 }
 

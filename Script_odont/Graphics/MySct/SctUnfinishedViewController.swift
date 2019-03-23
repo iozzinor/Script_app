@@ -8,8 +8,26 @@
 
 import UIKit
 
+fileprivate func imageExam1_() -> SctExam
+{
+    var sct = Sct()
+    // TEMP
+    sct.topic = .therapeutic
+    sct.wording = "Un patient de 25 ans se présente en consultation suite à une chute en trotinette. Il souhaite reconstruire son incisive centrale."
+    
+    let hypothesis = "Réaliser une couronne céramo-céramique"
+    let fracturePhoto = UIImage(named: "fracture_incisive_photo")!
+    let fractureRadiography = UIImage(named: "fracture_incisive_radio")!
+    sct.questions.append(SctQuestion(hypothesis: hypothesis, newData: SctData(content: .image(fractureRadiography))))
+    sct.questions.append(SctQuestion(hypothesis: hypothesis, newData: SctData(image: fracturePhoto)))
+    
+    return SctExam(scts: [sct])
+}
+
 class SctUnfinishedViewController: SctDetailViewController
 {
+    static let toSctHorizontalSegueId = "SctUnfinishedToSctHorizontalSegueId"
+    
     var sctUnfinished: SctUnfinished =
         SctUnfinished(session: SctSession(exam: SctExam()),
                       answeredQuestions: 1,
@@ -40,6 +58,18 @@ class SctUnfinishedViewController: SctDetailViewController
         dataSource = self
         setupTableView(tableView)
     }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - SEGUES
+    // -------------------------------------------------------------------------
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == SctUnfinishedViewController.toSctHorizontalSegueId,
+            let target = segue.destination as? SctHorizontalViewController
+        {
+            target.sctSession = SctSession(exam: imageExam1_())
+        }
+    }
 }
 
 // -----------------------------------------------------------------------------
@@ -61,6 +91,7 @@ extension SctUnfinishedViewController: SctDetailViewDelegate
     
     func sctDetailView(didResume sctDetailViewController: SctDetailViewController)
     {
+        performSegue(withIdentifier: SctUnfinishedViewController.toSctHorizontalSegueId, sender: self)
     }
     
     func sctDetailView(didLaunch sctDetailViewController: SctDetailViewController)

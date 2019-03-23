@@ -70,11 +70,20 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="E93-Jc-tGu" id="YQ9-s7-V0n"/>
+                        <segue destination="anV-fW-VUF" kind="presentation" identifier="SctUnfinishedToSctHorizontalSegueId" id="bLz-Z9-AUI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Dh-QE-XTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="838" y="330"/>
+        </scene>
+        <!--SctHorizontal-->
+        <scene sceneID="pnO-sm-Elz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SctHorizontal" id="anV-fW-VUF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14V-40-6C4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1538" y="329"/>
         </scene>
         <!--Scts Unfinished List View Controller-->
         <scene sceneID="ZeL-2P-ySv">

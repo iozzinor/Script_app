@@ -84,11 +84,41 @@
                         <outlet property="tableView" destination="LBW-xq-j7p" id="LrF-8Z-TsM"/>
                         <outlet property="toolbar" destination="auk-YP-Bd8" id="nM6-Wg-oML"/>
                         <segue destination="IvR-bP-zxa" kind="presentation" identifier="SctHorizontalToGoToSctSegueId" id="Vw8-wN-fyX"/>
+                        <segue destination="PqL-JZ-Fos" kind="presentation" identifier="SctHorizontalToImageDetailSegueId" modalPresentationStyle="fullScreen" id="ttc-tF-NvI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6X2-Qr-a2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="421.60000000000002" y="-206.44677661169416"/>
+        </scene>
+        <!--Image Detail View Controller-->
+        <scene sceneID="dbC-0Z-iLq">
+            <objects>
+                <viewController id="PqL-JZ-Fos" customClass="ImageDetailViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hRF-BK-1oj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Vl-yn-sRe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3Vl-yn-sRe" firstAttribute="centerX" secondItem="hRF-BK-1oj" secondAttribute="centerX" id="0Wq-8B-nKZ"/>
+                            <constraint firstItem="3Vl-yn-sRe" firstAttribute="leading" secondItem="RBF-Xl-7fC" secondAttribute="leading" id="JHR-dO-w0L"/>
+                            <constraint firstItem="3Vl-yn-sRe" firstAttribute="top" secondItem="hRF-BK-1oj" secondAttribute="top" id="Mu6-4S-z3Q"/>
+                            <constraint firstItem="3Vl-yn-sRe" firstAttribute="centerY" secondItem="hRF-BK-1oj" secondAttribute="centerY" id="N12-dz-G26"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RBF-Xl-7fC"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="3Vl-yn-sRe" id="7sK-Kr-i65"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32s-9z-C3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1374" y="-206"/>
         </scene>
         <!--Select A Sct-->
         <scene sceneID="Vm2-dm-97p">

@@ -27,33 +27,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Data" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFC-9C-UQs">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8k-zt-wgP">
                                 <rect key="frame" x="91.5" y="0.0" width="91" height="43.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0FL-tr-YCU">
                                 <rect key="frame" x="182.5" y="0.0" width="152.5" height="43.5"/>
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="eFC-9C-UQs" firstAttribute="top" secondItem="5qL-uc-M0c" secondAttribute="top" id="Asg-A9-Uyp"/>
-                            <constraint firstItem="eFC-9C-UQs" firstAttribute="width" secondItem="u0O-Lc-RJy" secondAttribute="width" id="Bw7-KG-Rmg"/>
+                            <constraint firstItem="u0O-Lc-RJy" firstAttribute="width" secondItem="5qL-uc-M0c" secondAttribute="width" multiplier="3:11" id="J6P-V7-Hw7"/>
+                            <constraint firstItem="u0O-Lc-RJy" firstAttribute="width" secondItem="a8k-zt-wgP" secondAttribute="width" id="QQW-9P-9BG"/>
                             <constraint firstItem="u0O-Lc-RJy" firstAttribute="width" secondItem="5qL-uc-M0c" secondAttribute="width" multiplier="4:11" id="Sbb-Ya-WLs"/>
+                            <constraint firstItem="a8k-zt-wgP" firstAttribute="top" secondItem="5qL-uc-M0c" secondAttribute="top" id="U2r-Fl-X3J"/>
                             <constraint firstItem="0FL-tr-YCU" firstAttribute="top" secondItem="5qL-uc-M0c" secondAttribute="top" id="agB-XX-wqU"/>
-                            <constraint firstItem="u0O-Lc-RJy" firstAttribute="top" secondItem="5qL-uc-M0c" secondAttribute="top" id="hsV-Lc-eEz"/>
-                            <constraint firstItem="u0O-Lc-RJy" firstAttribute="width" secondItem="5qL-uc-M0c" secondAttribute="width" multiplier="3:11" id="uRS-N9-XZo"/>
+                            <constraint firstItem="u0O-Lc-RJy" firstAttribute="top" secondItem="5qL-uc-M0c" secondAttribute="top" id="rA5-Bc-uz1"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="uRS-N9-XZo"/>
+                                <exclude reference="J6P-V7-Hw7"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
+                                <include reference="J6P-V7-Hw7"/>
                                 <exclude reference="Sbb-Ya-WLs"/>
-                                <include reference="uRS-N9-XZo"/>
                             </mask>
                         </variation>
                     </stackView>
@@ -67,7 +65,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="hypothesisLabel" destination="u0O-Lc-RJy" id="d0F-K9-uRX"/>
-                <outlet property="newDataLabel" destination="eFC-9C-UQs" id="qyg-ve-h9P"/>
+                <outlet property="newDataView" destination="a8k-zt-wgP" id="py3-Xg-u8z"/>
                 <outlet property="scalesContainer" destination="0FL-tr-YCU" id="LuH-Xr-xBB"/>
             </connections>
         </tableViewCell>

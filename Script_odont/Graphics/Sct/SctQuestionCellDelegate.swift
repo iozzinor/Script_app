@@ -6,9 +6,11 @@
 //  Copyright © 2019 Régis Iozzino. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public protocol SctQuestionCellDelegate: class
 {
     func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
+    
+    func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didClickImageView imageView: UIImageView)
 }

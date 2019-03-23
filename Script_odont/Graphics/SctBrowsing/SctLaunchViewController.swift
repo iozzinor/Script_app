@@ -14,25 +14,25 @@ fileprivate func defaultExam_() -> SctExam
     // TEMP
     first.wording = "Un patient de 34 ans se présente en consultation pour des douleurs intenses sur 36 depuis plusieurs jours. Cette dent a déjà été reconstitué par un onlay MOD 4 ans plus tôt."
     
-    first.questions.append(SctQuestion(hypothesis: "une fracture amélo-dentinaire", newData:" un sondage parodontal de 8 mm en vestibulaire"))
-    first.questions.append(SctQuestion(hypothesis: "une reprise carieuse et une pulpite sous l’onlay", newData:"  le test au froid est négatif"))
-    first.questions.append(SctQuestion(hypothesis: "une reprise carieuse et à une pulpite sous l’onlay", newData:"    Il y a une douleur à la palpation et à la percussion de la dent"))
-    first.questions.append(SctQuestion(hypothesis: "une surcharge occlusale", newData:"   le papier d’occlusion marque principalement sur les cuspides linguales"))
+    first.questions.append(SctQuestion(hypothesis: "une fracture amélo-dentinaire", newData: SctData(text: " un sondage parodontal de 8 mm en vestibulaire")))
+    first.questions.append(SctQuestion(hypothesis: "une reprise carieuse et une pulpite sous l’onlay", newData: SctData(text: "  le test au froid est négatif")))
+    first.questions.append(SctQuestion(hypothesis: "une reprise carieuse et à une pulpite sous l’onlay", newData: SctData(text: "    Il y a une douleur à la palpation et à la percussion de la dent")))
+    first.questions.append(SctQuestion(hypothesis: "une surcharge occlusale", newData: SctData(text: "   le papier d’occlusion marque principalement sur les cuspides linguales")))
     
     var second = Sct()
     second.topic = .therapeutic
     second.wording = "Une patiente de 25 ans se présente en consultation pour la reconstruction de sa dent 11 qui ne présente ni douleur ni dyschromie."
-    second.questions.append(SctQuestion(hypothesis: "réaliser un composite en technique direct", newData: "sa dent a déja été reconstruite par plusieurs composite qui sont étanches"))
-    second.questions.append(SctQuestion(hypothesis: "réaliser un composite en technique direct", newData: "le test au froid est négatif"))
-    second.questions.append(SctQuestion(hypothesis: "réaliser une facette", newData: "la zone de collage est quasi intégralement dentinaire"))
-    second.questions.append(SctQuestion(hypothesis: "réaliser une facette", newData: "le patient est bruxomane"))
+    second.questions.append(SctQuestion(hypothesis: "réaliser un composite en technique direct", newData: SctData(text:  "sa dent a déja été reconstruite par plusieurs composite qui sont étanches")))
+    second.questions.append(SctQuestion(hypothesis: "réaliser un composite en technique direct", newData: SctData(text:  "le test au froid est négatif")))
+    second.questions.append(SctQuestion(hypothesis: "réaliser une facette", newData: SctData(text:  "la zone de collage est quasi intégralement dentinaire")))
+    second.questions.append(SctQuestion(hypothesis: "réaliser une facette", newData: SctData(text:  "le patient est bruxomane")))
     
     var third = Sct()
     third.topic = .therapeutic
     third.wording = "Un patient de 70 ans se présente pour son rendez-vous de contrôle 1 semaine après la pose d’une prothèse amovible complète bi-maxillaire. Il se plaint de douleurs"
-    third.questions.append(SctQuestion(hypothesis: "Des prématurités et/ou interférences occlusales", newData: "Il y a des blessures gingivales"))
-    third.questions.append(SctQuestion(hypothesis: "Une erreur de dimension verticale d’occlusion", newData: "La phonation est difficile"))
-    third.questions.append(SctQuestion(hypothesis: "Une erreur lors des empreintes", newData: "Il n’y a ni sous-extensions, ni sur-extensions des bases prothétiques"))
+    third.questions.append(SctQuestion(hypothesis: "Des prématurités et/ou interférences occlusales", newData: SctData(text:  "Il y a des blessures gingivales")))
+    third.questions.append(SctQuestion(hypothesis: "Une erreur de dimension verticale d’occlusion", newData: SctData(text:  "La phonation est difficile")))
+    third.questions.append(SctQuestion(hypothesis: "Une erreur lors des empreintes", newData: SctData(text:  "Il n’y a ni sous-extensions, ni sur-extensions des bases prothétiques")))
     
     return SctExam(scts: [first, second, third])
 }

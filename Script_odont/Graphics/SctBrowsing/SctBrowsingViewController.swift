@@ -24,7 +24,7 @@ fileprivate func sctLaunchInformation_() -> SctLaunchInformation
                                                                            meanDuration: 34,
                                                                            meanVotes: Double(Constants.random(min: 100, max: 500)) / 100.0,
                                                                            launchesCount: Constants.random(min: 0, max: 10),
-                                                                           meanCompletionPercentage: 89, scoresDistribution: [],
+                                                                           meanCompletionPercentage: 89, scoresDistribution: [20, 30],
                                                                            releaseDate: releaseDate))
 }
 

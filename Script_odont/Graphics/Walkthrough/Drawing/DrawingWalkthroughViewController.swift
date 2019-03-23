@@ -198,7 +198,7 @@ class DrawingWalkthroughViewController: SctViewController
     
     fileprivate func newDataFrame() -> CGRect?
     {
-        return frameForColumn(headerLabelGetter: {$0.newDataLabel}, labelGetter: {$0.newDataLabel})
+        return frameForColumn(headerLabelGetter: {$0.newDataLabel}, labelGetter: {$0.newDataLabel ?? UILabel()})
     }
     
     fileprivate func likertScaleFrame() -> CGRect?
@@ -281,11 +281,11 @@ extension DrawingWalkthroughViewController: SctViewDataSource
         let wording = "DrawingWalkthrough.Drawing.Wording".localized
         
         var questions = [SctQuestion]()
-        questions.append(SctQuestion(hypothesis: "", newData: "..."))
+        questions.append(SctQuestion(hypothesis: "", newData: SctData(text: "...")))
         
         for i in 1...2
         {
-            questions.append(SctQuestion(hypothesis: "H\(i)", newData: "D\(i)"))
+            questions.append(SctQuestion(hypothesis: "H\(i)", newData: SctData(text:"D\(i)")))
         }
         return Sct(wording: wording, topic: .diagnostic, questions: questions)
     }
@@ -303,6 +303,10 @@ extension DrawingWalkthroughViewController: SctViewDataSource
     }
     
     func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
+    {
+    }
+    
+    func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didClickImageView imageView: UIImageView)
     {
     }
 }
