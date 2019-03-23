@@ -155,8 +155,6 @@ public class SctQuestionCell: UITableViewCell
     fileprivate func setupNewDataImageView_()
     {
         newDataView.adjustSubview(newDataImageView_)
-        let widthHeightRatio = NSLayoutConstraint(item: newDataImageView_, attribute: .height, relatedBy: .equal, toItem: newDataImageView_, attribute: .width, multiplier: 1.0, constant: 0.0)
-        newDataImageView_.addConstraint(widthHeightRatio)
         
         // touch listener
         let newDataImageGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SctQuestionCell.imageViewTapped_))

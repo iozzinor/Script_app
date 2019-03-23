@@ -96,6 +96,25 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 return cell
             }
         }
+        
+        func preferredHeight(for indexPath: IndexPath, tableView: UITableView, dataSource: SctViewDataSource?) -> CGFloat
+        {
+            let sct = dataSource?.currentSct ?? Sct()
+            switch self
+            {
+            case .questionHeader, .scale, .wording:
+                return UITableView.automaticDimension
+            case .question:
+                
+                switch sct.questions[indexPath.row - 2].newData.content
+                {
+                case .image(_):
+                    return UIScreen.main.bounds.height / 3.0
+                case .text(_):
+                    return UITableView.automaticDimension
+                }
+            }
+        }
     }
     
     weak var dataSource: SctViewDataSource? = nil
@@ -129,6 +148,14 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
         return nil
     }
     
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        let section = sections_[indexPath.section]
+        let rows = section.rows(for: currentSct_)
+        let row = rows[indexPath.row]
+        return row.preferredHeight(for: indexPath, tableView: tableView, dataSource: dataSource)
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
@@ -157,6 +184,9 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = row.cell(for: indexPath, tableView: tableView, dataSource: dataSource)
         cell.accessoryType      = .none
         cell.selectionStyle     = .none
+        
+        
+        
         return cell
     }
 }

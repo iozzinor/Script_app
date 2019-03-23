@@ -36,22 +36,22 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="u0O-Lc-RJy" firstAttribute="width" secondItem="5qL-uc-M0c" secondAttribute="width" multiplier="3:11" id="J6P-V7-Hw7"/>
+                            <constraint firstItem="a8k-zt-wgP" firstAttribute="width" secondItem="5qL-uc-M0c" secondAttribute="width" multiplier="4:11" id="MFL-YH-R7m"/>
                             <constraint firstItem="u0O-Lc-RJy" firstAttribute="width" secondItem="a8k-zt-wgP" secondAttribute="width" id="QQW-9P-9BG"/>
-                            <constraint firstItem="u0O-Lc-RJy" firstAttribute="width" secondItem="5qL-uc-M0c" secondAttribute="width" multiplier="4:11" id="Sbb-Ya-WLs"/>
                             <constraint firstItem="a8k-zt-wgP" firstAttribute="top" secondItem="5qL-uc-M0c" secondAttribute="top" id="U2r-Fl-X3J"/>
                             <constraint firstItem="0FL-tr-YCU" firstAttribute="top" secondItem="5qL-uc-M0c" secondAttribute="top" id="agB-XX-wqU"/>
+                            <constraint firstItem="a8k-zt-wgP" firstAttribute="width" secondItem="5qL-uc-M0c" secondAttribute="width" multiplier="3:11" id="amm-hK-GbL"/>
                             <constraint firstItem="u0O-Lc-RJy" firstAttribute="top" secondItem="5qL-uc-M0c" secondAttribute="top" id="rA5-Bc-uz1"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="J6P-V7-Hw7"/>
+                                <exclude reference="amm-hK-GbL"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="J6P-V7-Hw7"/>
-                                <exclude reference="Sbb-Ya-WLs"/>
+                                <exclude reference="MFL-YH-R7m"/>
+                                <include reference="amm-hK-GbL"/>
                             </mask>
                         </variation>
                     </stackView>
