@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchCellReuseId" id="VJV-sU-Wak" customClass="SwitchCell" customModule="Script_odont" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VJV-sU-Wak" id="I1s-kH-4sK">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kGg-uv-dKf">
+                        <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNJ-et-89X">
+                                <rect key="frame" x="0.0" y="11.5" width="260" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iyb-8a-Br1">
+                                <rect key="frame" x="268" y="6.5" width="69" height="31"/>
+                            </switch>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="iyb-8a-Br1" firstAttribute="width" secondItem="kGg-uv-dKf" secondAttribute="width" multiplier="1:5" id="Gsd-UY-0aB"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kGg-uv-dKf" firstAttribute="leading" secondItem="I1s-kH-4sK" secondAttribute="leading" constant="20" symbolic="YES" id="1nY-WN-bdO"/>
+                    <constraint firstItem="kGg-uv-dKf" firstAttribute="top" secondItem="I1s-kH-4sK" secondAttribute="top" id="Os5-4c-Fxl"/>
+                    <constraint firstAttribute="trailing" secondItem="kGg-uv-dKf" secondAttribute="trailing" constant="20" symbolic="YES" id="Yee-7I-1Il"/>
+                    <constraint firstAttribute="bottom" secondItem="kGg-uv-dKf" secondAttribute="bottom" id="qVg-dc-8sG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="label" destination="oNJ-et-89X" id="swC-8J-BmI"/>
+                <outlet property="switchControl" destination="iyb-8a-Br1" id="MlC-z0-QCn"/>
+            </connections>
+            <point key="canvasLocation" x="-34" y="58"/>
+        </tableViewCell>
+    </objects>
+</document>

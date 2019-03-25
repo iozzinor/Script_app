@@ -309,6 +309,35 @@
 /* SETTINGS VIEW CONTROLLER */
 "Settings.NavigationItem.Title" = "Paramètres";
 
+"Settings.Section.Account.Title"        = "Compte";
+"Settings.Section.Developer.Title"      = "Développeur";
+
+"Settings.Row.About"            = "A propos";
+"Settings.Row.Advanced"         = "Avancé";
+"Settings.Row.ConfidentialData" = "Données confidentielles";
+"Settings.Row.Password"         = "Mot de passe et questions sécurité";
+"Settings.Row.Qualifications"   = "Compétences";
+"Settings.Row.Reset"            = "Réinitialiser";
+"Settings.Row.Logout"           = "Se déconnecter...";
+"Settings.Row.Developer"        = "Développeur";
+
+/* ABOUT VIEW CONTROLLER */
+"About.NavigationItem.Title" = "A propos";
+
+"About.Row.ApplicationVersion"  = "Version de l'application :";
+"About.Row.ApplicationBuild"    = "Compilation de l'application :";
+
+/* ADVANCED SETTINGS VIEW CONTROLLER */
+"AdvancedSettings.NavigationItem.Title" = "Paramètres avancés";
+
+"AdvancedSettings.Row.Developer" = "Afficher les paramètres développeur";
+
+/* DEVELOPER VIEW CONTROLLER */
+"Developer.NavigationItem.Title" = "Développeur";
+
+"Developer.Row.ServerName" = "Nom du serveur :";
+"Developer.Row.ServerPort" = "Port du serveur :";
+
 /* OTHER VIEW CONTROLLER */
 "OtherViewController.NavigationItem.Title" = "Autres";
 
@@ -337,3 +366,9 @@
 "PeriodLeaderboard.NavigationItemTitle.Week"    = "Classement de la semaine";
 "PeriodLeaderboard.NavigationItemTitle.Month"   = "Classement du mois";
 "PeriodLeaderboard.NavigationItemTitle.Year"    = "Classement de l'année";
+
+/* NETWORK ERROR */
+"NetworkError.NotReachable.LocalizedDescription"    = "Votre appareil n'est pas connecté à internet.";
+"NetworkError.NotReachable.FixTip"                  = "Activez le Wifi ou les données cellulaires.";
+"NetworkError.Airplane.LocalizedDescription"        = "Le mode avion est activé.";
+"NetworkError.Airplane.FixTip"                      = "Désactivez le mode avion.";

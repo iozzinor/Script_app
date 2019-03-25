@@ -307,6 +307,8 @@ class SctBrowsingViewController: UIViewController
     {
         super.viewDidLoad()
         
+        provideDefaultSettings_()
+        
         setupTableView_()
         setupSectionHeaders_()
         setupSectionFooters_()
@@ -418,6 +420,11 @@ class SctBrowsingViewController: UIViewController
     // -------------------------------------------------------------------------
     // MARK: - ACTIONS
     // -------------------------------------------------------------------------
+    fileprivate func provideDefaultSettings_()
+    {
+        UserDefaults.standard.register(defaults: Settings.shared.defaultValues)
+    }
+    
     fileprivate func launchWalkthrough_()
     {
         performSegue(withIdentifier: SctBrowsingViewController.walkthroughSegueId,

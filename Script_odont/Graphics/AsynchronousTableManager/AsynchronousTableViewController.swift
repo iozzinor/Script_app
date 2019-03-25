@@ -26,7 +26,7 @@ class AsynchronousTableViewController<Section: TableSection, Row: TableRow, Erro
         didSet
         {
             updateTableFooterView_()
-            tableView_.isScrollEnabled = scrollEnabled
+            tableView_.isScrollEnabled = tableScrollEnabled
             tableView_.reloadData()
         }
     }
@@ -36,6 +36,15 @@ class AsynchronousTableViewController<Section: TableSection, Row: TableRow, Erro
     fileprivate var emptyView_: EmptyView!
     fileprivate var loadingView_: LoadingView!
     fileprivate var viewController_: ViewController!
+    
+    var errorView: ErrorView {
+        set {
+            errorView_ = newValue
+        }
+        get {
+            return errorView_
+        }
+    }
     
     override func viewDidLoad()
     {
@@ -90,7 +99,7 @@ class AsynchronousTableViewController<Section: TableSection, Row: TableRow, Erro
         }
     }
     
-    var scrollEnabled: Bool{
+    var tableScrollEnabled: Bool{
         switch state
         {
         case .error(_), .empty:
@@ -113,10 +122,24 @@ class AsynchronousTableViewController<Section: TableSection, Row: TableRow, Erro
     // -------------------------------------------------------------------------
     // MARK: - UI TABLE VIEW DELEGATE
     // -------------------------------------------------------------------------
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
+    {
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+    }
     
     // -------------------------------------------------------------------------
     // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        let currentSection = content[section].section
+        return currentSection.headerTitle
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return content.count
