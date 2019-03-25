@@ -51,7 +51,7 @@ enum ResetRow: TableRow
             cell.textLabel?.textColor = canResetSettings ? Appearance.Color.action : Appearance.Color.missing
         case .data:
             cell.textLabel?.text = "Reset.Row.Data".localized
-            cell.textLabel?.textColor = Appearance.Color.action
+            cell.textLabel?.textColor = Appearance.Color.missing
         }
         return cell
     }

@@ -336,8 +336,10 @@
 /* DEVELOPER VIEW CONTROLLER */
 "Developer.NavigationItem.Title" = "Developer";
 
-"Developer.Row.ServerName" = "Server Name:";
-"Developer.Row.ServerPort" = "Server Port:";
+"Developer.Section.Server.Title" = "Server";
+
+"Developer.Row.ServerName" = "Name:";
+"Developer.Row.ServerPort" = "Port:";
 
 "Developer.ServerName.Alert.Title"              = "New Server Name";
 "Developer.ServerName.Alert.Message"            = "Please enter the new server name.";

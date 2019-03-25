@@ -60,8 +60,6 @@ enum DeveloperRow: TableRow
     }
 }
 
-
-
 class DeveloperViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     public static let detailCellId = "DeveloperDetailCellReuseId"
@@ -131,6 +129,11 @@ class DeveloperViewController: UIViewController, UITableViewDelegate, UITableVie
     // -------------------------------------------------------------------------
     // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        return sections_[section].section.headerTitle
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return sections_.count
