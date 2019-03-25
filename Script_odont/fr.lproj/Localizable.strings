@@ -319,6 +319,7 @@
 "Settings.Row.Qualifications"   = "Compétences";
 "Settings.Row.Reset"            = "Réinitialiser";
 "Settings.Row.Logout"           = "Se déconnecter...";
+"Settings.Row.LinkAccount"      = "Associer un compte";
 "Settings.Row.Developer"        = "Développeur";
 
 /* ABOUT VIEW CONTROLLER */
@@ -337,6 +338,24 @@
 
 "Developer.Row.ServerName" = "Nom du serveur :";
 "Developer.Row.ServerPort" = "Port du serveur :";
+
+"Developer.ServerName.Alert.Title"              = "Nouveau nom serveur";
+"Developer.ServerName.Alert.Message"            = "Saisissez le nouveau nom du serveur.";
+"Developer.ServerName.TextField.Placeholder"    = "Le nouveau nom du serveur...";
+"Developer.ServerPort.Alert.Title"              = "Nouveau port serveur";
+"Developer.ServerPort.Alert.Message"            = "Saisissez le nouveau port du serveur.";
+"Developer.ServerPort.TextField.Placeholder"    = "Le nouveau port du serveur...";
+
+/* RESET VIEW CONTROLLER */
+"Reset.NavigationItem.Title" = "Réinitialiser";
+
+"Reset.Row.Settings"    = "Réinitialiser les paramètres";
+"Reset.Row.Data"        = "Réinitialiser les données";
+
+"Reset.Parameters.Confirm.Alert.Title"      = "Confirmation réinitialisation paramètres";
+"Reset.Parameters.Confirm.Alert.Message"    = "Voulez-vous vraiment réinitialiser les paramètres ?";
+"Reset.Parameters.Alert.Title"              = "Réinitialisation paramètres";
+"Reset.Parameters.Alert.Message"            = "Les paramètres ont bel et bien été réinitialisés.";
 
 /* OTHER VIEW CONTROLLER */
 "OtherViewController.NavigationItem.Title" = "Autres";

@@ -75,6 +75,7 @@ class DeveloperViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return result
     }
+    fileprivate var actionToEnable: UIAlertAction?
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -105,6 +106,27 @@ class DeveloperViewController: UIViewController, UITableViewDelegate, UITableVie
     // -------------------------------------------------------------------------
     // MARK: - UI TABLE VIEW DELEGATE
     // -------------------------------------------------------------------------
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
+    {
+        let row = sections_[indexPath.section].rows[indexPath.row]
+        switch row
+        {
+        case .serverName, .serverPort:
+            return indexPath
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let row = sections_[indexPath.section].rows[indexPath.row]
+        switch row
+        {
+        case .serverName:
+            getServerName_()
+        case .serverPort:
+            getServerPort_()
+        }
+    }
     
     // -------------------------------------------------------------------------
     // MARK: - UI TABLE VIEW DATA SOURCE
@@ -128,5 +150,96 @@ class DeveloperViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.selectionStyle = row.selectionStyle
         
         return cell
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - ACTIONS
+    // -------------------------------------------------------------------------
+    fileprivate func getServerName_()
+    {
+        let alertController = UIAlertController(title: "Developer.ServerName.Alert.Title".localized, message: "Developer.ServerName.Alert.Message".localized, preferredStyle: .alert)
+        
+        // text fields
+        alertController.addTextField(configurationHandler: {
+            $0.placeholder = "Developer.ServerName.TextField.Placeholder".localized
+            
+            $0.addTarget(self, action: #selector(DeveloperViewController.serverNameChanged_), for: .editingChanged)
+        })
+        
+        // actions
+        let okAction = UIAlertAction(title: "Common.Ok".localized, style: .default, handler: {
+            (_) -> Void in
+            
+            if let textField = alertController.textFields?.first,
+                let newServerName = textField.text
+            {
+                Settings.shared.serverName = newServerName
+                self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            }
+        })
+        let cancelAction = UIAlertAction(title: "Common.Cancel".localized, style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        okAction.isEnabled = false
+        actionToEnable = okAction
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc fileprivate func serverNameChanged_(_ sender: UITextField)
+    {
+        self.actionToEnable?.isEnabled = !(sender.text?.isEmpty ?? true)
+    }
+    
+    fileprivate func getServerPort_()
+    {
+        let alertController = UIAlertController(title: "Developer.ServerPort.Alert.Title".localized, message: "Developer.ServerPort.Alert.Message".localized, preferredStyle: .alert)
+        
+        // text fields
+        alertController.addTextField(configurationHandler: {
+            $0.placeholder = "Developer.ServerPort.TextField.Placeholder".localized
+            
+            $0.addTarget(self, action: #selector(DeveloperViewController.serverPortChanged_), for: .editingChanged)
+        })
+        
+        // actions
+        let okAction = UIAlertAction(title: "Common.Ok".localized, style: .default, handler:  {
+            (_) -> Void in
+            
+            if let textField = alertController.textFields?.first,
+                let newServerPortString = textField.text,
+                let newServerPort = Int(newServerPortString)
+            {
+                Settings.shared.serverPort = newServerPort
+                self.tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
+            }
+        })
+        let cancelAction = UIAlertAction(title: "Common.Cancel".localized, style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        okAction.isEnabled = false
+        actionToEnable = okAction
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    fileprivate func isServerPortStringValid_(_ serverPort: String) -> Bool
+    {
+        if serverPort.isEmpty
+        {
+            return false
+        }
+        if let port = Int(serverPort),
+            port > 0
+        {
+            return true
+        }
+        return false
+    }
+    
+    @objc fileprivate func serverPortChanged_(_ sender: UITextField)
+    {
+        let senderText = sender.text ?? ""
+        self.actionToEnable?.isEnabled = isServerPortStringValid_(senderText)
     }
 }

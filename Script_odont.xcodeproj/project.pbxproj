@@ -16,6 +16,7 @@
 		AC0434012249383D00644B14 /* SwitchCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0434002249383D00644B14 /* SwitchCellDelegate.swift */; };
 		AC04340322493BEC00644B14 /* DeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04340222493BEC00644B14 /* DeveloperViewController.swift */; };
 		AC0434052249446700644B14 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0434042249446700644B14 /* AboutViewController.swift */; };
+		AC0434072249547600644B14 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0434062249547600644B14 /* ResetViewController.swift */; };
 		AC0D77C22225CD2B007F83D4 /* Sct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C12225CD2B007F83D4 /* Sct.swift */; };
 		AC0D77C42225CD60007F83D4 /* SctTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C32225CD60007F83D4 /* SctTopic.swift */; };
 		AC0D77C62225CEFD007F83D4 /* LikertScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C52225CEFD007F83D4 /* LikertScale.swift */; };
@@ -193,6 +194,7 @@
 		AC0434002249383D00644B14 /* SwitchCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellDelegate.swift; sourceTree = "<group>"; };
 		AC04340222493BEC00644B14 /* DeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperViewController.swift; sourceTree = "<group>"; };
 		AC0434042249446700644B14 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		AC0434062249547600644B14 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
 		AC0D77C12225CD2B007F83D4 /* Sct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sct.swift; sourceTree = "<group>"; };
 		AC0D77C32225CD60007F83D4 /* SctTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctTopic.swift; sourceTree = "<group>"; };
 		AC0D77C52225CEFD007F83D4 /* LikertScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikertScale.swift; sourceTree = "<group>"; };
@@ -736,6 +738,7 @@
 				AC0434042249446700644B14 /* AboutViewController.swift */,
 				AC0433FA2249329F00644B14 /* AdvancedSettingsViewController.swift */,
 				AC04340222493BEC00644B14 /* DeveloperViewController.swift */,
+				AC0434062249547600644B14 /* ResetViewController.swift */,
 				ACC83F8A223E96E70064BE6F /* Settings.storyboard */,
 			);
 			path = Settings;
@@ -981,6 +984,7 @@
 				AC4904CD222BC16B00BDEB4B /* QualificationPickerViewControllerDelegate.swift in Sources */,
 				ACC52C41223EEE6C00B974BA /* CandidateStatisticsCell.swift in Sources */,
 				AC0D77C22225CD2B007F83D4 /* Sct.swift in Sources */,
+				AC0434072249547600644B14 /* ResetViewController.swift in Sources */,
 				AC9F23DE222996C4002D38E5 /* AuthenticationManager.swift in Sources */,
 				AC82731C222C93B90041AA0C /* RecoverPasswordViewController.swift in Sources */,
 				ACC81AC622403EB4000990EA /* ProgressCellDelegate.swift in Sources */,

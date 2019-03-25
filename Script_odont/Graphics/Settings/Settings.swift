@@ -59,4 +59,29 @@ class Settings
             Parameter.serverPort.key: 80
         ]
     }
+    
+    var values: [String: Any] {
+        return [
+            Parameter.showDeveloperSection.key: showDeveloper,
+            Parameter.serverName.key: serverName,
+            Parameter.serverPort.key: serverPort
+        ]
+    }
+    
+    var isDefault: Bool {
+        let currentDefaultValues = defaultValues as [String: AnyObject]
+        let currentValues = values as [String: AnyObject]
+        
+        return currentDefaultValues.elementsEqual(currentValues, by: {
+            return $0.value.isEqual($1.value)
+        })
+    }
+    
+    func reset()
+    {
+        for (key, value) in defaultValues
+        {
+            UserDefaults.standard.set(value, forKey: key)
+        }
+    }
 }

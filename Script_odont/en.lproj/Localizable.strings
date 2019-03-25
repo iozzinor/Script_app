@@ -319,6 +319,7 @@
 "Settings.Row.Qualifications"   = "Qualifications";
 "Settings.Row.Reset"            = "Reset";
 "Settings.Row.Logout"           = "Logout";
+"Settings.Row.LinkAccount"      = "Link an account";
 "Settings.Row.Developer"        = "Developer";
 
 /* ABOUT VIEW CONTROLLER */
@@ -337,6 +338,24 @@
 
 "Developer.Row.ServerName" = "Server Name:";
 "Developer.Row.ServerPort" = "Server Port:";
+
+"Developer.ServerName.Alert.Title"              = "New Server Name";
+"Developer.ServerName.Alert.Message"            = "Please enter the new server name.";
+"Developer.ServerName.TextField.Placeholder"    = "The new server name...";
+"Developer.ServerPort.Alert.Title"              = "New Server Port";
+"Developer.ServerPort.Alert.Message"            = "Please enter the new server port.";
+"Developer.ServerPort.TextField.Placeholder"    = "The new server port...";
+
+/* RESET VIEW CONTROLLER */
+"Reset.NavigationItem.Title" = "Reset";
+
+"Reset.Row.Settings"    = "Reset Settings";
+"Reset.Row.Data"        = "Reset Data";
+
+"Reset.Parameters.Confirm.Alert.Title"      = "Confirm Reset Parameters";
+"Reset.Parameters.Confirm.Alert.Message"    = "Your are about to reset the parameters. Do you want to continue ?";
+"Reset.Parameters.Alert.Title"              = "Reset Parameters";
+"Reset.Parameters.Alert.Message"            = "You successfully resetted the parameters.";
 
 /* OTHER VIEW CONTROLLER */
 "OtherViewController.NavigationItem.Title" = "Others";

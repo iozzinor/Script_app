@@ -51,6 +51,7 @@ enum SettingsRow: TableRow
     case password
     case qualifications
     case logout
+    case linkAccount
     
     // other
     case reset
@@ -92,6 +93,11 @@ enum SettingsRow: TableRow
             cell.textLabel?.text = "Settings.Row.Logout".localized
             cell.textLabel?.textColor = Appearance.Color.error
             return cell
+        case .linkAccount:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingsRow.textCellId, for: indexPath)
+            cell.textLabel?.text = "Settings.Row.LinkAccount".localized
+            cell.textLabel?.textColor = Appearance.Color.default
+            return cell
             
         case .reset:
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingsRow.textCellId, for: indexPath)
@@ -110,7 +116,7 @@ enum SettingsRow: TableRow
     var accessoryType: UITableViewCell.AccessoryType {
         switch self
         {
-        case .about, .advanced, .confidentialData, .password, .qualifications, .developer, .reset:
+        case .about, .advanced, .confidentialData, .password, .qualifications, .developer, .reset, .linkAccount:
             return .disclosureIndicator
         case .logout:
             return .none
@@ -130,6 +136,7 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
     public static let toAbout = "SettingsToAboutSegueId"
     public static let toAdvancedSettings = "SettingsToAdvancedSettingsSegueId"
     public static let toDeveloper = "SettingsToDeveloperSegueId"
+    public static let toReset = "SettingsToResetSegueId"
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -198,9 +205,9 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
         let row = content[indexPath.section].rows[indexPath.row]
         switch row
         {
-        case .about, .advanced, .developer:
+        case .about, .advanced, .developer, .reset, .logout, .linkAccount:
             return indexPath
-        case .confidentialData, .password, .qualifications, .reset, .logout:
+        case .confidentialData, .password, .qualifications:
             return nil
         }
     }
@@ -216,7 +223,13 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
             performSegue(withIdentifier: SettingsViewController.toAdvancedSettings, sender: self)
         case .developer:
             performSegue(withIdentifier: SettingsViewController.toDeveloper, sender: self)
-        case .confidentialData, .password, .qualifications, .reset, .logout:
+        case .reset:
+            performSegue(withIdentifier: SettingsViewController.toReset, sender: self)
+        case .logout:
+            break
+        case .linkAccount:
+            break
+        case .confidentialData, .password, .qualifications:
             break
         }
     }
