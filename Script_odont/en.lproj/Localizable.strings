@@ -163,6 +163,16 @@
 "Authentication.Biometry.TouchId.Name"  = "Touch ID";
 "Authentication.Reason"                 = "Use %@ to unlock your account.";
 
+/* UNLOCK */
+"Unlock.DeleteAll.Inform.Title"             = "Recover";
+"Unlock.DeleteAll.Inform.Message"           = "You can reset the application. Would you like to continue ?";
+"Unlock.DeleteAll.Confirm.Title"            = "Delete All";
+"Unlock.DeleteAll.Confirm.Message"          = "You are about to delete all data. Would you want to keep going ?";
+"Unlock.DeleteAll.DoubleConfirm.Title"      = "Last Warning";
+"Unlock.DeleteAll.DoubleConfirm.Message"    = "The data will be lost forever. Are you really sure you want to delete everything ?";
+"Unlock.DeleteAll.Success.Title"            = "Delete All";
+"Unlock.DeleteAll.Success.Message"          = "You successfully resetted the application.";
+
 /* PASSPHRASE */
 "Passphrase.Name.SixDigitCode" = "Six-digit code";
 "Passphrase.Name.AlphaNumeric" = "Alphanumeric Text";

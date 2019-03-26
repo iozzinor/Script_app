@@ -163,16 +163,26 @@
 "Authentication.Biometry.TouchId.Name"  = "Touch ID";
 "Authentication.Reason"                 = "Utilisez %@ pour déverrouiller votre compte.";
 
+/* UNLOCK */
+"Unlock.DeleteAll.Inform.Title"             = "Récupération";
+"Unlock.DeleteAll.Inform.Message"           = "Vous pouvez réinitaliser le mot de passe, en réinitialisant l'application. Voulez-vous continuer ?";
+"Unlock.DeleteAll.Confirm.Title"            = "Tout supprimer";
+"Unlock.DeleteAll.Confirm.Message"          = "Vous êtes sur le point de tout supprimer. Voulez-vous poursuivre ?";
+"Unlock.DeleteAll.DoubleConfirm.Title"      = "Dernier avertissement";
+"Unlock.DeleteAll.DoubleConfirm.Message"    = "Les données seront perdues de manière irréversible. Voulez-vous vraiment supprimer l'ensemble des données ?";
+"Unlock.DeleteAll.Success.Title"            = "Suppression totale";
+"Unlock.DeleteAll.Success.Message"          = "L'application a été réinitialisée avec succès.";
+
 /* PASSPHRASE */
 "Passphrase.Name.SixDigitCode" = "Code à six chiffres";
 "Passphrase.Name.AlphaNumeric" = "Mot de passe alphanumérique";
 
-"Passphrase.Options"                = "Passphrase Options";
-"Passphrase.Title.Creation"         = "Passphrase Creation";
-"Passphrase.Title.Modification"     = "Passphrase Modification";
-"Passphrase.Instruction.New"        = "Enter the new passcode.";
-"Passphrase.Instruction.Previous"   = "Enter the previous passcode.";
-"Passphrase.Instruction.Confirm"    = "Confirm the passcode.";
+"Passphrase.Options"                = "Options code";
+"Passphrase.Title.Creation"         = "Création code";
+"Passphrase.Title.Modification"     = "Modification code";
+"Passphrase.Instruction.New"        = "Entrez le nouveau code.";
+"Passphrase.Instruction.Previous"   = "Entrez le code précédant.";
+"Passphrase.Instruction.Confirm"    = "Confirmez le code.";
 
 /* WELCOME WALKTHROUGH */
 "WelcomeWalkthrough.SkipButton.Title.Skip" = "Passer";
@@ -330,7 +340,7 @@
 "Settings.Row.Password"         = "Mot de passe et questions sécurité";
 "Settings.Row.Qualifications"   = "Compétences";
 "Settings.Row.Reset"            = "Réinitialiser";
-"Settings.Row.Logout"           = "Se déconnecter...";
+"Settings.Row.Logout"           = "Se déconnecter";
 "Settings.Row.LinkAccount"      = "Associer un compte";
 "Settings.Row.Developer"        = "Développeur";
 

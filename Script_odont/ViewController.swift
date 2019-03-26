@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UITabBarController
 {
-    static let toLogin = "MainToLoginSegueId"
+    static let toUnlock = "MainToUnlockSegueId"
     
     private var isFirstDisplay_ = true
     private var shouldDisplayPassphraseCreation_ = false
@@ -71,7 +71,7 @@ class ViewController: UITabBarController
     
     fileprivate func displayUnlock_()
     {
-        performSegue(withIdentifier: ViewController.toLogin, sender: nil)
+        performSegue(withIdentifier: ViewController.toUnlock, sender: nil)
     }
 }
 
@@ -83,5 +83,7 @@ extension ViewController: PassphraseDelegate
     func passphraseViewController(_ passphraseViewController: PassphraseViewController, didChoosePassphrase passphrase: Passphrase)
     {
         passphraseViewController.dismiss(animated: true, completion: nil)
+        
+        AuthenticationManager.shared.storePassphrase(passphrase.text, kind: passphrase.kind) 
     }
 }

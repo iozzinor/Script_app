@@ -47,6 +47,8 @@
 		AC24E1DB224A718200B5D48A /* NumericPassphraseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */; };
 		AC24E1DD224A772800B5D48A /* Passphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1DC224A772800B5D48A /* Passphrase.swift */; };
 		AC31A029224A991000A3A461 /* PassphraseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A028224A990F00A3A461 /* PassphraseDelegate.swift */; };
+		AC31A02C224AA84D00A3A461 /* Unlock.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31A02B224AA84D00A3A461 /* Unlock.storyboard */; };
+		AC31A02E224AA87400A3A461 /* UnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A02D224AA87400A3A461 /* UnlockViewController.swift */; };
 		AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3962235B7B400A3B813 /* Other.storyboard */; };
 		AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */; };
 		AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */; };
@@ -231,6 +233,8 @@
 		AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericPassphraseControl.swift; sourceTree = "<group>"; };
 		AC24E1DC224A772800B5D48A /* Passphrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passphrase.swift; sourceTree = "<group>"; };
 		AC31A028224A990F00A3A461 /* PassphraseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseDelegate.swift; sourceTree = "<group>"; };
+		AC31A02B224AA84D00A3A461 /* Unlock.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Unlock.storyboard; sourceTree = "<group>"; };
+		AC31A02D224AA87400A3A461 /* UnlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockViewController.swift; sourceTree = "<group>"; };
 		AC31E3952235B7B400A3B813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Other.storyboard; sourceTree = "<group>"; };
 		AC31E3982235B7B700A3B813 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Other.strings; sourceTree = "<group>"; };
 		AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScaleCell.xib; sourceTree = "<group>"; };
@@ -429,7 +433,8 @@
 				AC0E4EA72237EB9F003996AF /* SctDetail */,
 				AC372C62223947D9009F1DAD /* SctScoreDiagram */,
 				ACC52C4B223EFDB200B974BA /* ScoreProgressDiagram */,
-				AC8F5B802229694C00FAEFC5 /* Authentification */,
+				AC31A02A224AA6AE00A3A461 /* Login */,
+				AC8F5B802229694C00FAEFC5 /* Unlock */,
 				AC24E1D5224A6A2100B5D48A /* Passphrase */,
 				AC38BB71221DF021008E829B /* Walkthrough */,
 				ACB8C8A92235211F00C7F77C /* SctBrowsing */,
@@ -506,6 +511,29 @@
 				AC24E1D6224A6FAE00B5D48A /* Passphrase.storyboard */,
 			);
 			path = Passphrase;
+			sourceTree = "<group>";
+		};
+		AC31A02A224AA6AE00A3A461 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AC8F5B812229696000FAEFC5 /* LoginViewController.swift */,
+				AC9F23EA222A90ED002D38E5 /* SigninViewController.swift */,
+				AC9F23EC222A93F4002D38E5 /* SigninLabelCell.swift */,
+				AC4904C0222B3C1600BDEB4B /* SecurityQuestionCell.swift */,
+				AC82731D222C96EB0041AA0C /* SecurityQuestionCell.xib */,
+				AC4904C2222B51F400BDEB4B /* SecurityQuestionPickerViewController.swift */,
+				AC4904C4222B54E700BDEB4B /* SecurityQuestionPickerViewControllerDelegate.swift */,
+				AC4904CA222BC15A00BDEB4B /* QualificationPickerViewController.swift */,
+				AC4904CC222BC16B00BDEB4B /* QualificationPickerViewControllerDelegate.swift */,
+				AC4904CE222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift */,
+				AC4904D0222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift */,
+				AC82731B222C93B90041AA0C /* RecoverPasswordViewController.swift */,
+				AC87E2F7222CA24000D6B8CC /* UserIdentifierCell.swift */,
+				AC4904B6222B238B00BDEB4B /* Login.storyboard */,
+				AC4904C6222BBE6100BDEB4B /* PasswordPolicy.swift */,
+				AC4904C8222BBE7200BDEB4B /* PasswordTrait.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		AC31E3992235B83500A3B813 /* Drawing */ = {
@@ -671,29 +699,15 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
-		AC8F5B802229694C00FAEFC5 /* Authentification */ = {
+		AC8F5B802229694C00FAEFC5 /* Unlock */ = {
 			isa = PBXGroup;
 			children = (
-				AC8F5B812229696000FAEFC5 /* LoginViewController.swift */,
-				AC9F23EA222A90ED002D38E5 /* SigninViewController.swift */,
-				AC9F23EC222A93F4002D38E5 /* SigninLabelCell.swift */,
-				AC4904C0222B3C1600BDEB4B /* SecurityQuestionCell.swift */,
-				AC4904C2222B51F400BDEB4B /* SecurityQuestionPickerViewController.swift */,
-				AC4904C4222B54E700BDEB4B /* SecurityQuestionPickerViewControllerDelegate.swift */,
-				AC4904CA222BC15A00BDEB4B /* QualificationPickerViewController.swift */,
-				AC4904CC222BC16B00BDEB4B /* QualificationPickerViewControllerDelegate.swift */,
-				AC4904CE222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift */,
-				AC4904D0222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift */,
-				AC82731B222C93B90041AA0C /* RecoverPasswordViewController.swift */,
-				AC87E2F7222CA24000D6B8CC /* UserIdentifierCell.swift */,
-				AC4904B6222B238B00BDEB4B /* Login.storyboard */,
-				AC82731D222C96EB0041AA0C /* SecurityQuestionCell.xib */,
 				AC9F23DD222996C4002D38E5 /* AuthenticationManager.swift */,
 				AC9F23DF22299945002D38E5 /* KeychainPasswordItem.swift */,
-				AC4904C6222BBE6100BDEB4B /* PasswordPolicy.swift */,
-				AC4904C8222BBE7200BDEB4B /* PasswordTrait.swift */,
+				AC31A02D224AA87400A3A461 /* UnlockViewController.swift */,
+				AC31A02B224AA84D00A3A461 /* Unlock.storyboard */,
 			);
-			path = Authentification;
+			path = Unlock;
 			sourceTree = "<group>";
 		};
 		AC9F23E32229D882002D38E5 /* Hash */ = {
@@ -877,6 +891,7 @@
 				ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */,
 				ACD1B3AA223C43AD0065F07E /* SctLatestPeriodCell.xib in Resources */,
 				AC38BB83221EAA58008E829B /* Localizable.strings in Resources */,
+				AC31A02C224AA84D00A3A461 /* Unlock.storyboard in Resources */,
 				AC38BB67221DE4CB008E829B /* Assets.xcassets in Resources */,
 				AC4904B9222B244100BDEB4B /* SctHorizontal.storyboard in Resources */,
 				AC38BB65221DE4C9008E829B /* Main.storyboard in Resources */,
@@ -965,6 +980,7 @@
 				AC372C5B223942BE009F1DAD /* SctUpdateRateCellDelegate.swift in Sources */,
 				AC8F5B7B222899DA00FAEFC5 /* GoToSctCell.swift in Sources */,
 				ACAD5DD4224523B20041E484 /* SctData.swift in Sources */,
+				AC31A02E224AA87400A3A461 /* UnlockViewController.swift in Sources */,
 				ACC52C3F223EE57E00B974BA /* CandidateStatistics.swift in Sources */,
 				ACD1B39C223BD5590065F07E /* SctScoreDiagramCell.swift in Sources */,
 				AC53E37422331B8500CA4437 /* MySctViewController.swift in Sources */,

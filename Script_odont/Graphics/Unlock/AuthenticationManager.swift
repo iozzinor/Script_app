@@ -16,7 +16,8 @@ class AuthenticationManager
     // -------------------------------------------------------------------------
     fileprivate enum KeychainConfiguration
     {
-        static let service = "com.example.regis.script_odont.password"
+        static let service = "com.example.regis.script_odont.passphrase"
+        static let account = ""
         static let accessGroup: String? = nil
     }
     
@@ -61,17 +62,8 @@ class AuthenticationManager
     // -------------------------------------------------------------------------
     static let shared = AuthenticationManager()
     
-    fileprivate static let userNameKey_ = "username"
-    fileprivate static let saltKey_ = "salt"
-    fileprivate static let saltLength_ = 128
-    
-    // -------------------------------------------------------------------------
-    // MARK: - STATIC FUNCTIONS
-    // -------------------------------------------------------------------------
-    fileprivate static func generateSalt_(length: Int = saltLength_) -> String
-    {
-        return String.random(length: length)
-    }
+    fileprivate static let passphraseKindKey_ = "passphrase.kind"
+    fileprivate static let hashIterations_ = 100
     
     // -------------------------------------------------------------------------
     // MARK: - STORED PROPERTIES
@@ -80,16 +72,13 @@ class AuthenticationManager
     
     fileprivate var authenticated_ = false
     let biometricAuthentication = BiometricAuthentication()
-    fileprivate var userName_: String? = nil
-    fileprivate var salt_: String? = nil
+    fileprivate var passphraseKeychain_ = KeychainPasswordItem(service: KeychainConfiguration.service, account: KeychainConfiguration.account, accessGroup: KeychainConfiguration.accessGroup)
     
     // -------------------------------------------------------------------------
     // MARK: - INIT
     // -------------------------------------------------------------------------
     private init()
     {
-        userName_ = UserDefaults.standard.string(forKey: AuthenticationManager.userNameKey_)
-        salt_ = UserDefaults.standard.string(forKey: AuthenticationManager.saltKey_)
     }
     
     var authenticated: Bool {
@@ -109,34 +98,19 @@ class AuthenticationManager
         }
     }
     
-    var userName: String? {
+    var passphraseKind: Passphrase.Kind? {
         get {
-            var result: String? = nil
+            var result: Passphrase.Kind?
+            
             concurrentAuthenticationQueue_.sync {
-                result = self.userName_
+                
+                if let passphraseKindRawValue = UserDefaults.standard.string(forKey: AuthenticationManager.passphraseKindKey_)
+                {
+                    result = Passphrase.Kind(rawValue: passphraseKindRawValue)
+                }
             }
+            
             return result
-        }
-        set {
-            concurrentAuthenticationQueue_.async(flags: .barrier) {
-                self.userName_ = newValue
-            }
-        }
-    }
-    
-    var salt: String? {
-        get {
-            var result: String? = nil
-            concurrentAuthenticationQueue_.sync {
-                result = self.salt_
-            }
-            return result
-        }
-        set
-        {
-            concurrentAuthenticationQueue_.async(flags: .barrier) {
-                self.salt_ = newValue
-            }
         }
     }
     
@@ -162,10 +136,49 @@ class AuthenticationManager
         })
     }
     
-    func storeAccountInformation()
+    func storePassphrase(_ phrase: String, kind: Passphrase.Kind)
     {
-        // store the user name and the salt
-        UserDefaults.standard.set(userName_, forKey: AuthenticationManager.userNameKey_)
-        UserDefaults.standard.set(salt_, forKey: AuthenticationManager.saltKey_)
+        concurrentAuthenticationQueue_.async(flags: .barrier) {
+            
+            UserDefaults.standard.set(kind.rawValue, forKey: AuthenticationManager.passphraseKindKey_)
+            
+            let hashedPhrase = self.hashPassword_(phrase)
+            
+            do
+            {
+                try self.passphraseKeychain_.savePassword(hashedPhrase)
+            }
+            catch
+            {
+            }
+        }
+    }
+    
+    func storePassphrase(_ passphrase: Passphrase)
+    {
+        storePassphrase(passphrase.text, kind: passphrase.kind)
+    }
+    
+    func checkPassphrase(_ phrase: String) -> Bool
+    {
+        do
+        {
+            return try passphraseKeychain_.readPassword() == hashPassword_(phrase)
+        }
+        catch
+        {
+            return false
+        }
+    }
+    
+    /// - returns: The password hash that will be stored in the keychain.
+    fileprivate func hashPassword_(_ password: String) -> String
+    {
+        var result = password
+        for _ in 0..<AuthenticationManager.hashIterations_
+        {
+            result = result.sha512
+        }
+        return result
     }
 }

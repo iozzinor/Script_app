@@ -54,13 +54,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        AuthenticationManager.shared.storeAccountInformation()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication)
     {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        displayLogin_()
+        displayUnlock_()
         
         for delegate in delegates_
         {
@@ -78,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    fileprivate func displayLogin_()
+    fileprivate func displayUnlock_()
     {
         guard !AuthenticationManager.shared.authenticated,
             let keyWindow = UIApplication.shared.keyWindow else
@@ -87,12 +86,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         }
         
         let currentViewController = keyWindow.rootViewController?.presentedViewController ?? keyWindow.rootViewController
-        guard !(currentViewController is LoginViewController) else
+        guard !(currentViewController is UnlockViewController) else
         {
             return
         }
         
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let storyboard = UIStoryboard(name: "Unlock", bundle: nil)
         if let loginViewController = storyboard.instantiateInitialViewController()
         {
            currentViewController?.present(loginViewController, animated: true, completion: nil)

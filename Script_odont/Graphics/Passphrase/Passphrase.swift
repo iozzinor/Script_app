@@ -10,7 +10,7 @@ import Foundation
 
 struct Passphrase
 {
-    enum Kind
+    enum Kind: String
     {
         case sixDigitCode
         case phrase

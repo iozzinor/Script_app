@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yiw-vM-Mix">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Unlock View Controller-->
+        <scene sceneID="Un4-7v-Hcp">
+            <objects>
+                <viewController id="yiw-vM-Mix" customClass="UnlockViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="304-z9-p3X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RMT-CQ-M0U">
+                                <rect key="frame" x="20" y="40" width="335" height="607"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Script App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPv-9B-Ypt">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="121.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your passphrase." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKk-LJ-qLb">
+                                        <rect key="frame" x="0.0" y="121.5" width="335" height="121.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9av-0C-LU1">
+                                        <rect key="frame" x="0.0" y="243" width="335" height="121"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhl-y1-tE6">
+                                        <rect key="frame" x="0.0" y="364" width="335" height="121.5"/>
+                                        <state key="normal" title="Biometric Authentication"/>
+                                        <connections>
+                                            <action selector="biometricLoginAction:" destination="yiw-vM-Mix" eventType="touchUpInside" id="n2e-EG-kVI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1LW-IZ-NqY">
+                                        <rect key="frame" x="0.0" y="485.5" width="335" height="121.5"/>
+                                        <state key="normal" title="Forgot Passphrase ?"/>
+                                        <connections>
+                                            <action selector="forgotPassword:" destination="yiw-vM-Mix" eventType="touchUpInside" id="koD-G7-n5w"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="RMT-CQ-M0U" secondAttribute="bottom" constant="20" symbolic="YES" id="3Hn-h9-u0M"/>
+                            <constraint firstItem="RMT-CQ-M0U" firstAttribute="top" secondItem="Pyi-UQ-rxU" secondAttribute="top" constant="20" id="8TS-fG-LUo"/>
+                            <constraint firstItem="RMT-CQ-M0U" firstAttribute="leading" secondItem="Pyi-UQ-rxU" secondAttribute="leading" constant="20" id="Q8D-uQ-mOf"/>
+                            <constraint firstItem="RMT-CQ-M0U" firstAttribute="centerX" secondItem="304-z9-p3X" secondAttribute="centerX" id="b6V-AM-TnR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Pyi-UQ-rxU"/>
+                    </view>
+                    <connections>
+                        <outlet property="biometricAuthenticationButton" destination="yhl-y1-tE6" id="ONO-cp-FqN"/>
+                        <outlet property="passphraseView" destination="9av-0C-LU1" id="dQI-bZ-t9a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ubn-Cu-EbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-454" y="-423"/>
+        </scene>
+    </scenes>
+</document>

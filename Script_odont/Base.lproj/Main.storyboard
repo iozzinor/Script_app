@@ -30,14 +30,6 @@
             </objects>
             <point key="canvasLocation" x="-1266" y="1052"/>
         </scene>
-        <!--Login-->
-        <scene sceneID="R6Q-xY-9JG">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" id="4pe-4k-bpF" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hbs-DE-hjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1444" y="-691"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="U5F-7O-V4k">
             <objects>
@@ -48,11 +40,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="4pe-4k-bpF" kind="presentation" identifier="MainToLoginSegueId" id="xHQ-Dl-XMK"/>
                         <segue destination="Ylo-eb-02I" kind="relationship" relationship="viewControllers" id="qht-HW-1Vz"/>
                         <segue destination="qTE-CN-qkG" kind="relationship" relationship="viewControllers" id="hUa-bs-waf"/>
                         <segue destination="7FF-Yp-A7B" kind="relationship" relationship="viewControllers" id="yaI-rF-73s"/>
                         <segue destination="R6W-Vc-MuB" kind="relationship" relationship="viewControllers" id="Fya-ST-KOg"/>
+                        <segue destination="OZo-sI-RHV" kind="presentation" identifier="MainToUnlockSegueId" id="XDh-OA-cug"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Md-Rg-pq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -70,10 +62,17 @@
             </objects>
             <point key="canvasLocation" x="62" y="82"/>
         </scene>
+        <!--Unlock-->
+        <scene sceneID="Yg5-FM-M1y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Unlock" id="OZo-sI-RHV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="erZ-qf-0Pf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1444" y="-709"/>
+        </scene>
         <!--SCT Browsing-->
         <scene sceneID="Nrf-u5-crJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2h8-ab-1gl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Ylo-eb-02I" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="SCT Browsing" id="VNi-je-PSS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jj4-Ya-GK2">
@@ -84,6 +83,7 @@
                         <segue destination="dp0-OZ-HzA" kind="relationship" relationship="rootViewController" id="cxK-vS-jBo"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2h8-ab-1gl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-492" y="-691"/>
         </scene>

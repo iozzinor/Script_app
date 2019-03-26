@@ -102,7 +102,7 @@ enum SettingsRow: TableRow
         case .linkAccount:
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingsRow.textCellId, for: indexPath)
             cell.textLabel?.text = "Settings.Row.LinkAccount".localized
-            cell.textLabel?.textColor = Appearance.Color.default
+            cell.textLabel?.textColor = Appearance.Color.action
             return cell
             
         case .reset:
@@ -122,9 +122,9 @@ enum SettingsRow: TableRow
     var accessoryType: UITableViewCell.AccessoryType {
         switch self
         {
-        case .about, .advanced, .passphrase, .confidentialData, .password, .qualifications, .developer, .reset, .linkAccount:
+        case .about, .advanced, .passphrase, .confidentialData, .password, .qualifications, .developer, .reset:
             return .disclosureIndicator
-        case .logout:
+        case .logout, .linkAccount:
             return .none
         }
     }
@@ -175,7 +175,14 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
         newContent.append((section: .general, rows: [.about, .advanced, .passphrase]))
         
         // account
-        newContent.append((section: .account, rows: [.confidentialData, .password, .qualifications, .logout]))
+        if Settings.shared.accountKey != nil
+        {
+            newContent.append((section: .account, rows: [.confidentialData, .password, .qualifications, .logout]))
+        }
+        else
+        {
+            newContent.append((section: .account, rows: [.linkAccount]))
+        }
         
         // developer
         if Settings.shared.showDeveloper
@@ -252,8 +259,8 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
             let target = segue.destination as? PassphraseViewController
         {
             target.editType = .modify
-            target.previousPassphrase = Passphrase(kind: .sixDigitCode, text: "123456")
             target.delegate = self
+            target.previousPassphraseKind = AuthenticationManager.shared.passphraseKind
         }
     }
 }
@@ -305,5 +312,7 @@ extension SettingsViewController: PassphraseDelegate
     func passphraseViewController(_ passphraseViewController: PassphraseViewController, didChoosePassphrase passphrase: Passphrase)
     {
         navigationController?.popViewController(animated: true)
+        
+        AuthenticationManager.shared.storePassphrase(passphrase.text, kind: passphrase.kind)
     }
 }

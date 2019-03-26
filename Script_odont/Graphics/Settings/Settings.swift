@@ -15,6 +15,7 @@ class Settings
         case showDeveloperSection
         case serverName
         case serverPort
+        case accountKey
         
         var key: String {
             return "Settings.\(rawValue)"
@@ -45,6 +46,14 @@ class Settings
         }
         get {
             return UserDefaults.standard.integer(forKey: Parameter.serverPort.key)
+        }
+    }
+    var accountKey: String? {
+        set {
+            UserDefaults.standard.set(newValue, forKey: Parameter.accountKey.key)
+        }
+        get {
+            return UserDefaults.standard.string(forKey: Parameter.accountKey.key)
         }
     }
     
@@ -83,5 +92,15 @@ class Settings
         {
             UserDefaults.standard.set(value, forKey: key)
         }
+    }
+    
+    func clear() -> Bool
+    {
+        if let bundleId = Bundle.main.bundleIdentifier
+        {
+            UserDefaults.standard.removePersistentDomain(forName: bundleId)
+            return true
+        }
+        return false
     }
 }

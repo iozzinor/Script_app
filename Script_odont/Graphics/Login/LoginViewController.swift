@@ -21,11 +21,6 @@ class LoginViewController: UIViewController
     {
         super.viewDidLoad()
         
-        if let userName = AuthenticationManager.shared.userName
-        {
-            userNameField.text = userName
-        }
-        
         biometricButton.isHidden = !AuthenticationManager.shared.biometricAuthentication.canEvaluatePolicy()
         biometricButton.setTitle(AuthenticationManager.shared.biometricAuthentication.authenticationName, for: .normal)
     }

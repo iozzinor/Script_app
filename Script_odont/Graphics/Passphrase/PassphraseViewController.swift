@@ -31,13 +31,13 @@ class PassphraseViewController: UIViewController
     @IBOutlet weak var passphraseView: UIView!
     @IBOutlet weak var optionsButton: UIButton!
     
-    var previousPassphrase: Passphrase? = nil
+    var previousPassphraseKind: Passphrase.Kind? = nil
     {
         didSet
         {
-            if previousPassphrase != nil
+            if previousPassphraseKind != nil
             {
-                currentPassphraseKind_ = previousPassphrase!.kind
+                currentPassphraseKind_ = previousPassphraseKind!
             }
         }
     }
@@ -100,9 +100,9 @@ class PassphraseViewController: UIViewController
         optionsButton.addTarget(self, action: #selector(PassphraseViewController.optionsButtonTapped_), for: .touchUpInside)
         updateView_()
         
-        if previousPassphrase != nil
+        if previousPassphraseKind != nil
         {
-            currentPassphraseKind_ = previousPassphrase!.kind
+            currentPassphraseKind_ = previousPassphraseKind!
         }
     }
     
@@ -170,11 +170,7 @@ class PassphraseViewController: UIViewController
         case .createPassphrase, .newPassphrase:
             return true
         case .previousPassphrase:
-            guard let previous = previousPassphrase?.text else
-            {
-                return false
-            }
-            return previous == enteredPassphrase
+            return AuthenticationManager.shared.checkPassphrase(enteredPassphrase)
         case .confirmation:
             return passphrase.text == enteredPassphrase
         }
