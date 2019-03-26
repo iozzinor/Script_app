@@ -139,4 +139,16 @@ extension UIView
         }
         addSubviewAdjusting(subview)
     }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - ERROR SHAKE
+    // -------------------------------------------------------------------------
+    func animateErrorShake()
+    {
+        self.transform = CGAffineTransform(translationX: 10, y: 0)
+        
+        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.1, initialSpringVelocity: 4.0, options: [], animations: {
+            self.transform = CGAffineTransform.identity
+        })
+    }
 }

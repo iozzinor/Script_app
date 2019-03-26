@@ -25,12 +25,22 @@ class PassphraseViewController: UIViewController
         case newPassphrase
     }
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var passphraseView: UIView!
     @IBOutlet weak var optionsButton: UIButton!
     
-    var previousPassphrase = Passphrase()
+    var previousPassphrase: Passphrase? = nil
+    {
+        didSet
+        {
+            if previousPassphrase != nil
+            {
+                currentPassphraseKind_ = previousPassphrase!.kind
+            }
+        }
+    }
     var passphrase = Passphrase()
     
     fileprivate var passphraseControls_ = [Passphrase.Kind: UIControl]()
@@ -77,6 +87,8 @@ class PassphraseViewController: UIViewController
     }
     fileprivate var step_ = Step.createPassphrase
     
+    weak var delegate: PassphraseDelegate?
+    
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
     // -------------------------------------------------------------------------
@@ -87,6 +99,15 @@ class PassphraseViewController: UIViewController
         setup_()
         optionsButton.addTarget(self, action: #selector(PassphraseViewController.optionsButtonTapped_), for: .touchUpInside)
         updateView_()
+        
+        if previousPassphrase != nil
+        {
+            currentPassphraseKind_ = previousPassphrase!.kind
+        }
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
     
     // -------------------------------------------------------------------------
@@ -107,6 +128,7 @@ class PassphraseViewController: UIViewController
         let phraseTextField = UITextField()
         phraseTextField.textContentType = UITextContentType.password
         phraseTextField.delegate = self
+        phraseTextField.isSecureTextEntry = true
         passphraseControls_[.phrase] = phraseTextField
         
         for passphraseControl in passphraseControls_.values
@@ -122,20 +144,20 @@ class PassphraseViewController: UIViewController
         switch step_
         {
         case .createPassphrase:
-            titleLabel.text = "Passphrase Creation"
-            instructionLabel.text = "Enter the new passcode."
-            optionsButton.setTitle("Passphrase Options", for: .normal)
+            titleLabel.text = "Passphrase.Title.Creation".localized
+            instructionLabel.text = "Passphrase.Instruction.New".localized
+            optionsButton.setTitle("Passphrase.Options".localized, for: .normal)
         case .newPassphrase:
-            instructionLabel.text = "Enter the new passcode."
-            optionsButton.setTitle("Passphrase Options", for: .normal)
+            instructionLabel.text = "Passphrase.Instruction.Previous".localized
+            optionsButton.setTitle("Passphrase.Options".localized, for: .normal)
         case .previousPassphrase:
-            titleLabel.text = "Passphrase Modification"
-            instructionLabel.text = "Enter the previous passcode."
+            titleLabel.text = "Passphrase.Title.Modification".localized
+            instructionLabel.text = "Passphrase.Instruction.Previous".localized
             
             optionsButton.isHidden = true
             
         case .confirmation:
-            instructionLabel.text = "Confirm the passcode."
+            instructionLabel.text = "Passphrase.Instruction.Confirm".localized
             
             optionsButton.setTitle("Common.Cancel".localized, for: .normal)
         }
@@ -148,7 +170,11 @@ class PassphraseViewController: UIViewController
         case .createPassphrase, .newPassphrase:
             return true
         case .previousPassphrase:
-            return previousPassphrase.text == enteredPassphrase
+            guard let previous = previousPassphrase?.text else
+            {
+                return false
+            }
+            return previous == enteredPassphrase
         case .confirmation:
             return passphrase.text == enteredPassphrase
         }
@@ -163,11 +189,38 @@ class PassphraseViewController: UIViewController
             step_ = .confirmation
         case .previousPassphrase:
             step_ = .createPassphrase
+            
+            animateStackViewLeft_()
+            return
         case .confirmation:
-            dismiss(animated: true, completion: nil)
+            delegate?.passphraseViewController(self, didChoosePassphrase: Passphrase(kind: currentPassphraseKind_, text: enteredPassphrase))
         }
         
         updateView_()
+    }
+    
+    fileprivate func animateStackViewLeft_()
+    {
+        let originX = self.stackView.frame.origin.x
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.stackView.transform = CGAffineTransform(translationX: -self.stackView.frame.width, y: 0.0)
+        }, completion: {
+            _ -> Void in
+            self.updateView_()
+            
+            self.animateStackViewRight_(originX: originX)
+        })
+    }
+    
+    fileprivate func animateStackViewRight_(originX: CGFloat)
+    {
+        self.stackView.transform = CGAffineTransform.identity
+        self.stackView.frame.origin.x = UIScreen.main.bounds.maxX
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.stackView.frame.origin.x = originX
+        })
     }
     
     @objc fileprivate func optionsButtonTapped_(_ sender: UIButton)
@@ -247,11 +300,8 @@ extension PassphraseViewController: UITextFieldDelegate
                 else
                 {
                     // show the error
-                    textField.transform = CGAffineTransform(translationX: 10, y: 0)
-                    
-                    UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.1, initialSpringVelocity: 4.0, options: [], animations: {
-                        textField.transform = CGAffineTransform.identity
-                    })
+                    textField.animateErrorShake()
+                    textField.text = ""
                 }
                 
                 // reset the text field
@@ -275,6 +325,11 @@ extension PassphraseViewController: UITextFieldDelegate
             {
                 textField.text = ""
                 nextStep_(enteredPassphrase: passphrase)
+            }
+            else
+            {
+                textField.text = ""
+                textField.animateErrorShake()
             }
         case .sixDigitCode:
             break

@@ -45,6 +45,7 @@ enum SettingsRow: TableRow
     // general
     case about
     case advanced
+    case passphrase
     
     // account
     case confidentialData
@@ -70,6 +71,11 @@ enum SettingsRow: TableRow
         case .advanced:
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingsRow.textCellId, for: indexPath)
             cell.textLabel?.text = "Settings.Row.Advanced".localized
+            cell.textLabel?.textColor = Appearance.Color.default
+            return cell
+        case .passphrase:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingsRow.textCellId, for: indexPath)
+            cell.textLabel?.text = "Settings.Row.Passphrase".localized
             cell.textLabel?.textColor = Appearance.Color.default
             return cell
             
@@ -116,7 +122,7 @@ enum SettingsRow: TableRow
     var accessoryType: UITableViewCell.AccessoryType {
         switch self
         {
-        case .about, .advanced, .confidentialData, .password, .qualifications, .developer, .reset, .linkAccount:
+        case .about, .advanced, .passphrase, .confidentialData, .password, .qualifications, .developer, .reset, .linkAccount:
             return .disclosureIndicator
         case .logout:
             return .none
@@ -135,6 +141,7 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
 {
     public static let toAbout = "SettingsToAboutSegueId"
     public static let toAdvancedSettings = "SettingsToAdvancedSettingsSegueId"
+    public static let toPassphrase = "SettingsToPassphraseSegueId"
     public static let toDeveloper = "SettingsToDeveloperSegueId"
     public static let toReset = "SettingsToResetSegueId"
     
@@ -165,7 +172,7 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
     {
         var newContent = Content()
         // general
-        newContent.append((section: .general, rows: [.about, .advanced]))
+        newContent.append((section: .general, rows: [.about, .advanced, .passphrase]))
         
         // account
         newContent.append((section: .account, rows: [.confidentialData, .password, .qualifications, .logout]))
@@ -205,7 +212,7 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
         let row = content[indexPath.section].rows[indexPath.row]
         switch row
         {
-        case .about, .advanced, .developer, .reset, .logout, .linkAccount:
+        case .about, .advanced, .passphrase, .developer, .reset, .logout, .linkAccount:
             return indexPath
         case .confidentialData, .password, .qualifications:
             return nil
@@ -221,6 +228,8 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
             performSegue(withIdentifier: SettingsViewController.toAbout, sender: self)
         case .advanced:
             performSegue(withIdentifier: SettingsViewController.toAdvancedSettings, sender: self)
+        case .passphrase:
+            performSegue(withIdentifier: SettingsViewController.toPassphrase, sender: self)
         case .developer:
             performSegue(withIdentifier: SettingsViewController.toDeveloper, sender: self)
         case .reset:
@@ -233,8 +242,21 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
             break
         }
     }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - SEGUE
+    // -------------------------------------------------------------------------
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == SettingsViewController.toPassphrase,
+            let target = segue.destination as? PassphraseViewController
+        {
+            target.editType = .modify
+            target.previousPassphrase = Passphrase(kind: .sixDigitCode, text: "123456")
+            target.delegate = self
+        }
+    }
 }
-
 
 // -----------------------------------------------------------------------------
 // MARK: - ERROR BUTTON DELEGATE
@@ -272,5 +294,16 @@ extension SettingsViewController: ErrorButtonDelegate
         default:
             return ""
         }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - PASSPHRASE DELEGATE
+// -----------------------------------------------------------------------------
+extension SettingsViewController: PassphraseDelegate
+{
+    func passphraseViewController(_ passphraseViewController: PassphraseViewController, didChoosePassphrase passphrase: Passphrase)
+    {
+        navigationController?.popViewController(animated: true)
     }
 }

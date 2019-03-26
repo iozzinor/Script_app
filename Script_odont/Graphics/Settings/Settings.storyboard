@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Passphrase-->
+        <scene sceneID="R7V-sI-et1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Passphrase" id="rah-hl-kLh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QJd-8V-hz8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="174" y="-885"/>
+        </scene>
         <!--Settings View Controller-->
         <scene sceneID="9xV-7Y-cAt">
             <objects>
@@ -57,6 +65,7 @@
                         <segue destination="EgV-dv-2Pn" kind="show" identifier="SettingsToDeveloperSegueId" id="ivT-Ml-Xxd"/>
                         <segue destination="pAb-QF-K30" kind="show" identifier="SettingsToAboutSegueId" id="sP8-fL-hrE"/>
                         <segue destination="eAP-lu-dHt" kind="show" identifier="SettingsToResetSegueId" id="D5r-HH-YDC"/>
+                        <segue destination="rah-hl-kLh" kind="show" identifier="SettingsToPassphraseSegueId" id="LoA-IE-QBc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAQ-50-Ent" userLabel="First Responder" sceneMemberID="firstResponder"/>

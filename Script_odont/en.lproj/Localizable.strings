@@ -163,6 +163,17 @@
 "Authentication.Biometry.TouchId.Name"  = "Touch ID";
 "Authentication.Reason"                 = "Use %@ to unlock your account.";
 
+/* PASSPHRASE */
+"Passphrase.Name.SixDigitCode" = "Six-digit code";
+"Passphrase.Name.AlphaNumeric" = "Alphanumeric Text";
+
+"Passphrase.Options"                = "Passphrase Options";
+"Passphrase.Title.Creation"         = "Passphrase Creation";
+"Passphrase.Title.Modification"     = "Passphrase Modification";
+"Passphrase.Instruction.New"        = "Enter the new passcode.";
+"Passphrase.Instruction.Previous"   = "Enter the previous passcode.";
+"Passphrase.Instruction.Confirm"    = "Confirm the passcode.";
+
 /* WELCOME WALKTHROUGH */
 "WelcomeWalkthrough.SkipButton.Title.Skip" = "Skip";
 "WelcomeWalkthrough.SkipButton.Title.Done" = "Done";
@@ -314,6 +325,7 @@
 
 "Settings.Row.About"            = "About";
 "Settings.Row.Advanced"         = "Advanced";
+"Settings.Row.Passphrase"       = "Passphrase";
 "Settings.Row.ConfidentialData" = "Confidential Data";
 "Settings.Row.Password"         = "Password & Security Questions";
 "Settings.Row.Qualifications"   = "Qualifications";

@@ -72,6 +72,7 @@
                         <outlet property="instructionLabel" destination="8LZ-lo-8h9" id="yTE-qi-wmL"/>
                         <outlet property="optionsButton" destination="0Qb-6U-o17" id="a8k-sn-Dj2"/>
                         <outlet property="passphraseView" destination="MEy-Nm-vOs" id="nJM-ac-GiY"/>
+                        <outlet property="stackView" destination="pP8-AB-YiZ" id="wTF-vt-B43"/>
                         <outlet property="titleLabel" destination="1SV-kv-8AF" id="i7G-yI-0df"/>
                     </connections>
                 </viewController>

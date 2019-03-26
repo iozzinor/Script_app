@@ -20,9 +20,9 @@ struct Passphrase
             switch self
             {
             case .sixDigitCode:
-                return "Six-digit code"
+                return "Passphrase.Name.SixDigitCode".localized
             case .phrase:
-                return "Alphanumeric phrase"
+                return "Passphrase.Name.AlphaNumeric".localized
             }
         }
     }

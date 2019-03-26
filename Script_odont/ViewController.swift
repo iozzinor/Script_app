@@ -62,14 +62,26 @@ class ViewController: UITabBarController
     fileprivate func displayPassphraseCreation_()
     {
         let passphraseStoryboard = UIStoryboard(name: "Passphrase", bundle: nil)
-        if let viewController = passphraseStoryboard.instantiateInitialViewController()
+        if let passphraseViewController = passphraseStoryboard.instantiateInitialViewController() as? PassphraseViewController
         {
-            present(viewController, animated: true, completion: nil)
+            passphraseViewController.delegate = self
+            present(passphraseViewController, animated: true, completion: nil)
         }
     }
     
     fileprivate func displayUnlock_()
     {
         performSegue(withIdentifier: ViewController.toLogin, sender: nil)
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - PASSPHRASE DELEGATE
+// -----------------------------------------------------------------------------
+extension ViewController: PassphraseDelegate
+{
+    func passphraseViewController(_ passphraseViewController: PassphraseViewController, didChoosePassphrase passphrase: Passphrase)
+    {
+        passphraseViewController.dismiss(animated: true, completion: nil)
     }
 }

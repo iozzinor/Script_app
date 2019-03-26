@@ -163,6 +163,17 @@
 "Authentication.Biometry.TouchId.Name"  = "Touch ID";
 "Authentication.Reason"                 = "Utilisez %@ pour déverrouiller votre compte.";
 
+/* PASSPHRASE */
+"Passphrase.Name.SixDigitCode" = "Code à six chiffres";
+"Passphrase.Name.AlphaNumeric" = "Mot de passe alphanumérique";
+
+"Passphrase.Options"                = "Passphrase Options";
+"Passphrase.Title.Creation"         = "Passphrase Creation";
+"Passphrase.Title.Modification"     = "Passphrase Modification";
+"Passphrase.Instruction.New"        = "Enter the new passcode.";
+"Passphrase.Instruction.Previous"   = "Enter the previous passcode.";
+"Passphrase.Instruction.Confirm"    = "Confirm the passcode.";
+
 /* WELCOME WALKTHROUGH */
 "WelcomeWalkthrough.SkipButton.Title.Skip" = "Passer";
 "WelcomeWalkthrough.SkipButton.Title.Done" = "Compris !";
@@ -314,6 +325,7 @@
 
 "Settings.Row.About"            = "A propos";
 "Settings.Row.Advanced"         = "Avancé";
+"Settings.Row.Passphrase"       = "Code PIN";
 "Settings.Row.ConfidentialData" = "Données confidentielles";
 "Settings.Row.Password"         = "Mot de passe et questions sécurité";
 "Settings.Row.Qualifications"   = "Compétences";

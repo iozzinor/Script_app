@@ -46,6 +46,7 @@
 		AC24E1D9224A70FC00B5D48A /* PassphraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1D8224A70FC00B5D48A /* PassphraseViewController.swift */; };
 		AC24E1DB224A718200B5D48A /* NumericPassphraseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */; };
 		AC24E1DD224A772800B5D48A /* Passphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1DC224A772800B5D48A /* Passphrase.swift */; };
+		AC31A029224A991000A3A461 /* PassphraseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A028224A990F00A3A461 /* PassphraseDelegate.swift */; };
 		AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3962235B7B400A3B813 /* Other.storyboard */; };
 		AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */; };
 		AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */; };
@@ -229,6 +230,7 @@
 		AC24E1D8224A70FC00B5D48A /* PassphraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseViewController.swift; sourceTree = "<group>"; };
 		AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericPassphraseControl.swift; sourceTree = "<group>"; };
 		AC24E1DC224A772800B5D48A /* Passphrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passphrase.swift; sourceTree = "<group>"; };
+		AC31A028224A990F00A3A461 /* PassphraseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseDelegate.swift; sourceTree = "<group>"; };
 		AC31E3952235B7B400A3B813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Other.storyboard; sourceTree = "<group>"; };
 		AC31E3982235B7B700A3B813 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Other.strings; sourceTree = "<group>"; };
 		AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScaleCell.xib; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 				AC24E1DC224A772800B5D48A /* Passphrase.swift */,
 				AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */,
 				AC24E1D8224A70FC00B5D48A /* PassphraseViewController.swift */,
+				AC31A028224A990F00A3A461 /* PassphraseDelegate.swift */,
 				AC24E1D6224A6FAE00B5D48A /* Passphrase.storyboard */,
 			);
 			path = Passphrase;
@@ -967,6 +970,7 @@
 				AC53E37422331B8500CA4437 /* MySctViewController.swift in Sources */,
 				AC9F23EB222A90ED002D38E5 /* SigninViewController.swift in Sources */,
 				ACA60F742235D2340094881A /* SctViewDataSource.swift in Sources */,
+				AC31A029224A991000A3A461 /* PassphraseDelegate.swift in Sources */,
 				ACC83F90223EC3CE0064BE6F /* SctsUnfinishedListViewController.swift in Sources */,
 				AC4904C7222BBE6100BDEB4B /* PasswordPolicy.swift in Sources */,
 				ACB8C8A822351AE000C7F77C /* SctFinished.swift in Sources */,
