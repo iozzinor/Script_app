@@ -53,6 +53,7 @@ enum SettingsRow: TableRow
     case qualifications
     case logout
     case linkAccount
+    case updateAccount
     
     // other
     case reset
@@ -104,6 +105,11 @@ enum SettingsRow: TableRow
             cell.textLabel?.text = "Settings.Row.LinkAccount".localized
             cell.textLabel?.textColor = Appearance.Color.action
             return cell
+        case .updateAccount:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingsRow.textCellId, for: indexPath)
+            cell.textLabel?.text = "Settings.Row.UpdateAccount".localized
+            cell.textLabel?.textColor = Appearance.Color.action
+            return cell
             
         case .reset:
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingsRow.textCellId, for: indexPath)
@@ -124,7 +130,7 @@ enum SettingsRow: TableRow
         {
         case .about, .advanced, .passphrase, .confidentialData, .password, .qualifications, .developer, .reset:
             return .disclosureIndicator
-        case .logout, .linkAccount:
+        case .logout, .linkAccount, .updateAccount:
             return .none
         }
     }
@@ -142,12 +148,14 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
     public static let toAbout = "SettingsToAboutSegueId"
     public static let toAdvancedSettings = "SettingsToAdvancedSettingsSegueId"
     public static let toPassphrase = "SettingsToPassphraseSegueId"
+    public static let toLogin = "SettingsToLoginSegueId"
     public static let toDeveloper = "SettingsToDeveloperSegueId"
     public static let toReset = "SettingsToResetSegueId"
     
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate var errorView_ = ErrorButtonView()
+    fileprivate var connectionInformation_: ConnectionInformation?
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -175,13 +183,24 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
         newContent.append((section: .general, rows: [.about, .advanced, .passphrase]))
         
         // account
-        if Settings.shared.accountKey != nil
+        do
         {
+            connectionInformation_ = try NetworkingService.shared.getConnectionInformation(host: Settings.shared.host)
             newContent.append((section: .account, rows: [.confidentialData, .password, .qualifications, .logout]))
         }
-        else
+        catch let connectionError as NetworkingService.ConnectionError
         {
-            newContent.append((section: .account, rows: [.linkAccount]))
+            switch connectionError
+            {
+            case .noAccountLinked:
+                newContent.append((section: .account, rows: [.linkAccount]))
+                
+            case .wrongCredentials:
+                newContent.append((section: .account, rows: [.updateAccount]))
+            }
+        }
+        catch
+        {    
         }
         
         // developer
@@ -219,7 +238,7 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
         let row = content[indexPath.section].rows[indexPath.row]
         switch row
         {
-        case .about, .advanced, .passphrase, .developer, .reset, .logout, .linkAccount:
+        case .about, .advanced, .passphrase, .developer, .reset, .logout, .linkAccount, .updateAccount:
             return indexPath
         case .confidentialData, .password, .qualifications:
             return nil
@@ -244,6 +263,8 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
         case .logout:
             break
         case .linkAccount:
+            performSegue(withIdentifier: SettingsViewController.toLogin, sender: self)
+        case .updateAccount:
             break
         case .confidentialData, .password, .qualifications:
             break

@@ -342,6 +342,7 @@
 "Settings.Row.Reset"            = "Reset";
 "Settings.Row.Logout"           = "Logout";
 "Settings.Row.LinkAccount"      = "Link an account";
+"Settings.Row.UpdateAccount"    = "Update account";
 "Settings.Row.Developer"        = "Developer";
 
 /* ABOUT VIEW CONTROLLER */
@@ -415,3 +416,9 @@
 "NetworkError.NotReachable.FixTip"                  = "Turn wifi or cellular data on";
 "NetworkError.Airplane.LocalizedDescription"        = "The Airplane mode in on.";
 "NetworkError.Airplane.FixTip"                      = "Switch off the Airplane mode.";
+
+/* FETCH ERROR */
+"NetworkingService.ConnectionError.NoAccountLinked.LocalizedDescription"     = "No account is linked.";
+"NetworkingService.ConnectionError.NoAccountLinked.FixTip"                   = "Please link an account in the settings section.";
+"NetworkingService.ConnectionError.WrongCredentials.LocalizedDescription"    = "Your account has wrong credentials.";
+"NetworkingService.ConnectionError.WrongCredentials.FixTip"                  = "Please update your account in the settings.";

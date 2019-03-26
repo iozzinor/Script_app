@@ -16,6 +16,7 @@ class Settings
         case serverName
         case serverPort
         case accountKey
+        case accountUserName
         
         var key: String {
             return "Settings.\(rawValue)"
@@ -32,6 +33,10 @@ class Settings
             return UserDefaults.standard.bool(forKey: Parameter.showDeveloperSection.key)
         }
     }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - SERVER
+    // -------------------------------------------------------------------------
     var serverName: String {
         set {
             UserDefaults.standard.set(newValue, forKey: Parameter.serverName.key)
@@ -48,12 +53,27 @@ class Settings
             return UserDefaults.standard.integer(forKey: Parameter.serverPort.key)
         }
     }
+    var host: Host {
+        return Host(name: serverName, port: serverPort)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - ACCOUNT
+    // -------------------------------------------------------------------------
     var accountKey: String? {
         set {
             UserDefaults.standard.set(newValue, forKey: Parameter.accountKey.key)
         }
         get {
             return UserDefaults.standard.string(forKey: Parameter.accountKey.key)
+        }
+    }
+    var accountUsername: String? {
+        set {
+            UserDefaults.standard.set(newValue, forKey: Parameter.accountUserName.key)
+        }
+        get {
+            return UserDefaults.standard.string(forKey: Parameter.accountUserName.key)
         }
     }
     
