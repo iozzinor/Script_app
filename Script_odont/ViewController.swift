@@ -10,22 +10,66 @@ import UIKit
 
 class ViewController: UITabBarController
 {
-    static let mainToLogin = "MainToLoginSegueId"
+    static let toLogin = "MainToLoginSegueId"
     
-    private var firstDisplay_ = true
+    private var isFirstDisplay_ = true
+    private var shouldDisplayPassphraseCreation_ = false
     
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
         
-        #if DEBUG
-        #else
-        
-        if firstDisplay_
+        if isFirstDisplay_
         {
-            firstDisplay_ = false
-            performSegue(withIdentifier: ViewController.mainToLogin, sender: nil)
+            isFirstDisplay_ = false
+            
+            if UIApplication.isFirstLaunch
+            {
+                shouldDisplayPassphraseCreation_ = true
+                displayWelcomeWalkthrough_()
+            }
+            else
+            {
+                displayUnlock_()
+            }
         }
-        #endif
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        if shouldDisplayPassphraseCreation_
+        {
+            shouldDisplayPassphraseCreation_ = false
+            
+            displayPassphraseCreation_()
+        }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - SEGUES
+    // -------------------------------------------------------------------------
+    fileprivate func displayWelcomeWalkthrough_()
+    {
+        let welcomeStoryboard = UIStoryboard(name: "WelcomeWalkthrough", bundle: nil)
+        if let viewController = welcomeStoryboard.instantiateInitialViewController()
+        {
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    fileprivate func displayPassphraseCreation_()
+    {
+        let passphraseStoryboard = UIStoryboard(name: "Passphrase", bundle: nil)
+        if let viewController = passphraseStoryboard.instantiateInitialViewController()
+        {
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+    
+    fileprivate func displayUnlock_()
+    {
+        performSegue(withIdentifier: ViewController.toLogin, sender: nil)
     }
 }

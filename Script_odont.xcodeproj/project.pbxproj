@@ -42,6 +42,10 @@
 		AC0E4EAD223801D5003996AF /* RateStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EAC223801D5003996AF /* RateStar.swift */; };
 		AC0E4EB022382995003996AF /* UIBezierPath+star.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EAF22382995003996AF /* UIBezierPath+star.swift */; };
 		AC0E4EB222383A45003996AF /* PartialRateStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EB122383A45003996AF /* PartialRateStar.swift */; };
+		AC24E1D7224A6FAE00B5D48A /* Passphrase.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC24E1D6224A6FAE00B5D48A /* Passphrase.storyboard */; };
+		AC24E1D9224A70FC00B5D48A /* PassphraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1D8224A70FC00B5D48A /* PassphraseViewController.swift */; };
+		AC24E1DB224A718200B5D48A /* NumericPassphraseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */; };
+		AC24E1DD224A772800B5D48A /* Passphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1DC224A772800B5D48A /* Passphrase.swift */; };
 		AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3962235B7B400A3B813 /* Other.storyboard */; };
 		AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */; };
 		AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */; };
@@ -221,6 +225,10 @@
 		AC0E4EAC223801D5003996AF /* RateStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateStar.swift; sourceTree = "<group>"; };
 		AC0E4EAF22382995003996AF /* UIBezierPath+star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+star.swift"; sourceTree = "<group>"; };
 		AC0E4EB122383A45003996AF /* PartialRateStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialRateStar.swift; sourceTree = "<group>"; };
+		AC24E1D6224A6FAE00B5D48A /* Passphrase.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Passphrase.storyboard; sourceTree = "<group>"; };
+		AC24E1D8224A70FC00B5D48A /* PassphraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseViewController.swift; sourceTree = "<group>"; };
+		AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericPassphraseControl.swift; sourceTree = "<group>"; };
+		AC24E1DC224A772800B5D48A /* Passphrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passphrase.swift; sourceTree = "<group>"; };
 		AC31E3952235B7B400A3B813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Other.storyboard; sourceTree = "<group>"; };
 		AC31E3982235B7B700A3B813 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Other.strings; sourceTree = "<group>"; };
 		AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScaleCell.xib; sourceTree = "<group>"; };
@@ -420,6 +428,7 @@
 				AC372C62223947D9009F1DAD /* SctScoreDiagram */,
 				ACC52C4B223EFDB200B974BA /* ScoreProgressDiagram */,
 				AC8F5B802229694C00FAEFC5 /* Authentification */,
+				AC24E1D5224A6A2100B5D48A /* Passphrase */,
 				AC38BB71221DF021008E829B /* Walkthrough */,
 				ACB8C8A92235211F00C7F77C /* SctBrowsing */,
 				AC53E37222331B5600CA4437 /* MySct */,
@@ -483,6 +492,17 @@
 				AC0E4EAF22382995003996AF /* UIBezierPath+star.swift */,
 			);
 			path = Star;
+			sourceTree = "<group>";
+		};
+		AC24E1D5224A6A2100B5D48A /* Passphrase */ = {
+			isa = PBXGroup;
+			children = (
+				AC24E1DC224A772800B5D48A /* Passphrase.swift */,
+				AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */,
+				AC24E1D8224A70FC00B5D48A /* PassphraseViewController.swift */,
+				AC24E1D6224A6FAE00B5D48A /* Passphrase.storyboard */,
+			);
+			path = Passphrase;
 			sourceTree = "<group>";
 		};
 		AC31E3992235B83500A3B813 /* Drawing */ = {
@@ -845,6 +865,7 @@
 				ACC83F94223EC4870064BE6F /* MySctFinishedCell.xib in Resources */,
 				AC31E3A12235BCBA00A3B813 /* SctQuestionHeaderCell.xib in Resources */,
 				ACC83F8B223E96E70064BE6F /* Settings.storyboard in Resources */,
+				AC24E1D7224A6FAE00B5D48A /* Passphrase.storyboard in Resources */,
 				ACD1B3BA223D06F80065F07E /* ButtonCell.xib in Resources */,
 				AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */,
 				AC31E39F2235BC8500A3B813 /* SctQuestionCell.xib in Resources */,
@@ -906,6 +927,7 @@
 				AC0E4EB222383A45003996AF /* PartialRateStar.swift in Sources */,
 				AC38BB78221DFCC4008E829B /* WelcomeWalkthroughViewController.swift in Sources */,
 				AC0D77CA2225D28B007F83D4 /* SctQuestion.swift in Sources */,
+				AC24E1DB224A718200B5D48A /* NumericPassphraseControl.swift in Sources */,
 				ACDC49A8224221F800B43534 /* NetworkStatus.swift in Sources */,
 				ACC83F96223EC83D0064BE6F /* SctsFinishedListViewController.swift in Sources */,
 				AC4904C1222B3C1600BDEB4B /* SecurityQuestionCell.swift in Sources */,
@@ -998,10 +1020,12 @@
 				AC74B69E22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift in Sources */,
 				AC38BB60221DE4C9008E829B /* AppDelegate.swift in Sources */,
 				AC9F23E9222A8D4E002D38E5 /* String+random.swift in Sources */,
+				AC24E1D9224A70FC00B5D48A /* PassphraseViewController.swift in Sources */,
 				AC0433FD2249361900644B14 /* SwitchCell.swift in Sources */,
 				ACDC49A22242171D00B43534 /* String+md5.swift in Sources */,
 				AC0E4EAB2237FB87003996AF /* SctFinishedViewController.swift in Sources */,
 				AC0D77DE22283838007F83D4 /* SctAnswer.swift in Sources */,
+				AC24E1DD224A772800B5D48A /* Passphrase.swift in Sources */,
 				AC0434012249383D00644B14 /* SwitchCellDelegate.swift in Sources */,
 				ACC81ACA22404A0A000990EA /* ScoreProgressDiagramDataSource.swift in Sources */,
 				ACC81AC2223F0EA3000990EA /* MyProgressViewController.swift in Sources */,

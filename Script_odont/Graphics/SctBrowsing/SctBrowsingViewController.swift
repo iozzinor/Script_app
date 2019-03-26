@@ -224,7 +224,6 @@ class SctBrowsingViewController: UIViewController
         }
     }
     
-    static let walkthroughSegueId = "SctBrowsingToWalkthroughSegueId"
     static let searchSegueId = "SctBrowsingToSctSearchSegueId"
     static let toSctsListSegueId = "SctBrowsingToSctsListSegueId"
     static let toSctLaunchSegueId = "SctBrowsingToSctLaunchSegueId"
@@ -237,7 +236,6 @@ class SctBrowsingViewController: UIViewController
     
     @IBOutlet weak var tableView: UITableView!
     
-    fileprivate var checkFirstTime_ = false
     fileprivate let sections_: [BrowsingSection] = [.new, .top, .topics, .personnalized, .search]
     fileprivate var sectionHeaders_ = [DetailHeader]()
     fileprivate var sectionFooters_ = [DetailFooter?]()
@@ -369,20 +367,6 @@ class SctBrowsingViewController: UIViewController
         sectionFooters_.append(nil)
     }
     
-    override func viewDidAppear(_ animated: Bool)
-    {
-        super.viewDidAppear(animated)
-        
-        if !checkFirstTime_ && UIApplication.isFirstLaunch
-        {
-            checkFirstTime_ = true
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                 self.launchWalkthrough_()
-            })
-        }
-    }
-    
     // -------------------------------------------------------------------------
     // MARK: - SEGUES
     // -------------------------------------------------------------------------
@@ -423,12 +407,6 @@ class SctBrowsingViewController: UIViewController
     fileprivate func provideDefaultSettings_()
     {
         UserDefaults.standard.register(defaults: Settings.shared.defaultValues)
-    }
-    
-    fileprivate func launchWalkthrough_()
-    {
-        performSegue(withIdentifier: SctBrowsingViewController.walkthroughSegueId,
-                     sender: self)
     }
     
     @objc fileprivate func showAll_(sender: UIButton)
