@@ -243,6 +243,8 @@ class SctBrowsingViewController: AsynchronousTableViewController<BrowsingSection
     fileprivate var sctsList_: SctsListViewController.SctsList? = nil
     fileprivate var errorButtonView_ = ErrorButtonView()
     
+    fileprivate var specializedErrorButtonDelegateHandler_ = SpecializedErrorButtonDelegateHandler()
+    
     // -------------------------------------------------------------------------
     // MARK: - SCTS LISTS
     // -------------------------------------------------------------------------
@@ -308,8 +310,8 @@ class SctBrowsingViewController: AsynchronousTableViewController<BrowsingSection
         
         provideDefaultSettings_()
         
-        errorButtonView_.delegate = self
         setup(tableView: tableView, errorView: errorButtonView_, emptyView: UIView(), loadingView: UIView(), viewController: self)
+        setupErrorButtonView_()
         setupTableView_()
         setupSectionHeaders_()
         setupSectionFooters_()
@@ -334,6 +336,19 @@ class SctBrowsingViewController: AsynchronousTableViewController<BrowsingSection
     // -------------------------------------------------------------------------
     // MARK: - SETUP
     // -------------------------------------------------------------------------
+    fileprivate func setupErrorButtonView_()
+    {
+        errorButtonView_.delegate = specializedErrorButtonDelegateHandler_
+        
+        // network error
+        specializedErrorButtonDelegateHandler_.registerErrorButtonDelegate(SebdNetworkError())
+        
+        // connection error
+        let viewController = tabBarController as? ViewController
+        let connectionErrorDelegate = SebdConnectionError(viewController: viewController)
+        specializedErrorButtonDelegateHandler_.registerErrorButtonDelegate(connectionErrorDelegate)
+    }
+    
     fileprivate func setupTableView_()
     {
         tableView.registerNibCell(SctLatestPeriodCell.self)
@@ -385,9 +400,10 @@ class SctBrowsingViewController: AsynchronousTableViewController<BrowsingSection
             
             state = .loaded(defaultContent)
         }
-        catch let connectionError as NetworkingService.ConnectionError
+        catch let connectionError as ConnectionError
         {
             state = .loaded(defaultContent)
+            //state = .error(NetworkError.airplaneMode)
             //state = .error(connectionError)
         }
         catch
@@ -531,51 +547,5 @@ class SctBrowsingViewController: AsynchronousTableViewController<BrowsingSection
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
     {
         return sectionFooters_[section]?.height ?? 0.0
-    }
-}
-
-// -----------------------------------------------------------------------------
-// MARK: - ERROR BUTTON DELEGATE
-// -----------------------------------------------------------------------------
-extension SctBrowsingViewController: ErrorButtonDelegate
-{
-    func errorButtonView(_ errorButtonView: ErrorButtonView, actionTriggeredFor error: Error)
-    {
-        switch error
-        {
-        case let connectionError as NetworkingService.ConnectionError:
-            switch connectionError
-            {
-            case .noAccountLinked, .wrongCredentials:
-                if let viewController = tabBarController as? ViewController
-                {
-                    viewController.showSettings()
-                }
-            }
-        default:
-            break
-        }
-    }
-    
-    func errorButtonView(_ errorButtonView: ErrorButtonView, buttonTitleFor error: Error) -> String
-    {
-        switch error
-        {
-        case let connectionError as NetworkingService.ConnectionError:
-            return connectionError.fixTip
-        default:
-            return ""
-        }
-    }
-    
-    func errorButtonView(shouldDisplayButton errorButtonView: ErrorButtonView, error: Error) -> Bool
-    {
-        switch error
-        {
-        case _ as NetworkingService.ConnectionError:
-            return true
-        default:
-            return false
-        }
     }
 }

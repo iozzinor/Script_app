@@ -12,8 +12,7 @@ class IndeterminateLoadingView: UIActivityIndicatorView, TableViewFooter
 {
     func prepareToDisplay(in tableView: UITableView)
     {
-        //tableView_.tableFooterView?.frame.size.height = 100.0
-        self.frame.size.height = self.frame.size.width
+        self.frame.size.height = self.frame.size.width / 3
         self.startAnimating()
         self.color = UIColor.gray
     }

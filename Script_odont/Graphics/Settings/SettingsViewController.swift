@@ -188,7 +188,7 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
             connectionInformation_ = try NetworkingService.shared.getConnectionInformation(host: Settings.shared.host)
             newContent.append((section: .account, rows: [.confidentialData, .password, .qualifications, .logout]))
         }
-        catch let connectionError as NetworkingService.ConnectionError
+        catch let connectionError as ConnectionError
         {
             switch connectionError
             {

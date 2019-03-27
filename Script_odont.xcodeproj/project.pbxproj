@@ -56,6 +56,11 @@
 		AC31A039224B7A3900A3A461 /* Unlock.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31A03B224B7A3900A3A461 /* Unlock.storyboard */; };
 		AC31A044224B845A00A3A461 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A043224B845A00A3A461 /* Configuration.swift */; };
 		AC31A049224B889C00A3A461 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC31A048224B889C00A3A461 /* Configuration.plist */; };
+		AC31A04B224B8CD200A3A461 /* SpecializedErrorButtonDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A04A224B8CD200A3A461 /* SpecializedErrorButtonDelegateHandler.swift */; };
+		AC31A04D224B8DB700A3A461 /* SpecializedErrorButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A04C224B8DB700A3A461 /* SpecializedErrorButtonDelegate.swift */; };
+		AC31A04F224B8E8D00A3A461 /* ConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A04E224B8E8D00A3A461 /* ConnectionError.swift */; };
+		AC31A051224B925C00A3A461 /* SebdConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A050224B925C00A3A461 /* SebdConnectionError.swift */; };
+		AC31A053224B94E700A3A461 /* SebdNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A052224B94E700A3A461 /* SebdNetworkError.swift */; };
 		AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3962235B7B400A3B813 /* Other.storyboard */; };
 		AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */; };
 		AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */; };
@@ -252,6 +257,11 @@
 		AC31A043224B845A00A3A461 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		AC31A045224B84D900A3A461 /* Configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		AC31A048224B889C00A3A461 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
+		AC31A04A224B8CD200A3A461 /* SpecializedErrorButtonDelegateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializedErrorButtonDelegateHandler.swift; sourceTree = "<group>"; };
+		AC31A04C224B8DB700A3A461 /* SpecializedErrorButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializedErrorButtonDelegate.swift; sourceTree = "<group>"; };
+		AC31A04E224B8E8D00A3A461 /* ConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionError.swift; sourceTree = "<group>"; };
+		AC31A050224B925C00A3A461 /* SebdConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SebdConnectionError.swift; sourceTree = "<group>"; };
+		AC31A052224B94E700A3A461 /* SebdNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SebdNetworkError.swift; sourceTree = "<group>"; };
 		AC31E3952235B7B400A3B813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Other.storyboard; sourceTree = "<group>"; };
 		AC31E3982235B7B700A3B813 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Other.strings; sourceTree = "<group>"; };
 		AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScaleCell.xib; sourceTree = "<group>"; };
@@ -773,6 +783,7 @@
 				ACDC49A522421D4A00B43534 /* Reachability.swift */,
 				AC0433F4224918C200644B14 /* NetworkError.swift */,
 				AC31A02F224AD86C00A3A461 /* NetworkingService.swift */,
+				AC31A04E224B8E8D00A3A461 /* ConnectionError.swift */,
 				AC31A033224ADC9E00A3A461 /* Host.swift */,
 				AC31A031224ADC0C00A3A461 /* ConnectionInformation.swift */,
 			);
@@ -848,6 +859,10 @@
 				ACBCF4262242CA18007CA02F /* ErrorDisplayer.swift */,
 				ACBCF4282242D033007CA02F /* ErrorButtonView.swift */,
 				AC0433F62249236600644B14 /* ErrorButtonDelegate.swift */,
+				AC31A04C224B8DB700A3A461 /* SpecializedErrorButtonDelegate.swift */,
+				AC31A04A224B8CD200A3A461 /* SpecializedErrorButtonDelegateHandler.swift */,
+				AC31A052224B94E700A3A461 /* SebdNetworkError.swift */,
+				AC31A050224B925C00A3A461 /* SebdConnectionError.swift */,
 				AC31A035224AE8DC00A3A461 /* IndeterminateLoadingView.swift */,
 			);
 			path = AsynchronousTableManager;
@@ -1012,9 +1027,11 @@
 				AC0D77D8222831C5007F83D4 /* SctExam.swift in Sources */,
 				AC0D77E022283FB6007F83D4 /* SctQuestionCellDelegate.swift in Sources */,
 				ACAD5DD62245294D0041E484 /* BorderView.swift in Sources */,
+				AC31A053224B94E700A3A461 /* SebdNetworkError.swift in Sources */,
 				ACC83F68223D649A0064BE6F /* SctSearchCriterion.swift in Sources */,
 				ACC83F76223DB5DF0064BE6F /* DatePickerDelegate.swift in Sources */,
 				AC0D77D422281FDD007F83D4 /* SctScaleCell.swift in Sources */,
+				AC31A04F224B8E8D00A3A461 /* ConnectionError.swift in Sources */,
 				ACC83F84223E66DA0064BE6F /* SctLaunchViewController.swift in Sources */,
 				AC0E4EB222383A45003996AF /* PartialRateStar.swift in Sources */,
 				AC38BB78221DFCC4008E829B /* WelcomeWalkthroughViewController.swift in Sources */,
@@ -1031,6 +1048,7 @@
 				AC4904C9222BBE7200BDEB4B /* PasswordTrait.swift in Sources */,
 				AC9D150A223ED31A00131490 /* LeaderboardViewController.swift in Sources */,
 				ACDC49AF224240BA00B43534 /* TableSection.swift in Sources */,
+				AC31A04D224B8DB700A3A461 /* SpecializedErrorButtonDelegate.swift in Sources */,
 				AC38BB76221DFB2F008E829B /* String+localized.swift in Sources */,
 				ACA60F722235CCEF0094881A /* SctViewController.swift in Sources */,
 				AC0E4EA222370CF3003996AF /* SctStatistics.swift in Sources */,
@@ -1055,6 +1073,7 @@
 				AC372C5B223942BE009F1DAD /* SctUpdateRateCellDelegate.swift in Sources */,
 				AC8F5B7B222899DA00FAEFC5 /* GoToSctCell.swift in Sources */,
 				ACAD5DD4224523B20041E484 /* SctData.swift in Sources */,
+				AC31A051224B925C00A3A461 /* SebdConnectionError.swift in Sources */,
 				AC31A030224AD86C00A3A461 /* NetworkingService.swift in Sources */,
 				AC31A02E224AA87400A3A461 /* UnlockViewController.swift in Sources */,
 				ACC52C3F223EE57E00B974BA /* CandidateStatistics.swift in Sources */,
@@ -1076,6 +1095,7 @@
 				ACC81ACE224056E0000990EA /* DashPattern.swift in Sources */,
 				AC53E36B2232B75200CA4437 /* UIView+utils.swift in Sources */,
 				AC53E37A2233AE3B00CA4437 /* MySctUnfinishedCell.swift in Sources */,
+				AC31A04B224B8CD200A3A461 /* SpecializedErrorButtonDelegateHandler.swift in Sources */,
 				AC0D77D62228274D007F83D4 /* Appearance.swift in Sources */,
 				AC8F5B822229696000FAEFC5 /* LoginViewController.swift in Sources */,
 				AC4904CF222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift in Sources */,

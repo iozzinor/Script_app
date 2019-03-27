@@ -253,6 +253,7 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
     fileprivate var finishedScts_: [SctFinished]? = nil
     
     fileprivate var errorButtonView_ = ErrorButtonView()
+    fileprivate var specializedErrorButtonDelegateHandler_ = SpecializedErrorButtonDelegateHandler()
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -264,16 +265,16 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
         setupSectionHeaders_()
         setupSectionFooters_()
         setupTableView_()
-        errorButtonView_.delegate = self
+        setupErrorButtonView_()
         setup(tableView: tableView, errorView: errorButtonView_, emptyView: UIView(), loadingView: IndeterminateLoadingView(), viewController: self)
         
-        //state = .error(NetworkingService.ConnectionError.wrongCredentials)
         var currentContent = Content()
         for section in sections_
         {
             currentContent.append((section: section, rows: section.rows))
         }
         state = .fetching(currentContent)
+        //state = .error(ConnectionError.wrongCredentials)
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -319,6 +320,19 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
     {
         tableView.registerNibCell(MySctUnfinishedCell.self)
         tableView.registerNibCell(MySctFinishedCell.self)
+    }
+    
+    fileprivate func setupErrorButtonView_()
+    {
+        errorButtonView_.delegate = specializedErrorButtonDelegateHandler_
+        
+        // network error
+        specializedErrorButtonDelegateHandler_.registerErrorButtonDelegate(SebdNetworkError())
+        
+        // connection error
+        let viewController = tabBarController as? ViewController
+        let connectionErrorDelegate = SebdConnectionError(viewController: viewController)
+        specializedErrorButtonDelegateHandler_.registerErrorButtonDelegate(connectionErrorDelegate)
     }
     
     // -------------------------------------------------------------------------
@@ -437,51 +451,5 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return sectionFooters_[section]?.height ?? 0.0
-    }
-}
-
-// -----------------------------------------------------------------------------
-// MARK: - ERROR BUTTON DELEGATE
-// -----------------------------------------------------------------------------
-extension MySctViewController: ErrorButtonDelegate
-{
-    func errorButtonView(_ errorButtonView: ErrorButtonView, actionTriggeredFor error: Error)
-    {
-        switch error
-        {
-        case let connectionError as NetworkingService.ConnectionError:
-            switch connectionError
-            {
-            case .noAccountLinked, .wrongCredentials:
-                if let viewController = tabBarController as? ViewController
-                {
-                    viewController.showSettings()
-                }
-            }
-        default:
-            break
-        }
-    }
-    
-    func errorButtonView(_ errorButtonView: ErrorButtonView, buttonTitleFor error: Error) -> String
-    {
-        switch error
-        {
-        case let connectionError as NetworkingService.ConnectionError:
-            return connectionError.fixTip
-        default:
-            return ""
-        }
-    }
-    
-    func errorButtonView(shouldDisplayButton errorButtonView: ErrorButtonView, error: Error) -> Bool
-    {
-        switch error
-        {
-        case _ as NetworkingService.ConnectionError:
-            return true
-        default:
-            return false
-        }
     }
 }
