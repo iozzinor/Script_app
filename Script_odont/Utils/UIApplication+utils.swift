@@ -17,7 +17,11 @@ extension UIApplication
     
     static var isFirstLaunch: Bool {
     #if DEBUG
-        return true
+        if let isFirstLaunchString = Configuration.shared.readFromFile(argument: "IsFirstLaunch")
+        {
+            return isFirstLaunchString == "1"
+        }
+        return false
     #else
         
         if !UserDefaults.standard.bool(forKey: firstLaunchKey)

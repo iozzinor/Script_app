@@ -54,6 +54,8 @@
 		AC31A036224AE8DC00A3A461 /* IndeterminateLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A035224AE8DC00A3A461 /* IndeterminateLoadingView.swift */; };
 		AC31A038224B4F9D00A3A461 /* TableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A037224B4F9D00A3A461 /* TableViewFooter.swift */; };
 		AC31A039224B7A3900A3A461 /* Unlock.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31A03B224B7A3900A3A461 /* Unlock.storyboard */; };
+		AC31A044224B845A00A3A461 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A043224B845A00A3A461 /* Configuration.swift */; };
+		AC31A049224B889C00A3A461 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC31A048224B889C00A3A461 /* Configuration.plist */; };
 		AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3962235B7B400A3B813 /* Other.storyboard */; };
 		AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */; };
 		AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */; };
@@ -246,6 +248,10 @@
 		AC31A037224B4F9D00A3A461 /* TableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewFooter.swift; sourceTree = "<group>"; };
 		AC31A03A224B7A3900A3A461 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Unlock.storyboard; sourceTree = "<group>"; };
 		AC31A03D224B7A4000A3A461 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Unlock.strings; sourceTree = "<group>"; };
+		AC31A041224B842200A3A461 /* Configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
+		AC31A043224B845A00A3A461 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		AC31A045224B84D900A3A461 /* Configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
+		AC31A048224B889C00A3A461 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		AC31E3952235B7B400A3B813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Other.storyboard; sourceTree = "<group>"; };
 		AC31E3982235B7B700A3B813 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Other.strings; sourceTree = "<group>"; };
 		AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScaleCell.xib; sourceTree = "<group>"; };
@@ -547,6 +553,31 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		AC31A03E224B83B700A3A461 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				AC31A03F224B83D200A3A461 /* Debug */,
+				AC31A040224B83D700A3A461 /* Release */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		AC31A03F224B83D200A3A461 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				AC31A041224B842200A3A461 /* Configuration.plist */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		AC31A040224B83D700A3A461 /* Release */ = {
+			isa = PBXGroup;
+			children = (
+				AC31A045224B84D900A3A461 /* Configuration.plist */,
+			);
+			path = Release;
+			sourceTree = "<group>";
+		};
 		AC31E3992235B83500A3B813 /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +643,8 @@
 				AC38BB68221DE4CB008E829B /* LaunchScreen.storyboard */,
 				AC38BB85221EAA58008E829B /* Localizable.strings */,
 				ACC83F87223E89630064BE6F /* Localizable.stringsdict */,
+				AC31A03E224B83B700A3A461 /* Configuration */,
+				AC31A048224B889C00A3A461 /* Configuration.plist */,
 				AC38BB6B221DE4CB008E829B /* Info.plist */,
 			);
 			path = Script_odont;
@@ -643,6 +676,7 @@
 				ACAD5DD52245294D0041E484 /* BorderView.swift */,
 				AC53E36A2232B75200CA4437 /* UIView+utils.swift */,
 				ACD1B3A3223BF6490065F07E /* UILabel+utils.swift */,
+				AC31A043224B845A00A3A461 /* Configuration.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -826,6 +860,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC38BB6E221DE4CB008E829B /* Build configuration list for PBXNativeTarget "Script_odont" */;
 			buildPhases = (
+				AC31A047224B864900A3A461 /* ShellScript */,
 				AC38BB58221DE4C9008E829B /* Sources */,
 				AC38BB59221DE4C9008E829B /* Frameworks */,
 				AC38BB5A221DE4C9008E829B /* Resources */,
@@ -901,6 +936,7 @@
 				AC24E1D7224A6FAE00B5D48A /* Passphrase.storyboard in Resources */,
 				ACD1B3BA223D06F80065F07E /* ButtonCell.xib in Resources */,
 				AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */,
+				AC31A049224B889C00A3A461 /* Configuration.plist in Resources */,
 				AC31E39F2235BC8500A3B813 /* SctQuestionCell.xib in Resources */,
 				AC53E37C2233AF5E00CA4437 /* MySct.storyboard in Resources */,
 				ACD1B3B2223C51B10065F07E /* SctBrowsingCell.xib in Resources */,
@@ -916,6 +952,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AC31A047224B864900A3A461 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "src_root=$(dirname \"$PRODUCT_SETTINGS_PATH\")\ncurrent_configuration_file_path=\"$src_root/Configuration/$CONFIGURATION/Configuration.plist\"\noutput_configuration_file_path=\"$src_root/Configuration.plist\"\n\ncp \"$current_configuration_file_path\" \"$output_configuration_file_path\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AC38BB58221DE4C9008E829B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -927,6 +983,7 @@
 				AC372C56223942BE009F1DAD /* SctPerformRateCell.swift in Sources */,
 				ACC81AC422401DC0000990EA /* ProgressCell.swift in Sources */,
 				AC74B69C223542A000B31571 /* WelcomeWalkthroughContentViewController.swift in Sources */,
+				AC31A044224B845A00A3A461 /* Configuration.swift in Sources */,
 				ACC52C4D223EFDCE00B974BA /* ScoreProgressDiagram.swift in Sources */,
 				AC9F23E52229D88E002D38E5 /* String+sha2.swift in Sources */,
 				AC8F5B7F2229676100FAEFC5 /* OtherViewController.swift in Sources */,
