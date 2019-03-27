@@ -26,7 +26,7 @@ fileprivate func imageExam1_() -> SctExam
 
 class SctUnfinishedViewController: SctDetailViewController
 {
-    static let toSctHorizontalSegueId = "SctUnfinishedToSctHorizontalSegueId"
+    static let toSctHorizontal = "SctUnfinishedToSctHorizontalSegueId"
     
     var sctUnfinished: SctUnfinished =
         SctUnfinished(session: SctSession(exam: SctExam()),
@@ -64,7 +64,7 @@ class SctUnfinishedViewController: SctDetailViewController
     // -------------------------------------------------------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == SctUnfinishedViewController.toSctHorizontalSegueId,
+        if segue.identifier == SctUnfinishedViewController.toSctHorizontal,
             let target = segue.destination as? SctHorizontalViewController
         {
             target.sctSession = SctSession(exam: imageExam1_())
@@ -91,7 +91,7 @@ extension SctUnfinishedViewController: SctDetailViewDelegate
     
     func sctDetailView(didResume sctDetailViewController: SctDetailViewController)
     {
-        performSegue(withIdentifier: SctUnfinishedViewController.toSctHorizontalSegueId, sender: self)
+        performSegue(withIdentifier: SctUnfinishedViewController.toSctHorizontal, sender: self)
     }
     
     func sctDetailView(didLaunch sctDetailViewController: SctDetailViewController)

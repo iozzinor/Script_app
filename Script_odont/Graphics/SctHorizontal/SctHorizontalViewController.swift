@@ -10,7 +10,7 @@ import UIKit
 
 public class SctHorizontalViewController: SctViewController, SctViewDataSource
 {
-    public static let toGoToSct = "SctHorizontalToGoToSctSegueId"
+    public static let toGoToSct     = "SctHorizontalToGoToSctSegueId"
     public static let toImageDetail = "SctHorizontalToImageDetailSegueId"
     
     // -------------------------------------------------------------------------

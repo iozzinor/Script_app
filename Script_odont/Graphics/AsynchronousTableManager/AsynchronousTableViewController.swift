@@ -73,12 +73,9 @@ class AsynchronousTableViewController<Section: TableSection, Row: TableRow, Erro
     {
         tableView_.tableFooterView = tableFooterView
         
-        if let errorView = tableView_.tableFooterView as? ErrorView
+        if let tableFooter = tableFooterView as? TableViewFooter
         {
-            errorView_.translatesAutoresizingMaskIntoConstraints = false
-            let width = NSLayoutConstraint(item: errorView, attribute: .width, relatedBy: .equal, toItem: tableView_, attribute: .width, multiplier: 1.0, constant: 0.0)
-            let height = NSLayoutConstraint(item: errorView, attribute: .height, relatedBy: .equal, toItem: tableView_, attribute: .height, multiplier: 1.0, constant: 0.0)
-            tableView_.addConstraints([width, height])
+            tableFooter.prepareToDisplay(in: tableView_)
         }
     }
     
@@ -134,12 +131,35 @@ class AsynchronousTableViewController<Section: TableSection, Row: TableRow, Erro
     // -------------------------------------------------------------------------
     // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
+    // header
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         let currentSection = content[section].section
         return currentSection.headerTitle
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        return 0.0
+    }
+    
+    // footer
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    {
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
+    {
+        return 0.0
+    }
+    
+    // content
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return content.count

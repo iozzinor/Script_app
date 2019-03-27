@@ -47,6 +47,25 @@ class ViewController: UITabBarController
         }
     }
     
+    func showSettings()
+    {
+        guard let controllers = viewControllers else
+        {
+            return
+        }
+        for (i, viewController) in controllers.enumerated()
+        {
+            if let navigationController = viewController as? UINavigationController,
+                let firstViewController = navigationController.viewControllers.first
+            {
+                if firstViewController is SettingsViewController
+                {
+                    selectedIndex = i
+                }
+            }
+        }
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - SEGUES
     // -------------------------------------------------------------------------

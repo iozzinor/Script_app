@@ -60,7 +60,7 @@ struct Constants
         return String(format: "Constants.Duration.String.Format.Short".localized, minutes, seconds)
     }
     
-    // An array of localized day names.
+    /// An array of localized day names.
     static let dayNames: [String] =
     {
         let dateFormatter = DateFormatter()
@@ -203,6 +203,7 @@ struct Constants
         return value
     }
     
+    /// - returns: Whether ```value``` is in the range [```min```; ```max```].
     static func inRange<T: Comparable>(_ value: T, min: T, max: T) -> Bool
     {
         if min > max
@@ -215,6 +216,7 @@ struct Constants
     // -------------------------------------------------------------------------
     // MARK: - NUMBER FORMATTING
     // -------------------------------------------------------------------------
+    /// - returns: The textual representation of the real number.
     static func formatReal(_ value: Double) -> String
     {
         return numberFormatter_.string(from: NSNumber(value: value)) ?? ""

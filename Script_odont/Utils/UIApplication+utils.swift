@@ -17,7 +17,7 @@ extension UIApplication
     
     static var isFirstLaunch: Bool {
     #if DEBUG
-        return false
+        return true
     #else
         
         if !UserDefaults.standard.bool(forKey: firstLaunchKey)

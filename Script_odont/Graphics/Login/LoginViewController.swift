@@ -11,8 +11,8 @@ import LocalAuthentication
 
 class LoginViewController: UIViewController
 {
-    static let toRecoverPassworrdSegueId = "LoginToRecoverPasswordSegueId"
-    static let toSigninSegueId = "LoginToSigninSegueId"
+    static let toRecoverPassworrd = "LoginToRecoverPasswordSegueId"
+    static let toSignin = "LoginToSigninSegueId"
     
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var biometricButton: UIButton!
@@ -32,7 +32,7 @@ class LoginViewController: UIViewController
     
     @IBAction func recoverPassword(_ sender: UIButton)
     {
-        performSegue(withIdentifier: LoginViewController.toRecoverPassworrdSegueId, sender: self)
+        performSegue(withIdentifier: LoginViewController.toRecoverPassworrd, sender: self)
     }
     
     @IBAction func login(_ sender: UIButton)
@@ -98,6 +98,6 @@ class LoginViewController: UIViewController
     // -------------------------------------------------------------------------
     @IBAction func signin(_ sender: UIButton)
     {
-        performSegue(withIdentifier: LoginViewController.toSigninSegueId, sender: self)
+        performSegue(withIdentifier: LoginViewController.toSignin, sender: self)
     }
 }

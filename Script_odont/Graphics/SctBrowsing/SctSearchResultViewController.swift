@@ -98,7 +98,7 @@ class SctSearchResultViewController: UITableViewController
         }
     }
     
-    static let toSctLaunchSegueId = "SctSearchResultToSctLaunchSegueId"
+    static let toSctLaunch = "SctSearchResultToSctLaunchSegueId"
     
     static let summaryCriterionCellId = "SctSearchResultSummaryCriterionCellId"
     
@@ -171,7 +171,7 @@ class SctSearchResultViewController: UITableViewController
     // -------------------------------------------------------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == SctSearchResultViewController.toSctLaunchSegueId,
+        if segue.identifier == SctSearchResultViewController.toSctLaunch,
             let target = segue.destination as? SctLaunchViewController,
             let launchInformation = pickedLaunchInformation_
         {
@@ -211,7 +211,7 @@ class SctSearchResultViewController: UITableViewController
         {
         case let .sct(launchInformation):
             pickedLaunchInformation_ = launchInformation
-            performSegue(withIdentifier: SctSearchResultViewController.toSctLaunchSegueId, sender: self)
+            performSegue(withIdentifier: SctSearchResultViewController.toSctLaunch, sender: self)
         case .summaryCriterionExplanation(_), .allScts, .noScts:
             break
         }

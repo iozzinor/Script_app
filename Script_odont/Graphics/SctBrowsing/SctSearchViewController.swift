@@ -159,15 +159,15 @@ class SctSearchViewController: UITableViewController
     // -------------------------------------------------------------------------
     // MARK: - STATIC PROPERTIES
     // -------------------------------------------------------------------------
-    static let criterionNameCellId = "SctSearchCriterionNameCellReuseId"
+    static let criterionNameCellId      = "SctSearchCriterionNameCellReuseId"
     static let qualificationTopicCellId = "SctSearchQualificationTopicCellReuseId"
-    static let addCriterionCellId = "SctSearchAddCriterionCellReuseId"
-    static let releaseDateCellId = "SctSearchReleaseDateCellReuseId"
+    static let addCriterionCellId       = "SctSearchAddCriterionCellReuseId"
+    static let releaseDateCellId        = "SctSearchReleaseDateCellReuseId"
     
-    static let toQualificationTopicsSegueId = "SctSearchToQualificationTopicsPickerSegueId"
-    static let toSctSearchPickerSegueId     = "SctSearchToSctSearchCriterionPickerSegueId"
-    static let toDatePicker                 = "SctSearchToDatePickerSegueId"
-    static let toSctSearchResultSegueId     = "SctSearchToSctSearchResultSeguId"
+    static let toQualificationTopics = "SctSearchToQualificationTopicsPickerSegueId"
+    static let toSctSearchPicker     = "SctSearchToSctSearchCriterionPickerSegueId"
+    static let toDatePicker          = "SctSearchToDatePickerSegueId"
+    static let toSctSearchResult     = "SctSearchToSctSearchResultSeguId"
     
     /// The maximum SCT duration in seconds.
     static let maximumDuration = 7200.0
@@ -318,7 +318,7 @@ class SctSearchViewController: UITableViewController
         
         let yesAction = UIAlertAction(title: "Common.Yes".localized, style: .default, handler: {
             (_) -> Void in
-            self.performSegue(withIdentifier: SctSearchViewController.toSctSearchResultSegueId, sender: self)
+            self.performSegue(withIdentifier: SctSearchViewController.toSctSearchResult, sender: self)
         })
         let noAction = UIAlertAction(title: "Common.No".localized, style: .cancel, handler: nil)
         
@@ -334,14 +334,14 @@ class SctSearchViewController: UITableViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         // criterion picker
-        if segue.identifier == SctSearchViewController.toSctSearchPickerSegueId,
+        if segue.identifier == SctSearchViewController.toSctSearchPicker,
             let target = (segue.destination as? UINavigationController)?.viewControllers.first as? SctSearchCriterionPickerViewController
         {
             target.delegate = self
             target.setPickedCriteria(criteria_)
         }
         // qualification topics
-        if segue.identifier == SctSearchViewController.toQualificationTopicsSegueId,
+        if segue.identifier == SctSearchViewController.toQualificationTopics,
             let target = segue.destination as? QualificationTopicsPickerViewController,
             currentIndexPath_ != nil
         {
@@ -374,7 +374,7 @@ class SctSearchViewController: UITableViewController
             }
         }
         // search result
-        else if segue.identifier == SctSearchViewController.toSctSearchResultSegueId,
+        else if segue.identifier == SctSearchViewController.toSctSearchResult,
             let target = (segue.destination as? UINavigationController)?.viewControllers.first as? SctSearchResultViewController
         {
             target.criteria = criteria_
@@ -407,7 +407,7 @@ class SctSearchViewController: UITableViewController
         switch row
         {
         case .addCriterion:
-            performSegue(withIdentifier: SctSearchViewController.toSctSearchPickerSegueId, sender: self)
+            performSegue(withIdentifier: SctSearchViewController.toSctSearchPicker, sender: self)
         case .criterion(_), .qualificationTopic(_),
              .minimumQuestionsCount(_), .maximumQuestionsCount(_),
              .minimumDurationPicker, .maximumDurationPicker:
@@ -424,11 +424,11 @@ class SctSearchViewController: UITableViewController
             performSegue(withIdentifier: SctSearchViewController.toDatePicker, sender: self)
         case .pickQualificationTopics:
             currentIndexPath_ = indexPath
-            performSegue(withIdentifier: SctSearchViewController.toQualificationTopicsSegueId, sender: self)
+            performSegue(withIdentifier: SctSearchViewController.toQualificationTopics, sender: self)
         case .performSearch:
             if !criteria_.isEmpty
             {
-                performSegue(withIdentifier: SctSearchViewController.toSctSearchResultSegueId, sender: self)
+                performSegue(withIdentifier: SctSearchViewController.toSctSearchResult, sender: self)
             }
             else
             {
@@ -481,7 +481,7 @@ class SctSearchViewController: UITableViewController
         switch row
         {
         case .addCriterion:
-            performSegue(withIdentifier: SctSearchViewController.toSctSearchPickerSegueId, sender: self)
+            performSegue(withIdentifier: SctSearchViewController.toSctSearchPicker, sender: self)
         case .criterion(_):
             removeCriterion_(indexPath: indexPath)
         default:

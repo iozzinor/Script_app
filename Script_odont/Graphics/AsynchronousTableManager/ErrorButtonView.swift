@@ -111,6 +111,17 @@ class ErrorButtonView: UIView
     }
 }
 
+extension ErrorButtonView: TableViewFooter
+{
+    func prepareToDisplay(in tableView: UITableView)
+    {
+        translatesAutoresizingMaskIntoConstraints = false
+        let width = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: tableView, attribute: .width, multiplier: 1.0, constant: 0.0)
+        let height = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: tableView, attribute: .height, multiplier: 1.0, constant: 0.0)
+        tableView.addConstraints([width, height])
+    }
+}
+
 // -----------------------------------------------------------------------------
 // MARK: - ERROR DISPLAYER
 // -----------------------------------------------------------------------------

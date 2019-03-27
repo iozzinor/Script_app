@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ErrorDisplayer
+protocol ErrorDisplayer: TableViewFooter
 {
     func prepareFor(error: Error)
 }

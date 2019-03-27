@@ -31,6 +31,10 @@ class UnlockViewController: UIViewController
         setup_()
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - SETUP
     // -------------------------------------------------------------------------

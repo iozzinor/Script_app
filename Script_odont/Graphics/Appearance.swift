@@ -48,7 +48,7 @@ struct Appearance
         }
     }
     
-    /// Appearance of sct related views.
+    /// Appearance of SCT related views.
     struct SctHorizontal
     {
         struct Table

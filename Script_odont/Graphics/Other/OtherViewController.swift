@@ -10,8 +10,8 @@ import UIKit
 
 class OtherViewController: UITableViewController
 {
-    static let otherCellIdentifier = "OtherCellReuseId"
-    static let toWalkthroughs = "OtherToWalkthroughsSegueId"
+    static let otherCellIdentifier  = "OtherCellReuseId"
+    static let toWalkthroughs       = "OtherToWalkthroughsSegueId"
     static let toLeaderboardSegueId = "OtherToLeaderboardSegueId"
     
     // -------------------------------------------------------------------------

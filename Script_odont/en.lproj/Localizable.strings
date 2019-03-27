@@ -6,6 +6,9 @@
   Copyright © 2019 Régis Iozzino. All rights reserved.
 */
 
+/* INFO PLIST */
+"NSFaceIDUsageDescription" = "TouchID is needed to unlock the account.";
+
 /* COMMON */
 "Common.Ok"     = "Ok";
 "Common.Cancel" = "Cancel";
@@ -418,7 +421,7 @@
 "NetworkError.Airplane.FixTip"                      = "Switch off the Airplane mode.";
 
 /* FETCH ERROR */
-"NetworkingService.ConnectionError.NoAccountLinked.LocalizedDescription"     = "No account is linked.";
-"NetworkingService.ConnectionError.NoAccountLinked.FixTip"                   = "Please link an account in the settings section.";
-"NetworkingService.ConnectionError.WrongCredentials.LocalizedDescription"    = "Your account has wrong credentials.";
-"NetworkingService.ConnectionError.WrongCredentials.FixTip"                  = "Please update your account in the settings.";
+"NetworkingService.ConnectionError.NoAccountLinked.LocalizedDescription"     = "No account is linked. Please link an account in the settings section.";
+"NetworkingService.ConnectionError.NoAccountLinked.FixTip"                   = "Show preferences.";
+"NetworkingService.ConnectionError.WrongCredentials.LocalizedDescription"    = "Your account has wrong credentials. Please update your account in the settings.";
+"NetworkingService.ConnectionError.WrongCredentials.FixTip"                  = "Show preferences.";

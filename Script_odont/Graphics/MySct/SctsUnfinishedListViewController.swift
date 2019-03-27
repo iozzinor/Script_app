@@ -10,7 +10,7 @@ import UIKit
 
 class SctsUnfinishedListViewController: UITableViewController
 {
-    static let toSctUnfinishedSegueId = "SctsUnfinishedListToSctUnfinishedSegueId"
+    static let toSctUnfinished = "SctsUnfinishedListToSctUnfinishedSegueId"
     
     var unfinishedScts = [SctUnfinished]()
     {
@@ -54,7 +54,7 @@ class SctsUnfinishedListViewController: UITableViewController
     // -------------------------------------------------------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == SctsUnfinishedListViewController.toSctUnfinishedSegueId,
+        if segue.identifier == SctsUnfinishedListViewController.toSctUnfinished,
             let target = segue.destination as? SctUnfinishedViewController
         {
             let unfinishedSct = unfinishedScts[unfinishedSctIndex_]
@@ -68,7 +68,7 @@ class SctsUnfinishedListViewController: UITableViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         unfinishedSctIndex_ = indexPath.row
-        performSegue(withIdentifier: SctsUnfinishedListViewController.toSctUnfinishedSegueId, sender: self)
+        performSegue(withIdentifier: SctsUnfinishedListViewController.toSctUnfinished, sender: self)
     }
     
     // -------------------------------------------------------------------------

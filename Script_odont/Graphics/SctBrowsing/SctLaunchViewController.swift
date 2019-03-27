@@ -39,7 +39,7 @@ fileprivate func defaultExam_() -> SctExam
 
 class SctLaunchViewController: SctDetailViewController
 {
-    static let toSctHorizontalSegueId = "SctLaunchToSctHorizontalSegueId"
+    static let toSctHorizontal = "SctLaunchToSctHorizontalSegueId"
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -73,7 +73,7 @@ class SctLaunchViewController: SctDetailViewController
     // -----------------------------------------------------------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == SctLaunchViewController.toSctHorizontalSegueId,
+        if segue.identifier == SctLaunchViewController.toSctHorizontal,
             let target = segue.destination as? SctHorizontalViewController
         {
             target.sctSession = SctSession(exam: defaultExam_())
@@ -104,7 +104,7 @@ extension SctLaunchViewController: SctDetailViewDelegate
     
     func sctDetailView(didLaunch sctDetailViewController: SctDetailViewController)
     {
-        performSegue(withIdentifier: SctLaunchViewController.toSctHorizontalSegueId, sender: self)
+        performSegue(withIdentifier: SctLaunchViewController.toSctHorizontal, sender: self)
     }
 }
 

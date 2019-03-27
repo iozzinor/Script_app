@@ -11,10 +11,11 @@ import UIKit
 class WalkthroughsViewController: UITableViewController
 {
     static let cellId = "WalkthroughsCellReuseId"
-    static let toWelcomeWalkthroughSegueId = "WalkthroughsToWelcomeWalkthroughSegueId"
-    static let toDrawingWalkthroughSegueId = "WalkthroughsToDrawingWalkthroughSegueId"
-    static let toDrawingExampleWalkthroughSegueId = "WalkthroughsToDrawingExampleWalkthroughSegueId"
-    static let toSctTopicWalkthroughSegueId = "WalkthroughsToSctTopicWalkthroughSegueId"
+    
+    static let toWelcomeWalkthrough         = "WalkthroughsToWelcomeWalkthroughSegueId"
+    static let toDrawingWalkthrough         = "WalkthroughsToDrawingWalkthroughSegueId"
+    static let toDrawingExampleWalkthrough  = "WalkthroughsToDrawingExampleWalkthroughSegueId"
+    static let toSctTopicWalkthrough        = "WalkthroughsToSctTopicWalkthroughSegueId"
     
     // -------------------------------------------------------------------------
     // MARK: - ROW
@@ -54,13 +55,13 @@ class WalkthroughsViewController: UITableViewController
         switch row
         {
         case .welcome:
-            performSegue(withIdentifier: WalkthroughsViewController.toWelcomeWalkthroughSegueId, sender: self)
+            performSegue(withIdentifier: WalkthroughsViewController.toWelcomeWalkthrough, sender: self)
         case .drawing:
-            performSegue(withIdentifier: WalkthroughsViewController.toDrawingWalkthroughSegueId, sender: self)
+            performSegue(withIdentifier: WalkthroughsViewController.toDrawingWalkthrough, sender: self)
         case .drawingExample:
-            performSegue(withIdentifier: WalkthroughsViewController.toDrawingExampleWalkthroughSegueId, sender: self)
+            performSegue(withIdentifier: WalkthroughsViewController.toDrawingExampleWalkthrough, sender: self)
         case .sctTopic:
-            performSegue(withIdentifier: WalkthroughsViewController.toSctTopicWalkthroughSegueId, sender: self)
+            performSegue(withIdentifier: WalkthroughsViewController.toSctTopicWalkthrough, sender: self)
         }
     }
     

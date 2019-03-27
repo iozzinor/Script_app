@@ -8,131 +8,135 @@
 
 import UIKit
 
-class MySctViewController: UIViewController
+// -------------------------------------------------------------------------
+// MARK: - SECTIONS
+// -------------------------------------------------------------------------
+enum MySctSection: TableSection
 {
-    // -------------------------------------------------------------------------
-    // MARK: - SECTIONS
-    // -------------------------------------------------------------------------
-    fileprivate enum MySctSection
-    {
-        case unfinished([SctUnfinished])
-        case finished([SctFinished])
-        case progress
-        
-        var title: String? {
-            switch self
-            {
-            case .unfinished:
-                return "MySct.Section.Unfinished".localized
-            case .finished:
-                return "MySct.Section.Finished".localized
-            case .progress:
-                return "MySct.Section.Progress".localized
-            }
-        }
-        
-        var headerDescription: String?
+    case unfinished([SctUnfinished])
+    case finished([SctFinished])
+    case progress
+    
+    var headerTitle: String? {
+        switch self
         {
-            switch self
-            {
-            case .unfinished:
-                return "MySct.Section.Unfinished.Description".localized
-            case .finished:
-                return "MySct.Section.Finished.Description".localized
-            case .progress:
-                return nil
-            }
-        }
-        
-        var rows: [MySctRow]
-        {
-            switch self
-            {
-            case let .unfinished(unfinishedScts):
-                let lastIndex = min(unfinishedScts.count, MySctViewController.maximumDisplayedScts_)
-                let range = unfinishedScts.startIndex..<(unfinishedScts.index(unfinishedScts.startIndex, offsetBy: lastIndex))
-                let result = unfinishedScts[range]
-                return result.map {
-                    return MySctRow.unfinished($0)
-                }
-            case let .finished(finishedScts):
-                let lastIndex = min(finishedScts.count, MySctViewController.maximumDisplayedScts_)
-                let range = finishedScts.startIndex..<(finishedScts.index(finishedScts.startIndex, offsetBy: lastIndex))
-                let result = finishedScts[range]
-                return result.map {
-                    return MySctRow.finished($0)
-                }
-                
-            case .progress:
-                return [.progress]
-            }
-        }
-        
-        var maximumRows: Int?
-        {
-            switch self
-            {
-            case .finished(_), .unfinished(_):
-                return MySctViewController.maximumDisplayedScts_
-            case .progress:
-                return 1
-            }
-        }
-        
-        var displaySeeAll: Bool {
-            switch self
-            {
-            case let .unfinished(unfinishedScts):
-                return unfinishedScts.count > MySctViewController.maximumDisplayedScts_
-            case let .finished(finishedScts):
-                return finishedScts.count > MySctViewController.maximumDisplayedScts_
-            case .progress:
-                return false
-            }
+        case .unfinished:
+            return "MySct.Section.Unfinished".localized
+        case .finished:
+            return "MySct.Section.Finished".localized
+        case .progress:
+            return "MySct.Section.Progress".localized
         }
     }
     
-    // -------------------------------------------------------------------------
-    // MARK: - ROWS
-    // -------------------------------------------------------------------------
-    fileprivate enum MySctRow
+    var headerDescription: String?
     {
-        case unfinished(SctUnfinished)
-        case finished(SctFinished)
-        case progress
-        
-        func cell(for indexPath: IndexPath, mySctViewController: MySctViewController) -> UITableViewCell
+        switch self
         {
-            let tableView = mySctViewController.tableView!
+        case .unfinished:
+            return "MySct.Section.Unfinished.Description".localized
+        case .finished:
+            return "MySct.Section.Finished.Description".localized
+        case .progress:
+            return nil
+        }
+    }
+    
+    var rows: [MySctRow]
+    {
+        switch self
+        {
+        case let .unfinished(unfinishedScts):
+            let lastIndex = min(unfinishedScts.count, MySctViewController.maximumDisplayedScts_)
+            let range = unfinishedScts.startIndex..<(unfinishedScts.index(unfinishedScts.startIndex, offsetBy: lastIndex))
+            let result = unfinishedScts[range]
+            return result.map {
+                return MySctRow.unfinished($0)
+            }
+        case let .finished(finishedScts):
+            let lastIndex = min(finishedScts.count, MySctViewController.maximumDisplayedScts_)
+            let range = finishedScts.startIndex..<(finishedScts.index(finishedScts.startIndex, offsetBy: lastIndex))
+            let result = finishedScts[range]
+            return result.map {
+                return MySctRow.finished($0)
+            }
             
-            switch self
-            {
-            case let .unfinished(sctUnfinished):
-                let cell = tableView.dequeueReusableCell(for: indexPath) as MySctUnfinishedCell
-                cell.setSctUnfinished(sctUnfinished)
-                return cell
-            case let .finished(sctFinished):
-                let cell = tableView.dequeueReusableCell(for: indexPath) as MySctFinishedCell
-                cell.setSctFinished(sctFinished)
-                return cell
-            case .progress:
-                let cell = UITableViewCell()
-                cell.textLabel?.text = "MySct.Progress.Title".localized
-                return cell
-            }
-        }
-        
-        var accessoryType: UITableViewCell.AccessoryType
-        {
-            return .disclosureIndicator
+        case .progress:
+            return [.progress]
         }
     }
     
-    public static let toSctUnfinished = "MySctToSctUnfinishedSegueId"
-    public static let toSctFinished = "MySctToSctFinishedSegueId"
-    public static let toSctsUnfinishedSegueId = "MySctToSctsUnfinishedListSegueId"
-    public static let toSctsFinishedSegueId = "MySctToSctsFinishedListSegueId"
-    public static let toMySctProgressSegueId = "MySctToMyProgressSegueId"
+    var maximumRows: Int?
+    {
+        switch self
+        {
+        case .finished(_), .unfinished(_):
+            return MySctViewController.maximumDisplayedScts_
+        case .progress:
+            return 1
+        }
+    }
+    
+    var displaySeeAll: Bool {
+        switch self
+        {
+        case let .unfinished(unfinishedScts):
+            return unfinishedScts.count > MySctViewController.maximumDisplayedScts_
+        case let .finished(finishedScts):
+            return finishedScts.count > MySctViewController.maximumDisplayedScts_
+        case .progress:
+            return false
+        }
+    }
+}
+
+// -------------------------------------------------------------------------
+// MARK: - ROWS
+// -------------------------------------------------------------------------
+enum MySctRow: TableRow
+{
+    typealias ViewController = UIViewController
+    
+    case unfinished(SctUnfinished)
+    case finished(SctFinished)
+    case progress
+    
+    func cell(for indexPath: IndexPath, tableView: UITableView, viewController: UIViewController) -> UITableViewCell
+    {
+        switch self
+        {
+        case let .unfinished(sctUnfinished):
+            let cell = tableView.dequeueReusableCell(for: indexPath) as MySctUnfinishedCell
+            cell.setSctUnfinished(sctUnfinished)
+            return cell
+        case let .finished(sctFinished):
+            let cell = tableView.dequeueReusableCell(for: indexPath) as MySctFinishedCell
+            cell.setSctFinished(sctFinished)
+            return cell
+        case .progress:
+            let cell = UITableViewCell()
+            cell.textLabel?.text = "MySct.Progress.Title".localized
+            return cell
+        }
+    }
+    
+    var accessoryType: UITableViewCell.AccessoryType
+    {
+        return .disclosureIndicator
+    }
+    
+    var selectionStyle: UITableViewCell.SelectionStyle {
+        return .none
+    }
+}
+
+class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRow, ErrorButtonView, UIView, UIView, UIViewController>
+{
+    public static let toSctUnfinished   = "MySctToSctUnfinishedSegueId"
+    public static let toSctFinished     = "MySctToSctFinishedSegueId"
+    public static let toSctsUnfinished  = "MySctToSctsUnfinishedListSegueId"
+    public static let toSctsFinished    = "MySctToSctsFinishedListSegueId"
+    public static let toMySctProgress   = "MySctToMyProgressSegueId"
     
     fileprivate static let maximumDisplayedScts_ = 10
     
@@ -248,6 +252,8 @@ class MySctViewController: UIViewController
     fileprivate var unfinishedScts_: [SctUnfinished]? = nil
     fileprivate var finishedScts_: [SctFinished]? = nil
     
+    fileprivate var errorButtonView_ = ErrorButtonView()
+    
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
     // -------------------------------------------------------------------------
@@ -258,6 +264,16 @@ class MySctViewController: UIViewController
         setupSectionHeaders_()
         setupSectionFooters_()
         setupTableView_()
+        errorButtonView_.delegate = self
+        setup(tableView: tableView, errorView: errorButtonView_, emptyView: UIView(), loadingView: IndeterminateLoadingView(), viewController: self)
+        
+        //state = .error(NetworkingService.ConnectionError.wrongCredentials)
+        var currentContent = Content()
+        for section in sections_
+        {
+            currentContent.append((section: section, rows: section.rows))
+        }
+        state = .fetching(currentContent)
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -282,7 +298,7 @@ class MySctViewController: UIViewController
         for section in sections_
         {
             let newHeader = DetailHeader()
-            newHeader.sectionTitle = section.title ?? ""
+            newHeader.sectionTitle = section.headerTitle ?? ""
             newHeader.sectionDescription = section.headerDescription
             
             sectionHeaders_.append(newHeader)
@@ -301,9 +317,6 @@ class MySctViewController: UIViewController
     
     fileprivate func setupTableView_()
     {
-        tableView.delegate = self
-        tableView.dataSource = self
-        
         tableView.registerNibCell(MySctUnfinishedCell.self)
         tableView.registerNibCell(MySctFinishedCell.self)
     }
@@ -320,10 +333,10 @@ class MySctViewController: UIViewController
         {
         case let .unfinished(unfinishedScts):
             unfinishedScts_ = unfinishedScts
-            performSegue(withIdentifier: MySctViewController.toSctsUnfinishedSegueId, sender: self)
+            performSegue(withIdentifier: MySctViewController.toSctsUnfinished, sender: self)
         case let .finished(finishedScts):
             finishedScts_ = finishedScts
-            performSegue(withIdentifier: MySctViewController.toSctsFinishedSegueId, sender: self)
+            performSegue(withIdentifier: MySctViewController.toSctsFinished, sender: self)
         case .progress:
             break
         }
@@ -349,28 +362,30 @@ class MySctViewController: UIViewController
             target.setSctFinished(sctFinished)
         }
         // unfinished list
-        else if segue.identifier == MySctViewController.toSctsUnfinishedSegueId,
+        else if segue.identifier == MySctViewController.toSctsUnfinished,
             let target = segue.destination as? SctsUnfinishedListViewController,
             let unfinishedScts = unfinishedScts_
         {
             target.unfinishedScts = unfinishedScts
         }
         // finished list
-        else if segue.identifier == MySctViewController.toSctsFinishedSegueId,
+        else if segue.identifier == MySctViewController.toSctsFinished,
             let target = segue.destination as? SctsFinishedListViewController,
             let finishedScts = finishedScts_
         {
             target.finishedScts = finishedScts
         }
     }
-}
-
-// -----------------------------------------------------------------------------
-// MARK: - UITableViewDelegate
-// -----------------------------------------------------------------------------
-extension MySctViewController: UITableViewDelegate
-{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    
+    // -------------------------------------------------------------------------
+    // MARK: - UITableViewDelegate
+    // -------------------------------------------------------------------------
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
+    {
+        return indexPath
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let section = sections_[indexPath.section]
         let row = section.rows[indexPath.row]
@@ -384,18 +399,15 @@ extension MySctViewController: UITableViewDelegate
             sctFinished_ = sctFinished
             performSegue(withIdentifier: MySctViewController.toSctFinished, sender: self)
         case .progress:
-            performSegue(withIdentifier: MySctViewController.toMySctProgressSegueId, sender: self)
+            performSegue(withIdentifier: MySctViewController.toMySctProgress, sender: self)
         }
     }
-}
-
-// -----------------------------------------------------------------------------
-// MARK: - UITableViewDataSource
-// -----------------------------------------------------------------------------
-extension MySctViewController: UITableViewDataSource
-{
+    
+    // -------------------------------------------------------------------------
+    // MARK: - UITableViewDataSource
+    // -------------------------------------------------------------------------
     // header
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         let currentSection = sections_[section]
         let sectionHeader = sectionHeaders_[section]
@@ -411,46 +423,65 @@ extension MySctViewController: UITableViewDataSource
         return sectionHeaders_[section]
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
         return sectionHeaders_[section].preferredHeight
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-    {
-        return sections_[section].title
-    }
-    
     // footer
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
     {
         sectionFooters_[section]?.updateSize(forWidth: tableView.frame.width)
         return sectionFooters_[section]
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return sectionFooters_[section]?.height ?? 0.0
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - ERROR BUTTON DELEGATE
+// -----------------------------------------------------------------------------
+extension MySctViewController: ErrorButtonDelegate
+{
+    func errorButtonView(_ errorButtonView: ErrorButtonView, actionTriggeredFor error: Error)
     {
-        return sections_.count
+        switch error
+        {
+        case let connectionError as NetworkingService.ConnectionError:
+            switch connectionError
+            {
+            case .noAccountLinked, .wrongCredentials:
+                if let viewController = tabBarController as? ViewController
+                {
+                    viewController.showSettings()
+                }
+            }
+        default:
+            break
+        }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func errorButtonView(_ errorButtonView: ErrorButtonView, buttonTitleFor error: Error) -> String
     {
-        let currentSection = sections_[section]
-        return currentSection.rows.count
+        switch error
+        {
+        case let connectionError as NetworkingService.ConnectionError:
+            return connectionError.fixTip
+        default:
+            return ""
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    func errorButtonView(shouldDisplayButton errorButtonView: ErrorButtonView, error: Error) -> Bool
     {
-        let section = sections_[indexPath.section]
-        let row = section.rows[indexPath.row]
-        
-        let cell = row.cell(for: indexPath, mySctViewController: self)
-        cell.selectionStyle = .none
-        cell.accessoryType = row.accessoryType
-        return cell
+        switch error
+        {
+        case _ as NetworkingService.ConnectionError:
+            return true
+        default:
+            return false
+        }
     }
 }

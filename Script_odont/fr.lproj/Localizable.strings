@@ -6,6 +6,9 @@
   Copyright © 2019 Régis Iozzino. All rights reserved.
 */
 
+/* INFO PLIST */
+"NSFaceIDUsageDescription" = "FaceId / TouchId est requis pour permetre de déverouiller l'application.";
+
 /* COMMON */
 "Common.Ok"     = "Ok";
 "Common.Cancel" = "Annuler";

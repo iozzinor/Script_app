@@ -122,7 +122,7 @@ class LeaderboardViewController: UITableViewController
         }
     }
     
-    static let toPeriodLeaderboardSegueId = "LeaderboardToPeriodLeaderboardSegueId"
+    static let toPeriodLeaderboard = "LeaderboardToPeriodLeaderboardSegueId"
     
     static let periodCellId = "LeaderboardPeriodCellReuseId"
     static let userCellId   = "LeaderboardUserCellReuseId"
@@ -174,7 +174,7 @@ class LeaderboardViewController: UITableViewController
     // -------------------------------------------------------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == LeaderboardViewController.toPeriodLeaderboardSegueId,
+        if segue.identifier == LeaderboardViewController.toPeriodLeaderboard,
             let target = segue.destination as? PeriodLeaderboardViewController
         {
             target.period = currentPeriod_
@@ -205,7 +205,7 @@ class LeaderboardViewController: UITableViewController
         {
         case let .period(latestPeriod):
             currentPeriod_ = latestPeriod
-            performSegue(withIdentifier: LeaderboardViewController.toPeriodLeaderboardSegueId, sender: self)
+            performSegue(withIdentifier: LeaderboardViewController.toPeriodLeaderboard, sender: self)
         case .foreignCandidate(_), .userNotRanked, .userRank(_), .userAnsweredSctExams(_), .userMeanScore(_):
             break
         }

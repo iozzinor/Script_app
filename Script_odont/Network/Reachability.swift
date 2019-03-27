@@ -11,8 +11,8 @@ import SystemConfiguration
 
 struct Reachability
 {
-    fileprivate static let googleDnsHostName = "8.8.8.8"
-    fileprivate static let reachability_ = SCNetworkReachabilityCreateWithName(nil, googleDnsHostName)
+    fileprivate static let googleDnsHostName_ = "8.8.8.8"
+    fileprivate static let reachability_ = SCNetworkReachabilityCreateWithName(nil, googleDnsHostName_)
     
     fileprivate static func networkStatus_(for flags: SCNetworkReachabilityFlags) -> NetworkStatus
     {

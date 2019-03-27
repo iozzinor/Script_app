@@ -28,205 +28,205 @@ fileprivate func sctLaunchInformation_() -> SctLaunchInformation
                                                                            releaseDate: releaseDate))
 }
 
-class SctBrowsingViewController: UIViewController
+struct LatestDate
 {
-    fileprivate struct LatestDate
-    {
-        var period: Period
-        var launchInformation: [SctLaunchInformation]
-        var sctCount: Int {
-            return launchInformation.count
+    var period: Period
+    var launchInformation: [SctLaunchInformation]
+    var sctCount: Int {
+        return launchInformation.count
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - QUALIFICATION TOPIC LIST
+// -----------------------------------------------------------------------------
+struct QualificationTopicList
+{
+    var topic: QualificationTopic
+    var launchInformation: [SctLaunchInformation]
+    var count: Int {
+        return launchInformation.count
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - BROWSING SECTION
+// -----------------------------------------------------------------------------
+enum BrowsingSection: TableSection
+{
+    /*
+     10 most recent sct
+     date (year, month, week) + count
+     */
+    case new
+    
+    /*
+     10 best rated scts
+     see all
+     */
+    case top
+    
+    /*
+     10 personnalised scts
+     see + count
+     */
+    case personnalized
+    
+    // topic + count
+    case topics
+    
+    case search
+    
+    var headerTitle: String? {
+        switch self
+        {
+        case .new:
+            return "ScrBrowsing.Section.New.Title".localized
+        case .top:
+            return "ScrBrowsing.Section.Top.Title".localized
+        case .personnalized:
+            return "ScrBrowsing.Section.Personnalized.Title".localized
+        case .topics:
+            return "ScrBrowsing.Section.Topics.Title".localized
+        case .search:
+            return "ScrBrowsing.Section.Search.Title".localized
         }
     }
     
-    // -------------------------------------------------------------------------
-    // MARK: - QUALIFICATION TOPIC LIST
-    // -------------------------------------------------------------------------
-    fileprivate struct QualificationTopicList
-    {
-        var topic: QualificationTopic
-        var launchInformation: [SctLaunchInformation]
-        var count: Int {
-            return launchInformation.count
+    var headerDescription: String? {
+        switch self
+        {
+        case .new:
+            return "ScrBrowsing.Section.New.Description".localized
+        case .top:
+            return "ScrBrowsing.Section.Top.Description".localized
+        case .personnalized:
+            return "ScrBrowsing.Section.Personnalized.Description".localized
+        case .topics:
+            return "ScrBrowsing.Section.Topics.Description".localized
+        case .search:
+            return nil
         }
     }
     
-    // -------------------------------------------------------------------------
-    // MARK: - BROWSING SECTION
-    // -------------------------------------------------------------------------
-    fileprivate enum BrowsingSection
+    var displaySeeAll: Bool {
+        switch self
+        {
+        case .personnalized, .top:
+            return true
+        case .new, .topics, .search:
+            return false
+        }
+    }
+}
+
+// -------------------------------------------------------------------------
+// MARK: - BROWSING ROW
+// -------------------------------------------------------------------------
+enum BrowsingRow: TableRow
+{
+    typealias ViewController = UIViewController
+    
+    case newSct(SctLaunchInformation)
+    case newDate(LatestDate)
+    
+    case topLaunch(SctLaunchInformation)
+    case topRate(SctLaunchInformation)
+    
+    case topic(QualificationTopicList)
+    
+    case personnalizedSct(SctLaunchInformation)
+    
+    case search
+    
+    func cell(for indexPath: IndexPath, tableView: UITableView, viewController: ViewController) -> UITableViewCell
     {
-        /*
-         10 most recent sct
-         date (year, month, week) + count
-        */
-        case new
-        
-        /*
-         10 best rated scts
-         see all
-        */
-        case top
-        
-        /*
-         10 personnalised scts
-         see + count
-        */
-        case personnalized
-        
-        // topic + count
-        case topics
-        
-        case search
-        
-        var headerTitle: String? {
-            switch self
+        switch self
+        {
+        case let .newSct(sctLaunchInformation):
+            let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
+            result.setSctLaunchInformation(sctLaunchInformation)
+            
+            let seconds = -Int(sctLaunchInformation.statistics.releaseDate.timeIntervalSinceNow)
+            let minutes = seconds / 60
+            let hours = minutes / 60
+            
+            let durationText: String
+            if hours > 0
             {
-            case .new:
-                return "ScrBrowsing.Section.New.Title".localized
-            case .top:
-                return "ScrBrowsing.Section.Top.Title".localized
-            case .personnalized:
-                return "ScrBrowsing.Section.Personnalized.Title".localized
-            case .topics:
-                return "ScrBrowsing.Section.Topics.Title".localized
-            case .search:
-                return "ScrBrowsing.Section.Search.Title".localized
+                durationText = String.localizedStringWithFormat("Time.Hour".localized, hours)
             }
-        }
-        
-        var headerDescription: String? {
-            switch self
+            else if minutes > 0
             {
-            case .new:
-                return "ScrBrowsing.Section.New.Description".localized
-            case .top:
-                return "ScrBrowsing.Section.Top.Description".localized
-            case .personnalized:
-                return "ScrBrowsing.Section.Personnalized.Description".localized
-            case .topics:
-                return "ScrBrowsing.Section.Topics.Description".localized
-            case .search:
-                return nil
+                durationText = String.localizedStringWithFormat("Time.Minute".localized, minutes)
             }
-        }
-        
-        var displaySeeAll: Bool {
-            switch self
+            else
             {
-            case .personnalized, .top:
-                return true
-            case .new, .topics, .search:
-                return false
+                durationText = String.localizedStringWithFormat("Time.Second".localized, seconds)
             }
+            result.informationLabel.text = String.localizedStringWithFormat("SctBrowsing.NewSct.Time".localized, durationText)
+            
+            return result
+        case let .newDate(latestDate):
+            let result = tableView.dequeueReusableCell(for: indexPath) as SctLatestPeriodCell
+            
+            result.setPeriod(latestDate.period.latestName, sctsCount: latestDate.sctCount)
+            
+            return result
+            
+        case let .topLaunch(sctLaunchInformation):
+            let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
+            result.setSctLaunchInformation(sctLaunchInformation)
+            result.informationLabel.text = String.localizedStringWithFormat("SctBrowsing.LaunchCount".localized, sctLaunchInformation.statistics.launchesCount)
+            return result
+        case let .topRate(sctLaunchInformation):
+            let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
+            result.setSctLaunchInformation(sctLaunchInformation)
+            let meanVotes = sctLaunchInformation.statistics.meanVotes
+            result.informationLabel.text = Constants.formatReal(meanVotes)
+            return result
+            
+        case let .topic(topicList):
+            let result = tableView.dequeueReusableCell(withIdentifier: SctBrowsingViewController.topicCellId, for: indexPath)
+            result.textLabel?.text = topicList.topic.name
+            result.detailTextLabel?.text = "\(topicList.count)"
+            return result
+            
+        case let .personnalizedSct(sctLaunchInformation):
+            let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
+            result.setSctLaunchInformation(sctLaunchInformation)
+            result.informationLabel.text = ""
+            
+            return result
+            
+        case .search:
+            let result = tableView.dequeueReusableCell(for: indexPath) as ButtonCell
+            result.setTitle("SctBrowsing.Search.Title".localized)
+            
+            return result
         }
     }
     
-    // -------------------------------------------------------------------------
-    // MARK: - BROWSING ROW
-    // -------------------------------------------------------------------------
-    fileprivate enum BrowsingRow
-    {
-        case newSct(SctLaunchInformation)
-        case newDate(LatestDate)
-        
-        case topLaunch(SctLaunchInformation)
-        case topRate(SctLaunchInformation)
-        
-        case topic(QualificationTopicList)
-        
-        case personnalizedSct(SctLaunchInformation)
-        
-        case search
-        
-        func cell(for indexPath: IndexPath, tableView: UITableView, sctBrowsingViewController: SctBrowsingViewController) -> UITableViewCell
+    var accessoryType: UITableViewCell.AccessoryType {
+        switch self
         {
-            switch self
-            {
-            case let .newSct(sctLaunchInformation):
-                let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
-                result.setSctLaunchInformation(sctLaunchInformation)
-                
-                let seconds = -Int(sctLaunchInformation.statistics.releaseDate.timeIntervalSinceNow)
-                let minutes = seconds / 60
-                let hours = minutes / 60
-                
-                let durationText: String
-                if hours > 0
-                {
-                    durationText = String.localizedStringWithFormat("Time.Hour".localized, hours)
-                }
-                else if minutes > 0
-                {
-                    durationText = String.localizedStringWithFormat("Time.Minute".localized, minutes)
-                }
-                else
-                {
-                    durationText = String.localizedStringWithFormat("Time.Second".localized, seconds)
-                }
-                result.informationLabel.text = String.localizedStringWithFormat("SctBrowsing.NewSct.Time".localized, durationText)
-                
-                return result
-            case let .newDate(latestDate):
-                let result = tableView.dequeueReusableCell(for: indexPath) as SctLatestPeriodCell
-                
-                result.setPeriod(latestDate.period.latestName, sctsCount: latestDate.sctCount)
-                
-                return result
-                
-            case let .topLaunch(sctLaunchInformation):
-                let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
-                result.setSctLaunchInformation(sctLaunchInformation)
-                result.informationLabel.text = String.localizedStringWithFormat("SctBrowsing.LaunchCount".localized, sctLaunchInformation.statistics.launchesCount)
-                return result
-            case let .topRate(sctLaunchInformation):
-                let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
-                result.setSctLaunchInformation(sctLaunchInformation)
-                let meanVotes = sctLaunchInformation.statistics.meanVotes
-                result.informationLabel.text = Constants.formatReal(meanVotes)
-                return result
-                
-            case let .topic(topicList):
-                let result = tableView.dequeueReusableCell(withIdentifier: SctBrowsingViewController.topicCellId, for: indexPath)
-                result.textLabel?.text = topicList.topic.name
-                result.detailTextLabel?.text = "\(topicList.count)"
-                return result
-                
-            case let .personnalizedSct(sctLaunchInformation):
-                let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
-                result.setSctLaunchInformation(sctLaunchInformation)
-                result.informationLabel.text = ""
-                
-                return result
-                
-            case .search:
-                let result = tableView.dequeueReusableCell(for: indexPath) as ButtonCell
-                result.setTitle("SctBrowsing.Search.Title".localized)
-                
-                return result
-            }
-        }
-        
-        func accessoryType(for indexPath: IndexPath, tableView: UITableView, sctBrowsingViewController: SctBrowsingViewController) -> UITableViewCell.AccessoryType
-        {
-            switch self
-            {
-            case .search:
-                return .none
-            case .newSct(_), .newDate(_), .topLaunch(_), .topRate(_), .topic(_), .personnalizedSct(_):
-                return .disclosureIndicator
-            }
-        }
-        
-        func selectionStyle(for indexPath: IndexPath, tableView: UITableView, sctBrowsingViewController: SctBrowsingViewController) -> UITableViewCell.SelectionStyle
-        {
+        case .search:
             return .none
+        case .newSct(_), .newDate(_), .topLaunch(_), .topRate(_), .topic(_), .personnalizedSct(_):
+            return .disclosureIndicator
         }
     }
     
-    static let searchSegueId = "SctBrowsingToSctSearchSegueId"
-    static let toSctsListSegueId = "SctBrowsingToSctsListSegueId"
-    static let toSctLaunchSegueId = "SctBrowsingToSctLaunchSegueId"
+    var selectionStyle: UITableViewCell.SelectionStyle {
+        return .none
+    }
+}
+
+class SctBrowsingViewController: AsynchronousTableViewController<BrowsingSection, BrowsingRow, ErrorButtonView, UIView, UIView, UIViewController>
+{
+    static let toSearch = "SctBrowsingToSctSearchSegueId"
+    static let toSctsList = "SctBrowsingToSctsListSegueId"
+    static let toSctLaunch = "SctBrowsingToSctLaunchSegueId"
     
     static let topicCellId = "SctBrowsingTopicCellReuseId"
     static let searchCellId = "SctBrowsingSearchCellReuseId"
@@ -241,6 +241,7 @@ class SctBrowsingViewController: UIViewController
     fileprivate var sectionFooters_ = [DetailFooter?]()
     fileprivate var launchInformation_: SctLaunchInformation? = nil
     fileprivate var sctsList_: SctsListViewController.SctsList? = nil
+    fileprivate var errorButtonView_ = ErrorButtonView()
     
     // -------------------------------------------------------------------------
     // MARK: - SCTS LISTS
@@ -307,9 +308,13 @@ class SctBrowsingViewController: UIViewController
         
         provideDefaultSettings_()
         
+        errorButtonView_.delegate = self
+        setup(tableView: tableView, errorView: errorButtonView_, emptyView: UIView(), loadingView: UIView(), viewController: self)
         setupTableView_()
         setupSectionHeaders_()
         setupSectionFooters_()
+        
+        loadData_()
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -331,9 +336,6 @@ class SctBrowsingViewController: UIViewController
     // -------------------------------------------------------------------------
     fileprivate func setupTableView_()
     {
-        tableView.delegate = self
-        tableView.dataSource = self
-     
         tableView.registerNibCell(SctLatestPeriodCell.self)
         tableView.registerNibCell(SctBrowsingCell.self)
         tableView.registerNibCell(ButtonCell.self)
@@ -368,15 +370,42 @@ class SctBrowsingViewController: UIViewController
     }
     
     // -------------------------------------------------------------------------
+    // MARK: - LOAD
+    // -------------------------------------------------------------------------
+    fileprivate func loadData_()
+    {
+        var defaultContent = Content()
+        for section in sections_
+        {
+            defaultContent.append((section: section, rows: rows_(forSection: section)))
+        }
+        do
+        {
+            _ = try NetworkingService.shared.getConnectionInformation(host: Settings.shared.host)
+            
+            state = .loaded(defaultContent)
+        }
+        catch let connectionError as NetworkingService.ConnectionError
+        {
+            state = .loaded(defaultContent)
+            //state = .error(connectionError)
+        }
+        catch
+        {
+            state = .error(error)
+        }
+    }
+    
+    // -------------------------------------------------------------------------
     // MARK: - SEGUES
     // -------------------------------------------------------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         switch segue.identifier
         {
-        case SctBrowsingViewController.toSctsListSegueId:
+        case SctBrowsingViewController.toSctsList:
             prepareForSctsList_(segue: segue, sender: sender)
-        case SctBrowsingViewController.toSctLaunchSegueId:
+        case SctBrowsingViewController.toSctLaunch:
             prepareForSctLaunch_(segue: segue, sender: sender)
         default:
             break
@@ -430,27 +459,28 @@ class SctBrowsingViewController: UIViewController
     fileprivate func displayLaunchInformation(_ launchInformation: SctLaunchInformation)
     {
         launchInformation_ = launchInformation
-        performSegue(withIdentifier: SctBrowsingViewController.toSctLaunchSegueId, sender: self)
+        performSegue(withIdentifier: SctBrowsingViewController.toSctLaunch, sender: self)
     }
     
     fileprivate func displaySctsList_(_ list: SctsListViewController.SctsList)
     {
         sctsList_ = list
-        performSegue(withIdentifier: SctBrowsingViewController.toSctsListSegueId, sender: self)
+        performSegue(withIdentifier: SctBrowsingViewController.toSctsList, sender: self)
     }
     
     fileprivate func launchSearch_()
     {
-        performSegue(withIdentifier: SctBrowsingViewController.searchSegueId, sender: self)
+        performSegue(withIdentifier: SctBrowsingViewController.toSearch, sender: self)
     }
-}
-
-// -----------------------------------------------------------------------------
-// MARK: - UITableViewDelegate
-// -----------------------------------------------------------------------------
-extension SctBrowsingViewController: UITableViewDelegate
-{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    
+    // -------------------------------------------------------------------------
+    // MARK: - UI TABLE VIEW DELEGATE
+    // -------------------------------------------------------------------------
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return indexPath
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let section = sections_[indexPath.section]
         let row = rows_(forSection: section)[indexPath.row]
@@ -475,63 +505,77 @@ extension SctBrowsingViewController: UITableViewDelegate
             launchSearch_()
         }
     }
-}
-
-// -----------------------------------------------------------------------------
-// MARK: - UITableViewDataSource
-// -----------------------------------------------------------------------------
-extension SctBrowsingViewController: UITableViewDataSource
-{
-    // header
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-    {
-        let currentSection = sections_[section]
-        return currentSection.headerTitle
-    }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    // -------------------------------------------------------------------------
+    // MARK: - UI TABLE VIEW DATA SOURCE
+    // -------------------------------------------------------------------------
+    // header
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         return sectionHeaders_[section]
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
         return sectionHeaders_[section].preferredHeight
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int
-    {
-        return sections_.count
-    }
-    
     // footer
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
     {
         sectionFooters_[section]?.updateSize(forWidth: tableView.frame.width)
         
         return sectionFooters_[section]
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
     {
         return sectionFooters_[section]?.height ?? 0.0
     }
-    
-    // cells
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - ERROR BUTTON DELEGATE
+// -----------------------------------------------------------------------------
+extension SctBrowsingViewController: ErrorButtonDelegate
+{
+    func errorButtonView(_ errorButtonView: ErrorButtonView, actionTriggeredFor error: Error)
     {
-        let currentSection = sections_[section]
-        return rows_(forSection: currentSection).count
+        switch error
+        {
+        case let connectionError as NetworkingService.ConnectionError:
+            switch connectionError
+            {
+            case .noAccountLinked, .wrongCredentials:
+                if let viewController = tabBarController as? ViewController
+                {
+                    viewController.showSettings()
+                }
+            }
+        default:
+            break
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    func errorButtonView(_ errorButtonView: ErrorButtonView, buttonTitleFor error: Error) -> String
     {
-        let section = sections_[indexPath.section]
-        let row = rows_(forSection: section)[indexPath.row]
-        
-        let cell = row.cell(for: indexPath, tableView: tableView, sctBrowsingViewController: self)
-        cell.accessoryType = row.accessoryType(for: indexPath, tableView: tableView, sctBrowsingViewController: self)
-        cell.selectionStyle = row.selectionStyle(for: indexPath, tableView: tableView, sctBrowsingViewController: self)
-        return cell
+        switch error
+        {
+        case let connectionError as NetworkingService.ConnectionError:
+            return connectionError.fixTip
+        default:
+            return ""
+        }
+    }
+    
+    func errorButtonView(shouldDisplayButton errorButtonView: ErrorButtonView, error: Error) -> Bool
+    {
+        switch error
+        {
+        case _ as NetworkingService.ConnectionError:
+            return true
+        default:
+            return false
+        }
     }
 }

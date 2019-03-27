@@ -21,9 +21,9 @@ class NetworkingService
             switch self
             {
             case .noAccountLinked:
-                return "NetworkService.ConnectionError.NoAccountLinked.LocalizedDescription".localized
+                return "NetworkingService.ConnectionError.NoAccountLinked.LocalizedDescription".localized
             case .wrongCredentials:
-                return "NetworkService.ConnectionError.WrongCredentials.LocalizedDescription".localized
+                return "NetworkingService.ConnectionError.WrongCredentials.LocalizedDescription".localized
             }
         }
         
@@ -31,9 +31,9 @@ class NetworkingService
             switch self
             {
             case .noAccountLinked:
-                return "NetworkService.ConnectionError.NoAccountLinked.FixTip".localized
+                return "NetworkingService.ConnectionError.NoAccountLinked.FixTip".localized
             case .wrongCredentials:
-                return "NetworkService.ConnectionError.WrongCredentials.FixTip".localized
+                return "NetworkingService.ConnectionError.WrongCredentials.FixTip".localized
             }
         }
     }
@@ -44,10 +44,11 @@ class NetworkingService
     
     func getConnectionInformation(host: Host) throws -> ConnectionInformation
     {
-        if let accountKey = Settings.shared.accountKey
+        guard let accountKey = Settings.shared.accountKey else
         {
-            return ConnectionInformation(host: host, accountKey: accountKey)
+            throw ConnectionError.noAccountLinked
         }
-        throw ConnectionError.noAccountLinked
+        
+        return ConnectionInformation(host: host, accountKey: accountKey)
     }
 }

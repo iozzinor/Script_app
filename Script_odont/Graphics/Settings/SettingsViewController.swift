@@ -145,12 +145,12 @@ enum SettingsRow: TableRow
 // -----------------------------------------------------------------------------
 class SettingsViewController: AsynchronousTableViewController<SettingsSection, SettingsRow, ErrorButtonView, UIView, UIView, UIViewController>
 {
-    public static let toAbout = "SettingsToAboutSegueId"
-    public static let toAdvancedSettings = "SettingsToAdvancedSettingsSegueId"
-    public static let toPassphrase = "SettingsToPassphraseSegueId"
-    public static let toLogin = "SettingsToLoginSegueId"
-    public static let toDeveloper = "SettingsToDeveloperSegueId"
-    public static let toReset = "SettingsToResetSegueId"
+    public static let toAbout               = "SettingsToAboutSegueId"
+    public static let toAdvancedSettings    = "SettingsToAdvancedSettingsSegueId"
+    public static let toPassphrase          = "SettingsToPassphraseSegueId"
+    public static let toLogin               = "SettingsToLoginSegueId"
+    public static let toDeveloper           = "SettingsToDeveloperSegueId"
+    public static let toReset               = "SettingsToResetSegueId"
     
     @IBOutlet weak var tableView: UITableView!
     
