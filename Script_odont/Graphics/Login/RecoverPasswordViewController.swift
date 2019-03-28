@@ -137,7 +137,7 @@ class RecoverPasswordViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDelegate
+    // MARK: - UI TABLE VIEW DELEGATE
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
@@ -167,7 +167,7 @@ class RecoverPasswordViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDataSource
+    // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
@@ -197,9 +197,9 @@ class RecoverPasswordViewController: UITableViewController
     }
 }
 
-// -------------------------------------------------------------------------
-// MARK: - SecurityQuestionPickerViewControllerDelegate
-// -------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// MARK: - SECURITY QUESTION PICKER VIEW CONTROLLER DELEGATE
+// -----------------------------------------------------------------------------
 extension RecoverPasswordViewController: SecurityQuestionPickerViewControllerDelegate
 {
     func securityQuestionPickerViewController(_ securityQuestionPickerViewController: SecurityQuestionPickerViewController, didPickSecurityQuestion securityQuestion: SecurityQuestion.Heading?)

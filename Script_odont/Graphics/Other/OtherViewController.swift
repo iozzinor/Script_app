@@ -57,7 +57,7 @@ class OtherViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDelegate
+    // MARK: - UI TABLE VIEW DELEGATE
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
@@ -73,7 +73,7 @@ class OtherViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDataSource
+    // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
     override func numberOfSections(in tableView: UITableView) -> Int
     {

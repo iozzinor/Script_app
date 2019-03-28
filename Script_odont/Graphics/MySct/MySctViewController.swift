@@ -392,7 +392,7 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDelegate
+    // MARK: - UI TABLE VIEW DELEGATE
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
@@ -418,7 +418,7 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDataSource
+    // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
     // header
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?

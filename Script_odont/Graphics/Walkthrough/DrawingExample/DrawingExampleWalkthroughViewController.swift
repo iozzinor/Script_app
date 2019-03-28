@@ -194,7 +194,7 @@ public class DrawingExampleWalkthroughViewController: SctViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDataSource
+    // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {

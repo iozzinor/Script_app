@@ -47,7 +47,7 @@ class SctSearchCriterionPickerViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDelegate
+    // MARK: - UI TABLE VIEW DELEGATE
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
@@ -69,7 +69,7 @@ class SctSearchCriterionPickerViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDataSource
+    // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
     override func numberOfSections(in tableView: UITableView) -> Int
     {

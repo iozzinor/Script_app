@@ -69,7 +69,7 @@ class WelcomeWalkthroughViewController: UIViewController
 }
 
 // -------------------------------------------------------------------------
-// MARK: - WalkthroughPageViewControllerDelegate
+// MARK: - WELCOME WALKTHROUGH PAGE VIEW CONTROLLER DELEGATE
 // -------------------------------------------------------------------------
 extension WelcomeWalkthroughViewController: WelcomeWalkthroughPageViewControllerDelegate
 {

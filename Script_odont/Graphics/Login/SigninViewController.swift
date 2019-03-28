@@ -705,7 +705,7 @@ class SigninViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDelegate
+    // MARK: - UI TABLE VIEW DELEGATE
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
@@ -803,7 +803,7 @@ class SigninViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDataSource
+    // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
@@ -849,7 +849,7 @@ class SigninViewController: UITableViewController
 }
 
 // -----------------------------------------------------------------------------
-// MARK: - QualificationPickerViewControllerDelegate
+// MARK: - QUALIFICATION PICKER VIEW CONTROLLER DELEGATE
 // -----------------------------------------------------------------------------
 extension SigninViewController: QualificationPickerViewControllerDelegate
 {
@@ -909,7 +909,7 @@ extension SigninViewController: QualificationPickerViewControllerDelegate
 }
 
 // -----------------------------------------------------------------------------
-// MARK: - QualificationTopicPickerViewControllerDelegate
+// MARK: - QUALIFICATION TOPIC PICKER VIEW CONTROLLER DELEGATE
 // -----------------------------------------------------------------------------
 extension SigninViewController: QualificationTopicPickerViewControllerDelegate
 {
@@ -948,7 +948,7 @@ extension SigninViewController: QualificationTopicPickerViewControllerDelegate
 }
 
 // -----------------------------------------------------------------------------
-// MARK: - SecurityQuestionPickerViewControllerDelegate
+// MARK: - SECURITY QUESTION PICKER VIEW CONTROLLER DELEGATE
 // -----------------------------------------------------------------------------
 extension SigninViewController: SecurityQuestionPickerViewControllerDelegate
 {
@@ -961,7 +961,7 @@ extension SigninViewController: SecurityQuestionPickerViewControllerDelegate
 }
 
 // -----------------------------------------------------------------------------
-// MARK: - TextFieldDelegate
+// MARK: - TEXT FIELD DELEGATE
 // -----------------------------------------------------------------------------
 extension SigninViewController: UITextFieldDelegate
 {

@@ -36,7 +36,7 @@ class QualificationPickerViewController: UITableViewController
     weak var qualificationDelegate: QualificationPickerViewControllerDelegate? = nil
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDelegate
+    // MARK: - UI TABLE VIEW DELEGATE
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
@@ -48,7 +48,7 @@ class QualificationPickerViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDataSource
+    // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
     override func numberOfSections(in tableView: UITableView) -> Int
     {

@@ -281,7 +281,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDelegate
+    // MARK: - UI TABLE VIEW DELEGATE
     // -------------------------------------------------------------------------
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
@@ -349,7 +349,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDataSource
+    // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
     func numberOfSections(in tableView: UITableView) -> Int
     {

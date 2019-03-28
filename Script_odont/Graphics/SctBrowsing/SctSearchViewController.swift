@@ -382,7 +382,7 @@ class SctSearchViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDelegate SELECTION
+    // MARK: - UI TABLE VIEW DELEGATE SELECTION
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
@@ -438,7 +438,7 @@ class SctSearchViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDelegate EDIT
+    // MARK: - UI TABLE VIEW DELEGATE EDIT
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
@@ -490,7 +490,7 @@ class SctSearchViewController: UITableViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDataSource
+    // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {

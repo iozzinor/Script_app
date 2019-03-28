@@ -56,7 +56,7 @@ class SctTopicWalkthroughViewController: SctViewController
     }
     
     // -------------------------------------------------------------------------
-    // MARK: - UITableViewDataSource
+    // MARK: - UI TABLE VIEW DATA SOURCE
     // -------------------------------------------------------------------------
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
