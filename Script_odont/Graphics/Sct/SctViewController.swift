@@ -18,22 +18,28 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
         case drawing
         case information
         
-        func rows(for sct: Sct) -> [SctRow]
+        func rows(for sctViewDataSource: SctViewDataSource?) -> [SctRow]
         {
+            let sct = sctViewDataSource?.currentSct ?? Sct()
             switch self
             {
             case .drawing:
                 var result: [SctRow] = [ .wording, .questionHeader ]
-                result.append(contentsOf: Array<SctRow>(repeating: .question, count: sct.questions.count))
+                
+                if let dataSource = sctViewDataSource,
+                    dataSource.shouldDisplaySingleQuestion
+                {
+                    result.append(SctRow.singleQuestion)
+                }
+                else
+                {
+                    result.append(contentsOf: Array<SctRow>(repeating: .question, count: sct.questions.count))
+                }
                 
                 return result
             case .information:
                 return Array<SctRow>(repeating: .scale, count: 5)
             }
-        }
-        
-        func allRows(for sct: Sct) -> [SctRow] {
-            return SctSection.allCases.flatMap { $0.rows(for: sct) }
         }
         
         var title: String? {
@@ -42,7 +48,8 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
             case .drawing:
                 return nil
             case .information:
-                return "SctExam.Horizontal.Title.Information".localized
+                return nil
+                //return "SctExam.Horizontal.Title.Information".localized
             }
         }
     }
@@ -55,6 +62,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
         case wording
         case questionHeader
         case question
+        case singleQuestion
         case scale
         
         func cell(for indexPath: IndexPath, tableView: UITableView, dataSource: SctViewDataSource?) -> UITableViewCell
@@ -63,6 +71,8 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
             
             let session = dataSource?.session
             let sct = dataSource?.currentSct ?? Sct()
+            let singleQuestionIndex = dataSource?.singleQuestionIndex ?? 0
+            
             switch self
             {
             case .wording:
@@ -75,6 +85,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 return cell
             case .question:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionCell
+                cell.displaySingleQuestion = false
                 cell.question = sct.questions[indexPath.row - 2]
                 cell.tag = indexPath.row - 2
                 cell.isLast = (indexPath.row - 1 == sct.questions.count)
@@ -88,6 +99,28 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                     cell.setAnswer(answer)
                 }
                 return cell
+                
+            case .singleQuestion:
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionCell
+                cell.displaySingleQuestion = true
+                cell.question = sct.questions[singleQuestionIndex]
+                cell.tag = singleQuestionIndex
+                cell.isLast = true
+                cell.canChooseLikertScale = dataSource?.canChooseLikertScale ?? false
+                cell.delegate = dataSource
+                
+                // question navigation
+                cell.questionsCount = sct.questions.count
+                cell.currentQuestion = singleQuestionIndex
+                
+                if let session = session
+                {
+                    // restore the answer
+                    let answer = session[currentSct, singleQuestionIndex]
+                    cell.setAnswer(answer)
+                }
+                return cell
+                
             case .scale:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SctScaleCell
                 
@@ -113,6 +146,8 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 case .text(_):
                     return UITableView.automaticDimension
                 }
+            case .singleQuestion:
+                return UIScreen.main.bounds.height / 2.0
             }
         }
     }
@@ -121,9 +156,6 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
     
     fileprivate var sections_: [SctSection] {
         return dataSource?.sections ?? []
-    }
-    fileprivate var currentSct_: Sct {
-        return dataSource?.currentSct ?? Sct()
     }
     
     // -------------------------------------------------------------------------
@@ -151,7 +183,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         let section = sections_[indexPath.section]
-        let rows = section.rows(for: currentSct_)
+        let rows = section.rows(for: dataSource)
         let row = rows[indexPath.row]
         return row.preferredHeight(for: indexPath, tableView: tableView, dataSource: dataSource)
     }
@@ -172,20 +204,18 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         let section = sections_[section]
-        return section.rows(for: currentSct_).count
+        return section.rows(for: dataSource).count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let section = sections_[indexPath.section]
-        let rows = section.rows(for: currentSct_)
+        let rows = section.rows(for: dataSource)
         let row = rows[indexPath.row]
         
         let cell = row.cell(for: indexPath, tableView: tableView, dataSource: dataSource)
         cell.accessoryType      = .none
         cell.selectionStyle     = .none
-        
-        
         
         return cell
     }

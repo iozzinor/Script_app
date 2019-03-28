@@ -10,6 +10,24 @@ import UIKit
 
 public class SctQuestionCell: UITableViewCell
 {
+    @IBOutlet weak var previousButton: UIButton!
+    {
+        didSet
+        {
+            previousButton.setImage(previousArrowImage_, for: .normal)
+            previousButton.setImage(previousArrowImageDisabled_, for: .disabled)
+        }
+    }
+    @IBOutlet weak var nextButton: UIButton!
+        {
+        didSet
+        {
+            nextButton.setImage(nextArrowImage_, for: .normal)
+            nextButton.setImage(nextArrowImageDisabled_, for: .disabled)
+        }
+    }
+    @IBOutlet weak var questionControl: UIPageControl!
+    
     @IBOutlet weak var hypothesisLabel: UILabel! {
         didSet
         {
@@ -61,6 +79,31 @@ public class SctQuestionCell: UITableViewCell
     fileprivate var scaleContainerButtons_ = [UIButton]()
     fileprivate var selectedScaleButton_: UIButton? = nil
     
+    fileprivate var previousQuestionIndex_: Int = 0
+    var currentQuestion: Int {
+        get {
+            return questionControl.currentPage
+        }
+        set {
+            previousQuestionIndex_ = newValue
+            questionControl.currentPage = newValue
+            
+            // enable
+            previousButton.isEnabled = newValue > 0
+            nextButton.isEnabled = newValue < questionsCount - 1
+            
+            rightSwipeGesture?.isEnabled =  newValue > 0
+            leftSwipeGesture?.isEnabled = newValue < questionsCount - 1
+        }
+    }
+    var questionsCount: Int = 0
+    {
+        didSet
+        {
+            questionControl.numberOfPages = questionsCount
+        }
+    }
+    
     weak var delegate: SctQuestionCellDelegate? = nil
     
     var isLast = false
@@ -106,6 +149,23 @@ public class SctQuestionCell: UITableViewCell
         }
     }
     
+    fileprivate var leftSwipeGesture: UISwipeGestureRecognizer? = nil
+    fileprivate var rightSwipeGesture: UISwipeGestureRecognizer? = nil
+    var displaySingleQuestion: Bool = false
+    {
+        didSet
+        {
+            previousButton.isHidden     = !displaySingleQuestion
+            nextButton.isHidden         = !displaySingleQuestion
+            questionControl.isHidden    = !displaySingleQuestion
+            
+            if displaySingleQuestion != oldValue
+            {
+                updateSwipeGestures_()
+            }
+        }
+    }
+    
     fileprivate func clearScaleContainer_()
     {
         for arrangedSubview in scaleContainerButtons_
@@ -113,6 +173,27 @@ public class SctQuestionCell: UITableViewCell
             scalesContainer.removeArrangedSubview(arrangedSubview)
         }
         scaleContainerButtons_ = []
+    }
+    
+    fileprivate var previousArrowImage_: UIImage!
+    fileprivate var previousArrowImageDisabled_: UIImage!
+    fileprivate var nextArrowImage_: UIImage!
+    fileprivate var nextArrowImageDisabled_: UIImage!
+    
+    // -------------------------------------------------------------------------
+    // MARK: - INIT
+    // -------------------------------------------------------------------------
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        
+        let previousArrow = UIImage(named: "arrow_previous")!
+        previousArrowImage_         = previousArrow.createImage(usingColor: UIColor.blue)
+        previousArrowImageDisabled_ = previousArrow.createImage(usingColor: UIColor.gray)
+        
+        let nextArrow = UIImage(named: "arrow_next")!
+        nextArrowImage_         = nextArrow.createImage(usingColor: UIColor.blue)
+        nextArrowImageDisabled_ = nextArrow.createImage(usingColor: UIColor.gray)
     }
     
     // -------------------------------------------------------------------------
@@ -194,12 +275,83 @@ public class SctQuestionCell: UITableViewCell
         }
     }
     
+    fileprivate func updateSwipeGestures_()
+    {
+        if displaySingleQuestion
+        {
+            leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SctQuestionCell.swipeLeft_))
+            leftSwipeGesture?.direction = .left
+            leftSwipeGesture?.numberOfTouchesRequired = 1
+            rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SctQuestionCell.swipeRight_))
+            rightSwipeGesture?.direction = .right
+            rightSwipeGesture?.numberOfTouchesRequired = 1
+            
+            addGestureRecognizer(leftSwipeGesture!)
+            addGestureRecognizer(rightSwipeGesture!)
+        }
+        else
+        {
+            if let leftSwipe = leftSwipeGesture, let rightSwipe = rightSwipeGesture
+            {
+                removeGestureRecognizer(leftSwipe)
+                removeGestureRecognizer(rightSwipe)
+            }
+            
+            leftSwipeGesture = nil
+            rightSwipeGesture = nil
+        }
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - ACTIONS
     // -------------------------------------------------------------------------
     @objc fileprivate func imageViewTapped_(sender: UITapGestureRecognizer)
     {
         delegate?.sctQuestionCell(self, didClickImageView: newDataImageView_)
+    }
+    
+    @IBAction func selectPreviousQuestion(_ sender: UIButton)
+    {
+        previousQuestion_()
+    }
+    
+    @IBAction func selectNextQuestion(_ sender: UIButton)
+    {
+       nextQuestion_()
+    }
+    
+    fileprivate func previousQuestion_()
+    {
+        previousQuestionIndex_ -= 1
+        delegate?.sctQuestionCell(didSelectPreviousQuestion: self)
+    }
+    
+    fileprivate func nextQuestion_()
+    {
+        previousQuestionIndex_ += 1
+        delegate?.sctQuestionCell(didSelectNextQuestion: self)
+    }
+    
+    @IBAction func pageControlChanged(_ pageControl: UIPageControl)
+    {
+        if previousQuestionIndex_ < pageControl.currentPage
+        {
+            nextQuestion_()
+        }
+        else
+        {
+            previousQuestion_()
+        }
+    }
+    
+    @objc fileprivate func swipeLeft_(_ sender: UISwipeGestureRecognizer)
+    {
+        nextQuestion_()
+    }
+    
+    @objc fileprivate func swipeRight_(_ sender: UISwipeGestureRecognizer)
+    {
+        previousQuestion_()
     }
     
     // -------------------------------------------------------------------------

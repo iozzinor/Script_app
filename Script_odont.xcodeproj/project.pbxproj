@@ -90,6 +90,7 @@
 		AC38BB7C221E9C54008E829B /* WelcomeWalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7B221E9C54008E829B /* WelcomeWalkthroughPageViewController.swift */; };
 		AC38BB80221EA451008E829B /* WelcomeWalkthroughPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7F221EA451008E829B /* WelcomeWalkthroughPageViewControllerDelegate.swift */; };
 		AC38BB83221EAA58008E829B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB85221EAA58008E829B /* Localizable.strings */; };
+		AC421ABE224D37D10011052B /* UIImage+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC421ABD224D37D10011052B /* UIImage+utils.swift */; };
 		AC4904B1222B12A900BDEB4B /* QualificationTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */; };
 		AC4904B4222B238B00BDEB4B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4904B6222B238B00BDEB4B /* Login.storyboard */; };
 		AC4904B9222B244100BDEB4B /* SctHorizontal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4904BB222B244100BDEB4B /* SctHorizontal.storyboard */; };
@@ -295,6 +296,7 @@
 		AC38BB7F221EA451008E829B /* WelcomeWalkthroughPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWalkthroughPageViewControllerDelegate.swift; sourceTree = "<group>"; };
 		AC38BB84221EAA58008E829B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC38BB86221EAA67008E829B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC421ABD224D37D10011052B /* UIImage+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+utils.swift"; sourceTree = "<group>"; };
 		AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopic.swift; sourceTree = "<group>"; };
 		AC4904B5222B238B00BDEB4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		AC4904B8222B238E00BDEB4B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Login.strings; sourceTree = "<group>"; };
@@ -679,13 +681,14 @@
 				ACE70F94221F2439008454FF /* WeakArray.swift */,
 				AC38BB75221DFB2F008E829B /* String+localized.swift */,
 				AC53E36622329C2700CA4437 /* Constants.swift */,
+				ACAD5DD52245294D0041E484 /* BorderView.swift */,
 				AC38BB79221E89C0008E829B /* UIApplication+utils.swift */,
 				ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */,
 				ACE70F96221F3254008454FF /* UITableViewCell+utils.swift */,
 				ACE70F98221F32B9008454FF /* UITableView+register.swift */,
-				ACAD5DD52245294D0041E484 /* BorderView.swift */,
 				AC53E36A2232B75200CA4437 /* UIView+utils.swift */,
 				ACD1B3A3223BF6490065F07E /* UILabel+utils.swift */,
+				AC421ABD224D37D10011052B /* UIImage+utils.swift */,
 				AC31A043224B845A00A3A461 /* Configuration.swift */,
 			);
 			path = Utils;
@@ -1114,6 +1117,7 @@
 				ACC83F7A223E349C0064BE6F /* SctSearchResultViewController.swift in Sources */,
 				ACC83F82223E516C0064BE6F /* SctsListViewController.swift in Sources */,
 				ACC83F74223DB4500064BE6F /* DatePickerViewController.swift in Sources */,
+				AC421ABE224D37D10011052B /* UIImage+utils.swift in Sources */,
 				ACD1B3A4223BF6490065F07E /* UILabel+utils.swift in Sources */,
 				AC9F23E22229D6A4002D38E5 /* ViewController.swift in Sources */,
 				AC0E4EA62237EB84003996AF /* SctDetailViewController.swift in Sources */,

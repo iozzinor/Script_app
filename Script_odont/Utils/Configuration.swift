@@ -34,4 +34,13 @@ public class Configuration
         }
         return nil
     }
+    
+    public func readBoolean(argument: String) -> Bool?
+    {
+        guard let argumentString = readFromFile(argument: argument) else
+        {
+            return nil
+        }
+        return argumentString == "1"
+    }
 }

@@ -59,6 +59,9 @@ class DrawingWalkthroughViewController: SctViewController
     fileprivate var stepTimer_: Timer? =  nil
     var displayStepLabel = true
     
+    let shouldDisplaySingleQuestion: Bool = false
+    let singleQuestionIndex: Int? = nil
+    
     deinit
     {
          (UIApplication.shared.delegate as? AppDelegate)?.removeDelegate(self)
@@ -307,6 +310,14 @@ extension DrawingWalkthroughViewController: SctViewDataSource
     }
     
     func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didClickImageView imageView: UIImageView)
+    {
+    }
+    
+    func sctQuestionCell(didSelectPreviousQuestion sctQuestionCell: SctQuestionCell)
+    {
+    }
+    
+    func sctQuestionCell(didSelectNextQuestion sctQuestionCell: SctQuestionCell)
     {
     }
 }

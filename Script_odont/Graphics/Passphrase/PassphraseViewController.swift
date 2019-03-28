@@ -246,7 +246,7 @@ class PassphraseViewController: UIViewController
     
     fileprivate func displayPassphraseOptions_()
     {
-        let passphraseController = UIAlertController(title: "Passphrase Options", message: "Choose a passphrase kind.", preferredStyle: .actionSheet)
+        let passphraseController = UIAlertController(title: "Passphrase.Options.Choose.Title".localized, message: "Passphrase.Options.Choose.Message".localized, preferredStyle: .actionSheet)
         
         let cancelAction = UIAlertAction(title: "Common.Cancel".localized, style: .cancel, handler: nil)
         

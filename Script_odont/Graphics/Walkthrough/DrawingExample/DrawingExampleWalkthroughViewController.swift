@@ -28,6 +28,9 @@ public class DrawingExampleWalkthroughViewController: SctViewController
         }
     }
     
+    public let shouldDisplaySingleQuestion: Bool = false
+    public let singleQuestionIndex: Int? = nil
+    
     fileprivate var stepViews_ = [[UILabel]]()
     fileprivate var currentStep_ = Step.wording {
         didSet {
@@ -317,6 +320,14 @@ extension DrawingExampleWalkthroughViewController: SctViewDataSource
     }
     
     public func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didClickImageView imageView: UIImageView)
+    {
+    }
+    
+    public func sctQuestionCell(didSelectPreviousQuestion sctQuestionCell: SctQuestionCell)
+    {
+    }
+    
+    public func sctQuestionCell(didSelectNextQuestion sctQuestionCell: SctQuestionCell)
     {
     }
     

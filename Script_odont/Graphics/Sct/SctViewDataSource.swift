@@ -15,9 +15,15 @@ public protocol SctViewDataSource: SctQuestionCellDelegate
     var currentSctIndex: Int { get }
     var currentSct: Sct { get }
     
-    var questionHeaderTitle: SctQuestionHeaderCell.Title? { get}
+    var questionHeaderTitle: SctQuestionHeaderCell.Title? { get }
 
     var session: SctSession? { get }
     
     var canChooseLikertScale: Bool { get }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - SINGLE QUESTION
+    // -------------------------------------------------------------------------
+    var shouldDisplaySingleQuestion: Bool { get}
+    var singleQuestionIndex: Int? { get }
 }

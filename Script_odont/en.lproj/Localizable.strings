@@ -187,6 +187,9 @@
 "Passphrase.Instruction.Previous"   = "Enter the previous passcode.";
 "Passphrase.Instruction.Confirm"    = "Confirm the passcode.";
 
+"Passphrase.Options.Choose.Title"   = "Passphrase Options";
+"Passphrase.Options.Choose.Message" = "Choose a passphrase kind.";
+
 /* WELCOME WALKTHROUGH */
 "WelcomeWalkthrough.SkipButton.Title.Skip" = "Skip";
 "WelcomeWalkthrough.SkipButton.Title.Done" = "Done";

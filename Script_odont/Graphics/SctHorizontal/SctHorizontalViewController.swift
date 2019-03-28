@@ -52,6 +52,7 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     
     var sctSession = SctSession(exam: SctExam(scts: [])) {
         didSet {
+            singleQuestionIndexes_ = Array<Int>(repeating: 0, count: sctSession.exam.scts.count)
             if isViewLoaded
             {
                 updateUi_()
@@ -83,6 +84,13 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     public var questionHeaderTitle: SctQuestionHeaderCell.Title? = nil
     
     public let canChooseLikertScale: Bool = true
+    
+    public let shouldDisplaySingleQuestion: Bool = true
+    
+    fileprivate var singleQuestionIndexes_ = [Int]()
+    public var singleQuestionIndex: Int? {
+        return singleQuestionIndexes_[currentSctIndex]
+    }
     
     deinit
     {
@@ -301,6 +309,21 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
             return .invalid(.insufficientAnsweredScts(actual: validScts, expected: sctSession.exam.scts.count / 2))
         }
         return .valid
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - SCT VIEW DATA SOURCE
+    // -------------------------------------------------------------------------
+    public func sctQuestionCell(didSelectPreviousQuestion sctQuestionCell: SctQuestionCell)
+    {
+        singleQuestionIndexes_[currentSctIndex] -= 1
+        tableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
+    }
+    
+    public func sctQuestionCell(didSelectNextQuestion sctQuestionCell: SctQuestionCell)
+    {
+        singleQuestionIndexes_[currentSctIndex] += 1
+        tableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
     }
     
     // -------------------------------------------------------------------------
