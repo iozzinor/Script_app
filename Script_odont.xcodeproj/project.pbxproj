@@ -91,6 +91,8 @@
 		AC38BB80221EA451008E829B /* WelcomeWalkthroughPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7F221EA451008E829B /* WelcomeWalkthroughPageViewControllerDelegate.swift */; };
 		AC38BB83221EAA58008E829B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB85221EAA58008E829B /* Localizable.strings */; };
 		AC421ABE224D37D10011052B /* UIImage+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC421ABD224D37D10011052B /* UIImage+utils.swift */; };
+		AC421AC0224D4BA20011052B /* NewDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC421ABF224D4BA20011052B /* NewDataView.swift */; };
+		AC421AC2224D4BBC0011052B /* NewDataViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC421AC1224D4BBC0011052B /* NewDataViewDelegate.swift */; };
 		AC4904B1222B12A900BDEB4B /* QualificationTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */; };
 		AC4904B4222B238B00BDEB4B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4904B6222B238B00BDEB4B /* Login.storyboard */; };
 		AC4904B9222B244100BDEB4B /* SctHorizontal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4904BB222B244100BDEB4B /* SctHorizontal.storyboard */; };
@@ -297,6 +299,8 @@
 		AC38BB84221EAA58008E829B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC38BB86221EAA67008E829B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC421ABD224D37D10011052B /* UIImage+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+utils.swift"; sourceTree = "<group>"; };
+		AC421ABF224D4BA20011052B /* NewDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDataView.swift; sourceTree = "<group>"; };
+		AC421AC1224D4BBC0011052B /* NewDataViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDataViewDelegate.swift; sourceTree = "<group>"; };
 		AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopic.swift; sourceTree = "<group>"; };
 		AC4904B5222B238B00BDEB4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		AC4904B8222B238E00BDEB4B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Login.strings; sourceTree = "<group>"; };
@@ -607,8 +611,10 @@
 				AC53E3682232B2BA00CA4437 /* SctQuestionHeaderCell.swift */,
 				AC31E3A02235BCBA00A3B813 /* SctQuestionHeaderCell.xib */,
 				AC0D77CF2225D7AD007F83D4 /* SctQuestionCell.swift */,
-				AC31E39E2235BC8500A3B813 /* SctQuestionCell.xib */,
 				AC0D77DF22283FB6007F83D4 /* SctQuestionCellDelegate.swift */,
+				AC31E39E2235BC8500A3B813 /* SctQuestionCell.xib */,
+				AC421ABF224D4BA20011052B /* NewDataView.swift */,
+				AC421AC1224D4BBC0011052B /* NewDataViewDelegate.swift */,
 				AC0D77D322281FDD007F83D4 /* SctScaleCell.swift */,
 				AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */,
 				ACA60F712235CCEF0094881A /* SctViewController.swift */,
@@ -1054,6 +1060,7 @@
 				AC31A04D224B8DB700A3A461 /* SpecializedErrorButtonDelegate.swift in Sources */,
 				AC38BB76221DFB2F008E829B /* String+localized.swift in Sources */,
 				ACA60F722235CCEF0094881A /* SctViewController.swift in Sources */,
+				AC421AC0224D4BA20011052B /* NewDataView.swift in Sources */,
 				AC0E4EA222370CF3003996AF /* SctStatistics.swift in Sources */,
 				AC4904C3222B51F400BDEB4B /* SecurityQuestionPickerViewController.swift in Sources */,
 				AC0D77D22225DD01007F83D4 /* SctPanelAnswer.swift in Sources */,
@@ -1077,6 +1084,7 @@
 				AC8F5B7B222899DA00FAEFC5 /* GoToSctCell.swift in Sources */,
 				ACAD5DD4224523B20041E484 /* SctData.swift in Sources */,
 				AC31A051224B925C00A3A461 /* SebdConnectionError.swift in Sources */,
+				AC421AC2224D4BBC0011052B /* NewDataViewDelegate.swift in Sources */,
 				AC31A030224AD86C00A3A461 /* NetworkingService.swift in Sources */,
 				AC31A02E224AA87400A3A461 /* UnlockViewController.swift in Sources */,
 				ACC52C3F223EE57E00B974BA /* CandidateStatistics.swift in Sources */,

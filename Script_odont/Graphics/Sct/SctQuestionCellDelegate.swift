@@ -12,8 +12,6 @@ public protocol SctQuestionCellDelegate: class
 {
     func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
     
-    func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didClickImageView imageView: UIImageView)
-    
     func sctQuestionCell(didSelectPreviousQuestion sctQuestionCell: SctQuestionCell)
     func sctQuestionCell(didSelectNextQuestion sctQuestionCell: SctQuestionCell)
 }

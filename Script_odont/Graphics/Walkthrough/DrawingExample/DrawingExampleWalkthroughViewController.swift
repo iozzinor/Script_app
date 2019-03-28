@@ -265,6 +265,10 @@ public class DrawingExampleWalkthroughViewController: SctViewController
 // -------------------------------------------------------------------------
 extension DrawingExampleWalkthroughViewController: SctViewDataSource
 {
+    public var newDataDelegate: NewDataDelegate? {
+        return nil
+    }
+    
     public var sections: [SctViewController.SctSection] {
         return [.drawing, .information]
     }
@@ -317,10 +321,6 @@ extension DrawingExampleWalkthroughViewController: SctViewDataSource
         {
             correctAnswer_(sender)
         }
-    }
-    
-    public func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didClickImageView imageView: UIImageView)
-    {
     }
     
     public func sctQuestionCell(didSelectPreviousQuestion sctQuestionCell: SctQuestionCell)

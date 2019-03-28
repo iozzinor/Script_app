@@ -10,6 +10,11 @@ import Foundation
 
 public protocol SctViewDataSource: SctQuestionCellDelegate
 {
+    // -------------------------------------------------------------------------
+    // MARK: - DELEGATE
+    // -------------------------------------------------------------------------
+    var newDataDelegate: NewDataDelegate? { get }
+    
     var sections: [SctViewController.SctSection] { get}
     
     var currentSctIndex: Int { get }

@@ -272,6 +272,10 @@ extension DrawingWalkthroughViewController: UIApplicationDelegate
 // -----------------------------------------------------------------------------
 extension DrawingWalkthroughViewController: SctViewDataSource
 {
+    var newDataDelegate: NewDataDelegate? {
+        return nil
+    }
+    
     var sections: [SctViewController.SctSection] {
         return [ .drawing ]
     }
@@ -306,10 +310,6 @@ extension DrawingWalkthroughViewController: SctViewDataSource
     }
     
     func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
-    {
-    }
-    
-    func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didClickImageView imageView: UIImageView)
     {
     }
     

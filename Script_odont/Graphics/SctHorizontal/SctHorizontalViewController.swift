@@ -60,6 +60,9 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
         }
     }
     
+    public var newDataDelegate: NewDataDelegate? {
+        return self
+    }
     public var sections: [SctViewController.SctSection] {
         return SctViewController.SctSection.allCases
     }
@@ -449,8 +452,14 @@ extension SctHorizontalViewController: SctQuestionCellDelegate
         let questionIndex = sctQuestionCell.tag
         sctSession[currentSctIndex, questionIndex] = answer
     }
-    
-    public func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didClickImageView imageView: UIImageView)
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - NEW DATA DELEGATE
+// -----------------------------------------------------------------------------
+extension SctHorizontalViewController: NewDataDelegate
+{
+    public func newDataView(_ newDataView: NewDataView, didClickImageView imageView: UIImageView)
     {
         senderImageView = imageView
         performSegue(withIdentifier: SctHorizontalViewController.toImageDetail, sender: self)

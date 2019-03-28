@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SceneKit
 
 public class SctQuestionCell: UITableViewCell
 {
@@ -34,10 +35,9 @@ public class SctQuestionCell: UITableViewCell
             hypothesisLabel.addBorders(with: Appearance.SctHorizontal.Table.borderColor, lineWidth: Appearance.SctHorizontal.Table.borderWidth, positions: [.left, .top])
         }
     }
-    @IBOutlet weak var newDataView: UIView! {
+    @IBOutlet weak var newDataView: NewDataView! {
         didSet
         {
-            setupDataView_()
             newDataView.addBorders(with: Appearance.SctHorizontal.Table.borderColor, lineWidth: Appearance.SctHorizontal.Table.borderWidth, positions: [.left, .top])
         }
     }
@@ -55,26 +55,8 @@ public class SctQuestionCell: UITableViewCell
     }
     
     var newDataLabel: UILabel? {
-        switch question.newData.content
-        {
-        case .text(_):
-            return newDataLabel_
-        case .image(_):
-            return nil
-        }
+        return newDataView.label
     }
-    
-    fileprivate var newDataViews_: [UIView] = []
-    fileprivate var previousDataView_ = UIView()
-    {
-        didSet
-        {
-            oldValue.isHidden = true
-            previousDataView_.isHidden = false
-        }
-    }
-    fileprivate var newDataLabel_ = UILabel()
-    fileprivate var newDataImageView_ = UIImageView()
     
     fileprivate var scaleContainerButtons_ = [UIButton]()
     fileprivate var selectedScaleButton_: UIButton? = nil
@@ -199,54 +181,6 @@ public class SctQuestionCell: UITableViewCell
     // -------------------------------------------------------------------------
     // MARK: - SETUP
     // -------------------------------------------------------------------------
-    fileprivate func setupDataView_()
-    {
-        // clear
-        for subview in newDataView.subviews
-        {
-            subview.removeFromSuperview()
-        }
-        newDataViews_.removeAll()
-        
-        // add subviews
-        newDataViews_.append(newDataLabel_)
-        newDataViews_.append(newDataImageView_)
-        
-        for newSubview in newDataViews_
-        {
-            newSubview.translatesAutoresizingMaskIntoConstraints = false
-            newDataView.addSubview(newSubview)
-            newSubview.isHidden = true
-        }
-        
-        setupNewDataLabel_()
-        setupNewDataImageView_()
-    }
-    
-    fileprivate func setupNewDataLabel_()
-    {
-        newDataLabel_.numberOfLines = 0
-        newDataLabel_.lineBreakMode = .byWordWrapping
-        
-        newDataView.adjustSubview(newDataLabel_)
-        previousDataView_ = newDataLabel_
-        newDataLabel_.isHidden = false
-    }
-    
-    fileprivate func setupNewDataImageView_()
-    {
-        newDataView.adjustSubview(newDataImageView_)
-        
-        // touch listener
-        let newDataImageGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SctQuestionCell.imageViewTapped_))
-        newDataImageGestureRecognizer.numberOfTapsRequired = 1
-        newDataImageGestureRecognizer.numberOfTouchesRequired = 1
-        newDataImageView_.gestureRecognizers?.removeAll()
-        newDataImageView_.addGestureRecognizer(newDataImageGestureRecognizer)
-        newDataImageView_.isUserInteractionEnabled = true
-        newDataImageView_.contentMode = .scaleAspectFit
-    }
-    
     fileprivate func setupScaleContainerButtons_()
     {
         for i in 0..<5
@@ -305,11 +239,6 @@ public class SctQuestionCell: UITableViewCell
     // -------------------------------------------------------------------------
     // MARK: - ACTIONS
     // -------------------------------------------------------------------------
-    @objc fileprivate func imageViewTapped_(sender: UITapGestureRecognizer)
-    {
-        delegate?.sctQuestionCell(self, didClickImageView: newDataImageView_)
-    }
-    
     @IBAction func selectPreviousQuestion(_ sender: UIButton)
     {
         previousQuestion_()
@@ -361,16 +290,7 @@ public class SctQuestionCell: UITableViewCell
         didSet {
             hypothesisLabel.text = question.hypothesis
             
-            switch question.newData.content
-            {
-            case let .text(text):
-                newDataLabel_.text = text
-                newDataLabel_.sizeToFit()
-                previousDataView_ = newDataLabel_
-            case let .image(image):
-                newDataImageView_.image = image
-                previousDataView_ = newDataImageView_
-            }
+            newDataView.questionData = question.newData
         }
     }
     

@@ -91,6 +91,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell.isLast = (indexPath.row - 1 == sct.questions.count)
                 cell.canChooseLikertScale = dataSource?.canChooseLikertScale ?? false
                 cell.delegate = dataSource
+                cell.newDataView.delegate = dataSource?.newDataDelegate
                 
                 if let session = session
                 {
@@ -108,6 +109,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell.isLast = true
                 cell.canChooseLikertScale = dataSource?.canChooseLikertScale ?? false
                 cell.delegate = dataSource
+                cell.newDataView.delegate = dataSource?.newDataDelegate
                 
                 // question navigation
                 cell.questionsCount = sct.questions.count

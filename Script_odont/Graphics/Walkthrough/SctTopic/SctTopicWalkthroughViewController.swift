@@ -75,6 +75,10 @@ class SctTopicWalkthroughViewController: SctViewController
 // -----------------------------------------------------------------------------
 extension SctTopicWalkthroughViewController: SctViewDataSource
 {
+    var newDataDelegate: NewDataDelegate? {
+        return nil
+    }
+    
     var sections: [SctViewController.SctSection] {
         return [.drawing, .information]
     }
@@ -107,10 +111,6 @@ extension SctTopicWalkthroughViewController: SctViewDataSource
     var singleQuestionIndex: Int? { return nil }
     
     func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
-    {
-    }
-    
-    func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didClickImageView imageView: UIImageView)
     {
     }
     

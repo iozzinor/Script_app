@@ -20,6 +20,10 @@ fileprivate func imageExam1_() -> SctExam
     let fractureRadiography = UIImage(named: "fracture_incisive_radio")!
     sct.questions.append(SctQuestion(hypothesis: hypothesis, newData: SctData(content: .image(fractureRadiography))))
     sct.questions.append(SctQuestion(hypothesis: hypothesis, newData: SctData(image: fracturePhoto)))
+    for i in 1..<4
+    {
+        sct.questions.append(SctQuestion(hypothesis: "test hypothèse \(i)", newData: SctData(text: "test donnée \(i)")))
+    }
     
     return SctExam(scts: [sct])
 }

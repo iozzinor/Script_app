@@ -43,7 +43,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8k-zt-wgP">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8k-zt-wgP" customClass="NewDataView" customModule="Script_odont" customModuleProvider="target">
                                                 <rect key="frame" x="91.5" y="0.0" width="91" height="23.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
@@ -110,7 +110,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="hypothesisLabel" destination="u0O-Lc-RJy" id="d0F-K9-uRX"/>
-                <outlet property="newDataView" destination="a8k-zt-wgP" id="py3-Xg-u8z"/>
+                <outlet property="newDataView" destination="a8k-zt-wgP" id="0as-lj-a7I"/>
                 <outlet property="nextButton" destination="nUK-h8-MTx" id="g7O-f9-Hsn"/>
                 <outlet property="previousButton" destination="Ksa-6B-m95" id="ezG-we-vYy"/>
                 <outlet property="questionControl" destination="2a4-MY-WSa" id="vRw-PD-FrJ"/>
