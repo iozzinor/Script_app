@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import SceneKit
 
 public protocol NewDataDelegate: class
 {
     func newDataView(_ newDataView: NewDataView, didClickImageView imageView: UIImageView)
+    
+    func newDataView(_ newDataView: NewDataView, didClickVolumeView scnView: SCNView)
 }

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import SceneKit
 
 public class SctHorizontalViewController: SctViewController, SctViewDataSource
 {
     public static let toGoToSct     = "SctHorizontalToGoToSctSegueId"
     public static let toImageDetail = "SctHorizontalToImageDetailSegueId"
+    public static let toVolume      = "SctHorizontalToVolumeSegueId"
     
     // -------------------------------------------------------------------------
     // MARK: - VALIDATION STATUS
@@ -49,6 +51,7 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     fileprivate var detailImage_: UIImage? {
         return senderImageView?.image
     }
+    fileprivate var senderVolumeView_: SCNView? = nil
     
     var sctSession = SctSession(exam: SctExam(scts: [])) {
         didSet {
@@ -125,6 +128,9 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
         
         destroyTimer_()
         createTimer_()
+        
+        senderImageView = nil
+        senderVolumeView_ = nil
     }
     
     public override func viewDidDisappear(_ animated: Bool)
@@ -439,6 +445,14 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
             target.image = image
             target.transitioningDelegate = target
         }
+        // volume view
+        if segue.identifier == SctHorizontalViewController.toVolume,
+            let target = (segue.destination as? UINavigationController)?.viewControllers.first as? VolumeViewController,
+            let volumeView = senderVolumeView_
+        {
+            target.scene = volumeView.scene
+            target.transitioningDelegate = target
+        }
     }
 }
 
@@ -463,6 +477,12 @@ extension SctHorizontalViewController: NewDataDelegate
     {
         senderImageView = imageView
         performSegue(withIdentifier: SctHorizontalViewController.toImageDetail, sender: self)
+    }
+    
+    public func newDataView(_ newDataView: NewDataView, didClickVolumeView scnView: SCNView)
+    {
+        senderVolumeView_ = scnView
+        performSegue(withIdentifier: SctHorizontalViewController.toVolume, sender: self)
     }
 }
 

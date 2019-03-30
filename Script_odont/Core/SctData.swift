@@ -14,6 +14,7 @@ public struct SctData
     {
         case text(String)
         case image(UIImage)
+        case volume(String)
     }
     
     fileprivate var content_ = Content.text("")
@@ -45,7 +46,7 @@ public struct SctData
         {
         case let .text(text):
             return text
-        case .image(_):
+        case .image(_), .volume(_):
             return nil
         }
     }
@@ -55,7 +56,7 @@ public struct SctData
         {
         case let .image(image):
             return image
-        case .text(_):
+        case .text(_), .volume(_):
             return nil
         }
     }

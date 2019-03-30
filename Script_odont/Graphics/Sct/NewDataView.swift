@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SceneKit
 
 extension SctData.Content
 {
@@ -58,6 +59,8 @@ public class NewDataView: UIView
             setupLabel_(forText: text)
         case let .image(image):
             setupImageView_(forImage: image)
+        case let .volume(fileName):
+            setupVolumeView_(forFileName: fileName)
         }
     }
     
@@ -90,6 +93,30 @@ public class NewDataView: UIView
         currentDataView_ = newDataImageView
         
         refreshImageView_(forImage: image)
+    }
+    
+    fileprivate func setupVolumeView_(forFileName fileName: String)
+    {
+        let newVolumeView = SCNView()
+        self.addSubviewAdjusting(newVolumeView)
+        
+        newVolumeView.autoenablesDefaultLighting = true
+        newVolumeView.allowsCameraControl = true
+        
+        // default scene
+        let scene = SCNScene()
+        scene.background.contents = UIColor.black
+        newVolumeView.scene = scene
+        
+        currentDataView_ = newVolumeView
+        
+        // touch listener
+        let touchGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NewDataView.volumeViewTapped_))
+        touchGestureRecognizer.numberOfTapsRequired = 1
+        touchGestureRecognizer.numberOfTouchesRequired = 1
+        newVolumeView.addGestureRecognizer(touchGestureRecognizer)
+        
+        refreshVolumeView_(forFileName: fileName)
     }
     
     // -------------------------------------------------------------------------
@@ -127,6 +154,8 @@ public class NewDataView: UIView
             refreshLabel_(forText: text)
         case let .image(image):
             refreshImageView_(forImage: image)
+        case let .volume(fileName):
+            refreshVolumeView_(forFileName: fileName)
         }
     }
     
@@ -146,6 +175,19 @@ public class NewDataView: UIView
         }
     }
     
+    fileprivate func refreshVolumeView_(forFileName fileName: String)
+    {
+        if let volumeView = currentDataView_ as? SCNView
+        {
+            let newNode = SCNNode(geometry: SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0.2))
+            volumeView.scene?.rootNode.addChildNode(newNode)
+            
+            // let test = SCNScene(url: <#T##URL#>, options: )
+            let newScene = SCNScene(named: "simple_sphere.stl")
+            print(newScene)
+        }
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - ACTION
     // -------------------------------------------------------------------------
@@ -154,6 +196,14 @@ public class NewDataView: UIView
         if let imageView = currentDataView_ as? UIImageView
         {
             delegate?.newDataView(self, didClickImageView: imageView)
+        }
+    }
+    
+    @objc fileprivate func volumeViewTapped_(sender: UITapGestureRecognizer)
+    {
+        if let volumeView = currentDataView_ as? SCNView
+        {
+            delegate?.newDataView(self, didClickVolumeView: volumeView)
         }
     }
 }

@@ -145,7 +145,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 {
                 case .image(_):
                     return UIScreen.main.bounds.height / 3.0
-                case .text(_):
+                case .text(_), .volume(_):
                     return UITableView.automaticDimension
                 }
             case .singleQuestion:

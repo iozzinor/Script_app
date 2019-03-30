@@ -106,6 +106,7 @@
 		AC4904CD222BC16B00BDEB4B /* QualificationPickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904CC222BC16B00BDEB4B /* QualificationPickerViewControllerDelegate.swift */; };
 		AC4904CF222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904CE222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift */; };
 		AC4904D1222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904D0222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift */; };
+		AC51CBEA224E667000B52FD0 /* VolumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51CBE9224E667000B52FD0 /* VolumeViewController.swift */; };
 		AC53E36722329C2700CA4437 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E36622329C2700CA4437 /* Constants.swift */; };
 		AC53E3692232B2BA00CA4437 /* SctQuestionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E3682232B2BA00CA4437 /* SctQuestionHeaderCell.swift */; };
 		AC53E36B2232B75200CA4437 /* UIView+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E36A2232B75200CA4437 /* UIView+utils.swift */; };
@@ -118,6 +119,7 @@
 		AC53E37E22345F4500CA4437 /* SctUnfinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E37D22345F4500CA4437 /* SctUnfinishedViewController.swift */; };
 		AC74B69C223542A000B31571 /* WelcomeWalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7D221E9FE1008E829B /* WelcomeWalkthroughContentViewController.swift */; };
 		AC74B69E22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74B69D22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift */; };
+		AC7ADD85224E621F008D0EAE /* Assets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AC7ADD84224E621F008D0EAE /* Assets.scnassets */; };
 		AC82731C222C93B90041AA0C /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC82731B222C93B90041AA0C /* RecoverPasswordViewController.swift */; };
 		AC82731E222C96EB0041AA0C /* SecurityQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC82731D222C96EB0041AA0C /* SecurityQuestionCell.xib */; };
 		AC87E2F8222CA24000D6B8CC /* UserIdentifierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87E2F7222CA24000D6B8CC /* UserIdentifierCell.swift */; };
@@ -316,6 +318,7 @@
 		AC4904CC222BC16B00BDEB4B /* QualificationPickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationPickerViewControllerDelegate.swift; sourceTree = "<group>"; };
 		AC4904CE222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopicPickerViewController.swift; sourceTree = "<group>"; };
 		AC4904D0222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopicPickerViewControllerDelegate.swift; sourceTree = "<group>"; };
+		AC51CBE9224E667000B52FD0 /* VolumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeViewController.swift; sourceTree = "<group>"; };
 		AC53E36622329C2700CA4437 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AC53E3682232B2BA00CA4437 /* SctQuestionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctQuestionHeaderCell.swift; sourceTree = "<group>"; };
 		AC53E36A2232B75200CA4437 /* UIView+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+utils.swift"; sourceTree = "<group>"; };
@@ -327,6 +330,7 @@
 		AC53E37B2233AF5E00CA4437 /* MySct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MySct.storyboard; sourceTree = "<group>"; };
 		AC53E37D22345F4500CA4437 /* SctUnfinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctUnfinishedViewController.swift; sourceTree = "<group>"; };
 		AC74B69D22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWalkthroughExampleViewController.swift; sourceTree = "<group>"; };
+		AC7ADD84224E621F008D0EAE /* Assets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Assets.scnassets; sourceTree = "<group>"; };
 		AC82731B222C93B90041AA0C /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
 		AC82731D222C96EB0041AA0C /* SecurityQuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecurityQuestionCell.xib; sourceTree = "<group>"; };
 		AC87E2F7222CA24000D6B8CC /* UserIdentifierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdentifierCell.swift; sourceTree = "<group>"; };
@@ -658,6 +662,7 @@
 				AC9F23E12229D6A4002D38E5 /* ViewController.swift */,
 				AC38BB63221DE4C9008E829B /* Main.storyboard */,
 				AC38BB66221DE4CB008E829B /* Assets.xcassets */,
+				AC7ADD84224E621F008D0EAE /* Assets.scnassets */,
 				AC38BB68221DE4CB008E829B /* LaunchScreen.storyboard */,
 				AC38BB85221EAA58008E829B /* Localizable.strings */,
 				ACC83F87223E89630064BE6F /* Localizable.stringsdict */,
@@ -707,6 +712,7 @@
 				ACAD5DD922457B160041E484 /* ImageZoomAnimationController.swift */,
 				ACAD5DDB224674A10041E484 /* ImageFadeOutAnimationController.swift */,
 				ACAD5DD72245484E0041E484 /* ImageDetailViewController.swift */,
+				AC51CBE9224E667000B52FD0 /* VolumeViewController.swift */,
 				AC8F5B76222894AB00FAEFC5 /* GoToSctViewController.swift */,
 				AC8F5B782228986000FAEFC5 /* GoToSctViewControllerDelegate.swift */,
 				AC8F5B7A222899DA00FAEFC5 /* GoToSctCell.swift */,
@@ -968,6 +974,7 @@
 				ACD1B3AA223C43AD0065F07E /* SctLatestPeriodCell.xib in Resources */,
 				AC38BB83221EAA58008E829B /* Localizable.strings in Resources */,
 				AC31A039224B7A3900A3A461 /* Unlock.storyboard in Resources */,
+				AC7ADD85224E621F008D0EAE /* Assets.scnassets in Resources */,
 				AC38BB67221DE4CB008E829B /* Assets.xcassets in Resources */,
 				AC4904B9222B244100BDEB4B /* SctHorizontal.storyboard in Resources */,
 				AC38BB65221DE4C9008E829B /* Main.storyboard in Resources */,
@@ -1029,6 +1036,7 @@
 				ACE70F99221F32B9008454FF /* UITableView+register.swift in Sources */,
 				AC0434052249446700644B14 /* AboutViewController.swift in Sources */,
 				ACC81ACC22404B59000990EA /* ScoreProgressDiagramDelegate.swift in Sources */,
+				AC51CBEA224E667000B52FD0 /* VolumeViewController.swift in Sources */,
 				ACAD5DDA22457B160041E484 /* ImageZoomAnimationController.swift in Sources */,
 				AC53E3692232B2BA00CA4437 /* SctQuestionHeaderCell.swift in Sources */,
 				ACDC49B1224240D200B43534 /* TableRow.swift in Sources */,

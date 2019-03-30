@@ -15,6 +15,7 @@ fileprivate func imageExam1_() -> SctExam
     sct.topic = .therapeutic
     sct.wording = "Un patient de 25 ans se présente en consultation suite à une chute en trotinette. Il souhaite reconstruire son incisive centrale."
     
+    sct.questions.append(SctQuestion(hypothesis: "Voici une vue tridimensionnelle", newData: SctData(content: .volume("simple_sphere"))))
     let hypothesis = "Réaliser une couronne céramo-céramique"
     let fracturePhoto = UIImage(named: "fracture_incisive_photo")!
     let fractureRadiography = UIImage(named: "fracture_incisive_radio")!
