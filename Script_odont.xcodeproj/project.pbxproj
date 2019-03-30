@@ -119,7 +119,6 @@
 		AC53E37E22345F4500CA4437 /* SctUnfinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E37D22345F4500CA4437 /* SctUnfinishedViewController.swift */; };
 		AC74B69C223542A000B31571 /* WelcomeWalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7D221E9FE1008E829B /* WelcomeWalkthroughContentViewController.swift */; };
 		AC74B69E22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74B69D22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift */; };
-		AC7ADD85224E621F008D0EAE /* Assets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = AC7ADD84224E621F008D0EAE /* Assets.scnassets */; };
 		AC82731C222C93B90041AA0C /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC82731B222C93B90041AA0C /* RecoverPasswordViewController.swift */; };
 		AC82731E222C96EB0041AA0C /* SecurityQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC82731D222C96EB0041AA0C /* SecurityQuestionCell.xib */; };
 		AC87E2F8222CA24000D6B8CC /* UserIdentifierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87E2F7222CA24000D6B8CC /* UserIdentifierCell.swift */; };
@@ -129,6 +128,9 @@
 		AC8F5B7D22289DC800FAEFC5 /* GoToSctStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5B7C22289DC800FAEFC5 /* GoToSctStatusView.swift */; };
 		AC8F5B7F2229676100FAEFC5 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5B7E2229676100FAEFC5 /* OtherViewController.swift */; };
 		AC8F5B822229696000FAEFC5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5B812229696000FAEFC5 /* LoginViewController.swift */; };
+		AC96DD6D224F50E500FFD529 /* simple_sphere.stl in Resources */ = {isa = PBXBuildFile; fileRef = AC96DD6C224F50A500FFD529 /* simple_sphere.stl */; };
+		AC96DD6F224F516A00FFD529 /* SCNNode+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC96DD6E224F516A00FFD529 /* SCNNode+utils.swift */; };
+		AC96DD71224F5F7900FFD529 /* simple_cube.stl in Resources */ = {isa = PBXBuildFile; fileRef = AC96DD70224F5F6900FFD529 /* simple_cube.stl */; };
 		AC9D150A223ED31A00131490 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D1509223ED31A00131490 /* LeaderboardViewController.swift */; };
 		AC9F23DE222996C4002D38E5 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23DD222996C4002D38E5 /* AuthenticationManager.swift */; };
 		AC9F23E022299945002D38E5 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23DF22299945002D38E5 /* KeychainPasswordItem.swift */; };
@@ -330,7 +332,6 @@
 		AC53E37B2233AF5E00CA4437 /* MySct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MySct.storyboard; sourceTree = "<group>"; };
 		AC53E37D22345F4500CA4437 /* SctUnfinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctUnfinishedViewController.swift; sourceTree = "<group>"; };
 		AC74B69D22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWalkthroughExampleViewController.swift; sourceTree = "<group>"; };
-		AC7ADD84224E621F008D0EAE /* Assets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Assets.scnassets; sourceTree = "<group>"; };
 		AC82731B222C93B90041AA0C /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
 		AC82731D222C96EB0041AA0C /* SecurityQuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecurityQuestionCell.xib; sourceTree = "<group>"; };
 		AC87E2F7222CA24000D6B8CC /* UserIdentifierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdentifierCell.swift; sourceTree = "<group>"; };
@@ -340,6 +341,9 @@
 		AC8F5B7C22289DC800FAEFC5 /* GoToSctStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToSctStatusView.swift; sourceTree = "<group>"; };
 		AC8F5B7E2229676100FAEFC5 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		AC8F5B812229696000FAEFC5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AC96DD6C224F50A500FFD529 /* simple_sphere.stl */ = {isa = PBXFileReference; lastKnownFileType = file; name = simple_sphere.stl; path = ../../Conception/10_fichier_stl/simple_sphere.stl; sourceTree = "<group>"; };
+		AC96DD6E224F516A00FFD529 /* SCNNode+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+utils.swift"; sourceTree = "<group>"; };
+		AC96DD70224F5F6900FFD529 /* simple_cube.stl */ = {isa = PBXFileReference; lastKnownFileType = file; name = simple_cube.stl; path = ../../Conception/10_fichier_stl/simple_cube.stl; sourceTree = "<group>"; };
 		AC9D1509223ED31A00131490 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		AC9F23DD222996C4002D38E5 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		AC9F23DF22299945002D38E5 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
@@ -662,13 +666,14 @@
 				AC9F23E12229D6A4002D38E5 /* ViewController.swift */,
 				AC38BB63221DE4C9008E829B /* Main.storyboard */,
 				AC38BB66221DE4CB008E829B /* Assets.xcassets */,
-				AC7ADD84224E621F008D0EAE /* Assets.scnassets */,
 				AC38BB68221DE4CB008E829B /* LaunchScreen.storyboard */,
 				AC38BB85221EAA58008E829B /* Localizable.strings */,
 				ACC83F87223E89630064BE6F /* Localizable.stringsdict */,
 				AC31A03E224B83B700A3A461 /* Configuration */,
 				AC31A048224B889C00A3A461 /* Configuration.plist */,
 				AC38BB6B221DE4CB008E829B /* Info.plist */,
+				AC96DD70224F5F6900FFD529 /* simple_cube.stl */,
+				AC96DD6C224F50A500FFD529 /* simple_sphere.stl */,
 			);
 			path = Script_odont;
 			sourceTree = "<group>";
@@ -700,6 +705,7 @@
 				AC53E36A2232B75200CA4437 /* UIView+utils.swift */,
 				ACD1B3A3223BF6490065F07E /* UILabel+utils.swift */,
 				AC421ABD224D37D10011052B /* UIImage+utils.swift */,
+				AC96DD6E224F516A00FFD529 /* SCNNode+utils.swift */,
 				AC31A043224B845A00A3A461 /* Configuration.swift */,
 			);
 			path = Utils;
@@ -943,6 +949,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC96DD71224F5F7900FFD529 /* simple_cube.stl in Resources */,
+				AC96DD6D224F50E500FFD529 /* simple_sphere.stl in Resources */,
 				ACC52C44223EF38200B974BA /* CandidateStatisticsCell.xib in Resources */,
 				ACC83F7B223E4B5C0064BE6F /* SctBrowsing.storyboard in Resources */,
 				AC38BB6A221DE4CB008E829B /* LaunchScreen.storyboard in Resources */,
@@ -974,7 +982,6 @@
 				ACD1B3AA223C43AD0065F07E /* SctLatestPeriodCell.xib in Resources */,
 				AC38BB83221EAA58008E829B /* Localizable.strings in Resources */,
 				AC31A039224B7A3900A3A461 /* Unlock.storyboard in Resources */,
-				AC7ADD85224E621F008D0EAE /* Assets.scnassets in Resources */,
 				AC38BB67221DE4CB008E829B /* Assets.xcassets in Resources */,
 				AC4904B9222B244100BDEB4B /* SctHorizontal.storyboard in Resources */,
 				AC38BB65221DE4C9008E829B /* Main.storyboard in Resources */,
@@ -1021,6 +1028,7 @@
 				AC04340322493BEC00644B14 /* DeveloperViewController.swift in Sources */,
 				AC38BB7C221E9C54008E829B /* WelcomeWalkthroughPageViewController.swift in Sources */,
 				AC31A034224ADC9E00A3A461 /* Host.swift in Sources */,
+				AC96DD6F224F516A00FFD529 /* SCNNode+utils.swift in Sources */,
 				ACE70F95221F2439008454FF /* WeakArray.swift in Sources */,
 				AC372C64223947F3009F1DAD /* SctScoreDiagram.swift in Sources */,
 				AC0D77D02225D7AD007F83D4 /* SctQuestionCell.swift in Sources */,

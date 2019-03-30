@@ -179,12 +179,16 @@ public class NewDataView: UIView
     {
         if let volumeView = currentDataView_ as? SCNView
         {
-            let newNode = SCNNode(geometry: SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0.2))
-            volumeView.scene?.rootNode.addChildNode(newNode)
+            guard let cubePath = Bundle.main.path(forResource: "simple_cube", ofType: "stl") else
+            {
+                return
+            }
             
-            // let test = SCNScene(url: <#T##URL#>, options: )
-            let newScene = SCNScene(named: "simple_sphere.stl")
-            print(newScene)
+            volumeView.scene?.background.contents = UIColor.black
+            if let node = SCNNode.fromStlFile(filePath: cubePath)
+            {
+                volumeView.scene?.rootNode.addChildNode(node)
+            }
         }
     }
     

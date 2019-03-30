@@ -46,39 +46,12 @@ class VolumeViewController: UIViewController
         {
             self.scnView = sceneView
         }
-        //scnView.scene = scene
+        scnView.scene = scene
         
-        // temp add test node
-        let verticesSource = SCNGeometrySource(vertices: [
-            SCNVector3(0.0, 0.0, -1.0),
-            SCNVector3(1.0, 0.0, -1.0),
-            SCNVector3(0.0, 1.0, -1.0),
-            SCNVector3(1.0, 1.0, -1.0)
-            ])
-        let indices: [Int16] = [0, 1, 2, 2, 1, 3]
-        let verticesElement = SCNGeometryElement(indices: indices, primitiveType: .triangles)
-        
-        let normalsSource = SCNGeometrySource(normals: [
-            SCNVector3(0.0, 0.0, 1.0),
-            SCNVector3(0.0, 0.0, 1.0),
-            SCNVector3(0.0, 0.0, 1.0),
-            SCNVector3(0.0, 0.0, 1.0),
-            SCNVector3(0.0, 0.0, 1.0),
-            SCNVector3(0.0, 0.0, 1.0)
-            ])
-        let geometry = SCNGeometry(sources: [verticesSource, normalsSource], elements: [verticesElement])
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.white
-        material.isDoubleSided = true
-        geometry.materials = [material, material]
-        
-        let newNode = SCNNode(geometry: geometry)
-        
-        scnView.scene = SCNScene()
-        scnView.scene?.rootNode.addChildNode(newNode)
-        scnView.allowsCameraControl = true
         scnView.autoenablesDefaultLighting = true
-        scnView.scene?.background.contents = UIColor.black
+        scnView.allowsCameraControl = true
+        scnView.showsStatistics = true
+        scnView.defaultCameraController.interactionMode = .orbitAngleMapping
     }
     
     fileprivate func setupGestureRecognizer_()
