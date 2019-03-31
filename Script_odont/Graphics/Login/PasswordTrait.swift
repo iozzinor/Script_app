@@ -14,10 +14,10 @@ struct PasswordTrait
     {
         var result = [PasswordTrait]()
         
-        // between 8 and 128 characters
+        // between 8 and 2048 characters
         result.append(PasswordTrait {
             password -> Bool in
-            if password.count < 8 || password.count > 128
+            if password.count < 8 || password.count > 2048
             {
                 return false
             }
