@@ -55,7 +55,7 @@ class RecoverPasswordViewController: UITableViewController
         case securityQuestion(SecurityQuestion?)
         case recover
         
-        func cell(for indexPath: IndexPath, tableView: UITableView) -> UITableViewCell
+        func cell(for indexPath: IndexPath, tableView: UITableView, viewController: RecoverPasswordViewController) -> UITableViewCell
         {
             switch self
             {
@@ -66,7 +66,8 @@ class RecoverPasswordViewController: UITableViewController
                 return cell
             case let .securityQuestion(securityQuestion):
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SecurityQuestionCell
-                cell.setup(for: indexPath, securityQuestion: securityQuestion)
+                let canSelect = viewController.canSelectQuestion_(at: indexPath.row)
+                cell.setup(for: indexPath, securityQuestion: securityQuestion, canSelect: canSelect)
                 cell.accessoryType = .disclosureIndicator
                 return cell
             case .recover:
@@ -136,6 +137,19 @@ class RecoverPasswordViewController: UITableViewController
         
     }
     
+    fileprivate func canSelectQuestion_(at index: Int) -> Bool
+    {
+        if questions_[index] != nil
+        {
+            return true
+        }
+        if index > 0 && questions_[index] == nil && questions_[index - 1] == nil
+        {
+            return false
+        }
+        return true
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - UI TABLE VIEW DELEGATE
     // -------------------------------------------------------------------------
@@ -148,7 +162,7 @@ class RecoverPasswordViewController: UITableViewController
         case .userIdentifier, .recover:
             return nil
         case .securityQuestion(_):
-            return indexPath
+            return canSelectQuestion_(at: indexPath.row) ? indexPath : nil
         }
     }
     
@@ -191,7 +205,7 @@ class RecoverPasswordViewController: UITableViewController
         let section = sections_[indexPath.section]
         let row = section.rows[indexPath.row]
         
-        let cell = row.cell(for: indexPath, tableView: tableView)
+        let cell = row.cell(for: indexPath, tableView: tableView, viewController: self)
         cell.selectionStyle = .none
         return cell
     }
@@ -204,14 +218,28 @@ extension RecoverPasswordViewController: SecurityQuestionPickerViewControllerDel
 {
     func securityQuestionPickerViewController(_ securityQuestionPickerViewController: SecurityQuestionPickerViewController, didPickSecurityQuestion securityQuestion: SecurityQuestion.Heading?)
     {
+        var reloadIndices = [questionIndex_]
         if let heading = securityQuestion
         {
             questions_[questionIndex_.row] = SecurityQuestion(heading: heading, answer: "")
+            
+            if questionIndex_.row < questions_.count - 1
+            {
+                reloadIndices.append(IndexPath(row: questionIndex_.row + 1, section: questionIndex_.section))
+            }
         }
         else
         {
             questions_[questionIndex_.row] = nil
+            if questionIndex_.row < questions_.count - 1
+            {
+                for i in (questionIndex_.row+1)..<questions_.count
+                {
+                    questions_[i] = nil
+                    reloadIndices.append(IndexPath(row: i, section: questionIndex_.section))
+                }
+            }
         }
-        tableView.reloadRows(at: [questionIndex_], with: .automatic)
+        tableView.reloadRows(at: reloadIndices, with: .automatic)
     }
 }

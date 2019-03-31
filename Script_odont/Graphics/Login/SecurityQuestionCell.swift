@@ -14,7 +14,7 @@ class SecurityQuestionCell: UITableViewCell
     @IBOutlet weak var questionHeading: UILabel!
     @IBOutlet weak var answer: UITextField!
     
-    func setup(for indexPath: IndexPath, securityQuestion: SecurityQuestion?)
+    func setup(for indexPath: IndexPath, securityQuestion: SecurityQuestion?, canSelect: Bool = true)
     {
         questionIndex.text = "Question \(indexPath.row + 1)"
         if let question = securityQuestion
@@ -28,5 +28,8 @@ class SecurityQuestionCell: UITableViewCell
             answer.isHidden = true
             questionHeading.text = "SecurityQuestionPicker.Label.None".localized
         }
+        
+        questionIndex.textColor     = canSelect ? Appearance.Color.default : Appearance.Color.missing
+        questionHeading.textColor   = canSelect ? Appearance.Color.default : Appearance.Color.missing
     }
 }
