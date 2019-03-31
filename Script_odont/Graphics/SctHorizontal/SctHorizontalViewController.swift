@@ -209,12 +209,38 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     
     fileprivate func updateTimeUi_()
     {
-        let minutes = Int(sctSession.time) / 60
-        let seconds = Int(sctSession.time) % 60
+        let time: Double
+        var isTimeout = false
+        switch sctSession.mode
+        {
+        case .training:
+            time = abs(sctSession.exam.estimatedDuration - sctSession.time)
+            
+            if sctSession.time > sctSession.exam.estimatedDuration
+            {
+                isTimeout = true
+            }
+            
+        case .evaluation:
+            time = sctSession.time
+        }
+        
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
         
         let timeString = String(format: "%02d:%02d", minutes, seconds)
         
-        timeLabel.text = timeString
+        
+        if isTimeout
+        {
+            timeLabel.text = "+\(timeString)"
+            timeLabel.textColor = Appearance.Color.error
+        }
+        else
+        {
+            timeLabel.text = timeString
+            timeLabel.textColor = Appearance.Color.default
+        }
     }
     
     fileprivate func updateNavigationButtons_()

@@ -10,9 +10,19 @@ import Foundation
 
 public class SctSession
 {
+    // -------------------------------------------------------------------------
+    // MARK: - MODE
+    // -------------------------------------------------------------------------
+    public enum Mode
+    {
+        case training
+        case evaluation
+    }
+    
     public var exam: SctExam
     fileprivate var answers_: [[LikertScale.Degree?]]
     public var time: Double = 0.0
+    public var mode = Mode.training
     
     public init(exam: SctExam)
     {
