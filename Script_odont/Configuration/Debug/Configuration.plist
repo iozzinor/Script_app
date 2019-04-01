@@ -4,5 +4,7 @@
 <dict>
 	<key>IsFirstLaunch</key>
 	<false/>
+	<key>IsAuthenticated</key>
+	<true/>
 </dict>
 </plist>

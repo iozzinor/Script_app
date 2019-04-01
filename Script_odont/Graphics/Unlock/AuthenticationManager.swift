@@ -88,13 +88,17 @@ class AuthenticationManager
             }
         }
         get {
-            var result = false
+            #if DEBUG
+                return Configuration.shared.readBoolean(argument: "IsAuthenticated") ?? false
+            #else
+                var result = false
             
-            concurrentAuthenticationQueue_.sync {
-                result = self.authenticated_
-            }
+                concurrentAuthenticationQueue_.sync {
+                    result = self.authenticated_
+                }
             
-            return result
+                return result
+            #endif
         }
     }
     

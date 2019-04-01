@@ -28,7 +28,7 @@ class ViewController: UITabBarController
                 shouldDisplayPassphraseCreation_ = true
                 displayWelcomeWalkthrough_()
             }
-            else
+            else if !AuthenticationManager.shared.authenticated
             {
                 displayUnlock_()
             }
