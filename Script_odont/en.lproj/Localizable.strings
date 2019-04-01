@@ -330,6 +330,10 @@
 "MyProgress.OrdinatesAxis.Legend"   = "%d%%";
 "MyProgress.OrdinatesAxis.Title"    = "Scores (percentage)";
 
+/* VOLUME VIEW CONTROLLER */
+"Volume.ToggleMeshButton.Title.Display" = "Display Mesh";
+"Volume.ToggleMeshButton.Title.Hide"    = "Hide Mesh";
+
 /* CONSTANTS */
 "Constants.Duration.String.Format.Short" = "%02dM:%02dS";
 

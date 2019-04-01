@@ -201,7 +201,6 @@ public class NewDataView: UIView
                 volumeView.scene?.rootNode.addChildNode(node)
                 
                 let meshNode = try SCNNode.load(stlFileUrl: volumePath, meshOnly: true)
-                //meshNode.transform = SCNMatrix4Scale(SCNMatrix4(), 1.1, 1.1, 1.1)
                 volumeView.scene?.rootNode.addChildNode(meshNode)
             }
             catch

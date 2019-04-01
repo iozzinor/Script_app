@@ -330,6 +330,10 @@
 "MyProgress.OrdinatesAxis.Legend"   = "%d%%";
 "MyProgress.OrdinatesAxis.Title" = "Scores (pourcentage)";
 
+/* VOLUME VIEW CONTROLLER */
+"Volume.ToggleMeshButton.Title.Display" = "Afficher maillage";
+"Volume.ToggleMeshButton.Title.Hide"    = "Masquer maillage";
+
 /* CONSTANTS */
 "Constants.Duration.String.Format.Short" = "%02dM:%02dS";
 

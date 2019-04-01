@@ -61,6 +61,8 @@ class VolumeViewController: UIViewController
         {
             meshNode_ = scene.rootNode.childNodes[1]
         }
+        
+        updateTooggleMeshButtonTitle_(isDisplayingMesh: true)
     }
     
     fileprivate func setupGestureRecognizer_()
@@ -69,6 +71,16 @@ class VolumeViewController: UIViewController
         tapGesture.numberOfTapsRequired = 1
         tapGesture.numberOfTapsRequired = 1
         scnView.addGestureRecognizer(tapGesture)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - UI
+    // -------------------------------------------------------------------------
+    
+    fileprivate func updateTooggleMeshButtonTitle_(isDisplayingMesh: Bool)
+    {
+        let title = isDisplayingMesh ? "Volume.ToggleMeshButton.Title.Hide".localized : "Volume.ToggleMeshButton.Title.Display".localized
+        toggleMeshButton.title = title
     }
     
     // -------------------------------------------------------------------------
@@ -88,19 +100,16 @@ class VolumeViewController: UIViewController
     @IBAction func toggleMesh(_ sender: UIBarButtonItem)
     {
         displayMesh_ = !displayMesh_
+        updateTooggleMeshButtonTitle_(isDisplayingMesh: displayMesh_)
         
         if displayMesh_,
             let mesh = meshNode_
         {
             scene.rootNode.addChildNode(mesh)
-            
-            toggleMeshButton.title = "Hide mesh"
         }
         else
         {
             meshNode_?.removeFromParentNode()
-            
-            toggleMeshButton.title = "Display mesh"
         }
     }
 }
