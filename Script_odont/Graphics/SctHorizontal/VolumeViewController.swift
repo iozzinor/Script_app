@@ -11,6 +11,8 @@ import SceneKit
 
 class VolumeViewController: UIViewController
 {
+    @IBOutlet weak var toggleMeshButton: UIBarButtonItem!
+    
     fileprivate var displayBar_ = false
     
     var scene: SCNScene! {
@@ -22,6 +24,8 @@ class VolumeViewController: UIViewController
         }
     }
     var scnView: SCNView!
+    fileprivate var displayMesh_ = true
+    fileprivate var meshNode_: SCNNode? = nil
     
     override func viewDidLoad()
     {
@@ -52,6 +56,11 @@ class VolumeViewController: UIViewController
         scnView.allowsCameraControl = true
         scnView.showsStatistics = true
         scnView.defaultCameraController.interactionMode = .orbitAngleMapping
+        
+        if scene.rootNode.childNodes.count > 1
+        {
+            meshNode_ = scene.rootNode.childNodes[1]
+        }
     }
     
     fileprivate func setupGestureRecognizer_()
@@ -62,6 +71,9 @@ class VolumeViewController: UIViewController
         scnView.addGestureRecognizer(tapGesture)
     }
     
+    // -------------------------------------------------------------------------
+    // MARK: - ACTIONS
+    // -------------------------------------------------------------------------
     @IBAction func cancel(_ sender: UIBarButtonItem)
     {
         dismiss(animated: true, completion: nil)
@@ -71,6 +83,25 @@ class VolumeViewController: UIViewController
     {
         displayBar_ = !displayBar_
         navigationController?.navigationBar.isHidden = !displayBar_
+    }
+    
+    @IBAction func toggleMesh(_ sender: UIBarButtonItem)
+    {
+        displayMesh_ = !displayMesh_
+        
+        if displayMesh_,
+            let mesh = meshNode_
+        {
+            scene.rootNode.addChildNode(mesh)
+            
+            toggleMeshButton.title = "Hide mesh"
+        }
+        else
+        {
+            meshNode_?.removeFromParentNode()
+            
+            toggleMeshButton.title = "Display mesh"
+        }
     }
 }
 

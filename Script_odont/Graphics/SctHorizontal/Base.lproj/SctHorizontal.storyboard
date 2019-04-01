@@ -153,7 +153,15 @@
                                 <action selector="cancel:" destination="ogV-vL-gIQ" id="bYn-xM-on4"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Toggle Mesh" id="o6v-FD-4Dh">
+                            <connections>
+                                <action selector="toggleMesh:" destination="ogV-vL-gIQ" id="hbR-ZI-VKU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="toggleMeshButton" destination="o6v-FD-4Dh" id="kNp-ph-Sjt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6B-ep-E4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

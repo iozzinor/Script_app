@@ -179,7 +179,7 @@ public class NewDataView: UIView
     {
         if let volumeView = currentDataView_ as? SCNView
         {
-            guard let cubePath = Bundle.main.url(forResource: fileName, withExtension: "stl") else
+            guard let volumePath = Bundle.main.url(forResource: fileName, withExtension: "stl") else
             {
                 return
             }
@@ -197,8 +197,12 @@ public class NewDataView: UIView
             
             do
             {
-                let node = try SCNNode(stlFileUrl: cubePath)
+                let node = try SCNNode.load(stlFileUrl: volumePath)
                 volumeView.scene?.rootNode.addChildNode(node)
+                
+                let meshNode = try SCNNode.load(stlFileUrl: volumePath, meshOnly: true)
+                //meshNode.transform = SCNMatrix4Scale(SCNMatrix4(), 1.1, 1.1, 1.1)
+                volumeView.scene?.rootNode.addChildNode(meshNode)
             }
             catch
             {

@@ -21,10 +21,8 @@ enum StlError: Error
 
 extension SCNNode
 {
-    convenience init(stlFileUrl: URL) throws
+    static func load(stlFileUrl: URL, meshOnly: Bool = false) throws -> SCNNode
     {
-        self.init()
-        
         let data = try Data(contentsOf: stlFileUrl, options: .alwaysMapped)
         guard data.count > 84 else
         {
@@ -90,12 +88,45 @@ extension SCNNode
         let use8BitIndices = MemoryLayout<UInt8>.size
         let countedTriangles = SCNGeometryElement(data: nil, primitiveType: .triangles, primitiveCount: trianglesCounted, bytesPerIndex: use8BitIndices)
         
-        self.geometry = SCNGeometry(sources: [vertexSource, normalSource], elements: [countedTriangles])
-        let triangleMaterial = SCNMaterial()
-        triangleMaterial.diffuse.contents = UIColor.white
-        let materials = Array<SCNMaterial>(repeating: triangleMaterial, count: trianglesCounted * 3)
         
-        self.geometry?.materials = materials
+        var lines: [UInt32] = []
+        for i in 0..<trianglesCounted
+        {
+            let index = UInt32(i)
+            lines.append(index * 3)
+            lines.append(index * 3 + 1)
+            lines.append(index * 3 + 2)
+            lines.append(index * 3)
+        }
+        var materials = [SCNMaterial]()
+        var elements = [SCNGeometryElement]()
+        
+        if meshOnly
+        {
+            let lineMaterial = SCNMaterial()
+            lineMaterial.diffuse.contents = UIColor.blue
+            materials.append(contentsOf: Array<SCNMaterial>(repeating: lineMaterial, count: lines.count / 2))
+            
+            let linesElement = SCNGeometryElement(indices: lines, primitiveType: .line)
+            linesElement.pointSize = 3.0
+            
+            elements.append(linesElement)
+        }
+        else
+        {
+            let triangleMaterial = SCNMaterial()
+            triangleMaterial.diffuse.contents = UIColor.white
+            
+            materials.append(contentsOf: Array<SCNMaterial>(repeating: triangleMaterial, count: trianglesCounted * 3))
+            
+            elements.append(countedTriangles)
+        }
+        let geometry = SCNGeometry(sources: [vertexSource, normalSource], elements: elements)
+        
+        geometry.materials = materials
+        
+        let result = SCNNode(geometry: geometry)
+        return result
     }
 }
 
