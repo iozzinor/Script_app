@@ -10,152 +10,174 @@ import Foundation
 import SceneKit
 
 // -----------------------------------------------------------------------------
-// MARK: - STRUCTURES
+// MARK: - STL ERROR
 // -----------------------------------------------------------------------------
-fileprivate struct Vector_
+enum StlError: Error
 {
-    var x: Double
-    var y: Double
-    var z: Double
-    
-    var scnVertex: SCNVector3 {
-        return SCNVector3(x: Float(x), y: Float(y), z: Float(z))
-    }
-    
-    var debugString: String {
-        return "\(x) \(y) \(z)"
-    }
-}
-
-fileprivate struct Triangle_
-{
-    var normal: Vector_
-    var vertex1: Vector_
-    var vertex2: Vector_
-    var vertex3: Vector_
-    
-    var attribute: UInt16
-}
-
-fileprivate func readInteger_<Integer: FixedWidthInteger>(from data: Data, offset: Int) -> Integer
-{
-    var result = Integer(0)
-    
-    for i in 0..<MemoryLayout<Integer>.size
-    {
-        let currentByte = Integer(data[i + offset])
-        
-        result += currentByte << (i * 8)
-    }
-    
-    return result
-}
-
-fileprivate func readReal_(from data: Data, offset: Int) -> Double
-{
-    // the number is read as big endian
-    let number: UInt32 = readInteger_(from: data, offset: offset)
-    
-    let sign = Int(number >> 31) == 1 ? -1 : 1
-    let exponent = Int((number >> 23) & 0xFF)
-    let fractionInteger = Int(number & ((1 << 24) - 1))
-    var fraction = 1.0
-    
-    for i in 0..<23
-    {
-        let currentBit = fractionInteger >> i & 1
-        
-        fraction += Double(currentBit) * pow(2.0, Double(i - 23))
-    }
-    
-    return Double(sign) * pow(2.0, Double(exponent - 127)) * fraction
-}
-
-fileprivate func readVector_(from data: Data, offset: Int) -> Vector_
-{
-    let x = readReal_(from: data, offset: offset)
-    let y = readReal_(from: data, offset: offset + 4)
-    let z = readReal_(from: data, offset: offset + 8)
-    
-    return Vector_(x: x, y: y, z: z)
-}
-
-fileprivate func readTriangle_(from data: Data, offset: Int) -> Triangle_
-{
-    let normal              = readVector_(from: data, offset: offset)
-    let vector1             = readVector_(from: data, offset: offset + 12)
-    let vector2             = readVector_(from: data, offset: offset + 24)
-    let vector3             = readVector_(from: data, offset: offset + 36)
-    let attribute: UInt16   = readInteger_(from: data, offset: offset + 48)
-    
-    return Triangle_(normal: normal, vertex1: vector1, vertex2: vector2, vertex3: vector3, attribute: attribute)
-}
-
-fileprivate func readTriangles_(from data: Data, trianglesCount: UInt32) -> [Triangle_]
-{
-    var offset = SCNNode.stlHeaderSize_ + 4
-    var triangles = [Triangle_]()
-    for _ in 0..<trianglesCount
-    {
-        let newTriangle = readTriangle_(from: data, offset: offset)
-        offset += 50
-        
-        triangles.append(newTriangle)
-    }
-    return triangles
-}
-
-fileprivate func verticesGeometry_(inputTriangles: [Triangle_]) -> SCNGeometry
-{
-    var vertices = [SCNVector3]()
-    var indices: [UInt16] = []
-    var normals = [SCNVector3]()
-    
-    for (i, triangle) in inputTriangles.enumerated()
-    {
-        vertices.append(triangle.vertex1.scnVertex)
-        vertices.append(triangle.vertex2.scnVertex)
-        vertices.append(triangle.vertex3.scnVertex)
-        
-        normals.append(contentsOf: Array<SCNVector3>(repeating: triangle.normal.scnVertex, count: 3))
-        
-        for j in 0..<3
-        {
-            indices.append(UInt16(3 * i + j))
-        }
-    }
-    
-    let verticesSource = SCNGeometrySource(vertices: vertices)
-    let verticesElement = SCNGeometryElement(indices: indices, primitiveType: .triangles)
-    let normalsSource = SCNGeometrySource(normals: normals)
-    
-    let material = SCNMaterial()
-    material.diffuse.contents = UIColor.white
-    let result = SCNGeometry(sources: [verticesSource, normalsSource], elements: [verticesElement])
-    result.materials = Array<SCNMaterial>(repeating: material, count: inputTriangles.count)
-    return result
+    case fileToSmall(size: Int)
+    case unexpectedFileSize(actual: Int, expected: Int)
+    case trianglesCountMismatch(actual: Int, expected: Int)
 }
 
 extension SCNNode
 {
-    // The size of an STL header in bytes.
-    fileprivate static let stlHeaderSize_ = 80
-    
-    static func fromStlFile(filePath: String) -> SCNNode?
+    convenience init(stlFileUrl: URL) throws
     {
-        guard let fileData = FileManager.default.contents(atPath: filePath),
-            fileData.count > SCNNode.stlHeaderSize_ else
+        self.init()
+        
+        let data = try Data(contentsOf: stlFileUrl, options: .alwaysMapped)
+        guard data.count > 84 else
         {
-            return nil
+            throw StlError.fileToSmall(size: data.count)
         }
         
-        // triangles count
-        let trianglesCount: UInt32 = readInteger_(from: fileData, offset: SCNNode.stlHeaderSize_)
-        let triangles = readTriangles_(from: fileData, trianglesCount: trianglesCount)
+        let triangleTarget: UInt32 = data.scanValue(start: 80, length: 4)
+        let triangleBytes = MemoryLayout<Triangle_>.size
+        let expectedFileSize = 84 + triangleBytes * Int(triangleTarget)
+        guard data.count == expectedFileSize else
+        {
+            throw StlError.unexpectedFileSize(actual: data.count, expected: expectedFileSize)
+        }
         
-        let geometry = verticesGeometry_(inputTriangles: triangles)
+        var normals = Data()
+        var vertices = Data()
+        var trianglesCounted = 0
         
-        let newNode = SCNNode(geometry: geometry)
-        return newNode
+        for index in stride(from: 84, to: data.count, by: triangleBytes)
+        {
+            trianglesCounted += 1
+            
+            let triangleData = data.subdata(in: index..<index+triangleBytes)
+            var triangle: Triangle_ = triangleData.withUnsafeBytes { $0.pointee }
+            var normal = triangle.normal
+            if normal.isNull
+            {
+                normal = createNormal(triangle: triangle)
+            }
+            let normalData = normal.unsafeData()
+            normals.append(normalData)
+            normals.append(normalData)
+            normals.append(normalData)
+            
+            vertices.append(triangle.vertex1.unsafeData())
+            vertices.append(triangle.vertex2.unsafeData())
+            vertices.append(triangle.vertex3.unsafeData())
+        }
+        
+        guard triangleTarget == trianglesCounted else
+        {
+            throw StlError.trianglesCountMismatch(actual: trianglesCounted, expected: Int(triangleTarget))
+        }
+        
+        let vertexSource = SCNGeometrySource(data: vertices,
+                                             semantic: .vertex,
+                                             vectorCount: trianglesCounted * 3,
+                                             usesFloatComponents: true,
+                                             componentsPerVector: 3,
+                                             bytesPerComponent: MemoryLayout<Float>.size,
+                                             dataOffset: 0,
+                                             dataStride: MemoryLayout<SCNVector3>.size)
+        
+        let normalSource = SCNGeometrySource(data: normals,
+                                             semantic: .normal,
+                                             vectorCount: trianglesCounted * 3,
+                                             usesFloatComponents: true,
+                                             componentsPerVector: 3,
+                                             bytesPerComponent: MemoryLayout<Float>.size,
+                                             dataOffset: 0,
+                                             dataStride: MemoryLayout<SCNVector3>.size)
+        
+        let use8BitIndices = MemoryLayout<UInt8>.size
+        let countedTriangles = SCNGeometryElement(data: nil, primitiveType: .triangles, primitiveCount: trianglesCounted, bytesPerIndex: use8BitIndices)
+        
+        self.geometry = SCNGeometry(sources: [vertexSource, normalSource], elements: [countedTriangles])
+        let triangleMaterial = SCNMaterial()
+        triangleMaterial.diffuse.contents = UIColor.white
+        let materials = Array<SCNMaterial>(repeating: triangleMaterial, count: trianglesCounted * 3)
+        
+        self.geometry?.materials = materials
     }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - STRUCTURES
+// -----------------------------------------------------------------------------
+private struct Triangle_
+{
+    var normal: SCNVector3
+    var vertex1: SCNVector3
+    var vertex2: SCNVector3
+    var vertex3: SCNVector3
+    var attributes: UInt16
+}
+
+private extension SCNVector3
+{
+    mutating func unsafeData() -> Data
+    {
+        return Data(buffer: UnsafeBufferPointer(start: &self, count: 1))
+    }
+    
+    var isNull: Bool
+    {
+        return x == 0 && y == 0 && z == 0
+    }
+    
+    var length: Float
+    {
+        return sqrt(x * x + y * y + z * z)
+    }
+    
+    mutating func normalize()
+    {
+        let currentLength = length
+        if currentLength > 0
+        {
+            self.x /= currentLength
+            self.y /= currentLength
+            self.z /= currentLength
+        }
+    }
+}
+
+private extension Data
+{
+    func scanValue<T>(start: Int, length: Int) -> T
+    {
+        return self.subdata(in: start..<start+length).withUnsafeBytes { $0.pointee }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - FUNCTIONS
+// -----------------------------------------------------------------------------
+private func vector(_ vertex1: SCNVector3, _ vertex2: SCNVector3) -> SCNVector3
+{
+    return SCNVector3(vertex2.x - vertex1.x, vertex2.y - vertex1.y, vertex2.z - vertex1.z)
+}
+
+private func computeNormal(_ v1: SCNVector3, _ v2: SCNVector3) -> SCNVector3
+{
+    let x = v1.y * v2.z - v1.z * v2.y
+    let y = v1.z * v2.x - v1.x * v2.z
+    let z = v1.x * v2.y - v1.y * v2.x
+    var result = SCNVector3(x, y, z)
+    result.normalize()
+    return result
+}
+
+private func createNormal(triangle: Triangle_) -> SCNVector3
+{
+    var normal = SCNVector3()
+    var vector1 = vector(triangle.vertex1, triangle.vertex2)
+    var vector2 = vector(triangle.vertex1, triangle.vertex3)
+    normal = computeNormal(vector1, vector2)
+    
+    if normal.isNull
+    {
+        vector1 = vector(triangle.vertex1, triangle.vertex3)
+        vector2 = vector(triangle.vertex2, triangle.vertex3)
+        normal = computeNormal(vector1, vector2)
+    }
+    return normal
 }

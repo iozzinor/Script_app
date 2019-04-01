@@ -15,12 +15,20 @@ fileprivate func imageExam1_() -> SctExam
     sct.topic = .therapeutic
     sct.wording = "Un patient de 25 ans se présente en consultation suite à une chute en trotinette. Il souhaite reconstruire son incisive centrale."
     
-    sct.questions.append(SctQuestion(hypothesis: "Voici une vue tridimensionnelle", newData: SctData(content: .volume("simple_sphere"))))
+    // volume
+    sct.questions.append(SctQuestion(hypothesis: "Cube", newData: SctData(content: .volume("simple_cube"))))
+    sct.questions.append(SctQuestion(hypothesis: "Sphère", newData: SctData(content: .volume("simple_sphere"))))
+    sct.questions.append(SctQuestion(hypothesis: "Dent maxillaire", newData: SctData(content: .volume("upper_jaw_scan"))))
+    sct.questions.append(SctQuestion(hypothesis: "Scan antagoniste", newData: SctData(content: .volume("antagonist"))))
+    
+    // image
     let hypothesis = "Réaliser une couronne céramo-céramique"
     let fracturePhoto = UIImage(named: "fracture_incisive_photo")!
     let fractureRadiography = UIImage(named: "fracture_incisive_radio")!
     sct.questions.append(SctQuestion(hypothesis: hypothesis, newData: SctData(content: .image(fractureRadiography))))
     sct.questions.append(SctQuestion(hypothesis: hypothesis, newData: SctData(image: fracturePhoto)))
+    
+    // text
     for i in 1..<4
     {
         sct.questions.append(SctQuestion(hypothesis: "test hypothèse \(i)", newData: SctData(text: "test donnée \(i)")))

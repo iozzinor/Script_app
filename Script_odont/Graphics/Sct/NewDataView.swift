@@ -179,15 +179,31 @@ public class NewDataView: UIView
     {
         if let volumeView = currentDataView_ as? SCNView
         {
-            guard let cubePath = Bundle.main.path(forResource: "simple_cube", ofType: "stl") else
+            guard let cubePath = Bundle.main.url(forResource: fileName, withExtension: "stl") else
             {
                 return
             }
             
             volumeView.scene?.background.contents = UIColor.black
-            if let node = SCNNode.fromStlFile(filePath: cubePath)
+            if let childNodes = volumeView.scene?.rootNode.childNodes
             {
+                for child in childNodes
+                {
+                    child.removeFromParentNode()
+                }
+            }
+            volumeView.scene = SCNScene()
+            volumeView.scene?.background.contents = UIColor.black
+            
+            do
+            {
+                let node = try SCNNode(stlFileUrl: cubePath)
                 volumeView.scene?.rootNode.addChildNode(node)
+            }
+            catch
+            {
+                print(error)
+                fatalError("can not get the volume")
             }
         }
     }
