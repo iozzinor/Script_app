@@ -114,6 +114,7 @@
                     </view>
                     <connections>
                         <outlet property="biometricButton" destination="mO7-t7-dWz" id="c0u-09-z4Y"/>
+                        <outlet property="passwordField" destination="9Xw-0q-mMX" id="pjz-4G-ROY"/>
                         <outlet property="userNameField" destination="B0I-qb-NAv" id="US1-OB-zBj"/>
                         <segue destination="E31-sV-Hfj" kind="presentation" identifier="LoginToSigninSegueId" id="QPy-5z-N6A"/>
                         <segue destination="gZm-Xn-6x4" kind="presentation" identifier="LoginToRecoverPasswordSegueId" id="nRR-T6-Xwk"/>

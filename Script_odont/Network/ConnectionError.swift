@@ -11,6 +11,7 @@ import Foundation
 enum ConnectionError: LocalizedError
 {
     case noAccountLinked
+    case accountNoActivated
     case wrongCredentials
     
     var errorDescription: String? {
@@ -18,6 +19,8 @@ enum ConnectionError: LocalizedError
         {
         case .noAccountLinked:
             return "NetworkingService.ConnectionError.NoAccountLinked.LocalizedDescription".localized
+        case .accountNoActivated:
+            return "NetworkingService.ConnectionError.AccountNotActivated.LocalizedDescription".localized
         case .wrongCredentials:
             return "NetworkingService.ConnectionError.WrongCredentials.LocalizedDescription".localized
         }
@@ -28,6 +31,8 @@ enum ConnectionError: LocalizedError
         {
         case .noAccountLinked:
             return "NetworkingService.ConnectionError.NoAccountLinked.FixTip".localized
+        case .accountNoActivated:
+            return "NetworkingService.ConnectionError.AccountNotActivated.FixTip".localized
         case .wrongCredentials:
             return "NetworkingService.ConnectionError.WrongCredentials.FixTip".localized
         }

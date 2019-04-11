@@ -343,17 +343,19 @@
 "Settings.Section.Account.Title"        = "Account";
 "Settings.Section.Developer.Title"      = "Developer";
 
-"Settings.Row.About"            = "About";
-"Settings.Row.Advanced"         = "Advanced";
-"Settings.Row.Passphrase"       = "Passphrase";
-"Settings.Row.ConfidentialData" = "Confidential Data";
-"Settings.Row.Password"         = "Password & Security Questions";
-"Settings.Row.Qualifications"   = "Qualifications";
-"Settings.Row.Reset"            = "Reset";
-"Settings.Row.Logout"           = "Logout";
-"Settings.Row.LinkAccount"      = "Link an account";
-"Settings.Row.UpdateAccount"    = "Update account";
-"Settings.Row.Developer"        = "Developer";
+"Settings.Row.About"                = "About";
+"Settings.Row.Advanced"             = "Advanced";
+"Settings.Row.Passphrase"           = "Passphrase";
+"Settings.Row.ConfidentialData"     = "Confidential Data";
+"Settings.Row.Password"             = "Password & Security Questions";
+"Settings.Row.Qualifications"       = "Qualifications";
+"Settings.Row.Reset"                = "Reset";
+"Settings.Row.Logout"               = "Logout";
+"Settings.Row.LinkAccount"          = "Link an account";
+"Settings.Row.UpdateAccount"        = "Update account";
+"Settings.Row.AccountNotActivated"  = "Account not activated.";
+"Settings.Row.NotReachable"         = "The Internet can not be reached.";
+"Settings.Row.Developer"            = "Developer";
 
 /* ABOUT VIEW CONTROLLER */
 "About.NavigationItem.Title" = "About";
@@ -430,5 +432,7 @@
 /* FETCH ERROR */
 "NetworkingService.ConnectionError.NoAccountLinked.LocalizedDescription"     = "No account is linked. Please link an account in the settings section.";
 "NetworkingService.ConnectionError.NoAccountLinked.FixTip"                   = "Show preferences.";
+"NetworkingService.ConnectionError.AccountNotActivated.LocalizedDescription" = "The account has not yet been activated.";
+"NetworkingService.ConnectionError.AccountNotActivated.FixTip"               = "Show mails.";
 "NetworkingService.ConnectionError.WrongCredentials.LocalizedDescription"    = "Your account has wrong credentials. Please update your account in the settings.";
 "NetworkingService.ConnectionError.WrongCredentials.FixTip"                  = "Show preferences.";

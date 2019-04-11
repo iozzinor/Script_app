@@ -15,11 +15,14 @@ class LoginViewController: UIViewController
     static let toSignin = "LoginToSigninSegueId"
     
     @IBOutlet weak var userNameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var biometricButton: UIButton!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        passwordField.isSecureTextEntry = true
         
         biometricButton.isHidden = !AuthenticationManager.shared.biometricAuthentication.canEvaluatePolicy()
         biometricButton.setTitle(AuthenticationManager.shared.biometricAuthentication.authenticationName, for: .normal)
@@ -37,6 +40,11 @@ class LoginViewController: UIViewController
     
     @IBAction func login(_ sender: UIButton)
     {
+        let userName = userNameField.text ?? ""
+        let password = passwordField.text ?? ""
+        NetworkingService.shared.authenticateUser(userName: userName, password: password, authenticationCompletion: {
+            _ -> Void in
+        })
         dismiss(animated: true, completion: nil)
     }
     

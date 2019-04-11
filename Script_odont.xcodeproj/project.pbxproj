@@ -107,6 +107,8 @@
 		AC4904CD222BC16B00BDEB4B /* QualificationPickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904CC222BC16B00BDEB4B /* QualificationPickerViewControllerDelegate.swift */; };
 		AC4904CF222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904CE222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift */; };
 		AC4904D1222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904D0222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift */; };
+		AC50F1D9225A892F00FF46B1 /* CharacterSet+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50F1D8225A892F00FF46B1 /* CharacterSet+Utils.swift */; };
+		AC50F1DB225A89F900FF46B1 /* Dictionary+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50F1DA225A89F900FF46B1 /* Dictionary+utils.swift */; };
 		AC51CBEA224E667000B52FD0 /* VolumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51CBE9224E667000B52FD0 /* VolumeViewController.swift */; };
 		AC53E36722329C2700CA4437 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E36622329C2700CA4437 /* Constants.swift */; };
 		AC53E3692232B2BA00CA4437 /* SctQuestionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E3682232B2BA00CA4437 /* SctQuestionHeaderCell.swift */; };
@@ -323,6 +325,8 @@
 		AC4904CC222BC16B00BDEB4B /* QualificationPickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationPickerViewControllerDelegate.swift; sourceTree = "<group>"; };
 		AC4904CE222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopicPickerViewController.swift; sourceTree = "<group>"; };
 		AC4904D0222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopicPickerViewControllerDelegate.swift; sourceTree = "<group>"; };
+		AC50F1D8225A892F00FF46B1 /* CharacterSet+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+Utils.swift"; sourceTree = "<group>"; };
+		AC50F1DA225A89F900FF46B1 /* Dictionary+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+utils.swift"; sourceTree = "<group>"; };
 		AC51CBE9224E667000B52FD0 /* VolumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeViewController.swift; sourceTree = "<group>"; };
 		AC53E36622329C2700CA4437 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AC53E3682232B2BA00CA4437 /* SctQuestionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctQuestionHeaderCell.swift; sourceTree = "<group>"; };
@@ -711,6 +715,8 @@
 				AC53E36A2232B75200CA4437 /* UIView+utils.swift */,
 				ACD1B3A3223BF6490065F07E /* UILabel+utils.swift */,
 				AC421ABD224D37D10011052B /* UIImage+utils.swift */,
+				AC50F1D8225A892F00FF46B1 /* CharacterSet+Utils.swift */,
+				AC50F1DA225A89F900FF46B1 /* Dictionary+utils.swift */,
 				AC96DD6E224F516A00FFD529 /* SCNNode+utils.swift */,
 				AC31A043224B845A00A3A461 /* Configuration.swift */,
 			);
@@ -1027,6 +1033,7 @@
 				ACC83F70223D70D30064BE6F /* SctSearchCriterionPickerDelegate.swift in Sources */,
 				AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */,
 				AC372C56223942BE009F1DAD /* SctPerformRateCell.swift in Sources */,
+				AC50F1D9225A892F00FF46B1 /* CharacterSet+Utils.swift in Sources */,
 				ACC81AC422401DC0000990EA /* ProgressCell.swift in Sources */,
 				AC74B69C223542A000B31571 /* WelcomeWalkthroughContentViewController.swift in Sources */,
 				AC31A044224B845A00A3A461 /* Configuration.swift in Sources */,
@@ -1080,6 +1087,7 @@
 				ACAD5DDC224674A10041E484 /* ImageFadeOutAnimationController.swift in Sources */,
 				AC4904C9222BBE7200BDEB4B /* PasswordTrait.swift in Sources */,
 				AC9D150A223ED31A00131490 /* LeaderboardViewController.swift in Sources */,
+				AC50F1DB225A89F900FF46B1 /* Dictionary+utils.swift in Sources */,
 				ACDC49AF224240BA00B43534 /* TableSection.swift in Sources */,
 				AC31A04D224B8DB700A3A461 /* SpecializedErrorButtonDelegate.swift in Sources */,
 				AC38BB76221DFB2F008E829B /* String+localized.swift in Sources */,
@@ -1411,6 +1419,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89BP7N4885;
 				INFOPLIST_FILE = Script_odont/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1429,6 +1438,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89BP7N4885;
 				INFOPLIST_FILE = Script_odont/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

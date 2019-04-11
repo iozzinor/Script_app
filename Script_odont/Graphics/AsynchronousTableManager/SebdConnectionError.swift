@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class SebdConnectionError: SpecializedErrorButtonDelegate
 {
@@ -24,21 +25,14 @@ class SebdConnectionError: SpecializedErrorButtonDelegate
     
     func errorButtonView(_ errorButtonView: ErrorButtonView, actionTriggeredFor error: ConnectionError)
     {
-        viewController?.showSettings()
-        /*switch error
+        switch error
         {
-        case let connectionError as ConnectionError:
-            switch connectionError
-            {
-            case .noAccountLinked, .wrongCredentials:
-                if let viewController = tabBarController as? ViewController
-                {
-                    viewController.showSettings()
-                }
-            }
-        default:
-            break
-        }*/
+        case .wrongCredentials, .noAccountLinked:
+            viewController?.showSettings()
+        case .accountNoActivated:
+            let url = URL(string: "message://")!
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     
     func errorButtonView(_ errorButtonView: ErrorButtonView, buttonTitleFor error: ConnectionError) -> String

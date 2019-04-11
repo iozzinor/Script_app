@@ -396,13 +396,15 @@ class SctBrowsingViewController: AsynchronousTableViewController<BrowsingSection
         }
         do
         {
-            _ = try NetworkingService.shared.getConnectionInformation(host: Settings.shared.host)
+            _ = try NetworkingService.shared.getConnectionInformation()
             
             state = .loaded(defaultContent)
         }
         catch let connectionError as ConnectionError
         {
             state = .loaded(defaultContent)
+            //state = .error(connectionError)
+            //state = .error(ConnectionError.accountNoActivated)
             //state = .error(NetworkError.airplaneMode)
             //state = .error(connectionError)
         }

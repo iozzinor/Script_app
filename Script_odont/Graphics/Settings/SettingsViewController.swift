@@ -54,6 +54,8 @@ enum SettingsRow: TableRow
     case logout
     case linkAccount
     case updateAccount
+    case accountNotActivated
+    case notReachable
     
     // other
     case reset
@@ -110,6 +112,16 @@ enum SettingsRow: TableRow
             cell.textLabel?.text = "Settings.Row.UpdateAccount".localized
             cell.textLabel?.textColor = Appearance.Color.action
             return cell
+        case .accountNotActivated:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingsRow.textCellId, for: indexPath)
+            cell.textLabel?.text = "Settings.Row.AccountNotActivated".localized
+            cell.textLabel?.textColor = Appearance.Color.missing
+            return cell
+        case .notReachable:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingsRow.textCellId, for: indexPath)
+            cell.textLabel?.text = "Settings.Row.NotReachable".localized
+            cell.textLabel?.textColor = Appearance.Color.missing
+            return cell
             
         case .reset:
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingsRow.textCellId, for: indexPath)
@@ -130,7 +142,7 @@ enum SettingsRow: TableRow
         {
         case .about, .advanced, .passphrase, .confidentialData, .password, .qualifications, .developer, .reset:
             return .disclosureIndicator
-        case .logout, .linkAccount, .updateAccount:
+        case .logout, .linkAccount, .updateAccount, .accountNotActivated, .notReachable:
             return .none
         }
     }
@@ -185,7 +197,7 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
         // account
         do
         {
-            connectionInformation_ = try NetworkingService.shared.getConnectionInformation(host: Settings.shared.host)
+            connectionInformation_ = try NetworkingService.shared.getConnectionInformation()
             newContent.append((section: .account, rows: [.confidentialData, .password, .qualifications, .logout]))
         }
         catch let connectionError as ConnectionError
@@ -195,12 +207,25 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
             case .noAccountLinked:
                 newContent.append((section: .account, rows: [.linkAccount]))
                 
+            case .accountNoActivated:
+                newContent.append((section: .account, rows: [SettingsRow.accountNotActivated]))
+                
             case .wrongCredentials:
                 newContent.append((section: .account, rows: [.updateAccount]))
             }
         }
+        catch let networkError as NetworkError
+        {
+            switch networkError
+            {
+            case .notReachable:
+                newContent.append((section: .account, rows: [.notReachable]))
+            case .airplaneMode:
+                break
+            }
+        }
         catch
-        {    
+        {
         }
         
         // developer
@@ -238,9 +263,9 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
         let row = content[indexPath.section].rows[indexPath.row]
         switch row
         {
-        case .about, .advanced, .passphrase, .developer, .reset, .logout, .linkAccount, .updateAccount:
+        case .about, .advanced, .passphrase, .developer, .reset, .logout, .linkAccount, .updateAccount, .notReachable:
             return indexPath
-        case .confidentialData, .password, .qualifications:
+        case .confidentialData, .password, .qualifications, .accountNotActivated:
             return nil
         }
     }
@@ -266,7 +291,9 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
             performSegue(withIdentifier: SettingsViewController.toLogin, sender: self)
         case .updateAccount:
             break
-        case .confidentialData, .password, .qualifications:
+        case .notReachable:
+             UIApplication.shared.openPreferences()
+        case .confidentialData, .password, .qualifications, .accountNotActivated:
             break
         }
     }

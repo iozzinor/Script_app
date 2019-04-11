@@ -343,17 +343,19 @@
 "Settings.Section.Account.Title"        = "Compte";
 "Settings.Section.Developer.Title"      = "Développeur";
 
-"Settings.Row.About"            = "A propos";
-"Settings.Row.Advanced"         = "Avancé";
-"Settings.Row.Passphrase"       = "Code PIN";
-"Settings.Row.ConfidentialData" = "Données confidentielles";
-"Settings.Row.Password"         = "Mot de passe et questions sécurité";
-"Settings.Row.Qualifications"   = "Compétences";
-"Settings.Row.Reset"            = "Réinitialiser";
-"Settings.Row.Logout"           = "Se déconnecter";
-"Settings.Row.LinkAccount"      = "Associer un compte";
-"Settings.Row.UpdateAccount"    = "Mettre le compte à jour";
-"Settings.Row.Developer"        = "Développeur";
+"Settings.Row.About"                = "A propos";
+"Settings.Row.Advanced"             = "Avancé";
+"Settings.Row.Passphrase"           = "Code PIN";
+"Settings.Row.ConfidentialData"     = "Données confidentielles";
+"Settings.Row.Password"             = "Mot de passe et questions sécurité";
+"Settings.Row.Qualifications"       = "Compétences";
+"Settings.Row.Reset"                = "Réinitialiser";
+"Settings.Row.Logout"               = "Se déconnecter";
+"Settings.Row.LinkAccount"          = "Associer un compte";
+"Settings.Row.UpdateAccount"        = "Mettre le compte à jour";
+"Settings.Row.AccountNotActivated"  = "Compte non activé.";
+"Settings.Row.NotReachable"         = "Impossible de se connecter à internet.";
+"Settings.Row.Developer"            = "Développeur";
 
 /* ABOUT VIEW CONTROLLER */
 "About.NavigationItem.Title" = "A propos";
@@ -430,5 +432,7 @@
 /* FETCH ERROR */
 "NetworkingService.ConnectionError.NoAccountLinked.LocalizedDescription"     = "Pas de compte associé.";
 "NetworkingService.ConnectionError.NoAccountLinked.FixTip"                   = "Associer un compte.";
+"NetworkingService.ConnectionError.AccountNotActivated.LocalizedDescription" = "Le compte n'a pas encore été activé.";
+"NetworkingService.ConnectionError.AccountNotActivated.FixTip"               = "Afficher les mails.";
 "NetworkingService.ConnectionError.WrongCredentials.LocalizedDescription"    = "Votre compte n'est plus associé à l'appareil.";
 "NetworkingService.ConnectionError.WrongCredentials.FixTip"                  = "Réassocier le compte.";
