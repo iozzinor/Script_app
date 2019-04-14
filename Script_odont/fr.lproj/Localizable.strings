@@ -397,8 +397,9 @@
 /* OTHER VIEW CONTROLLER */
 "OtherViewController.NavigationItem.Title" = "Autres";
 
-"OtherViewController.Tutorials" = "Tutoriels";
-"OtherViewController.Leaderboard" = "Classement";
+"OtherViewController.Tutorials"         = "Tutoriels";
+"OtherViewController.Leaderboard"       = "Classement";
+"OtherViewController.ToothRecognition"  = "Entrainement reconnaissance dents";
 
 /* WALKTHROUGHS VIEW CONTROLLER */
 "Walkthroughs.Show.Welcome" = "Bienvenue...";
@@ -422,6 +423,14 @@
 "PeriodLeaderboard.NavigationItemTitle.Week"    = "Classement de la semaine";
 "PeriodLeaderboard.NavigationItemTitle.Month"   = "Classement du mois";
 "PeriodLeaderboard.NavigationItemTitle.Year"    = "Classement de l'année";
+
+/* TOOTH RECOGNITION */
+"ToothRecognition.NavigationItem.Title" = "Identifiez la dent";
+"ToothRecognition.FirstQuestion"        = "Première question.";
+"ToothRecognition.Select"               = "Choisir la dent";
+
+/* TOOTH RECOGNITION SELECTION */
+"ToothRecognitionSelection.NavigationItem.Title" = "Sélectionnez la dent";
 
 /* NETWORK ERROR */
 "NetworkError.NotReachable.LocalizedDescription"    = "Votre appareil n'est pas connecté à internet.";

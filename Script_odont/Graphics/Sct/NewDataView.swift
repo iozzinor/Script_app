@@ -179,7 +179,7 @@ public class NewDataView: UIView
     {
         if let volumeView = currentDataView_ as? SCNView
         {
-            guard let volumePath = Bundle.main.url(forResource: fileName, withExtension: "stl") else
+            guard let volumePath = Bundle.main.url(forResource: fileName, withExtension: "stl", subdirectory: "SctData") else
             {
                 return
             }

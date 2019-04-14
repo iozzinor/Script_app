@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CandidateStatisticsCellReuseId" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="AP5-BB-NAB" customClass="CandidateStatisticsCell" customModule="Script_odont" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AP5-BB-NAB" id="9Ee-qW-rdJ">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="E5G-Ca-cSe">
+                        <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuO-QR-RZa">
+                                <rect key="frame" x="0.0" y="11.5" width="67" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sGV-5p-oN1">
+                                <rect key="frame" x="72" y="0.0" width="263" height="43.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOS-XM-4LQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="263" height="11"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2Tq-5j-c5W">
+                                        <rect key="frame" x="0.0" y="16" width="263" height="11.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answered Sct Exams:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXR-1t-10u">
+                                                <rect key="frame" x="0.0" y="0.0" width="205.5" height="11.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yi-3P-qlA">
+                                                <rect key="frame" x="210.5" y="0.0" width="52.5" height="11.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="0yi-3P-qlA" firstAttribute="width" secondItem="2Tq-5j-c5W" secondAttribute="width" multiplier="1:5" id="Z5G-3c-EaK"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="P7Q-UT-JOC">
+                                        <rect key="frame" x="0.0" y="32.5" width="263" height="11"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mean Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TmL-Nw-LCM">
+                                                <rect key="frame" x="0.0" y="0.0" width="205.5" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f62-0c-vRZ">
+                                                <rect key="frame" x="210.5" y="0.0" width="52.5" height="11"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="0yi-3P-qlA" firstAttribute="width" secondItem="f62-0c-vRZ" secondAttribute="width" id="blX-2R-NZX"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="nuO-QR-RZa" firstAttribute="width" secondItem="E5G-Ca-cSe" secondAttribute="width" multiplier="1:5" id="6fo-cq-7mA"/>
+                            <constraint firstItem="sGV-5p-oN1" firstAttribute="top" secondItem="E5G-Ca-cSe" secondAttribute="top" id="HDC-W6-09d"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="E5G-Ca-cSe" firstAttribute="leading" secondItem="9Ee-qW-rdJ" secondAttribute="leading" constant="20" symbolic="YES" id="7pM-fb-ovf"/>
+                    <constraint firstItem="E5G-Ca-cSe" firstAttribute="top" secondItem="9Ee-qW-rdJ" secondAttribute="top" id="cfW-DO-WRc"/>
+                    <constraint firstAttribute="trailing" secondItem="E5G-Ca-cSe" secondAttribute="trailing" constant="20" symbolic="YES" id="dVK-HT-83O"/>
+                    <constraint firstAttribute="bottom" secondItem="E5G-Ca-cSe" secondAttribute="bottom" id="fSv-ve-dTo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="answeredSctExamsLabel" destination="0yi-3P-qlA" id="4Kb-L6-o3x"/>
+                <outlet property="meanScoreLabel" destination="f62-0c-vRZ" id="PHD-Sa-QTx"/>
+                <outlet property="rankLabel" destination="nuO-QR-RZa" id="HNb-48-Ow6"/>
+                <outlet property="userNameLabel" destination="cOS-XM-4LQ" id="AA3-sR-EO0"/>
+            </connections>
+            <point key="canvasLocation" x="-415" y="46"/>
+        </tableViewCell>
+    </objects>
+</document>

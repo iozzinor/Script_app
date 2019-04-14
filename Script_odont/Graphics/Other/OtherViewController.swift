@@ -10,9 +10,11 @@ import UIKit
 
 class OtherViewController: UITableViewController
 {
-    static let otherCellIdentifier  = "OtherCellReuseId"
     static let toWalkthroughs       = "OtherToWalkthroughsSegueId"
-    static let toLeaderboardSegueId = "OtherToLeaderboardSegueId"
+    static let toLeaderboard        = "OtherToLeaderboardSegueId"
+    static let toToothRecognition   = "OtherToToothRecognitionSegueId"
+    
+    static let otherCellIdentifier = "OtherCellReuseId"
     
     // -------------------------------------------------------------------------
     // MARK: - ROWS
@@ -21,6 +23,7 @@ class OtherViewController: UITableViewController
     {
         case walkthroughs
         case leaderboard
+        case toothRecognition
         
         var title: String {
             switch self
@@ -29,6 +32,8 @@ class OtherViewController: UITableViewController
                 return "OtherViewController.Tutorials".localized
             case .leaderboard:
                 return "OtherViewController.Leaderboard".localized
+            case .toothRecognition:
+                return "OtherViewController.ToothRecognition".localized
             }
         }
     }
@@ -53,7 +58,12 @@ class OtherViewController: UITableViewController
     
     fileprivate func displayLeaderboard_()
     {
-        performSegue(withIdentifier: OtherViewController.toLeaderboardSegueId, sender: self)
+        performSegue(withIdentifier: OtherViewController.toLeaderboard, sender: self)
+    }
+    
+    fileprivate func displayToothRecognition_()
+    {
+        performSegue(withIdentifier: OtherViewController.toToothRecognition, sender: self)
     }
     
     // -------------------------------------------------------------------------
@@ -69,6 +79,8 @@ class OtherViewController: UITableViewController
             displayLeaderboard_()
         case .walkthroughs:
             displayWalkthroughs_()
+        case .toothRecognition:
+            displayToothRecognition_()
         }
     }
     

@@ -397,8 +397,9 @@
 /* OTHER VIEW CONTROLLER */
 "OtherViewController.NavigationItem.Title" = "Others";
 
-"OtherViewController.Tutorials" = "Tutorials";
-"OtherViewController.Leaderboard" = "Leaderboard";
+"OtherViewController.Tutorials"         = "Tutorials";
+"OtherViewController.Leaderboard"       = "Leaderboard";
+"OtherViewController.ToothRecognition"  = "Tooth Recognition Training";
 
 /* WALKTHROUGHS VIEW CONTROLLER */
 "Walkthroughs.Show.Welcome" = "Welcome...";
@@ -422,6 +423,14 @@
 "PeriodLeaderboard.NavigationItemTitle.Week"    = "Leaderboard of the week";
 "PeriodLeaderboard.NavigationItemTitle.Month"   = "Leaderboard of the month";
 "PeriodLeaderboard.NavigationItemTitle.Year"    = "Leaderboard of the year";
+
+/* TOOTH RECOGNITION */
+"ToothRecognition.NavigationItem.Title" = "Identify The Tooth";
+"ToothRecognition.FirstQuestion"        = "First Question.";
+"ToothRecognition.Select"               = "Select Tooth";
+
+/* TOOTH RECOGNITION SELECTION */
+"ToothRecognitionSelection.NavigationItem.Title" = "Pick The Tooth";
 
 /* NETWORK ERROR */
 "NetworkError.NotReachable.LocalizedDescription"    = "Your decive is not connected to the Internet.";
