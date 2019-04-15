@@ -396,7 +396,7 @@ class SctBrowsingViewController: AsynchronousTableViewController<BrowsingSection
         }
         do
         {
-            _ = try NetworkingService.shared.getConnectionInformation()
+            try NetworkingService.shared.retrieveConnectionInformation(completion: nil)
             
             state = .loaded(defaultContent)
         }

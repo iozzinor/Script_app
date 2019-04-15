@@ -16,16 +16,12 @@ class LoginViewController: UIViewController
     
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var biometricButton: UIButton!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         passwordField.isSecureTextEntry = true
-        
-        biometricButton.isHidden = !AuthenticationManager.shared.biometricAuthentication.canEvaluatePolicy()
-        biometricButton.setTitle(AuthenticationManager.shared.biometricAuthentication.authenticationName, for: .normal)
     }
     
     fileprivate func isPasswordValid(_ password: String) -> Bool
@@ -43,25 +39,40 @@ class LoginViewController: UIViewController
         let userName = userNameField.text ?? ""
         let password = passwordField.text ?? ""
         NetworkingService.shared.authenticateUser(userName: userName, password: password, authenticationCompletion: {
-            _ -> Void in
+            (authenticated) -> Void in
+            
+            DispatchQueue.main.async {
+                self.loginCallback_(authenticated: authenticated, userName: userName, password: password)
+            }
         })
-        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func biometricLoginAction(_ sender: UIButton)
+    fileprivate func loginCallback_(authenticated: Bool, userName: String, password: String)
     {
-        AuthenticationManager.shared.authenticateUserUsingBiometry {
-            (error: Error?) -> Void in
-            
-            if let error = error
-            {
-                self.displayErrorMessage_(error)
-            }
-            else
-            {
-                self.dismiss(animated: true, completion: nil)
-            }
+        if !authenticated
+        {
+            self.passwordField.becomeFirstResponder()
+            self.passwordField.selectAll(nil)
+            self.passwordField.animateErrorShake()
         }
+        else
+        {
+            storeCredentialsKey_(userName: userName, password: password, completion: {
+                self.dismiss(animated: true, completion: nil)
+            })
+        }
+    }
+    
+    fileprivate func storeCredentialsKey_(userName: String, password: String, completion: @escaping () -> Void)
+    {
+        NetworkingService.shared.getCredentialsKey(forUser: userName, password: password, completion: {
+            (credentialsKey) -> Void in
+            
+            Settings.shared.accountUsername = userName
+            Settings.shared.accountKey = credentialsKey
+            
+            completion()
+        })
     }
     
     fileprivate func displayErrorMessage_(_ error: Error)

@@ -8,11 +8,12 @@
 
 import Foundation
 
+typealias Json = Dictionary<String, Any>
 
 // -------------------------------------------------------------------------
 // MARK: - JSON DESERIALIZATION
 // -------------------------------------------------------------------------
-func dictionaryFrom(jsonString: String) -> Dictionary<String, Any>?
+func dictionaryFrom(jsonString: String) -> Json?
 {
     var result = Dictionary<String, Any>()
     
@@ -23,7 +24,7 @@ func dictionaryFrom(jsonString: String) -> Dictionary<String, Any>?
     
     do
     {
-        let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+        let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as! Json
         for (key, value) in jsonObject
         {
             result[key] = value

@@ -12,15 +12,16 @@ class NetworkingService
 {
     static let shared = NetworkingService()
     
-    fileprivate var host_ = Settings.shared.host
     let ephemeralSession: URLSession
+    
+    typealias JsonCompletion = ((Json?) -> Void)?
     
     private init()
     {
         self.ephemeralSession = URLSession(configuration: .ephemeral)
     }
     
-    func getConnectionInformation() throws -> ConnectionInformation
+    func retrieveConnectionInformation(completion: ((ConnectionInformation) -> Void)?) throws
     {
         // check that the device can get connected to the Internet
         switch Reachability.currentStatus
@@ -37,61 +38,146 @@ class NetworkingService
             throw ConnectionError.noAccountLinked
         }
         
-        return ConnectionInformation(host: host_, accountKey: accountKey)
+        // check that the credential is valid
+        // check that the account has been activated
+        authenticateUser_(credentialsKey: "thekey", completionHandler: {
+            (json) -> Void in
+            
+            
+        })
+        
+        completion?(ConnectionInformation(host: Settings.shared.host, accountKey: accountKey))
     }
     
-    func authenticateUser(userName: String, password: String, authenticationCompletion: (Bool) -> Void)
+    // -------------------------------------------------------------------------
+    // MARK: - AUTHENTICATION
+    // -------------------------------------------------------------------------
+    func authenticateUser(userName: String, password: String, authenticationCompletion: @escaping (Bool) -> Void)
     {
-        guard let url = URL(string: host_.name + "/api/1/user/check_credentials") else
-        {
-            return
-        }
-        print(url)
-        var request = URLRequest(url: url)
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
-        
-        let parameters: [String: Any] = [
+        let parameters: Json = [
             "username": userName,
             "password": password
         ]
-        
-        request.httpBody = parameters.percentEscaped().data(using: .utf8)
-        
-        let task = ephemeralSession.dataTask(with: request) {
-            data, response, error -> Void in
+        executeHttpRequest_(uri: "user/check_credentials", postParameters: parameters, completionHandler: {
+            (json) -> Void in
             
-            guard let data = data,
-                let responseString = String(data: data, encoding: .utf8) else
+            guard let json = json else
             {
+                authenticationCompletion(false)
                 return
             }
             
-            //print(responseString)
-            let json = dictionaryFrom(jsonString: responseString)
-            print(json)
-        }
-        task.resume()
+            if json.keys.contains("exception")
+            {
+                authenticationCompletion(false)
+            }
+            else
+            {   
+                authenticationCompletion(true)
+            }
+        })
     }
+    
+    fileprivate func authenticateUser_(credentialsKey: String, completionHandler: JsonCompletion)
+    {
+        let parameters: Json = [
+            "credentials_key": credentialsKey
+        ]
+        executeHttpRequest_(uri: "user/check_credentials", postParameters: parameters, completionHandler: completionHandler)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - CREATE ACCOUNT
+    // -------------------------------------------------------------------------
     
     func createAccount(userName: String, password: String, mailAddress: String)
     {
-        guard let url = URL(string: host_.name + "/api/1/user/create") else
-        {
-            return
-        }
-        print(url)
-        var request = URLRequest(url: url)
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
-        
-        let parameters: [String: Any] = [
+        let parameters: Json = [
             "username": userName,
             "password": password,
             "mail_address": mailAddress
         ]
         
-        request.httpBody = parameters.percentEscaped().data(using: .utf8)
+        executeHttpRequest_(uri: "user/create", postParameters: parameters, completionHandler: nil)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - CREDENTIALS
+    // -------------------------------------------------------------------------
+    func getCredentialsKey(forUser userName: String, password: String, completion: @escaping (String?) -> Void)
+    {
+        let parameters: Json = [
+            "username": userName,
+            "password": password
+        ]
+        executeHttpRequest_(uri: "user/check_credentials", postParameters: parameters, completionHandler: {
+            (json) -> Void in
+            
+            guard let json = json,
+                // get information
+                json.keys.contains("information"),
+                let information = json["information"] as? Json,
+                // get credential list
+                information.keys.contains("credentials_list"),
+                let credentialsList = information["credentials_list"] as? Array<Any>
+                    else
+            {
+                completion(nil)
+                return
+            }
+            
+            // create a new credentials key
+            if credentialsList.isEmpty
+            {
+                self.createCredentialsKey_(forUser: userName, password: password, completion: completion)
+            }
+            // retrieve the last credentials key
+            else
+            {
+                let credentialsKeyDictionary = credentialsList.last! as? Json
+                completion(credentialsKeyDictionary?["key"] as? String)
+            }
+        })
+    }
+    
+    fileprivate func createCredentialsKey_(forUser userName: String, password: String, completion: @escaping (String?) -> Void)
+    {
+        let parameters: [String: Any] = [
+            "username": userName,
+            "password": password
+        ]
+        executeHttpRequest_(uri: "user/create_credentials", postParameters: parameters, completionHandler: {
+            (json) -> Void in
+            
+            guard let json = json,
+                // get information
+                let information = json["information"] as? Json,
+                // get new key
+                let newCredentials = information["new_credentials"] as? Json,
+                let credentialsKey = newCredentials["key"] as? String
+                    else
+            {
+                completion(nil)
+                return
+            }
+            completion(credentialsKey)
+        })
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - UTILS
+    // -------------------------------------------------------------------------
+    fileprivate func executeHttpRequest_(uri: String, postParameters: [String: Any], completionHandler: JsonCompletion)
+    {
+        guard let url = URL(string: Settings.shared.host.name + "/api/1/\(uri)") else
+        {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        
+        request.httpBody = postParameters.percentEscaped().data(using: .utf8)
         
         let task = ephemeralSession.dataTask(with: request) {
             data, response, error -> Void in
@@ -103,7 +189,7 @@ class NetworkingService
             }
             
             let json = dictionaryFrom(jsonString: responseString)
-            print(json)
+            completionHandler?(json)
         }
         task.resume()
     }

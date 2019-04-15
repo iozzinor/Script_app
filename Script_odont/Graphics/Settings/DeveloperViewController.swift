@@ -163,8 +163,11 @@ class DeveloperViewController: UIViewController, UITableViewDelegate, UITableVie
         let alertController = UIAlertController(title: "Developer.ServerName.Alert.Title".localized, message: "Developer.ServerName.Alert.Message".localized, preferredStyle: .alert)
         
         // text fields
+        var newTextField: UITextField?
         alertController.addTextField(configurationHandler: {
             $0.placeholder = "Developer.ServerName.TextField.Placeholder".localized
+            $0.text = Settings.shared.serverName
+            newTextField = $0
             
             $0.addTarget(self, action: #selector(DeveloperViewController.serverNameChanged_), for: .editingChanged)
         })
@@ -186,7 +189,10 @@ class DeveloperViewController: UIViewController, UITableViewDelegate, UITableVie
         okAction.isEnabled = false
         actionToEnable = okAction
         
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: {
+            newTextField?.becomeFirstResponder()
+            newTextField?.selectAll(nil)
+        })
     }
     
     @objc fileprivate func serverNameChanged_(_ sender: UITextField)

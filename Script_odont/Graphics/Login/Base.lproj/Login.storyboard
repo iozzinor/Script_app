@@ -58,15 +58,8 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mO7-t7-dWz">
-                                        <rect key="frame" x="103.5" y="169.5" width="168" height="72.5"/>
-                                        <state key="normal" title="Biometric authentication"/>
-                                        <connections>
-                                            <action selector="biometricLoginAction:" destination="S0b-16-rWF" eventType="touchUpInside" id="SPH-SM-V6b"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaT-TM-2TS">
-                                        <rect key="frame" x="162.5" y="262" width="50" height="300.5"/>
+                                        <rect key="frame" x="162.5" y="169.5" width="50" height="393"/>
                                         <state key="normal" title="Log in !"/>
                                         <connections>
                                             <action selector="login:" destination="S0b-16-rWF" eventType="touchUpInside" id="ymC-eO-apj"/>
@@ -113,7 +106,6 @@
                         <viewLayoutGuide key="safeArea" id="XZu-Ax-gGQ"/>
                     </view>
                     <connections>
-                        <outlet property="biometricButton" destination="mO7-t7-dWz" id="c0u-09-z4Y"/>
                         <outlet property="passwordField" destination="9Xw-0q-mMX" id="pjz-4G-ROY"/>
                         <outlet property="userNameField" destination="B0I-qb-NAv" id="US1-OB-zBj"/>
                         <segue destination="E31-sV-Hfj" kind="presentation" identifier="LoginToSigninSegueId" id="QPy-5z-N6A"/>

@@ -168,6 +168,7 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
     
     fileprivate var errorView_ = ErrorButtonView()
     fileprivate var connectionInformation_: ConnectionInformation?
+    fileprivate var connectionError_: Error?
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -190,42 +191,58 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
     
     fileprivate func loadSettings_()
     {
+        do
+        {
+            try NetworkingService.shared.retrieveConnectionInformation(completion: {
+                (connectionInformation) -> Void in
+                self.displaySettings_(connectionError: nil, connectionInformation: connectionInformation)
+            })
+        }
+        catch
+        {
+            self.displaySettings_(connectionError: error, connectionInformation: nil)
+        }
+    }
+    
+    fileprivate func displaySettings_(connectionError: Error?, connectionInformation: ConnectionInformation?)
+    {
+        self.connectionError_ = connectionError
+        self.connectionInformation_ = connectionInformation
+        
         var newContent = Content()
         // general
         newContent.append((section: .general, rows: [.about, .advanced, .passphrase]))
         
         // account
-        do
+        if let _ = connectionInformation
         {
-            connectionInformation_ = try NetworkingService.shared.getConnectionInformation()
             newContent.append((section: .account, rows: [.confidentialData, .password, .qualifications, .logout]))
         }
-        catch let connectionError as ConnectionError
+        else if let error = connectionError
         {
-            switch connectionError
+            switch error
             {
-            case .noAccountLinked:
-                newContent.append((section: .account, rows: [.linkAccount]))
+            case let connectionError as ConnectionError:
+                switch connectionError
+                {
+                case .noAccountLinked:
+                    newContent.append((section: .account, rows: [.linkAccount]))
                 
-            case .accountNoActivated:
-                newContent.append((section: .account, rows: [SettingsRow.accountNotActivated]))
+                case .accountNoActivated:
+                    newContent.append((section: .account, rows: [.accountNotActivated]))
                 
-            case .wrongCredentials:
-                newContent.append((section: .account, rows: [.updateAccount]))
-            }
-        }
-        catch let networkError as NetworkError
-        {
-            switch networkError
-            {
-            case .notReachable:
-                newContent.append((section: .account, rows: [.notReachable]))
-            case .airplaneMode:
+                case .wrongCredentials:
+                    newContent.append((section: .account, rows: [.updateAccount]))
+                }
+            case let networkError as NetworkError:
+                switch networkError
+                {
+                case .notReachable, .airplaneMode:
+                    newContent.append((section: .account, rows: [.notReachable]))
+                }
+            default:
                 break
             }
-        }
-        catch
-        {
         }
         
         // developer
@@ -246,8 +263,6 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
     {
         setup(tableView: tableView, errorView: errorView_, emptyView: UIView(), loadingView: UIView(), viewController: self)
         setupErrorView_()
-        
-        loadSettings_()
     }
     
     fileprivate func setupErrorView_()
@@ -286,7 +301,7 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
         case .reset:
             performSegue(withIdentifier: SettingsViewController.toReset, sender: self)
         case .logout:
-            break
+            logout_()
         case .linkAccount:
             performSegue(withIdentifier: SettingsViewController.toLogin, sender: self)
         case .updateAccount:
@@ -296,6 +311,17 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
         case .confidentialData, .password, .qualifications, .accountNotActivated:
             break
         }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - ACTIONS
+    // -------------------------------------------------------------------------
+    fileprivate func logout_()
+    {
+        Settings.shared.accountUsername = nil
+        Settings.shared.accountKey = nil
+        
+        loadSettings_()
     }
     
     // -------------------------------------------------------------------------
