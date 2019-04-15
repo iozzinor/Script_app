@@ -428,6 +428,7 @@
 "ToothRecognition.NavigationItem.Title" = "Identifiez la dent";
 "ToothRecognition.FirstQuestion"        = "Première question.";
 "ToothRecognition.Select"               = "Choisir la dent";
+"ToothRecognition.Monitoring"           = "%d justes sur %d";
 
 /* TOOTH RECOGNITION SELECTION */
 "ToothRecognitionSelection.NavigationItem.Title" = "Sélectionnez la dent";

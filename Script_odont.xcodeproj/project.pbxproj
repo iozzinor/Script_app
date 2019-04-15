@@ -49,6 +49,17 @@
 		AC24E1D9224A70FC00B5D48A /* PassphraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1D8224A70FC00B5D48A /* PassphraseViewController.swift */; };
 		AC24E1DB224A718200B5D48A /* NumericPassphraseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */; };
 		AC24E1DD224A772800B5D48A /* Passphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1DC224A772800B5D48A /* Passphrase.swift */; };
+		AC2CF56322645B6500E70D41 /* Volume.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2CF56222645B6500E70D41 /* Volume.storyboard */; };
+		AC2CF57A22645FA400E70D41 /* 14_1.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56722645F6300E70D41 /* 14_1.stl */; };
+		AC2CF57B22645FA400E70D41 /* 14_2.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56A22645F6300E70D41 /* 14_2.stl */; };
+		AC2CF57C22645FA400E70D41 /* 14_3.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56822645F6300E70D41 /* 14_3.stl */; };
+		AC2CF57D22645FA400E70D41 /* 14_4.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56922645F6300E70D41 /* 14_4.stl */; };
+		AC2CF57E22645FA400E70D41 /* 14_5.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56E22645F6300E70D41 /* 14_5.stl */; };
+		AC2CF57F22645FA400E70D41 /* 14_6.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56C22645F6300E70D41 /* 14_6.stl */; };
+		AC2CF58022645FA400E70D41 /* 14_7.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56622645F6300E70D41 /* 14_7.stl */; };
+		AC2CF58122645FA400E70D41 /* 14_8.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56522645F6300E70D41 /* 14_8.stl */; };
+		AC2CF58222645FA400E70D41 /* 14_9.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56B22645F6300E70D41 /* 14_9.stl */; };
+		AC2CF58322645FA400E70D41 /* 14_10.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56D22645F6300E70D41 /* 14_10.stl */; };
 		AC31A029224A991000A3A461 /* PassphraseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A028224A990F00A3A461 /* PassphraseDelegate.swift */; };
 		AC31A02E224AA87400A3A461 /* UnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A02D224AA87400A3A461 /* UnlockViewController.swift */; };
 		AC31A030224AD86C00A3A461 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A02F224AD86C00A3A461 /* NetworkingService.swift */; };
@@ -255,6 +266,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		AC2CF57922645F9600E70D41 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = ToothRecognition;
+			dstSubfolderSpec = 7;
+			files = (
+				AC2CF57A22645FA400E70D41 /* 14_1.stl in CopyFiles */,
+				AC2CF57B22645FA400E70D41 /* 14_2.stl in CopyFiles */,
+				AC2CF57C22645FA400E70D41 /* 14_3.stl in CopyFiles */,
+				AC2CF57D22645FA400E70D41 /* 14_4.stl in CopyFiles */,
+				AC2CF57E22645FA400E70D41 /* 14_5.stl in CopyFiles */,
+				AC2CF57F22645FA400E70D41 /* 14_6.stl in CopyFiles */,
+				AC2CF58022645FA400E70D41 /* 14_7.stl in CopyFiles */,
+				AC2CF58122645FA400E70D41 /* 14_8.stl in CopyFiles */,
+				AC2CF58222645FA400E70D41 /* 14_9.stl in CopyFiles */,
+				AC2CF58322645FA400E70D41 /* 14_10.stl in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AC623A9422639A210088FBCB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,6 +428,17 @@
 		AC24E1D8224A70FC00B5D48A /* PassphraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseViewController.swift; sourceTree = "<group>"; };
 		AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericPassphraseControl.swift; sourceTree = "<group>"; };
 		AC24E1DC224A772800B5D48A /* Passphrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passphrase.swift; sourceTree = "<group>"; };
+		AC2CF56222645B6500E70D41 /* Volume.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Volume.storyboard; sourceTree = "<group>"; };
+		AC2CF56522645F6300E70D41 /* 14_8.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_8.stl; sourceTree = "<group>"; };
+		AC2CF56622645F6300E70D41 /* 14_7.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_7.stl; sourceTree = "<group>"; };
+		AC2CF56722645F6300E70D41 /* 14_1.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_1.stl; sourceTree = "<group>"; };
+		AC2CF56822645F6300E70D41 /* 14_3.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_3.stl; sourceTree = "<group>"; };
+		AC2CF56922645F6300E70D41 /* 14_4.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_4.stl; sourceTree = "<group>"; };
+		AC2CF56A22645F6300E70D41 /* 14_2.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_2.stl; sourceTree = "<group>"; };
+		AC2CF56B22645F6300E70D41 /* 14_9.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_9.stl; sourceTree = "<group>"; };
+		AC2CF56C22645F6300E70D41 /* 14_6.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_6.stl; sourceTree = "<group>"; };
+		AC2CF56D22645F6300E70D41 /* 14_10.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_10.stl; sourceTree = "<group>"; };
+		AC2CF56E22645F6300E70D41 /* 14_5.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_5.stl; sourceTree = "<group>"; };
 		AC31A028224A990F00A3A461 /* PassphraseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseDelegate.swift; sourceTree = "<group>"; };
 		AC31A02D224AA87400A3A461 /* UnlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockViewController.swift; sourceTree = "<group>"; };
 		AC31A02F224AD86C00A3A461 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
@@ -676,6 +717,7 @@
 				AC0E4EA72237EB9F003996AF /* SctDetail */,
 				AC372C62223947D9009F1DAD /* SctScoreDiagram */,
 				ACC52C4B223EFDB200B974BA /* ScoreProgressDiagram */,
+				AC2CF56122645B3D00E70D41 /* Volume */,
 				AC31A02A224AA6AE00A3A461 /* Login */,
 				AC8F5B802229694C00FAEFC5 /* Unlock */,
 				AC24E1D5224A6A2100B5D48A /* Passphrase */,
@@ -756,6 +798,32 @@
 			path = Passphrase;
 			sourceTree = "<group>";
 		};
+		AC2CF56122645B3D00E70D41 /* Volume */ = {
+			isa = PBXGroup;
+			children = (
+				AC51CBE9224E667000B52FD0 /* VolumeViewController.swift */,
+				AC2CF56222645B6500E70D41 /* Volume.storyboard */,
+			);
+			path = Volume;
+			sourceTree = "<group>";
+		};
+		AC2CF56422645F1B00E70D41 /* ToothRecognition */ = {
+			isa = PBXGroup;
+			children = (
+				AC2CF56722645F6300E70D41 /* 14_1.stl */,
+				AC2CF56A22645F6300E70D41 /* 14_2.stl */,
+				AC2CF56822645F6300E70D41 /* 14_3.stl */,
+				AC2CF56922645F6300E70D41 /* 14_4.stl */,
+				AC2CF56E22645F6300E70D41 /* 14_5.stl */,
+				AC2CF56C22645F6300E70D41 /* 14_6.stl */,
+				AC2CF56622645F6300E70D41 /* 14_7.stl */,
+				AC2CF56522645F6300E70D41 /* 14_8.stl */,
+				AC2CF56B22645F6300E70D41 /* 14_9.stl */,
+				AC2CF56D22645F6300E70D41 /* 14_10.stl */,
+			);
+			path = ToothRecognition;
+			sourceTree = "<group>";
+		};
 		AC317D2F2261BD5A00785C05 /* Leaderboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,6 +851,7 @@
 			children = (
 				AC06D43B226386CA003BA7C7 /* ToothPosition */,
 				AC317D3E2261BFB100785C05 /* SctData */,
+				AC2CF56422645F1B00E70D41 /* ToothRecognition */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -965,7 +1034,6 @@
 				ACAD5DD922457B160041E484 /* ImageZoomAnimationController.swift */,
 				ACAD5DDB224674A10041E484 /* ImageFadeOutAnimationController.swift */,
 				ACAD5DD72245484E0041E484 /* ImageDetailViewController.swift */,
-				AC51CBE9224E667000B52FD0 /* VolumeViewController.swift */,
 				AC8F5B76222894AB00FAEFC5 /* GoToSctViewController.swift */,
 				AC8F5B782228986000FAEFC5 /* GoToSctViewControllerDelegate.swift */,
 				AC8F5B7A222899DA00FAEFC5 /* GoToSctCell.swift */,
@@ -1144,10 +1212,11 @@
 				AC31A047224B864900A3A461 /* ShellScript */,
 				AC38BB58221DE4C9008E829B /* Sources */,
 				AC38BB59221DE4C9008E829B /* Frameworks */,
+				AC623A9422639A210088FBCB /* Embed Frameworks */,
 				AC38BB5A221DE4C9008E829B /* Resources */,
 				AC623AA82263D68C0088FBCB /* CopyFiles */,
 				AC623ACB2263D9F50088FBCB /* CopyFiles */,
-				AC623A9422639A210088FBCB /* Embed Frameworks */,
+				AC2CF57922645F9600E70D41 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1227,6 +1296,7 @@
 				AC53E37C2233AF5E00CA4437 /* MySct.storyboard in Resources */,
 				ACD1B3B2223C51B10065F07E /* SctBrowsingCell.xib in Resources */,
 				ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */,
+				AC2CF56322645B6500E70D41 /* Volume.storyboard in Resources */,
 				ACD1B3AA223C43AD0065F07E /* SctLatestPeriodCell.xib in Resources */,
 				AC38BB83221EAA58008E829B /* Localizable.strings in Resources */,
 				AC31A039224B7A3900A3A461 /* Unlock.storyboard in Resources */,

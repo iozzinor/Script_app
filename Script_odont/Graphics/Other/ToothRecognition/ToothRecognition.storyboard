@@ -19,6 +19,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9F0-f6-rRh">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Dll-sY-5ud">
                                 <rect key="frame" x="6" y="66" width="363" height="535"/>
                                 <subviews>
@@ -51,15 +54,19 @@
                             <constraint firstItem="Dll-sY-5ud" firstAttribute="centerY" secondItem="CBm-de-Gd3" secondAttribute="centerY" id="7RR-I6-yoh"/>
                             <constraint firstItem="Dll-sY-5ud" firstAttribute="centerX" secondItem="CBm-de-Gd3" secondAttribute="centerX" id="9L3-m4-ky4"/>
                             <constraint firstItem="Dll-sY-5ud" firstAttribute="top" secondItem="Qug-3o-W3J" secondAttribute="top" constant="46" id="lRX-jd-IyM"/>
+                            <constraint firstItem="9F0-f6-rRh" firstAttribute="centerX" secondItem="CBm-de-Gd3" secondAttribute="centerX" id="m3k-qH-ZhZ"/>
                             <constraint firstItem="Dll-sY-5ud" firstAttribute="leading" secondItem="Qug-3o-W3J" secondAttribute="leading" constant="6" id="r2D-cu-kiV"/>
+                            <constraint firstItem="9F0-f6-rRh" firstAttribute="centerY" secondItem="CBm-de-Gd3" secondAttribute="centerY" id="u6p-pW-PDg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qug-3o-W3J"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="9F0-f6-rRh" id="aOr-00-8YO"/>
                         <outlet property="monitoringLabel" destination="Yn6-6V-3ew" id="5cr-V9-Yga"/>
-                        <outlet property="sceneView" destination="kct-Zk-hBr" id="GZj-Xo-oEJ"/>
                         <outlet property="selectButton" destination="Rqq-7p-LCU" id="CAV-nX-0ao"/>
+                        <outlet property="toothView" destination="kct-Zk-hBr" id="vMf-IL-n4c"/>
                         <segue destination="3rL-vu-ogP" kind="presentation" identifier="ToothRecognitionToToothRecognitionSelectionSegueId" id="jig-3P-GBb"/>
+                        <segue destination="zSp-ZK-bNI" kind="show" identifier="ToothRecognitionToVolumeSegueId" id="bkk-bE-bLP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4R-aC-dDk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -124,6 +131,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ec1-fm-uNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="870" y="63"/>
+        </scene>
+        <!--Volume-->
+        <scene sceneID="6tM-ES-R8L">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Volume" id="zSp-ZK-bNI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ndp-Hz-QHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="102" y="485"/>
         </scene>
     </scenes>
 </document>

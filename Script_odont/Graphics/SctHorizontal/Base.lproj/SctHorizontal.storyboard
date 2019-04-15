@@ -85,7 +85,7 @@
                         <outlet property="toolbar" destination="auk-YP-Bd8" id="nM6-Wg-oML"/>
                         <segue destination="IvR-bP-zxa" kind="presentation" identifier="SctHorizontalToGoToSctSegueId" id="Vw8-wN-fyX"/>
                         <segue destination="PqL-JZ-Fos" kind="presentation" identifier="SctHorizontalToImageDetailSegueId" modalPresentationStyle="fullScreen" id="ttc-tF-NvI"/>
-                        <segue destination="R1d-P2-kVh" kind="presentation" identifier="SctHorizontalToVolumeSegueId" id="EK2-1g-bH6"/>
+                        <segue destination="Snb-LM-iIi" kind="presentation" identifier="SctHorizontalToVolumeSegueId" id="49h-69-BZ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6X2-Qr-a2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,51 +121,13 @@
             </objects>
             <point key="canvasLocation" x="1374" y="-206"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="1ge-xU-Iv5">
+        <!--Volume-->
+        <scene sceneID="1vA-iK-rQg">
             <objects>
-                <navigationController id="R1d-P2-kVh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hzn-n3-f8C">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="ogV-vL-gIQ" kind="relationship" relationship="rootViewController" id="oPu-Fz-e3o"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zfd-03-MUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Volume" id="Snb-LM-iIi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jig-wf-QP6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1374" y="547"/>
-        </scene>
-        <!--Volume View Controller-->
-        <scene sceneID="yZF-YI-ljU">
-            <objects>
-                <viewController id="ogV-vL-gIQ" customClass="VolumeViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="id6-ei-QnU" customClass="SCNView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="G8A-m0-sO2"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="0JM-hM-FzP">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="CAl-RK-iMD">
-                            <connections>
-                                <action selector="cancel:" destination="ogV-vL-gIQ" id="bYn-xM-on4"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Toggle Mesh" id="o6v-FD-4Dh">
-                            <connections>
-                                <action selector="toggleMesh:" destination="ogV-vL-gIQ" id="hbR-ZI-VKU"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="toggleMeshButton" destination="o6v-FD-4Dh" id="kNp-ph-Sjt"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q6B-ep-E4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2145" y="547"/>
+            <point key="canvasLocation" x="879" y="201"/>
         </scene>
         <!--Select A Sct-->
         <scene sceneID="Vm2-dm-97p">
