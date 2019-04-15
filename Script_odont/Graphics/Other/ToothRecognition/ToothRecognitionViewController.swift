@@ -104,23 +104,20 @@ class ToothRecognitionViewController: UIViewController
     // -------------------------------------------------------------------------
     // MARK: - RANDOM TOOTH
     // -------------------------------------------------------------------------
-    fileprivate func randomTooth_() -> Tooth
-    {
-        let quadrant = Constants.random(min: 1, max: 4)
-        let position = Constants.random(min: 1, max: 8)
-        
-        let result = Tooth(internationalNumber: quadrant * 10 + position)
-        return result
-    }
-    
     fileprivate func pickTooth_()
     {
-        toothToRecognize_ = randomTooth_()
+        guard let (fileUrl, newTooth) = pickToothFile_() else
+        {
+            return
+        }
         
-        let fileUrl = pickToothFile_()
+        toothToRecognize_ = newTooth
+        
+        // load the node asynchronously
         loadNode_(forUrl: fileUrl, completion: {
             (node, error) -> Void in
             
+            // make the view update in the main queue
             DispatchQueue.main.async {
                 if let node = node
                 {
@@ -130,9 +127,40 @@ class ToothRecognitionViewController: UIViewController
         })
     }
     
-    fileprivate func pickToothFile_() -> URL
+    fileprivate func pickToothFile_() -> (URL, Tooth)?
     {
-        return Bundle.main.url(forResource: "antagonist", withExtension: "stl", subdirectory: "SctData")!
+        guard let teethToRecognizeList = Bundle.main.urls(forResourcesWithExtension: "stl", subdirectory: "ToothRecognition"),
+            !teethToRecognizeList.isEmpty else
+        {
+            return nil
+        }
+        
+        let randomIndex = Constants.random(min: 0, max: teethToRecognizeList.count - 1)
+        let randomFile = teethToRecognizeList[randomIndex]
+        
+        // detect the tooth international number from the file name
+        // <tooth international number>_<tooth identifier>.stl
+        let fileName = randomFile.lastPathComponent
+        let toothRegex = try! NSRegularExpression(pattern: "^[0-9]+", options: .anchorsMatchLines)
+        
+        var toothInternationalNumber = 11
+        
+        let matches = toothRegex.matches(in: fileName, options: .anchored, range: NSRange(location: 0, length: fileName.count))
+        if matches.count > 0
+        {
+            let match = matches[0]
+            
+            let start = fileName.index(fileName.startIndex, offsetBy: match.range.location)
+            let end = fileName.index(fileName.startIndex, offsetBy: match.range.location + match.range.length)
+            let toothIndex = String(fileName[start..<end])
+            
+            if let number = Int(toothIndex)
+            {
+                toothInternationalNumber = number
+            }
+        }
+        
+        return (randomFile, Tooth(internationalNumber: toothInternationalNumber))
     }
     
     fileprivate func loadNode_(forUrl url: URL, completion: ((SCNNode?, Error?) -> Void)?)
@@ -167,6 +195,9 @@ class ToothRecognitionViewController: UIViewController
         // add the new one
         toothView.scene?.rootNode.addChildNode(node)
         
+        // reset the camera position
+        toothView.defaultCameraController.frameNodes([node])
+        
         // stop the activity indicator
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
@@ -177,11 +208,18 @@ class ToothRecognitionViewController: UIViewController
     // -------------------------------------------------------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        // tooth recognition selection
         if segue.identifier == ToothRecognitionViewController.toToothRecognitionSelection,
             let target = (segue.destination as? UINavigationController)?.viewControllers.first as? ToothRecognitionSelectionViewController
         {
             target.correctTooth = toothToRecognize_
             target.delegate = self
+        }
+        // volume
+        else if segue.identifier == ToothRecognitionViewController.toVolume,
+            let target = (segue.destination as? UINavigationController)?.viewControllers.first as? VolumeViewController
+        {
+            target.scene = toothView.scene
         }
     }
     
@@ -217,6 +255,7 @@ extension ToothRecognitionViewController: ToothRecognitionSelectionDelegate
         }
         updateMonitoringLabel_()
         
-        toothToRecognize_ = randomTooth_()
+        // pick the new tooth
+        pickTooth_()
     }
 }
