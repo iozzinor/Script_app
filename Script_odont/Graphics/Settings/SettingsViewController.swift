@@ -167,8 +167,6 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate var errorView_ = ErrorButtonView()
-    fileprivate var connectionInformation_: ConnectionInformation?
-    fileprivate var connectionError_: Error?
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -191,35 +189,27 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
     
     fileprivate func loadSettings_()
     {
-        do
-        {
-            try NetworkingService.shared.retrieveConnectionInformation(completion: {
-                (connectionInformation) -> Void in
-                self.displaySettings_(connectionError: nil, connectionInformation: connectionInformation)
-            })
-        }
-        catch
-        {
-            self.displaySettings_(connectionError: error, connectionInformation: nil)
-        }
+        NetworkingService.shared.updateConnectionInformation(completion: {
+            () -> Void in
+
+            DispatchQueue.main.async {
+                self.displaySettings_(connectionStatus: NetworkingService.shared.connectionStatus)
+            }
+        })
     }
     
-    fileprivate func displaySettings_(connectionError: Error?, connectionInformation: ConnectionInformation?)
+    fileprivate func displaySettings_(connectionStatus: ConnectionStatus)
     {
-        self.connectionError_ = connectionError
-        self.connectionInformation_ = connectionInformation
-        
         var newContent = Content()
         // general
         newContent.append((section: .general, rows: [.about, .advanced, .passphrase]))
         
         // account
-        if let _ = connectionInformation
+        switch connectionStatus
         {
+        case .information:
             newContent.append((section: .account, rows: [.confidentialData, .password, .qualifications, .logout]))
-        }
-        else if let error = connectionError
-        {
+        case let .error(error):
             switch error
             {
             case let connectionError as ConnectionError:
@@ -227,10 +217,10 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
                 {
                 case .noAccountLinked:
                     newContent.append((section: .account, rows: [.linkAccount]))
-                
+                    
                 case .accountNoActivated:
                     newContent.append((section: .account, rows: [.accountNotActivated]))
-                
+                    
                 case .wrongCredentials:
                     newContent.append((section: .account, rows: [.updateAccount]))
                 }
@@ -243,6 +233,8 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
             default:
                 break
             }
+        default:
+            break
         }
         
         // developer
@@ -305,7 +297,7 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
         case .linkAccount:
             performSegue(withIdentifier: SettingsViewController.toLogin, sender: self)
         case .updateAccount:
-            break
+            performSegue(withIdentifier: SettingsViewController.toLogin, sender: self)
         case .notReachable:
              UIApplication.shared.openPreferences()
         case .confidentialData, .password, .qualifications, .accountNotActivated:

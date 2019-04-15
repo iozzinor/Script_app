@@ -394,13 +394,10 @@ class SctBrowsingViewController: AsynchronousTableViewController<BrowsingSection
         {
             defaultContent.append((section: section, rows: rows_(forSection: section)))
         }
-        do
-        {
-            try NetworkingService.shared.retrieveConnectionInformation(completion: nil)
-            
-            state = .loaded(defaultContent)
-        }
-        catch let connectionError as ConnectionError
+        
+        NetworkingService.shared.updateConnectionInformation(completion: nil)
+        state = .loaded(defaultContent)
+        /*catch let connectionError as ConnectionError
         {
             state = .loaded(defaultContent)
             //state = .error(connectionError)
@@ -411,7 +408,7 @@ class SctBrowsingViewController: AsynchronousTableViewController<BrowsingSection
         catch
         {
             state = .error(error)
-        }
+        }*/
     }
     
     // -------------------------------------------------------------------------

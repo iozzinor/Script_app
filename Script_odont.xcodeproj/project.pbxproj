@@ -82,6 +82,7 @@
 		AC31E3A12235BCBA00A3B813 /* SctQuestionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A02235BCBA00A3B813 /* SctQuestionHeaderCell.xib */; };
 		AC31E3A32235BCC300A3B813 /* SctWordingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A22235BCC300A3B813 /* SctWordingCell.xib */; };
 		AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A42235BE1E00A3B813 /* DrawingWalkthrough.storyboard */; };
+		AC34EDCA22652624001D593F /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34EDC922652624001D593F /* ConnectionStatus.swift */; };
 		AC372C56223942BE009F1DAD /* SctPerformRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C50223942BE009F1DAD /* SctPerformRateCell.swift */; };
 		AC372C57223942BE009F1DAD /* SctDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C51223942BE009F1DAD /* SctDetailViewDelegate.swift */; };
 		AC372C58223942BE009F1DAD /* SctPerformRateCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C52223942BE009F1DAD /* SctPerformRateCellDelegate.swift */; };
@@ -464,6 +465,7 @@
 		AC31E3A02235BCBA00A3B813 /* SctQuestionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctQuestionHeaderCell.xib; sourceTree = "<group>"; };
 		AC31E3A22235BCC300A3B813 /* SctWordingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctWordingCell.xib; sourceTree = "<group>"; };
 		AC31E3A42235BE1E00A3B813 /* DrawingWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DrawingWalkthrough.storyboard; sourceTree = "<group>"; };
+		AC34EDC922652624001D593F /* ConnectionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatus.swift; sourceTree = "<group>"; };
 		AC372C50223942BE009F1DAD /* SctPerformRateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctPerformRateCell.swift; sourceTree = "<group>"; };
 		AC372C51223942BE009F1DAD /* SctDetailViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctDetailViewDelegate.swift; sourceTree = "<group>"; };
 		AC372C52223942BE009F1DAD /* SctPerformRateCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctPerformRateCellDelegate.swift; sourceTree = "<group>"; };
@@ -1117,6 +1119,7 @@
 				ACDC49A522421D4A00B43534 /* Reachability.swift */,
 				AC0433F4224918C200644B14 /* NetworkError.swift */,
 				AC31A02F224AD86C00A3A461 /* NetworkingService.swift */,
+				AC34EDC922652624001D593F /* ConnectionStatus.swift */,
 				AC31A04E224B8E8D00A3A461 /* ConnectionError.swift */,
 				AC31A033224ADC9E00A3A461 /* Host.swift */,
 				AC31A031224ADC0C00A3A461 /* ConnectionInformation.swift */,
@@ -1374,6 +1377,7 @@
 				ACAD5DD62245294D0041E484 /* BorderView.swift in Sources */,
 				AC31A053224B94E700A3A461 /* SebdNetworkError.swift in Sources */,
 				ACC83F68223D649A0064BE6F /* SctSearchCriterion.swift in Sources */,
+				AC34EDCA22652624001D593F /* ConnectionStatus.swift in Sources */,
 				ACC83F76223DB5DF0064BE6F /* DatePickerDelegate.swift in Sources */,
 				AC0D77D422281FDD007F83D4 /* SctScaleCell.swift in Sources */,
 				AC31A04F224B8E8D00A3A461 /* ConnectionError.swift in Sources */,

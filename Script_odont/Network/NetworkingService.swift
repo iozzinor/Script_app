@@ -10,24 +10,28 @@ import Foundation
 
 class NetworkingService
 {
+    typealias JsonCompletion = ((Json?) -> Void)?
+    
     static let shared = NetworkingService()
     
-    let ephemeralSession: URLSession
+    fileprivate let ephemeralSession_: URLSession
     
-    typealias JsonCompletion = ((Json?) -> Void)?
+    var connectionStatus = ConnectionStatus.unknown
     
     private init()
     {
-        self.ephemeralSession = URLSession(configuration: .ephemeral)
+        self.ephemeralSession_ = URLSession(configuration: .ephemeral)
     }
     
-    func retrieveConnectionInformation(completion: ((ConnectionInformation) -> Void)?) throws
+    func updateConnectionInformation(completion: (() -> Void)?)
     {
         // check that the device can get connected to the Internet
         switch Reachability.currentStatus
         {
         case .notReachable:
-            throw NetworkError.notReachable
+            connectionStatus = .error(NetworkError.notReachable)
+            completion?()
+            return
         case .reachableViaWifi, .reachableViaWwan:
             break
         }
@@ -35,18 +39,43 @@ class NetworkingService
         // check that the user has linked an account
         guard let accountKey = Settings.shared.accountKey else
         {
-            throw ConnectionError.noAccountLinked
+            connectionStatus = .error(ConnectionError.noAccountLinked)
+            completion?()
+            return
         }
         
         // check that the credential is valid
         // check that the account has been activated
-        authenticateUser_(credentialsKey: "thekey", completionHandler: {
+        authenticateUser_(credentialsKey: accountKey, completionHandler: {
             (json) -> Void in
             
+            guard let json = json,
+                let information = json["information"] as? Json,
+                let credentialsValid = information["credentials_valid"] as? Bool
+                    else
+            {
+                completion?()
+                return
+            }
             
+            let accountActivated = information["account_activated"] as? Bool ?? false
+            if !credentialsValid
+            {
+                // remove invalid credentials
+                self.revokeCredentials_(key: accountKey)
+                self.connectionStatus = .error(ConnectionError.wrongCredentials)
+            }
+            else if !accountActivated
+            {
+                self.connectionStatus = .error(ConnectionError.accountNoActivated)
+            }
+            else
+            {
+                self.connectionStatus = .information(ConnectionInformation(host: Settings.shared.host, accountKey: accountKey))
+            }
+            
+            completion?()
         })
-        
-        completion?(ConnectionInformation(host: Settings.shared.host, accountKey: accountKey))
     }
     
     // -------------------------------------------------------------------------
@@ -164,6 +193,14 @@ class NetworkingService
         })
     }
     
+    fileprivate func revokeCredentials_(key: String)
+    {
+        let parameters: [String: Any] = [
+            "credentials_key": key
+        ]
+        executeHttpRequest_(uri: "user/revoke_credentials", postParameters: parameters, completionHandler: nil)
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - UTILS
     // -------------------------------------------------------------------------
@@ -179,7 +216,7 @@ class NetworkingService
         
         request.httpBody = postParameters.percentEscaped().data(using: .utf8)
         
-        let task = ephemeralSession.dataTask(with: request) {
+        let task = ephemeralSession_.dataTask(with: request) {
             data, response, error -> Void in
             
             guard let data = data,

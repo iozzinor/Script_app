@@ -21,6 +21,10 @@ class LoginViewController: UIViewController
     {
         super.viewDidLoad()
         
+        if let userName = Settings.shared.accountUsername
+        {
+            userNameField.text = userName
+        }
         passwordField.isSecureTextEntry = true
     }
     
