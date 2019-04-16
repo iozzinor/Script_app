@@ -14,32 +14,76 @@ class NetworkingService
     
     static let shared = NetworkingService()
     
-    fileprivate let ephemeralSession_: URLSession
+    /// The minimum time in seconds between two connection status fetches.
+    fileprivate static let minimumUpdateInterval_ = 10
     
-    var connectionStatus = ConnectionStatus.unknown
+    fileprivate var lastUpdateTime_ = time(nil)
+    fileprivate let ephemeralSession_: URLSession
+    fileprivate let concurrentQueue_ = DispatchQueue(label: "com.example.regis.script_odont.networking_service", qos: .background, attributes: .concurrent)
+    fileprivate var connectionStatus_ = ConnectionStatus.unknown
+    
+    var connectionStatus: ConnectionStatus {
+        get {
+            var result: ConnectionStatus!
+            
+            concurrentQueue_.sync {
+                result = self.connectionStatus_
+            }
+            
+            return result
+        }
+    }
     
     private init()
     {
         self.ephemeralSession_ = URLSession(configuration: .ephemeral)
     }
     
-    func updateConnectionInformation(completion: (() -> Void)?)
+    fileprivate func updateConnectionStatus_(_ newStatus: ConnectionStatus)
+    {
+        concurrentQueue_.async(flags: .barrier) {
+            [weak self] in
+            
+            guard let self = self else
+            {
+                return
+            }
+            
+            self.connectionStatus_ = newStatus
+        }
+    }
+    
+    fileprivate func updateConnectionInformation_(completion: (() -> Void?)?)
     {
         // check that the device can get connected to the Internet
         switch Reachability.currentStatus
         {
         case .notReachable:
-            connectionStatus = .error(NetworkError.notReachable)
+            updateConnectionStatus_(.error(NetworkError.notReachable))
             completion?()
             return
         case .reachableViaWifi, .reachableViaWwan:
             break
         }
         
+        // check last update time
+        switch connectionStatus
+        {
+        case .information(_):
+            if time(nil) - lastUpdateTime_ < NetworkingService.minimumUpdateInterval_
+            {
+                completion?()
+                return
+            }
+        case .error(_), .unknown:
+            break
+        }
+        lastUpdateTime_ = time(nil)
+        
         // check that the user has linked an account
         guard let accountKey = Settings.shared.accountKey else
         {
-            connectionStatus = .error(ConnectionError.noAccountLinked)
+            updateConnectionStatus_(.error(ConnectionError.noAccountLinked))
             completion?()
             return
         }
@@ -52,7 +96,7 @@ class NetworkingService
             guard let json = json,
                 let information = json["information"] as? Json,
                 let credentialsValid = information["credentials_valid"] as? Bool
-                    else
+                else
             {
                 completion?()
                 return
@@ -63,19 +107,37 @@ class NetworkingService
             {
                 // remove invalid credentials
                 self.revokeCredentials_(key: accountKey)
-                self.connectionStatus = .error(ConnectionError.wrongCredentials)
+                self.updateConnectionStatus_(.error(ConnectionError.wrongCredentials))
             }
             else if !accountActivated
             {
-                self.connectionStatus = .error(ConnectionError.accountNoActivated)
+                self.updateConnectionStatus_(.error(ConnectionError.accountNoActivated))
             }
             else
             {
-                self.connectionStatus = .information(ConnectionInformation(host: Settings.shared.host, accountKey: accountKey))
+                self.updateConnectionStatus_(.information(ConnectionInformation(host: Settings.shared.host, accountKey: accountKey)))
             }
             
             completion?()
         })
+    }
+    
+    func updateConnectionInformation(completion: (() -> Void)?)
+    {
+        concurrentQueue_.async {
+            self.updateConnectionInformation_(completion: completion)
+        }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - LOGOUT
+    // -------------------------------------------------------------------------
+    func logout()
+    {
+        Settings.shared.accountUsername = nil
+        Settings.shared.accountKey = nil
+        
+        updateConnectionStatus_(.error(ConnectionError.noAccountLinked))
     }
     
     // -------------------------------------------------------------------------

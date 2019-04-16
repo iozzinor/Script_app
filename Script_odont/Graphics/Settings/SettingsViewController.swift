@@ -167,6 +167,8 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate var errorView_ = ErrorButtonView()
+    fileprivate var currentStatus_: ConnectionStatus = .unknown
+    fileprivate var activityIndicator_ = UIActivityIndicatorView()
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -176,6 +178,7 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
         super.viewDidLoad()
         
         setup_()
+        displaySettings_(connectionStatus: .unknown)
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -191,7 +194,7 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
     {
         NetworkingService.shared.updateConnectionInformation(completion: {
             () -> Void in
-
+            
             DispatchQueue.main.async {
                 self.displaySettings_(connectionStatus: NetworkingService.shared.connectionStatus)
             }
@@ -200,11 +203,14 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
     
     fileprivate func displaySettings_(connectionStatus: ConnectionStatus)
     {
+        currentStatus_ = connectionStatus
+        
         var newContent = Content()
         // general
         newContent.append((section: .general, rows: [.about, .advanced, .passphrase]))
         
         // account
+        activityIndicator_.stopAnimating()
         switch connectionStatus
         {
         case .information:
@@ -233,8 +239,9 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
             default:
                 break
             }
-        default:
-            break
+        case .unknown:
+            activityIndicator_.startAnimating()
+            newContent.append((section: .account, rows: []))
         }
         
         // developer
@@ -306,13 +313,50 @@ class SettingsViewController: AsynchronousTableViewController<SettingsSection, S
     }
     
     // -------------------------------------------------------------------------
+    // MARK: - UI TABLE VIEW DATA SOURCE
+    // -------------------------------------------------------------------------
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+    {
+        switch content[section].section
+        {
+        case .general, .developer, .other:
+            return nil
+        case .account:
+            
+            switch currentStatus_
+            {
+            case .unknown:
+                return activityIndicator_
+            case .error(_), .information(_):
+                return nil
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
+    {
+        switch content[section].section
+        {
+        case .general, .developer, .other:
+            return 0.0
+        case .account:
+            
+            switch currentStatus_
+            {
+            case .unknown:
+                return view.frame.height / 3.0
+            case .error(_), .information(_):
+                return 0.0
+            }
+        }
+    }
+    
+    // -------------------------------------------------------------------------
     // MARK: - ACTIONS
     // -------------------------------------------------------------------------
     fileprivate func logout_()
     {
-        Settings.shared.accountUsername = nil
-        Settings.shared.accountKey = nil
-        
+        NetworkingService.shared.logout()
         loadSettings_()
     }
     
