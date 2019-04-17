@@ -10,7 +10,7 @@ import UIKit
 
 class GoToSctViewController: UITableViewController
 {
-    var session = SctSession(exam: SctExam(scts: [])) {
+    var session = SctSession(sct: Sct(questions: [])) {
         didSet {
             if isViewLoaded
             {
@@ -76,14 +76,14 @@ class GoToSctViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return session.exam.scts.count
+        return session.sct.questions.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(for: indexPath) as GoToSctCell
         
-        let sct = session.exam.scts[indexPath.row]
+        let sct = session.sct.questions[indexPath.row]
             
         cell.accessoryType = (indexPath.row == currentSct ? .checkmark : .none)
         cell.setSct(indexPath.row, wording: sct.wording, isValid: session.isSctValid(indexPath.row))

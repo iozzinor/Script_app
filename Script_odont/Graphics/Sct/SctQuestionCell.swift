@@ -27,7 +27,7 @@ public class SctQuestionCell: UITableViewCell
             nextButton.setImage(nextArrowImageDisabled_, for: .disabled)
         }
     }
-    @IBOutlet weak var questionControl: UIPageControl!
+    @IBOutlet weak var itemControl: UIPageControl!
     
     @IBOutlet weak var hypothesisLabel: UILabel! {
         didSet
@@ -64,25 +64,25 @@ public class SctQuestionCell: UITableViewCell
     fileprivate var previousQuestionIndex_: Int = 0
     var currentQuestion: Int {
         get {
-            return questionControl.currentPage
+            return itemControl.currentPage
         }
         set {
             previousQuestionIndex_ = newValue
-            questionControl.currentPage = newValue
+            itemControl.currentPage = newValue
             
             // enable
             previousButton.isEnabled = newValue > 0
-            nextButton.isEnabled = newValue < questionsCount - 1
+            nextButton.isEnabled = newValue < itemsCount - 1
             
             rightSwipeGesture?.isEnabled =  newValue > 0
-            leftSwipeGesture?.isEnabled = newValue < questionsCount - 1
+            leftSwipeGesture?.isEnabled = newValue < itemsCount - 1
         }
     }
-    var questionsCount: Int = 0
+    var itemsCount: Int = 0
     {
         didSet
         {
-            questionControl.numberOfPages = questionsCount
+            itemControl.numberOfPages = itemsCount
         }
     }
     
@@ -133,15 +133,15 @@ public class SctQuestionCell: UITableViewCell
     
     fileprivate var leftSwipeGesture: UISwipeGestureRecognizer? = nil
     fileprivate var rightSwipeGesture: UISwipeGestureRecognizer? = nil
-    var displaySingleQuestion: Bool = false
+    var displaySingleItem: Bool = false
     {
         didSet
         {
-            previousButton.isHidden     = !displaySingleQuestion
-            nextButton.isHidden         = !displaySingleQuestion
-            questionControl.isHidden    = !displaySingleQuestion
+            previousButton.isHidden     = !displaySingleItem
+            nextButton.isHidden         = !displaySingleItem
+            itemControl.isHidden        = !displaySingleItem
             
-            if displaySingleQuestion != oldValue
+            if displaySingleItem != oldValue
             {
                 updateSwipeGestures_()
             }
@@ -211,7 +211,7 @@ public class SctQuestionCell: UITableViewCell
     
     fileprivate func updateSwipeGestures_()
     {
-        if displaySingleQuestion
+        if displaySingleItem
         {
             leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SctQuestionCell.swipeLeft_))
             leftSwipeGesture?.direction = .left
@@ -286,11 +286,11 @@ public class SctQuestionCell: UITableViewCell
     // -------------------------------------------------------------------------
     // MARK: - UPDATE DATA
     // -------------------------------------------------------------------------
-    var question: SctQuestion = SctQuestion() {
+    var item: SctItem = SctItem() {
         didSet {
-            hypothesisLabel.text = question.hypothesis
+            hypothesisLabel.text = item.hypothesis
             
-            newDataView.questionData = question.newData
+            newDataView.questionData = item.newData
         }
     }
     

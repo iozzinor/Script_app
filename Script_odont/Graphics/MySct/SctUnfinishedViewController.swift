@@ -8,33 +8,33 @@
 
 import UIKit
 
-fileprivate func imageExam1_() -> SctExam
+fileprivate func image1_() -> Sct
 {
-    var sct = Sct()
+    var sctQuestion = SctQuestion()
     // TEMP
-    sct.topic = .therapeutic
-    sct.wording = "Un patient de 25 ans se présente en consultation suite à une chute en trotinette. Il souhaite reconstruire son incisive centrale."
+    sctQuestion.topic = .therapeutic
+    sctQuestion.wording = "Un patient de 25 ans se présente en consultation suite à une chute en trotinette. Il souhaite reconstruire son incisive centrale."
     
     // volume
-    sct.questions.append(SctQuestion(hypothesis: "Cube", newData: SctData(content: .volume("simple_cube"))))
-    sct.questions.append(SctQuestion(hypothesis: "Sphère", newData: SctData(content: .volume("simple_sphere"))))
-    sct.questions.append(SctQuestion(hypothesis: "Dent maxillaire", newData: SctData(content: .volume("upper_jaw_scan"))))
-    sct.questions.append(SctQuestion(hypothesis: "Scan antagoniste", newData: SctData(content: .volume("antagonist"))))
+    sctQuestion.items.append(SctItem(hypothesis: "Cube", newData: SctData(content: .volume("simple_cube"))))
+    sctQuestion.items.append(SctItem(hypothesis: "Sphère", newData: SctData(content: .volume("simple_sphere"))))
+    sctQuestion.items.append(SctItem(hypothesis: "Dent maxillaire", newData: SctData(content: .volume("upper_jaw_scan"))))
+    sctQuestion.items.append(SctItem(hypothesis: "Scan antagoniste", newData: SctData(content: .volume("antagonist"))))
     
     // image
     let hypothesis = "Réaliser une couronne céramo-céramique"
     let fracturePhoto = UIImage(named: "fracture_incisive_photo")!
     let fractureRadiography = UIImage(named: "fracture_incisive_radio")!
-    sct.questions.append(SctQuestion(hypothesis: hypothesis, newData: SctData(content: .image(fractureRadiography))))
-    sct.questions.append(SctQuestion(hypothesis: hypothesis, newData: SctData(image: fracturePhoto)))
+    sctQuestion.items.append(SctItem(hypothesis: hypothesis, newData: SctData(content: .image(fractureRadiography))))
+    sctQuestion.items.append(SctItem(hypothesis: hypothesis, newData: SctData(image: fracturePhoto)))
     
     // text
     for i in 1..<4
     {
-        sct.questions.append(SctQuestion(hypothesis: "test hypothèse \(i)", newData: SctData(text: "test donnée \(i)")))
+        sctQuestion.items.append(SctItem(hypothesis: "test hypothèse \(i)", newData: SctData(text: "test donnée \(i)")))
     }
     
-    return SctExam(scts: [sct])
+    return Sct(questions: [sctQuestion])
 }
 
 class SctUnfinishedViewController: SctDetailViewController
@@ -42,7 +42,7 @@ class SctUnfinishedViewController: SctDetailViewController
     static let toSctHorizontal = "SctUnfinishedToSctHorizontalSegueId"
     
     var sctUnfinished: SctUnfinished =
-        SctUnfinished(session: SctSession(exam: SctExam()),
+        SctUnfinished(session: SctSession(sct: Sct()),
                       answeredQuestions: 1,
                       duration: 30.0,
                       startDate: Date(),
@@ -80,7 +80,7 @@ class SctUnfinishedViewController: SctDetailViewController
         if segue.identifier == SctUnfinishedViewController.toSctHorizontal,
             let target = segue.destination as? SctHorizontalViewController
         {
-            target.sctSession = SctSession(exam: imageExam1_())
+            target.sctSession = SctSession(sct: image1_())
         }
     }
 }
@@ -138,8 +138,8 @@ extension SctUnfinishedViewController: SctDetailViewDataSource
         }
     }
     
-    var exam: SctExam {
-        return sctUnfinished.session.exam
+    var sct: Sct {
+        return sctUnfinished.session.sct
     }
     
     var statistics: SctStatistics {

@@ -17,8 +17,8 @@ public protocol SctViewDataSource: SctQuestionCellDelegate
     
     var sections: [SctViewController.SctSection] { get}
     
-    var currentSctIndex: Int { get }
-    var currentSct: Sct { get }
+    var currentSctQuestionIndex: Int { get }
+    var currentSctQuestion: SctQuestion { get }
     
     var questionHeaderTitle: SctQuestionHeaderCell.Title? { get }
 

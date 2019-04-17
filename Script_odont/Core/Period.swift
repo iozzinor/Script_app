@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// A time period.
 enum Period: Int, CaseIterable
 {
     case day

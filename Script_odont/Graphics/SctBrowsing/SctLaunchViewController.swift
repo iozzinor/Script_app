@@ -8,33 +8,33 @@
 
 import UIKit
 
-fileprivate func defaultExam_() -> SctExam
+fileprivate func defaultSct_() -> Sct
 {
-    var first = Sct()
+    var first = SctQuestion()
     // TEMP
     first.wording = "Un patient de 34 ans se présente en consultation pour des douleurs intenses sur 36 depuis plusieurs jours. Cette dent a déjà été reconstitué par un onlay MOD 4 ans plus tôt."
     
-    first.questions.append(SctQuestion(hypothesis: "une fracture amélo-dentinaire", newData: SctData(text: " un sondage parodontal de 8 mm en vestibulaire")))
-    first.questions.append(SctQuestion(hypothesis: "une reprise carieuse et une pulpite sous l’onlay", newData: SctData(text: "  le test au froid est négatif")))
-    first.questions.append(SctQuestion(hypothesis: "une reprise carieuse et à une pulpite sous l’onlay", newData: SctData(text: "    Il y a une douleur à la palpation et à la percussion de la dent")))
-    first.questions.append(SctQuestion(hypothesis: "une surcharge occlusale", newData: SctData(text: "   le papier d’occlusion marque principalement sur les cuspides linguales")))
+    first.items.append(SctItem(hypothesis: "une fracture amélo-dentinaire", newData: SctData(text: " un sondage parodontal de 8 mm en vestibulaire")))
+    first.items.append(SctItem(hypothesis: "une reprise carieuse et une pulpite sous l’onlay", newData: SctData(text: "  le test au froid est négatif")))
+    first.items.append(SctItem(hypothesis: "une reprise carieuse et à une pulpite sous l’onlay", newData: SctData(text: "    Il y a une douleur à la palpation et à la percussion de la dent")))
+    first.items.append(SctItem(hypothesis: "une surcharge occlusale", newData: SctData(text: "   le papier d’occlusion marque principalement sur les cuspides linguales")))
     
-    var second = Sct()
+    var second = SctQuestion()
     second.topic = .therapeutic
     second.wording = "Une patiente de 25 ans se présente en consultation pour la reconstruction de sa dent 11 qui ne présente ni douleur ni dyschromie."
-    second.questions.append(SctQuestion(hypothesis: "réaliser un composite en technique direct", newData: SctData(text:  "sa dent a déja été reconstruite par plusieurs composite qui sont étanches")))
-    second.questions.append(SctQuestion(hypothesis: "réaliser un composite en technique direct", newData: SctData(text:  "le test au froid est négatif")))
-    second.questions.append(SctQuestion(hypothesis: "réaliser une facette", newData: SctData(text:  "la zone de collage est quasi intégralement dentinaire")))
-    second.questions.append(SctQuestion(hypothesis: "réaliser une facette", newData: SctData(text:  "le patient est bruxomane")))
+    second.items.append(SctItem(hypothesis: "réaliser un composite en technique direct", newData: SctData(text:  "sa dent a déja été reconstruite par plusieurs composite qui sont étanches")))
+    second.items.append(SctItem(hypothesis: "réaliser un composite en technique direct", newData: SctData(text:  "le test au froid est négatif")))
+    second.items.append(SctItem(hypothesis: "réaliser une facette", newData: SctData(text:  "la zone de collage est quasi intégralement dentinaire")))
+    second.items.append(SctItem(hypothesis: "réaliser une facette", newData: SctData(text:  "le patient est bruxomane")))
     
-    var third = Sct()
+    var third = SctQuestion()
     third.topic = .therapeutic
     third.wording = "Un patient de 70 ans se présente pour son rendez-vous de contrôle 1 semaine après la pose d’une prothèse amovible complète bi-maxillaire. Il se plaint de douleurs"
-    third.questions.append(SctQuestion(hypothesis: "Des prématurités et/ou interférences occlusales", newData: SctData(text:  "Il y a des blessures gingivales")))
-    third.questions.append(SctQuestion(hypothesis: "Une erreur de dimension verticale d’occlusion", newData: SctData(text:  "La phonation est difficile")))
-    third.questions.append(SctQuestion(hypothesis: "Une erreur lors des empreintes", newData: SctData(text:  "Il n’y a ni sous-extensions, ni sur-extensions des bases prothétiques")))
+    third.items.append(SctItem(hypothesis: "Des prématurités et/ou interférences occlusales", newData: SctData(text:  "Il y a des blessures gingivales")))
+    third.items.append(SctItem(hypothesis: "Une erreur de dimension verticale d’occlusion", newData: SctData(text:  "La phonation est difficile")))
+    third.items.append(SctItem(hypothesis: "Une erreur lors des empreintes", newData: SctData(text:  "Il n’y a ni sous-extensions, ni sur-extensions des bases prothétiques")))
     
-    return SctExam(scts: [first, second, third])
+    return Sct(questions: [first, second, third])
 }
 
 class SctLaunchViewController: SctDetailViewController
@@ -43,7 +43,7 @@ class SctLaunchViewController: SctDetailViewController
     
     @IBOutlet weak var tableView: UITableView!
     
-    var launchInformation = SctLaunchInformation(exam: SctExam(scts: []),
+    var launchInformation = SctLaunchInformation(sct: Sct(questions: []),
                                                  statistics: SctStatistics(id: 0,
                                                                            authorLastName: "Tartanpion",
                                                                            authorFirstName: "Jean",meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date()))
@@ -76,7 +76,7 @@ class SctLaunchViewController: SctDetailViewController
         if segue.identifier == SctLaunchViewController.toSctHorizontal,
             let target = segue.destination as? SctHorizontalViewController
         {
-            target.sctSession = SctSession(exam: defaultExam_())
+            target.sctSession = SctSession(sct: defaultSct_())
         }
     }
 }
@@ -113,8 +113,8 @@ extension SctLaunchViewController: SctDetailViewDelegate
 // -----------------------------------------------------------------------------
 extension SctLaunchViewController: SctDetailViewDataSource
 {
-    var exam: SctExam {
-        return launchInformation.exam
+    var sct: Sct {
+        return launchInformation.sct
     }
     
     var statistics: SctStatistics {
@@ -122,7 +122,7 @@ extension SctLaunchViewController: SctDetailViewDataSource
     }
     
     var answeredQuestionsCount: Int {
-        return launchInformation.exam.totalQuestionsCount
+        return launchInformation.sct.totalItemsCount
     }
     
     var unfinished: SctUnfinished? {

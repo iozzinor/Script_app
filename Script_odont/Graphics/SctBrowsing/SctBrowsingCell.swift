@@ -43,11 +43,11 @@ class SctBrowsingCell: UITableViewCell
     
     func setSctLaunchInformation(_ sctLaunchInformation: SctLaunchInformation)
     {
-        topicLabel.prepareToDisplay(topic: sctLaunchInformation.exam.topic)
+        topicLabel.prepareToDisplay(topic: sctLaunchInformation.sct.topic)
         
-        questionsCountLabel.text = "\(sctLaunchInformation.exam.scts.count)"
+        questionsCountLabel.text = "\(sctLaunchInformation.sct.questions.count)"
         
-        durationLabel.text = Constants.durationString(forTimeInterval: sctLaunchInformation.exam.estimatedDuration)
+        durationLabel.text = Constants.durationString(forTimeInterval: sctLaunchInformation.sct.estimatedDuration)
         
         setMeanVote_(sctLaunchInformation.statistics.meanVotes)
         

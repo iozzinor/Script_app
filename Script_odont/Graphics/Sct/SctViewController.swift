@@ -20,7 +20,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
         
         func rows(for sctViewDataSource: SctViewDataSource?) -> [SctRow]
         {
-            let sct = sctViewDataSource?.currentSct ?? Sct()
+            let question = sctViewDataSource?.currentSctQuestion ?? SctQuestion()
             switch self
             {
             case .drawing:
@@ -33,7 +33,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
                 else
                 {
-                    result.append(contentsOf: Array<SctRow>(repeating: .question, count: sct.questions.count))
+                    result.append(contentsOf: Array<SctRow>(repeating: .item, count: question.items.count))
                 }
                 
                 return result
@@ -61,34 +61,34 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
     {
         case wording
         case questionHeader
-        case question
+        case item
         case singleQuestion
         case scale
         
         func cell(for indexPath: IndexPath, tableView: UITableView, dataSource: SctViewDataSource?) -> UITableViewCell
         {
-            let currentSct = dataSource?.currentSctIndex ?? 0
+            let currentSctQuestion = dataSource?.currentSctQuestionIndex ?? 0
             
             let session = dataSource?.session
-            let sct = dataSource?.currentSct ?? Sct()
+            let question = dataSource?.currentSctQuestion ?? SctQuestion()
             let singleQuestionIndex = dataSource?.singleQuestionIndex ?? 0
             
             switch self
             {
             case .wording:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SctWordingCell
-                cell.wordingLabel.text = sct.wording
+                cell.wordingLabel.text = question.wording
                 return cell
             case .questionHeader:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionHeaderCell
                 cell.setTitle(dataSource?.questionHeaderTitle ?? .default)
                 return cell
-            case .question:
+            case .item:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionCell
-                cell.displaySingleQuestion = false
-                cell.question = sct.questions[indexPath.row - 2]
+                cell.displaySingleItem = false
+                cell.item = question.items[indexPath.row - 2]
                 cell.tag = indexPath.row - 2
-                cell.isLast = (indexPath.row - 1 == sct.questions.count)
+                cell.isLast = (indexPath.row - 1 == question.items.count)
                 cell.canChooseLikertScale = dataSource?.canChooseLikertScale ?? false
                 cell.delegate = dataSource
                 cell.newDataView.delegate = dataSource?.newDataDelegate
@@ -96,15 +96,15 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 if let session = session
                 {
                     // restore the answer
-                    let answer = session[currentSct, indexPath.row - 2]
+                    let answer = session[currentSctQuestion, indexPath.row - 2]
                     cell.setAnswer(answer)
                 }
                 return cell
                 
             case .singleQuestion:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionCell
-                cell.displaySingleQuestion = true
-                cell.question = sct.questions[singleQuestionIndex]
+                cell.displaySingleItem = true
+                cell.item = question.items[singleQuestionIndex]
                 cell.tag = singleQuestionIndex
                 cell.isLast = true
                 cell.canChooseLikertScale = dataSource?.canChooseLikertScale ?? false
@@ -112,13 +112,13 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell.newDataView.delegate = dataSource?.newDataDelegate
                 
                 // question navigation
-                cell.questionsCount = sct.questions.count
+                cell.itemsCount = question.items.count
                 cell.currentQuestion = singleQuestionIndex
                 
                 if let session = session
                 {
                     // restore the answer
-                    let answer = session[currentSct, singleQuestionIndex]
+                    let answer = session[currentSctQuestion, singleQuestionIndex]
                     cell.setAnswer(answer)
                 }
                 return cell
@@ -126,7 +126,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
             case .scale:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SctScaleCell
                 
-                let likertSctle = sct.topic.likertScale
+                let likertSctle = question.topic.likertScale
                 cell.setScale(code: indexPath.row - 2, description: likertSctle[indexPath.row - 2])
                 return cell
             }
@@ -134,14 +134,14 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
         
         func preferredHeight(for indexPath: IndexPath, tableView: UITableView, dataSource: SctViewDataSource?) -> CGFloat
         {
-            let sct = dataSource?.currentSct ?? Sct()
+            let question = dataSource?.currentSctQuestion ?? SctQuestion()
             switch self
             {
             case .questionHeader, .scale, .wording:
                 return UITableView.automaticDimension
-            case .question:
+            case .item:
                 
-                switch sct.questions[indexPath.row - 2].newData.content
+                switch question.items[indexPath.row - 2].newData.content
                 {
                 case .image(_):
                     return UIScreen.main.bounds.height / 3.0

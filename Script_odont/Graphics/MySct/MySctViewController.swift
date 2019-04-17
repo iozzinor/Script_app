@@ -142,12 +142,12 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
     
     private static func defaultUnfinishedScts_() -> [SctUnfinished]
     {
-        var scts = [Sct]()
+        var questions = [SctQuestion]()
         
-        let sctsCount = Int(arc4random() % 10) + 2
-        for _ in 0..<sctsCount
+        let questionsCount = Int(arc4random() % 10) + 2
+        for _ in 0..<questionsCount
         {
-            scts.append(Sct(wording: "", topic: .diagnostic, questions: Array<SctQuestion>(repeating: SctQuestion(), count: 10)))
+            questions.append(SctQuestion(wording: "", topic: .diagnostic, items: Array<SctItem>(repeating: SctItem(), count: 10)))
         }
         
         var unfinishedScts = [SctUnfinished]()
@@ -155,9 +155,9 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
         for i in 0..<13
         {
             let topic = SctTopic(rawValue: Constants.random(min: 0, max: 2)) ?? .diagnostic
-            scts[0].topic = topic
-            let exam = SctExam(scts: scts)
-            let session = SctSession(exam: exam)
+            questions[0].topic = topic
+            let sct = Sct(questions: questions)
+            let session = SctSession(sct: sct)
             
             let answeredQuestions = Constants.random(min: 5, max: 30)
             let duration = Double(Constants.random(min: 50, max: 350))
@@ -192,12 +192,12 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
     
     private static func defaultFinishedScts_() -> [SctFinished]
     {
-        var scts = [Sct]()
+        var questions = [SctQuestion]()
         
-        let sctsCount = Int(arc4random() % 10) + 2
-        for _ in 0..<sctsCount
+        let questionsCount = Int(arc4random() % 10) + 2
+        for _ in 0..<questionsCount
         {
-            scts.append(Sct(wording: "", topic: .diagnostic, questions: Array<SctQuestion>(repeating: SctQuestion(), count: 10)))
+            questions.append(SctQuestion(wording: "", topic: .diagnostic, items: Array<SctItem>(repeating: SctItem(), count: 10)))
         }
         
         var finishedScts = [SctFinished]()
@@ -205,9 +205,9 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
         for i in 0..<5
         {
             let topic = SctTopic(rawValue: Int(arc4random() % 3)) ?? .diagnostic
-            scts[0].topic = topic
-            let exam = SctExam(scts: scts)
-            let session = SctSession(exam: exam)
+            questions[0].topic = topic
+            let sct = Sct(questions: questions)
+            let session = SctSession(sct: sct)
             
             let answeredQuestions = Int(arc4random() % 30) + 5
             let duration = Double(Int(arc4random() % 300) + 50)
@@ -230,7 +230,7 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
             
             let vote: Int? = nil//(Constants.random(min: 0, max: 100) % 2 == 0 ? nil : 3.75)
             
-            let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), statistics: statistics, score: Double(Int(arc4random()) % exam.totalQuestionsCount + 1), vote: vote)
+            let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), statistics: statistics, score: Double(Int(arc4random()) % sct.totalItemsCount + 1), vote: vote)
             
             finishedScts.append(sctUnfinished)
         }

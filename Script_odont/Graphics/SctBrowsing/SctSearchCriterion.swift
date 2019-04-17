@@ -48,7 +48,7 @@ enum SctSearchCriterion
         }
     }
     
-    func isIncluded(sct: Sct) -> Bool
+    func isIncluded(question: SctQuestion) -> Bool
     {
         return false
     }

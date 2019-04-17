@@ -21,14 +21,11 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sOm-WO-6e1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Lxx-wQ-8fg">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idn-GR-Q78">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="23.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksa-6B-m95">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="23.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="Vom-et-r3X"/>
-                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="selectPreviousQuestion:" destination="oiG-AX-xwa" eventType="touchUpInside" id="vrh-dw-l0Q"/>
@@ -73,19 +70,28 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUK-h8-MTx">
                                         <rect key="frame" x="355" y="0.0" width="20" height="23.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="no9-ow-PpE"/>
-                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="selectNextQuestion:" destination="oiG-AX-xwa" eventType="touchUpInside" id="KPk-yd-H09"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="5qL-uc-M0c" firstAttribute="top" secondItem="Lxx-wQ-8fg" secondAttribute="top" id="nMm-Mc-xn4"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ksa-6B-m95" secondAttribute="bottom" id="0KX-2y-z4d"/>
+                                    <constraint firstItem="nUK-h8-MTx" firstAttribute="top" secondItem="idn-GR-Q78" secondAttribute="top" id="P3y-OK-JRz"/>
+                                    <constraint firstItem="nUK-h8-MTx" firstAttribute="leading" secondItem="5qL-uc-M0c" secondAttribute="trailing" id="RpC-eX-gzu"/>
+                                    <constraint firstAttribute="trailing" secondItem="nUK-h8-MTx" secondAttribute="trailing" id="USS-FV-xKv"/>
+                                    <constraint firstAttribute="trailing" secondItem="5qL-uc-M0c" secondAttribute="trailing" constant="20" id="Y1Y-jc-AWu"/>
+                                    <constraint firstItem="Ksa-6B-m95" firstAttribute="top" secondItem="idn-GR-Q78" secondAttribute="top" id="Yjz-cU-XxK"/>
+                                    <constraint firstAttribute="bottom" secondItem="nUK-h8-MTx" secondAttribute="bottom" id="kYD-XO-7Oj"/>
+                                    <constraint firstItem="5qL-uc-M0c" firstAttribute="leading" secondItem="idn-GR-Q78" secondAttribute="leading" constant="20" id="mNp-NF-i04"/>
+                                    <constraint firstItem="5qL-uc-M0c" firstAttribute="top" secondItem="idn-GR-Q78" secondAttribute="top" id="mf6-dE-h4V"/>
+                                    <constraint firstAttribute="bottom" secondItem="5qL-uc-M0c" secondAttribute="bottom" id="thK-Ss-gyI"/>
+                                    <constraint firstItem="5qL-uc-M0c" firstAttribute="leading" secondItem="Ksa-6B-m95" secondAttribute="trailing" id="tyi-6o-Yw7"/>
+                                    <constraint firstItem="Ksa-6B-m95" firstAttribute="leading" secondItem="idn-GR-Q78" secondAttribute="leading" id="wZU-xS-kjP"/>
                                 </constraints>
-                            </stackView>
+                            </view>
                             <pageControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2a4-MY-WSa">
                                 <rect key="frame" x="168" y="28.5" width="39" height="15"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -96,7 +102,7 @@
                             </pageControl>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Lxx-wQ-8fg" firstAttribute="leading" secondItem="sOm-WO-6e1" secondAttribute="leading" id="A2b-TM-HKV"/>
+                            <constraint firstItem="idn-GR-Q78" firstAttribute="leading" secondItem="sOm-WO-6e1" secondAttribute="leading" id="zTG-Ea-pFV"/>
                         </constraints>
                     </stackView>
                 </subviews>
@@ -110,10 +116,10 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="hypothesisLabel" destination="u0O-Lc-RJy" id="d0F-K9-uRX"/>
+                <outlet property="itemControl" destination="2a4-MY-WSa" id="bes-3Q-uLF"/>
                 <outlet property="newDataView" destination="a8k-zt-wgP" id="0as-lj-a7I"/>
                 <outlet property="nextButton" destination="nUK-h8-MTx" id="g7O-f9-Hsn"/>
                 <outlet property="previousButton" destination="Ksa-6B-m95" id="ezG-we-vYy"/>
-                <outlet property="questionControl" destination="2a4-MY-WSa" id="vRw-PD-FrJ"/>
                 <outlet property="scalesContainer" destination="0FL-tr-YCU" id="LuH-Xr-xBB"/>
             </connections>
             <point key="canvasLocation" x="138.40000000000001" y="136.73163418290855"/>

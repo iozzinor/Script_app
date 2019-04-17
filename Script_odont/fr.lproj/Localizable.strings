@@ -323,7 +323,7 @@
 "MyProgress.NavigationItem.Title"           = "Ma progression";
 "MyProgress.Data.Count.Title"               = "Nombre de résulats :";
 "MyProgress.Data.MeanScore.Title"           = "Score moyen :";
-"MyProgress.Data.AnsweredSctExams.Title"    = "Nombre d'examens passés :";
+"MyProgress.Data.AnsweredScts.Title"        = "Nombre de TCS passés :";
 "MyProgress.NoProgression"                  = "Pas de progression.";
 "MyProgress.Explanation"                    = "Les scores sont affichés en pourcentage du score maximal possible.";
 

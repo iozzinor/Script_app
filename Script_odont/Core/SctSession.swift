@@ -19,40 +19,43 @@ public class SctSession
         case evaluation
     }
     
-    public var exam: SctExam
+    public var sct: Sct
     fileprivate var answers_: [[LikertScale.Degree?]]
     public var time: Double = 0.0
     public var mode = Mode.training
     
-    public init(exam: SctExam)
+    // -------------------------------------------------------------------------
+    // MARK: - INIT
+    // -------------------------------------------------------------------------
+    public init(sct: Sct)
     {
-        self.exam = exam
+        self.sct = sct
         self.answers_ = []
         
-        for sct in exam.scts
+        for question in sct.questions
         {
-            let newAnswers = Array<LikertScale.Degree?>(repeating: nil, count: sct.questions.count)
+            let newAnswers = Array<LikertScale.Degree?>(repeating: nil, count: question.items.count)
             answers_.append(newAnswers)
         }
     }
     
-    public subscript(sctIndex: Int, questionIndex: Int) -> LikertScale.Degree? {
+    public subscript(questionIndex: Int, itemIndex: Int) -> LikertScale.Degree? {
         set {
-            answers_[sctIndex][questionIndex] = newValue
+            answers_[questionIndex][itemIndex] = newValue
         }
         
         get {
-            return answers_[sctIndex][questionIndex]
+            return answers_[questionIndex][itemIndex]
         }
     }
     
     public func isSctValid(_ index: Int) -> Bool
     {
-        let sct = exam.scts[index]
+        let question = sct.questions[index]
         
-        for questionIndex in 0..<sct.questions.count
+        for itemIndex in 0..<question.items.count
         {
-            if self[index, questionIndex] == nil
+            if self[index, itemIndex] == nil
             {
                 return false
             }

@@ -30,45 +30,45 @@ public struct SctPanelAnswer
     
     public static let minimumPeerReviews = 10
     
-    public var exam: SctExam
+    public var sct: Sct
     fileprivate var answers_: [SctAnswer]
     
-    public init(exam: SctExam)
+    public init(sct: Sct)
     {
-        self.exam = exam
+        self.sct = sct
         self.answers_ = []
     }
 
-    public subscript(answerIndex: Int, sctIndex: Int, questionIndex: Int) -> LikertScale.Degree
+    public subscript(answerIndex: Int, questionIndex: Int, itemIndex: Int) -> LikertScale.Degree
     {
         set {
             if answerIndex > answers_.count - 1
             {
-                answers_.append(SctAnswer(exam: exam))
+                answers_.append(SctAnswer(sct: sct))
             }
             
-            answers_[answerIndex][sctIndex, questionIndex] = newValue
+            answers_[answerIndex][questionIndex, itemIndex] = newValue
         }
         get {
-            return answers_[answerIndex][sctIndex, questionIndex]
+            return answers_[answerIndex][questionIndex, itemIndex]
         }
     }
     
     /// - returns: The validity status for each question in an sct.
-    public func checkValidity(sctIndex: Int) -> [ValidationStatus]
+    public func checkValidity(questionIndex: Int) -> [ValidationStatus]
     {
         var result = [ValidationStatus]()
         
-        for i in 0..<exam.scts[sctIndex].questions.count
+        for i in 0..<sct.questions[questionIndex].items.count
         {
-            result.append(checkValidity(sctIndex: sctIndex, questionIndex: i))
+            result.append(checkValidity(questionIndex: questionIndex, itemIndex: i))
         }
         
         return result
     }
     
     /// - returns: The validity status for a given question.
-    public func checkValidity(sctIndex: Int, questionIndex: Int) -> ValidationStatus
+    public func checkValidity(questionIndex: Int, itemIndex: Int) -> ValidationStatus
     {
         // peers count
         if answers_.count < SctPanelAnswer.minimumPeerReviews
@@ -76,7 +76,7 @@ public struct SctPanelAnswer
             return .invalid(.insufficientPeers(expected: SctPanelAnswer.minimumPeerReviews, actual: answers_.count))
         }
         
-        let currentResponses = responses(forSct: sctIndex, questionIndex: questionIndex)
+        let currentResponses = responses(forQuestion: questionIndex, itemIndex: itemIndex)
         // variance
         let variance = variance_(currentResponses)
         if variance < 0.5 || variance > 1.0
@@ -144,22 +144,22 @@ public struct SctPanelAnswer
     // -------------------------------------------------------------------------
     // MARK: - POINTS
     // -------------------------------------------------------------------------
-    func responses(forSct sctIndex: Int, questionIndex: Int) -> [Int]
+    func responses(forQuestion questionIndex: Int, itemIndex: Int) -> [Int]
     {
         var result = Array<Int>(repeating: 0, count: LikertScale.Degree.allCases.count)
         
         for answer in answers_
         {
-            let degree = answer[sctIndex, questionIndex]
+            let degree = answer[questionIndex, itemIndex]
             result[degree.rawValue] += 1
         }
         
         return result
     }
     
-    func points(forSct sctIndex: Int, questionIndex: Int) -> [Double]
+    func points(forQuestion questionIndex: Int, itemIndex: Int) -> [Double]
     {
-        let currentReponses = responses(forSct: sctIndex, questionIndex: questionIndex)
+        let currentReponses = responses(forQuestion: questionIndex, itemIndex: itemIndex)
         return points(forResponses: currentReponses)
     }
     

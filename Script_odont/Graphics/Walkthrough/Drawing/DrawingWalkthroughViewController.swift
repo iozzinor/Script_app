@@ -280,21 +280,21 @@ extension DrawingWalkthroughViewController: SctViewDataSource
         return [ .drawing ]
     }
     
-    var currentSctIndex: Int {
+    var currentSctQuestionIndex: Int {
         return 0
     }
     
-    var currentSct: Sct {
+    var currentSctQuestion: SctQuestion {
         let wording = "DrawingWalkthrough.Drawing.Wording".localized
         
-        var questions = [SctQuestion]()
-        questions.append(SctQuestion(hypothesis: "", newData: SctData(text: "...")))
+        var items = [SctItem]()
+        items.append(SctItem(hypothesis: "", newData: SctData(text: "...")))
         
         for i in 1...2
         {
-            questions.append(SctQuestion(hypothesis: "H\(i)", newData: SctData(text:"D\(i)")))
+            items.append(SctItem(hypothesis: "H\(i)", newData: SctData(text:"D\(i)")))
         }
-        return Sct(wording: wording, topic: .diagnostic, questions: questions)
+        return SctQuestion(wording: wording, topic: .diagnostic, items: items)
     }
     
     var questionHeaderTitle: SctQuestionHeaderCell.Title? {

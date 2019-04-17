@@ -11,7 +11,7 @@ import UIKit
 class SctFinishedViewController: SctDetailViewController
 {
     fileprivate var sctFinished_: SctFinished =
-        SctFinished(session: SctSession(exam: SctExam()),
+        SctFinished(session: SctSession(sct: Sct()),
                       answeredQuestions: 1,
                       duration: 30.0,
                       startDate: Date(),
@@ -80,8 +80,8 @@ extension SctFinishedViewController: SctDetailViewDelegate
 // -----------------------------------------------------------------------------
 extension SctFinishedViewController: SctDetailViewDataSource
 {
-    var exam: SctExam {
-        return sctFinished_.session.exam
+    var sct: Sct {
+        return sctFinished_.session.sct
     }
     
     var statistics: SctStatistics {

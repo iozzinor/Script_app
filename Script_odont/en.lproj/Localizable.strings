@@ -323,7 +323,7 @@
 "MyProgress.NavigationItem.Title"           = "My Progress";
 "MyProgress.Data.Count.Title"               = "Scores Count:";
 "MyProgress.Data.MeanScore.Title"           = "Mean Score:";
-"MyProgress.Data.AnsweredSctExams.Title"    = "Answered Sct Exams:";
+"MyProgress.Data.AnsweredScts.Title"        = "Answered Scts:";
 "MyProgress.NoProgression"                  = "No progression.";
 "MyProgress.Explanation"                    = "Scores are normalized according to the maximum score possible.";
 

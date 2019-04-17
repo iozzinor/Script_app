@@ -208,7 +208,7 @@ class SctSearchViewController: UITableViewController
     fileprivate var questionsCountCriterionIndex_ = 0
     fileprivate var updateMinimumQuestionsCount_ = false
     fileprivate var minimumQuestionsCount_ = 0
-    fileprivate var maximumQuestionsCount_ = SctExam.maximumTotalQuestionsCount
+    fileprivate var maximumQuestionsCount_ = Sct.maximumTotalItemsCount
     fileprivate var minimumQuestionsTextField_: UITextField? = nil
     fileprivate var maximumQuestionsTextField_: UITextField? = nil
     
@@ -620,7 +620,7 @@ extension SctSearchViewController: UITextFieldDelegate
     func textFieldDidEndEditing(_ textField: UITextField)
     {
         let typedValue = Int(textField.text ?? "") ?? 0
-        let newValue = Constants.bound(typedValue, min: 0, max: SctExam.maximumTotalQuestionsCount)
+        let newValue = Constants.bound(typedValue, min: 0, max: Sct.maximumTotalItemsCount)
         if textField.tag == SctSearchViewController.minimumTag_
         {
             if newValue > maximumQuestionsCount_

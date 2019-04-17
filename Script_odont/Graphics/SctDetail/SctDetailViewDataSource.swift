@@ -10,7 +10,7 @@ import Foundation
 
 protocol SctDetailViewDataSource: class
 {
-    var exam: SctExam { get }
+    var sct: Sct { get }
     var statistics: SctStatistics { get }
     var sections: [SctDetailViewController.SctDetailSection] { get }
     

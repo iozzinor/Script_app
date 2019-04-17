@@ -41,7 +41,7 @@ class MyProgressViewController: UITableViewController
         case noProgression
         case dataCount(Int)
         case meanScore(Double)
-        case answeredSctExams(Int)
+        case answeredScts(Int)
         
         case explanation
         
@@ -82,10 +82,10 @@ class MyProgressViewController: UITableViewController
                 cell.textLabel?.text = "MyProgress.Data.MeanScore.Title".localized
                 cell.detailTextLabel?.text = Constants.formatReal(meanScore)
                 return cell
-            case let .answeredSctExams(answeredSctsExams):
+            case let .answeredScts(answeredScts):
                 let cell = tableView.dequeueReusableCell(withIdentifier: MyProgressViewController.informationCellId, for: indexPath)
-                cell.textLabel?.text = "MyProgress.Data.AnsweredSctExams.Title".localized
-                cell.detailTextLabel?.text = "\(answeredSctsExams)"
+                cell.textLabel?.text = "MyProgress.Data.AnsweredScts.Title".localized
+                cell.detailTextLabel?.text = "\(answeredScts)"
                 return cell
                 
             case .explanation:
@@ -126,7 +126,7 @@ class MyProgressViewController: UITableViewController
         {
             result.append((section: .data, rows: [.dataCount(progression.scores.count),
                                                   .meanScore(progression.meanScore),
-                                                  .answeredSctExams(progression.answeredSctExams)]))
+                                                  .answeredScts(progression.answeredScts)]))
         }
         else
         {
@@ -257,9 +257,8 @@ extension MyProgressViewController: ProgressCellDelegate
             {
                 scores.append(Double(Constants.random(min: 0, max: 1000)) / 10.0)
             }
-            progression_ = Progression(time: 0,
-                                       meanScore: Double(Constants.random(min: 0, max: 1000)) / 10.0,
-                                       answeredSctExams: Constants.random(min: 10, max: 30),
+            progression_ = Progression(meanScore: Double(Constants.random(min: 0, max: 1000)) / 10.0,
+                                       answeredScts: Constants.random(min: 10, max: 30),
                                        scores: scores)
         }
     }

@@ -83,13 +83,13 @@ extension SctTopicWalkthroughViewController: SctViewDataSource
         return [.drawing, .information]
     }
     
-    var currentSctIndex: Int {
+    var currentSctQuestionIndex: Int {
         return 0
     }
     
-    var currentSct: Sct {
-        var result = Sct()
-        result.questions.append(SctQuestion())
+    var currentSctQuestion: SctQuestion {
+        var result = SctQuestion()
+        result.items.append(SctItem())
         result.topic = topics_[currentTopic_]
         return result
     }

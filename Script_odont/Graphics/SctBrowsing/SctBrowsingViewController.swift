@@ -14,10 +14,10 @@ fileprivate func sctLaunchInformation_() -> SctLaunchInformation
 {
     let topic = SctTopic(rawValue: Constants.random(min: 0, max: SctTopic.allCases.count - 1))!
     
-    var exam = SctExam()
-    exam.scts.append(Sct(wording: "", topic: topic, questions: []))
+    var sct = Sct()
+    sct.questions.append(SctQuestion(wording: "", topic: topic, items: []))
     
-    return SctLaunchInformation(exam: exam, statistics: SctStatistics(id: 1,
+    return SctLaunchInformation(sct: sct, statistics: SctStatistics(id: 1,
                                                                         authorLastName: "Tartanpion",
                                                                         authorFirstName: "Jean",
                                                                            meanScore: 10.0,

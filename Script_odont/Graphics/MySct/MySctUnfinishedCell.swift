@@ -19,14 +19,14 @@ class MySctUnfinishedCell: UITableViewCell
     @IBOutlet weak var authorLastNameLabel: UILabel!
     @IBOutlet weak var authorFirstNameLabel: UILabel!
     
-    fileprivate func totalQuestionsCount_(_ sctUnfinished: SctUnfinished) -> Int
+    fileprivate func totalItemsCount_(_ sctUnfinished: SctUnfinished) -> Int
     {
-        let exam = sctUnfinished.session.exam
+        let sct = sctUnfinished.session.sct
         var result = 0
         
-        for sct in exam.scts
+        for question in sct.questions
         {
-            result += sct.questions.count
+            result += question.items.count
         }
         
         return result
@@ -34,14 +34,14 @@ class MySctUnfinishedCell: UITableViewCell
     
     func setSctUnfinished(_ sctUnfinished: SctUnfinished)
     {
-        topicLabel.prepareToDisplay(topic: sctUnfinished.session.exam.topic)
+        topicLabel.prepareToDisplay(topic: sctUnfinished.session.sct.topic)
         
         startDateLabel.text = Constants.dateString(for: sctUnfinished.startDate)
         answeredQuestionsLabel.text = "\(sctUnfinished.answeredQuestions)"
-        let totalQuestions = totalQuestionsCount_(sctUnfinished)
-        progressView.progress = Float(sctUnfinished.answeredQuestions) / Float(totalQuestions)
+        let totalItems = totalItemsCount_(sctUnfinished)
+        progressView.progress = Float(sctUnfinished.answeredQuestions) / Float(totalItems)
         
-        percentLabel.text = "\(Int(100.0 * Float(sctUnfinished.answeredQuestions) / Float(totalQuestions)))%"
+        percentLabel.text = "\(Int(100.0 * Float(sctUnfinished.answeredQuestions) / Float(totalItems)))%"
         
         durationLabel.text = Constants.durationString(forTimeInterval: sctUnfinished.duration)
         

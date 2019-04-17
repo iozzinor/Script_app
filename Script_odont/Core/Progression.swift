@@ -8,10 +8,15 @@
 
 import Foundation
 
+/// User progression.
 struct Progression
 {
-    var time: TimeInterval
+    /// The user mean score.
     var meanScore: Double
-    var answeredSctExams: Int
+    
+    /// The number of SCTs the user has finished.
+    var answeredScts: Int
+    
+    /// The scores for the SCTs the user has finished.
     var scores: [Double]
 }

@@ -53,9 +53,9 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     }
     fileprivate var senderVolumeView_: SCNView? = nil
     
-    var sctSession = SctSession(exam: SctExam(scts: [])) {
+    var sctSession = SctSession(sct: Sct(questions: [])) {
         didSet {
-            singleQuestionIndexes_ = Array<Int>(repeating: 0, count: sctSession.exam.scts.count)
+            singleQuestionIndexes_ = Array<Int>(repeating: 0, count: sctSession.sct.questions.count)
             if isViewLoaded
             {
                 updateUi_()
@@ -73,7 +73,7 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
         return sctSession
     }
     
-    public var currentSctIndex = 0 {
+    public var currentSctQuestionIndex = 0 {
         didSet {
             if isViewLoaded
             {
@@ -82,9 +82,9 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
         }
     }
     
-    public var currentSct: Sct
+    public var currentSctQuestion: SctQuestion
     {
-        return sctSession.exam.scts[currentSctIndex]
+        return sctSession.sct.questions[currentSctQuestionIndex]
     }
     
     public var questionHeaderTitle: SctQuestionHeaderCell.Title? = nil
@@ -95,7 +95,7 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     
     fileprivate var singleQuestionIndexes_ = [Int]()
     public var singleQuestionIndex: Int? {
-        return singleQuestionIndexes_[currentSctIndex]
+        return singleQuestionIndexes_[currentSctQuestionIndex]
     }
     
     deinit
@@ -203,7 +203,7 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     
     fileprivate func updateProgressUi_()
     {
-        let progressString = String.localizedStringWithFormat("SctExam.Horizontal.Progress".localized, currentSctIndex + 1, sctSession.exam.scts.count)
+        let progressString = String.localizedStringWithFormat("SctExam.Horizontal.Progress".localized, currentSctQuestionIndex + 1, sctSession.sct.questions.count)
         progressLabel.text = progressString
     }
     
@@ -214,9 +214,9 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
         switch sctSession.mode
         {
         case .training:
-            time = abs(sctSession.exam.estimatedDuration - sctSession.time)
+            time = abs(sctSession.sct.estimatedDuration - sctSession.time)
             
-            if sctSession.time > sctSession.exam.estimatedDuration
+            if sctSession.time > sctSession.sct.estimatedDuration
             {
                 isTimeout = true
             }
@@ -245,8 +245,8 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     
     fileprivate func updateNavigationButtons_()
     {
-        previousButton.isEnabled    = (currentSctIndex > 0)
-        nextButton.isEnabled        = (currentSctIndex < sctSession.exam.scts.count - 1)
+        previousButton.isEnabled    = (currentSctQuestionIndex > 0)
+        nextButton.isEnabled        = (currentSctQuestionIndex < sctSession.sct.questions.count - 1)
     }
     
     // -------------------------------------------------------------------------
@@ -332,16 +332,16 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
         }
         
         var validScts = 0
-        for i in 0..<sctSession.exam.scts.count
+        for i in 0..<sctSession.sct.questions.count
         {
             if sctSession.isSctValid(i)
             {
                 validScts += 1
             }
         }
-        if validScts < (sctSession.exam.scts.count / 2)
+        if validScts < (sctSession.sct.questions.count / 2)
         {
-            return .invalid(.insufficientAnsweredScts(actual: validScts, expected: sctSession.exam.scts.count / 2))
+            return .invalid(.insufficientAnsweredScts(actual: validScts, expected: sctSession.sct.questions.count / 2))
         }
         return .valid
     }
@@ -351,13 +351,13 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     // -------------------------------------------------------------------------
     public func sctQuestionCell(didSelectPreviousQuestion sctQuestionCell: SctQuestionCell)
     {
-        singleQuestionIndexes_[currentSctIndex] -= 1
+        singleQuestionIndexes_[currentSctQuestionIndex] -= 1
         tableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
     }
     
     public func sctQuestionCell(didSelectNextQuestion sctQuestionCell: SctQuestionCell)
     {
-        singleQuestionIndexes_[currentSctIndex] += 1
+        singleQuestionIndexes_[currentSctQuestionIndex] += 1
         tableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
     }
     
@@ -371,24 +371,24 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     
     @IBAction func previous(_ sender: UIBarButtonItem)
     {
-        guard currentSctIndex > 0 else
+        guard currentSctQuestionIndex > 0 else
         {
             return
         }
         
-        currentSctIndex -= 1
+        currentSctQuestionIndex -= 1
         
         updateNavigationButtons_()
     }
     
     @IBAction func next(_ sender: UIBarButtonItem)
     {
-        guard currentSctIndex < sctSession.exam.scts.count - 1 else
+        guard currentSctQuestionIndex < sctSession.sct.questions.count - 1 else
         {
             return
         }
         
-        currentSctIndex += 1
+        currentSctQuestionIndex += 1
         
         updateNavigationButtons_()
     }
@@ -460,7 +460,7 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
             let destination = (segue.destination as? UINavigationController)?.viewControllers.first as? GoToSctViewController
         {
             destination.session = sctSession
-            destination.currentSct = currentSctIndex
+            destination.currentSct = currentSctQuestionIndex
             destination.delegate = self
         }
         // image detail
@@ -489,8 +489,8 @@ extension SctHorizontalViewController: SctQuestionCellDelegate
 {
     public func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
     {
-        let questionIndex = sctQuestionCell.tag
-        sctSession[currentSctIndex, questionIndex] = answer
+        let itemIndex = sctQuestionCell.tag
+        sctSession[currentSctQuestionIndex, itemIndex] = answer
     }
 }
 
@@ -539,6 +539,6 @@ extension SctHorizontalViewController: GoToSctViewControllerDelegate
     
     func goToSctViewController(_ goToSctViewController: GoToSctViewController, didChooseSct sctIndex: Int)
     {
-        currentSctIndex = sctIndex
+        currentSctQuestionIndex = sctIndex
     }
 }

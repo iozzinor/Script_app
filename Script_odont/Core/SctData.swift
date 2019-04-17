@@ -8,12 +8,22 @@
 
 import UIKit
 
+/// The data associated to the SCT.
+///
+/// It is the new datum, that affects the hypothesis,
+/// and whose impact is to be evaluated.
 public struct SctData
 {
+    /// The type of the associated data.
     public enum Content
     {
+        /// A text.
         case text(String)
+        
+        /// An image.
         case image(UIImage)
+        
+        /// The URL of the volume resource (STL file by example).
         case volume(String)
     }
     

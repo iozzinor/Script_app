@@ -10,6 +10,6 @@ import Foundation
 
 struct SctLaunchInformation
 {
-    var exam: SctExam
+    var sct: Sct
     var statistics: SctStatistics
 }

@@ -20,16 +20,16 @@
 		AC06D484226390E7003BA7C7 /* ToothRecognition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC06D483226390E7003BA7C7 /* ToothRecognition.storyboard */; };
 		AC06D48722639376003BA7C7 /* ToothRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06D48622639376003BA7C7 /* ToothRecognitionViewController.swift */; };
 		AC06D4892263947B003BA7C7 /* ToothRecognitionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06D4882263947B003BA7C7 /* ToothRecognitionSelectionViewController.swift */; };
-		AC0D77C22225CD2B007F83D4 /* Sct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C12225CD2B007F83D4 /* Sct.swift */; };
+		AC0D77C22225CD2B007F83D4 /* SctQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C12225CD2B007F83D4 /* SctQuestion.swift */; };
 		AC0D77C42225CD60007F83D4 /* SctTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C32225CD60007F83D4 /* SctTopic.swift */; };
 		AC0D77C62225CEFD007F83D4 /* LikertScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C52225CEFD007F83D4 /* LikertScale.swift */; };
 		AC0D77C82225D240007F83D4 /* SctHorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C72225D240007F83D4 /* SctHorizontalViewController.swift */; };
-		AC0D77CA2225D28B007F83D4 /* SctQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C92225D28B007F83D4 /* SctQuestion.swift */; };
+		AC0D77CA2225D28B007F83D4 /* SctItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C92225D28B007F83D4 /* SctItem.swift */; };
 		AC0D77D02225D7AD007F83D4 /* SctQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77CF2225D7AD007F83D4 /* SctQuestionCell.swift */; };
 		AC0D77D22225DD01007F83D4 /* SctPanelAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D12225DD01007F83D4 /* SctPanelAnswer.swift */; };
 		AC0D77D422281FDD007F83D4 /* SctScaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D322281FDD007F83D4 /* SctScaleCell.swift */; };
 		AC0D77D62228274D007F83D4 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D52228274D007F83D4 /* Appearance.swift */; };
-		AC0D77D8222831C5007F83D4 /* SctExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D7222831C5007F83D4 /* SctExam.swift */; };
+		AC0D77D8222831C5007F83D4 /* Sct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D7222831C5007F83D4 /* Sct.swift */; };
 		AC0D77DA22283330007F83D4 /* SctWordingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D922283330007F83D4 /* SctWordingCell.swift */; };
 		AC0D77DC2228343C007F83D4 /* SctSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77DB2228343C007F83D4 /* SctSession.swift */; };
 		AC0D77DE22283838007F83D4 /* SctAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77DD22283838007F83D4 /* SctAnswer.swift */; };
@@ -399,16 +399,16 @@
 		AC06D483226390E7003BA7C7 /* ToothRecognition.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ToothRecognition.storyboard; sourceTree = "<group>"; };
 		AC06D48622639376003BA7C7 /* ToothRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToothRecognitionViewController.swift; sourceTree = "<group>"; };
 		AC06D4882263947B003BA7C7 /* ToothRecognitionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToothRecognitionSelectionViewController.swift; sourceTree = "<group>"; };
-		AC0D77C12225CD2B007F83D4 /* Sct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sct.swift; sourceTree = "<group>"; };
+		AC0D77C12225CD2B007F83D4 /* SctQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctQuestion.swift; sourceTree = "<group>"; };
 		AC0D77C32225CD60007F83D4 /* SctTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctTopic.swift; sourceTree = "<group>"; };
 		AC0D77C52225CEFD007F83D4 /* LikertScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikertScale.swift; sourceTree = "<group>"; };
 		AC0D77C72225D240007F83D4 /* SctHorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctHorizontalViewController.swift; sourceTree = "<group>"; };
-		AC0D77C92225D28B007F83D4 /* SctQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctQuestion.swift; sourceTree = "<group>"; };
+		AC0D77C92225D28B007F83D4 /* SctItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctItem.swift; sourceTree = "<group>"; };
 		AC0D77CF2225D7AD007F83D4 /* SctQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctQuestionCell.swift; sourceTree = "<group>"; };
 		AC0D77D12225DD01007F83D4 /* SctPanelAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctPanelAnswer.swift; sourceTree = "<group>"; };
 		AC0D77D322281FDD007F83D4 /* SctScaleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctScaleCell.swift; sourceTree = "<group>"; };
 		AC0D77D52228274D007F83D4 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
-		AC0D77D7222831C5007F83D4 /* SctExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctExam.swift; sourceTree = "<group>"; };
+		AC0D77D7222831C5007F83D4 /* Sct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sct.swift; sourceTree = "<group>"; };
 		AC0D77D922283330007F83D4 /* SctWordingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctWordingCell.swift; sourceTree = "<group>"; };
 		AC0D77DB2228343C007F83D4 /* SctSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctSession.swift; sourceTree = "<group>"; };
 		AC0D77DD22283838007F83D4 /* SctAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctAnswer.swift; sourceTree = "<group>"; };
@@ -686,13 +686,13 @@
 		AC0D77BF2225CD11007F83D4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				AC0D77C12225CD2B007F83D4 /* Sct.swift */,
-				AC0D77D7222831C5007F83D4 /* SctExam.swift */,
+				AC0D77D7222831C5007F83D4 /* Sct.swift */,
+				AC0D77C12225CD2B007F83D4 /* SctQuestion.swift */,
+				AC0D77C92225D28B007F83D4 /* SctItem.swift */,
+				ACAD5DD3224523B20041E484 /* SctData.swift */,
 				AC0D77DD22283838007F83D4 /* SctAnswer.swift */,
 				AC0D77DB2228343C007F83D4 /* SctSession.swift */,
 				AC0D77D12225DD01007F83D4 /* SctPanelAnswer.swift */,
-				AC0D77C92225D28B007F83D4 /* SctQuestion.swift */,
-				ACAD5DD3224523B20041E484 /* SctData.swift */,
 				AC0D77C32225CD60007F83D4 /* SctTopic.swift */,
 				AC0D77C52225CEFD007F83D4 /* LikertScale.swift */,
 				AC9F23EE222B124B002D38E5 /* Qualification.swift */,
@@ -1372,7 +1372,7 @@
 				AC53E3692232B2BA00CA4437 /* SctQuestionHeaderCell.swift in Sources */,
 				ACDC49B1224240D200B43534 /* TableRow.swift in Sources */,
 				ACD1B3B0223C510B0065F07E /* SctBrowsingCell.swift in Sources */,
-				AC0D77D8222831C5007F83D4 /* SctExam.swift in Sources */,
+				AC0D77D8222831C5007F83D4 /* Sct.swift in Sources */,
 				AC0D77E022283FB6007F83D4 /* SctQuestionCellDelegate.swift in Sources */,
 				ACAD5DD62245294D0041E484 /* BorderView.swift in Sources */,
 				AC31A053224B94E700A3A461 /* SebdNetworkError.swift in Sources */,
@@ -1384,7 +1384,7 @@
 				ACC83F84223E66DA0064BE6F /* SctLaunchViewController.swift in Sources */,
 				AC0E4EB222383A45003996AF /* PartialRateStar.swift in Sources */,
 				AC38BB78221DFCC4008E829B /* WelcomeWalkthroughViewController.swift in Sources */,
-				AC0D77CA2225D28B007F83D4 /* SctQuestion.swift in Sources */,
+				AC0D77CA2225D28B007F83D4 /* SctItem.swift in Sources */,
 				AC24E1DB224A718200B5D48A /* NumericPassphraseControl.swift in Sources */,
 				ACDC49A8224221F800B43534 /* NetworkStatus.swift in Sources */,
 				ACC83F96223EC83D0064BE6F /* SctsFinishedListViewController.swift in Sources */,
@@ -1479,7 +1479,7 @@
 				AC0E4EAD223801D5003996AF /* RateStar.swift in Sources */,
 				AC4904CD222BC16B00BDEB4B /* QualificationPickerViewControllerDelegate.swift in Sources */,
 				ACC52C41223EEE6C00B974BA /* CandidateStatisticsCell.swift in Sources */,
-				AC0D77C22225CD2B007F83D4 /* Sct.swift in Sources */,
+				AC0D77C22225CD2B007F83D4 /* SctQuestion.swift in Sources */,
 				AC0434072249547600644B14 /* ResetViewController.swift in Sources */,
 				AC9F23DE222996C4002D38E5 /* AuthenticationManager.swift in Sources */,
 				AC82731C222C93B90041AA0C /* RecoverPasswordViewController.swift in Sources */,

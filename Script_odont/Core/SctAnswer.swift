@@ -13,24 +13,24 @@ public struct SctAnswer
 {
     fileprivate var answers_: [[LikertScale.Degree]]
     
-    public init(exam: SctExam)
+    public init(sct: Sct)
     {
         self.answers_ = []
         
-        for sct in exam.scts
+        for question in sct.questions
         {
-            let newAnswers = Array<LikertScale.Degree>(repeating: .zero, count: sct.questions.count)
+            let newAnswers = Array<LikertScale.Degree>(repeating: .zero, count: question.items.count)
             answers_.append(newAnswers)
         }
     }
     
-    public subscript(sctIndex: Int, questionIndex: Int) -> LikertScale.Degree {
+    public subscript(questionIndex: Int, itemIndex: Int) -> LikertScale.Degree {
         set {
-            answers_[sctIndex][questionIndex] = newValue
+            answers_[questionIndex][itemIndex] = newValue
         }
         
         get {
-            return answers_[sctIndex][questionIndex]
+            return answers_[questionIndex][itemIndex]
         }
     }
 }

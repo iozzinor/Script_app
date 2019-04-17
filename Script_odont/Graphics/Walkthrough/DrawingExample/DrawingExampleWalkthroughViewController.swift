@@ -273,17 +273,17 @@ extension DrawingExampleWalkthroughViewController: SctViewDataSource
         return [.drawing, .information]
     }
     
-    public var currentSctIndex: Int {
+    public var currentSctQuestionIndex: Int {
         return 0
     }
     
-    public var currentSct: Sct {
-        var sct = Sct()
-        sct.topic = .diagnostic
-        sct.wording = "WelcomeWalkthroughExample.Label.Description.Scenario".localized
-        sct.questions.append(SctQuestion(hypothesis: "WelcomeWalkthroughExample.Label.Description.Hypothesis".localized, newData: SctData(text: "WelcomeWalkthroughExample.Label.Description.Information".localized)))
+    public var currentSctQuestion: SctQuestion {
+        var question = SctQuestion()
+        question.topic = .diagnostic
+        question.wording = "WelcomeWalkthroughExample.Label.Description.Scenario".localized
+        question.items.append(SctItem(hypothesis: "WelcomeWalkthroughExample.Label.Description.Hypothesis".localized, newData: SctData(text: "WelcomeWalkthroughExample.Label.Description.Information".localized)))
         
-        return sct
+        return question
     }
     
     public var questionHeaderTitle: SctQuestionHeaderCell.Title? {

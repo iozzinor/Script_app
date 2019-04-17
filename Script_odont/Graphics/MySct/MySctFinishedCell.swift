@@ -23,7 +23,7 @@ class MySctFinishedCell: UITableViewCell
         let startDateString = Constants.dateString(for: sctFinished.startDate)
         startDateLabel.text = startDateString
         
-        topicLabel.prepareToDisplay(topic: sctFinished.session.exam.topic)
+        topicLabel.prepareToDisplay(topic: sctFinished.session.sct.topic)
         
         scoreLabel.text = "\(sctFinished.score)%"
         

@@ -99,13 +99,13 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.textLabel?.textColor = Appearance.Color.default
             cell.selectionStyle = .none
             
-            let totalQuestionsCount = dataSource.exam.totalQuestionsCount
+            let totalQuestionsCount = dataSource.sct.totalItemsCount
             switch self
             {
              // general
             case .topic:
-                cell.textLabel?.text = dataSource.exam.topic.name
-                cell.textLabel?.textColor = Appearance.Color.color(for: dataSource.exam.topic)
+                cell.textLabel?.text = dataSource.sct.topic.name
+                cell.textLabel?.textColor = Appearance.Color.color(for: dataSource.sct.topic)
                 cell.detailTextLabel?.text = ""
             case .authorLastName:
                 cell.textLabel?.text = "SctDetail.TableCell.AuthorLastName".localized
@@ -128,7 +128,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 if let finished = dataSource.finished
                 {
                     let percentRange = 100.0 / Double(dataSource.statistics.scoresDistribution.count)
-                    result.scoreDiagram.selectedBarIndex = Int(finished.score / Double(dataSource.exam.totalQuestionsCount) * 100.0 / percentRange)
+                    result.scoreDiagram.selectedBarIndex = Int(finished.score / Double(dataSource.sct.totalItemsCount) * 100.0 / percentRange)
                 }
                 
                 return result
@@ -188,7 +188,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             // duration
             case .estimatedDuration:
                 cell.textLabel?.text = "SctDetail.TableCell.EstimatedDuration".localized
-                cell.detailTextLabel?.text = Constants.durationString(forTimeInterval: dataSource.exam.estimatedDuration)
+                cell.detailTextLabel?.text = Constants.durationString(forTimeInterval: dataSource.sct.estimatedDuration)
             case .meanDuration:
                 cell.textLabel?.text = "SctDetail.TableCell.MeanDuration".localized
                 cell.detailTextLabel?.text = Constants.durationString(forTimeInterval: dataSource.statistics.meanDuration)
