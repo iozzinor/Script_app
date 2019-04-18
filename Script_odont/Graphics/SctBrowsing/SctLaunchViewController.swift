@@ -43,10 +43,13 @@ class SctLaunchViewController: SctDetailViewController
     
     @IBOutlet weak var tableView: UITableView!
     
-    var launchInformation = SctLaunchInformation(sct: Sct(questions: []),
+    var launchInformation = SctLaunchInformation(topic: .diagnostic,
+                                                 authorLastName: "Tartanpion",
+                                                 authorFirstName: "Jean",
+                                                 estimatedDuration: 120.0,
+                                                 questionsCount: 100,
                                                  statistics: SctStatistics(id: 0,
-                                                                           authorLastName: "Tartanpion",
-                                                                           authorFirstName: "Jean",meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date()))
+                                                                          meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date()))
     {
         didSet
         {
@@ -114,15 +117,18 @@ extension SctLaunchViewController: SctDetailViewDelegate
 extension SctLaunchViewController: SctDetailViewDataSource
 {
     var sct: Sct {
-        return launchInformation.sct
+        return Sct(questions: [])
     }
     
-    var statistics: SctStatistics {
-        return launchInformation.statistics
+    var information: SctLaunchInformation {
+        return launchInformation
     }
-    
+
     var answeredQuestionsCount: Int {
-        return launchInformation.sct.totalItemsCount
+        
+        var result = 0
+        return result
+        //return launchInformation.sct.totalItemsCount
     }
     
     var unfinished: SctUnfinished? {

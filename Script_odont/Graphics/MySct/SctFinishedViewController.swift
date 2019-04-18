@@ -8,16 +8,23 @@
 
 import UIKit
 
+fileprivate func defaultSctFinished_() -> SctFinished
+{
+    let statistics = SctStatistics(id: 0, meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date())
+    
+    let information = SctLaunchInformation(topic: .diagnostic, authorLastName: "Tartanpion", authorFirstName: "Jean", estimatedDuration: 34, questionsCount: 10, statistics: statistics)
+    return SctFinished(session: SctSession(sct: Sct()),
+                    answeredQuestions: 1,
+                    duration: 30.0,
+                    startDate: Date(),
+                    endDate: Date(),
+                    information: information, score: 200, vote: nil)
+    
+}
+
 class SctFinishedViewController: SctDetailViewController
 {
-    fileprivate var sctFinished_: SctFinished =
-        SctFinished(session: SctSession(sct: Sct()),
-                      answeredQuestions: 1,
-                      duration: 30.0,
-                      startDate: Date(),
-                      endDate: Date(),
-                      statistics:
-            SctStatistics(id: 0,authorLastName: "Tartanpion", authorFirstName: "Jean", meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date()), score: 200, vote: nil)
+    fileprivate var sctFinished_ = defaultSctFinished_()
     
     func setSctFinished(_ sctFinished: SctFinished)
     {
@@ -84,8 +91,8 @@ extension SctFinishedViewController: SctDetailViewDataSource
         return sctFinished_.session.sct
     }
     
-    var statistics: SctStatistics {
-        return sctFinished_.statistics
+    var information: SctLaunchInformation {
+        return sctFinished_.information
     }
     
     var answeredQuestionsCount: Int {

@@ -17,8 +17,11 @@ struct SctFinished
     var startDate: Date
     var endDate: Date
     
-    var statistics: SctStatistics
+    var information: SctLaunchInformation
     
+    /// The user score.
     var score: Double
+    
+    /// The user vote.
     var vote: Int?
 }

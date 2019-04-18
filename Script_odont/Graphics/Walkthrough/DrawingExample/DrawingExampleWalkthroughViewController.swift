@@ -129,7 +129,7 @@ public class DrawingExampleWalkthroughViewController: SctViewController
     
     fileprivate func getLikertFrame_() -> CGRect
     {
-        guard let questionCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? SctQuestionCell else
+        guard let questionCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? SctItemCell else
         {
             return CGRect.zero
         }
@@ -207,13 +207,13 @@ public class DrawingExampleWalkthroughViewController: SctViewController
             case 0:
                 stepViews_[0] = [(result as! SctWordingCell).wordingLabel]
             case 2:
-                stepViews_[1] = [(result as! SctQuestionCell).hypothesisLabel]
-                if let newDataLabel = (result as! SctQuestionCell).newDataLabel
+                stepViews_[1] = [(result as! SctItemCell).hypothesisLabel]
+                if let newDataLabel = (result as! SctItemCell).newDataLabel
                 {
                     
                     stepViews_[2] = [newDataLabel]
                 }
-                stepViews_[3] = ((result as! SctQuestionCell).scalesContainer.arrangedSubviews as! [UIButton]).map { $0.titleLabel! }
+                stepViews_[3] = ((result as! SctItemCell).scalesContainer.arrangedSubviews as! [UIButton]).map { $0.titleLabel! }
             default:
                 break
             }
@@ -298,14 +298,14 @@ extension DrawingExampleWalkthroughViewController: SctViewDataSource
         return true
     }
     
-    public func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
+    public func sctItemCell(_ sctItemCell: SctItemCell, didSelectAnswer answer: LikertScale.Degree?)
     {
         guard let answer = answer else
         {
             successButton_?.isSelected = true
             return
         }
-        let sender = sctQuestionCell.scalesContainer.arrangedSubviews[answer.rawValue] as! UIButton
+        let sender = sctItemCell.scalesContainer.arrangedSubviews[answer.rawValue] as! UIButton
         guard !success_, currentStep_ == .impact else
         {
             sender.isSelected = false
@@ -323,11 +323,11 @@ extension DrawingExampleWalkthroughViewController: SctViewDataSource
         }
     }
     
-    public func sctQuestionCell(didSelectPreviousQuestion sctQuestionCell: SctQuestionCell)
+    public func sctItemCell(didSelectPreviousItem sctItemCell: SctItemCell)
     {
     }
     
-    public func sctQuestionCell(didSelectNextQuestion sctQuestionCell: SctQuestionCell)
+    public func sctItemCell(didSelectNextItem sctItemCell: SctItemCell)
     {
     }
     

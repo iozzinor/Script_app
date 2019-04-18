@@ -110,15 +110,15 @@ extension SctTopicWalkthroughViewController: SctViewDataSource
     
     var singleQuestionIndex: Int? { return nil }
     
-    func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
+    func sctItemCell(_ sctItemCell: SctItemCell, didSelectAnswer answer: LikertScale.Degree?)
     {
     }
     
-    func sctQuestionCell(didSelectPreviousQuestion sctQuestionCell: SctQuestionCell)
+    func sctItemCell(didSelectPreviousItem sctItemCell: SctItemCell)
     {
     }
     
-    func sctQuestionCell(didSelectNextQuestion sctQuestionCell: SctQuestionCell)
+    func sctItemCell(didSelectNextItem sctItemCell: SctItemCell)
     {
     }
 }

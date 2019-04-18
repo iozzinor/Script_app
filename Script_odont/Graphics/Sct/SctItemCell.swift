@@ -9,7 +9,7 @@
 import UIKit
 import SceneKit
 
-public class SctQuestionCell: UITableViewCell
+public class SctItemCell: UITableViewCell
 {
     @IBOutlet weak var previousButton: UIButton!
     {
@@ -86,7 +86,7 @@ public class SctQuestionCell: UITableViewCell
         }
     }
     
-    weak var delegate: SctQuestionCellDelegate? = nil
+    weak var delegate: SctItemCellDelegate? = nil
     
     var isLast = false
     {
@@ -121,11 +121,11 @@ public class SctQuestionCell: UITableViewCell
             {
                 if canChooseLikertScale
                 {
-                    button.addTarget(self, action: #selector(SctQuestionCell.selectedScaleButtonPressed_), for: .touchUpInside)
+                    button.addTarget(self, action: #selector(SctItemCell.selectedScaleButtonPressed_), for: .touchUpInside)
                 }
                 else
                 {
-                    button.removeTarget(self, action: #selector(SctQuestionCell.selectedScaleButtonPressed_), for: .touchUpInside)
+                    button.removeTarget(self, action: #selector(SctItemCell.selectedScaleButtonPressed_), for: .touchUpInside)
                 }
             }
         }
@@ -202,7 +202,7 @@ public class SctQuestionCell: UITableViewCell
             }
             
             // button target
-            newButton.addTarget(self, action: #selector(SctQuestionCell.selectedScaleButtonPressed_), for: .touchUpInside)
+            newButton.addTarget(self, action: #selector(SctItemCell.selectedScaleButtonPressed_), for: .touchUpInside)
             
             scaleContainerButtons_.append(newButton)
             scalesContainer.addArrangedSubview(newButton)
@@ -213,10 +213,10 @@ public class SctQuestionCell: UITableViewCell
     {
         if displaySingleItem
         {
-            leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SctQuestionCell.swipeLeft_))
+            leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SctItemCell.swipeLeft_))
             leftSwipeGesture?.direction = .left
             leftSwipeGesture?.numberOfTouchesRequired = 1
-            rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SctQuestionCell.swipeRight_))
+            rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SctItemCell.swipeRight_))
             rightSwipeGesture?.direction = .right
             rightSwipeGesture?.numberOfTouchesRequired = 1
             
@@ -252,13 +252,13 @@ public class SctQuestionCell: UITableViewCell
     fileprivate func previousQuestion_()
     {
         previousQuestionIndex_ -= 1
-        delegate?.sctQuestionCell(didSelectPreviousQuestion: self)
+        delegate?.sctItemCell(didSelectPreviousItem: self)
     }
     
     fileprivate func nextQuestion_()
     {
         previousQuestionIndex_ += 1
-        delegate?.sctQuestionCell(didSelectNextQuestion: self)
+        delegate?.sctItemCell(didSelectNextItem: self)
     }
     
     @IBAction func pageControlChanged(_ pageControl: UIPageControl)
@@ -308,7 +308,7 @@ public class SctQuestionCell: UITableViewCell
             
             selectedScaleButton_?.isSelected = true
             
-            delegate?.sctQuestionCell(self, didSelectAnswer: LikertScale.Degree(rawValue: selectedScale_))
+            delegate?.sctItemCell(self, didSelectAnswer: LikertScale.Degree(rawValue: selectedScale_))
         }
     }
     

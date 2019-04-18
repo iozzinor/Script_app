@@ -37,20 +37,25 @@ fileprivate func image1_() -> Sct
     return Sct(questions: [sctQuestion])
 }
 
-class SctUnfinishedViewController: SctDetailViewController
+fileprivate func defaultSctUnfinished_() -> SctUnfinished
 {
-    static let toSctHorizontal = "SctUnfinishedToSctHorizontalSegueId"
-    
-    var sctUnfinished: SctUnfinished =
-        SctUnfinished(session: SctSession(sct: Sct()),
+    let statistics = SctStatistics(id: 0,
+                                   meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date())
+    let information = SctLaunchInformation(topic: .diagnostic, authorLastName: "Tartanpion", authorFirstName: "Jean", estimatedDuration: 34, questionsCount: 10, statistics: statistics)
+    return SctUnfinished(session: SctSession(sct: Sct()),
                       answeredQuestions: 1,
                       duration: 30.0,
                       startDate: Date(),
                       lastDate: Date(),
-                      statistics:
-            SctStatistics(id: 0,
-                          authorLastName: "Tartanpion",
-                          authorFirstName: "Jean", meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date()))
+                      information: information
+            )
+}
+
+class SctUnfinishedViewController: SctDetailViewController
+{
+    static let toSctHorizontal = "SctUnfinishedToSctHorizontalSegueId"
+    
+    var sctUnfinished: SctUnfinished = defaultSctUnfinished_()
     {
         didSet {
             if isViewLoaded
@@ -142,8 +147,8 @@ extension SctUnfinishedViewController: SctDetailViewDataSource
         return sctUnfinished.session.sct
     }
     
-    var statistics: SctStatistics {
-        return sctUnfinished.statistics
+    var information: SctLaunchInformation {
+        return sctUnfinished.information
     }
     
     var answeredQuestionsCount: Int {

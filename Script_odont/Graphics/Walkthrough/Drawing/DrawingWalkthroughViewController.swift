@@ -182,7 +182,7 @@ class DrawingWalkthroughViewController: SctViewController
     fileprivate func drawingFrame() -> CGRect?
     {
         guard let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? SctWordingCell,
-            let lastCell = tableView.cellForRow(at: IndexPath(row: 4, section: 0)) as? SctQuestionCell else
+            let lastCell = tableView.cellForRow(at: IndexPath(row: 4, section: 0)) as? SctItemCell else
         {
             return nil
         }
@@ -209,10 +209,10 @@ class DrawingWalkthroughViewController: SctViewController
         return frameForColumn(headerLabelGetter: {$0.likertScaleLabel}, labelGetter: {$0.scalesContainer})
     }
     
-    fileprivate func frameForColumn(headerLabelGetter: (SctQuestionHeaderCell) -> UILabel, labelGetter: (SctQuestionCell) -> UIView) -> CGRect?
+    fileprivate func frameForColumn(headerLabelGetter: (SctQuestionHeaderCell) -> UILabel, labelGetter: (SctItemCell) -> UIView) -> CGRect?
     {
         guard let firstCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? SctQuestionHeaderCell,
-            let lastCell = tableView.cellForRow(at: IndexPath(row: 4, section: 0)) as? SctQuestionCell else
+            let lastCell = tableView.cellForRow(at: IndexPath(row: 4, section: 0)) as? SctItemCell else
         {
             return nil
         }
@@ -309,15 +309,15 @@ extension DrawingWalkthroughViewController: SctViewDataSource
         return false
     }
     
-    func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
+    func sctItemCell(_ sctItemCell: SctItemCell, didSelectAnswer answer: LikertScale.Degree?)
     {
     }
     
-    func sctQuestionCell(didSelectPreviousQuestion sctQuestionCell: SctQuestionCell)
+    func sctItemCell(didSelectPreviousItem sctItemCell: SctItemCell)
     {
     }
     
-    func sctQuestionCell(didSelectNextQuestion sctQuestionCell: SctQuestionCell)
+    func sctItemCell(didSelectNextItem sctItemCell: SctItemCell)
     {
     }
 }

@@ -25,7 +25,7 @@
 		AC0D77C62225CEFD007F83D4 /* LikertScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C52225CEFD007F83D4 /* LikertScale.swift */; };
 		AC0D77C82225D240007F83D4 /* SctHorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C72225D240007F83D4 /* SctHorizontalViewController.swift */; };
 		AC0D77CA2225D28B007F83D4 /* SctItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C92225D28B007F83D4 /* SctItem.swift */; };
-		AC0D77D02225D7AD007F83D4 /* SctQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77CF2225D7AD007F83D4 /* SctQuestionCell.swift */; };
+		AC0D77D02225D7AD007F83D4 /* SctItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77CF2225D7AD007F83D4 /* SctItemCell.swift */; };
 		AC0D77D22225DD01007F83D4 /* SctPanelAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D12225DD01007F83D4 /* SctPanelAnswer.swift */; };
 		AC0D77D422281FDD007F83D4 /* SctScaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D322281FDD007F83D4 /* SctScaleCell.swift */; };
 		AC0D77D62228274D007F83D4 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D52228274D007F83D4 /* Appearance.swift */; };
@@ -33,7 +33,7 @@
 		AC0D77DA22283330007F83D4 /* SctWordingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77D922283330007F83D4 /* SctWordingCell.swift */; };
 		AC0D77DC2228343C007F83D4 /* SctSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77DB2228343C007F83D4 /* SctSession.swift */; };
 		AC0D77DE22283838007F83D4 /* SctAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77DD22283838007F83D4 /* SctAnswer.swift */; };
-		AC0D77E022283FB6007F83D4 /* SctQuestionCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77DF22283FB6007F83D4 /* SctQuestionCellDelegate.swift */; };
+		AC0D77E022283FB6007F83D4 /* SctItemCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77DF22283FB6007F83D4 /* SctItemCellDelegate.swift */; };
 		AC0E4E982236C663003996AF /* DrawingExampleWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4E972236C663003996AF /* DrawingExampleWalkthroughViewController.swift */; };
 		AC0E4E9A2236C6CC003996AF /* DrawingExampleWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0E4E992236C6CC003996AF /* DrawingExampleWalkthrough.storyboard */; };
 		AC0E4E9E2236E136003996AF /* SctTopicWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4E9D2236E136003996AF /* SctTopicWalkthroughViewController.swift */; };
@@ -78,7 +78,7 @@
 		AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3962235B7B400A3B813 /* Other.storyboard */; };
 		AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */; };
 		AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */; };
-		AC31E39F2235BC8500A3B813 /* SctQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39E2235BC8500A3B813 /* SctQuestionCell.xib */; };
+		AC31E39F2235BC8500A3B813 /* SctItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E39E2235BC8500A3B813 /* SctItemCell.xib */; };
 		AC31E3A12235BCBA00A3B813 /* SctQuestionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A02235BCBA00A3B813 /* SctQuestionHeaderCell.xib */; };
 		AC31E3A32235BCC300A3B813 /* SctWordingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A22235BCC300A3B813 /* SctWordingCell.xib */; };
 		AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A42235BE1E00A3B813 /* DrawingWalkthrough.storyboard */; };
@@ -404,7 +404,7 @@
 		AC0D77C52225CEFD007F83D4 /* LikertScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikertScale.swift; sourceTree = "<group>"; };
 		AC0D77C72225D240007F83D4 /* SctHorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctHorizontalViewController.swift; sourceTree = "<group>"; };
 		AC0D77C92225D28B007F83D4 /* SctItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctItem.swift; sourceTree = "<group>"; };
-		AC0D77CF2225D7AD007F83D4 /* SctQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctQuestionCell.swift; sourceTree = "<group>"; };
+		AC0D77CF2225D7AD007F83D4 /* SctItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctItemCell.swift; sourceTree = "<group>"; };
 		AC0D77D12225DD01007F83D4 /* SctPanelAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctPanelAnswer.swift; sourceTree = "<group>"; };
 		AC0D77D322281FDD007F83D4 /* SctScaleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctScaleCell.swift; sourceTree = "<group>"; };
 		AC0D77D52228274D007F83D4 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
@@ -412,7 +412,7 @@
 		AC0D77D922283330007F83D4 /* SctWordingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctWordingCell.swift; sourceTree = "<group>"; };
 		AC0D77DB2228343C007F83D4 /* SctSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctSession.swift; sourceTree = "<group>"; };
 		AC0D77DD22283838007F83D4 /* SctAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctAnswer.swift; sourceTree = "<group>"; };
-		AC0D77DF22283FB6007F83D4 /* SctQuestionCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctQuestionCellDelegate.swift; sourceTree = "<group>"; };
+		AC0D77DF22283FB6007F83D4 /* SctItemCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctItemCellDelegate.swift; sourceTree = "<group>"; };
 		AC0E4E972236C663003996AF /* DrawingExampleWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingExampleWalkthroughViewController.swift; sourceTree = "<group>"; };
 		AC0E4E992236C6CC003996AF /* DrawingExampleWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DrawingExampleWalkthrough.storyboard; sourceTree = "<group>"; };
 		AC0E4E9D2236E136003996AF /* SctTopicWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctTopicWalkthroughViewController.swift; sourceTree = "<group>"; };
@@ -461,7 +461,7 @@
 		AC31E3952235B7B400A3B813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Other.storyboard; sourceTree = "<group>"; };
 		AC31E3982235B7B700A3B813 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Other.strings; sourceTree = "<group>"; };
 		AC31E39C2235BAC300A3B813 /* SctScaleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScaleCell.xib; sourceTree = "<group>"; };
-		AC31E39E2235BC8500A3B813 /* SctQuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctQuestionCell.xib; sourceTree = "<group>"; };
+		AC31E39E2235BC8500A3B813 /* SctItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctItemCell.xib; sourceTree = "<group>"; };
 		AC31E3A02235BCBA00A3B813 /* SctQuestionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctQuestionHeaderCell.xib; sourceTree = "<group>"; };
 		AC31E3A22235BCC300A3B813 /* SctWordingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctWordingCell.xib; sourceTree = "<group>"; };
 		AC31E3A42235BE1E00A3B813 /* DrawingWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DrawingWalkthrough.storyboard; sourceTree = "<group>"; };
@@ -933,9 +933,9 @@
 				AC31E3A22235BCC300A3B813 /* SctWordingCell.xib */,
 				AC53E3682232B2BA00CA4437 /* SctQuestionHeaderCell.swift */,
 				AC31E3A02235BCBA00A3B813 /* SctQuestionHeaderCell.xib */,
-				AC0D77CF2225D7AD007F83D4 /* SctQuestionCell.swift */,
-				AC0D77DF22283FB6007F83D4 /* SctQuestionCellDelegate.swift */,
-				AC31E39E2235BC8500A3B813 /* SctQuestionCell.xib */,
+				AC0D77CF2225D7AD007F83D4 /* SctItemCell.swift */,
+				AC0D77DF22283FB6007F83D4 /* SctItemCellDelegate.swift */,
+				AC31E39E2235BC8500A3B813 /* SctItemCell.xib */,
 				AC421ABF224D4BA20011052B /* NewDataView.swift */,
 				AC421AC1224D4BBC0011052B /* NewDataViewDelegate.swift */,
 				AC0D77D322281FDD007F83D4 /* SctScaleCell.swift */,
@@ -1295,7 +1295,7 @@
 				ACD1B3BA223D06F80065F07E /* ButtonCell.xib in Resources */,
 				AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */,
 				AC31A049224B889C00A3A461 /* Configuration.plist in Resources */,
-				AC31E39F2235BC8500A3B813 /* SctQuestionCell.xib in Resources */,
+				AC31E39F2235BC8500A3B813 /* SctItemCell.xib in Resources */,
 				AC53E37C2233AF5E00CA4437 /* MySct.storyboard in Resources */,
 				ACD1B3B2223C51B10065F07E /* SctBrowsingCell.xib in Resources */,
 				ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */,
@@ -1353,7 +1353,7 @@
 				AC96DD6F224F516A00FFD529 /* SCNNode+utils.swift in Sources */,
 				ACE70F95221F2439008454FF /* WeakArray.swift in Sources */,
 				AC372C64223947F3009F1DAD /* SctScoreDiagram.swift in Sources */,
-				AC0D77D02225D7AD007F83D4 /* SctQuestionCell.swift in Sources */,
+				AC0D77D02225D7AD007F83D4 /* SctItemCell.swift in Sources */,
 				AC4904D1222C61D600BDEB4B /* QualificationTopicPickerViewControllerDelegate.swift in Sources */,
 				AC623ACA2263D7E80088FBCB /* TplBundle.swift in Sources */,
 				AC87E2F8222CA24000D6B8CC /* UserIdentifierCell.swift in Sources */,
@@ -1373,7 +1373,7 @@
 				ACDC49B1224240D200B43534 /* TableRow.swift in Sources */,
 				ACD1B3B0223C510B0065F07E /* SctBrowsingCell.swift in Sources */,
 				AC0D77D8222831C5007F83D4 /* Sct.swift in Sources */,
-				AC0D77E022283FB6007F83D4 /* SctQuestionCellDelegate.swift in Sources */,
+				AC0D77E022283FB6007F83D4 /* SctItemCellDelegate.swift in Sources */,
 				ACAD5DD62245294D0041E484 /* BorderView.swift in Sources */,
 				AC31A053224B94E700A3A461 /* SebdNetworkError.swift in Sources */,
 				ACC83F68223D649A0064BE6F /* SctSearchCriterion.swift in Sources */,

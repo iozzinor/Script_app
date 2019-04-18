@@ -17,10 +17,10 @@ fileprivate func sctLaunchInformation_() -> SctLaunchInformation
     var sct = Sct()
     sct.questions.append(SctQuestion(wording: "", topic: topic, items: []))
     
-    return SctLaunchInformation(sct: sct, statistics: SctStatistics(id: 1,
-                                                                        authorLastName: "Tartanpion",
-                                                                        authorFirstName: "Jean",
-                                                                           meanScore: 10.0,
+    return SctLaunchInformation(topic: .diagnostic, authorLastName: "Tartanpion",
+                                authorFirstName: "Jean",
+                                estimatedDuration: 120.0, questionsCount: 100, statistics: SctStatistics(id: 1,
+                                                                        meanScore: 10.0,
                                                                            meanDuration: 34,
                                                                            meanVotes: Double(Constants.random(min: 100, max: 500)) / 100.0,
                                                                            launchesCount: Constants.random(min: 0, max: 10),

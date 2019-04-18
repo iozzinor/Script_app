@@ -31,7 +31,7 @@ class MySctFinishedCell: UITableViewCell
         
         durationLabel.text = Constants.durationString(forTimeInterval: sctFinished.duration)
         
-        authorLastNameLabel.text = sctFinished.statistics.authorLastName.uppercased()
-        authorFirstNameLabel.text = sctFinished.statistics.authorFirstName
+        authorLastNameLabel.text = sctFinished.information.authorLastName.uppercased()
+        authorFirstNameLabel.text = sctFinished.information.authorFirstName
     }
 }

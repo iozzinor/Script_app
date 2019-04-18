@@ -17,9 +17,33 @@ public struct Sct
     /// The SCT questions.
     public var questions = [SctQuestion]()
     
-    /// The SCT topic.
+    /// The main SCT topic.
     public var topic: SctTopic {
-        return questions.first?.topic ?? .diagnostic
+        let topics = questions.map { $0.topic }
+        
+        var topicsDistribution = [SctTopic: Int]()
+        for topic in topics
+        {
+            if !topicsDistribution.keys.contains(topic)
+            {
+                topicsDistribution[topic] = 0
+            }
+            topicsDistribution[topic] = topicsDistribution[topic]! + 1
+        }
+        
+        var max = 0
+        var maxTopic = SctTopic.diagnostic
+        
+        for (topic, count) in topicsDistribution
+        {
+            if count > max
+            {
+                max = count
+                maxTopic = topic
+            }
+        }
+        
+        return maxTopic
     }
     
     /// The number of items in the SCT.

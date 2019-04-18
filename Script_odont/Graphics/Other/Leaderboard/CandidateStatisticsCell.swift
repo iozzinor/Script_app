@@ -22,7 +22,7 @@ class CandidateStatisticsCell: UITableViewCell
         
         rankLabel.text = "\(candidateStatistics.rank)"
         
-        answeredSctExamsLabel.text = "\(candidateStatistics.answeredSctExams)"
+        answeredSctExamsLabel.text = "\(candidateStatistics.answeredScts)"
         
         meanScoreLabel.text = Constants.formatReal(candidateStatistics.meanScore)
     }

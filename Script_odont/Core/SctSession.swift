@@ -49,7 +49,7 @@ public class SctSession
         }
     }
     
-    public func isSctValid(_ index: Int) -> Bool
+    public func isQuestionValid(_ index: Int) -> Bool
     {
         let question = sct.questions[index]
         

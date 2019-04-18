@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// The SCT topic.
 public enum SctTopic: Int, CaseIterable
 {
     case diagnostic

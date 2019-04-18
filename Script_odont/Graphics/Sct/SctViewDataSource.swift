@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol SctViewDataSource: SctQuestionCellDelegate
+public protocol SctViewDataSource: SctItemCellDelegate
 {
     // -------------------------------------------------------------------------
     // MARK: - DELEGATE

@@ -334,7 +334,7 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
         var validScts = 0
         for i in 0..<sctSession.sct.questions.count
         {
-            if sctSession.isSctValid(i)
+            if sctSession.isQuestionValid(i)
             {
                 validScts += 1
             }
@@ -349,13 +349,13 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
     // -------------------------------------------------------------------------
     // MARK: - SCT VIEW DATA SOURCE
     // -------------------------------------------------------------------------
-    public func sctQuestionCell(didSelectPreviousQuestion sctQuestionCell: SctQuestionCell)
+    public func sctItemCell(didSelectPreviousItem sctItemCell: SctItemCell)
     {
         singleQuestionIndexes_[currentSctQuestionIndex] -= 1
         tableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
     }
     
-    public func sctQuestionCell(didSelectNextQuestion sctQuestionCell: SctQuestionCell)
+    public func sctItemCell(didSelectNextItem sctItemCell: SctItemCell)
     {
         singleQuestionIndexes_[currentSctQuestionIndex] += 1
         tableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
@@ -483,13 +483,13 @@ public class SctHorizontalViewController: SctViewController, SctViewDataSource
 }
 
 // -----------------------------------------------------------------------------
-// MARK: - SCT QUESTION CELL DELEGATE
+// MARK: - SCT ITEM CELL DELEGATE
 // -----------------------------------------------------------------------------
-extension SctHorizontalViewController: SctQuestionCellDelegate
+extension SctHorizontalViewController: SctItemCellDelegate
 {
-    public func sctQuestionCell(_ sctQuestionCell: SctQuestionCell, didSelectAnswer answer: LikertScale.Degree?)
+    public func sctItemCell(_ sctItemCell: SctItemCell, didSelectAnswer answer: LikertScale.Degree?)
     {
-        let itemIndex = sctQuestionCell.tag
+        let itemIndex = sctItemCell.tag
         sctSession[currentSctQuestionIndex, itemIndex] = answer
     }
 }

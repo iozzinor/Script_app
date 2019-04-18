@@ -86,7 +86,7 @@ class GoToSctViewController: UITableViewController
         let sct = session.sct.questions[indexPath.row]
             
         cell.accessoryType = (indexPath.row == currentSct ? .checkmark : .none)
-        cell.setSct(indexPath.row, wording: sct.wording, isValid: session.isSctValid(indexPath.row))
+        cell.setSct(indexPath.row, wording: sct.wording, isValid: session.isQuestionValid(indexPath.row))
         
         return cell
     }

@@ -16,7 +16,7 @@ fileprivate func defaultForeignCandidates_() -> [CandidateStatistics]
     {
         let newCandidateStatistics = CandidateStatistics(name: "Candidate \(i + 1)",
             rank: i + 1,
-            answeredSctExams: Constants.random(min: 100, max: 1000),
+            answeredScts: Constants.random(min: 100, max: 1000),
             meanScore: Double(Constants.random(min: 500, max: 1000)) / 10.0)
         result.append(newCandidateStatistics)
     }
@@ -62,7 +62,7 @@ class LeaderboardViewController: UITableViewController
         
         case userNotRanked
         case userRank(Int)
-        case userAnsweredSctExams(Int)
+        case userAnsweredScts(Int)
         case userMeanScore(Double)
         
         func cell(for indexPath: IndexPath, tableView: UITableView, leaderboardViewController: LeaderboardViewController) -> UITableViewCell
@@ -92,7 +92,7 @@ class LeaderboardViewController: UITableViewController
                 cell.textLabel?.text = "Leaderboard.User.Rank".localized
                 cell.detailTextLabel?.text = "\(rank)"
                 return cell
-            case let .userAnsweredSctExams(answeredSctExams):
+            case let .userAnsweredScts(answeredSctExams):
                 let cell = tableView.dequeueReusableCell(withIdentifier: LeaderboardViewController.userCellId, for: indexPath)
                 cell.textLabel?.text = "Leaderboard.User.AnsweredSctExams".localized
                 cell.detailTextLabel?.text = "\(answeredSctExams)"
@@ -111,7 +111,7 @@ class LeaderboardViewController: UITableViewController
             {
             case .period(_):
                 return .disclosureIndicator
-            case .foreignCandidate(_), .userNotRanked, .userRank(_), .userAnsweredSctExams(_), .userMeanScore(_):
+            case .foreignCandidate(_), .userNotRanked, .userRank(_), .userAnsweredScts(_), .userMeanScore(_):
                 return .none
             }
         }
@@ -130,7 +130,7 @@ class LeaderboardViewController: UITableViewController
     fileprivate var currentPeriod_ = Period.day
     
     var bestTenUsers_: [CandidateStatistics] = defaultForeignCandidates_()
-    var userStatistics_ = CandidateStatistics(name: "", rank: 100, answeredSctExams: 1000, meanScore: 75.0)
+    var userStatistics_ = CandidateStatistics(name: "", rank: 100, answeredScts: 1000, meanScore: 75.0)
     
     var sections_: [(section: LeaderboardSection, rows: [LeaderboardRow])]
     {
@@ -145,7 +145,7 @@ class LeaderboardViewController: UITableViewController
         // user
         var userRows = [LeaderboardRow]()
         userRows.append(.userRank(userStatistics_.rank))
-        userRows.append(.userAnsweredSctExams(userStatistics_.answeredSctExams))
+        userRows.append(.userAnsweredScts(userStatistics_.answeredScts))
         userRows.append(.userMeanScore(userStatistics_.meanScore))
         result.append((section: .user, rows: userRows))
         
@@ -192,7 +192,7 @@ class LeaderboardViewController: UITableViewController
         {
         case .period(_):
             return indexPath
-        case .foreignCandidate(_), .userNotRanked, .userRank(_), .userAnsweredSctExams(_), .userMeanScore(_):
+        case .foreignCandidate(_), .userNotRanked, .userRank(_), .userAnsweredScts(_), .userMeanScore(_):
             return nil
         }
     }
@@ -206,7 +206,7 @@ class LeaderboardViewController: UITableViewController
         case let .period(latestPeriod):
             currentPeriod_ = latestPeriod
             performSegue(withIdentifier: LeaderboardViewController.toPeriodLeaderboard, sender: self)
-        case .foreignCandidate(_), .userNotRanked, .userRank(_), .userAnsweredSctExams(_), .userMeanScore(_):
+        case .foreignCandidate(_), .userNotRanked, .userRank(_), .userAnsweredScts(_), .userMeanScore(_):
             break
         }
     }

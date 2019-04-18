@@ -11,7 +11,7 @@ import Foundation
 protocol SctDetailViewDataSource: class
 {
     var sct: Sct { get }
-    var statistics: SctStatistics { get }
+    var information: SctLaunchInformation { get }
     var sections: [SctDetailViewController.SctDetailSection] { get }
     
     var answeredQuestionsCount: Int { get }

@@ -84,7 +84,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell.setTitle(dataSource?.questionHeaderTitle ?? .default)
                 return cell
             case .item:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionCell
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SctItemCell
                 cell.displaySingleItem = false
                 cell.item = question.items[indexPath.row - 2]
                 cell.tag = indexPath.row - 2
@@ -102,7 +102,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
                 return cell
                 
             case .singleQuestion:
-                let cell = tableView.dequeueReusableCell(for: indexPath) as SctQuestionCell
+                let cell = tableView.dequeueReusableCell(for: indexPath) as SctItemCell
                 cell.displaySingleItem = true
                 cell.item = question.items[singleQuestionIndex]
                 cell.tag = singleQuestionIndex
@@ -170,7 +170,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
         
         tableView.registerNibCell(SctWordingCell.self)
         tableView.registerNibCell(SctQuestionHeaderCell.self)
-        tableView.registerNibCell(SctQuestionCell.self)
+        tableView.registerNibCell(SctItemCell.self)
         tableView.registerNibCell(SctScaleCell.self)
     }
     

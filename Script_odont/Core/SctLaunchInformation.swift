@@ -8,8 +8,24 @@
 
 import Foundation
 
+/// Information to display to the user before launching an SCT.
 struct SctLaunchInformation
 {
-    var sct: Sct
+    /// The SCT topic.
+    var topic: SctTopic
+    
+    /// The author last name.
+    var authorLastName: String
+    
+    /// The author first name.
+    var authorFirstName: String
+    
+    /// The estimated duration.
+    var estimatedDuration: TimeInterval
+    
+    /// The number of questions in the SCT.
+    var questionsCount: Int
+    
+    /// SCT statitics.
     var statistics: SctStatistics
 }

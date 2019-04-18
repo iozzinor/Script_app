@@ -170,8 +170,6 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
             }
             
             let statistics = SctStatistics(id: i + 1,
-                                           authorLastName: "Tartanpion",
-                                           authorFirstName: "Jean",
                                            meanScore:                   Double(Constants.random(min: 5, max: 95)),
                                            meanDuration:                Double(Constants.random(min: 120, max: 300)),
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
@@ -179,8 +177,9 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
                                            meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)),
                                            scoresDistribution:          scoresDistribution,
                                            releaseDate:                 Date())
+            let information = SctLaunchInformation(topic: .diagnostic, authorLastName: "Tartanpion", authorFirstName: "Jean", estimatedDuration: 34, questionsCount: 10, statistics: statistics)
             
-            let sctUnfinished = SctUnfinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, lastDate: Date(), statistics: statistics)
+            let sctUnfinished = SctUnfinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, lastDate: Date(), information: information)
             
             unfinishedScts.append(sctUnfinished)
         }
@@ -218,8 +217,6 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
                 scoresDistribution.append(Constants.random(min: 10, max: 100))
             }
             let statistics = SctStatistics(id: i + 1,
-                                           authorLastName: "Tartanpion",
-                                           authorFirstName: "Jean",
                                            meanScore:                   Double(Constants.random(min: 5, max: 95)),
                                            meanDuration:                Double(Constants.random(min: 120, max: 300)),
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
@@ -227,12 +224,13 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
                                            meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)),
                                            scoresDistribution: scoresDistribution,
                                            releaseDate: Date())
+            let information = SctLaunchInformation(topic: .diagnostic, authorLastName: "Tartanpion", authorFirstName: "Jean", estimatedDuration: 34, questionsCount: 10, statistics: statistics)
             
             let vote: Int? = nil//(Constants.random(min: 0, max: 100) % 2 == 0 ? nil : 3.75)
             
-            let sctUnfinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), statistics: statistics, score: Double(Int(arc4random()) % sct.totalItemsCount + 1), vote: vote)
+            let sctFinished = SctFinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, endDate: Date(), information: information, score: Double(Int(arc4random()) % sct.totalItemsCount + 1), vote: vote)
             
-            finishedScts.append(sctUnfinished)
+            finishedScts.append(sctFinished)
         }
         
         finishedScts.sort(by: { $0.startDate > $1.startDate })

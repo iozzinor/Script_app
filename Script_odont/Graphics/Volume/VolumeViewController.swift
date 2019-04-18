@@ -76,7 +76,6 @@ class VolumeViewController: UIViewController
     // -------------------------------------------------------------------------
     // MARK: - UI
     // -------------------------------------------------------------------------
-    
     fileprivate func updateTooggleMeshButtonTitle_(shouldDisplayMesh: Bool)
     {
         let meshToDisplay = (meshNode_ != nil)

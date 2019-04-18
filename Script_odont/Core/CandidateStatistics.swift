@@ -10,8 +10,15 @@ import Foundation
 
 struct CandidateStatistics
 {
+    /// The candidate name.
     var name: String
+    
+    /// The candidate rank.
     var rank: Int
-    var answeredSctExams: Int
+    
+    /// The number of SCTs the candidate finished.
+    var answeredScts: Int
+    
+    /// The candidate mean score.
     var meanScore: Double
 }

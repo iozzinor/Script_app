@@ -109,25 +109,25 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.detailTextLabel?.text = ""
             case .authorLastName:
                 cell.textLabel?.text = "SctDetail.TableCell.AuthorLastName".localized
-                cell.detailTextLabel?.text = dataSource.statistics.authorLastName.uppercased()
+                cell.detailTextLabel?.text = dataSource.information.authorLastName.uppercased()
             case .authorFirstName:
                 cell.textLabel?.text = "SctDetail.TableCell.AuthorFirstName".localized
-                cell.detailTextLabel?.text = dataSource.statistics.authorFirstName
+                cell.detailTextLabel?.text = dataSource.information.authorFirstName
             case .meanScore:
                 cell.textLabel?.text = "SctDetail.TableCell.MeanScore".localized
-                let meanScore = Constants.formatReal(dataSource.statistics.meanVotes)
+                let meanScore = Constants.formatReal(dataSource.information.statistics.meanVotes)
                 cell.detailTextLabel?.text = String.localizedStringWithFormat("SctDetail.TableCell.Detail.Score".localized, meanScore, totalQuestionsCount)
             case .questionsCount:
                 cell.textLabel?.text = "SctDetail.TableCell.QuestionsCount".localized
                 cell.detailTextLabel?.text = "\(totalQuestionsCount)"
             case .scoreDiagram:
                 let result = tableView.dequeueReusableCell(for: indexPath) as SctScoreDiagramCell
-                result.scoresDistribution = dataSource.statistics.scoresDistribution
+                result.scoresDistribution = dataSource.information.statistics.scoresDistribution
                 result.selectionStyle = .none
                 
                 if let finished = dataSource.finished
                 {
-                    let percentRange = 100.0 / Double(dataSource.statistics.scoresDistribution.count)
+                    let percentRange = 100.0 / Double(dataSource.information.statistics.scoresDistribution.count)
                     result.scoreDiagram.selectedBarIndex = Int(finished.score / Double(dataSource.sct.totalItemsCount) * 100.0 / percentRange)
                 }
                 
@@ -191,21 +191,21 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.detailTextLabel?.text = Constants.durationString(forTimeInterval: dataSource.sct.estimatedDuration)
             case .meanDuration:
                 cell.textLabel?.text = "SctDetail.TableCell.MeanDuration".localized
-                cell.detailTextLabel?.text = Constants.durationString(forTimeInterval: dataSource.statistics.meanDuration)
+                cell.detailTextLabel?.text = Constants.durationString(forTimeInterval: dataSource.information.statistics.meanDuration)
                 
             // popularity
             case .votes:
                 let result = tableView.dequeueReusableCell(for: indexPath) as SctRateCell
                 result.rateLabel.text = "SctDetail.TableCell.MeanVotes".localized
-                result.rate = dataSource.statistics.meanVotes
+                result.rate = dataSource.information.statistics.meanVotes
                 return result
             case .launchesCount:
                 cell.textLabel?.text = "SctDetail.TableCell.LaunchesCount".localized
-                cell.detailTextLabel?.text = "\(dataSource.statistics.launchesCount)"
+                cell.detailTextLabel?.text = "\(dataSource.information.statistics.launchesCount)"
             case .meanCompletionPercentage:
                 cell.textLabel?.text = "SctDetail.TableCell.MeanCompletionPercentage".localized
                 
-                let meanCompletionPercentage = Constants.formatReal(dataSource.statistics.meanCompletionPercentage)
+                let meanCompletionPercentage = Constants.formatReal(dataSource.information.statistics.meanCompletionPercentage)
                 cell.detailTextLabel?.text = String.localizedStringWithFormat("SctDetail.TableCell.Detail.MeanCompletionPerentage".localized, meanCompletionPercentage)
                 
             // resume
@@ -277,7 +277,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     
     fileprivate func updateTitle_()
     {
-        navigationItem.title = String.localizedStringWithFormat("SctDetail.Title".localized, dataSource?.statistics.id ?? 0)
+        navigationItem.title = String.localizedStringWithFormat("SctDetail.Title".localized, dataSource?.information.statistics.id ?? 0)
     }
     
     // -------------------------------------------------------------------------
