@@ -1,5 +1,5 @@
 //
-//  SctTopicWalkthroughViewController.swift
+//  SctTypeWalkthroughViewController.swift
 //  Script_odont
 //
 //  Created by Régis Iozzino on 11/03/2019.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class SctTopicWalkthroughViewController: SctViewController
+class SctTypeWalkthroughViewController: SctViewController
 {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    fileprivate var topics_ = SctTopic.allCases
+    fileprivate var topics_ = SctType.allCases
     fileprivate var currentTopic_ = 0
     
     override func viewDidLoad()
@@ -26,7 +26,7 @@ class SctTopicWalkthroughViewController: SctViewController
         
         pageControl.numberOfPages = topics_.count
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SctTopicWalkthroughViewController.nextTopic_))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SctTypeWalkthroughViewController.nextTopic_))
         view.addGestureRecognizer(tapGesture)
     }
     
@@ -63,7 +63,7 @@ class SctTopicWalkthroughViewController: SctViewController
         switch section
         {
         case 1:
-            return SctTopic.allCases[currentTopic_].name
+            return SctType.allCases[currentTopic_].name
         default:
             return nil
         }
@@ -73,7 +73,7 @@ class SctTopicWalkthroughViewController: SctViewController
 // -----------------------------------------------------------------------------
 // MARK: - SCT VIEW DATA SOURCE
 // -----------------------------------------------------------------------------
-extension SctTopicWalkthroughViewController: SctViewDataSource
+extension SctTypeWalkthroughViewController: SctViewDataSource
 {
     var newDataDelegate: NewDataDelegate? {
         return nil
@@ -90,7 +90,7 @@ extension SctTopicWalkthroughViewController: SctViewDataSource
     var currentSctQuestion: SctQuestion {
         var result = SctQuestion()
         result.items.append(SctItem())
-        result.topic = topics_[currentTopic_]
+        result.type = topics_[currentTopic_]
         return result
     }
     

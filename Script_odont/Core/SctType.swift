@@ -9,7 +9,7 @@
 import Foundation
 
 /// The SCT topic.
-public enum SctTopic: Int, CaseIterable
+public enum SctType: Int, CaseIterable
 {
     case diagnostic
     case therapeutic
@@ -27,12 +27,12 @@ public enum SctTopic: Int, CaseIterable
         }
     }
     
-    public var next: SctTopic {
-        if rawValue > SctTopic.allCases.count - 2
+    public var next: SctType {
+        if rawValue > SctType.allCases.count - 2
         {
-            return SctTopic(rawValue: 0)!
+            return SctType(rawValue: 0)!
         }
-        return SctTopic(rawValue: rawValue + 1)!
+        return SctType(rawValue: rawValue + 1)!
     }
     
     public var likertScale: LikertScale {
