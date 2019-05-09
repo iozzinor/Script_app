@@ -279,7 +279,7 @@ extension DrawingExampleWalkthroughViewController: SctViewDataSource
     
     public var currentSctQuestion: SctQuestion {
         var question = SctQuestion()
-        question.topic = .diagnostic
+        question.type = .diagnostic
         question.wording = "WelcomeWalkthroughExample.Label.Description.Scenario".localized
         question.items.append(SctItem(hypothesis: "WelcomeWalkthroughExample.Label.Description.Hypothesis".localized, newData: SctData(text: "WelcomeWalkthroughExample.Label.Description.Information".localized)))
         

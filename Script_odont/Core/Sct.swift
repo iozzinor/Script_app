@@ -17,33 +17,33 @@ public struct Sct
     /// The SCT questions.
     public var questions = [SctQuestion]()
     
-    /// The main SCT topic.
-    public var topic: SctTopic {
-        let topics = questions.map { $0.topic }
+    /// The main SCT type.
+    public var type: SctType {
+        let types = questions.map { $0.type }
         
-        var topicsDistribution = [SctTopic: Int]()
-        for topic in topics
+        var typesDistribution = [SctType: Int]()
+        for type in types
         {
-            if !topicsDistribution.keys.contains(topic)
+            if !typesDistribution.keys.contains(type)
             {
-                topicsDistribution[topic] = 0
+                typesDistribution[type] = 0
             }
-            topicsDistribution[topic] = topicsDistribution[topic]! + 1
+            typesDistribution[type] = typesDistribution[type]! + 1
         }
         
         var max = 0
-        var maxTopic = SctTopic.diagnostic
+        var maxType = SctType.diagnostic
         
-        for (topic, count) in topicsDistribution
+        for (type, count) in typesDistribution
         {
             if count > max
             {
                 max = count
-                maxTopic = topic
+                maxType = type
             }
         }
         
-        return maxTopic
+        return maxType
     }
     
     /// The number of items in the SCT.

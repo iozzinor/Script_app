@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -112,7 +108,7 @@
                 <outlet property="percentLabel" destination="7XE-IL-ZmM" id="UQe-VF-sD9"/>
                 <outlet property="progressView" destination="2YN-zu-8MY" id="8RX-Jt-WT4"/>
                 <outlet property="startDateLabel" destination="Itw-dK-N3m" id="MFT-se-pH4"/>
-                <outlet property="topicLabel" destination="aE3-lv-EPO" id="ovx-0a-0ya"/>
+                <outlet property="typeLabel" destination="aE3-lv-EPO" id="ovx-0a-0ya"/>
             </connections>
         </tableViewCell>
     </objects>

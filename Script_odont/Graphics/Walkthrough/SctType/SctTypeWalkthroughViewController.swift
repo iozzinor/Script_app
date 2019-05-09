@@ -13,8 +13,8 @@ class SctTypeWalkthroughViewController: SctViewController
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    fileprivate var topics_ = SctType.allCases
-    fileprivate var currentTopic_ = 0
+    fileprivate var types_ = SctType.allCases
+    fileprivate var currentType_ = 0
     
     override func viewDidLoad()
     {
@@ -24,9 +24,9 @@ class SctTypeWalkthroughViewController: SctViewController
         
         dataSource = self
         
-        pageControl.numberOfPages = topics_.count
+        pageControl.numberOfPages = types_.count
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SctTypeWalkthroughViewController.nextTopic_))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SctTypeWalkthroughViewController.nextType_))
         view.addGestureRecognizer(tapGesture)
     }
     
@@ -38,20 +38,20 @@ class SctTypeWalkthroughViewController: SctViewController
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func selectTopic(_ sender: UIPageControl)
+    @IBAction func selectType(_ sender: UIPageControl)
     {
-        currentTopic_ = pageControl.currentPage
+        currentType_ = pageControl.currentPage
         tableView.reloadData()
     }
     
-    @objc func nextTopic_(_ sender: UITapGestureRecognizer)
+    @objc fileprivate func nextType_(_ sender: UITapGestureRecognizer)
     {
-        currentTopic_ += 1
-        if currentTopic_ > topics_.count - 1
+        currentType_ += 1
+        if currentType_ > types_.count - 1
         {
-            currentTopic_ = 0
+            currentType_ = 0
         }
-        pageControl.currentPage = currentTopic_
+        pageControl.currentPage = currentType_
         tableView.reloadData()
     }
     
@@ -63,7 +63,7 @@ class SctTypeWalkthroughViewController: SctViewController
         switch section
         {
         case 1:
-            return SctType.allCases[currentTopic_].name
+            return SctType.allCases[currentType_].name
         default:
             return nil
         }
@@ -90,7 +90,7 @@ extension SctTypeWalkthroughViewController: SctViewDataSource
     var currentSctQuestion: SctQuestion {
         var result = SctQuestion()
         result.items.append(SctItem())
-        result.type = topics_[currentTopic_]
+        result.type = types_[currentType_]
         return result
     }
     

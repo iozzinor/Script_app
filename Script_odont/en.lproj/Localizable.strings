@@ -15,28 +15,28 @@
 "Common.Yes"    = "Yes";
 "Common.No"     = "No";
 
-/* SCT TOPIC */
-"Sct.Topic.Diagnostic" = "Diagnostic";
-"Sct.Topic.Therapeutic" = "Therapeutic";
-"Sct.Topic.Prognostic" = "Prognostic";
+/* SCT TYPE */
+"Sct.Type.Diagnostic" = "Diagnostic";
+"Sct.Type.Therapeutic" = "Therapeutic";
+"Sct.Type.Prognostic" = "Prognostic";
 
-"Sct.Topic.Diagnostic.NegativeTwo"  = "The hypothesis is almost discarded.";
-"Sct.Topic.Diagnostic.NegativeOne"  = "The hypothesis becomes less likely.";
-"Sct.Topic.Diagnostic.Zero"         = "The information does not affect the hypothesis.";
-"Sct.Topic.Diagnostic.One"          = "The hypothesis becomes more likely.";
-"Sct.Topic.Diagnostic.Two"          = "The hypothesis is almost the only one probable.";
+"Sct.Type.Diagnostic.NegativeTwo"  = "The hypothesis is almost discarded.";
+"Sct.Type.Diagnostic.NegativeOne"  = "The hypothesis becomes less likely.";
+"Sct.Type.Diagnostic.Zero"         = "The information does not affect the hypothesis.";
+"Sct.Type.Diagnostic.One"          = "The hypothesis becomes more likely.";
+"Sct.Type.Diagnostic.Two"          = "The hypothesis is almost the only one probable.";
 
-"Sct.Topic.Therapeutic.NegativeTwo"  = "Absolutely contraindicated";
-"Sct.Topic.Therapeutic.NegativeOne"  = "Less indicated";
-"Sct.Topic.Therapeutic.Zero"         = "Nor indicated nor contraindicated";
-"Sct.Topic.Therapeutic.One"          = "Indicated";
-"Sct.Topic.Therapeutic.Two"          = "Neede";
+"Sct.Type.Therapeutic.NegativeTwo"  = "Absolutely contraindicated";
+"Sct.Type.Therapeutic.NegativeOne"  = "Less indicated";
+"Sct.Type.Therapeutic.Zero"         = "Nor indicated nor contraindicated";
+"Sct.Type.Therapeutic.One"          = "Indicated";
+"Sct.Type.Therapeutic.Two"          = "Neede";
 
-"Sct.Topic.Prognostic.NegativeTwo"  = "";
-"Sct.Topic.Prognostic.NegativeOne"  = "";
-"Sct.Topic.Prognostic.Zero"         = "";
-"Sct.Topic.Prognostic.One"          = "";
-"Sct.Topic.Prognostic.Two"          = "";
+"Sct.Type.Prognostic.NegativeTwo"  = "";
+"Sct.Type.Prognostic.NegativeOne"  = "";
+"Sct.Type.Prognostic.Zero"         = "";
+"Sct.Type.Prognostic.One"          = "";
+"Sct.Type.Prognostic.Two"          = "";
 
 /* QUALIFICATION */
 "Qualification.Name.Student"    = "Student";
@@ -402,10 +402,10 @@
 "OtherViewController.ToothRecognition"  = "Tooth Recognition Training";
 
 /* WALKTHROUGHS VIEW CONTROLLER */
-"Walkthroughs.Show.Welcome" = "Welcome...";
-"Walkthroughs.Show.Drawing" = "Drawing...";
-"Walkthroughs.Show.DrawingExample" = "Drawing Example...";
-"Walkthroughs.Show.SctTopic" = "Sct Topic...";
+"Walkthroughs.Show.Welcome"         = "Welcome...";
+"Walkthroughs.Show.Drawing"         = "Drawing...";
+"Walkthroughs.Show.DrawingExample"  = "Drawing Example...";
+"Walkthroughs.Show.SctType"         = "Sct Type...";
 
 /* LEADERBOARD */
 "Leaderboard.Section.TopTen.Title"  = "Top Ten";

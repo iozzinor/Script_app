@@ -24,7 +24,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ohc-ZB-iZG">
                                 <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VV-pb-wCX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VV-pb-wCX">
                                         <rect key="frame" x="0.0" y="0.0" width="152.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -100,7 +100,7 @@
                 <outlet property="informationLabel" destination="1Qn-I9-Yjd" id="VQ2-Ev-TXq"/>
                 <outlet property="questionsCountLabel" destination="Svz-eW-RTV" id="pF7-Qb-W5B"/>
                 <outlet property="starsContainer" destination="PxT-Aj-ded" id="T3B-Eh-PsX"/>
-                <outlet property="topicLabel" destination="0VV-pb-wCX" id="5ls-ev-rsz"/>
+                <outlet property="typeLabel" destination="0VV-pb-wCX" id="5ls-ev-rsz"/>
             </connections>
             <point key="canvasLocation" x="32.799999999999997" y="48.575712143928037"/>
         </tableViewCell>

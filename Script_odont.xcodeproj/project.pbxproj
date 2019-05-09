@@ -21,7 +21,7 @@
 		AC06D48722639376003BA7C7 /* ToothRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06D48622639376003BA7C7 /* ToothRecognitionViewController.swift */; };
 		AC06D4892263947B003BA7C7 /* ToothRecognitionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06D4882263947B003BA7C7 /* ToothRecognitionSelectionViewController.swift */; };
 		AC0D77C22225CD2B007F83D4 /* SctQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C12225CD2B007F83D4 /* SctQuestion.swift */; };
-		AC0D77C42225CD60007F83D4 /* SctTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C32225CD60007F83D4 /* SctTopic.swift */; };
+		AC0D77C42225CD60007F83D4 /* SctType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C32225CD60007F83D4 /* SctType.swift */; };
 		AC0D77C62225CEFD007F83D4 /* LikertScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C52225CEFD007F83D4 /* LikertScale.swift */; };
 		AC0D77C82225D240007F83D4 /* SctHorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C72225D240007F83D4 /* SctHorizontalViewController.swift */; };
 		AC0D77CA2225D28B007F83D4 /* SctItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77C92225D28B007F83D4 /* SctItem.swift */; };
@@ -36,8 +36,8 @@
 		AC0D77E022283FB6007F83D4 /* SctItemCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D77DF22283FB6007F83D4 /* SctItemCellDelegate.swift */; };
 		AC0E4E982236C663003996AF /* DrawingExampleWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4E972236C663003996AF /* DrawingExampleWalkthroughViewController.swift */; };
 		AC0E4E9A2236C6CC003996AF /* DrawingExampleWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0E4E992236C6CC003996AF /* DrawingExampleWalkthrough.storyboard */; };
-		AC0E4E9E2236E136003996AF /* SctTopicWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4E9D2236E136003996AF /* SctTopicWalkthroughViewController.swift */; };
-		AC0E4EA02236E144003996AF /* SctTopicWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0E4E9F2236E144003996AF /* SctTopicWalkthrough.storyboard */; };
+		AC0E4E9E2236E136003996AF /* SctTypeWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4E9D2236E136003996AF /* SctTypeWalkthroughViewController.swift */; };
+		AC0E4EA02236E144003996AF /* SctTypeWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0E4E9F2236E144003996AF /* SctTypeWalkthrough.storyboard */; };
 		AC0E4EA222370CF3003996AF /* SctStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EA122370CF3003996AF /* SctStatistics.swift */; };
 		AC0E4EA62237EB84003996AF /* SctDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EA52237EB84003996AF /* SctDetailViewController.swift */; };
 		AC0E4EA92237ECF6003996AF /* SctDetailViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EA82237ECF6003996AF /* SctDetailViewDataSource.swift */; };
@@ -124,6 +124,8 @@
 		AC50F1D9225A892F00FF46B1 /* CharacterSet+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50F1D8225A892F00FF46B1 /* CharacterSet+Utils.swift */; };
 		AC50F1DB225A89F900FF46B1 /* Dictionary+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC50F1DA225A89F900FF46B1 /* Dictionary+utils.swift */; };
 		AC51CBEA224E667000B52FD0 /* VolumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51CBE9224E667000B52FD0 /* VolumeViewController.swift */; };
+		AC51DA142272F6AC00A66887 /* ToothCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC623A8B226398800088FBCB /* ToothCommon.framework */; };
+		AC51DA152272F6AC00A66887 /* ToothCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC623A8B226398800088FBCB /* ToothCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC53E36722329C2700CA4437 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E36622329C2700CA4437 /* Constants.swift */; };
 		AC53E3692232B2BA00CA4437 /* SctQuestionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E3682232B2BA00CA4437 /* SctQuestionHeaderCell.swift */; };
 		AC53E36B2232B75200CA4437 /* UIView+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E36A2232B75200CA4437 /* UIView+utils.swift */; };
@@ -134,8 +136,6 @@
 		AC53E37A2233AE3B00CA4437 /* MySctUnfinishedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E3792233AE3B00CA4437 /* MySctUnfinishedCell.swift */; };
 		AC53E37C2233AF5E00CA4437 /* MySct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC53E37B2233AF5E00CA4437 /* MySct.storyboard */; };
 		AC53E37E22345F4500CA4437 /* SctUnfinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E37D22345F4500CA4437 /* SctUnfinishedViewController.swift */; };
-		AC623A9222639A210088FBCB /* ToothCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC623A8B226398800088FBCB /* ToothCommon.framework */; };
-		AC623A9322639A210088FBCB /* ToothCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC623A8B226398800088FBCB /* ToothCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC623AA72263D4C10088FBCB /* ToothRecognitionSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC623AA62263D4C10088FBCB /* ToothRecognitionSelectionDelegate.swift */; };
 		AC623AA92263D6A50088FBCB /* 11.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D43F22638763003BA7C7 /* 11.tp */; };
 		AC623AAA2263D6A50088FBCB /* 12.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45922638764003BA7C7 /* 12.tp */; };
@@ -286,13 +286,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC623A9422639A210088FBCB /* Embed Frameworks */ = {
+		AC51DA162272F6AC00A66887 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AC623A9322639A210088FBCB /* ToothCommon.framework in Embed Frameworks */,
+				AC51DA152272F6AC00A66887 /* ToothCommon.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,7 +400,7 @@
 		AC06D48622639376003BA7C7 /* ToothRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToothRecognitionViewController.swift; sourceTree = "<group>"; };
 		AC06D4882263947B003BA7C7 /* ToothRecognitionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToothRecognitionSelectionViewController.swift; sourceTree = "<group>"; };
 		AC0D77C12225CD2B007F83D4 /* SctQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctQuestion.swift; sourceTree = "<group>"; };
-		AC0D77C32225CD60007F83D4 /* SctTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctTopic.swift; sourceTree = "<group>"; };
+		AC0D77C32225CD60007F83D4 /* SctType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctType.swift; sourceTree = "<group>"; };
 		AC0D77C52225CEFD007F83D4 /* LikertScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikertScale.swift; sourceTree = "<group>"; };
 		AC0D77C72225D240007F83D4 /* SctHorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctHorizontalViewController.swift; sourceTree = "<group>"; };
 		AC0D77C92225D28B007F83D4 /* SctItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctItem.swift; sourceTree = "<group>"; };
@@ -415,8 +415,8 @@
 		AC0D77DF22283FB6007F83D4 /* SctItemCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctItemCellDelegate.swift; sourceTree = "<group>"; };
 		AC0E4E972236C663003996AF /* DrawingExampleWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingExampleWalkthroughViewController.swift; sourceTree = "<group>"; };
 		AC0E4E992236C6CC003996AF /* DrawingExampleWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DrawingExampleWalkthrough.storyboard; sourceTree = "<group>"; };
-		AC0E4E9D2236E136003996AF /* SctTopicWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctTopicWalkthroughViewController.swift; sourceTree = "<group>"; };
-		AC0E4E9F2236E144003996AF /* SctTopicWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SctTopicWalkthrough.storyboard; sourceTree = "<group>"; };
+		AC0E4E9D2236E136003996AF /* SctTypeWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctTypeWalkthroughViewController.swift; sourceTree = "<group>"; };
+		AC0E4E9F2236E144003996AF /* SctTypeWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SctTypeWalkthrough.storyboard; sourceTree = "<group>"; };
 		AC0E4EA122370CF3003996AF /* SctStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctStatistics.swift; sourceTree = "<group>"; };
 		AC0E4EA422371109003996AF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		AC0E4EA52237EB84003996AF /* SctDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctDetailViewController.swift; sourceTree = "<group>"; };
@@ -629,7 +629,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC623A9222639A210088FBCB /* ToothCommon.framework in Frameworks */,
+				AC51DA142272F6AC00A66887 /* ToothCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,7 +693,7 @@
 				AC0D77DD22283838007F83D4 /* SctAnswer.swift */,
 				AC0D77DB2228343C007F83D4 /* SctSession.swift */,
 				AC0D77D12225DD01007F83D4 /* SctPanelAnswer.swift */,
-				AC0D77C32225CD60007F83D4 /* SctTopic.swift */,
+				AC0D77C32225CD60007F83D4 /* SctType.swift */,
 				AC0D77C52225CEFD007F83D4 /* LikertScale.swift */,
 				AC9F23EE222B124B002D38E5 /* Qualification.swift */,
 				AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */,
@@ -749,13 +749,13 @@
 			path = DrawingExample;
 			sourceTree = "<group>";
 		};
-		AC0E4E9C2236E110003996AF /* SctTopic */ = {
+		AC0E4E9C2236E110003996AF /* SctType */ = {
 			isa = PBXGroup;
 			children = (
-				AC0E4E9D2236E136003996AF /* SctTopicWalkthroughViewController.swift */,
-				AC0E4E9F2236E144003996AF /* SctTopicWalkthrough.storyboard */,
+				AC0E4E9D2236E136003996AF /* SctTypeWalkthroughViewController.swift */,
+				AC0E4E9F2236E144003996AF /* SctTypeWalkthrough.storyboard */,
 			);
-			path = SctTopic;
+			path = SctType;
 			sourceTree = "<group>";
 		};
 		AC0E4EA72237EB9F003996AF /* SctDetail */ = {
@@ -999,7 +999,7 @@
 				AC74B69B22353DE900B31571 /* Welcome */,
 				AC31E3992235B83500A3B813 /* Drawing */,
 				AC0E4E962236C63D003996AF /* DrawingExample */,
-				AC0E4E9C2236E110003996AF /* SctTopic */,
+				AC0E4E9C2236E110003996AF /* SctType */,
 			);
 			path = Walkthrough;
 			sourceTree = "<group>";
@@ -1215,11 +1215,11 @@
 				AC31A047224B864900A3A461 /* ShellScript */,
 				AC38BB58221DE4C9008E829B /* Sources */,
 				AC38BB59221DE4C9008E829B /* Frameworks */,
-				AC623A9422639A210088FBCB /* Embed Frameworks */,
 				AC38BB5A221DE4C9008E829B /* Resources */,
 				AC623AA82263D68C0088FBCB /* CopyFiles */,
 				AC623ACB2263D9F50088FBCB /* CopyFiles */,
 				AC2CF57922645F9600E70D41 /* CopyFiles */,
+				AC51DA162272F6AC00A66887 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1276,7 +1276,7 @@
 				AC372C5F223942C7009F1DAD /* SctRateCell.xib in Resources */,
 				AC82731E222C96EB0041AA0C /* SecurityQuestionCell.xib in Resources */,
 				AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */,
-				AC0E4EA02236E144003996AF /* SctTopicWalkthrough.storyboard in Resources */,
+				AC0E4EA02236E144003996AF /* SctTypeWalkthrough.storyboard in Resources */,
 				AC06D484226390E7003BA7C7 /* ToothRecognition.storyboard in Resources */,
 				AC0E4E9A2236C6CC003996AF /* DrawingExampleWalkthrough.storyboard in Resources */,
 				AC31E3A32235BCC300A3B813 /* SctWordingCell.xib in Resources */,
@@ -1458,7 +1458,7 @@
 				ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */,
 				ACD1B3A6223BFF580065F07E /* DetailHeader.swift in Sources */,
 				AC06D48722639376003BA7C7 /* ToothRecognitionViewController.swift in Sources */,
-				AC0E4E9E2236E136003996AF /* SctTopicWalkthroughViewController.swift in Sources */,
+				AC0E4E9E2236E136003996AF /* SctTypeWalkthroughViewController.swift in Sources */,
 				AC4904BF222B3AAF00BDEB4B /* SecurityQuestion.swift in Sources */,
 				AC8F5B792228986000FAEFC5 /* GoToSctViewControllerDelegate.swift in Sources */,
 				ACAD5DD82245484E0041E484 /* ImageDetailViewController.swift in Sources */,
@@ -1486,7 +1486,7 @@
 				ACC81AC622403EB4000990EA /* ProgressCellDelegate.swift in Sources */,
 				AC0D77DA22283330007F83D4 /* SctWordingCell.swift in Sources */,
 				ACC83F6C223D6C590064BE6F /* QualificationTopicsPickerDelegate.swift in Sources */,
-				AC0D77C42225CD60007F83D4 /* SctTopic.swift in Sources */,
+				AC0D77C42225CD60007F83D4 /* SctType.swift in Sources */,
 				AC0433FB2249329F00644B14 /* AdvancedSettingsViewController.swift in Sources */,
 				AC0E4EB022382995003996AF /* UIBezierPath+star.swift in Sources */,
 				ACBCF4292242D033007CA02F /* ErrorButtonView.swift in Sources */,

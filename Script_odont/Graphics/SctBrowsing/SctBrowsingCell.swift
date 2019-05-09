@@ -10,7 +10,7 @@ import UIKit
 
 class SctBrowsingCell: UITableViewCell
 {
-    @IBOutlet weak var topicLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var questionsCountLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var informationLabel: UILabel!
@@ -43,7 +43,7 @@ class SctBrowsingCell: UITableViewCell
     
     func setSctLaunchInformation(_ sctLaunchInformation: SctLaunchInformation)
     {
-        topicLabel.prepareToDisplay(topic: sctLaunchInformation.topic)
+        typeLabel.prepareToDisplay(type: sctLaunchInformation.type)
         
         questionsCountLabel.text = "\(sctLaunchInformation.questionsCount)"
         

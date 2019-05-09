@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// The SCT topic.
+/// The SCT type.
 public enum SctType: Int, CaseIterable
 {
     case diagnostic
@@ -19,11 +19,11 @@ public enum SctType: Int, CaseIterable
         switch self
         {
         case .diagnostic:
-            return "Sct.Topic.Diagnostic".localized
+            return "Sct.Type.Diagnostic".localized
         case .therapeutic:
-            return "Sct.Topic.Therapeutic".localized
+            return "Sct.Type.Therapeutic".localized
         case .prognostic:
-            return "Sct.Topic.Prognostic".localized
+            return "Sct.Type.Prognostic".localized
         }
     }
     
@@ -40,25 +40,25 @@ public enum SctType: Int, CaseIterable
         {
         case .diagnostic:
             return LikertScale(
-                negativeTwo:    "Sct.Topic.Diagnostic.NegativeTwo".localized,
-                negativeOne:    "Sct.Topic.Diagnostic.NegativeOne".localized,
-                zero:           "Sct.Topic.Diagnostic.Zero".localized,
-                one:            "Sct.Topic.Diagnostic.One".localized,
-                two:            "Sct.Topic.Diagnostic.Two".localized)
+                negativeTwo:    "Sct.Type.Diagnostic.NegativeTwo".localized,
+                negativeOne:    "Sct.Type.Diagnostic.NegativeOne".localized,
+                zero:           "Sct.Type.Diagnostic.Zero".localized,
+                one:            "Sct.Type.Diagnostic.One".localized,
+                two:            "Sct.Type.Diagnostic.Two".localized)
         case .therapeutic:
             return LikertScale(
-                negativeTwo:    "Sct.Topic.Therapeutic.NegativeTwo".localized,
-                negativeOne:    "Sct.Topic.Therapeutic.NegativeOne".localized,
-                zero:           "Sct.Topic.Therapeutic.Zero".localized,
-                one:            "Sct.Topic.Therapeutic.One".localized,
-                two:            "Sct.Topic.Therapeutic.Two".localized)
+                negativeTwo:    "Sct.Type.Therapeutic.NegativeTwo".localized,
+                negativeOne:    "Sct.Type.Therapeutic.NegativeOne".localized,
+                zero:           "Sct.Type.Therapeutic.Zero".localized,
+                one:            "Sct.Type.Therapeutic.One".localized,
+                two:            "Sct.Type.Therapeutic.Two".localized)
         case .prognostic:
             return LikertScale(
-                negativeTwo:    "Sct.Topic.Prognostic.NegativeTwo".localized,
-                negativeOne:    "Sct.Topic.Prognostic.NegativeOne".localized,
-                zero:           "Sct.Topic.Prognostic.Zero".localized,
-                one:            "Sct.Topic.Prognostic.One".localized,
-                two:            "Sct.Topic.Prognostic.Two".localized)
+                negativeTwo:    "Sct.Type.Prognostic.NegativeTwo".localized,
+                negativeOne:    "Sct.Type.Prognostic.NegativeOne".localized,
+                zero:           "Sct.Type.Prognostic.Zero".localized,
+                one:            "Sct.Type.Prognostic.One".localized,
+                two:            "Sct.Type.Prognostic.Two".localized)
         }
     }
 }

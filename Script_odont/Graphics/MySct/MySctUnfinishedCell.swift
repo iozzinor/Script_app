@@ -11,7 +11,7 @@ import UIKit
 class MySctUnfinishedCell: UITableViewCell
 {
     @IBOutlet weak var startDateLabel: UILabel!
-    @IBOutlet weak var topicLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var answeredQuestionsLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var percentLabel: UILabel!
@@ -34,7 +34,7 @@ class MySctUnfinishedCell: UITableViewCell
     
     func setSctUnfinished(_ sctUnfinished: SctUnfinished)
     {
-        topicLabel.prepareToDisplay(topic: sctUnfinished.session.sct.topic)
+        typeLabel.prepareToDisplay(type: sctUnfinished.session.sct.type)
         
         startDateLabel.text = Constants.dateString(for: sctUnfinished.startDate)
         answeredQuestionsLabel.text = "\(sctUnfinished.answeredQuestions)"

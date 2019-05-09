@@ -20,7 +20,7 @@ fileprivate func defaultSct_() -> Sct
     first.items.append(SctItem(hypothesis: "une surcharge occlusale", newData: SctData(text: "   le papier d’occlusion marque principalement sur les cuspides linguales")))
     
     var second = SctQuestion()
-    second.topic = .therapeutic
+    second.type = .therapeutic
     second.wording = "Une patiente de 25 ans se présente en consultation pour la reconstruction de sa dent 11 qui ne présente ni douleur ni dyschromie."
     second.items.append(SctItem(hypothesis: "réaliser un composite en technique direct", newData: SctData(text:  "sa dent a déja été reconstruite par plusieurs composite qui sont étanches")))
     second.items.append(SctItem(hypothesis: "réaliser un composite en technique direct", newData: SctData(text:  "le test au froid est négatif")))
@@ -28,7 +28,7 @@ fileprivate func defaultSct_() -> Sct
     second.items.append(SctItem(hypothesis: "réaliser une facette", newData: SctData(text:  "le patient est bruxomane")))
     
     var third = SctQuestion()
-    third.topic = .therapeutic
+    third.type = .therapeutic
     third.wording = "Un patient de 70 ans se présente pour son rendez-vous de contrôle 1 semaine après la pose d’une prothèse amovible complète bi-maxillaire. Il se plaint de douleurs"
     third.items.append(SctItem(hypothesis: "Des prématurités et/ou interférences occlusales", newData: SctData(text:  "Il y a des blessures gingivales")))
     third.items.append(SctItem(hypothesis: "Une erreur de dimension verticale d’occlusion", newData: SctData(text:  "La phonation est difficile")))
@@ -43,13 +43,14 @@ class SctLaunchViewController: SctDetailViewController
     
     @IBOutlet weak var tableView: UITableView!
     
-    var launchInformation = SctLaunchInformation(topic: .diagnostic,
+    var launchInformation = SctLaunchInformation(type: .diagnostic,
+                                                 releaseDate: Date(),
                                                  authorLastName: "Tartanpion",
                                                  authorFirstName: "Jean",
                                                  estimatedDuration: 120.0,
                                                  questionsCount: 100,
                                                  statistics: SctStatistics(id: 0,
-                                                                          meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date()))
+                                                                          meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: []))
     {
         didSet
         {
@@ -144,7 +145,7 @@ extension SctLaunchViewController: SctDetailViewDataSource
         switch section
         {
         case .general:
-            return [.topic, .authorLastName, .authorFirstName, .meanScore, .questionsCount, .scoreDiagram]
+            return [.type, .authorLastName, .authorFirstName, .meanScore, .questionsCount, .scoreDiagram]
         case .lastSession, .rate, .results:
             return []
         case .duration:

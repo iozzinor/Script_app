@@ -10,9 +10,9 @@ import UIKit
 
 fileprivate func defaultSctFinished_() -> SctFinished
 {
-    let statistics = SctStatistics(id: 0, meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date())
+    let statistics = SctStatistics(id: 0, meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [])
     
-    let information = SctLaunchInformation(topic: .diagnostic, authorLastName: "Tartanpion", authorFirstName: "Jean", estimatedDuration: 34, questionsCount: 10, statistics: statistics)
+    let information = SctLaunchInformation(type: .diagnostic, releaseDate: Date(), authorLastName: "Tartanpion", authorFirstName: "Jean", estimatedDuration: 34, questionsCount: 10, statistics: statistics)
     return SctFinished(session: SctSession(sct: Sct()),
                     answeredQuestions: 1,
                     duration: 30.0,
@@ -112,7 +112,7 @@ extension SctFinishedViewController: SctDetailViewDataSource
         switch section
         {
         case .general:
-            return [.topic, .authorLastName, .authorFirstName, .meanScore, .questionsCount, .scoreDiagram]
+            return [.type, .authorLastName, .authorFirstName, .meanScore, .questionsCount, .scoreDiagram]
         case .lastSession:
             return []
         case .rate:

@@ -118,7 +118,7 @@ class WelcomeWalkthroughExampleViewController: UIViewController
     
     fileprivate func setupImpactButtons_()
     {
-        let diagnosticScale = SctTopic.diagnostic.likertScale
+        let diagnosticScale = SctType.diagnostic.likertScale
         
         for code in -2...2
         {

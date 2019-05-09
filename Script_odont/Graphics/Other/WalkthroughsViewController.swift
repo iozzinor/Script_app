@@ -15,7 +15,7 @@ class WalkthroughsViewController: UITableViewController
     static let toWelcomeWalkthrough         = "WalkthroughsToWelcomeWalkthroughSegueId"
     static let toDrawingWalkthrough         = "WalkthroughsToDrawingWalkthroughSegueId"
     static let toDrawingExampleWalkthrough  = "WalkthroughsToDrawingExampleWalkthroughSegueId"
-    static let toSctTopicWalkthrough        = "WalkthroughsToSctTopicWalkthroughSegueId"
+    static let toSctTypeWalkthrough         = "WalkthroughsToSctTypeWalkthroughSegueId"
     
     // -------------------------------------------------------------------------
     // MARK: - ROW
@@ -25,7 +25,7 @@ class WalkthroughsViewController: UITableViewController
         case welcome
         case drawing
         case drawingExample
-        case sctTopic
+        case sctType
         
         var title: String
         {
@@ -37,13 +37,13 @@ class WalkthroughsViewController: UITableViewController
                 return "Walkthroughs.Show.Drawing".localized
             case .drawingExample:
                 return "Walkthroughs.Show.DrawingExample".localized
-            case .sctTopic:
-                return "Walkthroughs.Show.SctTopic".localized
+            case .sctType:
+                return "Walkthroughs.Show.SctType".localized
             }
         }
     }
     
-    fileprivate var rows_: [WalkthroughRow] = [.welcome, .drawing, .drawingExample, .sctTopic]
+    fileprivate var rows_: [WalkthroughRow] = [.welcome, .drawing, .drawingExample, .sctType]
     
     // -------------------------------------------------------------------------
     // MARK: - UI TABLE VIEW DELEGATE
@@ -60,8 +60,8 @@ class WalkthroughsViewController: UITableViewController
             performSegue(withIdentifier: WalkthroughsViewController.toDrawingWalkthrough, sender: self)
         case .drawingExample:
             performSegue(withIdentifier: WalkthroughsViewController.toDrawingExampleWalkthrough, sender: self)
-        case .sctTopic:
-            performSegue(withIdentifier: WalkthroughsViewController.toSctTopicWalkthrough, sender: self)
+        case .sctType:
+            performSegue(withIdentifier: WalkthroughsViewController.toSctTypeWalkthrough, sender: self)
         }
     }
     

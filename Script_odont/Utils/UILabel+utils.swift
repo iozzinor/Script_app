@@ -1,5 +1,5 @@
 //
-//  UILabel+sctTopic.swift
+//  UILabel+utils.swift
 //  Script_odont
 //
 //  Created by Régis Iozzino on 15/03/2019.
@@ -11,13 +11,13 @@ import UIKit
 extension UILabel
 {
     // -------------------------------------------------------------------------
-    // MARK: - SCT TOPIC
+    // MARK: - SCT TYPE
     // -------------------------------------------------------------------------
-    public func prepareToDisplay(topic: SctTopic)
+    public func prepareToDisplay(type: SctType)
     {
         layer.cornerRadius = frame.height / 2.0
-        layer.backgroundColor = Appearance.Color.color(for: topic).cgColor
-        text = topic.name
+        layer.backgroundColor = Appearance.Color.color(for: type).cgColor
+        text = type.name
     }
     
     // -------------------------------------------------------------------------

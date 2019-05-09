@@ -42,7 +42,7 @@
                                         <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="currentPageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <action selector="selectTopic:" destination="b42-zd-cfM" eventType="valueChanged" id="rhx-FY-NFR"/>
+                                            <action selector="selectType:" destination="b42-zd-cfM" eventType="valueChanged" id="rhx-FY-NFR"/>
                                         </connections>
                                     </pageControl>
                                 </subviews>

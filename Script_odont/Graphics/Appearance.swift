@@ -33,10 +33,10 @@ struct Appearance
         /// The color of table view separator.
         public static let tableViewSeparator = UIColor.lightGray
         
-        /// The color for the given topic
-        public static func color(for topic: SctTopic) -> UIColor
+        /// The color for the given SCT type
+        public static func color(for type: SctType) -> UIColor
         {
-            switch topic
+            switch type
             {
             case .diagnostic:
                 return UIColor(red: 0 / 255.0, green: 191 / 255.0, blue: 255 / 255.0, alpha: 1.0)

@@ -70,7 +70,7 @@
                         <segue destination="YPk-lX-lwp" kind="presentation" identifier="WalkthroughsToWelcomeWalkthroughSegueId" id="ODM-k8-rNa"/>
                         <segue destination="zMB-5M-vL6" kind="presentation" identifier="WalkthroughsToDrawingWalkthroughSegueId" id="B3h-Ur-GbI"/>
                         <segue destination="2p5-Xe-eIe" kind="presentation" identifier="WalkthroughsToDrawingExampleWalkthroughSegueId" id="KsX-vL-sPm"/>
-                        <segue destination="Sax-OK-Ijh" kind="presentation" identifier="WalkthroughsToSctTopicWalkthroughSegueId" id="bwZ-gn-Jh2"/>
+                        <segue destination="Sax-OK-Ijh" kind="presentation" identifier="WalkthroughsToSctTypeWalkthroughSegueId" id="bwZ-gn-Jh2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vW7-cn-ZFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -167,10 +167,10 @@
             </objects>
             <point key="canvasLocation" x="1602" y="198"/>
         </scene>
-        <!--SctTopicWalkthrough-->
+        <!--SctTypeWalkthrough-->
         <scene sceneID="eY5-XO-ArH">
             <objects>
-                <viewControllerPlaceholder storyboardName="SctTopicWalkthrough" id="Sax-OK-Ijh" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="SctTypeWalkthrough" id="Sax-OK-Ijh" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeg-W6-rho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1566" y="256"/>

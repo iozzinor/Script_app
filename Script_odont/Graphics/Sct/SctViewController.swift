@@ -126,7 +126,7 @@ public class SctViewController: UIViewController, UITableViewDelegate, UITableVi
             case .scale:
                 let cell = tableView.dequeueReusableCell(for: indexPath) as SctScaleCell
                 
-                let likertSctle = question.topic.likertScale
+                let likertSctle = question.type.likertScale
                 cell.setScale(code: indexPath.row - 2, description: likertSctle[indexPath.row - 2])
                 return cell
             }

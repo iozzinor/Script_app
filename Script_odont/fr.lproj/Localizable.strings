@@ -15,28 +15,28 @@
 "Common.Yes"    = "Oui";
 "Common.No"     = "Non";
 
-/* SCT TOPIC */
-"Sct.Topic.Diagnostic" = "Diagnostique";
-"Sct.Topic.Therapeutic" = "Thérapeutique";
-"Sct.Topic.Prognostic" = "Pronostique";
+/* SCT TYPE */
+"Sct.Type.Diagnostic" = "Diagnostique";
+"Sct.Type.Therapeutic" = "Thérapeutique";
+"Sct.Type.Prognostic" = "Pronostique";
 
-"Sct.Topic.Diagnostic.NegativeTwo"  = "L'hypothèse est pratiquement éliminée";
-"Sct.Topic.Diagnostic.NegativeOne"  = "L'hypothèse devient moins probable";
-"Sct.Topic.Diagnostic.Zero"         = "L'information n'a aucun effet sur l'hypothèse";
-"Sct.Topic.Diagnostic.One"          = "L'hypothèse devient plus probable";
-"Sct.Topic.Diagnostic.Two"          = "Il ne peut s'agir pratiquement que de cette hypothèse";
+"Sct.Type.Diagnostic.NegativeTwo"  = "L'hypothèse est pratiquement éliminée";
+"Sct.Type.Diagnostic.NegativeOne"  = "L'hypothèse devient moins probable";
+"Sct.Type.Diagnostic.Zero"         = "L'information n'a aucun effet sur l'hypothèse";
+"Sct.Type.Diagnostic.One"          = "L'hypothèse devient plus probable";
+"Sct.Type.Diagnostic.Two"          = "Il ne peut s'agir pratiquement que de cette hypothèse";
 
-"Sct.Topic.Therapeutic.NegativeTwo"  = "Absolument contre-indiqué";
-"Sct.Topic.Therapeutic.NegativeOne"  = "Moins indiqué";
-"Sct.Topic.Therapeutic.Zero"         = "Ni indiqué ni contre-indiqué";
-"Sct.Topic.Therapeutic.One"          = "Indiqué";
-"Sct.Topic.Therapeutic.Two"          = "Indispensable";
+"Sct.Type.Therapeutic.NegativeTwo"  = "Absolument contre-indiqué";
+"Sct.Type.Therapeutic.NegativeOne"  = "Moins indiqué";
+"Sct.Type.Therapeutic.Zero"         = "Ni indiqué ni contre-indiqué";
+"Sct.Type.Therapeutic.One"          = "Indiqué";
+"Sct.Type.Therapeutic.Two"          = "Indispensable";
 
-"Sct.Topic.Prognostic.NegativeTwo"  = "";
-"Sct.Topic.Prognostic.NegativeOne"  = "";
-"Sct.Topic.Prognostic.Zero"         = "";
-"Sct.Topic.Prognostic.One"          = "";
-"Sct.Topic.Prognostic.Two"          = "";
+"Sct.Type.Prognostic.NegativeTwo"  = "";
+"Sct.Type.Prognostic.NegativeOne"  = "";
+"Sct.Type.Prognostic.Zero"         = "";
+"Sct.Type.Prognostic.One"          = "";
+"Sct.Type.Prognostic.Two"          = "";
 
 /* QUALIFICATION */
 "Qualification.Name.Student"    = "Etudiant";
@@ -405,7 +405,7 @@
 "Walkthroughs.Show.Welcome" = "Bienvenue...";
 "Walkthroughs.Show.Drawing" = "Vignette...";
 "Walkthroughs.Show.DrawingExample" = "Exemple de vignette...";
-"Walkthroughs.Show.SctTopic" = "Thème TCS...";
+"Walkthroughs.Show.SctType" = "Thème TCS...";
 
 /* LEADERBOARD */
 "Leaderboard.Section.TopTen.Title"  = "Top dix";

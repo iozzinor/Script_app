@@ -12,20 +12,20 @@ let releaseDate = Date(timeIntervalSinceNow: -50)
 
 fileprivate func sctLaunchInformation_() -> SctLaunchInformation
 {
-    let topic = SctTopic(rawValue: Constants.random(min: 0, max: SctTopic.allCases.count - 1))!
+    let type = SctType(rawValue: Constants.random(min: 0, max: SctType.allCases.count - 1))!
     
     var sct = Sct()
-    sct.questions.append(SctQuestion(wording: "", topic: topic, items: []))
+    sct.questions.append(SctQuestion(wording: "", type: type, items: []))
     
-    return SctLaunchInformation(topic: .diagnostic, authorLastName: "Tartanpion",
+    return SctLaunchInformation(type: .diagnostic,
+                                releaseDate: releaseDate, authorLastName: "Tartanpion",
                                 authorFirstName: "Jean",
                                 estimatedDuration: 120.0, questionsCount: 100, statistics: SctStatistics(id: 1,
                                                                         meanScore: 10.0,
                                                                            meanDuration: 34,
                                                                            meanVotes: Double(Constants.random(min: 100, max: 500)) / 100.0,
                                                                            launchesCount: Constants.random(min: 0, max: 10),
-                                                                           meanCompletionPercentage: 89, scoresDistribution: [20, 30],
-                                                                           releaseDate: releaseDate))
+                                                                           meanCompletionPercentage: 89, scoresDistribution: [20, 30]))
 }
 
 struct LatestDate
@@ -147,7 +147,7 @@ enum BrowsingRow: TableRow
             let result = tableView.dequeueReusableCell(for: indexPath) as SctBrowsingCell
             result.setSctLaunchInformation(sctLaunchInformation)
             
-            let seconds = -Int(sctLaunchInformation.statistics.releaseDate.timeIntervalSinceNow)
+            let seconds = -Int(sctLaunchInformation.releaseDate.timeIntervalSinceNow)
             let minutes = seconds / 60
             let hours = minutes / 60
             

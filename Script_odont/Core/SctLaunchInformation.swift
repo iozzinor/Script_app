@@ -11,8 +11,11 @@ import Foundation
 /// Information to display to the user before launching an SCT.
 struct SctLaunchInformation
 {
-    /// The SCT topic.
-    var topic: SctTopic
+    /// The SCT type.
+    var type: SctType
+    
+    /// The release date.
+    var releaseDate: Date
     
     /// The author last name.
     var authorLastName: String

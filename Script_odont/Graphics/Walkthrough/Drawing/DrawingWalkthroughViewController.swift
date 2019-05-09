@@ -294,7 +294,7 @@ extension DrawingWalkthroughViewController: SctViewDataSource
         {
             items.append(SctItem(hypothesis: "H\(i)", newData: SctData(text:"D\(i)")))
         }
-        return SctQuestion(wording: wording, topic: .diagnostic, items: items)
+        return SctQuestion(wording: wording, type: .diagnostic, items: items)
     }
     
     var questionHeaderTitle: SctQuestionHeaderCell.Title? {

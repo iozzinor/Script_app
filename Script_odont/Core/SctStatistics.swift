@@ -30,7 +30,4 @@ public struct SctStatistics
     
     /// The scores distribution.
     var scoresDistribution: [Int]
-    
-    /// The release date.
-    var releaseDate: Date
 }

@@ -14,8 +14,8 @@ public struct SctQuestion
     /// The wording of the patient's problem.
     public var wording = ""
     
-    /// The SCT topic.
-    public var topic = SctTopic.diagnostic
+    /// The SCT type.
+    public var type = SctType.diagnostic
     
     /// Questions related the the patient's case.
     public var items = [SctItem]()

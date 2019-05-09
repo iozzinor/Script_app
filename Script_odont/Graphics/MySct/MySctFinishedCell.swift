@@ -11,7 +11,7 @@ import UIKit
 class MySctFinishedCell: UITableViewCell
 {
     @IBOutlet weak var startDateLabel: UILabel!
-    @IBOutlet weak var topicLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var answeredQuestionsLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
@@ -23,7 +23,7 @@ class MySctFinishedCell: UITableViewCell
         let startDateString = Constants.dateString(for: sctFinished.startDate)
         startDateLabel.text = startDateString
         
-        topicLabel.prepareToDisplay(topic: sctFinished.session.sct.topic)
+        typeLabel.prepareToDisplay(type: sctFinished.session.sct.type)
         
         scoreLabel.text = "\(sctFinished.score)%"
         

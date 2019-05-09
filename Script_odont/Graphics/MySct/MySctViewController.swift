@@ -147,15 +147,15 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
         let questionsCount = Int(arc4random() % 10) + 2
         for _ in 0..<questionsCount
         {
-            questions.append(SctQuestion(wording: "", topic: .diagnostic, items: Array<SctItem>(repeating: SctItem(), count: 10)))
+            questions.append(SctQuestion(wording: "", type: .diagnostic, items: Array<SctItem>(repeating: SctItem(), count: 10)))
         }
         
         var unfinishedScts = [SctUnfinished]()
         
         for i in 0..<13
         {
-            let topic = SctTopic(rawValue: Constants.random(min: 0, max: 2)) ?? .diagnostic
-            questions[0].topic = topic
+            let type = SctType(rawValue: Constants.random(min: 0, max: 2)) ?? .diagnostic
+            questions[0].type = type
             let sct = Sct(questions: questions)
             let session = SctSession(sct: sct)
             
@@ -175,9 +175,8 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
                                            launchesCount:               Constants.random(min: 300, max: 1000),
                                            meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)),
-                                           scoresDistribution:          scoresDistribution,
-                                           releaseDate:                 Date())
-            let information = SctLaunchInformation(topic: .diagnostic, authorLastName: "Tartanpion", authorFirstName: "Jean", estimatedDuration: 34, questionsCount: 10, statistics: statistics)
+                                           scoresDistribution:          scoresDistribution)
+            let information = SctLaunchInformation(type: .diagnostic, releaseDate: Date(), authorLastName: "Tartanpion", authorFirstName: "Jean", estimatedDuration: 34, questionsCount: 10, statistics: statistics)
             
             let sctUnfinished = SctUnfinished(session: session, answeredQuestions: answeredQuestions, duration: duration, startDate: startDate, lastDate: Date(), information: information)
             
@@ -196,15 +195,15 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
         let questionsCount = Int(arc4random() % 10) + 2
         for _ in 0..<questionsCount
         {
-            questions.append(SctQuestion(wording: "", topic: .diagnostic, items: Array<SctItem>(repeating: SctItem(), count: 10)))
+            questions.append(SctQuestion(wording: "", type: .diagnostic, items: Array<SctItem>(repeating: SctItem(), count: 10)))
         }
         
         var finishedScts = [SctFinished]()
         
         for i in 0..<5
         {
-            let topic = SctTopic(rawValue: Int(arc4random() % 3)) ?? .diagnostic
-            questions[0].topic = topic
+            let type = SctType(rawValue: Int(arc4random() % 3)) ?? .diagnostic
+            questions[0].type = type
             let sct = Sct(questions: questions)
             let session = SctSession(sct: sct)
             
@@ -222,9 +221,8 @@ class MySctViewController: AsynchronousTableViewController<MySctSection, MySctRo
                                            meanVotes:                   Double(Constants.random(min: 0, max: 500)) / 100.0,
                                            launchesCount:               Constants.random(min: 300, max: 1000),
                                            meanCompletionPercentage:    Double(Constants.random(min: 5, max: 95)),
-                                           scoresDistribution: scoresDistribution,
-                                           releaseDate: Date())
-            let information = SctLaunchInformation(topic: .diagnostic, authorLastName: "Tartanpion", authorFirstName: "Jean", estimatedDuration: 34, questionsCount: 10, statistics: statistics)
+                                           scoresDistribution: scoresDistribution)
+            let information = SctLaunchInformation(type: .diagnostic, releaseDate: Date(), authorLastName: "Tartanpion", authorFirstName: "Jean", estimatedDuration: 34, questionsCount: 10, statistics: statistics)
             
             let vote: Int? = nil//(Constants.random(min: 0, max: 100) % 2 == 0 ? nil : 3.75)
             

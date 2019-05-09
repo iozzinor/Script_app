@@ -52,7 +52,7 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     enum SctDetailRow
     {
         // general
-        case topic
+        case type
         case authorLastName
         case authorFirstName
         case meanScore
@@ -103,9 +103,9 @@ class SctDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             switch self
             {
              // general
-            case .topic:
-                cell.textLabel?.text = dataSource.sct.topic.name
-                cell.textLabel?.textColor = Appearance.Color.color(for: dataSource.sct.topic)
+            case .type:
+                cell.textLabel?.text = dataSource.sct.type.name
+                cell.textLabel?.textColor = Appearance.Color.color(for: dataSource.sct.type)
                 cell.detailTextLabel?.text = ""
             case .authorLastName:
                 cell.textLabel?.text = "SctDetail.TableCell.AuthorLastName".localized

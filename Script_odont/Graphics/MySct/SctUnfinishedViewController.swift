@@ -12,7 +12,7 @@ fileprivate func image1_() -> Sct
 {
     var sctQuestion = SctQuestion()
     // TEMP
-    sctQuestion.topic = .therapeutic
+    sctQuestion.type = .therapeutic
     sctQuestion.wording = "Un patient de 25 ans se présente en consultation suite à une chute en trotinette. Il souhaite reconstruire son incisive centrale."
     
     // volume
@@ -40,8 +40,8 @@ fileprivate func image1_() -> Sct
 fileprivate func defaultSctUnfinished_() -> SctUnfinished
 {
     let statistics = SctStatistics(id: 0,
-                                   meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [], releaseDate: Date())
-    let information = SctLaunchInformation(topic: .diagnostic, authorLastName: "Tartanpion", authorFirstName: "Jean", estimatedDuration: 34, questionsCount: 10, statistics: statistics)
+                                   meanScore: 10, meanDuration: 94, meanVotes: 4.3, launchesCount: 300, meanCompletionPercentage: 60, scoresDistribution: [])
+    let information = SctLaunchInformation(type: .diagnostic, releaseDate: Date(), authorLastName: "Tartanpion", authorFirstName: "Jean", estimatedDuration: 34, questionsCount: 10, statistics: statistics)
     return SctUnfinished(session: SctSession(sct: Sct()),
                       answeredQuestions: 1,
                       duration: 30.0,
@@ -127,7 +127,7 @@ extension SctUnfinishedViewController: SctDetailViewDataSource
         switch section
         {
         case .general:
-            return [.topic, .authorLastName, .authorFirstName, .meanScore, .questionsCount, .scoreDiagram]
+            return [.type, .authorLastName, .authorFirstName, .meanScore, .questionsCount, .scoreDiagram]
         case .lastSession:
             return [.lastDate, .actualDuration, .answeredQuestionsCount]
         case .rate:
