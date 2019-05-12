@@ -137,38 +137,38 @@
 		AC53E37C2233AF5E00CA4437 /* MySct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC53E37B2233AF5E00CA4437 /* MySct.storyboard */; };
 		AC53E37E22345F4500CA4437 /* SctUnfinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E37D22345F4500CA4437 /* SctUnfinishedViewController.swift */; };
 		AC623AA72263D4C10088FBCB /* ToothRecognitionSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC623AA62263D4C10088FBCB /* ToothRecognitionSelectionDelegate.swift */; };
-		AC623AA92263D6A50088FBCB /* 11.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D43F22638763003BA7C7 /* 11.tp */; };
-		AC623AAA2263D6A50088FBCB /* 12.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45922638764003BA7C7 /* 12.tp */; };
-		AC623AAB2263D6A50088FBCB /* 13.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D43C22638763003BA7C7 /* 13.tp */; };
-		AC623AAC2263D6A50088FBCB /* 14.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44022638763003BA7C7 /* 14.tp */; };
-		AC623AAD2263D6A50088FBCB /* 15.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D43D22638763003BA7C7 /* 15.tp */; };
-		AC623AAE2263D6A50088FBCB /* 16.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44922638763003BA7C7 /* 16.tp */; };
-		AC623AAF2263D6A50088FBCB /* 17.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44522638763003BA7C7 /* 17.tp */; };
-		AC623AB02263D6A50088FBCB /* 18.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44622638763003BA7C7 /* 18.tp */; };
-		AC623AB12263D6A50088FBCB /* 21.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D43E22638763003BA7C7 /* 21.tp */; };
-		AC623AB22263D6A50088FBCB /* 22.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44E22638763003BA7C7 /* 22.tp */; };
-		AC623AB32263D6A50088FBCB /* 23.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45322638764003BA7C7 /* 23.tp */; };
-		AC623AB42263D6A50088FBCB /* 24.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44A22638763003BA7C7 /* 24.tp */; };
-		AC623AB52263D6A50088FBCB /* 25.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44C22638763003BA7C7 /* 25.tp */; };
-		AC623AB62263D6A50088FBCB /* 26.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45522638764003BA7C7 /* 26.tp */; };
-		AC623AB72263D6A50088FBCB /* 27.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45722638764003BA7C7 /* 27.tp */; };
-		AC623AB82263D6A50088FBCB /* 28.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44122638763003BA7C7 /* 28.tp */; };
-		AC623AB92263D6A50088FBCB /* 31.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45822638764003BA7C7 /* 31.tp */; };
-		AC623ABA2263D6A50088FBCB /* 32.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45B22638764003BA7C7 /* 32.tp */; };
-		AC623ABB2263D6A50088FBCB /* 33.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45022638764003BA7C7 /* 33.tp */; };
-		AC623ABC2263D6A50088FBCB /* 34.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45122638764003BA7C7 /* 34.tp */; };
-		AC623ABD2263D6A50088FBCB /* 35.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45A22638764003BA7C7 /* 35.tp */; };
-		AC623ABE2263D6A50088FBCB /* 36.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44822638763003BA7C7 /* 36.tp */; };
-		AC623ABF2263D6A50088FBCB /* 37.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45422638764003BA7C7 /* 37.tp */; };
-		AC623AC02263D6A50088FBCB /* 38.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44B22638763003BA7C7 /* 38.tp */; };
-		AC623AC12263D6A50088FBCB /* 41.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44F22638764003BA7C7 /* 41.tp */; };
-		AC623AC22263D6A50088FBCB /* 42.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44422638763003BA7C7 /* 42.tp */; };
-		AC623AC32263D6A50088FBCB /* 43.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44322638763003BA7C7 /* 43.tp */; };
-		AC623AC42263D6A50088FBCB /* 44.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45622638764003BA7C7 /* 44.tp */; };
-		AC623AC52263D6A50088FBCB /* 45.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44222638763003BA7C7 /* 45.tp */; };
-		AC623AC62263D6A50088FBCB /* 46.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D45222638764003BA7C7 /* 46.tp */; };
-		AC623AC72263D6A50088FBCB /* 47.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44D22638763003BA7C7 /* 47.tp */; };
-		AC623AC82263D6A50088FBCB /* 48.tp in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC06D44722638763003BA7C7 /* 48.tp */; };
+		AC623AA92263D6A50088FBCB /* 11.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D43F22638763003BA7C7 /* 11.tp */; };
+		AC623AAA2263D6A50088FBCB /* 12.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45922638764003BA7C7 /* 12.tp */; };
+		AC623AAB2263D6A50088FBCB /* 13.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D43C22638763003BA7C7 /* 13.tp */; };
+		AC623AAC2263D6A50088FBCB /* 14.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44022638763003BA7C7 /* 14.tp */; };
+		AC623AAD2263D6A50088FBCB /* 15.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D43D22638763003BA7C7 /* 15.tp */; };
+		AC623AAE2263D6A50088FBCB /* 16.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44922638763003BA7C7 /* 16.tp */; };
+		AC623AAF2263D6A50088FBCB /* 17.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44522638763003BA7C7 /* 17.tp */; };
+		AC623AB02263D6A50088FBCB /* 18.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44622638763003BA7C7 /* 18.tp */; };
+		AC623AB12263D6A50088FBCB /* 21.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D43E22638763003BA7C7 /* 21.tp */; };
+		AC623AB22263D6A50088FBCB /* 22.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44E22638763003BA7C7 /* 22.tp */; };
+		AC623AB32263D6A50088FBCB /* 23.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45322638764003BA7C7 /* 23.tp */; };
+		AC623AB42263D6A50088FBCB /* 24.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44A22638763003BA7C7 /* 24.tp */; };
+		AC623AB52263D6A50088FBCB /* 25.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44C22638763003BA7C7 /* 25.tp */; };
+		AC623AB62263D6A50088FBCB /* 26.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45522638764003BA7C7 /* 26.tp */; };
+		AC623AB72263D6A50088FBCB /* 27.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45722638764003BA7C7 /* 27.tp */; };
+		AC623AB82263D6A50088FBCB /* 28.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44122638763003BA7C7 /* 28.tp */; };
+		AC623AB92263D6A50088FBCB /* 31.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45822638764003BA7C7 /* 31.tp */; };
+		AC623ABA2263D6A50088FBCB /* 32.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45B22638764003BA7C7 /* 32.tp */; };
+		AC623ABB2263D6A50088FBCB /* 33.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45022638764003BA7C7 /* 33.tp */; };
+		AC623ABC2263D6A50088FBCB /* 34.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45122638764003BA7C7 /* 34.tp */; };
+		AC623ABD2263D6A50088FBCB /* 35.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45A22638764003BA7C7 /* 35.tp */; };
+		AC623ABE2263D6A50088FBCB /* 36.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44822638763003BA7C7 /* 36.tp */; };
+		AC623ABF2263D6A50088FBCB /* 37.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45422638764003BA7C7 /* 37.tp */; };
+		AC623AC02263D6A50088FBCB /* 38.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44B22638763003BA7C7 /* 38.tp */; };
+		AC623AC12263D6A50088FBCB /* 41.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44F22638764003BA7C7 /* 41.tp */; };
+		AC623AC22263D6A50088FBCB /* 42.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44422638763003BA7C7 /* 42.tp */; };
+		AC623AC32263D6A50088FBCB /* 43.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44322638763003BA7C7 /* 43.tp */; };
+		AC623AC42263D6A50088FBCB /* 44.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45622638764003BA7C7 /* 44.tp */; };
+		AC623AC52263D6A50088FBCB /* 45.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44222638763003BA7C7 /* 45.tp */; };
+		AC623AC62263D6A50088FBCB /* 46.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45222638764003BA7C7 /* 46.tp */; };
+		AC623AC72263D6A50088FBCB /* 47.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44D22638763003BA7C7 /* 47.tp */; };
+		AC623AC82263D6A50088FBCB /* 48.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44722638763003BA7C7 /* 48.tp */; };
 		AC623ACA2263D7E80088FBCB /* TplBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC623AC92263D7E80088FBCB /* TplBundle.swift */; };
 		AC623ACC2263DA1E0088FBCB /* antagonist.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACE001952261C37000384CF8 /* antagonist.stl */; };
 		AC623ACD2263DA1E0088FBCB /* simple_cube.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACE001962261C37000384CF8 /* simple_cube.stl */; };
@@ -203,6 +203,8 @@
 		ACAD5DD82245484E0041E484 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD5DD72245484E0041E484 /* ImageDetailViewController.swift */; };
 		ACAD5DDA22457B160041E484 /* ImageZoomAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD5DD922457B160041E484 /* ImageZoomAnimationController.swift */; };
 		ACAD5DDC224674A10041E484 /* ImageFadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD5DDB224674A10041E484 /* ImageFadeOutAnimationController.swift */; };
+		ACAEEB472284B8C600A9AA2E /* ToothReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEEB462284B8C600A9AA2E /* ToothReminderViewController.swift */; };
+		ACAEEB492284BE4700A9AA2E /* mesial_14.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACAEEB442284B84100A9AA2E /* mesial_14.png */; };
 		ACB8C8A822351AE000C7F77C /* SctFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8C8A722351AE000C7F77C /* SctFinished.swift */; };
 		ACBCF42522425993007CA02F /* AsynchronousTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF42422425993007CA02F /* AsynchronousTableViewController.swift */; };
 		ACBCF4272242CA18007CA02F /* ErrorDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF4262242CA18007CA02F /* ErrorDisplayer.swift */; };
@@ -297,45 +299,46 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC623AA82263D68C0088FBCB /* CopyFiles */ = {
+		AC623AA82263D68C0088FBCB /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = ToothPosition;
 			dstSubfolderSpec = 7;
 			files = (
-				AC623AA92263D6A50088FBCB /* 11.tp in CopyFiles */,
-				AC623AAA2263D6A50088FBCB /* 12.tp in CopyFiles */,
-				AC623AAB2263D6A50088FBCB /* 13.tp in CopyFiles */,
-				AC623AAC2263D6A50088FBCB /* 14.tp in CopyFiles */,
-				AC623AAD2263D6A50088FBCB /* 15.tp in CopyFiles */,
-				AC623AAE2263D6A50088FBCB /* 16.tp in CopyFiles */,
-				AC623AAF2263D6A50088FBCB /* 17.tp in CopyFiles */,
-				AC623AB02263D6A50088FBCB /* 18.tp in CopyFiles */,
-				AC623AB12263D6A50088FBCB /* 21.tp in CopyFiles */,
-				AC623AB22263D6A50088FBCB /* 22.tp in CopyFiles */,
-				AC623AB32263D6A50088FBCB /* 23.tp in CopyFiles */,
-				AC623AB42263D6A50088FBCB /* 24.tp in CopyFiles */,
-				AC623AB52263D6A50088FBCB /* 25.tp in CopyFiles */,
-				AC623AB62263D6A50088FBCB /* 26.tp in CopyFiles */,
-				AC623AB72263D6A50088FBCB /* 27.tp in CopyFiles */,
-				AC623AB82263D6A50088FBCB /* 28.tp in CopyFiles */,
-				AC623AB92263D6A50088FBCB /* 31.tp in CopyFiles */,
-				AC623ABA2263D6A50088FBCB /* 32.tp in CopyFiles */,
-				AC623ABB2263D6A50088FBCB /* 33.tp in CopyFiles */,
-				AC623ABC2263D6A50088FBCB /* 34.tp in CopyFiles */,
-				AC623ABD2263D6A50088FBCB /* 35.tp in CopyFiles */,
-				AC623ABE2263D6A50088FBCB /* 36.tp in CopyFiles */,
-				AC623ABF2263D6A50088FBCB /* 37.tp in CopyFiles */,
-				AC623AC02263D6A50088FBCB /* 38.tp in CopyFiles */,
-				AC623AC12263D6A50088FBCB /* 41.tp in CopyFiles */,
-				AC623AC22263D6A50088FBCB /* 42.tp in CopyFiles */,
-				AC623AC32263D6A50088FBCB /* 43.tp in CopyFiles */,
-				AC623AC42263D6A50088FBCB /* 44.tp in CopyFiles */,
-				AC623AC52263D6A50088FBCB /* 45.tp in CopyFiles */,
-				AC623AC62263D6A50088FBCB /* 46.tp in CopyFiles */,
-				AC623AC72263D6A50088FBCB /* 47.tp in CopyFiles */,
-				AC623AC82263D6A50088FBCB /* 48.tp in CopyFiles */,
+				AC623AA92263D6A50088FBCB /* 11.tp in Copy Files */,
+				AC623AAA2263D6A50088FBCB /* 12.tp in Copy Files */,
+				AC623AAB2263D6A50088FBCB /* 13.tp in Copy Files */,
+				AC623AAC2263D6A50088FBCB /* 14.tp in Copy Files */,
+				AC623AAD2263D6A50088FBCB /* 15.tp in Copy Files */,
+				AC623AAE2263D6A50088FBCB /* 16.tp in Copy Files */,
+				AC623AAF2263D6A50088FBCB /* 17.tp in Copy Files */,
+				AC623AB02263D6A50088FBCB /* 18.tp in Copy Files */,
+				AC623AB12263D6A50088FBCB /* 21.tp in Copy Files */,
+				AC623AB22263D6A50088FBCB /* 22.tp in Copy Files */,
+				AC623AB32263D6A50088FBCB /* 23.tp in Copy Files */,
+				AC623AB42263D6A50088FBCB /* 24.tp in Copy Files */,
+				AC623AB52263D6A50088FBCB /* 25.tp in Copy Files */,
+				AC623AB62263D6A50088FBCB /* 26.tp in Copy Files */,
+				AC623AB72263D6A50088FBCB /* 27.tp in Copy Files */,
+				AC623AB82263D6A50088FBCB /* 28.tp in Copy Files */,
+				AC623AB92263D6A50088FBCB /* 31.tp in Copy Files */,
+				AC623ABA2263D6A50088FBCB /* 32.tp in Copy Files */,
+				AC623ABB2263D6A50088FBCB /* 33.tp in Copy Files */,
+				AC623ABC2263D6A50088FBCB /* 34.tp in Copy Files */,
+				AC623ABD2263D6A50088FBCB /* 35.tp in Copy Files */,
+				AC623ABE2263D6A50088FBCB /* 36.tp in Copy Files */,
+				AC623ABF2263D6A50088FBCB /* 37.tp in Copy Files */,
+				AC623AC02263D6A50088FBCB /* 38.tp in Copy Files */,
+				AC623AC12263D6A50088FBCB /* 41.tp in Copy Files */,
+				AC623AC22263D6A50088FBCB /* 42.tp in Copy Files */,
+				AC623AC32263D6A50088FBCB /* 43.tp in Copy Files */,
+				AC623AC42263D6A50088FBCB /* 44.tp in Copy Files */,
+				AC623AC52263D6A50088FBCB /* 45.tp in Copy Files */,
+				AC623AC62263D6A50088FBCB /* 46.tp in Copy Files */,
+				AC623AC72263D6A50088FBCB /* 47.tp in Copy Files */,
+				AC623AC82263D6A50088FBCB /* 48.tp in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AC623ACB2263D9F50088FBCB /* CopyFiles */ = {
@@ -348,6 +351,16 @@
 				AC623ACD2263DA1E0088FBCB /* simple_cube.stl in CopyFiles */,
 				AC623ACE2263DA1E0088FBCB /* simple_sphere.stl in CopyFiles */,
 				AC623ACF2263DA1E0088FBCB /* upper_jaw_scan.stl in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACAEEB482284BE3800A9AA2E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = ToothReminder;
+			dstSubfolderSpec = 7;
+			files = (
+				ACAEEB492284BE4700A9AA2E /* mesial_14.png in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +567,8 @@
 		ACAD5DD72245484E0041E484 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		ACAD5DD922457B160041E484 /* ImageZoomAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomAnimationController.swift; sourceTree = "<group>"; };
 		ACAD5DDB224674A10041E484 /* ImageFadeOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFadeOutAnimationController.swift; sourceTree = "<group>"; };
+		ACAEEB442284B84100A9AA2E /* mesial_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesial_14.png; sourceTree = "<group>"; };
+		ACAEEB462284B8C600A9AA2E /* ToothReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToothReminderViewController.swift; sourceTree = "<group>"; };
 		ACB8C8A722351AE000C7F77C /* SctFinished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctFinished.swift; sourceTree = "<group>"; };
 		ACBCF42422425993007CA02F /* AsynchronousTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousTableViewController.swift; sourceTree = "<group>"; };
 		ACBCF4262242CA18007CA02F /* ErrorDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDisplayer.swift; sourceTree = "<group>"; };
@@ -843,6 +858,7 @@
 				AC06D48622639376003BA7C7 /* ToothRecognitionViewController.swift */,
 				AC06D4882263947B003BA7C7 /* ToothRecognitionSelectionViewController.swift */,
 				AC623AA62263D4C10088FBCB /* ToothRecognitionSelectionDelegate.swift */,
+				ACAEEB462284B8C600A9AA2E /* ToothReminderViewController.swift */,
 				AC06D483226390E7003BA7C7 /* ToothRecognition.storyboard */,
 			);
 			path = ToothRecognition;
@@ -854,6 +870,7 @@
 				AC06D43B226386CA003BA7C7 /* ToothPosition */,
 				AC317D3E2261BFB100785C05 /* SctData */,
 				AC2CF56422645F1B00E70D41 /* ToothRecognition */,
+				ACAEEB3F2284B7A300A9AA2E /* ToothReminder */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1127,6 +1144,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		ACAEEB3F2284B7A300A9AA2E /* ToothReminder */ = {
+			isa = PBXGroup;
+			children = (
+				ACAEEB442284B84100A9AA2E /* mesial_14.png */,
+			);
+			path = ToothReminder;
+			sourceTree = "<group>";
+		};
 		ACB8C8A92235211F00C7F77C /* SctBrowsing */ = {
 			isa = PBXGroup;
 			children = (
@@ -1216,9 +1241,10 @@
 				AC38BB58221DE4C9008E829B /* Sources */,
 				AC38BB59221DE4C9008E829B /* Frameworks */,
 				AC38BB5A221DE4C9008E829B /* Resources */,
-				AC623AA82263D68C0088FBCB /* CopyFiles */,
+				AC623AA82263D68C0088FBCB /* Copy Files */,
 				AC623ACB2263D9F50088FBCB /* CopyFiles */,
 				AC2CF57922645F9600E70D41 /* CopyFiles */,
+				ACAEEB482284BE3800A9AA2E /* CopyFiles */,
 				AC51DA162272F6AC00A66887 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -1398,6 +1424,7 @@
 				AC9D150A223ED31A00131490 /* LeaderboardViewController.swift in Sources */,
 				AC50F1DB225A89F900FF46B1 /* Dictionary+utils.swift in Sources */,
 				ACDC49AF224240BA00B43534 /* TableSection.swift in Sources */,
+				ACAEEB472284B8C600A9AA2E /* ToothReminderViewController.swift in Sources */,
 				AC31A04D224B8DB700A3A461 /* SpecializedErrorButtonDelegate.swift in Sources */,
 				AC38BB76221DFB2F008E829B /* String+localized.swift in Sources */,
 				ACA60F722235CCEF0094881A /* SctViewController.swift in Sources */,

@@ -14,6 +14,7 @@ class ToothRecognitionViewController: UIViewController
 {
     static let toToothRecognitionSelection  = "ToothRecognitionToToothRecognitionSelectionSegueId"
     static let toVolume                     = "ToothRecognitionToVolumeSegueId"
+    static let toToothReminder              = "ToothRecognitionToToothReminderSegueId"
     
     @IBOutlet weak var monitoringLabel: UILabel!
     @IBOutlet weak var toothView: SCNView!
@@ -23,6 +24,7 @@ class ToothRecognitionViewController: UIViewController
     fileprivate var toothToRecognize_ = Tooth(internationalNumber: 11)
     fileprivate var attempts_ = 0
     fileprivate var successes_ = 0
+    fileprivate var error_ = false
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -39,6 +41,19 @@ class ToothRecognitionViewController: UIViewController
         super.viewWillAppear(animated)
         
         navigationItem.title = "ToothRecognition.NavigationItem.Title".localized
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        if error_
+        {
+            error_ = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                self.performSegue(withIdentifier: ToothRecognitionViewController.toToothReminder, sender: nil)
+            })
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -221,6 +236,12 @@ class ToothRecognitionViewController: UIViewController
         {
             target.scene = toothView.scene
         }
+        // remdiner
+        else if segue.identifier == ToothRecognitionViewController.toToothReminder,
+            let target = (segue.destination as? UINavigationController)?.viewControllers.first as? ToothReminderViewController
+        {
+            target.toothToRemind = toothToRecognize_
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -252,6 +273,10 @@ extension ToothRecognitionViewController: ToothRecognitionSelectionDelegate
         if tooth == correctTooth
         {
             successes_ += 1
+        }
+        else
+        {
+            error_ = true
         }
         updateMonitoringLabel_()
         

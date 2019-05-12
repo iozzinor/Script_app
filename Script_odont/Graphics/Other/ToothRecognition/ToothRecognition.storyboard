@@ -67,6 +67,7 @@
                         <outlet property="toothView" destination="kct-Zk-hBr" id="vMf-IL-n4c"/>
                         <segue destination="3rL-vu-ogP" kind="presentation" identifier="ToothRecognitionToToothRecognitionSelectionSegueId" id="jig-3P-GBb"/>
                         <segue destination="zSp-ZK-bNI" kind="show" identifier="ToothRecognitionToVolumeSegueId" id="bkk-bE-bLP"/>
+                        <segue destination="Utr-Qa-Zwe" kind="presentation" identifier="ToothRecognitionToToothReminderSegueId" id="FLo-x0-JQA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4R-aC-dDk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -116,6 +117,55 @@
             </objects>
             <point key="canvasLocation" x="1714" y="63"/>
         </scene>
+        <!--Tooth Reminder View Controller-->
+        <scene sceneID="sDL-Y6-0y8">
+            <objects>
+                <viewController id="YaE-D1-u6X" customClass="ToothReminderViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OOA-yS-NXv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IkZ-PE-2z8">
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="IkZ-PE-2z8" secondAttribute="height" id="QHy-mO-bDg"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUg-1J-Kn5">
+                                <rect key="frame" x="0.0" y="439" width="375" height="228"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tUg-1J-Kn5" firstAttribute="top" secondItem="IkZ-PE-2z8" secondAttribute="bottom" id="3Mq-oz-q84"/>
+                            <constraint firstItem="tUg-1J-Kn5" firstAttribute="leading" secondItem="LuG-2Z-s95" secondAttribute="leading" id="8Kd-AA-VVD"/>
+                            <constraint firstItem="IkZ-PE-2z8" firstAttribute="leading" secondItem="LuG-2Z-s95" secondAttribute="leading" id="A6N-ed-6HA"/>
+                            <constraint firstItem="LuG-2Z-s95" firstAttribute="bottom" secondItem="tUg-1J-Kn5" secondAttribute="bottom" id="KVa-Tk-kn1"/>
+                            <constraint firstItem="LuG-2Z-s95" firstAttribute="trailing" secondItem="tUg-1J-Kn5" secondAttribute="trailing" id="iKR-fC-LeR"/>
+                            <constraint firstItem="IkZ-PE-2z8" firstAttribute="top" secondItem="LuG-2Z-s95" secondAttribute="top" id="rj9-r4-vFD"/>
+                            <constraint firstItem="IkZ-PE-2z8" firstAttribute="centerX" secondItem="OOA-yS-NXv" secondAttribute="centerX" id="uWg-Vf-82c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LuG-2Z-s95"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fxU-5J-z7R">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FTk-qp-52A">
+                            <connections>
+                                <action selector="done:" destination="YaE-D1-u6X" id="b30-lc-Nop"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="reminderLabel" destination="tUg-1J-Kn5" id="W8C-4o-3Us"/>
+                        <outlet property="toothImage" destination="IkZ-PE-2z8" id="Qt3-ye-LM5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8nz-hs-x2w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1713" y="772"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="hbs-uc-orT">
             <objects>
@@ -139,6 +189,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndp-Hz-QHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="102" y="485"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wYc-Vx-A5w">
+            <objects>
+                <navigationController id="Utr-Qa-Zwe" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cbE-vD-BKO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YaE-D1-u6X" kind="relationship" relationship="rootViewController" id="A2g-uC-rWH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qPJ-IG-Nc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="870" y="772"/>
         </scene>
     </scenes>
 </document>
