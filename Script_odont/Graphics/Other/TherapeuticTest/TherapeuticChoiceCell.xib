@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TherapeuticChoiceCellReuseId" id="gUC-Qx-kH0" customClass="TherapeuticChoiceCell" customModule="Script_odont" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gUC-Qx-kH0" id="MMb-7r-Axb">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Alq-ip-Cgc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Therapeutic Choice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOl-dm-rfA">
+                                <rect key="frame" x="0.0" y="0.0" width="207" height="43.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9k-A4-EUM">
+                                <rect key="frame" x="207" y="0.0" width="207" height="43.5"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Q9k-A4-EUM" firstAttribute="width" secondItem="Alq-ip-Cgc" secondAttribute="width" multiplier="1:2" id="s5s-LG-XEJ"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Alq-ip-Cgc" firstAttribute="top" secondItem="MMb-7r-Axb" secondAttribute="top" id="073-j8-LMK"/>
+                    <constraint firstItem="Alq-ip-Cgc" firstAttribute="leading" secondItem="MMb-7r-Axb" secondAttribute="leading" id="Dg8-JI-wtA"/>
+                    <constraint firstAttribute="trailing" secondItem="Alq-ip-Cgc" secondAttribute="trailing" id="IVU-gx-wgi"/>
+                    <constraint firstAttribute="bottom" secondItem="Alq-ip-Cgc" secondAttribute="bottom" id="XBa-K3-3q3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="therapeuticLabel" destination="rOl-dm-rfA" id="ceO-nO-Ua3"/>
+            </connections>
+            <point key="canvasLocation" x="-129" y="-111"/>
+        </tableViewCell>
+    </objects>
+</document>

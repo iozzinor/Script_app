@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c4f-X0-9xy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c4f-X0-9xy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,6 +37,8 @@
                         <segue destination="WCV-k9-JIc" kind="show" identifier="OtherToWalkthroughsSegueId" id="Kh6-Oi-fzn"/>
                         <segue destination="2Vu-Kk-XwA" kind="show" identifier="OtherToLeaderboardSegueId" id="CmV-jQ-AxX"/>
                         <segue destination="BeG-KT-3T6" kind="show" identifier="OtherToToothRecognitionSegueId" id="zEV-dY-2iK"/>
+                        <segue destination="3fM-h6-mRb" kind="show" identifier="OtherToTherapeuticTestBasicSegueId" id="UyB-Qr-b1M"/>
+                        <segue destination="5oY-V2-7Bi" kind="show" identifier="OtherToTherapeuticTestScaleSegueId" id="TV9-Rq-dS3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wTK-cK-Xgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -175,6 +177,14 @@
             </objects>
             <point key="canvasLocation" x="1566" y="256"/>
         </scene>
+        <!--TherapeuticTest-->
+        <scene sceneID="7eS-ju-U5L">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TherapeuticTest" id="3fM-h6-mRb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u6G-EK-MBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-438" y="491"/>
+        </scene>
         <!--Period Leaderboard View Controller-->
         <scene sceneID="ntQ-Tv-6Eu">
             <objects>
@@ -200,6 +210,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIu-Vm-YmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-124" y="479"/>
+        </scene>
+        <!--TherapeuticTest-->
+        <scene sceneID="erK-cA-IRt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TherapeuticTest" id="5oY-V2-7Bi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fCW-gF-DYo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-685" y="454"/>
         </scene>
     </scenes>
 </document>

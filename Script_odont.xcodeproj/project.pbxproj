@@ -45,6 +45,10 @@
 		AC0E4EAD223801D5003996AF /* RateStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EAC223801D5003996AF /* RateStar.swift */; };
 		AC0E4EB022382995003996AF /* UIBezierPath+star.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EAF22382995003996AF /* UIBezierPath+star.swift */; };
 		AC0E4EB222383A45003996AF /* PartialRateStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E4EB122383A45003996AF /* PartialRateStar.swift */; };
+		AC18B0E6228B18CE00DFC878 /* ChooseScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B0E5228B18CE00DFC878 /* ChooseScale.swift */; };
+		AC18B0E9228B2D1E00DFC878 /* ImageDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC18B0E8228B2D1E00DFC878 /* ImageDetail.storyboard */; };
+		AC18B0EB228B376B00DFC878 /* TherapeuticChoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC18B0EA228B376B00DFC878 /* TherapeuticChoiceCell.swift */; };
+		AC18B0ED228B378F00DFC878 /* TherapeuticChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC18B0EC228B378F00DFC878 /* TherapeuticChoiceCell.xib */; };
 		AC24E1D7224A6FAE00B5D48A /* Passphrase.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC24E1D6224A6FAE00B5D48A /* Passphrase.storyboard */; };
 		AC24E1D9224A70FC00B5D48A /* PassphraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1D8224A70FC00B5D48A /* PassphraseViewController.swift */; };
 		AC24E1DB224A718200B5D48A /* NumericPassphraseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */; };
@@ -243,6 +247,8 @@
 		ACC83F92223EC3F80064BE6F /* MySctUnfinishedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC83F91223EC3F80064BE6F /* MySctUnfinishedCell.xib */; };
 		ACC83F94223EC4870064BE6F /* MySctFinishedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC83F93223EC4870064BE6F /* MySctFinishedCell.xib */; };
 		ACC83F96223EC83D0064BE6F /* SctsFinishedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F95223EC83D0064BE6F /* SctsFinishedListViewController.swift */; };
+		ACCFB8ED22889D570007FEC8 /* TherapeuticTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACCFB8EC22889D570007FEC8 /* TherapeuticTest.storyboard */; };
+		ACCFB8EF22889DAC0007FEC8 /* TherapeuticTestBasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFB8EE22889DAC0007FEC8 /* TherapeuticTestBasicViewController.swift */; };
 		ACD1B39C223BD5590065F07E /* SctScoreDiagramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */; };
 		ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */; };
 		ACD1B3A0223BE1320065F07E /* SctSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B39F223BE1320065F07E /* SctSearchViewController.swift */; };
@@ -438,6 +444,10 @@
 		AC0E4EAC223801D5003996AF /* RateStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateStar.swift; sourceTree = "<group>"; };
 		AC0E4EAF22382995003996AF /* UIBezierPath+star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+star.swift"; sourceTree = "<group>"; };
 		AC0E4EB122383A45003996AF /* PartialRateStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialRateStar.swift; sourceTree = "<group>"; };
+		AC18B0E5228B18CE00DFC878 /* ChooseScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseScale.swift; sourceTree = "<group>"; };
+		AC18B0E8228B2D1E00DFC878 /* ImageDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageDetail.storyboard; sourceTree = "<group>"; };
+		AC18B0EA228B376B00DFC878 /* TherapeuticChoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapeuticChoiceCell.swift; sourceTree = "<group>"; };
+		AC18B0EC228B378F00DFC878 /* TherapeuticChoiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TherapeuticChoiceCell.xib; sourceTree = "<group>"; };
 		AC24E1D6224A6FAE00B5D48A /* Passphrase.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Passphrase.storyboard; sourceTree = "<group>"; };
 		AC24E1D8224A70FC00B5D48A /* PassphraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseViewController.swift; sourceTree = "<group>"; };
 		AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericPassphraseControl.swift; sourceTree = "<group>"; };
@@ -610,6 +620,8 @@
 		ACC83F91223EC3F80064BE6F /* MySctUnfinishedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySctUnfinishedCell.xib; sourceTree = "<group>"; };
 		ACC83F93223EC4870064BE6F /* MySctFinishedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySctFinishedCell.xib; sourceTree = "<group>"; };
 		ACC83F95223EC83D0064BE6F /* SctsFinishedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctsFinishedListViewController.swift; sourceTree = "<group>"; };
+		ACCFB8EC22889D570007FEC8 /* TherapeuticTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TherapeuticTest.storyboard; sourceTree = "<group>"; };
+		ACCFB8EE22889DAC0007FEC8 /* TherapeuticTestBasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapeuticTestBasicViewController.swift; sourceTree = "<group>"; };
 		ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctScoreDiagramCell.swift; sourceTree = "<group>"; };
 		ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScoreDiagramCell.xib; sourceTree = "<group>"; };
 		ACD1B39F223BE1320065F07E /* SctSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctSearchViewController.swift; sourceTree = "<group>"; };
@@ -720,6 +732,7 @@
 				ACC52C3E223EE57E00B974BA /* CandidateStatistics.swift */,
 				ACC81AC72240470E000990EA /* Progression.swift */,
 				ACC81ABF223F0D43000990EA /* Period.swift */,
+				AC18B0E5228B18CE00DFC878 /* ChooseScale.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -729,6 +742,7 @@
 			children = (
 				ACDC49A92242364D00B43534 /* AsynchronousTableManager */,
 				AC0E4EAE223826EA003996AF /* Star */,
+				AC18B0E7228B2CF300DFC878 /* ImageDetail */,
 				ACC83F8E223E99090064BE6F /* DetailHeader */,
 				AC31E39B2235B96600A3B813 /* Sct */,
 				AC0E4EA72237EB9F003996AF /* SctDetail */,
@@ -801,6 +815,17 @@
 				AC0E4EAF22382995003996AF /* UIBezierPath+star.swift */,
 			);
 			path = Star;
+			sourceTree = "<group>";
+		};
+		AC18B0E7228B2CF300DFC878 /* ImageDetail */ = {
+			isa = PBXGroup;
+			children = (
+				ACAD5DD922457B160041E484 /* ImageZoomAnimationController.swift */,
+				ACAD5DDB224674A10041E484 /* ImageFadeOutAnimationController.swift */,
+				ACAD5DD72245484E0041E484 /* ImageDetailViewController.swift */,
+				AC18B0E8228B2D1E00DFC878 /* ImageDetail.storyboard */,
+			);
+			path = ImageDetail;
 			sourceTree = "<group>";
 		};
 		AC24E1D5224A6A2100B5D48A /* Passphrase */ = {
@@ -1050,9 +1075,6 @@
 			isa = PBXGroup;
 			children = (
 				AC0D77C72225D240007F83D4 /* SctHorizontalViewController.swift */,
-				ACAD5DD922457B160041E484 /* ImageZoomAnimationController.swift */,
-				ACAD5DDB224674A10041E484 /* ImageFadeOutAnimationController.swift */,
-				ACAD5DD72245484E0041E484 /* ImageDetailViewController.swift */,
 				AC8F5B76222894AB00FAEFC5 /* GoToSctViewController.swift */,
 				AC8F5B782228986000FAEFC5 /* GoToSctViewControllerDelegate.swift */,
 				AC8F5B7A222899DA00FAEFC5 /* GoToSctCell.swift */,
@@ -1067,8 +1089,9 @@
 			children = (
 				AC317D2F2261BD5A00785C05 /* Leaderboard */,
 				AC317D302261BD6C00785C05 /* ToothRecognition */,
-				AC8F5B7E2229676100FAEFC5 /* OtherViewController.swift */,
+				ACCFB8EB22889D020007FEC8 /* TherapeuticTest */,
 				AC53E36E2233130700CA4437 /* WalkthroughsViewController.swift */,
+				AC8F5B7E2229676100FAEFC5 /* OtherViewController.swift */,
 				AC31E3962235B7B400A3B813 /* Other.storyboard */,
 			);
 			path = Other;
@@ -1211,6 +1234,17 @@
 			path = DetailHeader;
 			sourceTree = "<group>";
 		};
+		ACCFB8EB22889D020007FEC8 /* TherapeuticTest */ = {
+			isa = PBXGroup;
+			children = (
+				AC18B0EA228B376B00DFC878 /* TherapeuticChoiceCell.swift */,
+				AC18B0EC228B378F00DFC878 /* TherapeuticChoiceCell.xib */,
+				ACCFB8EE22889DAC0007FEC8 /* TherapeuticTestBasicViewController.swift */,
+				ACCFB8EC22889D570007FEC8 /* TherapeuticTest.storyboard */,
+			);
+			path = TherapeuticTest;
+			sourceTree = "<group>";
+		};
 		ACDC49A92242364D00B43534 /* AsynchronousTableManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1302,6 +1336,7 @@
 				AC372C5F223942C7009F1DAD /* SctRateCell.xib in Resources */,
 				AC82731E222C96EB0041AA0C /* SecurityQuestionCell.xib in Resources */,
 				AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */,
+				ACCFB8ED22889D570007FEC8 /* TherapeuticTest.storyboard in Resources */,
 				AC0E4EA02236E144003996AF /* SctTypeWalkthrough.storyboard in Resources */,
 				AC06D484226390E7003BA7C7 /* ToothRecognition.storyboard in Resources */,
 				AC0E4E9A2236C6CC003996AF /* DrawingExampleWalkthrough.storyboard in Resources */,
@@ -1313,6 +1348,7 @@
 				AC372C5E223942C7009F1DAD /* SctPerformRateCell.xib in Resources */,
 				ACC83F92223EC3F80064BE6F /* MySctUnfinishedCell.xib in Resources */,
 				AC4904B4222B238B00BDEB4B /* Login.storyboard in Resources */,
+				AC18B0E9228B2D1E00DFC878 /* ImageDetail.storyboard in Resources */,
 				AC0433FF2249364100644B14 /* SwitchCell.xib in Resources */,
 				ACC83F94223EC4870064BE6F /* MySctFinishedCell.xib in Resources */,
 				AC31E3A12235BCBA00A3B813 /* SctQuestionHeaderCell.xib in Resources */,
@@ -1326,6 +1362,7 @@
 				ACD1B3B2223C51B10065F07E /* SctBrowsingCell.xib in Resources */,
 				ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */,
 				AC2CF56322645B6500E70D41 /* Volume.storyboard in Resources */,
+				AC18B0ED228B378F00DFC878 /* TherapeuticChoiceCell.xib in Resources */,
 				ACD1B3AA223C43AD0065F07E /* SctLatestPeriodCell.xib in Resources */,
 				AC38BB83221EAA58008E829B /* Localizable.strings in Resources */,
 				AC31A039224B7A3900A3A461 /* Unlock.storyboard in Resources */,
@@ -1362,6 +1399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACCFB8EF22889DAC0007FEC8 /* TherapeuticTestBasicViewController.swift in Sources */,
 				ACD1B3AE223C4C730065F07E /* SctLaunchInformation.swift in Sources */,
 				ACC83F70223D70D30064BE6F /* SctSearchCriterionPickerDelegate.swift in Sources */,
 				AC31E39A2235B88B00A3B813 /* DrawingWalkthroughViewController.swift in Sources */,
@@ -1392,6 +1430,7 @@
 				AC9F23ED222A93F4002D38E5 /* SigninLabelCell.swift in Sources */,
 				ACE70F99221F32B9008454FF /* UITableView+register.swift in Sources */,
 				AC0434052249446700644B14 /* AboutViewController.swift in Sources */,
+				AC18B0EB228B376B00DFC878 /* TherapeuticChoiceCell.swift in Sources */,
 				ACC81ACC22404B59000990EA /* ScoreProgressDiagramDelegate.swift in Sources */,
 				AC51CBEA224E667000B52FD0 /* VolumeViewController.swift in Sources */,
 				ACAD5DDA22457B160041E484 /* ImageZoomAnimationController.swift in Sources */,
@@ -1427,6 +1466,7 @@
 				ACAEEB472284B8C600A9AA2E /* ToothReminderViewController.swift in Sources */,
 				AC31A04D224B8DB700A3A461 /* SpecializedErrorButtonDelegate.swift in Sources */,
 				AC38BB76221DFB2F008E829B /* String+localized.swift in Sources */,
+				AC18B0E6228B18CE00DFC878 /* ChooseScale.swift in Sources */,
 				ACA60F722235CCEF0094881A /* SctViewController.swift in Sources */,
 				AC421AC0224D4BA20011052B /* NewDataView.swift in Sources */,
 				AC0E4EA222370CF3003996AF /* SctStatistics.swift in Sources */,
