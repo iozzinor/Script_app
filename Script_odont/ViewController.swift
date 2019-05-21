@@ -8,12 +8,70 @@
 
 import UIKit
 
-class ViewController: UITabBarController
+class ViewController: UICollectionViewController
 {
-    static let toUnlock = "MainToUnlockSegueId"
+    // -------------------------------------------------------------------------
+    // MARK: - MENU ITEM
+    // -------------------------------------------------------------------------
+    enum MenuItem: CaseIterable
+    {
+        case sctBrowsing
+        case mySct
+        case settings
+        case other
+        
+        var segueId: String {
+            switch self
+            {
+            case .sctBrowsing:
+                return "MainToSctBrowsingSegueId"
+            case .mySct:
+                return "MainToMySctSegueId"
+            case .settings:
+                return "MainToSettingsSegueId"
+            case .other:
+                return "MainToOtherSegueId"
+            }
+        }
+        
+        var name: String {
+            switch self
+            {
+            case .sctBrowsing:
+                return "Main.Menu.Item.SctBrowsing".localized
+            case .mySct:
+                return "Main.Menu.Item.MySct".localized
+            case .settings:
+                return "Main.Menu.Item.Settings".localized
+            case .other:
+                return "Main.Menu.Item.Other".localized
+            }
+        }
+    }
     
-    private var isFirstDisplay_ = true
-    private var shouldDisplayPassphraseCreation_ = false
+    public static let toUnlock      = "MainToUnlockSegueId"
+    
+    private static let topInset_: CGFloat   = 10
+    private static let padding_: CGFloat    = 0.1
+    private static let itemsPerLine_        = 2
+    
+    private var isFirstDisplay_                     = true
+    private var shouldDisplayPassphraseCreation_    = false
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscape
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - VIEW CYCLE
+    // -------------------------------------------------------------------------
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        collectionView.registerNibCell(MenuItemCell.self)
+        collectionView.register(UINib(nibName: "MenuHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MenuHeader.reuseId)
+    }
     
     override func viewDidAppear(_ animated: Bool)
     {
@@ -39,31 +97,76 @@ class ViewController: UITabBarController
     {
         super.viewWillAppear(animated)
         
+        // passphrase
         if shouldDisplayPassphraseCreation_
         {
             shouldDisplayPassphraseCreation_ = false
             
             displayPassphraseCreation_()
         }
+        
+        // navigation item
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewDidDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func showSettings()
     {
-        guard let controllers = viewControllers else
-        {
-            return
-        }
-        for (i, viewController) in controllers.enumerated()
-        {
-            if let navigationController = viewController as? UINavigationController,
-                let firstViewController = navigationController.viewControllers.first
-            {
-                if firstViewController is SettingsViewController
-                {
-                    selectedIndex = i
-                }
-            }
-        }
+        performSegue(withIdentifier: MenuItem.settings.segueId, sender: self)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - UI COLLECTION VIEW DATA SOURCE
+    // -------------------------------------------------------------------------
+    override func numberOfSections(in collectionView: UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        return MenuItem.allCases.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
+        let cell = collectionView.dequeueReusableCell(for: indexPath) as MenuItemCell
+        
+        let menuItem = MenuItem.allCases[indexPath.row]
+        
+        cell.backgroundColor = UIColor.blue
+        cell.label.text = menuItem.name
+        
+        return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
+    {
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MenuHeader.reuseId, for: indexPath) as! MenuHeader
+
+        view.titleLabel.text = "Main.Menu.Title".localized
+        
+        return view
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
+    {
+        return CGSize(width: view.frame.width, height: view.frame.height / 3.0)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - UI COLLECTION VIEW DELEGATE
+    // -------------------------------------------------------------------------
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
+        let segueId = MenuItem.allCases[indexPath.row].segueId
+        performSegue(withIdentifier: segueId, sender: self)
     }
     
     // -------------------------------------------------------------------------
@@ -104,5 +207,26 @@ extension ViewController: PassphraseDelegate
         passphraseViewController.dismiss(animated: true, completion: nil)
         
         AuthenticationManager.shared.storePassphrase(passphrase.text, kind: passphrase.kind) 
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - UI COLLECTION VIEW DELEGATE FLOW LAYOUT
+// -----------------------------------------------------------------------------
+extension ViewController: UICollectionViewDelegateFlowLayout
+{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        let availableWidth = view.frame.width * (1 - ViewController.padding_)
+        let size = availableWidth / CGFloat(ViewController.itemsPerLine_)
+        return CGSize(width: size, height: size)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
+    {
+        let paddingSize = view.frame.width * ViewController.padding_
+        let paddingWidth = paddingSize / CGFloat(ViewController.itemsPerLine_ + 1)
+        
+        return UIEdgeInsets(top: ViewController.topInset_, left: paddingWidth, bottom: ViewController.topInset_, right: paddingWidth)
     }
 }

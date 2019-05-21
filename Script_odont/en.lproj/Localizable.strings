@@ -15,6 +15,13 @@
 "Common.Yes"    = "Yes";
 "Common.No"     = "No";
 
+/* MAIN */
+"Main.Menu.Title"               = "Script App";
+"Main.Menu.Item.SctBrowsing"    = "Sct Browsing";
+"Main.Menu.Item.MySct"          = "My Sct";
+"Main.Menu.Item.Settings"       = "Settings";
+"Main.Menu.Item.Other"          = "Other";
+
 /* SCT TYPE */
 "Sct.Type.Diagnostic" = "Diagnostic";
 "Sct.Type.Therapeutic" = "Therapeutic";

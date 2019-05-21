@@ -1,14 +1,14 @@
 //
-//  UITableViewCell+id.swift
+//  UICollectionViewCell+utils.swift
 //  Script_odont
 //
-//  Created by Régis Iozzino on 21/02/2019.
+//  Created by Régis Iozzino on 21/05/2019.
 //  Copyright © 2019 Régis Iozzino. All rights reserved.
 //
 
 import UIKit
 
-extension UITableViewCell: Reusable
+extension UICollectionViewCell
 {
     // -------------------------------------------------------------------------
     // MARK: - REUSE IDENTIFIER

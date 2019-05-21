@@ -15,6 +15,13 @@
 "Common.Yes"    = "Oui";
 "Common.No"     = "Non";
 
+/* MAIN */
+"Main.Menu.Title"               = "Script App";
+"Main.Menu.Item.SctBrowsing"    = "Navigation TCS";
+"Main.Menu.Item.MySct"          = "Mes TCS";
+"Main.Menu.Item.Settings"       = "Paramètres";
+"Main.Menu.Item.Other"          = "Autres";
+
 /* SCT TYPE */
 "Sct.Type.Diagnostic" = "Diagnostique";
 "Sct.Type.Therapeutic" = "Thérapeutique";
