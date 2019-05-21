@@ -10,24 +10,20 @@ import Foundation
 
 class ChooseScale
 {
-    let meanings: [String]
-    let start: Int
-    let span: Int
-    
-    init(meanings: [String], start: Int, span: Int)
+    struct Graduation
     {
-        self.meanings = meanings
-        self.start = start
-        self.span = span
+        let title: String
+        let code: Int
+    }
+    
+    let graduations: [Graduation]
+    
+    init(graduations: [Graduation])
+    {
+        self.graduations = graduations
     }
     
     var count: Int {
-        return self.meanings.count
-    }
-    
-    subscript(value: Int) -> String
-    { 
-        let index = (value - start) / span
-        return self.meanings[index]
+        return self.graduations.count
     }
 }

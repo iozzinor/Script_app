@@ -11,11 +11,13 @@ import UIKit
 
 class TherapeuticTestBasicViewController: UIViewController
 {
-    public static let diagnosticScale = ChooseScale(meanings: [
-            "Contre-indiqué",
-            "Ni indiqué ni contre-indiqué",
-            "Indiqué"
-        ], start: -1, span: 1)
+    public static let diagnosticScale = ChooseScale(graduations: [
+            ChooseScale.Graduation(title: "Absolument contre-indiqué", code: -2),
+            ChooseScale.Graduation(title: "Contre-indiqué", code: -1),
+            ChooseScale.Graduation(title: "Indiqué", code: 1),
+            ChooseScale.Graduation(title: "Solution la plus indiquée", code: 2)
+        
+        ])
     
     public static let toImageDetail = "TherapeuticTestBasicToImageDetailSegueId"
     public static let toVolume      = "TherapeuticTestBasicToVolumeSegueId"
@@ -46,20 +48,46 @@ class TherapeuticTestBasicViewController: UIViewController
         }
     }
     
+    @IBOutlet weak var previousButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var scaleLabel: UILabel!
     @IBOutlet weak var xRayView: UIImageView!
     @IBOutlet weak var toothView: SCNView!
     @IBOutlet weak var therapeuticChoicesView: UITableView!
     
-    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
-    }
+    var previousItem: UIBarButtonItem!
+    var timeItem: UIBarButtonItem!
+    var nextItem: UIBarButtonItem!
+    
+    var questionsCount = 3
     
     fileprivate let therapeuticChoices_ = [
         "Composite",
         "Inlay",
         "Onlay",
+        "Veneerlay / Overlay",
+        "Endo-couronne",
         "Couronne"
     ]
+    fileprivate var currentQuestion_ = 0
+    fileprivate var userChoices_ = [[Int]]()
+    fileprivate var scaleValues_: [Int] {
+        switch selectionMode
+        {
+        case .single:
+            return []
+        case let .scale(scale):
+            return scale.graduations.map { $0.code }
+        }
+    }
+    fileprivate var timer_: Timer? = nil
+    fileprivate var elapsedSeconds_ = 0
+    fileprivate var elapsedTime_: Double = 0.0
+    fileprivate var previousDate_ = Date()
+    
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscape
+    }
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -71,14 +99,84 @@ class TherapeuticTestBasicViewController: UIViewController
         setup_()
     }
     
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        createTimer_()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        
+        destroyTimer_()
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - SETUP
     // -------------------------------------------------------------------------
     fileprivate func setup_()
     {
+        setupNavigationMenu_()
+        setupNavigationButtons_()
+        setupScaleLabel_()
         setupXRayImage_()
         setupToothVolume_()
         setupTherapeuticChoices_()
+        setupUserChoices_()
+    }
+    
+    fileprivate func setupNavigationMenu_()
+    {
+        previousItem = UIBarButtonItem(title: "Précédent", style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.previousQuestion_))
+        timeItem = UIBarButtonItem(title: "00:00", style: .plain, target: nil, action: nil)
+        nextItem = UIBarButtonItem(title: "Suivant", style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.nextQuestion_))
+        
+        navigationItem.rightBarButtonItem = nextItem
+        navigationItem.rightBarButtonItems?.append(timeItem)
+        navigationItem.rightBarButtonItems?.append(previousItem)
+        
+        previousItem.isEnabled = false
+        timeItem.isEnabled = false
+    }
+    
+    fileprivate func setupNavigationButtons_()
+    {
+        let arrowPrevious = UIImage(named: "arrow_previous")
+        let previousSelectedImage = arrowPrevious?.createImage(usingColor: UIColor.blue)
+        let previousDisabledImage = arrowPrevious?.createImage(usingColor: UIColor.gray)
+        
+        let arrowNext = UIImage(named: "arrow_next")
+        let nextSelectedImage = arrowNext?.createImage(usingColor: UIColor.blue)
+        let nextDisabledImage = arrowNext?.createImage(usingColor: UIColor.gray)
+        
+        previousButton.setImage(previousSelectedImage, for: .normal)
+        previousButton.setImage(previousDisabledImage, for: .disabled)
+        previousButton.isEnabled = false
+        
+        nextButton.setImage(nextSelectedImage, for: .normal)
+        nextButton.setImage(nextDisabledImage, for: .disabled)
+    }
+    
+    fileprivate func setupScaleLabel_()
+    {
+        switch selectionMode
+        {
+        case .single:
+            scaleLabel.isHidden = true
+        case let .scale(scale):
+            var scaleText = ""
+            for graduation in scale.graduations
+            {
+                if !scaleText.isEmpty
+                {
+                    scaleText += " | "
+                }
+                scaleText += "\(graduation.code): \(graduation.title)"
+            }
+            scaleLabel.text = scaleText
+        }
     }
     
     fileprivate func setupXRayImage_()
@@ -116,7 +214,92 @@ class TherapeuticTestBasicViewController: UIViewController
         therapeuticChoicesView.registerNibCell(TherapeuticChoiceCell.self)
         therapeuticChoicesView.backgroundColor = UIColor.white
         
+        therapeuticChoicesView.delegate = self
         therapeuticChoicesView.dataSource = self
+    }
+    
+    fileprivate func setupUserChoices_()
+    {
+        let choicePossibilities: Int
+        switch selectionMode
+        {
+        case .single:
+            choicePossibilities = 1
+        case .scale:
+            choicePossibilities = therapeuticChoices_.count
+        }
+        
+        let defaultChoices = Array<Int>(repeating: -1, count: choicePossibilities)
+        userChoices_ = Array(repeating: defaultChoices, count: questionsCount)
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - TIMER
+    // -------------------------------------------------------------------------
+    fileprivate func createTimer_()
+    {
+        timer_ = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(TherapeuticTestBasicViewController.updateTime_), userInfo: nil, repeats: true)
+    }
+    
+    fileprivate func destroyTimer_()
+    {
+        timer_?.invalidate()
+        timer_ = nil
+    }
+    
+    @objc fileprivate func updateTime_()
+    {
+        elapsedTime_ += -previousDate_.timeIntervalSinceNow
+        previousDate_ = Date()
+        
+        let newDisplayedTime = Int(floor(elapsedTime_))
+        
+        if newDisplayedTime > elapsedSeconds_
+        {
+            elapsedSeconds_ = newDisplayedTime
+            
+            // refresh the displayed time
+            let minutes = newDisplayedTime / 60
+            let seconds = newDisplayedTime % 60
+            
+            let timeTitle = String(format: "%02d:%02d", minutes, seconds)
+            
+            timeItem.title = timeTitle
+        }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - ACTIONS
+    // -------------------------------------------------------------------------
+    @IBAction func previousQuestion(_ button: UIButton)
+    {
+        updateQuestionIndex_(currentQuestion_ - 1)
+    }
+    
+    @IBAction func nextQuestion(_ button: UIButton)
+    {
+        updateQuestionIndex_(currentQuestion_ + 1)
+    }
+    
+    @objc fileprivate func previousQuestion_()
+    {
+        updateQuestionIndex_(currentQuestion_ - 1)
+    }
+    
+    
+    @objc fileprivate func nextQuestion_()
+    {
+        updateQuestionIndex_(currentQuestion_ + 1)
+    }
+    
+    @objc fileprivate func xRayTouched(_ tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        performSegue(withIdentifier: TherapeuticTestBasicViewController.toImageDetail, sender: self)
+    }
+    
+    @objc fileprivate func toothVolumeTouched(_ tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        performSegue(withIdentifier: TherapeuticTestBasicViewController.toVolume, sender: self)
     }
     
     // -------------------------------------------------------------------------
@@ -155,6 +338,29 @@ class TherapeuticTestBasicViewController: UIViewController
         }
     }
     
+    fileprivate func updateQuestionIndex_(_ newIndex: Int)
+    {
+        currentQuestion_ = newIndex
+        
+        previousButton.isEnabled = currentQuestion_ > 0
+        previousItem.isEnabled = previousButton.isEnabled
+        nextButton.isEnabled = currentQuestion_ < questionsCount - 1
+        nextItem.isEnabled = nextButton.isEnabled
+        
+        therapeuticChoicesView.reloadData()
+        switch selectionMode
+        {
+        case .single:
+            
+            if userChoices_[currentQuestion_][0] > -1
+            {
+                therapeuticChoicesView.selectRow(at: IndexPath(row: userChoices_[currentQuestion_][0], section: 0), animated: false, scrollPosition: .none)
+            }
+        default:
+            break
+        }
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - SEGUE
     // -------------------------------------------------------------------------
@@ -171,15 +377,60 @@ class TherapeuticTestBasicViewController: UIViewController
             target.scene = toothView.scene
         }
     }
-    
-    @objc fileprivate func xRayTouched(_ tapGestureRecognizer: UITapGestureRecognizer)
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - UI TABLE VIEW DELEGATE
+// -----------------------------------------------------------------------------
+extension TherapeuticTestBasicViewController: UITableViewDelegate
+{
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
-        performSegue(withIdentifier: TherapeuticTestBasicViewController.toImageDetail, sender: self)
+        switch selectionMode
+        {
+        case .single:
+            return indexPath
+        case .scale:
+            return nil
+        }
     }
     
-    @objc fileprivate func toothVolumeTouched(_ tapGestureRecognizer: UITapGestureRecognizer)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-         performSegue(withIdentifier: TherapeuticTestBasicViewController.toVolume, sender: self)
+        switch selectionMode
+        {
+        case .single:
+            if indexPath.row != userChoices_[currentQuestion_][0]
+            {
+                // update the selected answer
+                if userChoices_[currentQuestion_][0] > -1
+                {
+                    let previousIndex = IndexPath(row: userChoices_[currentQuestion_][0], section: 0)
+                    if let previousCell = therapeuticChoicesView.cellForRow(at: previousIndex)
+                    {
+                        previousCell.isSelected = false
+                    }
+                }
+                
+                userChoices_[currentQuestion_][0] = indexPath.row
+                
+                if let newCell = therapeuticChoicesView.cellForRow(at: indexPath)
+                {
+                    newCell.isSelected = true
+                }
+            }
+            else
+            {
+                let previousIndex = IndexPath(row: userChoices_[currentQuestion_][0], section: 0)
+                if let previousCell = therapeuticChoicesView.cellForRow(at: previousIndex)
+                {
+                    previousCell.isSelected = false
+                }
+                userChoices_[currentQuestion_][0] = -1
+            }
+        case .scale:
+            break
+        }
     }
 }
 
@@ -201,6 +452,26 @@ extension TherapeuticTestBasicViewController: UITableViewDataSource
         let cell = tableView.dequeueReusableCell(for: indexPath) as TherapeuticChoiceCell
         cell.therapeuticLabel.text = therapeuticChoices_[indexPath.row]
         
+        switch selectionMode
+        {
+        case .single:
+            cell.isSelected = (indexPath.row == userChoices_[currentQuestion_][0])
+        case .scale:
+            cell.delegate = self
+            cell.displayScales(scaleValues: scaleValues_, selected: userChoices_[currentQuestion_][indexPath.row], rowIndex: indexPath.row)
+        }
+        
         return cell
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - THERAPEUTIC CHOICE DELEGATE
+// -----------------------------------------------------------------------------
+extension TherapeuticTestBasicViewController: TherapeuticChoiceDelegate
+{
+    func didSelectValue(at index: Int, for rowIndex: Int)
+    {
+        userChoices_[currentQuestion_][rowIndex] = index;
     }
 }

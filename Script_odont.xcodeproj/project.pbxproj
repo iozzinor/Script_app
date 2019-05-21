@@ -272,6 +272,7 @@
 		ACE70F95221F2439008454FF /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F94221F2439008454FF /* WeakArray.swift */; };
 		ACE70F97221F3254008454FF /* UITableViewCell+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F96221F3254008454FF /* UITableViewCell+utils.swift */; };
 		ACE70F99221F32B9008454FF /* UITableView+register.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F98221F32B9008454FF /* UITableView+register.swift */; };
+		ACE7DE5A228B6F9F00CAEEF0 /* TherapeuticChoiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7DE59228B6F9F00CAEEF0 /* TherapeuticChoiceDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -649,6 +650,7 @@
 		ACE70F94221F2439008454FF /* WeakArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakArray.swift; sourceTree = "<group>"; };
 		ACE70F96221F3254008454FF /* UITableViewCell+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+utils.swift"; sourceTree = "<group>"; };
 		ACE70F98221F32B9008454FF /* UITableView+register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+register.swift"; sourceTree = "<group>"; };
+		ACE7DE59228B6F9F00CAEEF0 /* TherapeuticChoiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapeuticChoiceDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1238,6 +1240,7 @@
 			isa = PBXGroup;
 			children = (
 				AC18B0EA228B376B00DFC878 /* TherapeuticChoiceCell.swift */,
+				ACE7DE59228B6F9F00CAEEF0 /* TherapeuticChoiceDelegate.swift */,
 				AC18B0EC228B378F00DFC878 /* TherapeuticChoiceCell.xib */,
 				ACCFB8EE22889DAC0007FEC8 /* TherapeuticTestBasicViewController.swift */,
 				ACCFB8EC22889D570007FEC8 /* TherapeuticTest.storyboard */,
@@ -1407,6 +1410,7 @@
 				AC50F1D9225A892F00FF46B1 /* CharacterSet+Utils.swift in Sources */,
 				ACC81AC422401DC0000990EA /* ProgressCell.swift in Sources */,
 				AC74B69C223542A000B31571 /* WelcomeWalkthroughContentViewController.swift in Sources */,
+				ACE7DE5A228B6F9F00CAEEF0 /* TherapeuticChoiceDelegate.swift in Sources */,
 				AC31A044224B845A00A3A461 /* Configuration.swift in Sources */,
 				ACC52C4D223EFDCE00B974BA /* ScoreProgressDiagram.swift in Sources */,
 				AC9F23E52229D88E002D38E5 /* String+sha2.swift in Sources */,

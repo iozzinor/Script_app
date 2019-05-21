@@ -27,7 +27,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9k-A4-EUM">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Q9k-A4-EUM">
                                 <rect key="frame" x="207" y="0.0" width="207" height="43.5"/>
                             </stackView>
                         </subviews>
@@ -44,6 +44,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="scaleContainer" destination="Q9k-A4-EUM" id="6l5-bf-Dax"/>
                 <outlet property="therapeuticLabel" destination="rOl-dm-rfA" id="ceO-nO-Ua3"/>
             </connections>
             <point key="canvasLocation" x="-129" y="-111"/>
