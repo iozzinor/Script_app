@@ -36,9 +36,6 @@
                     <connections>
                         <segue destination="WCV-k9-JIc" kind="show" identifier="OtherToWalkthroughsSegueId" id="Kh6-Oi-fzn"/>
                         <segue destination="2Vu-Kk-XwA" kind="show" identifier="OtherToLeaderboardSegueId" id="CmV-jQ-AxX"/>
-                        <segue destination="BeG-KT-3T6" kind="show" identifier="OtherToToothRecognitionSegueId" id="zEV-dY-2iK"/>
-                        <segue destination="3fM-h6-mRb" kind="show" identifier="OtherToTherapeuticTestBasicSegueId" id="UyB-Qr-b1M"/>
-                        <segue destination="5oY-V2-7Bi" kind="show" identifier="OtherToTherapeuticTestScaleSegueId" id="TV9-Rq-dS3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wTK-cK-Xgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,14 +174,6 @@
             </objects>
             <point key="canvasLocation" x="1566" y="256"/>
         </scene>
-        <!--TherapeuticTest-->
-        <scene sceneID="7eS-ju-U5L">
-            <objects>
-                <viewControllerPlaceholder storyboardName="TherapeuticTest" id="3fM-h6-mRb" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u6G-EK-MBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-438" y="491"/>
-        </scene>
         <!--Period Leaderboard View Controller-->
         <scene sceneID="ntQ-Tv-6Eu">
             <objects>
@@ -202,22 +191,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAR-PT-uvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1734" y="767"/>
-        </scene>
-        <!--ToothRecognition-->
-        <scene sceneID="SBD-zg-yM1">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ToothRecognition" id="BeG-KT-3T6" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EIu-Vm-YmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-124" y="479"/>
-        </scene>
-        <!--TherapeuticTest-->
-        <scene sceneID="erK-cA-IRt">
-            <objects>
-                <viewControllerPlaceholder storyboardName="TherapeuticTest" id="5oY-V2-7Bi" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fCW-gF-DYo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-685" y="454"/>
         </scene>
     </scenes>
 </document>

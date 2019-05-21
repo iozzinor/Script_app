@@ -10,17 +10,22 @@
 "NSFaceIDUsageDescription" = "TouchID is needed to unlock the account.";
 
 /* COMMON */
-"Common.Ok"     = "Ok";
-"Common.Cancel" = "Cancel";
-"Common.Yes"    = "Yes";
-"Common.No"     = "No";
+"Common.Ok"         = "Ok";
+"Common.Cancel"     = "Cancel";
+"Common.Yes"        = "Yes";
+"Common.No"         = "No";
+"Common.Next"       = "Next";
+"Common.Previous"   = "Previous";
 
 /* MAIN */
-"Main.Menu.Title"               = "Script App";
-"Main.Menu.Item.SctBrowsing"    = "Sct Browsing";
-"Main.Menu.Item.MySct"          = "My Sct";
-"Main.Menu.Item.Settings"       = "Settings";
-"Main.Menu.Item.Other"          = "Other";
+"Main.Menu.Title"                   = "Script App";
+"Main.Menu.Item.ToothRecognition"   = "Tooth Recognition";
+"Main.Menu.Item.TherapeuticBasic"   = "Therapeutic Basic";
+"Main.Menu.Item.TherapeuticScale"   = "Therapeutic Scale";
+"Main.Menu.Item.SctBrowsing"        = "Sct Browsing";
+"Main.Menu.Item.MySct"              = "My Sct";
+"Main.Menu.Item.Settings"           = "Settings";
+"Main.Menu.Item.Other"              = "Other";
 
 /* SCT TYPE */
 "Sct.Type.Diagnostic" = "Diagnostic";
@@ -406,7 +411,6 @@
 
 "OtherViewController.Tutorials"         = "Tutorials";
 "OtherViewController.Leaderboard"       = "Leaderboard";
-"OtherViewController.ToothRecognition"  = "Tooth Recognition Training";
 
 /* WALKTHROUGHS VIEW CONTROLLER */
 "Walkthroughs.Show.Welcome"         = "Welcome...";

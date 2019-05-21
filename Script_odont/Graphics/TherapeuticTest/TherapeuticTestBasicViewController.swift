@@ -129,9 +129,9 @@ class TherapeuticTestBasicViewController: UIViewController
     
     fileprivate func setupNavigationMenu_()
     {
-        previousItem = UIBarButtonItem(title: "Précédent", style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.previousQuestion_))
+        previousItem = UIBarButtonItem(title: "Common.Previous".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.previousQuestion_))
         timeItem = UIBarButtonItem(title: "00:00", style: .plain, target: nil, action: nil)
-        nextItem = UIBarButtonItem(title: "Suivant", style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.nextQuestion_))
+        nextItem = UIBarButtonItem(title: "Common.Next".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.nextQuestion_))
         
         navigationItem.rightBarButtonItem = nextItem
         navigationItem.rightBarButtonItems?.append(timeItem)

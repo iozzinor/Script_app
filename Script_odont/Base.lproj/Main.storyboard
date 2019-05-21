@@ -9,6 +9,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--ToothRecognition-->
+        <scene sceneID="E2M-co-iE1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ToothRecognition" id="hyT-UY-Wa1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1F9-uc-DVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-566" y="-409"/>
+        </scene>
         <!--Other-->
         <scene sceneID="a4e-H2-6qk">
             <objects>
@@ -18,7 +26,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6r-9n-RzH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-633" y="-44"/>
+            <point key="canvasLocation" x="-633" y="23"/>
         </scene>
         <!--Settings-->
         <scene sceneID="mQH-pD-baS">
@@ -28,7 +36,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOE-Co-N0u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-620" y="-132"/>
+            <point key="canvasLocation" x="-620" y="-73"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yuJ-Pp-Ot0">
@@ -57,6 +65,9 @@
                         <segue destination="ezc-6t-K5p" kind="show" identifier="MainToMySctSegueId" id="FiD-Oo-mhH"/>
                         <segue destination="hmH-hf-dPF" kind="show" identifier="MainToSettingsSegueId" id="seY-8a-mc0"/>
                         <segue destination="33N-1f-gnw" kind="show" identifier="MainToOtherSegueId" id="T8C-Gq-AKS"/>
+                        <segue destination="hyT-UY-Wa1" kind="show" identifier="MainToToothRecognitionSegueId" id="dPW-bf-4gf"/>
+                        <segue destination="bgE-ID-gMC" kind="show" identifier="MainToTherapeuticBasicSegueId" id="wu9-KZ-aon"/>
+                        <segue destination="bgE-ID-gMC" kind="show" identifier="MainToTherapeuticScaleSegueId" id="0C5-M2-ExX"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLH-eX-6UW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -72,7 +83,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fq-tO-1Kt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-620" y="-252"/>
+            <point key="canvasLocation" x="-620" y="-147"/>
         </scene>
         <!--Unlock-->
         <scene sceneID="Yg5-FM-M1y">
@@ -90,7 +101,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Iz-1U-pVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-599" y="-351"/>
+            <point key="canvasLocation" x="-599" y="-231"/>
         </scene>
         <!--Others-->
         <scene sceneID="RQb-Ja-OAL">
@@ -109,5 +120,16 @@
             </objects>
             <point key="canvasLocation" x="-2174" y="-181"/>
         </scene>
+        <!--TherapeuticTest-->
+        <scene sceneID="14x-kQ-v7l">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TherapeuticTest" id="bgE-ID-gMC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dw5-xZ-aMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-574" y="-323"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0C5-M2-ExX"/>
+    </inferredMetricsTieBreakers>
 </document>

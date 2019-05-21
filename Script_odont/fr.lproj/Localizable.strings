@@ -10,17 +10,22 @@
 "NSFaceIDUsageDescription" = "FaceId / TouchId est requis pour permetre de déverouiller l'application.";
 
 /* COMMON */
-"Common.Ok"     = "Ok";
-"Common.Cancel" = "Annuler";
-"Common.Yes"    = "Oui";
-"Common.No"     = "Non";
+"Common.Ok"         = "Ok";
+"Common.Cancel"     = "Annuler";
+"Common.Yes"        = "Oui";
+"Common.No"         = "Non";
+"Common.Next"       = "Suivant";
+"Common.Previous"   = "Précédent";
 
 /* MAIN */
-"Main.Menu.Title"               = "Script App";
-"Main.Menu.Item.SctBrowsing"    = "Navigation TCS";
-"Main.Menu.Item.MySct"          = "Mes TCS";
-"Main.Menu.Item.Settings"       = "Paramètres";
-"Main.Menu.Item.Other"          = "Autres";
+"Main.Menu.Title"                   = "Script App";
+"Main.Menu.Item.ToothRecognition"   = "Reconnaissance dent";
+"Main.Menu.Item.TherapeuticBasic"   = "Meilleur choix thérapeutique";
+"Main.Menu.Item.TherapeuticScale"   = "Choix thérapeutiques";
+"Main.Menu.Item.SctBrowsing"        = "Navigation TCS";
+"Main.Menu.Item.MySct"              = "Mes TCS";
+"Main.Menu.Item.Settings"           = "Paramètres";
+"Main.Menu.Item.Other"              = "Autres";
 
 /* SCT TYPE */
 "Sct.Type.Diagnostic" = "Diagnostique";
@@ -406,7 +411,6 @@
 
 "OtherViewController.Tutorials"         = "Tutoriels";
 "OtherViewController.Leaderboard"       = "Classement";
-"OtherViewController.ToothRecognition"  = "Entrainement reconnaissance dents";
 
 /* WALKTHROUGHS VIEW CONTROLLER */
 "Walkthroughs.Show.Welcome" = "Bienvenue...";

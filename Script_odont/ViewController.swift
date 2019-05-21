@@ -15,6 +15,9 @@ class ViewController: UICollectionViewController
     // -------------------------------------------------------------------------
     enum MenuItem: CaseIterable
     {
+        case toothRecognition
+        case therapeuticBasic
+        case therapeuticScale
         case sctBrowsing
         case mySct
         case settings
@@ -23,6 +26,12 @@ class ViewController: UICollectionViewController
         var segueId: String {
             switch self
             {
+            case .toothRecognition:
+                return "MainToToothRecognitionSegueId"
+            case .therapeuticBasic:
+                return "MainToTherapeuticBasicSegueId"
+            case .therapeuticScale:
+                return "MainToTherapeuticScaleSegueId"
             case .sctBrowsing:
                 return "MainToSctBrowsingSegueId"
             case .mySct:
@@ -37,6 +46,12 @@ class ViewController: UICollectionViewController
         var name: String {
             switch self
             {
+            case .toothRecognition:
+                return "Main.Menu.Item.ToothRecognition".localized
+            case .therapeuticBasic:
+                return "Main.Menu.Item.TherapeuticBasic".localized
+            case .therapeuticScale:
+                return "Main.Menu.Item.TherapeuticScale".localized
             case .sctBrowsing:
                 return "Main.Menu.Item.SctBrowsing".localized
             case .mySct:
@@ -172,6 +187,25 @@ class ViewController: UICollectionViewController
     // -------------------------------------------------------------------------
     // MARK: - SEGUES
     // -------------------------------------------------------------------------
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == MenuItem.therapeuticScale.segueId,
+            let target = segue.destination as? TherapeuticTestBasicViewController
+        {
+            target.selectionMode = .scale(TherapeuticTestBasicViewController.diagnosticScale)
+            target.xRay = UIImage(named: "fracture_incisive_radio")
+            
+            target.stlToothUrl = Bundle.main.url(forResource: "14_1", withExtension: "stl", subdirectory: "ToothRecognition")
+        }
+        else if segue.identifier == MenuItem.therapeuticBasic.segueId,
+            let target = segue.destination as? TherapeuticTestBasicViewController
+        {
+            target.xRay = UIImage(named: "fracture_incisive_photo")
+            
+            target.stlToothUrl = Bundle.main.url(forResource: "14_2", withExtension: "stl", subdirectory: "ToothRecognition")
+        }
+    }
+    
     fileprivate func displayWelcomeWalkthrough_()
     {
         let welcomeStoryboard = UIStoryboard(name: "WelcomeWalkthrough", bundle: nil)
