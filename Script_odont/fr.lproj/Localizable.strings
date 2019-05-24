@@ -26,6 +26,7 @@
 "Main.Menu.Item.MySct"              = "Mes TCS";
 "Main.Menu.Item.Settings"           = "Paramètres";
 "Main.Menu.Item.Other"              = "Autres";
+"Main.Menu.Item.TestStlColor"       = "Test couleur STL";
 
 /* SCT TYPE */
 "Sct.Type.Diagnostic" = "Diagnostique";

@@ -21,7 +21,7 @@ enum StlError: Error
 
 extension SCNNode
 {
-    static func load(stlFileUrl: URL, meshOnly: Bool = false) throws -> SCNNode
+    static func load(stlFileUrl: URL, meshOnly: Bool = false, parseColors: Bool = false) throws -> SCNNode
     {
         let data = try Data(contentsOf: stlFileUrl, options: .alwaysMapped)
         guard data.count > 84 else
@@ -39,6 +39,7 @@ extension SCNNode
         
         var normals = Data()
         var vertices = Data()
+        var colors = [UIColor]()
         var trianglesCounted = 0
         
         for index in stride(from: 84, to: data.count, by: triangleBytes)
@@ -60,6 +61,11 @@ extension SCNNode
             vertices.append(triangle.vertex1.unsafeData())
             vertices.append(triangle.vertex2.unsafeData())
             vertices.append(triangle.vertex3.unsafeData())
+            
+            if parseColors
+            {
+                colors.append(colorFromAttributes(triangle.attributes))
+            }
         }
         
         guard triangleTarget == trianglesCounted else
@@ -88,7 +94,6 @@ extension SCNNode
         let use8BitIndices = MemoryLayout<UInt8>.size
         let countedTriangles = SCNGeometryElement(data: nil, primitiveType: .triangles, primitiveCount: trianglesCounted, bytesPerIndex: use8BitIndices)
         
-        
         var lines: [UInt32] = []
         for i in 0..<trianglesCounted
         {
@@ -114,12 +119,30 @@ extension SCNNode
         }
         else
         {
-            let triangleMaterial = SCNMaterial()
-            triangleMaterial.diffuse.contents = UIColor.white
-            
-            materials.append(contentsOf: Array<SCNMaterial>(repeating: triangleMaterial, count: trianglesCounted * 3))
-            
-            elements.append(countedTriangles)
+            if !parseColors
+            {
+                let triangleMaterial = SCNMaterial()
+                triangleMaterial.diffuse.contents = UIColor.white
+                materials.append(triangleMaterial)
+                elements.append(countedTriangles)
+            }
+            else
+            {
+                for (i, color) in colors.enumerated()
+                {
+                    let triangleMaterial = SCNMaterial()
+                    triangleMaterial.diffuse.contents = color
+                    triangleMaterial.isDoubleSided = true // TEMP
+                    
+                    materials.append(triangleMaterial)
+                    
+                    var indexes: [UInt32] = []
+                    indexes.append(UInt32(3 * i))
+                    indexes.append(UInt32(3 * i + 1))
+                    indexes.append(UInt32(3 * i + 2))
+                    elements.append(SCNGeometryElement(indices: indexes, primitiveType: .triangles))
+                }
+            }
         }
         let geometry = SCNGeometry(sources: [vertexSource, normalSource], elements: elements)
         
@@ -211,4 +234,12 @@ private func createNormal(triangle: Triangle_) -> SCNVector3
         normal = computeNormal(vector1, vector2)
     }
     return normal
+}
+
+private func colorFromAttributes(_ attributes: UInt16) -> UIColor
+{
+    let red     = CGFloat(attributes >> 11) / 31.0
+    let green   = CGFloat((attributes >> 6) & 0x1F) / 31.0
+    let blue    = CGFloat((attributes >> 1) & 0x1F) / 31.0
+    return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
 }

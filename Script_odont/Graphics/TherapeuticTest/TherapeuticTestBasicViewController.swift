@@ -66,8 +66,9 @@ class TherapeuticTestBasicViewController: UIViewController
         "Inlay",
         "Onlay",
         "Veneerlay / Overlay",
-        "Endo-couronne",
-        "Couronne"
+        "Couronne collée",
+        "Couronne avec RCR",
+        "Endo-couronne"
     ]
     fileprivate var currentQuestion_ = 0
     fileprivate var userChoices_ = [[Int]]()

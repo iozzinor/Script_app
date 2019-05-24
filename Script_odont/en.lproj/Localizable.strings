@@ -26,6 +26,7 @@
 "Main.Menu.Item.MySct"              = "My Sct";
 "Main.Menu.Item.Settings"           = "Settings";
 "Main.Menu.Item.Other"              = "Other";
+"Main.Menu.Item.TestStlColor"       = "Test STL Color";
 
 /* SCT TYPE */
 "Sct.Type.Diagnostic" = "Diagnostic";

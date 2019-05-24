@@ -22,6 +22,7 @@ class ViewController: UICollectionViewController
         case mySct
         case settings
         case other
+        case testStlColor
         
         var segueId: String {
             switch self
@@ -40,6 +41,8 @@ class ViewController: UICollectionViewController
                 return "MainToSettingsSegueId"
             case .other:
                 return "MainToOtherSegueId"
+            case .testStlColor:
+                return "MainToTestStlColorSegueId"
             }
         }
         
@@ -60,6 +63,8 @@ class ViewController: UICollectionViewController
                 return "Main.Menu.Item.Settings".localized
             case .other:
                 return "Main.Menu.Item.Other".localized
+            case .testStlColor:
+                return "Main.Menu.Item.TestStlColor".localized
             }
         }
     }

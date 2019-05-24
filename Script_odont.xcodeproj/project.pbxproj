@@ -268,6 +268,9 @@
 		ACD1B3B2223C51B10065F07E /* SctBrowsingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3B1223C51B10065F07E /* SctBrowsingCell.xib */; };
 		ACD1B3B8223D068F0065F07E /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B3B7223D068F0065F07E /* ButtonCell.swift */; };
 		ACD1B3BA223D06F80065F07E /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3B9223D06F80065F07E /* ButtonCell.xib */; };
+		ACD71ADB2294AB0800592C9A /* TestStlColor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD71ADA2294AB0800592C9A /* TestStlColor.storyboard */; };
+		ACD71ADD2294AB1A00592C9A /* TestStlColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD71ADC2294AB1A00592C9A /* TestStlColorViewController.swift */; };
+		ACD71ADF2294ADEF00592C9A /* test_colored_square.stl in Resources */ = {isa = PBXBuildFile; fileRef = ACD71ADE2294ADCB00592C9A /* test_colored_square.stl */; };
 		ACDC49A22242171D00B43534 /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A12242171D00B43534 /* String+md5.swift */; };
 		ACDC49A622421D4A00B43534 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A522421D4A00B43534 /* Reachability.swift */; };
 		ACDC49A8224221F800B43534 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A7224221F800B43534 /* NetworkStatus.swift */; };
@@ -649,6 +652,9 @@
 		ACD1B3B1223C51B10065F07E /* SctBrowsingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctBrowsingCell.xib; sourceTree = "<group>"; };
 		ACD1B3B7223D068F0065F07E /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		ACD1B3B9223D06F80065F07E /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		ACD71ADA2294AB0800592C9A /* TestStlColor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestStlColor.storyboard; sourceTree = "<group>"; };
+		ACD71ADC2294AB1A00592C9A /* TestStlColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStlColorViewController.swift; sourceTree = "<group>"; };
+		ACD71ADE2294ADCB00592C9A /* test_colored_square.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = test_colored_square.stl; sourceTree = "<group>"; };
 		ACDC49A12242171D00B43534 /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
 		ACDC49A522421D4A00B43534 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		ACDC49A7224221F800B43534 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
@@ -770,12 +776,13 @@
 				AC24E1D5224A6A2100B5D48A /* Passphrase */,
 				AC38BB71221DF021008E829B /* Walkthrough */,
 				ACB8C8A92235211F00C7F77C /* SctBrowsing */,
-				AC53E37222331B5600CA4437 /* MySct */,
 				AC53E36C2233128D00CA4437 /* SctHorizontal */,
-				ACC83F89223E96D50064BE6F /* Settings */,
 				AC317D302261BD6C00785C05 /* ToothRecognition */,
 				ACCFB8EB22889D020007FEC8 /* TherapeuticTest */,
+				AC53E37222331B5600CA4437 /* MySct */,
+				ACC83F89223E96D50064BE6F /* Settings */,
 				AC53E36D223312D600CA4437 /* Other */,
+				ACD71AD92294AAEE00592C9A /* TestStlColor */,
 				AC0D77D52228274D007F83D4 /* Appearance.swift */,
 				ACD1B3B7223D068F0065F07E /* ButtonCell.swift */,
 				ACD1B3B9223D06F80065F07E /* ButtonCell.xib */,
@@ -914,6 +921,7 @@
 				AC317D3E2261BFB100785C05 /* SctData */,
 				AC2CF56422645F1B00E70D41 /* ToothRecognition */,
 				ACAEEB3F2284B7A300A9AA2E /* ToothReminder */,
+				ACD71ADE2294ADCB00592C9A /* test_colored_square.stl */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1269,6 +1277,15 @@
 			path = TherapeuticTest;
 			sourceTree = "<group>";
 		};
+		ACD71AD92294AAEE00592C9A /* TestStlColor */ = {
+			isa = PBXGroup;
+			children = (
+				ACD71ADC2294AB1A00592C9A /* TestStlColorViewController.swift */,
+				ACD71ADA2294AB0800592C9A /* TestStlColor.storyboard */,
+			);
+			path = TestStlColor;
+			sourceTree = "<group>";
+		};
 		ACDC49A92242364D00B43534 /* AsynchronousTableManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1353,6 +1370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD71ADF2294ADEF00592C9A /* test_colored_square.stl in Resources */,
 				ACC52C44223EF38200B974BA /* CandidateStatisticsCell.xib in Resources */,
 				ACC83F7B223E4B5C0064BE6F /* SctBrowsing.storyboard in Resources */,
 				AC38BB6A221DE4CB008E829B /* LaunchScreen.storyboard in Resources */,
@@ -1375,6 +1393,7 @@
 				AC18B0E9228B2D1E00DFC878 /* ImageDetail.storyboard in Resources */,
 				AC0433FF2249364100644B14 /* SwitchCell.xib in Resources */,
 				ACC83F94223EC4870064BE6F /* MySctFinishedCell.xib in Resources */,
+				ACD71ADB2294AB0800592C9A /* TestStlColor.storyboard in Resources */,
 				AC31E3A12235BCBA00A3B813 /* SctQuestionHeaderCell.xib in Resources */,
 				ACC83F8B223E96E70064BE6F /* Settings.storyboard in Resources */,
 				AC24E1D7224A6FAE00B5D48A /* Passphrase.storyboard in Resources */,
@@ -1567,6 +1586,7 @@
 				ACC83F7A223E349C0064BE6F /* SctSearchResultViewController.swift in Sources */,
 				ACC83F82223E516C0064BE6F /* SctsListViewController.swift in Sources */,
 				ACC83F74223DB4500064BE6F /* DatePickerViewController.swift in Sources */,
+				ACD71ADD2294AB1A00592C9A /* TestStlColorViewController.swift in Sources */,
 				AC421ABE224D37D10011052B /* UIImage+utils.swift in Sources */,
 				ACD1B3A4223BF6490065F07E /* UILabel+utils.swift in Sources */,
 				AC9F23E22229D6A4002D38E5 /* ViewController.swift in Sources */,
@@ -1757,7 +1777,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1813,7 +1833,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1835,7 +1855,7 @@
 					"$(PROJECT_DIR)/Script_odont/Frameworks",
 				);
 				INFOPLIST_FILE = Script_odont/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1859,7 +1879,7 @@
 					"$(PROJECT_DIR)/Script_odont/Frameworks",
 				);
 				INFOPLIST_FILE = Script_odont/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
