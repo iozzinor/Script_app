@@ -16,6 +16,8 @@
 "Common.No"         = "No";
 "Common.Next"       = "Next";
 "Common.Previous"   = "Previous";
+"Common.None"       = "None";
+"Common.Done"       = "Done";
 
 /* MAIN */
 "Main.Menu.Title"                   = "Script App";
@@ -444,6 +446,26 @@
 
 /* TOOTH RECOGNITION SELECTION */
 "ToothRecognitionSelection.NavigationItem.Title" = "Pick The Tooth";
+
+/* THERAPEUTIC CHOICE */
+"TherapeuticChoice.NavigationItem.Title"            = "Therapeutic Choice";
+"TherapeuticChoice.ParticipantDialog.Title"         = "Define Participant Name";
+"TherapeuticChoice.ParticipantDialog.Placeholder"   = "Participant Name...";
+"TherapeuticChoice.ParticipantDialog.Message"       = "Please enter the participant name.";
+"TherapeuticChoice.Section.Participant"             = "Participant";
+"TherapeuticChoice.Row.Participant"                 = "Participant:";
+"TherapeuticChoice.Row.ParticipantCategory"         = "Category:";
+"TherapeuticChoice.Row.Launch"                      = "Launch";
+
+/* PARTICIPANT CATEGORY */
+"ParticipantCategory.Name.Four"     = "4";
+"ParticipantCategory.Name.Five"     = "5";
+"ParticipantCategory.Name.Six"      = "6";
+"ParticipantCategory.Name.Intern"   = "Intern";
+"ParticipantCategory.Name.Teacher"  = "Teacher";
+
+/* PARTICIPANT CATEGORY PICKER */
+"ParticipantCategoryPicker.NavigationItem.Title" = "Pick Participant Category";
 
 /* NETWORK ERROR */
 "NetworkError.NotReachable.LocalizedDescription"    = "Your decive is not connected to the Internet.";

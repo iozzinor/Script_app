@@ -112,6 +112,10 @@
 		AC421ABE224D37D10011052B /* UIImage+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC421ABD224D37D10011052B /* UIImage+utils.swift */; };
 		AC421AC0224D4BA20011052B /* NewDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC421ABF224D4BA20011052B /* NewDataView.swift */; };
 		AC421AC2224D4BBC0011052B /* NewDataViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC421AC1224D4BBC0011052B /* NewDataViewDelegate.swift */; };
+		AC47168B2298085500E426BA /* TherapeuticRecordSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47168A2298085500E426BA /* TherapeuticRecordSetupViewController.swift */; };
+		AC47168D2298130000E426BA /* ParticipantCategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47168C2298130000E426BA /* ParticipantCategoryPickerViewController.swift */; };
+		AC47168F2298130F00E426BA /* ParticipantCategoryPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47168E2298130F00E426BA /* ParticipantCategoryPickerDelegate.swift */; };
+		AC4716912298136D00E426BA /* ParticipantCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4716902298136D00E426BA /* ParticipantCategory.swift */; };
 		AC4904B1222B12A900BDEB4B /* QualificationTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */; };
 		AC4904B4222B238B00BDEB4B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4904B6222B238B00BDEB4B /* Login.storyboard */; };
 		AC4904B9222B244100BDEB4B /* SctHorizontal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4904BB222B244100BDEB4B /* SctHorizontal.storyboard */; };
@@ -277,6 +281,9 @@
 		ACDC49AF224240BA00B43534 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49AE224240BA00B43534 /* TableSection.swift */; };
 		ACDC49B1224240D200B43534 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49B0224240D200B43534 /* TableRow.swift */; };
 		ACE001992261C37000384CF8 /* antagonist.stl in Resources */ = {isa = PBXBuildFile; fileRef = ACE001952261C37000384CF8 /* antagonist.stl */; };
+		ACE0D022229B069300CD4760 /* TctSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0D021229B069300CD4760 /* TctSession.swift */; };
+		ACE0D024229B06AC00CD4760 /* TctParticipant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0D023229B06AC00CD4760 /* TctParticipant.swift */; };
+		ACE0D026229B089400CD4760 /* TctQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE0D025229B089400CD4760 /* TctQuestion.swift */; };
 		ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */; };
 		ACE70F93221F214C008454FF /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F92221F214C008454FF /* WeakContainer.swift */; };
 		ACE70F95221F2439008454FF /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F94221F2439008454FF /* WeakArray.swift */; };
@@ -529,6 +536,10 @@
 		AC421ABD224D37D10011052B /* UIImage+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+utils.swift"; sourceTree = "<group>"; };
 		AC421ABF224D4BA20011052B /* NewDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDataView.swift; sourceTree = "<group>"; };
 		AC421AC1224D4BBC0011052B /* NewDataViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDataViewDelegate.swift; sourceTree = "<group>"; };
+		AC47168A2298085500E426BA /* TherapeuticRecordSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapeuticRecordSetupViewController.swift; sourceTree = "<group>"; };
+		AC47168C2298130000E426BA /* ParticipantCategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCategoryPickerViewController.swift; sourceTree = "<group>"; };
+		AC47168E2298130F00E426BA /* ParticipantCategoryPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCategoryPickerDelegate.swift; sourceTree = "<group>"; };
+		AC4716902298136D00E426BA /* ParticipantCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCategory.swift; sourceTree = "<group>"; };
 		AC4904B0222B12A900BDEB4B /* QualificationTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualificationTopic.swift; sourceTree = "<group>"; };
 		AC4904B5222B238B00BDEB4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		AC4904B8222B238E00BDEB4B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Login.strings; sourceTree = "<group>"; };
@@ -664,6 +675,9 @@
 		ACE001962261C37000384CF8 /* simple_cube.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = simple_cube.stl; sourceTree = "<group>"; };
 		ACE001972261C37000384CF8 /* simple_sphere.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = simple_sphere.stl; sourceTree = "<group>"; };
 		ACE001982261C37000384CF8 /* upper_jaw_scan.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = upper_jaw_scan.stl; sourceTree = "<group>"; };
+		ACE0D021229B069300CD4760 /* TctSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctSession.swift; sourceTree = "<group>"; };
+		ACE0D023229B06AC00CD4760 /* TctParticipant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctParticipant.swift; sourceTree = "<group>"; };
+		ACE0D025229B089400CD4760 /* TctQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctQuestion.swift; sourceTree = "<group>"; };
 		ACE70F8E221EFB6C008454FF /* DrawingWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWalkthroughViewController.swift; sourceTree = "<group>"; };
 		ACE70F90221EFBA6008454FF /* UIViewController+storyboardId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+storyboardId.swift"; sourceTree = "<group>"; };
 		ACE70F92221F214C008454FF /* WeakContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
@@ -1271,8 +1285,15 @@
 				AC18B0EA228B376B00DFC878 /* TherapeuticChoiceCell.swift */,
 				ACE7DE59228B6F9F00CAEEF0 /* TherapeuticChoiceDelegate.swift */,
 				AC18B0EC228B378F00DFC878 /* TherapeuticChoiceCell.xib */,
+				AC47168A2298085500E426BA /* TherapeuticRecordSetupViewController.swift */,
 				ACCFB8EE22889DAC0007FEC8 /* TherapeuticTestBasicViewController.swift */,
+				AC47168C2298130000E426BA /* ParticipantCategoryPickerViewController.swift */,
+				AC47168E2298130F00E426BA /* ParticipantCategoryPickerDelegate.swift */,
+				AC4716902298136D00E426BA /* ParticipantCategory.swift */,
 				ACCFB8EC22889D570007FEC8 /* TherapeuticTest.storyboard */,
+				ACE0D021229B069300CD4760 /* TctSession.swift */,
+				ACE0D025229B089400CD4760 /* TctQuestion.swift */,
+				ACE0D023229B06AC00CD4760 /* TctParticipant.swift */,
 			);
 			path = TherapeuticTest;
 			sourceTree = "<group>";
@@ -1502,6 +1523,7 @@
 				ACC83F96223EC83D0064BE6F /* SctsFinishedListViewController.swift in Sources */,
 				AC4904C1222B3C1600BDEB4B /* SecurityQuestionCell.swift in Sources */,
 				AC4904C5222B54E700BDEB4B /* SecurityQuestionPickerViewControllerDelegate.swift in Sources */,
+				AC47168B2298085500E426BA /* TherapeuticRecordSetupViewController.swift in Sources */,
 				AC4904CB222BC15A00BDEB4B /* QualificationPickerViewController.swift in Sources */,
 				AC53E37E22345F4500CA4437 /* SctUnfinishedViewController.swift in Sources */,
 				AC53E3782233AE3100CA4437 /* MySctFinishedCell.swift in Sources */,
@@ -1524,6 +1546,7 @@
 				ACE70F97221F3254008454FF /* UITableViewCell+utils.swift in Sources */,
 				ACC83F6A223D650D0064BE6F /* QualificationTopicsPickerViewController.swift in Sources */,
 				AC06D4892263947B003BA7C7 /* ToothRecognitionSelectionViewController.swift in Sources */,
+				AC47168D2298130000E426BA /* ParticipantCategoryPickerViewController.swift in Sources */,
 				ACC83F72223DA4CC0064BE6F /* DurationPickerCell.swift in Sources */,
 				ACC83F8D223E96F30064BE6F /* SettingsViewController.swift in Sources */,
 				AC8F5B7D22289DC800FAEFC5 /* GoToSctStatusView.swift in Sources */,
@@ -1540,8 +1563,10 @@
 				AC372C5B223942BE009F1DAD /* SctUpdateRateCellDelegate.swift in Sources */,
 				AC8F5B7B222899DA00FAEFC5 /* GoToSctCell.swift in Sources */,
 				ACAD5DD4224523B20041E484 /* SctData.swift in Sources */,
+				ACE0D022229B069300CD4760 /* TctSession.swift in Sources */,
 				AC31A051224B925C00A3A461 /* SebdConnectionError.swift in Sources */,
 				AC421AC2224D4BBC0011052B /* NewDataViewDelegate.swift in Sources */,
+				ACE0D024229B06AC00CD4760 /* TctParticipant.swift in Sources */,
 				AC31A030224AD86C00A3A461 /* NetworkingService.swift in Sources */,
 				AC31A02E224AA87400A3A461 /* UnlockViewController.swift in Sources */,
 				ACC52C3F223EE57E00B974BA /* CandidateStatistics.swift in Sources */,
@@ -1561,6 +1586,7 @@
 				ACD1B3A8223C42DE0065F07E /* SctLatestPeriodCell.swift in Sources */,
 				AC53E36722329C2700CA4437 /* Constants.swift in Sources */,
 				ACD1B3B8223D068F0065F07E /* ButtonCell.swift in Sources */,
+				ACE0D026229B089400CD4760 /* TctQuestion.swift in Sources */,
 				AC9F23E72229D9AA002D38E5 /* String+hex.swift in Sources */,
 				ACC81ACE224056E0000990EA /* DashPattern.swift in Sources */,
 				AC53E36B2232B75200CA4437 /* UIView+utils.swift in Sources */,
@@ -1590,6 +1616,7 @@
 				AC421ABE224D37D10011052B /* UIImage+utils.swift in Sources */,
 				ACD1B3A4223BF6490065F07E /* UILabel+utils.swift in Sources */,
 				AC9F23E22229D6A4002D38E5 /* ViewController.swift in Sources */,
+				AC4716912298136D00E426BA /* ParticipantCategory.swift in Sources */,
 				AC0E4EA62237EB84003996AF /* SctDetailViewController.swift in Sources */,
 				AC0D77C62225CEFD007F83D4 /* LikertScale.swift in Sources */,
 				AC53E3762233AD9B00CA4437 /* SctUnfinished.swift in Sources */,
@@ -1624,6 +1651,7 @@
 				ACC81AC2223F0EA3000990EA /* MyProgressViewController.swift in Sources */,
 				ACC52C4A223EF62C00B974BA /* PeriodLeaderboardViewController.swift in Sources */,
 				AC9F23E022299945002D38E5 /* KeychainPasswordItem.swift in Sources */,
+				AC47168F2298130F00E426BA /* ParticipantCategoryPickerDelegate.swift in Sources */,
 				ACC81AC0223F0D43000990EA /* Period.swift in Sources */,
 				ACDC49A622421D4A00B43534 /* Reachability.swift in Sources */,
 				ACC83F6E223D70C40064BE6F /* SctSearchCriterionPickerViewController.swift in Sources */,

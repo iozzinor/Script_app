@@ -195,19 +195,14 @@ class ViewController: UICollectionViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == MenuItem.therapeuticScale.segueId,
-            let target = segue.destination as? TherapeuticTestBasicViewController
+            let target = segue.destination as? TherapeuticRecordSetupViewController
         {
             target.selectionMode = .scale(TherapeuticTestBasicViewController.diagnosticScale)
-            target.xRay = UIImage(named: "fracture_incisive_radio")
-            
-            target.stlToothUrl = Bundle.main.url(forResource: "14_1", withExtension: "stl", subdirectory: "ToothRecognition")
         }
         else if segue.identifier == MenuItem.therapeuticBasic.segueId,
-            let target = segue.destination as? TherapeuticTestBasicViewController
+            let target = segue.destination as? TherapeuticRecordSetupViewController
         {
-            target.xRay = UIImage(named: "fracture_incisive_photo")
-            
-            target.stlToothUrl = Bundle.main.url(forResource: "14_2", withExtension: "stl", subdirectory: "ToothRecognition")
+            target.selectionMode = .single
         }
     }
     

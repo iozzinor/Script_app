@@ -15,11 +15,10 @@ class TherapeuticTestBasicViewController: UIViewController
             ChooseScale.Graduation(title: "Absolument contre-indiqué", code: -2),
             ChooseScale.Graduation(title: "Contre-indiqué", code: -1),
             ChooseScale.Graduation(title: "Indiqué", code: 1),
-            ChooseScale.Graduation(title: "Solution la plus indiquée", code: 2)
+            ChooseScale.Graduation(title: "Le plus indiquée", code: 2)
         
         ])
     
-    public static let toImageDetail = "TherapeuticTestBasicToImageDetailSegueId"
     public static let toVolume      = "TherapeuticTestBasicToVolumeSegueId"
     
     enum SelectionMode
@@ -30,47 +29,38 @@ class TherapeuticTestBasicViewController: UIViewController
     
     var selectionMode = SelectionMode.single
     
-    var xRay: UIImage! {
-        didSet {
-            if isViewLoaded
-            {
-                xRayView.image = xRay
-            }
-        }
-    }
-    
-    var stlToothUrl: URL! {
-        didSet {
-            if isViewLoaded
-            {
-                updateToothScene_()
-            }
-        }
-    }
-    
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var scaleLabel: UILabel!
-    @IBOutlet weak var xRayView: UIImageView!
     @IBOutlet weak var toothView: SCNView!
     @IBOutlet weak var therapeuticChoicesView: UITableView!
     
     var previousItem: UIBarButtonItem!
     var timeItem: UIBarButtonItem!
     var nextItem: UIBarButtonItem!
+    var doneItem: UIBarButtonItem!
     
-    var questionsCount = 3
+    var questions: [TctQuestion] = [] {
+        didSet {
+            if isViewLoaded
+            {
+                therapeuticChoicesView.reloadData()
+                updateNavigationButtons_()
+                setupUserChoices_()
+            }
+        }
+    }
     
     fileprivate let therapeuticChoices_ = [
         "Composite",
-        "Inlay",
-        "Onlay",
+        "Inlay / Onlay",
         "Veneerlay / Overlay",
         "Couronne collée",
         "Couronne avec RCR",
         "Endo-couronne"
     ]
     fileprivate var currentQuestion_ = 0
+    fileprivate var questionsSuffleIndexes_ = [Int]()
     fileprivate var userChoices_ = [[Int]]()
     fileprivate var scaleValues_: [Int] {
         switch selectionMode
@@ -80,6 +70,10 @@ class TherapeuticTestBasicViewController: UIViewController
         case let .scale(scale):
             return scale.graduations.map { $0.code }
         }
+    }
+    fileprivate var stlToothUrl_: URL? {
+        let currentFileName = questions[currentQuestion_].volumeFileName
+        return Bundle.main.url(forResource: currentFileName, withExtension: "stl", subdirectory: "ToothRecognition")
     }
     fileprivate var timer_: Timer? = nil
     fileprivate var elapsedSeconds_ = 0
@@ -122,7 +116,6 @@ class TherapeuticTestBasicViewController: UIViewController
         setupNavigationMenu_()
         setupNavigationButtons_()
         setupScaleLabel_()
-        setupXRayImage_()
         setupToothVolume_()
         setupTherapeuticChoices_()
         setupUserChoices_()
@@ -133,12 +126,14 @@ class TherapeuticTestBasicViewController: UIViewController
         previousItem = UIBarButtonItem(title: "Common.Previous".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.previousQuestion_))
         timeItem = UIBarButtonItem(title: "00:00", style: .plain, target: nil, action: nil)
         nextItem = UIBarButtonItem(title: "Common.Next".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.nextQuestion_))
+        doneItem = UIBarButtonItem(title: "Common.Done".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.saveAnswers_))
         
-        navigationItem.rightBarButtonItem = nextItem
+        navigationItem.rightBarButtonItem = doneItem
+        navigationItem.rightBarButtonItems?.append(nextItem)
         navigationItem.rightBarButtonItems?.append(timeItem)
         navigationItem.rightBarButtonItems?.append(previousItem)
         
-        previousItem.isEnabled = false
+        updateNavigationButtons_()
         timeItem.isEnabled = false
     }
     
@@ -180,18 +175,6 @@ class TherapeuticTestBasicViewController: UIViewController
         }
     }
     
-    fileprivate func setupXRayImage_()
-    {
-        xRayView.image = xRay
-        xRayView.backgroundColor = UIColor.black
-        
-        let touchRecognizer = UITapGestureRecognizer(target: self, action: #selector(TherapeuticTestBasicViewController.xRayTouched))
-        touchRecognizer.numberOfTapsRequired = 1
-        touchRecognizer.numberOfTouchesRequired = 1
-        xRayView.addGestureRecognizer(touchRecognizer)
-        xRayView.isUserInteractionEnabled = true
-    }
-    
     fileprivate func setupToothVolume_()
     {
         toothView.allowsCameraControl = true
@@ -199,7 +182,12 @@ class TherapeuticTestBasicViewController: UIViewController
         toothView.defaultCameraController.interactionMode = .orbitAngleMapping
         
         toothView.scene = SCNScene()
-        toothView.scene?.background.contents = UIColor.black.cgColor
+        
+        // make the background white
+        toothView.scene?.background.contents = UIColor.white.cgColor
+        
+        // make the border black
+        toothView.addBorders(with: UIColor.black, lineWidth: 1, positions: [.top, .bottom, .right, .left])
         
         // tap gesture
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(TherapeuticTestBasicViewController.toothVolumeTouched))
@@ -231,7 +219,7 @@ class TherapeuticTestBasicViewController: UIViewController
         }
         
         let defaultChoices = Array<Int>(repeating: -1, count: choicePossibilities)
-        userChoices_ = Array(repeating: defaultChoices, count: questionsCount)
+        userChoices_ = Array(repeating: defaultChoices, count: questions.count)
     }
     
     // -------------------------------------------------------------------------
@@ -293,14 +281,14 @@ class TherapeuticTestBasicViewController: UIViewController
         updateQuestionIndex_(currentQuestion_ + 1)
     }
     
-    @objc fileprivate func xRayTouched(_ tapGestureRecognizer: UITapGestureRecognizer)
-    {
-        performSegue(withIdentifier: TherapeuticTestBasicViewController.toImageDetail, sender: self)
-    }
-    
     @objc fileprivate func toothVolumeTouched(_ tapGestureRecognizer: UITapGestureRecognizer)
     {
         performSegue(withIdentifier: TherapeuticTestBasicViewController.toVolume, sender: self)
+    }
+    
+    @objc fileprivate func saveAnswers_()
+    {
+        
     }
     
     // -------------------------------------------------------------------------
@@ -327,10 +315,15 @@ class TherapeuticTestBasicViewController: UIViewController
         // clear nodes
         clearToothScene_()
         
+        guard let volumeUrl = stlToothUrl_ else
+        {
+            return
+        }
+        
         // attempt to add the node
         do
         {
-            let node = try SCNNode.load(stlFileUrl: stlToothUrl)
+            let node = try SCNNode.load(stlFileUrl: volumeUrl)
             
             toothView.scene?.rootNode.addChildNode(node)
         }
@@ -339,14 +332,20 @@ class TherapeuticTestBasicViewController: UIViewController
         }
     }
     
+    fileprivate func updateNavigationButtons_()
+    {
+        previousButton.isEnabled = currentQuestion_ > 0
+        previousItem.isEnabled = previousButton.isEnabled
+        nextButton.isEnabled = currentQuestion_ < questions.count - 1
+        nextItem.isEnabled = nextButton.isEnabled
+    }
+    
     fileprivate func updateQuestionIndex_(_ newIndex: Int)
     {
         currentQuestion_ = newIndex
         
-        previousButton.isEnabled = currentQuestion_ > 0
-        previousItem.isEnabled = previousButton.isEnabled
-        nextButton.isEnabled = currentQuestion_ < questionsCount - 1
-        nextItem.isEnabled = nextButton.isEnabled
+        updateNavigationButtons_()
+        updateToothScene_()
         
         therapeuticChoicesView.reloadData()
         switch selectionMode
@@ -362,17 +361,18 @@ class TherapeuticTestBasicViewController: UIViewController
         }
     }
     
+    fileprivate func updateQuestionsMapping_()
+    {
+        // shuffle the questions array
+        // to make the order random
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - SEGUE
     // -------------------------------------------------------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == TherapeuticTestBasicViewController.toImageDetail,
-            let target = segue.destination as? ImageDetailViewController
-        {
-            target.image = xRay
-        }
-        else if segue.identifier == TherapeuticTestBasicViewController.toVolume,
+        if segue.identifier == TherapeuticTestBasicViewController.toVolume,
             let target = (segue.destination as? UINavigationController)?.viewControllers.first as? VolumeViewController
         {
             target.scene = toothView.scene
