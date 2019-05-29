@@ -24,6 +24,7 @@
 "Main.Menu.Item.ToothRecognition"   = "Tooth Recognition";
 "Main.Menu.Item.TherapeuticBasic"   = "Therapeutic Basic";
 "Main.Menu.Item.TherapeuticScale"   = "Therapeutic Scale";
+"Main.Menu.Item.TctManage"          = "Tct Manage";
 "Main.Menu.Item.SctBrowsing"        = "Sct Browsing";
 "Main.Menu.Item.MySct"              = "My Sct";
 "Main.Menu.Item.Settings"           = "Settings";
@@ -456,6 +457,13 @@
 "TherapeuticChoice.Row.Participant"                 = "Participant:";
 "TherapeuticChoice.Row.ParticipantCategory"         = "Category:";
 "TherapeuticChoice.Row.Launch"                      = "Launch";
+"TherapeuticChoice.SaveSuccessDialog.Title"         = "Save Success";
+"TherapeuticChoice.SaveSuccessDialog.Message"       = "The session has been saved successfully!";
+
+/* TCT MANAGE */
+"TctManager.DeleteButton"   = "Delete All";
+"TctManager.DisplayButton"  = "Display";
+"TctManage.SessionsCount"   = "%d session(s)";
 
 /* PARTICIPANT CATEGORY */
 "ParticipantCategory.Name.Four"     = "4";

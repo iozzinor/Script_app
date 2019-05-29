@@ -57,5 +57,15 @@ class TestStlColorViewController: UIViewController
         catch
         {
         }
+        
+        // test OBJ file
+        guard let objUrl = Bundle.main.url(forResource: "maxillary", withExtension: "obj") else
+        {
+            return
+        }
+        sceneView.scene = try! SCNScene(url: objUrl, options: nil)
+        sceneView.allowsCameraControl = true
+        sceneView.autoenablesDefaultLighting = true
+        sceneView.defaultCameraController.interactionMode = .orbitAngleMapping
     }
 }

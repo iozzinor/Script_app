@@ -83,7 +83,7 @@ class ToothRecognitionViewController: UIViewController
         
         // scene
         let scene = SCNScene()
-        scene.background.contents = UIColor.black
+        scene.background.contents = UIColor.white
         toothView.scene = scene
         
         // gesture recognizer

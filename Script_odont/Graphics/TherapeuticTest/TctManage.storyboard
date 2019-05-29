@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nWs-F1-7MZ">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tct Manage View Controller-->
+        <scene sceneID="514-v6-JdW">
+            <objects>
+                <viewController id="nWs-F1-7MZ" customClass="TctManageViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qpp-bW-5nQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="129" translatesAutoresizingMaskIntoConstraints="NO" id="XSx-Tl-h1w">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sessions Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXS-Cp-LWM">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="96.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSh-SG-Ycb">
+                                        <rect key="frame" x="0.0" y="225.5" width="320" height="97"/>
+                                        <state key="normal" title="Tout supprimer"/>
+                                        <connections>
+                                            <action selector="deleteAll:" destination="nWs-F1-7MZ" eventType="touchUpInside" id="gnd-nM-Qni"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tx7-4p-ppC">
+                                        <rect key="frame" x="0.0" y="451.5" width="320" height="96.5"/>
+                                        <state key="normal" title="Afficher"/>
+                                        <connections>
+                                            <action selector="displaySessions:" destination="nWs-F1-7MZ" eventType="touchUpInside" id="JWJ-1x-HfY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XSx-Tl-h1w" firstAttribute="top" secondItem="aeC-qy-Ap4" secondAttribute="top" id="2W2-89-0v5"/>
+                            <constraint firstItem="aeC-qy-Ap4" firstAttribute="bottom" secondItem="XSx-Tl-h1w" secondAttribute="bottom" id="8Ta-p7-uIZ"/>
+                            <constraint firstItem="XSx-Tl-h1w" firstAttribute="leading" secondItem="aeC-qy-Ap4" secondAttribute="leading" id="RSo-8y-keo"/>
+                            <constraint firstItem="aeC-qy-Ap4" firstAttribute="trailing" secondItem="XSx-Tl-h1w" secondAttribute="trailing" id="bCz-dJ-8jH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aeC-qy-Ap4"/>
+                    </view>
+                    <connections>
+                        <outlet property="deleteButton" destination="hSh-SG-Ycb" id="ARo-Hr-4ZL"/>
+                        <outlet property="displayButton" destination="Tx7-4p-ppC" id="NaY-EM-pjf"/>
+                        <outlet property="sessionsCountLabel" destination="JXS-Cp-LWM" id="7i1-mE-nCO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ucL-eb-WNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-213" y="-72"/>
+        </scene>
+    </scenes>
+</document>

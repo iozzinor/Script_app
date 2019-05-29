@@ -18,6 +18,7 @@ class ViewController: UICollectionViewController
         case toothRecognition
         case therapeuticBasic
         case therapeuticScale
+        case tctManage
         case sctBrowsing
         case mySct
         case settings
@@ -33,6 +34,8 @@ class ViewController: UICollectionViewController
                 return "MainToTherapeuticBasicSegueId"
             case .therapeuticScale:
                 return "MainToTherapeuticScaleSegueId"
+            case .tctManage:
+                return "MainToTctManageSegueId"
             case .sctBrowsing:
                 return "MainToSctBrowsingSegueId"
             case .mySct:
@@ -55,6 +58,8 @@ class ViewController: UICollectionViewController
                 return "Main.Menu.Item.TherapeuticBasic".localized
             case .therapeuticScale:
                 return "Main.Menu.Item.TherapeuticScale".localized
+            case .tctManage:
+                return "Main.Menu.Item.TctManage".localized
             case .sctBrowsing:
                 return "Main.Menu.Item.SctBrowsing".localized
             case .mySct:
@@ -74,6 +79,17 @@ class ViewController: UICollectionViewController
     private static let topInset_: CGFloat   = 10
     private static let padding_: CGFloat    = 0.1
     private static let itemsPerLine_        = 2
+    
+    private static let menuItemColors_: [UIColor] = [
+        UIColor(red: 0.8117647058823529, green: 0.7254901960784313, blue: 0.9098039215686274, alpha: 1.0),
+        UIColor(red: 0.6470588235294118, green: 0.9098039215686274, blue: 0.9607843137254902, alpha: 1.0),
+        UIColor(red: 0.8549019607843137, green: 0.8235294117647058, blue: 0.7450980392156863, alpha: 1.0),
+        UIColor(red: 0.6823529411764706, green: 0.8901960784313725, blue: 0.803921568627451, alpha: 1.0),
+        UIColor(red: 0.9411764705882353, green: 0.6823529411764706, blue: 0.7568627450980392, alpha: 1.0),
+        UIColor(red: 0.984313725490196, green: 0.9176470588235294, blue: 0.6549019607843137, alpha: 1.0),
+        UIColor(red: 0.984313725490196, green: 0.7098039215686275, blue: 0.5372549019607843, alpha: 1.0),
+        UIColor(red: 0.9882352941176471, green: 0.44313725490196076, blue: 0.5294117647058824, alpha: 1.0)
+    ]
     
     private var isFirstDisplay_                     = true
     private var shouldDisplayPassphraseCreation_    = false
@@ -160,7 +176,9 @@ class ViewController: UICollectionViewController
         
         let menuItem = MenuItem.allCases[indexPath.row]
         
-        cell.backgroundColor = UIColor.blue
+        let colorIndex = indexPath.row % ViewController.menuItemColors_.count
+        
+        cell.backgroundColor = ViewController.menuItemColors_[colorIndex]
         cell.label.text = menuItem.name
         
         return cell

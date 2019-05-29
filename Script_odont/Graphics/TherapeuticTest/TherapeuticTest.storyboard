@@ -86,6 +86,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RhT-lG-lUO">
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wording" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyH-D2-N68">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FEQ-Sr-pcp">
                                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                                         <subviews>
@@ -167,6 +173,7 @@
                         <outlet property="scaleLabel" destination="rxy-R1-AZT" id="gAB-Vt-asJ"/>
                         <outlet property="therapeuticChoicesView" destination="BQg-IF-wxV" id="mNA-Hu-HeZ"/>
                         <outlet property="toothView" destination="tcm-7X-Gb1" id="2MJ-sE-utd"/>
+                        <outlet property="wordingLabel" destination="gyH-D2-N68" id="dRX-ks-dA7"/>
                         <segue destination="WG4-3C-Kv3" kind="presentation" identifier="TherapeuticTestBasicToVolumeSegueId" id="erc-Sd-Pel"/>
                     </connections>
                 </viewController>

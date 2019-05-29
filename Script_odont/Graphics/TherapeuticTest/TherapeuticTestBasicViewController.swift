@@ -31,6 +31,7 @@ class TherapeuticTestBasicViewController: UIViewController
     
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var wordingLabel: UILabel!
     @IBOutlet weak var scaleLabel: UILabel!
     @IBOutlet weak var toothView: SCNView!
     @IBOutlet weak var therapeuticChoicesView: UITableView!
@@ -39,6 +40,7 @@ class TherapeuticTestBasicViewController: UIViewController
     var timeItem: UIBarButtonItem!
     var nextItem: UIBarButtonItem!
     var doneItem: UIBarButtonItem!
+    var participant: TctParticipant!
     
     var questions: [TctQuestion] = [] {
         didSet {
@@ -59,7 +61,10 @@ class TherapeuticTestBasicViewController: UIViewController
         "Couronne avec RCR",
         "Endo-couronne"
     ]
-    fileprivate var currentQuestion_ = 0
+    fileprivate var currentQuestionIndex_ = 0
+    fileprivate var currentQuestion_: TctQuestion {
+        return questions[questionsSuffleIndexes_[currentQuestionIndex_]]
+    }
     fileprivate var questionsSuffleIndexes_ = [Int]()
     fileprivate var userChoices_ = [[Int]]()
     fileprivate var scaleValues_: [Int] {
@@ -72,8 +77,8 @@ class TherapeuticTestBasicViewController: UIViewController
         }
     }
     fileprivate var stlToothUrl_: URL? {
-        let currentFileName = questions[currentQuestion_].volumeFileName
-        return Bundle.main.url(forResource: currentFileName, withExtension: "stl", subdirectory: "ToothRecognition")
+        let currentFileName = questions[questionsSuffleIndexes_[currentQuestionIndex_]].volumeFileName
+        return Bundle.main.url(forResource: currentFileName, withExtension: "stl", subdirectory: "TherapeuticChoiceTraining")
     }
     fileprivate var timer_: Timer? = nil
     fileprivate var elapsedSeconds_ = 0
@@ -113,12 +118,13 @@ class TherapeuticTestBasicViewController: UIViewController
     // -------------------------------------------------------------------------
     fileprivate func setup_()
     {
+        setupUserChoices_()
         setupNavigationMenu_()
         setupNavigationButtons_()
         setupScaleLabel_()
         setupToothVolume_()
         setupTherapeuticChoices_()
-        setupUserChoices_()
+        updateWording_()
     }
     
     fileprivate func setupNavigationMenu_()
@@ -220,6 +226,8 @@ class TherapeuticTestBasicViewController: UIViewController
         
         let defaultChoices = Array<Int>(repeating: -1, count: choicePossibilities)
         userChoices_ = Array(repeating: defaultChoices, count: questions.count)
+        
+        updateQuestionsMapping_()
     }
     
     // -------------------------------------------------------------------------
@@ -262,23 +270,22 @@ class TherapeuticTestBasicViewController: UIViewController
     // -------------------------------------------------------------------------
     @IBAction func previousQuestion(_ button: UIButton)
     {
-        updateQuestionIndex_(currentQuestion_ - 1)
+        updateQuestionIndex_(currentQuestionIndex_ - 1)
     }
     
     @IBAction func nextQuestion(_ button: UIButton)
     {
-        updateQuestionIndex_(currentQuestion_ + 1)
+        updateQuestionIndex_(currentQuestionIndex_ + 1)
     }
     
     @objc fileprivate func previousQuestion_()
     {
-        updateQuestionIndex_(currentQuestion_ - 1)
+        updateQuestionIndex_(currentQuestionIndex_ - 1)
     }
-    
     
     @objc fileprivate func nextQuestion_()
     {
-        updateQuestionIndex_(currentQuestion_ + 1)
+        updateQuestionIndex_(currentQuestionIndex_ + 1)
     }
     
     @objc fileprivate func toothVolumeTouched(_ tapGestureRecognizer: UITapGestureRecognizer)
@@ -288,7 +295,38 @@ class TherapeuticTestBasicViewController: UIViewController
     
     @objc fileprivate func saveAnswers_()
     {
+        // get the answers
+        var answers = Array<Array<Int>>(repeating: [], count: userChoices_.count)
+        for (i, index) in questionsSuffleIndexes_.enumerated()
+        {
+           answers[i] = userChoices_[index]
+        }
         
+        // save the session
+        let session = TctSession(date: Date(), participant: participant, answers: answers)
+        TctSaver.save(session: session)
+        
+        // display the success message
+        displaySaveSuccess_()
+    }
+    
+    fileprivate func displaySaveSuccess_()
+    {
+        let successDialog = UIAlertController(title: "TherapeuticChoice.SaveSuccessDialog.Title".localized, message: "TherapeuticChoice.SaveSuccessDialog.Message".localized, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Common.Ok".localized, style: .default, handler: {
+            UIAlertAction -> Void in
+            
+            self.saveDialogClosed_()
+        })
+        successDialog.addAction(okAction)
+        
+        present(successDialog, animated: true, completion: nil)
+    }
+    
+    fileprivate func saveDialogClosed_()
+    {
+        navigationController?.popViewController(animated: true)
     }
     
     // -------------------------------------------------------------------------
@@ -308,6 +346,11 @@ class TherapeuticTestBasicViewController: UIViewController
             let node = rootNode.childNodes[index]
             node.removeFromParentNode()
         }
+    }
+    
+    fileprivate func updateWording_()
+    {
+        wordingLabel.text = currentQuestion_.wording
     }
     
     fileprivate func updateToothScene_()
@@ -334,16 +377,17 @@ class TherapeuticTestBasicViewController: UIViewController
     
     fileprivate func updateNavigationButtons_()
     {
-        previousButton.isEnabled = currentQuestion_ > 0
+        previousButton.isEnabled = currentQuestionIndex_ > 0
         previousItem.isEnabled = previousButton.isEnabled
-        nextButton.isEnabled = currentQuestion_ < questions.count - 1
+        nextButton.isEnabled = currentQuestionIndex_ < questions.count - 1
         nextItem.isEnabled = nextButton.isEnabled
     }
     
     fileprivate func updateQuestionIndex_(_ newIndex: Int)
     {
-        currentQuestion_ = newIndex
+        currentQuestionIndex_ = newIndex
         
+        updateWording_()
         updateNavigationButtons_()
         updateToothScene_()
         
@@ -352,9 +396,9 @@ class TherapeuticTestBasicViewController: UIViewController
         {
         case .single:
             
-            if userChoices_[currentQuestion_][0] > -1
+            if userChoices_[currentQuestionIndex_][0] > -1
             {
-                therapeuticChoicesView.selectRow(at: IndexPath(row: userChoices_[currentQuestion_][0], section: 0), animated: false, scrollPosition: .none)
+                therapeuticChoicesView.selectRow(at: IndexPath(row: userChoices_[currentQuestionIndex_][0], section: 0), animated: false, scrollPosition: .none)
             }
         default:
             break
@@ -365,6 +409,13 @@ class TherapeuticTestBasicViewController: UIViewController
     {
         // shuffle the questions array
         // to make the order random
+        questionsSuffleIndexes_ = Array<Int>(repeating: -1, count: questions.count)
+        for i in 0..<questions.count
+        {
+            questionsSuffleIndexes_[i] = i
+        }
+        
+        questionsSuffleIndexes_.shuffle()
     }
     
     // -------------------------------------------------------------------------
@@ -401,19 +452,19 @@ extension TherapeuticTestBasicViewController: UITableViewDelegate
         switch selectionMode
         {
         case .single:
-            if indexPath.row != userChoices_[currentQuestion_][0]
+            if indexPath.row != userChoices_[currentQuestionIndex_][0]
             {
                 // update the selected answer
-                if userChoices_[currentQuestion_][0] > -1
+                if userChoices_[currentQuestionIndex_][0] > -1
                 {
-                    let previousIndex = IndexPath(row: userChoices_[currentQuestion_][0], section: 0)
+                    let previousIndex = IndexPath(row: userChoices_[currentQuestionIndex_][0], section: 0)
                     if let previousCell = therapeuticChoicesView.cellForRow(at: previousIndex)
                     {
                         previousCell.isSelected = false
                     }
                 }
                 
-                userChoices_[currentQuestion_][0] = indexPath.row
+                userChoices_[currentQuestionIndex_][0] = indexPath.row
                 
                 if let newCell = therapeuticChoicesView.cellForRow(at: indexPath)
                 {
@@ -422,12 +473,12 @@ extension TherapeuticTestBasicViewController: UITableViewDelegate
             }
             else
             {
-                let previousIndex = IndexPath(row: userChoices_[currentQuestion_][0], section: 0)
+                let previousIndex = IndexPath(row: userChoices_[currentQuestionIndex_][0], section: 0)
                 if let previousCell = therapeuticChoicesView.cellForRow(at: previousIndex)
                 {
                     previousCell.isSelected = false
                 }
-                userChoices_[currentQuestion_][0] = -1
+                userChoices_[currentQuestionIndex_][0] = -1
             }
         case .scale:
             break
@@ -456,10 +507,10 @@ extension TherapeuticTestBasicViewController: UITableViewDataSource
         switch selectionMode
         {
         case .single:
-            cell.isSelected = (indexPath.row == userChoices_[currentQuestion_][0])
+            cell.isSelected = (indexPath.row == userChoices_[currentQuestionIndex_][0])
         case .scale:
             cell.delegate = self
-            cell.displayScales(scaleValues: scaleValues_, selected: userChoices_[currentQuestion_][indexPath.row], rowIndex: indexPath.row)
+            cell.displayScales(scaleValues: scaleValues_, selected: userChoices_[currentQuestionIndex_][indexPath.row], rowIndex: indexPath.row)
         }
         
         return cell
@@ -473,6 +524,6 @@ extension TherapeuticTestBasicViewController: TherapeuticChoiceDelegate
 {
     func didSelectValue(at index: Int, for rowIndex: Int)
     {
-        userChoices_[currentQuestion_][rowIndex] = index;
+        userChoices_[currentQuestionIndex_][rowIndex] = index;
     }
 }

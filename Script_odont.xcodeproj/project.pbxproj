@@ -64,6 +64,7 @@
 		AC2CF58122645FA400E70D41 /* 14_8.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56522645F6300E70D41 /* 14_8.stl */; };
 		AC2CF58222645FA400E70D41 /* 14_9.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56B22645F6300E70D41 /* 14_9.stl */; };
 		AC2CF58322645FA400E70D41 /* 14_10.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56D22645F6300E70D41 /* 14_10.stl */; };
+		AC2D9EE1229EAEBD00A650B1 /* maxillary.obj in Resources */ = {isa = PBXBuildFile; fileRef = AC2D9EE0229EAEBD00A650B1 /* maxillary.obj */; };
 		AC31A029224A991000A3A461 /* PassphraseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A028224A990F00A3A461 /* PassphraseDelegate.swift */; };
 		AC31A02E224AA87400A3A461 /* UnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A02D224AA87400A3A461 /* UnlockViewController.swift */; };
 		AC31A030224AD86C00A3A461 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A02F224AD86C00A3A461 /* NetworkingService.swift */; };
@@ -103,7 +104,7 @@
 		AC38BB67221DE4CB008E829B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB66221DE4CB008E829B /* Assets.xcassets */; };
 		AC38BB6A221DE4CB008E829B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB68221DE4CB008E829B /* LaunchScreen.storyboard */; };
 		AC38BB73221DF03F008E829B /* WelcomeWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38BB72221DF03F008E829B /* WelcomeWalkthrough.storyboard */; };
-		AC38BB76221DFB2F008E829B /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB75221DFB2F008E829B /* String+localized.swift */; };
+		AC38BB76221DFB2F008E829B /* String+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB75221DFB2F008E829B /* String+utils.swift */; };
 		AC38BB78221DFCC4008E829B /* WelcomeWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB77221DFCC4008E829B /* WelcomeWalkthroughViewController.swift */; };
 		AC38BB7A221E89C0008E829B /* UIApplication+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB79221E89C0008E829B /* UIApplication+utils.swift */; };
 		AC38BB7C221E9C54008E829B /* WelcomeWalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7B221E9C54008E829B /* WelcomeWalkthroughPageViewController.swift */; };
@@ -178,10 +179,11 @@
 		AC623AC72263D6A50088FBCB /* 47.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44D22638763003BA7C7 /* 47.tp */; };
 		AC623AC82263D6A50088FBCB /* 48.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44722638763003BA7C7 /* 48.tp */; };
 		AC623ACA2263D7E80088FBCB /* TplBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC623AC92263D7E80088FBCB /* TplBundle.swift */; };
-		AC623ACC2263DA1E0088FBCB /* antagonist.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACE001952261C37000384CF8 /* antagonist.stl */; };
-		AC623ACD2263DA1E0088FBCB /* simple_cube.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACE001962261C37000384CF8 /* simple_cube.stl */; };
-		AC623ACE2263DA1E0088FBCB /* simple_sphere.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACE001972261C37000384CF8 /* simple_sphere.stl */; };
-		AC623ACF2263DA1E0088FBCB /* upper_jaw_scan.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACE001982261C37000384CF8 /* upper_jaw_scan.stl */; };
+		AC623ACC2263DA1E0088FBCB /* antagonist.stl in Copy Files */ = {isa = PBXBuildFile; fileRef = ACE001952261C37000384CF8 /* antagonist.stl */; };
+		AC623ACD2263DA1E0088FBCB /* simple_cube.stl in Copy Files */ = {isa = PBXBuildFile; fileRef = ACE001962261C37000384CF8 /* simple_cube.stl */; };
+		AC623ACE2263DA1E0088FBCB /* simple_sphere.stl in Copy Files */ = {isa = PBXBuildFile; fileRef = ACE001972261C37000384CF8 /* simple_sphere.stl */; };
+		AC623ACF2263DA1E0088FBCB /* upper_jaw_scan.stl in Copy Files */ = {isa = PBXBuildFile; fileRef = ACE001982261C37000384CF8 /* upper_jaw_scan.stl */; };
+		AC70FD28229DBCD500D582BD /* Array+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC70FD27229DBCD500D582BD /* Array+utils.swift */; };
 		AC74B69C223542A000B31571 /* WelcomeWalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7D221E9FE1008E829B /* WelcomeWalkthroughContentViewController.swift */; };
 		AC74B69E22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74B69D22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift */; };
 		AC8062E222946CB100719F06 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8062E122946CB100719F06 /* Reusable.swift */; };
@@ -290,6 +292,26 @@
 		ACE70F97221F3254008454FF /* UITableViewCell+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F96221F3254008454FF /* UITableViewCell+utils.swift */; };
 		ACE70F99221F32B9008454FF /* UITableView+register.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F98221F32B9008454FF /* UITableView+register.swift */; };
 		ACE7DE5A228B6F9F00CAEEF0 /* TherapeuticChoiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7DE59228B6F9F00CAEEF0 /* TherapeuticChoiceDelegate.swift */; };
+		ACF23602229B2BFD00E7060D /* 1.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F8229B2BF100E7060D /* 1.stl */; };
+		ACF23603229B2BFD00E7060D /* 2.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F5229B2BF100E7060D /* 2.stl */; };
+		ACF23604229B2BFD00E7060D /* 3.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235FF229B2BF200E7060D /* 3.stl */; };
+		ACF23605229B2BFD00E7060D /* 4.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F4229B2BF100E7060D /* 4.stl */; };
+		ACF23606229B2BFD00E7060D /* 5.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F3229B2BF100E7060D /* 5.stl */; };
+		ACF23607229B2BFD00E7060D /* 6.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235FB229B2BF200E7060D /* 6.stl */; };
+		ACF23608229B2BFD00E7060D /* 7.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F7229B2BF100E7060D /* 7.stl */; };
+		ACF23609229B2BFD00E7060D /* 8.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F6229B2BF100E7060D /* 8.stl */; };
+		ACF2360A229B2BFD00E7060D /* 9.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235FA229B2BF100E7060D /* 9.stl */; };
+		ACF2360B229B2BFD00E7060D /* 10.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF23601229B2BF200E7060D /* 10.stl */; };
+		ACF2360C229B2BFD00E7060D /* 11.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F2229B2BF100E7060D /* 11.stl */; };
+		ACF2360D229B2BFD00E7060D /* 12.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235FE229B2BF200E7060D /* 12.stl */; };
+		ACF2360E229B2BFD00E7060D /* 13.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235FD229B2BF200E7060D /* 13.stl */; };
+		ACF2360F229B2BFD00E7060D /* 14.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F9229B2BF100E7060D /* 14.stl */; };
+		ACF23610229B2BFD00E7060D /* 15.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F1229B2BF100E7060D /* 15.stl */; };
+		ACF23611229B2BFD00E7060D /* 16.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF23600229B2BF200E7060D /* 16.stl */; };
+		ACF23612229B2BFD00E7060D /* 17.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235FC229B2BF200E7060D /* 17.stl */; };
+		ACF23614229B32B200E7060D /* TctSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF23613229B32B200E7060D /* TctSaver.swift */; };
+		ACF23616229C95A500E7060D /* TctManage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF23615229C95A500E7060D /* TctManage.storyboard */; };
+		ACF23618229C960400E7060D /* TctManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF23617229C960400E7060D /* TctManageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -365,17 +387,18 @@
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC623ACB2263D9F50088FBCB /* CopyFiles */ = {
+		AC623ACB2263D9F50088FBCB /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = SctData;
 			dstSubfolderSpec = 7;
 			files = (
-				AC623ACC2263DA1E0088FBCB /* antagonist.stl in CopyFiles */,
-				AC623ACD2263DA1E0088FBCB /* simple_cube.stl in CopyFiles */,
-				AC623ACE2263DA1E0088FBCB /* simple_sphere.stl in CopyFiles */,
-				AC623ACF2263DA1E0088FBCB /* upper_jaw_scan.stl in CopyFiles */,
+				AC623ACC2263DA1E0088FBCB /* antagonist.stl in Copy Files */,
+				AC623ACD2263DA1E0088FBCB /* simple_cube.stl in Copy Files */,
+				AC623ACE2263DA1E0088FBCB /* simple_sphere.stl in Copy Files */,
+				AC623ACF2263DA1E0088FBCB /* upper_jaw_scan.stl in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		ACAEEB482284BE3800A9AA2E /* CopyFiles */ = {
@@ -385,6 +408,32 @@
 			dstSubfolderSpec = 7;
 			files = (
 				ACAEEB492284BE4700A9AA2E /* mesial_14.png in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACF235F0229B2B5200E7060D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = TherapeuticChoiceTraining;
+			dstSubfolderSpec = 7;
+			files = (
+				ACF23602229B2BFD00E7060D /* 1.stl in CopyFiles */,
+				ACF23603229B2BFD00E7060D /* 2.stl in CopyFiles */,
+				ACF23604229B2BFD00E7060D /* 3.stl in CopyFiles */,
+				ACF23605229B2BFD00E7060D /* 4.stl in CopyFiles */,
+				ACF23606229B2BFD00E7060D /* 5.stl in CopyFiles */,
+				ACF23607229B2BFD00E7060D /* 6.stl in CopyFiles */,
+				ACF23608229B2BFD00E7060D /* 7.stl in CopyFiles */,
+				ACF23609229B2BFD00E7060D /* 8.stl in CopyFiles */,
+				ACF2360A229B2BFD00E7060D /* 9.stl in CopyFiles */,
+				ACF2360B229B2BFD00E7060D /* 10.stl in CopyFiles */,
+				ACF2360C229B2BFD00E7060D /* 11.stl in CopyFiles */,
+				ACF2360D229B2BFD00E7060D /* 12.stl in CopyFiles */,
+				ACF2360E229B2BFD00E7060D /* 13.stl in CopyFiles */,
+				ACF2360F229B2BFD00E7060D /* 14.stl in CopyFiles */,
+				ACF23610229B2BFD00E7060D /* 15.stl in CopyFiles */,
+				ACF23611229B2BFD00E7060D /* 16.stl in CopyFiles */,
+				ACF23612229B2BFD00E7060D /* 17.stl in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +530,7 @@
 		AC2CF56C22645F6300E70D41 /* 14_6.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_6.stl; sourceTree = "<group>"; };
 		AC2CF56D22645F6300E70D41 /* 14_10.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_10.stl; sourceTree = "<group>"; };
 		AC2CF56E22645F6300E70D41 /* 14_5.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_5.stl; sourceTree = "<group>"; };
+		AC2D9EE0229EAEBD00A650B1 /* maxillary.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = maxillary.obj; path = Script_odont/Resources/maxillary.obj; sourceTree = SOURCE_ROOT; };
 		AC31A028224A990F00A3A461 /* PassphraseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseDelegate.swift; sourceTree = "<group>"; };
 		AC31A02D224AA87400A3A461 /* UnlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockViewController.swift; sourceTree = "<group>"; };
 		AC31A02F224AD86C00A3A461 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
@@ -525,7 +575,7 @@
 		AC38BB69221DE4CB008E829B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC38BB6B221DE4CB008E829B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC38BB72221DF03F008E829B /* WelcomeWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeWalkthrough.storyboard; sourceTree = "<group>"; };
-		AC38BB75221DFB2F008E829B /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
+		AC38BB75221DFB2F008E829B /* String+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+utils.swift"; sourceTree = "<group>"; };
 		AC38BB77221DFCC4008E829B /* WelcomeWalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWalkthroughViewController.swift; sourceTree = "<group>"; };
 		AC38BB79221E89C0008E829B /* UIApplication+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+utils.swift"; sourceTree = "<group>"; };
 		AC38BB7B221E9C54008E829B /* WelcomeWalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -571,6 +621,7 @@
 		AC623A8B226398800088FBCB /* ToothCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ToothCommon.framework; sourceTree = "<group>"; };
 		AC623AA62263D4C10088FBCB /* ToothRecognitionSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToothRecognitionSelectionDelegate.swift; sourceTree = "<group>"; };
 		AC623AC92263D7E80088FBCB /* TplBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TplBundle.swift; sourceTree = "<group>"; };
+		AC70FD27229DBCD500D582BD /* Array+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+utils.swift"; sourceTree = "<group>"; };
 		AC74B69D22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWalkthroughExampleViewController.swift; sourceTree = "<group>"; };
 		AC8062E122946CB100719F06 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		AC8062E322946D1200719F06 /* UICollectionViewCell+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+utils.swift"; sourceTree = "<group>"; };
@@ -685,6 +736,26 @@
 		ACE70F96221F3254008454FF /* UITableViewCell+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+utils.swift"; sourceTree = "<group>"; };
 		ACE70F98221F32B9008454FF /* UITableView+register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+register.swift"; sourceTree = "<group>"; };
 		ACE7DE59228B6F9F00CAEEF0 /* TherapeuticChoiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapeuticChoiceDelegate.swift; sourceTree = "<group>"; };
+		ACF235F1229B2BF100E7060D /* 15.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 15.stl; sourceTree = "<group>"; };
+		ACF235F2229B2BF100E7060D /* 11.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 11.stl; sourceTree = "<group>"; };
+		ACF235F3229B2BF100E7060D /* 5.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5.stl; sourceTree = "<group>"; };
+		ACF235F4229B2BF100E7060D /* 4.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4.stl; sourceTree = "<group>"; };
+		ACF235F5229B2BF100E7060D /* 2.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2.stl; sourceTree = "<group>"; };
+		ACF235F6229B2BF100E7060D /* 8.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 8.stl; sourceTree = "<group>"; };
+		ACF235F7229B2BF100E7060D /* 7.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 7.stl; sourceTree = "<group>"; };
+		ACF235F8229B2BF100E7060D /* 1.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.stl; sourceTree = "<group>"; };
+		ACF235F9229B2BF100E7060D /* 14.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14.stl; sourceTree = "<group>"; };
+		ACF235FA229B2BF100E7060D /* 9.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 9.stl; sourceTree = "<group>"; };
+		ACF235FB229B2BF200E7060D /* 6.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 6.stl; sourceTree = "<group>"; };
+		ACF235FC229B2BF200E7060D /* 17.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 17.stl; sourceTree = "<group>"; };
+		ACF235FD229B2BF200E7060D /* 13.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 13.stl; sourceTree = "<group>"; };
+		ACF235FE229B2BF200E7060D /* 12.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 12.stl; sourceTree = "<group>"; };
+		ACF235FF229B2BF200E7060D /* 3.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3.stl; sourceTree = "<group>"; };
+		ACF23600229B2BF200E7060D /* 16.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 16.stl; sourceTree = "<group>"; };
+		ACF23601229B2BF200E7060D /* 10.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 10.stl; sourceTree = "<group>"; };
+		ACF23613229B32B200E7060D /* TctSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctSaver.swift; sourceTree = "<group>"; };
+		ACF23615229C95A500E7060D /* TctManage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TctManage.storyboard; sourceTree = "<group>"; };
+		ACF23617229C960400E7060D /* TctManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctManageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -935,6 +1006,8 @@
 				AC317D3E2261BFB100785C05 /* SctData */,
 				AC2CF56422645F1B00E70D41 /* ToothRecognition */,
 				ACAEEB3F2284B7A300A9AA2E /* ToothReminder */,
+				ACE0D027229B212400CD4760 /* TherapeuticChoiceTraining */,
+				AC2D9EE0229EAEBD00A650B1 /* maxillary.obj */,
 				ACD71ADE2294ADCB00592C9A /* test_colored_square.stl */,
 			);
 			path = Resources;
@@ -1096,7 +1169,8 @@
 				AC9F23E32229D882002D38E5 /* Hash */,
 				ACE70F92221F214C008454FF /* WeakContainer.swift */,
 				ACE70F94221F2439008454FF /* WeakArray.swift */,
-				AC38BB75221DFB2F008E829B /* String+localized.swift */,
+				AC38BB75221DFB2F008E829B /* String+utils.swift */,
+				AC70FD27229DBCD500D582BD /* Array+utils.swift */,
 				AC53E36622329C2700CA4437 /* Constants.swift */,
 				ACAD5DD52245294D0041E484 /* BorderView.swift */,
 				AC8062E122946CB100719F06 /* Reusable.swift */,
@@ -1291,9 +1365,12 @@
 				AC47168E2298130F00E426BA /* ParticipantCategoryPickerDelegate.swift */,
 				AC4716902298136D00E426BA /* ParticipantCategory.swift */,
 				ACCFB8EC22889D570007FEC8 /* TherapeuticTest.storyboard */,
+				ACF23617229C960400E7060D /* TctManageViewController.swift */,
+				ACF23615229C95A500E7060D /* TctManage.storyboard */,
 				ACE0D021229B069300CD4760 /* TctSession.swift */,
 				ACE0D025229B089400CD4760 /* TctQuestion.swift */,
 				ACE0D023229B06AC00CD4760 /* TctParticipant.swift */,
+				ACF23613229B32B200E7060D /* TctSaver.swift */,
 			);
 			path = TherapeuticTest;
 			sourceTree = "<group>";
@@ -1326,6 +1403,30 @@
 			path = AsynchronousTableManager;
 			sourceTree = "<group>";
 		};
+		ACE0D027229B212400CD4760 /* TherapeuticChoiceTraining */ = {
+			isa = PBXGroup;
+			children = (
+				ACF235F8229B2BF100E7060D /* 1.stl */,
+				ACF235F5229B2BF100E7060D /* 2.stl */,
+				ACF235FF229B2BF200E7060D /* 3.stl */,
+				ACF235F4229B2BF100E7060D /* 4.stl */,
+				ACF235F3229B2BF100E7060D /* 5.stl */,
+				ACF235FB229B2BF200E7060D /* 6.stl */,
+				ACF235F7229B2BF100E7060D /* 7.stl */,
+				ACF235F6229B2BF100E7060D /* 8.stl */,
+				ACF235FA229B2BF100E7060D /* 9.stl */,
+				ACF23601229B2BF200E7060D /* 10.stl */,
+				ACF235F2229B2BF100E7060D /* 11.stl */,
+				ACF235FE229B2BF200E7060D /* 12.stl */,
+				ACF235FD229B2BF200E7060D /* 13.stl */,
+				ACF235F9229B2BF100E7060D /* 14.stl */,
+				ACF235F1229B2BF100E7060D /* 15.stl */,
+				ACF23600229B2BF200E7060D /* 16.stl */,
+				ACF235FC229B2BF200E7060D /* 17.stl */,
+			);
+			path = TherapeuticChoiceTraining;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1338,9 +1439,10 @@
 				AC38BB59221DE4C9008E829B /* Frameworks */,
 				AC38BB5A221DE4C9008E829B /* Resources */,
 				AC623AA82263D68C0088FBCB /* Copy Files */,
-				AC623ACB2263D9F50088FBCB /* CopyFiles */,
+				AC623ACB2263D9F50088FBCB /* Copy Files */,
 				AC2CF57922645F9600E70D41 /* CopyFiles */,
 				ACAEEB482284BE3800A9AA2E /* CopyFiles */,
+				ACF235F0229B2B5200E7060D /* CopyFiles */,
 				AC51DA162272F6AC00A66887 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -1417,12 +1519,14 @@
 				ACD71ADB2294AB0800592C9A /* TestStlColor.storyboard in Resources */,
 				AC31E3A12235BCBA00A3B813 /* SctQuestionHeaderCell.xib in Resources */,
 				ACC83F8B223E96E70064BE6F /* Settings.storyboard in Resources */,
+				ACF23616229C95A500E7060D /* TctManage.storyboard in Resources */,
 				AC24E1D7224A6FAE00B5D48A /* Passphrase.storyboard in Resources */,
 				ACD1B3BA223D06F80065F07E /* ButtonCell.xib in Resources */,
 				AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */,
 				AC31A049224B889C00A3A461 /* Configuration.plist in Resources */,
 				AC31E39F2235BC8500A3B813 /* SctItemCell.xib in Resources */,
 				AC53E37C2233AF5E00CA4437 /* MySct.storyboard in Resources */,
+				AC2D9EE1229EAEBD00A650B1 /* maxillary.obj in Resources */,
 				ACD1B3B2223C51B10065F07E /* SctBrowsingCell.xib in Resources */,
 				ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */,
 				AC2CF56322645B6500E70D41 /* Volume.storyboard in Resources */,
@@ -1527,6 +1631,7 @@
 				AC4904CB222BC15A00BDEB4B /* QualificationPickerViewController.swift in Sources */,
 				AC53E37E22345F4500CA4437 /* SctUnfinishedViewController.swift in Sources */,
 				AC53E3782233AE3100CA4437 /* MySctFinishedCell.swift in Sources */,
+				AC70FD28229DBCD500D582BD /* Array+utils.swift in Sources */,
 				ACAD5DDC224674A10041E484 /* ImageFadeOutAnimationController.swift in Sources */,
 				AC4904C9222BBE7200BDEB4B /* PasswordTrait.swift in Sources */,
 				AC9D150A223ED31A00131490 /* LeaderboardViewController.swift in Sources */,
@@ -1534,7 +1639,7 @@
 				ACDC49AF224240BA00B43534 /* TableSection.swift in Sources */,
 				ACAEEB472284B8C600A9AA2E /* ToothReminderViewController.swift in Sources */,
 				AC31A04D224B8DB700A3A461 /* SpecializedErrorButtonDelegate.swift in Sources */,
-				AC38BB76221DFB2F008E829B /* String+localized.swift in Sources */,
+				AC38BB76221DFB2F008E829B /* String+utils.swift in Sources */,
 				AC18B0E6228B18CE00DFC878 /* ChooseScale.swift in Sources */,
 				ACA60F722235CCEF0094881A /* SctViewController.swift in Sources */,
 				AC421AC0224D4BA20011052B /* NewDataView.swift in Sources */,
@@ -1567,10 +1672,12 @@
 				AC31A051224B925C00A3A461 /* SebdConnectionError.swift in Sources */,
 				AC421AC2224D4BBC0011052B /* NewDataViewDelegate.swift in Sources */,
 				ACE0D024229B06AC00CD4760 /* TctParticipant.swift in Sources */,
+				ACF23614229B32B200E7060D /* TctSaver.swift in Sources */,
 				AC31A030224AD86C00A3A461 /* NetworkingService.swift in Sources */,
 				AC31A02E224AA87400A3A461 /* UnlockViewController.swift in Sources */,
 				ACC52C3F223EE57E00B974BA /* CandidateStatistics.swift in Sources */,
 				AC31A038224B4F9D00A3A461 /* TableViewFooter.swift in Sources */,
+				ACF23618229C960400E7060D /* TctManageViewController.swift in Sources */,
 				ACD1B39C223BD5590065F07E /* SctScoreDiagramCell.swift in Sources */,
 				AC31A032224ADC0C00A3A461 /* ConnectionInformation.swift in Sources */,
 				AC53E37422331B8500CA4437 /* MySctViewController.swift in Sources */,

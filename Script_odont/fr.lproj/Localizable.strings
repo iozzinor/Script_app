@@ -24,6 +24,7 @@
 "Main.Menu.Item.ToothRecognition"   = "Reconnaissance dent";
 "Main.Menu.Item.TherapeuticBasic"   = "Meilleur choix thérapeutique";
 "Main.Menu.Item.TherapeuticScale"   = "Choix thérapeutiques";
+"Main.Menu.Item.TctManage"          = "Gestion choix thérapeutiques";
 "Main.Menu.Item.SctBrowsing"        = "Navigation TCS";
 "Main.Menu.Item.MySct"              = "Mes TCS";
 "Main.Menu.Item.Settings"           = "Paramètres";
@@ -456,11 +457,18 @@
 "TherapeuticChoice.Row.Participant"                 = "Participant :";
 "TherapeuticChoice.Row.ParticipantCategory"         = "Categorie :";
 "TherapeuticChoice.Row.Launch"                      = "Démarrer";
+"TherapeuticChoice.SaveSuccessDialog.Title"         = "Réussite sauvegarde";
+"TherapeuticChoice.SaveSuccessDialog.Message"       = "La session a bien été enregistrée !";
+
+/* TCT MANAGE */
+"TctManage.DeleteButton"   = "Tout supprimer";
+"TctManage.DisplayButton"  = "Afficher";
+"TctManage.SessionsCount"   = "%d session(s)";
 
 /* PARTICIPANT CATEGORY */
-"ParticipantCategory.Name.Four"     = "4";
-"ParticipantCategory.Name.Five"     = "5";
-"ParticipantCategory.Name.Six"      = "6";
+"ParticipantCategory.Name.Four"     = "4ème année";
+"ParticipantCategory.Name.Five"     = "5ème année";
+"ParticipantCategory.Name.Six"      = "6ème année";
 "ParticipantCategory.Name.Intern"   = "Interne";
 "ParticipantCategory.Name.Teacher"  = "Enseignant";
 

@@ -30,4 +30,17 @@ enum ParticipantCategory: CaseIterable
             return "ParticipantCategory.Name.Teacher".localized
         }
     }
+    
+    static func category(for string: String) -> ParticipantCategory?
+    {
+        for category in ParticipantCategory.allCases
+        {
+            if category.name == string
+            {
+                return category
+            }
+        }
+        
+        return nil
+    }
 }
