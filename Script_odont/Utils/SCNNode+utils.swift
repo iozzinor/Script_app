@@ -128,20 +128,7 @@ extension SCNNode
             }
             else
             {
-                for (i, color) in colors.enumerated()
-                {
-                    let triangleMaterial = SCNMaterial()
-                    triangleMaterial.diffuse.contents = color
-                    triangleMaterial.isDoubleSided = true // TEMP
-                    
-                    materials.append(triangleMaterial)
-                    
-                    var indexes: [UInt32] = []
-                    indexes.append(UInt32(3 * i))
-                    indexes.append(UInt32(3 * i + 1))
-                    indexes.append(UInt32(3 * i + 2))
-                    elements.append(SCNGeometryElement(indices: indexes, primitiveType: .triangles))
-                }
+                generateColors(elements: &elements, materials: &materials, colors: colors)
             }
         }
         let geometry = SCNGeometry(sources: [vertexSource, normalSource], elements: elements)
@@ -242,4 +229,146 @@ private func colorFromAttributes(_ attributes: UInt16) -> UIColor
     let green   = CGFloat((attributes >> 6) & 0x1F) / 31.0
     let blue    = CGFloat((attributes >> 1) & 0x1F) / 31.0
     return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+}
+
+
+private func generateColors(elements: inout [SCNGeometryElement], materials: inout [SCNMaterial], colors: [UIColor])
+{
+    /*print(colors.count)
+    print(3 * colors.count)
+    for (i, color) in colors.enumerated()
+    {
+        let triangleMaterial = SCNMaterial()
+        triangleMaterial.diffuse.contents = color
+        triangleMaterial.isDoubleSided = true // TEMP
+        
+        materials.append(triangleMaterial)
+        
+        var indexes: [UInt32] = []
+        indexes.append(UInt32(3 * i))
+        indexes.append(UInt32(3 * i + 1))
+        indexes.append(UInt32(3 * i + 2))
+        elements.append(SCNGeometryElement(indices: indexes, primitiveType: .triangles))
+    }*/
+    
+    let sortedColors = getSortedColors(colors: colors)
+    for (color, triangleIndexes) in sortedColors
+    {
+        let triangleMaterial = SCNMaterial()
+        triangleMaterial.diffuse.contents = color
+        triangleMaterial.isDoubleSided = true // TEMP
+        
+        materials.append(triangleMaterial)
+        
+        var indexes: [UInt32] = []
+        for triangleIndex in triangleIndexes
+        {
+            indexes.append(triangleIndex * 3)
+            indexes.append(triangleIndex * 3 + 1)
+            indexes.append(triangleIndex * 3 + 2)
+        }
+        
+        elements.append(SCNGeometryElement(indices: indexes, primitiveType: .triangles))
+    }
+}
+
+private func getSortedColors(colors: [UIColor]) -> [UIColor: [UInt32]]
+{
+    let maximumColors = 65535
+    
+    var result = [UIColor: [UInt32]]()
+    
+    // get the colors count
+    var colorsCount = [UIColor: Int]()
+    for color in colors
+    {
+        if !colorsCount.keys.contains(color)
+        {
+            colorsCount[color] = 0
+        }
+        colorsCount[color]! += 1
+    }
+    
+    // map the colors count as an array
+    var colorsCountArray = [(UIColor, Int)]()
+    for (color, count) in colorsCount
+    {
+        colorsCountArray.append((color, count))
+    }
+    // sort by occurence
+    colorsCountArray.sort(by: { (a, b) -> Bool in
+        return a.1 > b.1
+    })
+    
+    var possibleColors = [UIColor]()
+    for (i, colorCount) in colorsCountArray.enumerated()
+    {
+        if i > maximumColors - 1
+        {
+            break
+        }
+        possibleColors.append(colorCount.0)
+    }
+    
+    // get the colors remap
+    var colorRemap = [UIColor: UIColor]()
+    for (i, colorCount) in colorsCountArray.enumerated()
+    {
+        if i < maximumColors
+        {
+            colorRemap[colorCount.0] = colorCount.0
+        }
+        else
+        {
+            colorRemap[colorCount.0] = findClosestColor(colorChoices: possibleColors, color: colorCount.0)
+        }
+    }
+    
+    // add indexes
+    for (i, color) in colors.enumerated()
+    {
+        let closestColor = colorRemap[color] ?? UIColor.white
+        
+        if !result.keys.contains(closestColor)
+        {
+            result[closestColor] = []
+        }
+        
+        result[closestColor]!.append(UInt32(i))
+    }
+    
+    return result
+}
+
+private func findClosestColor(colorChoices: [UIColor], color: UIColor) -> UIColor
+{
+    var result = UIColor.white
+    var minProximity: CGFloat = 3.0
+    for colorChoice in colorChoices
+    {
+        let currentProximity = getColorProximity(colorChoice, color)
+        
+        if minProximity > currentProximity
+        {
+            minProximity = currentProximity
+            result = colorChoice
+        }
+    }
+    
+    return result
+}
+
+private func getColorProximity(_ a: UIColor, _ b: UIColor) -> CGFloat
+{
+    var aRed: CGFloat   = 0.0
+    var aGreen: CGFloat = 0.0
+    var aBlue: CGFloat  = 0.0
+    var bRed: CGFloat   = 0.0
+    var bGreen: CGFloat = 0.0
+    var bBlue: CGFloat  = 0.0
+    
+    a.getRed(&aRed, green: &aGreen, blue: &aBlue, alpha: nil)
+    b.getRed(&bRed, green: &bGreen, blue: &bBlue, alpha: nil)
+    
+    return abs(aRed - bRed) + abs(aGreen - bGreen) + abs(aBlue - bBlue)
 }

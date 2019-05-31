@@ -54,17 +54,16 @@
 		AC24E1DB224A718200B5D48A /* NumericPassphraseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1DA224A718200B5D48A /* NumericPassphraseControl.swift */; };
 		AC24E1DD224A772800B5D48A /* Passphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24E1DC224A772800B5D48A /* Passphrase.swift */; };
 		AC2CF56322645B6500E70D41 /* Volume.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2CF56222645B6500E70D41 /* Volume.storyboard */; };
-		AC2CF57A22645FA400E70D41 /* 14_1.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56722645F6300E70D41 /* 14_1.stl */; };
-		AC2CF57B22645FA400E70D41 /* 14_2.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56A22645F6300E70D41 /* 14_2.stl */; };
-		AC2CF57C22645FA400E70D41 /* 14_3.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56822645F6300E70D41 /* 14_3.stl */; };
-		AC2CF57D22645FA400E70D41 /* 14_4.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56922645F6300E70D41 /* 14_4.stl */; };
-		AC2CF57E22645FA400E70D41 /* 14_5.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56E22645F6300E70D41 /* 14_5.stl */; };
-		AC2CF57F22645FA400E70D41 /* 14_6.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56C22645F6300E70D41 /* 14_6.stl */; };
-		AC2CF58022645FA400E70D41 /* 14_7.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56622645F6300E70D41 /* 14_7.stl */; };
-		AC2CF58122645FA400E70D41 /* 14_8.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56522645F6300E70D41 /* 14_8.stl */; };
-		AC2CF58222645FA400E70D41 /* 14_9.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56B22645F6300E70D41 /* 14_9.stl */; };
-		AC2CF58322645FA400E70D41 /* 14_10.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC2CF56D22645F6300E70D41 /* 14_10.stl */; };
-		AC2D9EE1229EAEBD00A650B1 /* maxillary.obj in Resources */ = {isa = PBXBuildFile; fileRef = AC2D9EE0229EAEBD00A650B1 /* maxillary.obj */; };
+		AC2CF57A22645FA400E70D41 /* 14_1.stl in Copy Files - Tooth Recognition */ = {isa = PBXBuildFile; fileRef = AC2CF56722645F6300E70D41 /* 14_1.stl */; };
+		AC2CF57B22645FA400E70D41 /* 14_2.stl in Copy Files - Tooth Recognition */ = {isa = PBXBuildFile; fileRef = AC2CF56A22645F6300E70D41 /* 14_2.stl */; };
+		AC2CF57C22645FA400E70D41 /* 14_3.stl in Copy Files - Tooth Recognition */ = {isa = PBXBuildFile; fileRef = AC2CF56822645F6300E70D41 /* 14_3.stl */; };
+		AC2CF57D22645FA400E70D41 /* 14_4.stl in Copy Files - Tooth Recognition */ = {isa = PBXBuildFile; fileRef = AC2CF56922645F6300E70D41 /* 14_4.stl */; };
+		AC2CF57E22645FA400E70D41 /* 14_5.stl in Copy Files - Tooth Recognition */ = {isa = PBXBuildFile; fileRef = AC2CF56E22645F6300E70D41 /* 14_5.stl */; };
+		AC2CF57F22645FA400E70D41 /* 14_6.stl in Copy Files - Tooth Recognition */ = {isa = PBXBuildFile; fileRef = AC2CF56C22645F6300E70D41 /* 14_6.stl */; };
+		AC2CF58022645FA400E70D41 /* 14_7.stl in Copy Files - Tooth Recognition */ = {isa = PBXBuildFile; fileRef = AC2CF56622645F6300E70D41 /* 14_7.stl */; };
+		AC2CF58122645FA400E70D41 /* 14_8.stl in Copy Files - Tooth Recognition */ = {isa = PBXBuildFile; fileRef = AC2CF56522645F6300E70D41 /* 14_8.stl */; };
+		AC2CF58222645FA400E70D41 /* 14_9.stl in Copy Files - Tooth Recognition */ = {isa = PBXBuildFile; fileRef = AC2CF56B22645F6300E70D41 /* 14_9.stl */; };
+		AC2CF58322645FA400E70D41 /* 14_10.stl in Copy Files - Tooth Recognition */ = {isa = PBXBuildFile; fileRef = AC2CF56D22645F6300E70D41 /* 14_10.stl */; };
 		AC31A029224A991000A3A461 /* PassphraseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A028224A990F00A3A461 /* PassphraseDelegate.swift */; };
 		AC31A02E224AA87400A3A461 /* UnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A02D224AA87400A3A461 /* UnlockViewController.swift */; };
 		AC31A030224AD86C00A3A461 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC31A02F224AD86C00A3A461 /* NetworkingService.swift */; };
@@ -146,43 +145,43 @@
 		AC53E37C2233AF5E00CA4437 /* MySct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC53E37B2233AF5E00CA4437 /* MySct.storyboard */; };
 		AC53E37E22345F4500CA4437 /* SctUnfinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E37D22345F4500CA4437 /* SctUnfinishedViewController.swift */; };
 		AC623AA72263D4C10088FBCB /* ToothRecognitionSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC623AA62263D4C10088FBCB /* ToothRecognitionSelectionDelegate.swift */; };
-		AC623AA92263D6A50088FBCB /* 11.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D43F22638763003BA7C7 /* 11.tp */; };
-		AC623AAA2263D6A50088FBCB /* 12.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45922638764003BA7C7 /* 12.tp */; };
-		AC623AAB2263D6A50088FBCB /* 13.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D43C22638763003BA7C7 /* 13.tp */; };
-		AC623AAC2263D6A50088FBCB /* 14.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44022638763003BA7C7 /* 14.tp */; };
-		AC623AAD2263D6A50088FBCB /* 15.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D43D22638763003BA7C7 /* 15.tp */; };
-		AC623AAE2263D6A50088FBCB /* 16.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44922638763003BA7C7 /* 16.tp */; };
-		AC623AAF2263D6A50088FBCB /* 17.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44522638763003BA7C7 /* 17.tp */; };
-		AC623AB02263D6A50088FBCB /* 18.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44622638763003BA7C7 /* 18.tp */; };
-		AC623AB12263D6A50088FBCB /* 21.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D43E22638763003BA7C7 /* 21.tp */; };
-		AC623AB22263D6A50088FBCB /* 22.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44E22638763003BA7C7 /* 22.tp */; };
-		AC623AB32263D6A50088FBCB /* 23.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45322638764003BA7C7 /* 23.tp */; };
-		AC623AB42263D6A50088FBCB /* 24.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44A22638763003BA7C7 /* 24.tp */; };
-		AC623AB52263D6A50088FBCB /* 25.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44C22638763003BA7C7 /* 25.tp */; };
-		AC623AB62263D6A50088FBCB /* 26.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45522638764003BA7C7 /* 26.tp */; };
-		AC623AB72263D6A50088FBCB /* 27.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45722638764003BA7C7 /* 27.tp */; };
-		AC623AB82263D6A50088FBCB /* 28.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44122638763003BA7C7 /* 28.tp */; };
-		AC623AB92263D6A50088FBCB /* 31.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45822638764003BA7C7 /* 31.tp */; };
-		AC623ABA2263D6A50088FBCB /* 32.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45B22638764003BA7C7 /* 32.tp */; };
-		AC623ABB2263D6A50088FBCB /* 33.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45022638764003BA7C7 /* 33.tp */; };
-		AC623ABC2263D6A50088FBCB /* 34.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45122638764003BA7C7 /* 34.tp */; };
-		AC623ABD2263D6A50088FBCB /* 35.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45A22638764003BA7C7 /* 35.tp */; };
-		AC623ABE2263D6A50088FBCB /* 36.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44822638763003BA7C7 /* 36.tp */; };
-		AC623ABF2263D6A50088FBCB /* 37.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45422638764003BA7C7 /* 37.tp */; };
-		AC623AC02263D6A50088FBCB /* 38.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44B22638763003BA7C7 /* 38.tp */; };
-		AC623AC12263D6A50088FBCB /* 41.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44F22638764003BA7C7 /* 41.tp */; };
-		AC623AC22263D6A50088FBCB /* 42.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44422638763003BA7C7 /* 42.tp */; };
-		AC623AC32263D6A50088FBCB /* 43.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44322638763003BA7C7 /* 43.tp */; };
-		AC623AC42263D6A50088FBCB /* 44.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45622638764003BA7C7 /* 44.tp */; };
-		AC623AC52263D6A50088FBCB /* 45.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44222638763003BA7C7 /* 45.tp */; };
-		AC623AC62263D6A50088FBCB /* 46.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D45222638764003BA7C7 /* 46.tp */; };
-		AC623AC72263D6A50088FBCB /* 47.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44D22638763003BA7C7 /* 47.tp */; };
-		AC623AC82263D6A50088FBCB /* 48.tp in Copy Files */ = {isa = PBXBuildFile; fileRef = AC06D44722638763003BA7C7 /* 48.tp */; };
+		AC623AA92263D6A50088FBCB /* 11.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D43F22638763003BA7C7 /* 11.tp */; };
+		AC623AAA2263D6A50088FBCB /* 12.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45922638764003BA7C7 /* 12.tp */; };
+		AC623AAB2263D6A50088FBCB /* 13.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D43C22638763003BA7C7 /* 13.tp */; };
+		AC623AAC2263D6A50088FBCB /* 14.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44022638763003BA7C7 /* 14.tp */; };
+		AC623AAD2263D6A50088FBCB /* 15.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D43D22638763003BA7C7 /* 15.tp */; };
+		AC623AAE2263D6A50088FBCB /* 16.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44922638763003BA7C7 /* 16.tp */; };
+		AC623AAF2263D6A50088FBCB /* 17.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44522638763003BA7C7 /* 17.tp */; };
+		AC623AB02263D6A50088FBCB /* 18.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44622638763003BA7C7 /* 18.tp */; };
+		AC623AB12263D6A50088FBCB /* 21.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D43E22638763003BA7C7 /* 21.tp */; };
+		AC623AB22263D6A50088FBCB /* 22.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44E22638763003BA7C7 /* 22.tp */; };
+		AC623AB32263D6A50088FBCB /* 23.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45322638764003BA7C7 /* 23.tp */; };
+		AC623AB42263D6A50088FBCB /* 24.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44A22638763003BA7C7 /* 24.tp */; };
+		AC623AB52263D6A50088FBCB /* 25.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44C22638763003BA7C7 /* 25.tp */; };
+		AC623AB62263D6A50088FBCB /* 26.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45522638764003BA7C7 /* 26.tp */; };
+		AC623AB72263D6A50088FBCB /* 27.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45722638764003BA7C7 /* 27.tp */; };
+		AC623AB82263D6A50088FBCB /* 28.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44122638763003BA7C7 /* 28.tp */; };
+		AC623AB92263D6A50088FBCB /* 31.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45822638764003BA7C7 /* 31.tp */; };
+		AC623ABA2263D6A50088FBCB /* 32.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45B22638764003BA7C7 /* 32.tp */; };
+		AC623ABB2263D6A50088FBCB /* 33.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45022638764003BA7C7 /* 33.tp */; };
+		AC623ABC2263D6A50088FBCB /* 34.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45122638764003BA7C7 /* 34.tp */; };
+		AC623ABD2263D6A50088FBCB /* 35.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45A22638764003BA7C7 /* 35.tp */; };
+		AC623ABE2263D6A50088FBCB /* 36.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44822638763003BA7C7 /* 36.tp */; };
+		AC623ABF2263D6A50088FBCB /* 37.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45422638764003BA7C7 /* 37.tp */; };
+		AC623AC02263D6A50088FBCB /* 38.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44B22638763003BA7C7 /* 38.tp */; };
+		AC623AC12263D6A50088FBCB /* 41.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44F22638764003BA7C7 /* 41.tp */; };
+		AC623AC22263D6A50088FBCB /* 42.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44422638763003BA7C7 /* 42.tp */; };
+		AC623AC32263D6A50088FBCB /* 43.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44322638763003BA7C7 /* 43.tp */; };
+		AC623AC42263D6A50088FBCB /* 44.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45622638764003BA7C7 /* 44.tp */; };
+		AC623AC52263D6A50088FBCB /* 45.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44222638763003BA7C7 /* 45.tp */; };
+		AC623AC62263D6A50088FBCB /* 46.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45222638764003BA7C7 /* 46.tp */; };
+		AC623AC72263D6A50088FBCB /* 47.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44D22638763003BA7C7 /* 47.tp */; };
+		AC623AC82263D6A50088FBCB /* 48.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D44722638763003BA7C7 /* 48.tp */; };
 		AC623ACA2263D7E80088FBCB /* TplBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC623AC92263D7E80088FBCB /* TplBundle.swift */; };
-		AC623ACC2263DA1E0088FBCB /* antagonist.stl in Copy Files */ = {isa = PBXBuildFile; fileRef = ACE001952261C37000384CF8 /* antagonist.stl */; };
-		AC623ACD2263DA1E0088FBCB /* simple_cube.stl in Copy Files */ = {isa = PBXBuildFile; fileRef = ACE001962261C37000384CF8 /* simple_cube.stl */; };
-		AC623ACE2263DA1E0088FBCB /* simple_sphere.stl in Copy Files */ = {isa = PBXBuildFile; fileRef = ACE001972261C37000384CF8 /* simple_sphere.stl */; };
-		AC623ACF2263DA1E0088FBCB /* upper_jaw_scan.stl in Copy Files */ = {isa = PBXBuildFile; fileRef = ACE001982261C37000384CF8 /* upper_jaw_scan.stl */; };
+		AC623ACC2263DA1E0088FBCB /* antagonist.stl in Copy Files - Sct Data */ = {isa = PBXBuildFile; fileRef = ACE001952261C37000384CF8 /* antagonist.stl */; };
+		AC623ACD2263DA1E0088FBCB /* simple_cube.stl in Copy Files - Sct Data */ = {isa = PBXBuildFile; fileRef = ACE001962261C37000384CF8 /* simple_cube.stl */; };
+		AC623ACE2263DA1E0088FBCB /* simple_sphere.stl in Copy Files - Sct Data */ = {isa = PBXBuildFile; fileRef = ACE001972261C37000384CF8 /* simple_sphere.stl */; };
+		AC623ACF2263DA1E0088FBCB /* upper_jaw_scan.stl in Copy Files - Sct Data */ = {isa = PBXBuildFile; fileRef = ACE001982261C37000384CF8 /* upper_jaw_scan.stl */; };
 		AC70FD28229DBCD500D582BD /* Array+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC70FD27229DBCD500D582BD /* Array+utils.swift */; };
 		AC74B69C223542A000B31571 /* WelcomeWalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38BB7D221E9FE1008E829B /* WelcomeWalkthroughContentViewController.swift */; };
 		AC74B69E22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74B69D22354B8900B31571 /* WelcomeWalkthroughExampleViewController.swift */; };
@@ -193,6 +192,15 @@
 		AC8062EA22946FCA00719F06 /* MenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8062E922946FCA00719F06 /* MenuItemCell.xib */; };
 		AC8062EC229477C500719F06 /* MenuHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8062EB229477C500719F06 /* MenuHeader.swift */; };
 		AC8062EE2294784100719F06 /* MenuHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8062ED2294784100719F06 /* MenuHeader.xib */; };
+		AC81288622A168D700FBFE39 /* test_colored_square.stl in Copy Files - Test Color */ = {isa = PBXBuildFile; fileRef = ACD71ADE2294ADCB00592C9A /* test_colored_square.stl */; };
+		AC81288722A168D700FBFE39 /* test_colored_teeth.stl in Copy Files - Test Color */ = {isa = PBXBuildFile; fileRef = AC81288222A158E000FBFE39 /* test_colored_teeth.stl */; };
+		AC81288E22A1702C00FBFE39 /* mandibule_occlusion_occ_file_1.stl in Copy Files - Test Color */ = {isa = PBXBuildFile; fileRef = AC81288922A1701F00FBFE39 /* mandibule_occlusion_occ_file_1.stl */; };
+		AC81288F22A1702C00FBFE39 /* mandibule_scan_file_1.stl in Copy Files - Test Color */ = {isa = PBXBuildFile; fileRef = AC81288B22A1701F00FBFE39 /* mandibule_scan_file_1.stl */; };
+		AC81289022A1702C00FBFE39 /* maxillaire_contact_occ_file_1.stl in Copy Files - Test Color */ = {isa = PBXBuildFile; fileRef = AC81288822A1701F00FBFE39 /* maxillaire_contact_occ_file_1.stl */; };
+		AC81289122A1702C00FBFE39 /* maxillaire_occlusion_occ_file_1.stl in Copy Files - Test Color */ = {isa = PBXBuildFile; fileRef = AC81288C22A1701F00FBFE39 /* maxillaire_occlusion_occ_file_1.stl */; };
+		AC81289322A1702C00FBFE39 /* mordu_posterieur_gauche_scan_file_0.stl in Copy Files - Test Color */ = {isa = PBXBuildFile; fileRef = AC81288A22A1701F00FBFE39 /* mordu_posterieur_gauche_scan_file_0.stl */; };
+		AC81289622A178C400FBFE39 /* mandibular.stl in Copy Files - Test Color */ = {isa = PBXBuildFile; fileRef = AC81289422A178AF00FBFE39 /* mandibular.stl */; };
+		AC81289722A178C400FBFE39 /* maxillary.stl in Copy Files - Test Color */ = {isa = PBXBuildFile; fileRef = AC81289522A178AF00FBFE39 /* maxillary.stl */; };
 		AC82731C222C93B90041AA0C /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC82731B222C93B90041AA0C /* RecoverPasswordViewController.swift */; };
 		AC82731E222C96EB0041AA0C /* SecurityQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC82731D222C96EB0041AA0C /* SecurityQuestionCell.xib */; };
 		AC87E2F8222CA24000D6B8CC /* UserIdentifierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87E2F7222CA24000D6B8CC /* UserIdentifierCell.swift */; };
@@ -221,7 +229,7 @@
 		ACAD5DDA22457B160041E484 /* ImageZoomAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD5DD922457B160041E484 /* ImageZoomAnimationController.swift */; };
 		ACAD5DDC224674A10041E484 /* ImageFadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD5DDB224674A10041E484 /* ImageFadeOutAnimationController.swift */; };
 		ACAEEB472284B8C600A9AA2E /* ToothReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEEB462284B8C600A9AA2E /* ToothReminderViewController.swift */; };
-		ACAEEB492284BE4700A9AA2E /* mesial_14.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACAEEB442284B84100A9AA2E /* mesial_14.png */; };
+		ACAEEB492284BE4700A9AA2E /* mesial_14.png in Copy Files - Tooth Reminder */ = {isa = PBXBuildFile; fileRef = ACAEEB442284B84100A9AA2E /* mesial_14.png */; };
 		ACB8C8A822351AE000C7F77C /* SctFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8C8A722351AE000C7F77C /* SctFinished.swift */; };
 		ACBCF42522425993007CA02F /* AsynchronousTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF42422425993007CA02F /* AsynchronousTableViewController.swift */; };
 		ACBCF4272242CA18007CA02F /* ErrorDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF4262242CA18007CA02F /* ErrorDisplayer.swift */; };
@@ -276,7 +284,6 @@
 		ACD1B3BA223D06F80065F07E /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B3B9223D06F80065F07E /* ButtonCell.xib */; };
 		ACD71ADB2294AB0800592C9A /* TestStlColor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACD71ADA2294AB0800592C9A /* TestStlColor.storyboard */; };
 		ACD71ADD2294AB1A00592C9A /* TestStlColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD71ADC2294AB1A00592C9A /* TestStlColorViewController.swift */; };
-		ACD71ADF2294ADEF00592C9A /* test_colored_square.stl in Resources */ = {isa = PBXBuildFile; fileRef = ACD71ADE2294ADCB00592C9A /* test_colored_square.stl */; };
 		ACDC49A22242171D00B43534 /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A12242171D00B43534 /* String+md5.swift */; };
 		ACDC49A622421D4A00B43534 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A522421D4A00B43534 /* Reachability.swift */; };
 		ACDC49A8224221F800B43534 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC49A7224221F800B43534 /* NetworkStatus.swift */; };
@@ -292,46 +299,47 @@
 		ACE70F97221F3254008454FF /* UITableViewCell+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F96221F3254008454FF /* UITableViewCell+utils.swift */; };
 		ACE70F99221F32B9008454FF /* UITableView+register.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE70F98221F32B9008454FF /* UITableView+register.swift */; };
 		ACE7DE5A228B6F9F00CAEEF0 /* TherapeuticChoiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7DE59228B6F9F00CAEEF0 /* TherapeuticChoiceDelegate.swift */; };
-		ACF23602229B2BFD00E7060D /* 1.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F8229B2BF100E7060D /* 1.stl */; };
-		ACF23603229B2BFD00E7060D /* 2.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F5229B2BF100E7060D /* 2.stl */; };
-		ACF23604229B2BFD00E7060D /* 3.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235FF229B2BF200E7060D /* 3.stl */; };
-		ACF23605229B2BFD00E7060D /* 4.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F4229B2BF100E7060D /* 4.stl */; };
-		ACF23606229B2BFD00E7060D /* 5.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F3229B2BF100E7060D /* 5.stl */; };
-		ACF23607229B2BFD00E7060D /* 6.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235FB229B2BF200E7060D /* 6.stl */; };
-		ACF23608229B2BFD00E7060D /* 7.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F7229B2BF100E7060D /* 7.stl */; };
-		ACF23609229B2BFD00E7060D /* 8.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F6229B2BF100E7060D /* 8.stl */; };
-		ACF2360A229B2BFD00E7060D /* 9.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235FA229B2BF100E7060D /* 9.stl */; };
-		ACF2360B229B2BFD00E7060D /* 10.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF23601229B2BF200E7060D /* 10.stl */; };
-		ACF2360C229B2BFD00E7060D /* 11.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F2229B2BF100E7060D /* 11.stl */; };
-		ACF2360D229B2BFD00E7060D /* 12.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235FE229B2BF200E7060D /* 12.stl */; };
-		ACF2360E229B2BFD00E7060D /* 13.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235FD229B2BF200E7060D /* 13.stl */; };
-		ACF2360F229B2BFD00E7060D /* 14.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F9229B2BF100E7060D /* 14.stl */; };
-		ACF23610229B2BFD00E7060D /* 15.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235F1229B2BF100E7060D /* 15.stl */; };
-		ACF23611229B2BFD00E7060D /* 16.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF23600229B2BF200E7060D /* 16.stl */; };
-		ACF23612229B2BFD00E7060D /* 17.stl in CopyFiles */ = {isa = PBXBuildFile; fileRef = ACF235FC229B2BF200E7060D /* 17.stl */; };
+		ACF23602229B2BFD00E7060D /* 1.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235F8229B2BF100E7060D /* 1.stl */; };
+		ACF23603229B2BFD00E7060D /* 2.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235F5229B2BF100E7060D /* 2.stl */; };
+		ACF23604229B2BFD00E7060D /* 3.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235FF229B2BF200E7060D /* 3.stl */; };
+		ACF23605229B2BFD00E7060D /* 4.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235F4229B2BF100E7060D /* 4.stl */; };
+		ACF23606229B2BFD00E7060D /* 5.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235F3229B2BF100E7060D /* 5.stl */; };
+		ACF23607229B2BFD00E7060D /* 6.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235FB229B2BF200E7060D /* 6.stl */; };
+		ACF23608229B2BFD00E7060D /* 7.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235F7229B2BF100E7060D /* 7.stl */; };
+		ACF23609229B2BFD00E7060D /* 8.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235F6229B2BF100E7060D /* 8.stl */; };
+		ACF2360A229B2BFD00E7060D /* 9.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235FA229B2BF100E7060D /* 9.stl */; };
+		ACF2360B229B2BFD00E7060D /* 10.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF23601229B2BF200E7060D /* 10.stl */; };
+		ACF2360C229B2BFD00E7060D /* 11.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235F2229B2BF100E7060D /* 11.stl */; };
+		ACF2360D229B2BFD00E7060D /* 12.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235FE229B2BF200E7060D /* 12.stl */; };
+		ACF2360E229B2BFD00E7060D /* 13.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235FD229B2BF200E7060D /* 13.stl */; };
+		ACF2360F229B2BFD00E7060D /* 14.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235F9229B2BF100E7060D /* 14.stl */; };
+		ACF23610229B2BFD00E7060D /* 15.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235F1229B2BF100E7060D /* 15.stl */; };
+		ACF23611229B2BFD00E7060D /* 16.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF23600229B2BF200E7060D /* 16.stl */; };
+		ACF23612229B2BFD00E7060D /* 17.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = ACF235FC229B2BF200E7060D /* 17.stl */; };
 		ACF23614229B32B200E7060D /* TctSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF23613229B32B200E7060D /* TctSaver.swift */; };
 		ACF23616229C95A500E7060D /* TctManage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF23615229C95A500E7060D /* TctManage.storyboard */; };
 		ACF23618229C960400E7060D /* TctManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF23617229C960400E7060D /* TctManageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AC2CF57922645F9600E70D41 /* CopyFiles */ = {
+		AC2CF57922645F9600E70D41 /* Copy Files - Tooth Recognition */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = ToothRecognition;
 			dstSubfolderSpec = 7;
 			files = (
-				AC2CF57A22645FA400E70D41 /* 14_1.stl in CopyFiles */,
-				AC2CF57B22645FA400E70D41 /* 14_2.stl in CopyFiles */,
-				AC2CF57C22645FA400E70D41 /* 14_3.stl in CopyFiles */,
-				AC2CF57D22645FA400E70D41 /* 14_4.stl in CopyFiles */,
-				AC2CF57E22645FA400E70D41 /* 14_5.stl in CopyFiles */,
-				AC2CF57F22645FA400E70D41 /* 14_6.stl in CopyFiles */,
-				AC2CF58022645FA400E70D41 /* 14_7.stl in CopyFiles */,
-				AC2CF58122645FA400E70D41 /* 14_8.stl in CopyFiles */,
-				AC2CF58222645FA400E70D41 /* 14_9.stl in CopyFiles */,
-				AC2CF58322645FA400E70D41 /* 14_10.stl in CopyFiles */,
+				AC2CF57A22645FA400E70D41 /* 14_1.stl in Copy Files - Tooth Recognition */,
+				AC2CF57B22645FA400E70D41 /* 14_2.stl in Copy Files - Tooth Recognition */,
+				AC2CF57C22645FA400E70D41 /* 14_3.stl in Copy Files - Tooth Recognition */,
+				AC2CF57D22645FA400E70D41 /* 14_4.stl in Copy Files - Tooth Recognition */,
+				AC2CF57E22645FA400E70D41 /* 14_5.stl in Copy Files - Tooth Recognition */,
+				AC2CF57F22645FA400E70D41 /* 14_6.stl in Copy Files - Tooth Recognition */,
+				AC2CF58022645FA400E70D41 /* 14_7.stl in Copy Files - Tooth Recognition */,
+				AC2CF58122645FA400E70D41 /* 14_8.stl in Copy Files - Tooth Recognition */,
+				AC2CF58222645FA400E70D41 /* 14_9.stl in Copy Files - Tooth Recognition */,
+				AC2CF58322645FA400E70D41 /* 14_10.stl in Copy Files - Tooth Recognition */,
 			);
+			name = "Copy Files - Tooth Recognition";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AC51DA162272F6AC00A66887 /* Embed Frameworks */ = {
@@ -345,96 +353,117 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC623AA82263D68C0088FBCB /* Copy Files */ = {
+		AC623AA82263D68C0088FBCB /* Copy Files - Tooth Position */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = ToothPosition;
 			dstSubfolderSpec = 7;
 			files = (
-				AC623AA92263D6A50088FBCB /* 11.tp in Copy Files */,
-				AC623AAA2263D6A50088FBCB /* 12.tp in Copy Files */,
-				AC623AAB2263D6A50088FBCB /* 13.tp in Copy Files */,
-				AC623AAC2263D6A50088FBCB /* 14.tp in Copy Files */,
-				AC623AAD2263D6A50088FBCB /* 15.tp in Copy Files */,
-				AC623AAE2263D6A50088FBCB /* 16.tp in Copy Files */,
-				AC623AAF2263D6A50088FBCB /* 17.tp in Copy Files */,
-				AC623AB02263D6A50088FBCB /* 18.tp in Copy Files */,
-				AC623AB12263D6A50088FBCB /* 21.tp in Copy Files */,
-				AC623AB22263D6A50088FBCB /* 22.tp in Copy Files */,
-				AC623AB32263D6A50088FBCB /* 23.tp in Copy Files */,
-				AC623AB42263D6A50088FBCB /* 24.tp in Copy Files */,
-				AC623AB52263D6A50088FBCB /* 25.tp in Copy Files */,
-				AC623AB62263D6A50088FBCB /* 26.tp in Copy Files */,
-				AC623AB72263D6A50088FBCB /* 27.tp in Copy Files */,
-				AC623AB82263D6A50088FBCB /* 28.tp in Copy Files */,
-				AC623AB92263D6A50088FBCB /* 31.tp in Copy Files */,
-				AC623ABA2263D6A50088FBCB /* 32.tp in Copy Files */,
-				AC623ABB2263D6A50088FBCB /* 33.tp in Copy Files */,
-				AC623ABC2263D6A50088FBCB /* 34.tp in Copy Files */,
-				AC623ABD2263D6A50088FBCB /* 35.tp in Copy Files */,
-				AC623ABE2263D6A50088FBCB /* 36.tp in Copy Files */,
-				AC623ABF2263D6A50088FBCB /* 37.tp in Copy Files */,
-				AC623AC02263D6A50088FBCB /* 38.tp in Copy Files */,
-				AC623AC12263D6A50088FBCB /* 41.tp in Copy Files */,
-				AC623AC22263D6A50088FBCB /* 42.tp in Copy Files */,
-				AC623AC32263D6A50088FBCB /* 43.tp in Copy Files */,
-				AC623AC42263D6A50088FBCB /* 44.tp in Copy Files */,
-				AC623AC52263D6A50088FBCB /* 45.tp in Copy Files */,
-				AC623AC62263D6A50088FBCB /* 46.tp in Copy Files */,
-				AC623AC72263D6A50088FBCB /* 47.tp in Copy Files */,
-				AC623AC82263D6A50088FBCB /* 48.tp in Copy Files */,
+				AC623AA92263D6A50088FBCB /* 11.tp in Copy Files - Tooth Position */,
+				AC623AAA2263D6A50088FBCB /* 12.tp in Copy Files - Tooth Position */,
+				AC623AAB2263D6A50088FBCB /* 13.tp in Copy Files - Tooth Position */,
+				AC623AAC2263D6A50088FBCB /* 14.tp in Copy Files - Tooth Position */,
+				AC623AAD2263D6A50088FBCB /* 15.tp in Copy Files - Tooth Position */,
+				AC623AAE2263D6A50088FBCB /* 16.tp in Copy Files - Tooth Position */,
+				AC623AAF2263D6A50088FBCB /* 17.tp in Copy Files - Tooth Position */,
+				AC623AB02263D6A50088FBCB /* 18.tp in Copy Files - Tooth Position */,
+				AC623AB12263D6A50088FBCB /* 21.tp in Copy Files - Tooth Position */,
+				AC623AB22263D6A50088FBCB /* 22.tp in Copy Files - Tooth Position */,
+				AC623AB32263D6A50088FBCB /* 23.tp in Copy Files - Tooth Position */,
+				AC623AB42263D6A50088FBCB /* 24.tp in Copy Files - Tooth Position */,
+				AC623AB52263D6A50088FBCB /* 25.tp in Copy Files - Tooth Position */,
+				AC623AB62263D6A50088FBCB /* 26.tp in Copy Files - Tooth Position */,
+				AC623AB72263D6A50088FBCB /* 27.tp in Copy Files - Tooth Position */,
+				AC623AB82263D6A50088FBCB /* 28.tp in Copy Files - Tooth Position */,
+				AC623AB92263D6A50088FBCB /* 31.tp in Copy Files - Tooth Position */,
+				AC623ABA2263D6A50088FBCB /* 32.tp in Copy Files - Tooth Position */,
+				AC623ABB2263D6A50088FBCB /* 33.tp in Copy Files - Tooth Position */,
+				AC623ABC2263D6A50088FBCB /* 34.tp in Copy Files - Tooth Position */,
+				AC623ABD2263D6A50088FBCB /* 35.tp in Copy Files - Tooth Position */,
+				AC623ABE2263D6A50088FBCB /* 36.tp in Copy Files - Tooth Position */,
+				AC623ABF2263D6A50088FBCB /* 37.tp in Copy Files - Tooth Position */,
+				AC623AC02263D6A50088FBCB /* 38.tp in Copy Files - Tooth Position */,
+				AC623AC12263D6A50088FBCB /* 41.tp in Copy Files - Tooth Position */,
+				AC623AC22263D6A50088FBCB /* 42.tp in Copy Files - Tooth Position */,
+				AC623AC32263D6A50088FBCB /* 43.tp in Copy Files - Tooth Position */,
+				AC623AC42263D6A50088FBCB /* 44.tp in Copy Files - Tooth Position */,
+				AC623AC52263D6A50088FBCB /* 45.tp in Copy Files - Tooth Position */,
+				AC623AC62263D6A50088FBCB /* 46.tp in Copy Files - Tooth Position */,
+				AC623AC72263D6A50088FBCB /* 47.tp in Copy Files - Tooth Position */,
+				AC623AC82263D6A50088FBCB /* 48.tp in Copy Files - Tooth Position */,
 			);
-			name = "Copy Files";
+			name = "Copy Files - Tooth Position";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC623ACB2263D9F50088FBCB /* Copy Files */ = {
+		AC623ACB2263D9F50088FBCB /* Copy Files - Sct Data */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = SctData;
 			dstSubfolderSpec = 7;
 			files = (
-				AC623ACC2263DA1E0088FBCB /* antagonist.stl in Copy Files */,
-				AC623ACD2263DA1E0088FBCB /* simple_cube.stl in Copy Files */,
-				AC623ACE2263DA1E0088FBCB /* simple_sphere.stl in Copy Files */,
-				AC623ACF2263DA1E0088FBCB /* upper_jaw_scan.stl in Copy Files */,
+				AC623ACC2263DA1E0088FBCB /* antagonist.stl in Copy Files - Sct Data */,
+				AC623ACD2263DA1E0088FBCB /* simple_cube.stl in Copy Files - Sct Data */,
+				AC623ACE2263DA1E0088FBCB /* simple_sphere.stl in Copy Files - Sct Data */,
+				AC623ACF2263DA1E0088FBCB /* upper_jaw_scan.stl in Copy Files - Sct Data */,
 			);
-			name = "Copy Files";
+			name = "Copy Files - Sct Data";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ACAEEB482284BE3800A9AA2E /* CopyFiles */ = {
+		AC81288522A168BE00FBFE39 /* Copy Files - Test Color */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = TestColor;
+			dstSubfolderSpec = 7;
+			files = (
+				AC81289622A178C400FBFE39 /* mandibular.stl in Copy Files - Test Color */,
+				AC81289722A178C400FBFE39 /* maxillary.stl in Copy Files - Test Color */,
+				AC81288E22A1702C00FBFE39 /* mandibule_occlusion_occ_file_1.stl in Copy Files - Test Color */,
+				AC81288F22A1702C00FBFE39 /* mandibule_scan_file_1.stl in Copy Files - Test Color */,
+				AC81289022A1702C00FBFE39 /* maxillaire_contact_occ_file_1.stl in Copy Files - Test Color */,
+				AC81289122A1702C00FBFE39 /* maxillaire_occlusion_occ_file_1.stl in Copy Files - Test Color */,
+				AC81289322A1702C00FBFE39 /* mordu_posterieur_gauche_scan_file_0.stl in Copy Files - Test Color */,
+				AC81288622A168D700FBFE39 /* test_colored_square.stl in Copy Files - Test Color */,
+				AC81288722A168D700FBFE39 /* test_colored_teeth.stl in Copy Files - Test Color */,
+			);
+			name = "Copy Files - Test Color";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACAEEB482284BE3800A9AA2E /* Copy Files - Tooth Reminder */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = ToothReminder;
 			dstSubfolderSpec = 7;
 			files = (
-				ACAEEB492284BE4700A9AA2E /* mesial_14.png in CopyFiles */,
+				ACAEEB492284BE4700A9AA2E /* mesial_14.png in Copy Files - Tooth Reminder */,
 			);
+			name = "Copy Files - Tooth Reminder";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ACF235F0229B2B5200E7060D /* CopyFiles */ = {
+		ACF235F0229B2B5200E7060D /* Copy Files - Therapeutic Choice Training */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = TherapeuticChoiceTraining;
 			dstSubfolderSpec = 7;
 			files = (
-				ACF23602229B2BFD00E7060D /* 1.stl in CopyFiles */,
-				ACF23603229B2BFD00E7060D /* 2.stl in CopyFiles */,
-				ACF23604229B2BFD00E7060D /* 3.stl in CopyFiles */,
-				ACF23605229B2BFD00E7060D /* 4.stl in CopyFiles */,
-				ACF23606229B2BFD00E7060D /* 5.stl in CopyFiles */,
-				ACF23607229B2BFD00E7060D /* 6.stl in CopyFiles */,
-				ACF23608229B2BFD00E7060D /* 7.stl in CopyFiles */,
-				ACF23609229B2BFD00E7060D /* 8.stl in CopyFiles */,
-				ACF2360A229B2BFD00E7060D /* 9.stl in CopyFiles */,
-				ACF2360B229B2BFD00E7060D /* 10.stl in CopyFiles */,
-				ACF2360C229B2BFD00E7060D /* 11.stl in CopyFiles */,
-				ACF2360D229B2BFD00E7060D /* 12.stl in CopyFiles */,
-				ACF2360E229B2BFD00E7060D /* 13.stl in CopyFiles */,
-				ACF2360F229B2BFD00E7060D /* 14.stl in CopyFiles */,
-				ACF23610229B2BFD00E7060D /* 15.stl in CopyFiles */,
-				ACF23611229B2BFD00E7060D /* 16.stl in CopyFiles */,
-				ACF23612229B2BFD00E7060D /* 17.stl in CopyFiles */,
+				ACF23602229B2BFD00E7060D /* 1.stl in Copy Files - Therapeutic Choice Training */,
+				ACF23603229B2BFD00E7060D /* 2.stl in Copy Files - Therapeutic Choice Training */,
+				ACF23604229B2BFD00E7060D /* 3.stl in Copy Files - Therapeutic Choice Training */,
+				ACF23605229B2BFD00E7060D /* 4.stl in Copy Files - Therapeutic Choice Training */,
+				ACF23606229B2BFD00E7060D /* 5.stl in Copy Files - Therapeutic Choice Training */,
+				ACF23607229B2BFD00E7060D /* 6.stl in Copy Files - Therapeutic Choice Training */,
+				ACF23608229B2BFD00E7060D /* 7.stl in Copy Files - Therapeutic Choice Training */,
+				ACF23609229B2BFD00E7060D /* 8.stl in Copy Files - Therapeutic Choice Training */,
+				ACF2360A229B2BFD00E7060D /* 9.stl in Copy Files - Therapeutic Choice Training */,
+				ACF2360B229B2BFD00E7060D /* 10.stl in Copy Files - Therapeutic Choice Training */,
+				ACF2360C229B2BFD00E7060D /* 11.stl in Copy Files - Therapeutic Choice Training */,
+				ACF2360D229B2BFD00E7060D /* 12.stl in Copy Files - Therapeutic Choice Training */,
+				ACF2360E229B2BFD00E7060D /* 13.stl in Copy Files - Therapeutic Choice Training */,
+				ACF2360F229B2BFD00E7060D /* 14.stl in Copy Files - Therapeutic Choice Training */,
+				ACF23610229B2BFD00E7060D /* 15.stl in Copy Files - Therapeutic Choice Training */,
+				ACF23611229B2BFD00E7060D /* 16.stl in Copy Files - Therapeutic Choice Training */,
+				ACF23612229B2BFD00E7060D /* 17.stl in Copy Files - Therapeutic Choice Training */,
 			);
+			name = "Copy Files - Therapeutic Choice Training";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -530,7 +559,6 @@
 		AC2CF56C22645F6300E70D41 /* 14_6.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_6.stl; sourceTree = "<group>"; };
 		AC2CF56D22645F6300E70D41 /* 14_10.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_10.stl; sourceTree = "<group>"; };
 		AC2CF56E22645F6300E70D41 /* 14_5.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 14_5.stl; sourceTree = "<group>"; };
-		AC2D9EE0229EAEBD00A650B1 /* maxillary.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = maxillary.obj; path = Script_odont/Resources/maxillary.obj; sourceTree = SOURCE_ROOT; };
 		AC31A028224A990F00A3A461 /* PassphraseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassphraseDelegate.swift; sourceTree = "<group>"; };
 		AC31A02D224AA87400A3A461 /* UnlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockViewController.swift; sourceTree = "<group>"; };
 		AC31A02F224AD86C00A3A461 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
@@ -630,6 +658,14 @@
 		AC8062E922946FCA00719F06 /* MenuItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemCell.xib; sourceTree = "<group>"; };
 		AC8062EB229477C500719F06 /* MenuHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeader.swift; sourceTree = "<group>"; };
 		AC8062ED2294784100719F06 /* MenuHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuHeader.xib; sourceTree = "<group>"; };
+		AC81288222A158E000FBFE39 /* test_colored_teeth.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = test_colored_teeth.stl; sourceTree = "<group>"; };
+		AC81288822A1701F00FBFE39 /* maxillaire_contact_occ_file_1.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = maxillaire_contact_occ_file_1.stl; sourceTree = "<group>"; };
+		AC81288922A1701F00FBFE39 /* mandibule_occlusion_occ_file_1.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = mandibule_occlusion_occ_file_1.stl; sourceTree = "<group>"; };
+		AC81288A22A1701F00FBFE39 /* mordu_posterieur_gauche_scan_file_0.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = mordu_posterieur_gauche_scan_file_0.stl; sourceTree = "<group>"; };
+		AC81288B22A1701F00FBFE39 /* mandibule_scan_file_1.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = mandibule_scan_file_1.stl; sourceTree = "<group>"; };
+		AC81288C22A1701F00FBFE39 /* maxillaire_occlusion_occ_file_1.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = maxillaire_occlusion_occ_file_1.stl; sourceTree = "<group>"; };
+		AC81289422A178AF00FBFE39 /* mandibular.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = mandibular.stl; sourceTree = "<group>"; };
+		AC81289522A178AF00FBFE39 /* maxillary.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = maxillary.stl; sourceTree = "<group>"; };
 		AC82731B222C93B90041AA0C /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
 		AC82731D222C96EB0041AA0C /* SecurityQuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecurityQuestionCell.xib; sourceTree = "<group>"; };
 		AC87E2F7222CA24000D6B8CC /* UserIdentifierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdentifierCell.swift; sourceTree = "<group>"; };
@@ -1002,13 +1038,12 @@
 		AC317D312261BF0900785C05 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AC81288422A1685800FBFE39 /* TestColor */,
 				AC06D43B226386CA003BA7C7 /* ToothPosition */,
 				AC317D3E2261BFB100785C05 /* SctData */,
 				AC2CF56422645F1B00E70D41 /* ToothRecognition */,
 				ACAEEB3F2284B7A300A9AA2E /* ToothReminder */,
 				ACE0D027229B212400CD4760 /* TherapeuticChoiceTraining */,
-				AC2D9EE0229EAEBD00A650B1 /* maxillary.obj */,
-				ACD71ADE2294ADCB00592C9A /* test_colored_square.stl */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1249,6 +1284,22 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
+		AC81288422A1685800FBFE39 /* TestColor */ = {
+			isa = PBXGroup;
+			children = (
+				AC81289422A178AF00FBFE39 /* mandibular.stl */,
+				AC81289522A178AF00FBFE39 /* maxillary.stl */,
+				AC81288922A1701F00FBFE39 /* mandibule_occlusion_occ_file_1.stl */,
+				AC81288B22A1701F00FBFE39 /* mandibule_scan_file_1.stl */,
+				AC81288822A1701F00FBFE39 /* maxillaire_contact_occ_file_1.stl */,
+				AC81288C22A1701F00FBFE39 /* maxillaire_occlusion_occ_file_1.stl */,
+				AC81288A22A1701F00FBFE39 /* mordu_posterieur_gauche_scan_file_0.stl */,
+				ACD71ADE2294ADCB00592C9A /* test_colored_square.stl */,
+				AC81288222A158E000FBFE39 /* test_colored_teeth.stl */,
+			);
+			path = TestColor;
+			sourceTree = "<group>";
+		};
 		AC8F5B802229694C00FAEFC5 /* Unlock */ = {
 			isa = PBXGroup;
 			children = (
@@ -1438,11 +1489,12 @@
 				AC38BB58221DE4C9008E829B /* Sources */,
 				AC38BB59221DE4C9008E829B /* Frameworks */,
 				AC38BB5A221DE4C9008E829B /* Resources */,
-				AC623AA82263D68C0088FBCB /* Copy Files */,
-				AC623ACB2263D9F50088FBCB /* Copy Files */,
-				AC2CF57922645F9600E70D41 /* CopyFiles */,
-				ACAEEB482284BE3800A9AA2E /* CopyFiles */,
-				ACF235F0229B2B5200E7060D /* CopyFiles */,
+				AC623AA82263D68C0088FBCB /* Copy Files - Tooth Position */,
+				AC623ACB2263D9F50088FBCB /* Copy Files - Sct Data */,
+				AC2CF57922645F9600E70D41 /* Copy Files - Tooth Recognition */,
+				ACAEEB482284BE3800A9AA2E /* Copy Files - Tooth Reminder */,
+				ACF235F0229B2B5200E7060D /* Copy Files - Therapeutic Choice Training */,
+				AC81288522A168BE00FBFE39 /* Copy Files - Test Color */,
 				AC51DA162272F6AC00A66887 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -1493,7 +1545,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACD71ADF2294ADEF00592C9A /* test_colored_square.stl in Resources */,
 				ACC52C44223EF38200B974BA /* CandidateStatisticsCell.xib in Resources */,
 				ACC83F7B223E4B5C0064BE6F /* SctBrowsing.storyboard in Resources */,
 				AC38BB6A221DE4CB008E829B /* LaunchScreen.storyboard in Resources */,
@@ -1526,7 +1577,6 @@
 				AC31A049224B889C00A3A461 /* Configuration.plist in Resources */,
 				AC31E39F2235BC8500A3B813 /* SctItemCell.xib in Resources */,
 				AC53E37C2233AF5E00CA4437 /* MySct.storyboard in Resources */,
-				AC2D9EE1229EAEBD00A650B1 /* maxillary.obj in Resources */,
 				ACD1B3B2223C51B10065F07E /* SctBrowsingCell.xib in Resources */,
 				ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */,
 				AC2CF56322645B6500E70D41 /* Volume.storyboard in Resources */,

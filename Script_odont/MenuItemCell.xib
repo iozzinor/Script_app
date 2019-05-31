@@ -19,11 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="169" height="164"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CdN-2G-tPb">
-                        <rect key="frame" x="0.0" y="0.0" width="169" height="117"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bf0-aB-Elo">
-                        <rect key="frame" x="0.0" y="72" width="169" height="20.5"/>
+                        <rect key="frame" x="10" y="10" width="149" height="144"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -31,19 +28,14 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="CdN-2G-tPb" firstAttribute="top" secondItem="BCI-fC-h83" secondAttribute="top" id="1Rq-3T-zUN"/>
-                <constraint firstItem="CdN-2G-tPb" firstAttribute="leading" secondItem="BCI-fC-h83" secondAttribute="leading" id="6Q9-HL-Jrs"/>
-                <constraint firstItem="bf0-aB-Elo" firstAttribute="leading" secondItem="BCI-fC-h83" secondAttribute="leading" id="Ax7-nV-l0d"/>
+                <constraint firstItem="bf0-aB-Elo" firstAttribute="leading" secondItem="BCI-fC-h83" secondAttribute="leading" constant="10" id="Ax7-nV-l0d"/>
                 <constraint firstItem="bf0-aB-Elo" firstAttribute="centerY" secondItem="BCI-fC-h83" secondAttribute="centerY" id="XlM-TI-QtX"/>
-                <constraint firstItem="CdN-2G-tPb" firstAttribute="top" secondItem="BCI-fC-h83" secondAttribute="top" id="hsR-Bn-usF"/>
-                <constraint firstAttribute="trailing" secondItem="CdN-2G-tPb" secondAttribute="trailing" id="pbn-Cm-tlB"/>
+                <constraint firstItem="bf0-aB-Elo" firstAttribute="top" secondItem="BCI-fC-h83" secondAttribute="top" constant="10" id="qtN-OB-ub0"/>
                 <constraint firstItem="bf0-aB-Elo" firstAttribute="centerX" secondItem="BCI-fC-h83" secondAttribute="centerX" id="uKy-1Z-H5x"/>
-                <constraint firstAttribute="bottom" secondItem="CdN-2G-tPb" secondAttribute="bottom" constant="47" id="yxc-jH-G3c"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vLB-kh-RIc"/>
             <size key="customSize" width="169" height="164"/>
             <connections>
-                <outlet property="imageView" destination="CdN-2G-tPb" id="3Xb-9V-ioF"/>
                 <outlet property="label" destination="bf0-aB-Elo" id="suR-i1-cik"/>
             </connections>
             <point key="canvasLocation" x="455.79710144927537" y="14.732142857142856"/>

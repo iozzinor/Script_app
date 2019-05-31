@@ -81,6 +81,10 @@ class ToothRecognitionViewController: UIViewController
         toothView.allowsCameraControl = true
         toothView.defaultCameraController.interactionMode = .orbitAngleMapping
         
+        toothView.layer.borderColor = UIColor.black.cgColor
+        toothView.layer.borderWidth = 2
+        toothView.layer.cornerRadius = 5
+        
         // scene
         let scene = SCNScene()
         scene.background.contents = UIColor.white

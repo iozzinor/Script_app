@@ -178,7 +178,9 @@ class ViewController: UICollectionViewController
         
         let colorIndex = indexPath.row % ViewController.menuItemColors_.count
         
-        cell.backgroundColor = ViewController.menuItemColors_[colorIndex]
+        cell.layer.backgroundColor    = ViewController.menuItemColors_[colorIndex].cgColor
+        cell.layer.cornerRadius       = 5
+        
         cell.label.text = menuItem.name
         
         return cell

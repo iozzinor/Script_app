@@ -57,9 +57,8 @@ class TherapeuticTestBasicViewController: UIViewController
         "Composite",
         "Inlay / Onlay",
         "Veneerlay / Overlay",
-        "Couronne collée",
+        "Couronne collée / endo-couronne",
         "Couronne avec RCR",
-        "Endo-couronne"
     ]
     fileprivate var currentQuestionIndex_ = 0
     fileprivate var currentQuestion_: TctQuestion {
