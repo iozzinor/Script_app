@@ -42,8 +42,14 @@ class TherapeuticTestBasicViewController: UIViewController
     var doneItem: UIBarButtonItem!
     var participant: TctParticipant!
     
-    var questions: [TctQuestion] = [] {
+    var sequenceIndex: Int = 0 {
         didSet {
+            if sequenceIndex < 0 || sequenceIndex > TctQuestion.sequences.count - 1
+            {
+                sequenceIndex = oldValue
+            }
+            questions_ = TctQuestion.questions(sequenceIndex: sequenceIndex)
+            
             if isViewLoaded
             {
                 therapeuticChoicesView.reloadData()
@@ -52,6 +58,8 @@ class TherapeuticTestBasicViewController: UIViewController
             }
         }
     }
+    
+    fileprivate var questions_: [TctQuestion] = []
     
     fileprivate let therapeuticChoices_ = [
         "Composite",
@@ -62,7 +70,7 @@ class TherapeuticTestBasicViewController: UIViewController
     ]
     fileprivate var currentQuestionIndex_ = 0
     fileprivate var currentQuestion_: TctQuestion {
-        return questions[questionsSuffleIndexes_[currentQuestionIndex_]]
+        return questions_[questionsSuffleIndexes_[currentQuestionIndex_]]
     }
     fileprivate var questionsSuffleIndexes_ = [Int]()
     fileprivate var userChoices_ = [[Int]]()
@@ -76,7 +84,7 @@ class TherapeuticTestBasicViewController: UIViewController
         }
     }
     fileprivate var stlToothUrl_: URL? {
-        let currentFileName = questions[questionsSuffleIndexes_[currentQuestionIndex_]].volumeFileName
+        let currentFileName = questions_[questionsSuffleIndexes_[currentQuestionIndex_]].volumeFileName
         return Bundle.main.url(forResource: currentFileName, withExtension: "stl", subdirectory: "TherapeuticChoiceTraining")
     }
     fileprivate var timer_: Timer? = nil
@@ -117,9 +125,13 @@ class TherapeuticTestBasicViewController: UIViewController
     // -------------------------------------------------------------------------
     fileprivate func setup_()
     {
-        setupUserChoices_()
         setupNavigationMenu_()
         setupNavigationButtons_()
+        
+        therapeuticChoicesView.reloadData()
+        updateNavigationButtons_()
+        
+        setupUserChoices_()
         setupScaleLabel_()
         setupToothVolume_()
         setupTherapeuticChoices_()
@@ -224,7 +236,7 @@ class TherapeuticTestBasicViewController: UIViewController
         }
         
         let defaultChoices = Array<Int>(repeating: -1, count: choicePossibilities)
-        userChoices_ = Array(repeating: defaultChoices, count: questions.count)
+        userChoices_ = Array(repeating: defaultChoices, count: questions_.count)
         
         updateQuestionsMapping_()
     }
@@ -303,7 +315,7 @@ class TherapeuticTestBasicViewController: UIViewController
         
         // save the session
         let session = TctSession(date: Date(), participant: participant, answers: answers)
-        TctSaver.save(session: session)
+        TctSaver.save(session: session, sequenceIndex: sequenceIndex)
         
         // display the success message
         displaySaveSuccess_()
@@ -378,7 +390,7 @@ class TherapeuticTestBasicViewController: UIViewController
     {
         previousButton.isEnabled = currentQuestionIndex_ > 0
         previousItem.isEnabled = previousButton.isEnabled
-        nextButton.isEnabled = currentQuestionIndex_ < questions.count - 1
+        nextButton.isEnabled = currentQuestionIndex_ < questions_.count - 1
         nextItem.isEnabled = nextButton.isEnabled
     }
     
@@ -408,8 +420,8 @@ class TherapeuticTestBasicViewController: UIViewController
     {
         // shuffle the questions array
         // to make the order random
-        questionsSuffleIndexes_ = Array<Int>(repeating: -1, count: questions.count)
-        for i in 0..<questions.count
+        questionsSuffleIndexes_ = Array<Int>(repeating: -1, count: questions_.count)
+        for i in 0..<questions_.count
         {
             questionsSuffleIndexes_[i] = i
         }

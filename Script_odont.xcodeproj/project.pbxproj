@@ -144,6 +144,15 @@
 		AC53E37A2233AE3B00CA4437 /* MySctUnfinishedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E3792233AE3B00CA4437 /* MySctUnfinishedCell.swift */; };
 		AC53E37C2233AF5E00CA4437 /* MySct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC53E37B2233AF5E00CA4437 /* MySct.storyboard */; };
 		AC53E37E22345F4500CA4437 /* SctUnfinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC53E37D22345F4500CA4437 /* SctUnfinishedViewController.swift */; };
+		AC6164B822A2A149009B7C58 /* 18.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = AC6164B422A2A128009B7C58 /* 18.stl */; };
+		AC6164B922A2A149009B7C58 /* 19.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = AC6164B122A2A128009B7C58 /* 19.stl */; };
+		AC6164BA22A2A149009B7C58 /* 20.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = AC6164B522A2A128009B7C58 /* 20.stl */; };
+		AC6164BB22A2A149009B7C58 /* 21.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = AC6164B222A2A128009B7C58 /* 21.stl */; };
+		AC6164BC22A2A149009B7C58 /* 22.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = AC6164B322A2A128009B7C58 /* 22.stl */; };
+		AC6164BD22A2A149009B7C58 /* 23.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = AC6164B722A2A128009B7C58 /* 23.stl */; };
+		AC6164BE22A2A149009B7C58 /* 24.stl in Copy Files - Therapeutic Choice Training */ = {isa = PBXBuildFile; fileRef = AC6164B622A2A128009B7C58 /* 24.stl */; };
+		AC6164C022A2B468009B7C58 /* SequencePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6164BF22A2B468009B7C58 /* SequencePickerViewController.swift */; };
+		AC6164C222A2B666009B7C58 /* SequencePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6164C122A2B666009B7C58 /* SequencePickerDelegate.swift */; };
 		AC623AA72263D4C10088FBCB /* ToothRecognitionSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC623AA62263D4C10088FBCB /* ToothRecognitionSelectionDelegate.swift */; };
 		AC623AA92263D6A50088FBCB /* 11.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D43F22638763003BA7C7 /* 11.tp */; };
 		AC623AAA2263D6A50088FBCB /* 12.tp in Copy Files - Tooth Position */ = {isa = PBXBuildFile; fileRef = AC06D45922638764003BA7C7 /* 12.tp */; };
@@ -223,6 +232,7 @@
 		AC9F23EF222B124B002D38E5 /* Qualification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F23EE222B124B002D38E5 /* Qualification.swift */; };
 		ACA60F722235CCEF0094881A /* SctViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA60F712235CCEF0094881A /* SctViewController.swift */; };
 		ACA60F742235D2340094881A /* SctViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA60F732235D2340094881A /* SctViewDataSource.swift */; };
+		ACA94D9222A3CD800022209F /* SequencePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA94D9122A3CD800022209F /* SequencePicker.storyboard */; };
 		ACAD5DD4224523B20041E484 /* SctData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD5DD3224523B20041E484 /* SctData.swift */; };
 		ACAD5DD62245294D0041E484 /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD5DD52245294D0041E484 /* BorderView.swift */; };
 		ACAD5DD82245484E0041E484 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD5DD72245484E0041E484 /* ImageDetailViewController.swift */; };
@@ -445,6 +455,13 @@
 			dstPath = TherapeuticChoiceTraining;
 			dstSubfolderSpec = 7;
 			files = (
+				AC6164B822A2A149009B7C58 /* 18.stl in Copy Files - Therapeutic Choice Training */,
+				AC6164B922A2A149009B7C58 /* 19.stl in Copy Files - Therapeutic Choice Training */,
+				AC6164BA22A2A149009B7C58 /* 20.stl in Copy Files - Therapeutic Choice Training */,
+				AC6164BB22A2A149009B7C58 /* 21.stl in Copy Files - Therapeutic Choice Training */,
+				AC6164BC22A2A149009B7C58 /* 22.stl in Copy Files - Therapeutic Choice Training */,
+				AC6164BD22A2A149009B7C58 /* 23.stl in Copy Files - Therapeutic Choice Training */,
+				AC6164BE22A2A149009B7C58 /* 24.stl in Copy Files - Therapeutic Choice Training */,
 				ACF23602229B2BFD00E7060D /* 1.stl in Copy Files - Therapeutic Choice Training */,
 				ACF23603229B2BFD00E7060D /* 2.stl in Copy Files - Therapeutic Choice Training */,
 				ACF23604229B2BFD00E7060D /* 3.stl in Copy Files - Therapeutic Choice Training */,
@@ -646,6 +663,15 @@
 		AC53E3792233AE3B00CA4437 /* MySctUnfinishedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySctUnfinishedCell.swift; sourceTree = "<group>"; };
 		AC53E37B2233AF5E00CA4437 /* MySct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MySct.storyboard; sourceTree = "<group>"; };
 		AC53E37D22345F4500CA4437 /* SctUnfinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctUnfinishedViewController.swift; sourceTree = "<group>"; };
+		AC6164B122A2A128009B7C58 /* 19.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 19.stl; sourceTree = "<group>"; };
+		AC6164B222A2A128009B7C58 /* 21.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 21.stl; sourceTree = "<group>"; };
+		AC6164B322A2A128009B7C58 /* 22.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 22.stl; sourceTree = "<group>"; };
+		AC6164B422A2A128009B7C58 /* 18.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 18.stl; sourceTree = "<group>"; };
+		AC6164B522A2A128009B7C58 /* 20.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 20.stl; sourceTree = "<group>"; };
+		AC6164B622A2A128009B7C58 /* 24.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 24.stl; sourceTree = "<group>"; };
+		AC6164B722A2A128009B7C58 /* 23.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = 23.stl; sourceTree = "<group>"; };
+		AC6164BF22A2B468009B7C58 /* SequencePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequencePickerViewController.swift; sourceTree = "<group>"; };
+		AC6164C122A2B666009B7C58 /* SequencePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequencePickerDelegate.swift; sourceTree = "<group>"; };
 		AC623A8B226398800088FBCB /* ToothCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ToothCommon.framework; sourceTree = "<group>"; };
 		AC623AA62263D4C10088FBCB /* ToothRecognitionSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToothRecognitionSelectionDelegate.swift; sourceTree = "<group>"; };
 		AC623AC92263D7E80088FBCB /* TplBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TplBundle.swift; sourceTree = "<group>"; };
@@ -688,6 +714,7 @@
 		AC9F23EE222B124B002D38E5 /* Qualification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Qualification.swift; sourceTree = "<group>"; };
 		ACA60F712235CCEF0094881A /* SctViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctViewController.swift; sourceTree = "<group>"; };
 		ACA60F732235D2340094881A /* SctViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctViewDataSource.swift; sourceTree = "<group>"; };
+		ACA94D9122A3CD800022209F /* SequencePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SequencePicker.storyboard; sourceTree = "<group>"; };
 		ACAD5DD3224523B20041E484 /* SctData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctData.swift; sourceTree = "<group>"; };
 		ACAD5DD52245294D0041E484 /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		ACAD5DD72245484E0041E484 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
@@ -1416,6 +1443,9 @@
 				AC47168E2298130F00E426BA /* ParticipantCategoryPickerDelegate.swift */,
 				AC4716902298136D00E426BA /* ParticipantCategory.swift */,
 				ACCFB8EC22889D570007FEC8 /* TherapeuticTest.storyboard */,
+				AC6164BF22A2B468009B7C58 /* SequencePickerViewController.swift */,
+				AC6164C122A2B666009B7C58 /* SequencePickerDelegate.swift */,
+				ACA94D9122A3CD800022209F /* SequencePicker.storyboard */,
 				ACF23617229C960400E7060D /* TctManageViewController.swift */,
 				ACF23615229C95A500E7060D /* TctManage.storyboard */,
 				ACE0D021229B069300CD4760 /* TctSession.swift */,
@@ -1474,6 +1504,13 @@
 				ACF235F1229B2BF100E7060D /* 15.stl */,
 				ACF23600229B2BF200E7060D /* 16.stl */,
 				ACF235FC229B2BF200E7060D /* 17.stl */,
+				AC6164B422A2A128009B7C58 /* 18.stl */,
+				AC6164B122A2A128009B7C58 /* 19.stl */,
+				AC6164B522A2A128009B7C58 /* 20.stl */,
+				AC6164B222A2A128009B7C58 /* 21.stl */,
+				AC6164B322A2A128009B7C58 /* 22.stl */,
+				AC6164B722A2A128009B7C58 /* 23.stl */,
+				AC6164B622A2A128009B7C58 /* 24.stl */,
 			);
 			path = TherapeuticChoiceTraining;
 			sourceTree = "<group>";
@@ -1561,6 +1598,7 @@
 				AC38BB73221DF03F008E829B /* WelcomeWalkthrough.storyboard in Resources */,
 				AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */,
 				ACE001992261C37000384CF8 /* antagonist.stl in Resources */,
+				ACA94D9222A3CD800022209F /* SequencePicker.storyboard in Resources */,
 				AC372C5E223942C7009F1DAD /* SctPerformRateCell.xib in Resources */,
 				ACC83F92223EC3F80064BE6F /* MySctUnfinishedCell.xib in Resources */,
 				AC4904B4222B238B00BDEB4B /* Login.storyboard in Resources */,
@@ -1656,6 +1694,7 @@
 				ACC81ACC22404B59000990EA /* ScoreProgressDiagramDelegate.swift in Sources */,
 				AC51CBEA224E667000B52FD0 /* VolumeViewController.swift in Sources */,
 				ACAD5DDA22457B160041E484 /* ImageZoomAnimationController.swift in Sources */,
+				AC6164C022A2B468009B7C58 /* SequencePickerViewController.swift in Sources */,
 				AC53E3692232B2BA00CA4437 /* SctQuestionHeaderCell.swift in Sources */,
 				ACDC49B1224240D200B43534 /* TableRow.swift in Sources */,
 				ACD1B3B0223C510B0065F07E /* SctBrowsingCell.swift in Sources */,
@@ -1735,6 +1774,7 @@
 				ACA60F742235D2340094881A /* SctViewDataSource.swift in Sources */,
 				AC623AA72263D4C10088FBCB /* ToothRecognitionSelectionDelegate.swift in Sources */,
 				AC31A029224A991000A3A461 /* PassphraseDelegate.swift in Sources */,
+				AC6164C222A2B666009B7C58 /* SequencePickerDelegate.swift in Sources */,
 				ACC83F90223EC3CE0064BE6F /* SctsUnfinishedListViewController.swift in Sources */,
 				AC4904C7222BBE6100BDEB4B /* PasswordPolicy.swift in Sources */,
 				ACB8C8A822351AE000C7F77C /* SctFinished.swift in Sources */,

@@ -454,15 +454,17 @@
 "TherapeuticChoice.ParticipantDialog.Placeholder"   = "Nom du participant...";
 "TherapeuticChoice.ParticipantDialog.Message"       = "Veuillez entrer le nom du participant.";
 "TherapeuticChoice.Section.Participant"             = "Participant";
+"TherapeuticChoice.Section.Sequence"                = "Séquence";
 "TherapeuticChoice.Row.Participant"                 = "Participant :";
 "TherapeuticChoice.Row.ParticipantCategory"         = "Categorie :";
+"TherapeuticChoice.Row.SequenceIndex"               = "Numéro séquence :";
 "TherapeuticChoice.Row.Launch"                      = "Démarrer";
 "TherapeuticChoice.SaveSuccessDialog.Title"         = "Réussite sauvegarde";
 "TherapeuticChoice.SaveSuccessDialog.Message"       = "La session a bien été enregistrée !";
 
 /* TCT MANAGE */
-"TctManage.DeleteButton"   = "Tout supprimer";
-"TctManage.DisplayButton"  = "Afficher";
+"TctManage.DeleteButton"    = "Tout supprimer";
+"TctManage.DisplayButton"   = "Afficher";
 "TctManage.SessionsCount"   = "%d session(s)";
 
 /* PARTICIPANT CATEGORY */
@@ -474,6 +476,9 @@
 
 /* PARTICIPANT CATEGORY PICKER */
 "ParticipantCategoryPicker.NavigationItem.Title" = "Choix catégorie participant";
+
+/* Sequence PICKER */
+"SequencePicker.NavigationItem.Title" = "Choix séquence";
 
 /* NETWORK ERROR */
 "NetworkError.NotReachable.LocalizedDescription"    = "Votre appareil n'est pas connecté à internet.";

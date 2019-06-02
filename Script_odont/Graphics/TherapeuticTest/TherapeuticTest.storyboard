@@ -69,6 +69,7 @@
                     <connections>
                         <segue destination="bN9-M6-htK" kind="show" identifier="TherapeuticRecordSetupToTherapeuticTestBasicSegueId" id="4uo-40-xK2"/>
                         <segue destination="Y5y-KM-kkw" kind="show" identifier="TherapeuticRecordSetupToParticipantCategoryPickerSegueId" id="k8X-ta-0uu"/>
+                        <segue destination="m3Q-YT-sMX" kind="show" identifier="TherapeuticRecordSetupToSequencePickerSegueId" id="pN1-2R-lWk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pbm-tX-icY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -197,7 +198,15 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cK-4V-cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1190" y="-1146"/>
+            <point key="canvasLocation" x="1257" y="-1551"/>
+        </scene>
+        <!--SequencePicker-->
+        <scene sceneID="tZl-LM-Mvq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SequencePicker" id="m3Q-YT-sMX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d1X-aN-JQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="-984"/>
         </scene>
         <!--Volume-->
         <scene sceneID="hdU-al-0Dt">

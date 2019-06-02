@@ -8,105 +8,11 @@
 
 import UIKit
 
-fileprivate func getQuestionWordings_() -> [String]
-{
-    return [
-"""
-Une patiente de 23 ans se présente avec une carie sous un amalgame de la dent numéro 15. Après avoir
-déposer la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
-patient.
-""",
-"""
-Un patient de 31 ans se présente avec une carie importante sur la dent numéro 16 ayant nécessité la
-réalisation d’un traitement endodontique. Après avoir déposer la reconstitution pré endodontique, vous
-souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 44 ans se présente avec une lésion carieuse sur la dent 16. Après avoir effectué l’éviction
-carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 20 ans se présente avec une carie sous un ancien composite de la dent numéro 16. Après
-avoir déposer la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire
-de ce patient.
-""",
-"""
-Un patient de 35 ans se présente avec une fracture de la cuspide vestibulaire sur de la dent numéro 15.
-Vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 39 ans se présente suite à la perte de son ancien amalgame sur la dent numéro 15. Après
-avoir nettoyé la cavité, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 54 ans se présente avec une carie importante sur la dent numéro 16 ayant nécessité la
-réalisation d’un traitement endodontique. Après avoir déposer la reconstitution pré endodontique, vous
-souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 31 ans se présente suite à la perte de son ancienne restauration sur la dent numéro 16 qui
-possède un traitement endodontique. Après avoir réalisé un premier nettoyage de la cavité, vous souhaitez
-reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 39 ans se présente avec une lésion carieuse proximale sur la dent 15. Après avoir effectué l’
-éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 39 ans se présente avec un inlay qui présente une infiltration et des début de lésion
-carieuses sur la dent . Après avoir déposé la restauration et effectué l’éviction carieuse, vous souhaitez
-reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 39 ans se présente avec une fracture de sa cuspide disto-palatine sur la dent 16. Vous
-souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 33 ans se présente avec une lésion carieuse sur la dent numéro 15. Après avoir réalisé l’
-éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 26 ans se présente avec une fracture d’un ancien amalgame de la dent numéro 36. Après
-avoir effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 41 ans se présente avec une lésion carieuse en distal de la dent 16. Après avoir éffectué l’
-éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 22 ans se présente avec une pulpite sur la dent numéro 16 ayant nécessité la réalisation
-d’un traitement endodontique. Après avoir déposé la reconstitution pré endodontique, vous souhaitez
-reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 16 ans se présente avec une lésion carieuse sur la dent 16. Après avoir réalisé l’éviction
-carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-"""
-Un patient de 39 ans se présente avec une carie sous un amalgame de la dent numéro 36. Après avoir
-déposer la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
-patient.
-""",
-    ]
-}
-
-fileprivate func loadDefaultQuestions_() -> [TctQuestion]
-{
-    var result = [TctQuestion]()
-    let wordings = getQuestionWordings_()
-    
-    for (i, wording) in wordings.enumerated()
-    {
-        result.append(TctQuestion(volumeFileName: "\(i + 1)", wording: wording))
-    }
-    
-    return result
-}
-
 class TherapeuticRecordSetupViewController: UITableViewController
 {
     public static let toTherapeuticTestBasic        = "TherapeuticRecordSetupToTherapeuticTestBasicSegueId"
     public static let toParticipantCategoryPicker   = "TherapeuticRecordSetupToParticipantCategoryPickerSegueId"
+    public static let toSequencePicker              = "TherapeuticRecordSetupToSequencePickerSegueId"
     
     private static let detailCellId = "TherapeuticRecordSetupDetailCellReuseId"
     private static let basicCellId = "TherapeuticRecordSetupBasicCellReuseId"
@@ -114,6 +20,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
     enum RecordSection: CaseIterable
     {
         case participant
+        case sequence
         case launch
         
         var title: String? {
@@ -121,6 +28,8 @@ class TherapeuticRecordSetupViewController: UITableViewController
             {
             case .participant:
                 return "TherapeuticChoice.Section.Participant".localized
+            case .sequence:
+                return "TherapeuticChoice.Section.Sequence".localized
             case .launch:
                 return nil
             }
@@ -131,9 +40,25 @@ class TherapeuticRecordSetupViewController: UITableViewController
             {
             case .participant:
                 return [.participantName, .participantCategory]
+            case .sequence:
+                return [.sequenceIndex]
             case .launch:
                 return [.launch]
             }
+        }
+        
+        static func indexPath(for recordRow: RecordRow) -> IndexPath
+        {
+            for (sectionIndex, section) in RecordSection.allCases.enumerated()
+            {
+                let rows = section.rows
+                
+                if let rowIndex = rows.index(of: recordRow)
+                {
+                    return IndexPath(row: rowIndex, section: sectionIndex)
+                }
+            }
+            return IndexPath(row: 0, section: 0)
         }
     }
     
@@ -141,6 +66,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
     {
         case participantName
         case participantCategory
+        case sequenceIndex
         case launch
     }
     
@@ -148,6 +74,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
     
     fileprivate var participantName_: String? = "default name"//= nil
     fileprivate var participantCategory_: ParticipantCategory? = ParticipantCategory.student4//= nil
+    fileprivate var sequenceIndex_: Int = 0
     
     fileprivate var participantNameDoneAction_: UIAlertAction? = nil
     
@@ -206,6 +133,15 @@ class TherapeuticRecordSetupViewController: UITableViewController
             cell.detailTextLabel?.text = participantCategory_?.name ?? "Common.None".localized
             
             return cell
+            
+        case .sequenceIndex:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TherapeuticRecordSetupViewController.detailCellId, for: indexPath)
+            
+            cell.textLabel?.text = "TherapeuticChoice.Row.SequenceIndex".localized
+            cell.detailTextLabel?.text = "\(sequenceIndex_ + 1)"
+            
+            return cell
+            
         case .launch:
             let cell = tableView.dequeueReusableCell(withIdentifier: TherapeuticRecordSetupViewController.basicCellId, for: indexPath)
             cell.textLabel?.text = "TherapeuticChoice.Row.Launch".localized
@@ -233,6 +169,8 @@ class TherapeuticRecordSetupViewController: UITableViewController
             displayParticipantNameDialog_()
         case .participantCategory:
             performSegue(withIdentifier: TherapeuticRecordSetupViewController.toParticipantCategoryPicker, sender: self)
+        case .sequenceIndex:
+            performSegue(withIdentifier: TherapeuticRecordSetupViewController.toSequencePicker, sender: self)
         }
         
         tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
@@ -250,7 +188,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
             
             self.participantNameDoneAction_ = nil
             
-            self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0), IndexPath(row: 0, section: 1)], with: .automatic)
+            self.tableView.reloadRows(at: [RecordSection.indexPath(for: .participantName), RecordSection.indexPath(for: .launch)], with: .automatic)
             
         })
         doneAction.isEnabled = !(self.participantName_ ?? "").isEmpty
@@ -272,17 +210,25 @@ class TherapeuticRecordSetupViewController: UITableViewController
     // MARK: - SEGUES
     // -------------------------------------------------------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // test basic
         if segue.identifier == TherapeuticRecordSetupViewController.toTherapeuticTestBasic,
             let target = segue.destination as? TherapeuticTestBasicViewController
         {
             target.selectionMode = selectionMode
-            target.questions = loadDefaultQuestions_()
+            target.sequenceIndex = sequenceIndex_
             target.participant = TctParticipant(firstName: participantName_!, category: participantCategory_!)
         }
+        // participant category
         else if segue.identifier == TherapeuticRecordSetupViewController.toParticipantCategoryPicker,
             let target = segue.destination as? ParticipantCategoryPickerViewController
         {
             target.currentCategory = participantCategory_
+            target.delegate = self
+        }
+        else if segue.identifier == TherapeuticRecordSetupViewController.toSequencePicker,
+            let target = segue.destination as? SequencePickerViewController
+        {
+            target.currentSequenceNumber = sequenceIndex_ + 1
             target.delegate = self
         }
     }
@@ -328,6 +274,18 @@ extension TherapeuticRecordSetupViewController: ParticipantCategoryPickerDelegat
     {
         participantCategory_ = participantCategory
         
-        tableView.reloadRows(at: [IndexPath(row: 1, section: 0), IndexPath(row: 0, section: 1)], with: .automatic)
+        tableView.reloadRows(at: [RecordSection.indexPath(for: .participantCategory), RecordSection.indexPath(for: .launch)], with: .automatic)
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - SEQUENCE PICKER DELEGATE
+// -----------------------------------------------------------------------------
+extension TherapeuticRecordSetupViewController: SequencePickerDelegate
+{
+    func sequencePickerDidPick(_ sequencePickerViewController: SequencePickerViewController, sequenceNumber: Int)
+    {
+        sequenceIndex_ = sequenceNumber - 1
+        tableView.reloadRows(at: [RecordSection.indexPath(for: .sequenceIndex)], with: .automatic)
     }
 }

@@ -21,21 +21,28 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="129" translatesAutoresizingMaskIntoConstraints="NO" id="XSx-Tl-h1w">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uh-eY-QtL">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="40.5"/>
+                                        <state key="normal" title="Sequence"/>
+                                        <connections>
+                                            <action selector="selectSequence:" destination="nWs-F1-7MZ" eventType="touchUpInside" id="DcN-ai-tqM"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sessions Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXS-Cp-LWM">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="96.5"/>
+                                        <rect key="frame" x="0.0" y="169.5" width="320" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSh-SG-Ycb">
-                                        <rect key="frame" x="0.0" y="225.5" width="320" height="97"/>
+                                        <rect key="frame" x="0.0" y="338.5" width="320" height="40.5"/>
                                         <state key="normal" title="Tout supprimer"/>
                                         <connections>
                                             <action selector="deleteAll:" destination="nWs-F1-7MZ" eventType="touchUpInside" id="gnd-nM-Qni"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tx7-4p-ppC">
-                                        <rect key="frame" x="0.0" y="451.5" width="320" height="96.5"/>
+                                        <rect key="frame" x="0.0" y="508" width="320" height="40"/>
                                         <state key="normal" title="Afficher"/>
                                         <connections>
                                             <action selector="displaySessions:" destination="nWs-F1-7MZ" eventType="touchUpInside" id="JWJ-1x-HfY"/>
@@ -56,12 +63,22 @@
                     <connections>
                         <outlet property="deleteButton" destination="hSh-SG-Ycb" id="ARo-Hr-4ZL"/>
                         <outlet property="displayButton" destination="Tx7-4p-ppC" id="NaY-EM-pjf"/>
+                        <outlet property="sequenceButton" destination="8uh-eY-QtL" id="dIl-6T-Xz5"/>
                         <outlet property="sessionsCountLabel" destination="JXS-Cp-LWM" id="7i1-mE-nCO"/>
+                        <segue destination="hjv-Ji-TeT" kind="show" identifier="TctManageToSequencePickerSegueId" id="98c-yT-USK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucL-eb-WNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-213" y="-72"/>
+        </scene>
+        <!--SequencePicker-->
+        <scene sceneID="mVM-ad-wAq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SequencePicker" id="hjv-Ji-TeT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GcU-3v-Unf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="600" y="-73"/>
         </scene>
     </scenes>
 </document>

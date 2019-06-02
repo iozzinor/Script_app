@@ -33,12 +33,17 @@ fileprivate func pow_(_ number: Int, _ exponent: Int) -> Int
 
 class TctManageViewController: UIViewController
 {
+    public static let toSequencePicker = "TctManageToSequencePickerSegueId"
+    
     fileprivate static let alphabet_        = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     fileprivate static let defaultValue_    = 0
     
+    @IBOutlet weak var sequenceButton: UIButton!
     @IBOutlet weak var sessionsCountLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var displayButton: UIButton!
+    
+    fileprivate var currentSequenceIndex_ = 0
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -54,6 +59,7 @@ class TctManageViewController: UIViewController
     {
         setupButtons_()
         
+        updateSequenceButton()
         updateSessionsCountLabel_()
         updateDeleteButton_()
     }
@@ -67,20 +73,30 @@ class TctManageViewController: UIViewController
     // -------------------------------------------------------------------------
     // MARK: - UPDATE
     // -------------------------------------------------------------------------
+    fileprivate func updateSequenceButton()
+    {
+        sequenceButton.setTitle("TherapeuticChoice.Row.SequenceIndex".localized + " \(currentSequenceIndex_ + 1)", for: .normal)
+    }
+    
     fileprivate func updateSessionsCountLabel_()
     {
         let format = "TctManage.SessionsCount".localized
-        sessionsCountLabel.text = String.localizedStringWithFormat(format, TctSaver.getSessionsCount())
+        sessionsCountLabel.text = String.localizedStringWithFormat(format, TctSaver.getSessionsCount(forSequenceIndex: currentSequenceIndex_))
     }
     
     fileprivate func updateDeleteButton_()
     {
-        deleteButton.isEnabled = TctSaver.getSessionsCount() > 0
+        deleteButton.isEnabled = TctSaver.getSessionsCount(forSequenceIndex: currentSequenceIndex_) > 0
     }
     
     // -------------------------------------------------------------------------
     // MARK: - ACTIONS
     // -------------------------------------------------------------------------
+    @IBAction func selectSequence(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: TctManageViewController.toSequencePicker, sender: self)
+    }
+    
     @IBAction func deleteAll(_ sender: UIButton)
     {
         TctSaver.deleteAll()
@@ -91,7 +107,7 @@ class TctManageViewController: UIViewController
     @IBAction func displaySessions(_ sender: UIButton)
     {
         // group by category
-        let allSessions = TctSaver.getSessions()
+        let allSessions = TctSaver.getSessions(forSequenceIndex: currentSequenceIndex_)
         
         var categorySessions = [ParticipantCategory: [TctSession]]()
         for session in allSessions
@@ -266,5 +282,33 @@ class TctManageViewController: UIViewController
             result += "\(TctManageViewController.alphabet_[newLetterIndex])"
         }
         return result
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - SEGUE
+    // -------------------------------------------------------------------------
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == TctManageViewController.toSequencePicker,
+            let target = segue.destination as? SequencePickerViewController
+        {
+            target.delegate = self
+            target.currentSequenceNumber = currentSequenceIndex_ + 1
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - SEQUENCE PICKER DELEGATE
+// -----------------------------------------------------------------------------
+extension TctManageViewController: SequencePickerDelegate
+{
+    func sequencePickerDidPick(_ sequencePickerViewController: SequencePickerViewController, sequenceNumber: Int)
+    {
+        currentSequenceIndex_ = sequenceNumber - 1
+        
+        updateSequenceButton()
+        updateSessionsCountLabel_()
+        updateDeleteButton_()
     }
 }

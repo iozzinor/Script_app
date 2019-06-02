@@ -87,5 +87,7 @@ class ParticipantCategoryPickerViewController: UITableViewController
         previousSelectedCell_ = newCell
         
         currentCategory = ParticipantCategory.allCases[indexPath.row]
+        
+        navigationController?.popViewController(animated: true)
     }
 }

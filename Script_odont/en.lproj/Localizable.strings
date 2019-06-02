@@ -454,15 +454,17 @@
 "TherapeuticChoice.ParticipantDialog.Placeholder"   = "Participant Name...";
 "TherapeuticChoice.ParticipantDialog.Message"       = "Please enter the participant name.";
 "TherapeuticChoice.Section.Participant"             = "Participant";
+"TherapeuticChoice.Section.Sequence"                = "Sequence";
 "TherapeuticChoice.Row.Participant"                 = "Participant:";
 "TherapeuticChoice.Row.ParticipantCategory"         = "Category:";
+"TherapeuticChoice.Row.SequenceIndex"               = "Sequence Number:";
 "TherapeuticChoice.Row.Launch"                      = "Launch";
 "TherapeuticChoice.SaveSuccessDialog.Title"         = "Save Success";
 "TherapeuticChoice.SaveSuccessDialog.Message"       = "The session has been saved successfully!";
 
 /* TCT MANAGE */
-"TctManager.DeleteButton"   = "Delete All";
-"TctManager.DisplayButton"  = "Display";
+"TctManage.DeleteButton"    = "Delete All";
+"TctManage.DisplayButton"   = "Display";
 "TctManage.SessionsCount"   = "%d session(s)";
 
 /* PARTICIPANT CATEGORY */
@@ -474,6 +476,9 @@
 
 /* PARTICIPANT CATEGORY PICKER */
 "ParticipantCategoryPicker.NavigationItem.Title" = "Pick Participant Category";
+
+/* Sequence PICKER */
+"SequencePicker.NavigationItem.Title" = "Pick Sequence";
 
 /* NETWORK ERROR */
 "NetworkError.NotReachable.LocalizedDescription"    = "Your decive is not connected to the Internet.";
