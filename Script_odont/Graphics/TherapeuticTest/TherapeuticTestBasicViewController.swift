@@ -12,7 +12,7 @@ import UIKit
 class TherapeuticTestBasicViewController: UIViewController
 {
     public static let diagnosticScale = ChooseScale(graduations: [
-            ChooseScale.Graduation(title: "Absolument contre-indiqué", code: -2),
+            ChooseScale.Graduation(title: "Fortement contre-indiqué", code: -2),
             ChooseScale.Graduation(title: "Contre-indiqué", code: -1),
             ChooseScale.Graduation(title: "Indiqué", code: 1),
             ChooseScale.Graduation(title: "Le plus indiquée", code: 2)
@@ -426,7 +426,7 @@ class TherapeuticTestBasicViewController: UIViewController
             questionsSuffleIndexes_[i] = i
         }
         
-        questionsSuffleIndexes_.shuffle()
+            questionsSuffleIndexes_.shuffle()
     }
     
     // -------------------------------------------------------------------------
