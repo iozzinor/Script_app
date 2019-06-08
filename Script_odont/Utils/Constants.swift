@@ -214,6 +214,33 @@ struct Constants
     }
     
     // -------------------------------------------------------------------------
+    // MARK: - POW
+    // -------------------------------------------------------------------------
+    static func pow(_ number: Int, _ exponent: Int) -> Int
+    {
+        if exponent < 0
+        {
+            return 0
+        }
+        else if exponent == 0
+        {
+            return 1
+        }
+        else if exponent == 1 || number == 1 || number == 0
+        {
+            return number
+        }
+        
+        let result = pow(number, exponent / 2)
+        if exponent & 1 == 0
+        {
+            return result * result
+        }
+        return number * result * result
+    }
+
+    
+    // -------------------------------------------------------------------------
     // MARK: - NUMBER FORMATTING
     // -------------------------------------------------------------------------
     /// - returns: The textual representation of the real number.

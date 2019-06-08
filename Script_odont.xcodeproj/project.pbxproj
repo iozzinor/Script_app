@@ -87,6 +87,7 @@
 		AC31E3A32235BCC300A3B813 /* SctWordingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A22235BCC300A3B813 /* SctWordingCell.xib */; };
 		AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A42235BE1E00A3B813 /* DrawingWalkthrough.storyboard */; };
 		AC34EDCA22652624001D593F /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34EDC922652624001D593F /* ConnectionStatus.swift */; };
+		AC367E0C22ABAE01004CD122 /* TctExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC367E0B22ABAE01004CD122 /* TctExportViewController.swift */; };
 		AC372C56223942BE009F1DAD /* SctPerformRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C50223942BE009F1DAD /* SctPerformRateCell.swift */; };
 		AC372C57223942BE009F1DAD /* SctDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C51223942BE009F1DAD /* SctDetailViewDelegate.swift */; };
 		AC372C58223942BE009F1DAD /* SctPerformRateCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C52223942BE009F1DAD /* SctPerformRateCellDelegate.swift */; };
@@ -602,6 +603,7 @@
 		AC31E3A22235BCC300A3B813 /* SctWordingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctWordingCell.xib; sourceTree = "<group>"; };
 		AC31E3A42235BE1E00A3B813 /* DrawingWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DrawingWalkthrough.storyboard; sourceTree = "<group>"; };
 		AC34EDC922652624001D593F /* ConnectionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatus.swift; sourceTree = "<group>"; };
+		AC367E0B22ABAE01004CD122 /* TctExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctExportViewController.swift; sourceTree = "<group>"; };
 		AC372C50223942BE009F1DAD /* SctPerformRateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctPerformRateCell.swift; sourceTree = "<group>"; };
 		AC372C51223942BE009F1DAD /* SctDetailViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctDetailViewDelegate.swift; sourceTree = "<group>"; };
 		AC372C52223942BE009F1DAD /* SctPerformRateCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctPerformRateCellDelegate.swift; sourceTree = "<group>"; };
@@ -1447,6 +1449,7 @@
 				AC6164C122A2B666009B7C58 /* SequencePickerDelegate.swift */,
 				ACA94D9122A3CD800022209F /* SequencePicker.storyboard */,
 				ACF23617229C960400E7060D /* TctManageViewController.swift */,
+				AC367E0B22ABAE01004CD122 /* TctExportViewController.swift */,
 				ACF23615229C95A500E7060D /* TctManage.storyboard */,
 				ACE0D021229B069300CD4760 /* TctSession.swift */,
 				ACE0D025229B089400CD4760 /* TctQuestion.swift */,
@@ -1797,6 +1800,7 @@
 				ACE70F91221EFBA6008454FF /* UIViewController+storyboardId.swift in Sources */,
 				ACD1B3A6223BFF580065F07E /* DetailHeader.swift in Sources */,
 				AC06D48722639376003BA7C7 /* ToothRecognitionViewController.swift in Sources */,
+				AC367E0C22ABAE01004CD122 /* TctExportViewController.swift in Sources */,
 				AC0E4E9E2236E136003996AF /* SctTypeWalkthroughViewController.swift in Sources */,
 				AC4904BF222B3AAF00BDEB4B /* SecurityQuestion.swift in Sources */,
 				AC8F5B792228986000FAEFC5 /* GoToSctViewControllerDelegate.swift in Sources */,

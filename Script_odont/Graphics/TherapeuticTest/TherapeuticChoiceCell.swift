@@ -10,7 +10,6 @@ import UIKit
 
 class TherapeuticChoiceCell: UITableViewCell
 {
-    @IBOutlet weak var therapeuticLabel: UILabel!
     @IBOutlet weak var scaleContainer: UIStackView!
     
     fileprivate var rowIndex_ = -1

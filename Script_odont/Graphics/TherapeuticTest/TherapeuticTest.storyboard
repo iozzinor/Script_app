@@ -87,17 +87,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RhT-lG-lUO">
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wording" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyH-D2-N68">
-                                        <rect key="frame" x="0.0" y="0.0" width="568" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wording" textAlignment="justified" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyH-D2-N68">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="96"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FEQ-Sr-pcp">
-                                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                                        <rect key="frame" x="0.0" y="96" width="568" height="192"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vi-LB-cKr">
-                                                <rect key="frame" x="0.0" y="0.0" width="20" height="320"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="192"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="bTJ-3Y-WDC"/>
                                                 </constraints>
@@ -107,23 +107,38 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lO5-eg-kvf">
-                                                <rect key="frame" x="25" y="0.0" width="518" height="320"/>
+                                                <rect key="frame" x="25" y="0.0" width="518" height="192"/>
                                                 <subviews>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zyx-K8-AdB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="166" height="192"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TherapeuticLabelCellReuseId" id="JdO-9o-hiL">
+                                                                <rect key="frame" x="0.0" y="28" width="166" height="44"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JdO-9o-hiL" id="cys-Xt-On1">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="166" height="43.5"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </tableViewCellContentView>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                    </tableView>
                                                     <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tcm-7X-Gb1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="254" height="320"/>
+                                                        <rect key="frame" x="176" y="0.0" width="166" height="192"/>
                                                     </sceneKitView>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="BQg-IF-wxV">
-                                                        <rect key="frame" x="264" y="0.0" width="254" height="320"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BQg-IF-wxV">
+                                                        <rect key="frame" x="352" y="0.0" width="166" height="192"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableView>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="Zyx-K8-AdB" firstAttribute="top" secondItem="lO5-eg-kvf" secondAttribute="top" id="9nV-tn-1Tm"/>
                                                     <constraint firstItem="BQg-IF-wxV" firstAttribute="top" secondItem="lO5-eg-kvf" secondAttribute="top" id="XOa-dd-AVS"/>
                                                     <constraint firstItem="tcm-7X-Gb1" firstAttribute="top" secondItem="lO5-eg-kvf" secondAttribute="top" id="y6Q-Ef-fJd"/>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oy-oL-tqB">
-                                                <rect key="frame" x="548" y="0.0" width="20" height="320"/>
+                                                <rect key="frame" x="548" y="0.0" width="20" height="192"/>
                                                 <state key="normal" title="Button" image="arrow_next"/>
                                                 <connections>
                                                     <action selector="nextQuestion:" destination="bN9-M6-htK" eventType="touchUpInside" id="pQq-OA-qag"/>
@@ -146,15 +161,17 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxy-R1-AZT">
-                                        <rect key="frame" x="0.0" y="320" width="568" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="288" width="568" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="FEQ-Sr-pcp" firstAttribute="height" secondItem="RhT-lG-lUO" secondAttribute="height" multiplier="6:10" id="6Ki-DU-xQh"/>
                                     <constraint firstItem="rxy-R1-AZT" firstAttribute="leading" secondItem="RhT-lG-lUO" secondAttribute="leading" id="LXC-uw-NnK"/>
                                     <constraint firstAttribute="bottom" secondItem="rxy-R1-AZT" secondAttribute="bottom" id="NEF-5C-8i8"/>
+                                    <constraint firstItem="gyH-D2-N68" firstAttribute="height" secondItem="RhT-lG-lUO" secondAttribute="height" multiplier="3:10" id="pGq-Mr-ffy"/>
                                     <constraint firstAttribute="trailing" secondItem="rxy-R1-AZT" secondAttribute="trailing" id="vQC-Ol-12I"/>
                                 </constraints>
                             </stackView>
@@ -173,6 +190,7 @@
                         <outlet property="previousButton" destination="7Vi-LB-cKr" id="RAd-3p-qDq"/>
                         <outlet property="scaleLabel" destination="rxy-R1-AZT" id="gAB-Vt-asJ"/>
                         <outlet property="therapeuticChoicesView" destination="BQg-IF-wxV" id="mNA-Hu-HeZ"/>
+                        <outlet property="therapeuticLabelsView" destination="Zyx-K8-AdB" id="Mhr-r5-1ZY"/>
                         <outlet property="toothView" destination="tcm-7X-Gb1" id="2MJ-sE-utd"/>
                         <outlet property="wordingLabel" destination="gyH-D2-N68" id="dRX-ks-dA7"/>
                         <segue destination="WG4-3C-Kv3" kind="presentation" identifier="TherapeuticTestBasicToVolumeSegueId" id="erc-Sd-Pel"/>

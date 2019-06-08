@@ -18,34 +18,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Alq-ip-Cgc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Therapeutic Choice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOl-dm-rfA">
-                                <rect key="frame" x="0.0" y="0.0" width="207" height="43.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Q9k-A4-EUM">
-                                <rect key="frame" x="207" y="0.0" width="207" height="43.5"/>
-                            </stackView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="Q9k-A4-EUM" firstAttribute="width" secondItem="Alq-ip-Cgc" secondAttribute="width" multiplier="1:2" id="s5s-LG-XEJ"/>
-                        </constraints>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Q9k-A4-EUM">
+                        <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Alq-ip-Cgc" firstAttribute="top" secondItem="MMb-7r-Axb" secondAttribute="top" id="073-j8-LMK"/>
-                    <constraint firstItem="Alq-ip-Cgc" firstAttribute="leading" secondItem="MMb-7r-Axb" secondAttribute="leading" id="Dg8-JI-wtA"/>
-                    <constraint firstAttribute="trailing" secondItem="Alq-ip-Cgc" secondAttribute="trailing" id="IVU-gx-wgi"/>
-                    <constraint firstAttribute="bottom" secondItem="Alq-ip-Cgc" secondAttribute="bottom" id="XBa-K3-3q3"/>
+                    <constraint firstItem="Q9k-A4-EUM" firstAttribute="top" secondItem="MMb-7r-Axb" secondAttribute="top" id="4dT-2U-msg"/>
+                    <constraint firstAttribute="bottom" secondItem="Q9k-A4-EUM" secondAttribute="bottom" id="O9c-XC-8dd"/>
+                    <constraint firstItem="Q9k-A4-EUM" firstAttribute="leading" secondItem="MMb-7r-Axb" secondAttribute="leading" constant="20" symbolic="YES" id="kgu-GV-5rL"/>
+                    <constraint firstAttribute="trailing" secondItem="Q9k-A4-EUM" secondAttribute="trailing" constant="20" symbolic="YES" id="miL-fv-zud"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="scaleContainer" destination="Q9k-A4-EUM" id="6l5-bf-Dax"/>
-                <outlet property="therapeuticLabel" destination="rOl-dm-rfA" id="ceO-nO-Ua3"/>
             </connections>
             <point key="canvasLocation" x="-129" y="-111"/>
         </tableViewCell>

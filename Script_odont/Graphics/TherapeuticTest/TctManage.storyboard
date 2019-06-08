@@ -36,16 +36,16 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSh-SG-Ycb">
                                         <rect key="frame" x="0.0" y="338.5" width="320" height="40.5"/>
-                                        <state key="normal" title="Tout supprimer"/>
+                                        <state key="normal" title="Delete All"/>
                                         <connections>
                                             <action selector="deleteAll:" destination="nWs-F1-7MZ" eventType="touchUpInside" id="gnd-nM-Qni"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tx7-4p-ppC">
                                         <rect key="frame" x="0.0" y="508" width="320" height="40"/>
-                                        <state key="normal" title="Afficher"/>
+                                        <state key="normal" title="Export"/>
                                         <connections>
-                                            <action selector="displaySessions:" destination="nWs-F1-7MZ" eventType="touchUpInside" id="JWJ-1x-HfY"/>
+                                            <action selector="export:" destination="nWs-F1-7MZ" eventType="touchUpInside" id="rnq-IM-tKi"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -62,10 +62,11 @@
                     </view>
                     <connections>
                         <outlet property="deleteButton" destination="hSh-SG-Ycb" id="ARo-Hr-4ZL"/>
-                        <outlet property="displayButton" destination="Tx7-4p-ppC" id="NaY-EM-pjf"/>
+                        <outlet property="exportButton" destination="Tx7-4p-ppC" id="NaY-EM-pjf"/>
                         <outlet property="sequenceButton" destination="8uh-eY-QtL" id="dIl-6T-Xz5"/>
                         <outlet property="sessionsCountLabel" destination="JXS-Cp-LWM" id="7i1-mE-nCO"/>
                         <segue destination="hjv-Ji-TeT" kind="show" identifier="TctManageToSequencePickerSegueId" id="98c-yT-USK"/>
+                        <segue destination="JXm-VP-vB6" kind="show" identifier="TctManageToTctExportSegueId" id="ZEF-4w-F9l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucL-eb-WNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -78,7 +79,60 @@
                 <viewControllerPlaceholder storyboardName="SequencePicker" id="hjv-Ji-TeT" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcU-3v-Unf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="600" y="-73"/>
+            <point key="canvasLocation" x="600" y="-254"/>
+        </scene>
+        <!--Tct Export View Controller-->
+        <scene sceneID="djO-Ap-Muc">
+            <objects>
+                <viewController id="JXm-VP-vB6" customClass="TctExportViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kMH-xx-fpf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gwP-dX-d03">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVU-6A-GUe">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="179.5"/>
+                                        <state key="normal" title="Default"/>
+                                        <connections>
+                                            <action selector="displaySessions:" destination="JXm-VP-vB6" eventType="touchUpInside" id="npp-Mt-DDl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRV-Nc-R7d">
+                                        <rect key="frame" x="0.0" y="184.5" width="320" height="179"/>
+                                        <state key="normal" title="Panel"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1F-j1-2uf">
+                                        <rect key="frame" x="0.0" y="368.5" width="320" height="179.5"/>
+                                        <state key="normal" title="Respondents"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="l1F-j1-2uf" firstAttribute="leading" secondItem="PVU-6A-GUe" secondAttribute="leading" id="Csa-Tx-VcD"/>
+                                    <constraint firstItem="WRV-Nc-R7d" firstAttribute="leading" secondItem="PVU-6A-GUe" secondAttribute="leading" id="MEa-mP-5S3"/>
+                                    <constraint firstItem="PVU-6A-GUe" firstAttribute="leading" secondItem="gwP-dX-d03" secondAttribute="leading" id="ghP-KF-PXF"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gwP-dX-d03" firstAttribute="top" secondItem="Cho-aG-4sz" secondAttribute="top" id="60O-xQ-Zrs"/>
+                            <constraint firstItem="Cho-aG-4sz" firstAttribute="trailing" secondItem="gwP-dX-d03" secondAttribute="trailing" id="Tag-Ge-25n"/>
+                            <constraint firstItem="gwP-dX-d03" firstAttribute="leading" secondItem="Cho-aG-4sz" secondAttribute="leading" id="oee-ey-DNd"/>
+                            <constraint firstItem="Cho-aG-4sz" firstAttribute="bottom" secondItem="gwP-dX-d03" secondAttribute="bottom" id="ydI-sC-tj2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cho-aG-4sz"/>
+                    </view>
+                    <connections>
+                        <outlet property="defaultButton" destination="PVU-6A-GUe" id="qtw-G0-Oyr"/>
+                        <outlet property="panelButton" destination="WRV-Nc-R7d" id="WeD-ch-UNu"/>
+                        <outlet property="respondentsButton" destination="l1F-j1-2uf" id="Yqp-9R-CA0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s8b-JE-ym9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="707" y="359"/>
         </scene>
     </scenes>
 </document>

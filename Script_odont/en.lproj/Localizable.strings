@@ -464,8 +464,13 @@
 
 /* TCT MANAGE */
 "TctManage.DeleteButton"    = "Delete All";
-"TctManage.DisplayButton"   = "Display";
+"TctManage.ExportButton"    = "Export";
 "TctManage.SessionsCount"   = "%d session(s)";
+
+/* TCT EXPORT */
+"TctExport.DefaultButton"       = "Default";
+"TctExport.PanelButton"         = "Panel";
+"TctExport.RespondentsButton"   = "Respondents";
 
 /* PARTICIPANT CATEGORY */
 "ParticipantCategory.Name.Four"     = "4";

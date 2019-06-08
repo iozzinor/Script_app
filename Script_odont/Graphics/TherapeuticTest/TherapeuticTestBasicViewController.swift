@@ -21,6 +21,8 @@ class TherapeuticTestBasicViewController: UIViewController
     
     public static let toVolume      = "TherapeuticTestBasicToVolumeSegueId"
     
+    public static let therapeuticLabelCellId = "TherapeuticLabelCellReuseId"
+    
     enum SelectionMode
     {
         case single
@@ -34,6 +36,7 @@ class TherapeuticTestBasicViewController: UIViewController
     @IBOutlet weak var wordingLabel: UILabel!
     @IBOutlet weak var scaleLabel: UILabel!
     @IBOutlet weak var toothView: SCNView!
+    @IBOutlet weak var therapeuticLabelsView: UITableView!
     @IBOutlet weak var therapeuticChoicesView: UITableView!
     
     var previousItem: UIBarButtonItem!
@@ -134,6 +137,7 @@ class TherapeuticTestBasicViewController: UIViewController
         setupUserChoices_()
         setupScaleLabel_()
         setupToothVolume_()
+        setupTherapeuticLabels_()
         setupTherapeuticChoices_()
         updateWording_()
     }
@@ -215,10 +219,27 @@ class TherapeuticTestBasicViewController: UIViewController
         updateToothScene_()
     }
     
+    fileprivate func setupTherapeuticLabels_()
+    {
+        therapeuticLabelsView.isScrollEnabled = false
+        
+        therapeuticLabelsView.delegate = self
+        therapeuticLabelsView.dataSource = self
+    }
+    
     fileprivate func setupTherapeuticChoices_()
     {
+        switch selectionMode
+        {
+        case .single:
+            therapeuticChoicesView.isHidden = true
+            return
+        case .scale(_):
+            break
+        }
+        
+        therapeuticChoicesView.isScrollEnabled = false
         therapeuticChoicesView.registerNibCell(TherapeuticChoiceCell.self)
-        therapeuticChoicesView.backgroundColor = UIColor.white
         
         therapeuticChoicesView.delegate = self
         therapeuticChoicesView.dataSource = self
@@ -449,6 +470,11 @@ extension TherapeuticTestBasicViewController: UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
     {
+        if tableView == therapeuticLabelsView
+        {
+            return nil
+        }
+        
         switch selectionMode
         {
         case .single:
@@ -460,6 +486,11 @@ extension TherapeuticTestBasicViewController: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        if tableView == therapeuticChoicesView
+        {
+            return
+        }
+        
         switch selectionMode
         {
         case .single:
@@ -495,6 +526,16 @@ extension TherapeuticTestBasicViewController: UITableViewDelegate
             break
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return toothView.frame.height / CGFloat(therapeuticChoices_.count)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        return 0.0
+    }
 }
 
 // -----------------------------------------------------------------------------
@@ -507,13 +548,23 @@ extension TherapeuticTestBasicViewController: UITableViewDataSource
         return 1;
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return therapeuticChoices_.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        if tableView == therapeuticLabelsView
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TherapeuticTestBasicViewController.therapeuticLabelCellId, for: indexPath)
+            
+            cell.textLabel?.text = therapeuticChoices_[indexPath.row]
+            
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(for: indexPath) as TherapeuticChoiceCell
-        cell.therapeuticLabel.text = therapeuticChoices_[indexPath.row]
         
         switch selectionMode
         {

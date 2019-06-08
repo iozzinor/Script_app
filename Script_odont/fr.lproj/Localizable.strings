@@ -464,8 +464,13 @@
 
 /* TCT MANAGE */
 "TctManage.DeleteButton"    = "Tout supprimer";
-"TctManage.DisplayButton"   = "Afficher";
+"TctManage.ExportButton"    = "Exporter";
 "TctManage.SessionsCount"   = "%d session(s)";
+
+/* TCT EXPORT */
+"TctExport.DefaultButton"       = "Défaut";
+"TctExport.PanelButton"         = "Panel";
+"TctExport.RespondentsButton"   = "Etudiants";
 
 /* PARTICIPANT CATEGORY */
 "ParticipantCategory.Name.Four"     = "4ème année";
