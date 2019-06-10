@@ -102,10 +102,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRV-Nc-R7d">
                                         <rect key="frame" x="0.0" y="184.5" width="320" height="179"/>
                                         <state key="normal" title="Panel"/>
+                                        <connections>
+                                            <action selector="displayPanel:" destination="JXm-VP-vB6" eventType="touchUpInside" id="pCW-kA-enS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1F-j1-2uf">
                                         <rect key="frame" x="0.0" y="368.5" width="320" height="179.5"/>
                                         <state key="normal" title="Respondents"/>
+                                        <connections>
+                                            <action selector="displayRespondents:" destination="JXm-VP-vB6" eventType="touchUpInside" id="knq-CJ-McV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

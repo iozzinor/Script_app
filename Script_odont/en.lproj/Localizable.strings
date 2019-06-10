@@ -448,6 +448,12 @@
 /* TOOTH RECOGNITION SELECTION */
 "ToothRecognitionSelection.NavigationItem.Title" = "Pick The Tooth";
 
+/* THERAPEUTIC TEST */
+"TherapeuticTest.AddCommentButton"      = "Add Comment";
+"TherapeuticTest.AddComment.Title"      = "Add Comment";
+"TherapeuticTest.AddComment.Message"    = "Please enter your comment.";
+"TherapeuticTest.AddComment.TheComment" = "The comment...";
+
 /* THERAPEUTIC CHOICE */
 "TherapeuticChoice.NavigationItem.Title"            = "Therapeutic Choice";
 "TherapeuticChoice.ParticipantDialog.Title"         = "Define Participant Name";

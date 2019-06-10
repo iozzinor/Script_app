@@ -14,4 +14,21 @@ struct TctSession
     var date: Date
     var participant: TctParticipant
     var answers: [[Int]]
+    var comments: [String]
+    
+    init(date: Date, participant: TctParticipant, answers: [[Int]])
+    {
+        self.date = date
+        self.participant = participant
+        self.answers = answers
+        self.comments = []
+    }
+    
+    init(date: Date, participant: TctParticipant, answers: [[Int]], comments: [String])
+    {
+        self.date = date
+        self.participant = participant
+        self.answers = answers
+        self.comments = comments
+    }
 }

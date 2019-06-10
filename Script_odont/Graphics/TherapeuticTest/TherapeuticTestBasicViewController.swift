@@ -35,6 +35,7 @@ class TherapeuticTestBasicViewController: UIViewController
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var wordingLabel: UILabel!
     @IBOutlet weak var scaleLabel: UILabel!
+    @IBOutlet weak var addCommentButton: UIButton!
     @IBOutlet weak var toothView: SCNView!
     @IBOutlet weak var therapeuticLabelsView: UITableView!
     @IBOutlet weak var therapeuticChoicesView: UITableView!
@@ -43,7 +44,14 @@ class TherapeuticTestBasicViewController: UIViewController
     var timeItem: UIBarButtonItem!
     var nextItem: UIBarButtonItem!
     var doneItem: UIBarButtonItem!
-    var participant: TctParticipant!
+    var participant: TctParticipant! {
+        didSet {
+            if isViewLoaded
+            {
+                addCommentButton.isHidden = (participant.category != .teacher)
+            }
+        }
+    }
     
     var sequenceIndex: Int = 0 {
         didSet {
@@ -77,6 +85,8 @@ class TherapeuticTestBasicViewController: UIViewController
     }
     fileprivate var questionsSuffleIndexes_ = [Int]()
     fileprivate var userChoices_ = [[Int]]()
+    fileprivate var comments_ = [String]()
+    fileprivate var commentTextField_: UITextField?
     fileprivate var scaleValues_: [Int] {
         switch selectionMode
         {
@@ -136,6 +146,7 @@ class TherapeuticTestBasicViewController: UIViewController
         
         setupUserChoices_()
         setupScaleLabel_()
+        setupAddCommentButton_()
         setupToothVolume_()
         setupTherapeuticLabels_()
         setupTherapeuticChoices_()
@@ -194,6 +205,13 @@ class TherapeuticTestBasicViewController: UIViewController
             }
             scaleLabel.text = scaleText
         }
+    }
+    
+    fileprivate func setupAddCommentButton_()
+    {
+        addCommentButton.isHidden = participant.category != .teacher
+        addCommentButton.setTitle("TherapeuticTest.AddCommentButton".localized, for: .normal)
+        addCommentButton.addTarget(self, action: #selector(TherapeuticTestBasicViewController.addComment_), for: .touchUpInside)
     }
     
     fileprivate func setupToothVolume_()
@@ -259,6 +277,8 @@ class TherapeuticTestBasicViewController: UIViewController
         let defaultChoices = Array<Int>(repeating: -1, count: choicePossibilities)
         userChoices_ = Array(repeating: defaultChoices, count: questions_.count)
         
+        comments_ = Array(repeating: "", count: questions_.count)
+        
         updateQuestionsMapping_()
     }
     
@@ -320,6 +340,33 @@ class TherapeuticTestBasicViewController: UIViewController
         updateQuestionIndex_(currentQuestionIndex_ + 1)
     }
     
+    @objc fileprivate func addComment_(_ sender: UIButton)
+    {
+        let addCommentController = UIAlertController(title: "TherapeuticTest.AddComment.Title".localized, message: "TherapeuticTest.AddComment.Message".localized, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Common.Cancel".localized, style: .cancel, handler: nil)
+        
+        let okAction = UIAlertAction(title: "Common.Done".localized, style: .default, handler: {
+            (action: UIAlertAction) -> Void in
+            
+            self.comments_[self.currentQuestionIndex_] = self.commentTextField_?.text ?? ""
+            self.commentTextField_ = nil
+        })
+        
+        addCommentController.addAction(cancelAction)
+        addCommentController.addAction(okAction)
+        
+        addCommentController.addTextField(configurationHandler: {
+            (textField) -> Void in
+            
+            textField.placeholder = "TherapeuticTest.AddComment.TheComment".localized
+            textField.text = self.comments_[self.currentQuestionIndex_]
+            self.commentTextField_ = textField
+        })
+        
+        present(addCommentController, animated: true, completion: nil)
+    }
+    
     @objc fileprivate func toothVolumeTouched(_ tapGestureRecognizer: UITapGestureRecognizer)
     {
         performSegue(withIdentifier: TherapeuticTestBasicViewController.toVolume, sender: self)
@@ -327,15 +374,25 @@ class TherapeuticTestBasicViewController: UIViewController
     
     @objc fileprivate func saveAnswers_()
     {
-        // get the answers
+        // get the answers, and the comments
         var answers = Array<Array<Int>>(repeating: [], count: userChoices_.count)
+        var comments = Array<String>(repeating: "", count: questions_.count)
         for (i, index) in questionsSuffleIndexes_.enumerated()
         {
-           answers[i] = userChoices_[index]
+            answers[i] = userChoices_[index]
+            comments[i] = comments_[index]
         }
         
         // save the session
-        let session = TctSession(date: Date(), participant: participant, answers: answers)
+        let session: TctSession
+        switch participant.category
+        {
+        case .teacher:
+            session = TctSession(date: Date(), participant: participant, answers: answers, comments: comments)
+        case .intern, .student4, .student5, .student6:
+            session = TctSession(date: Date(), participant: participant, answers: answers)
+        }
+        
         TctSaver.save(session: session, sequenceIndex: sequenceIndex)
         
         // display the success message
@@ -382,7 +439,8 @@ class TherapeuticTestBasicViewController: UIViewController
     
     fileprivate func updateWording_()
     {
-        wordingLabel.text = currentQuestion_.wording
+        let questionIndex = TctQuestion.sequences[sequenceIndex][questionsSuffleIndexes_[currentQuestionIndex_]]
+        wordingLabel.text = "\(questionIndex + 1). " + currentQuestion_.wording
     }
     
     fileprivate func updateToothScene_()
@@ -447,7 +505,7 @@ class TherapeuticTestBasicViewController: UIViewController
             questionsSuffleIndexes_[i] = i
         }
         
-            questionsSuffleIndexes_.shuffle()
+        questionsSuffleIndexes_.shuffle()
     }
     
     // -------------------------------------------------------------------------

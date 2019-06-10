@@ -448,6 +448,12 @@
 /* TOOTH RECOGNITION SELECTION */
 "ToothRecognitionSelection.NavigationItem.Title" = "Sélectionnez la dent";
 
+/* THERAPEUTIC TEST */
+"TherapeuticTest.AddCommentButton"      = "Ajouter commentaire";
+"TherapeuticTest.AddComment.Title"      = "Ajout commentaire";
+"TherapeuticTest.AddComment.Message"    = "Merci de saisir votre commentaire.";
+"TherapeuticTest.AddComment.TheComment" = "Le commentaire...";
+
 /* THERAPEUTIC CHOICE */
 "TherapeuticChoice.NavigationItem.Title"            = "Choix Thérapeutique";
 "TherapeuticChoice.ParticipantDialog.Title"         = "Nom du participant";

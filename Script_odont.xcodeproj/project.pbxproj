@@ -88,6 +88,7 @@
 		AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A42235BE1E00A3B813 /* DrawingWalkthrough.storyboard */; };
 		AC34EDCA22652624001D593F /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34EDC922652624001D593F /* ConnectionStatus.swift */; };
 		AC367E0C22ABAE01004CD122 /* TctExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC367E0B22ABAE01004CD122 /* TctExportViewController.swift */; };
+		AC367E0E22ABB2B7004CD122 /* TctExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC367E0D22ABB2B7004CD122 /* TctExporter.swift */; };
 		AC372C56223942BE009F1DAD /* SctPerformRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C50223942BE009F1DAD /* SctPerformRateCell.swift */; };
 		AC372C57223942BE009F1DAD /* SctDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C51223942BE009F1DAD /* SctDetailViewDelegate.swift */; };
 		AC372C58223942BE009F1DAD /* SctPerformRateCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC372C52223942BE009F1DAD /* SctPerformRateCellDelegate.swift */; };
@@ -604,6 +605,7 @@
 		AC31E3A42235BE1E00A3B813 /* DrawingWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DrawingWalkthrough.storyboard; sourceTree = "<group>"; };
 		AC34EDC922652624001D593F /* ConnectionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatus.swift; sourceTree = "<group>"; };
 		AC367E0B22ABAE01004CD122 /* TctExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctExportViewController.swift; sourceTree = "<group>"; };
+		AC367E0D22ABB2B7004CD122 /* TctExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctExporter.swift; sourceTree = "<group>"; };
 		AC372C50223942BE009F1DAD /* SctPerformRateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctPerformRateCell.swift; sourceTree = "<group>"; };
 		AC372C51223942BE009F1DAD /* SctDetailViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctDetailViewDelegate.swift; sourceTree = "<group>"; };
 		AC372C52223942BE009F1DAD /* SctPerformRateCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SctPerformRateCellDelegate.swift; sourceTree = "<group>"; };
@@ -1450,6 +1452,7 @@
 				ACA94D9122A3CD800022209F /* SequencePicker.storyboard */,
 				ACF23617229C960400E7060D /* TctManageViewController.swift */,
 				AC367E0B22ABAE01004CD122 /* TctExportViewController.swift */,
+				AC367E0D22ABB2B7004CD122 /* TctExporter.swift */,
 				ACF23615229C95A500E7060D /* TctManage.storyboard */,
 				ACE0D021229B069300CD4760 /* TctSession.swift */,
 				ACE0D025229B089400CD4760 /* TctQuestion.swift */,
@@ -1698,6 +1701,7 @@
 				AC51CBEA224E667000B52FD0 /* VolumeViewController.swift in Sources */,
 				ACAD5DDA22457B160041E484 /* ImageZoomAnimationController.swift in Sources */,
 				AC6164C022A2B468009B7C58 /* SequencePickerViewController.swift in Sources */,
+				AC367E0E22ABB2B7004CD122 /* TctExporter.swift in Sources */,
 				AC53E3692232B2BA00CA4437 /* SctQuestionHeaderCell.swift in Sources */,
 				ACDC49B1224240D200B43534 /* TableRow.swift in Sources */,
 				ACD1B3B0223C510B0065F07E /* SctBrowsingCell.swift in Sources */,

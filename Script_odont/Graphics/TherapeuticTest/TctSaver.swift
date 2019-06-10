@@ -19,10 +19,19 @@ fileprivate func string_(for session: TctSession) -> String
     // participant category
     result += "\(session.participant.category.name)\n"
     
-    // the answers
+    let addComments = session.comments.count > 0
+    
+    // the answers and comments
     for (i, answer) in session.answers.enumerated()
     {
         result += "\t".join(answer)
+        
+        // comment
+        if addComments && i < session.comments.count
+        {
+            result += "\ncomment:" + session.comments[i]
+        }
+        
         if i < session.answers.count - 1
         {
             result += "\n"
@@ -51,13 +60,25 @@ fileprivate func session_(for string: String) -> TctSession
     }
     
     var answers = [[Int]]()
+    var comments = [String]()
     for i in 3..<lines.count
     {
+        if lines[i].starts(with: "comment:")
+        {
+            let comment = lines[i].replacingOccurrences(of: "comment:", with: "")
+            comments.append(comment)
+            continue
+        }
+        
         let itemAnswers = lines[i].split(separator: Character("\t"))
         
         answers.append(itemAnswers.map { Int(String($0)) ?? 0 })
     }
     
+    if comments.count > 0
+    {
+        return TctSession(date: date, participant: TctParticipant(firstName: participantFirstName, category: participantCategory), answers: answers, comments: comments)
+    }
     return TctSession(date: date, participant: TctParticipant(firstName: participantFirstName, category: participantCategory), answers: answers)
 }
 
