@@ -13,7 +13,7 @@ class TherapeuticTestBasicViewController: UIViewController
 {
     public static let diagnosticScale = ChooseScale(graduations: [
             ChooseScale.Graduation(title: "Fortement contre-indiqué", code: -2),
-            ChooseScale.Graduation(title: "Contre-indiqué", code: -1),
+            ChooseScale.Graduation(title: "Pas indiqué", code: -1),
             ChooseScale.Graduation(title: "Indiqué", code: 1),
             ChooseScale.Graduation(title: "Le plus indiquée", code: 2)
         
@@ -76,7 +76,7 @@ class TherapeuticTestBasicViewController: UIViewController
         "Composite",
         "Inlay / Onlay",
         "Veneerlay / Overlay",
-        "Couronne collée / endo-couronne",
+        "Couronne / endo-couronne",
         "Couronne avec RCR",
     ]
     fileprivate var currentQuestionIndex_ = 0

@@ -13,6 +13,7 @@ class TestStlColorViewController: UIViewController
 {
     var previousButton: UIBarButtonItem!
     var nextButton: UIBarButtonItem!
+    @IBOutlet weak var fileNameLabel: UILabel!
     @IBOutlet weak var sceneView: SCNView!
     
     fileprivate var volumeUrls_: [URL]!
@@ -87,6 +88,7 @@ class TestStlColorViewController: UIViewController
         currentVolume_ = newVolume
         updateNavigationButtons_()
         displayVolume_()
+        displayFileName_()
     }
     
     fileprivate func displayVolume_()
@@ -123,5 +125,11 @@ class TestStlColorViewController: UIViewController
         {
             node.removeFromParentNode()
         }
+    }
+    
+    fileprivate func displayFileName_()
+    {
+        let volumeUrl = volumeUrls_[currentVolume_]
+        fileNameLabel.text = volumeUrl.lastPathComponent
     }
 }

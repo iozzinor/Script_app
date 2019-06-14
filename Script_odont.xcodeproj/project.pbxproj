@@ -331,6 +331,8 @@
 		ACF23614229B32B200E7060D /* TctSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF23613229B32B200E7060D /* TctSaver.swift */; };
 		ACF23616229C95A500E7060D /* TctManage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF23615229C95A500E7060D /* TctManage.storyboard */; };
 		ACF23618229C960400E7060D /* TctManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF23617229C960400E7060D /* TctManageViewController.swift */; };
+		ACF8815422B033E2005467D4 /* MANDIBULE_2.22.1.1.stl in Copy Files - Test Color */ = {isa = PBXBuildFile; fileRef = ACF8815322B033C5005467D4 /* MANDIBULE_2.22.1.1.stl */; };
+		ACF8815522B033E2005467D4 /* MAXILLAIRE_2.22.1.1.stl in Copy Files - Test Color */ = {isa = PBXBuildFile; fileRef = ACF8815222B033C5005467D4 /* MAXILLAIRE_2.22.1.1.stl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -427,6 +429,8 @@
 			dstPath = TestColor;
 			dstSubfolderSpec = 7;
 			files = (
+				ACF8815422B033E2005467D4 /* MANDIBULE_2.22.1.1.stl in Copy Files - Test Color */,
+				ACF8815522B033E2005467D4 /* MAXILLAIRE_2.22.1.1.stl in Copy Files - Test Color */,
 				AC81289622A178C400FBFE39 /* mandibular.stl in Copy Files - Test Color */,
 				AC81289722A178C400FBFE39 /* maxillary.stl in Copy Files - Test Color */,
 				AC81288E22A1702C00FBFE39 /* mandibule_occlusion_occ_file_1.stl in Copy Files - Test Color */,
@@ -823,6 +827,8 @@
 		ACF23613229B32B200E7060D /* TctSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctSaver.swift; sourceTree = "<group>"; };
 		ACF23615229C95A500E7060D /* TctManage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TctManage.storyboard; sourceTree = "<group>"; };
 		ACF23617229C960400E7060D /* TctManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctManageViewController.swift; sourceTree = "<group>"; };
+		ACF8815222B033C5005467D4 /* MAXILLAIRE_2.22.1.1.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = MAXILLAIRE_2.22.1.1.stl; sourceTree = "<group>"; };
+		ACF8815322B033C5005467D4 /* MANDIBULE_2.22.1.1.stl */ = {isa = PBXFileReference; lastKnownFileType = file; path = MANDIBULE_2.22.1.1.stl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1318,6 +1324,8 @@
 		AC81288422A1685800FBFE39 /* TestColor */ = {
 			isa = PBXGroup;
 			children = (
+				ACF8815322B033C5005467D4 /* MANDIBULE_2.22.1.1.stl */,
+				ACF8815222B033C5005467D4 /* MAXILLAIRE_2.22.1.1.stl */,
 				AC81289422A178AF00FBFE39 /* mandibular.stl */,
 				AC81289522A178AF00FBFE39 /* maxillary.stl */,
 				AC81288922A1701F00FBFE39 /* mandibule_occlusion_occ_file_1.stl */,

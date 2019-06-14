@@ -18,20 +18,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yK-N8-efn">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qUA-um-YMp">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                            </sceneKitView>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9al-eP-Og0">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yK-N8-efn">
+                                        <rect key="frame" x="0.0" y="25.5" width="320" height="522.5"/>
+                                    </sceneKitView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="9al-eP-Og0" firstAttribute="leading" secondItem="qUA-um-YMp" secondAttribute="leading" id="QQZ-a6-jnh"/>
+                                    <constraint firstItem="8yK-N8-efn" firstAttribute="leading" secondItem="qUA-um-YMp" secondAttribute="leading" id="li5-WH-oUb"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8yK-N8-efn" firstAttribute="top" secondItem="HNp-8T-ZdN" secondAttribute="top" id="FVn-YV-1Oo"/>
-                            <constraint firstItem="HNp-8T-ZdN" firstAttribute="bottom" secondItem="8yK-N8-efn" secondAttribute="bottom" id="Wka-yF-xkb"/>
-                            <constraint firstItem="HNp-8T-ZdN" firstAttribute="trailing" secondItem="8yK-N8-efn" secondAttribute="trailing" id="bbD-wU-fKy"/>
-                            <constraint firstItem="8yK-N8-efn" firstAttribute="leading" secondItem="HNp-8T-ZdN" secondAttribute="leading" id="kU9-XP-jd9"/>
+                            <constraint firstItem="qUA-um-YMp" firstAttribute="leading" secondItem="NkG-cx-cTK" secondAttribute="leading" id="8pb-lI-NPP"/>
+                            <constraint firstItem="HNp-8T-ZdN" firstAttribute="bottom" secondItem="qUA-um-YMp" secondAttribute="bottom" id="BE4-rT-aCS"/>
+                            <constraint firstItem="qUA-um-YMp" firstAttribute="top" secondItem="HNp-8T-ZdN" secondAttribute="top" id="i6A-QA-iQs"/>
+                            <constraint firstItem="HNp-8T-ZdN" firstAttribute="trailing" secondItem="qUA-um-YMp" secondAttribute="trailing" id="xi4-oE-L5z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HNp-8T-ZdN"/>
                     </view>
                     <connections>
+                        <outlet property="fileNameLabel" destination="9al-eP-Og0" id="m5F-2U-gO4"/>
                         <outlet property="sceneView" destination="8yK-N8-efn" id="PJp-mc-5Ny"/>
                     </connections>
                 </viewController>

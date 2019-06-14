@@ -2,7 +2,7 @@
 //  TctQuestion.swift
 //  Script_odont
 //
-//  Created by Régis Iozzino on 26/05/2019.
+//  Created by Régis Iozzino on 16/05/2019.
 //  Copyright © 2019 Régis Iozzino. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ fileprivate func getQuestionWordings_() -> [String]
 {
     return [
         """
-Une patiente de 23 ans se présente avec une carie sous un amalgame de la dent numéro 36. Après avoir
+Une patiente de 23 ans se présente avec une carie sous un amalgame de la dent numéro 35. Après avoir
 déposer la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
 patient.
 """,
@@ -39,7 +39,7 @@ Un patient de 39 ans se présente suite à la perte de son ancien amalgame sur l
 avoir nettoyé la cavité, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
-Un patient de 54 ans se présente avec une carie importante sur la dent numéro 16 ayant nécessité la
+Un patient de 54 ans se présente avec une carie importante sur la dent numéro 15 ayant nécessité la
 réalisation d’un traitement endodontique. Après avoir déposer la reconstitution pré endodontique, vous
 souhaitez reconstruire la perte tissulaire de ce patient.
 """,
@@ -62,11 +62,11 @@ Un patient de 39 ans se présente avec une fracture de sa cuspide disto-palatine
 souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
-Un patient de 33 ans se présente avec une lésion carieuse sur la dent numéro 26. Après avoir réalisé l’
+Un patient de 33 ans se présente avec une lésion carieuse sur la dent numéro 16. Après avoir réalisé l’
 éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
-Un patient de 26 ans se présente avec une fracture d’un ancien amalgame de la dent numéro 36. Après
+Un patient de 16 ans se présente avec une fracture d’un ancien amalgame de la dent numéro 16. Après
 avoir effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
@@ -83,17 +83,17 @@ Un patient de 16 ans se présente avec une lésion carieuse sur la dent 16. Apr�
 carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
-Un patient de 39 ans se présente avec une carie sous un amalgame de la dent numéro 36. Après avoir
+Un patient de 39 ans se présente avec une carie sous un amalgame de la dent numéro 16. Après avoir
 déposer la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
 patient.
 """,
         """
-Un patient de 70 ans se présente avec une carie sous un composite de la dent numéro 36. Après avoir
+Un patient de 70 ans se présente avec une carie sous un composite de la dent numéro 16. Après avoir
 déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
 patient.
 """,
         """
-Un patient de 16 ans se présente avec une lésion carieuse sur la dent 26. Après avoir réalisé l’éviction
+Un patient de 16 ans se présente avec une lésion carieuse sur la dent 16. Après avoir réalisé l’éviction
 carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
