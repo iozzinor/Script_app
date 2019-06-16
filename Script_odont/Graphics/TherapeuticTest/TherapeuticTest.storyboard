@@ -84,11 +84,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RhT-lG-lUO">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RhT-lG-lUO">
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wording" textAlignment="justified" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyH-D2-N68">
-                                        <rect key="frame" x="0.0" y="0.0" width="568" height="96"/>
+                                        <rect key="frame" x="5" y="0.0" width="558" height="96"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -199,14 +199,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1w-yq-J7H">
-                                        <rect key="frame" x="0.0" y="276.5" width="568" height="43.5"/>
+                                        <rect key="frame" x="234.5" y="276.5" width="99" height="43.5"/>
                                         <state key="normal" title="Add Comment"/>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="FEQ-Sr-pcp" firstAttribute="height" secondItem="RhT-lG-lUO" secondAttribute="height" multiplier="1:2" id="6Ki-DU-xQh"/>
                                     <constraint firstItem="rxy-R1-AZT" firstAttribute="leading" secondItem="RhT-lG-lUO" secondAttribute="leading" id="LXC-uw-NnK"/>
-                                    <constraint firstItem="gyH-D2-N68" firstAttribute="leading" secondItem="RhT-lG-lUO" secondAttribute="leading" id="iPT-lz-w2X"/>
+                                    <constraint firstAttribute="leading" secondItem="gyH-D2-N68" secondAttribute="leading" constant="-5" id="iPT-lz-w2X"/>
                                     <constraint firstItem="gyH-D2-N68" firstAttribute="height" secondItem="RhT-lG-lUO" secondAttribute="height" multiplier="3:10" id="pGq-Mr-ffy"/>
                                     <constraint firstAttribute="trailing" secondItem="rxy-R1-AZT" secondAttribute="trailing" id="vQC-Ol-12I"/>
                                 </constraints>

@@ -12,108 +12,75 @@ fileprivate func getQuestionWordings_() -> [String]
 {
     return [
         """
-Une patiente de 23 ans se présente avec une carie sous un amalgame de la dent numéro 35. Après avoir
-déposer la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
+Une patiente de 23 ans se présente avec une carie sous un amalgame de la dent numéro 35. Après avoir déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 31 ans se présente avec une carie importante sur la dent numéro 16 ayant nécessité la réalisation d’un traitement endodontique. Après avoir déposé la reconstitution pré endodontique, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 44 ans se présente avec une lésion carieuse sur la dent 16. Après avoir effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 20 ans se présente avec une carie sous un ancien composite de la dent numéro 16. Après avoir déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 35 ans se présente avec une fracture de la cuspide vestibulaire sur de la dent numéro 15. Vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 39 ans se présente suite à la perte de son ancien amalgame sur la dent numéro 15. Après avoir nettoyé la cavité, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 54 ans se présente avec une carie importante sur la dent numéro 15 ayant nécessité la réalisation d’un traitement endodontique. Après avoir déposé la reconstitution pré endodontique, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 31 ans se présente suite à la perte de son ancienne restauration sur la dent numéro 16 qui possède un traitement endodontique. Après avoir réalisé un premier nettoyage de la cavité, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 39 ans se présente avec une lésion carieuse proximale sur la dent 46. Après avoir effectué l’ éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 39 ans se présente avec un inlay qui présente une infiltration et des début de lésion carieuses sur la dent . Après avoir déposé la restauration et effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 39 ans se présente avec une fracture de sa cuspide disto-palatine sur la dent 16. Vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 33 ans se présente avec une lésion carieuse sur la dent numéro 16. Après avoir réalisé l’ éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 16 ans se présente avec une fracture d’un ancien amalgame de la dent numéro 16. Après avoir effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 41 ans se présente avec une lésion carieuse en distal de la dent 16. Après avoir éffectué l’ éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 22 ans se présente avec une pulpite sur la dent numéro 16 ayant nécessité la réalisation d’un traitement endodontique. Après avoir déposé la reconstitution pré endodontique, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 16 ans se présente avec une lésion carieuse sur la dent 16. Après avoir réalisé l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 39 ans se présente avec une carie sous un amalgame de la dent numéro 16. Après avoir déposé la restauration et effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 70 ans se présente avec une carie sous un composite de la dent numéro 16. Après avoir déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Un patient de 16 ans se présente avec une lésion carieuse sur la dent 16. Après avoir réalisé l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+""",
+        """
+Une patiente de 23 ans se présente avec une carie sous une couronne de la dent numéro 15. Après avoir déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
 patient.
 """,
         """
-Un patient de 31 ans se présente avec une carie importante sur la dent numéro 16 ayant nécessité la
-réalisation d’un traitement endodontique. Après avoir déposer la reconstitution pré endodontique, vous
-souhaitez reconstruire la perte tissulaire de ce patient.
+Une patiente de 32 ans se présente avec une carie sous un onlay de la dent numéro 15. Après avoir déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
-Un patient de 44 ans se présente avec une lésion carieuse sur la dent 16. Après avoir effectué l’éviction
-carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 20 ans se présente avec une carie sous un ancien composite de la dent numéro 16. Après
-avoir déposer la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire
-de ce patient.
-""",
-        """
-Un patient de 35 ans se présente avec une fracture de la cuspide vestibulaire sur de la dent numéro 15.
-Vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 39 ans se présente suite à la perte de son ancien amalgame sur la dent numéro 15. Après
-avoir nettoyé la cavité, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 54 ans se présente avec une carie importante sur la dent numéro 15 ayant nécessité la
-réalisation d’un traitement endodontique. Après avoir déposer la reconstitution pré endodontique, vous
-souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 31 ans se présente suite à la perte de son ancienne restauration sur la dent numéro 16 qui
-possède un traitement endodontique. Après avoir réalisé un premier nettoyage de la cavité, vous souhaitez
-reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 39 ans se présente avec une lésion carieuse proximale sur la dent 46. Après avoir effectué l’
-éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 39 ans se présente avec un inlay qui présente une infiltration et des début de lésion
-carieuses sur la dent . Après avoir déposé la restauration et effectué l’éviction carieuse, vous souhaitez
-reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 39 ans se présente avec une fracture de sa cuspide disto-palatine sur la dent 16. Vous
-souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 33 ans se présente avec une lésion carieuse sur la dent numéro 16. Après avoir réalisé l’
-éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 16 ans se présente avec une fracture d’un ancien amalgame de la dent numéro 16. Après
-avoir effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 41 ans se présente avec une lésion carieuse en distal de la dent 16. Après avoir éffectué l’
-éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 22 ans se présente avec une pulpite sur la dent numéro 16 ayant nécessité la réalisation
-d’un traitement endodontique. Après avoir déposé la reconstitution pré endodontique, vous souhaitez
-reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 16 ans se présente avec une lésion carieuse sur la dent 16. Après avoir réalisé l’éviction
-carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Un patient de 39 ans se présente avec une carie sous un amalgame de la dent numéro 16. Après avoir
-déposer la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
+Une patiente de 40 ans se présente avec une carie sous un amalgame de la dent numéro 15. Après avoir déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
 patient.
 """,
         """
-Un patient de 70 ans se présente avec une carie sous un composite de la dent numéro 16. Après avoir
-déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
-patient.
-""",
-        """
-Un patient de 16 ans se présente avec une lésion carieuse sur la dent 16. Après avoir réalisé l’éviction
-carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
-""",
-        """
-Une patiente de 23 ans se présente avec une carie sous une couronne de la dent numéro 15. Après avoir
-déposer la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
-patient.
-""",
-        """
-Une patiente de 32 ans se présente avec une carie sous un onlay de la dent numéro 15. Après avoir
-déposer la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
-patient.
-""",
-        """
-Une patiente de 40 ans se présente avec une carie sous un amalgame de la dent numéro 15. Après avoir
-déposer la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
-patient.
-""",
-        """
-Une patiente de 60 ans se présente avec perte d'obturation sur la dent numéro 15. Après avoir
-déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
+Une patiente de 60 ans se présente avec perte d'obturation sur la dent numéro 15. Après avoir déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
 patient.
 """,
         """
