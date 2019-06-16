@@ -449,10 +449,13 @@
 "ToothRecognitionSelection.NavigationItem.Title" = "Pick The Tooth";
 
 /* THERAPEUTIC TEST */
+"TherapeuticTest.Finish"                = "Finish";
 "TherapeuticTest.AddCommentButton"      = "Add Comment";
 "TherapeuticTest.AddComment.Title"      = "Add Comment";
 "TherapeuticTest.AddComment.Message"    = "Please enter your comment.";
 "TherapeuticTest.AddComment.TheComment" = "The comment...";
+"TherapeuticTest.FinishDialog.Title"    = "Finish";
+"TherapeuticTest.FinishDialog.Message"  = "Do you want to end the session ?";
 
 /* THERAPEUTIC CHOICE */
 "TherapeuticChoice.NavigationItem.Title"            = "Therapeutic Choice";

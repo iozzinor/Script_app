@@ -158,7 +158,7 @@ class TherapeuticTestBasicViewController: UIViewController
         previousItem = UIBarButtonItem(title: "Common.Previous".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.previousQuestion_))
         timeItem = UIBarButtonItem(title: "00:00", style: .plain, target: nil, action: nil)
         nextItem = UIBarButtonItem(title: "Common.Next".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.nextQuestion_))
-        doneItem = UIBarButtonItem(title: "Common.Done".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.saveAnswers_))
+        doneItem = UIBarButtonItem(title: "TherapeuticTest.Finish".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.displayFinishDialog_))
         
         navigationItem.rightBarButtonItem = doneItem
         navigationItem.rightBarButtonItems?.append(nextItem)
@@ -372,7 +372,23 @@ class TherapeuticTestBasicViewController: UIViewController
         performSegue(withIdentifier: TherapeuticTestBasicViewController.toVolume, sender: self)
     }
     
-    @objc fileprivate func saveAnswers_()
+    @objc fileprivate func displayFinishDialog_()
+    {
+        let finishDialog = UIAlertController(title: "TherapeuticTest.FinishDialog.Title".localized, message: "TherapeuticTest.FinishDialog.Message".localized, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Common.Cancel".localized, style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "TherapeuticTest.Finish".localized, style: .default, handler: {
+            (UIAlertAction) -> Void in
+            self.saveSession_()
+        })
+        
+        finishDialog.addAction(cancelAction)
+        finishDialog.addAction(saveAction)
+        
+        present(finishDialog, animated: true, completion: nil)
+    }
+    
+    fileprivate func saveSession_()
     {
         // get the answers, and the comments
         var answers = Array<Array<Int>>(repeating: [], count: userChoices_.count)
