@@ -464,6 +464,8 @@
 "TherapeuticChoice.ParticipantDialog.Message"       = "Veuillez entrer le nom du participant.";
 "TherapeuticChoice.Section.Participant"             = "Participant";
 "TherapeuticChoice.Section.Sequence"                = "Séquence";
+"TherapeuticChoice.Section.Resume"                  = "Reprendre";
+"TherapeuticChoice.Section.Finished"                = "Terminés";
 "TherapeuticChoice.Row.Participant"                 = "Participant :";
 "TherapeuticChoice.Row.ParticipantCategory"         = "Categorie :";
 "TherapeuticChoice.Row.SequenceIndex"               = "Numéro séquence :";

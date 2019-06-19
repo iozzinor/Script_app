@@ -138,10 +138,55 @@ class TctSaver
                 continue
             }
             
-            result.append(session_(for: sessionContent))
+            var newSession = session_(for: sessionContent)
+            if let sessionId = Int(sessionFile.replacingOccurrences(of: ".tct", with: ""))
+            {
+                newSession.id = sessionId
+            }
+            result.append(newSession)
         }
         
         return result
+    }
+    
+    public class func getSession(for sequenceIndex: Int, id: Int) -> TctSession?
+    {
+        let sequenceUrl = url(forSequenceIndex: sequenceIndex)
+        let sessionFiles: [String]
+        do
+        {
+            sessionFiles = try FileManager.default.contentsOfDirectory(atPath: sequenceUrl.path)
+        }
+        catch
+        {
+            return nil
+        }
+        
+        for sessionFile in sessionFiles
+        {
+            if sessionFile != "\(id).tct"
+            {
+                continue
+            }
+            
+            let currentFileUrl = sequenceUrl.appendingPathComponent(sessionFile)
+            
+            guard let sessionData = FileManager.default.contents(atPath: currentFileUrl.path),
+                let sessionContent = String(data: sessionData, encoding: .utf8)
+                else
+            {
+                continue
+            }
+            
+            var newSession = session_(for: sessionContent)
+            if let sessionId = Int(sessionFile.replacingOccurrences(of: ".tct", with: ""))
+            {
+                newSession.id = sessionId
+            }
+            return newSession
+        }
+        
+        return nil
     }
     
     public class func getSessionsCount(forSequenceIndex sequenceIndex: Int) -> Int

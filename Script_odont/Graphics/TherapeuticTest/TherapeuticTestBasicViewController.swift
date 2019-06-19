@@ -71,6 +71,7 @@ class TherapeuticTestBasicViewController: UIViewController
     }
     
     fileprivate var questions_: [TctQuestion] = []
+    fileprivate var sessionId_: Int? = nil
     
     fileprivate let therapeuticChoices_ = [
         "Composite",
@@ -151,6 +152,8 @@ class TherapeuticTestBasicViewController: UIViewController
         setupTherapeuticLabels_()
         setupTherapeuticChoices_()
         updateWording_()
+        
+        setupSession_()
     }
     
     fileprivate func setupNavigationMenu_()
@@ -280,6 +283,25 @@ class TherapeuticTestBasicViewController: UIViewController
         comments_ = Array(repeating: "", count: questions_.count)
         
         updateQuestionsMapping_()
+    }
+    
+    fileprivate func setupSession_()
+    {
+        guard let id = sessionId_ else
+        {
+            return
+        }
+        
+        if let session = TctSaver.getSession(for: sequenceIndex, id: id),
+            questionsSuffleIndexes_.count > 0
+        {
+            for questionIndex in 0..<session.answers.count
+            {
+                let shuffledIndex = questionsSuffleIndexes_[questionIndex]
+                
+                userChoices_[questionIndex] = session.answers[shuffledIndex]
+            }
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -522,6 +544,14 @@ class TherapeuticTestBasicViewController: UIViewController
         }
         
         questionsSuffleIndexes_.shuffle()
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - UTILS
+    // -------------------------------------------------------------------------
+    func loadSession(withId id: Int)
+    {
+        sessionId_ = id
     }
     
     // -------------------------------------------------------------------------

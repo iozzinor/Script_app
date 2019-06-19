@@ -51,6 +51,15 @@ struct Constants
         return dateFormatter.string(for: date) ?? ""
     }
     
+    /// - returns: The local short representation of a date with the time.
+    static func datetimeString(for date: Date) -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        return dateFormatter.string(for: date) ?? ""
+    }
+    
     /// - returns: The textual representation of the duration expressed in seconds.
     static func durationString(forTimeInterval timeInterval: TimeInterval) -> String
     {

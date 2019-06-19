@@ -112,19 +112,19 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AmI-ta-j5t">
                                                         <rect key="frame" x="0.0" y="0.0" width="518" height="20.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ce que je peux réaliser" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCl-Fm-9QY">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Si vous pensiez" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCl-Fm-9QY">
                                                                 <rect key="frame" x="0.0" y="0.0" width="172.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ce que je trouve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G34-Ee-HHW">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Et que vous trouvez" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G34-Ee-HHW">
                                                                 <rect key="frame" x="172.5" y="0.0" width="173" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ce que je suppose" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyP-ZJ-Y5z">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="La thérapeutique devient" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyP-ZJ-Y5z">
                                                                 <rect key="frame" x="345.5" y="0.0" width="172.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -231,6 +231,7 @@
                         <outlet property="toothView" destination="tcm-7X-Gb1" id="2MJ-sE-utd"/>
                         <outlet property="wordingLabel" destination="gyH-D2-N68" id="dRX-ks-dA7"/>
                         <segue destination="WG4-3C-Kv3" kind="presentation" identifier="TherapeuticTestBasicToVolumeSegueId" id="erc-Sd-Pel"/>
+                        <segue destination="J4W-Cp-Sg5" kind="presentation" identifier="TherapeuticTestBasicToCommentPickerSegueId" id="s16-qr-V9R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h6f-hY-XR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -269,7 +270,22 @@
                 <viewControllerPlaceholder storyboardName="Volume" id="WG4-3C-Kv3" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLZ-8G-JhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973" y="-289"/>
+            <point key="canvasLocation" x="981" y="-486"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ruc-Ts-OcF">
+            <objects>
+                <viewController id="J4W-Cp-Sg5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oqG-Ub-BhP">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bFl-eB-BYe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c4w-ae-izW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1170" y="83"/>
         </scene>
     </scenes>
     <resources>

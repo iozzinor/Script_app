@@ -36,7 +36,7 @@ Un patient de 54 ans se présente avec une carie importante sur la dent numéro 
 Un patient de 31 ans se présente suite à la perte de son ancienne restauration sur la dent numéro 16 qui possède un traitement endodontique. Après avoir réalisé un premier nettoyage de la cavité, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
-Un patient de 39 ans se présente avec une lésion carieuse proximale sur la dent 46. Après avoir effectué l’ éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+Un patient de 39 ans se présente avec une lésion carieuse proximale sur la dent 16. Après avoir effectué l’ éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
 Un patient de 39 ans se présente avec un inlay qui présente une infiltration et des début de lésion carieuses sur la dent . Après avoir déposé la restauration et effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
@@ -80,11 +80,11 @@ Une patiente de 40 ans se présente avec une carie sous un amalgame de la dent n
 patient.
 """,
         """
-Une patiente de 60 ans se présente avec perte d'obturation sur la dent numéro 15. Après avoir déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
+Une patiente de 60 ans se présente avec perte d'obturation sur la dent numéro 16. Après avoir déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce
 patient.
 """,
         """
-Une patiente de 13 ans se présente avec une carie sur la numéro 15. Après avoir effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+Une patiente de 13 ans se présente avec une carie sur la numéro 16. Après avoir effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """
     ]
 }
