@@ -449,11 +449,8 @@
 "ToothRecognitionSelection.NavigationItem.Title" = "Pick The Tooth";
 
 /* THERAPEUTIC TEST */
-"TherapeuticTest.Finish"                = "Finish";
 "TherapeuticTest.AddCommentButton"      = "Add Comment";
-"TherapeuticTest.AddComment.Title"      = "Add Comment";
-"TherapeuticTest.AddComment.Message"    = "Please enter your comment.";
-"TherapeuticTest.AddComment.TheComment" = "The comment...";
+"TherapeuticTest.Finish"                = "Finish";
 "TherapeuticTest.FinishDialog.Title"    = "Finish";
 "TherapeuticTest.FinishDialog.Message"  = "Do you want to end the session ?";
 
@@ -468,6 +465,7 @@
 "TherapeuticChoice.Section.Finished"                = "Finished";
 "TherapeuticChoice.Row.Participant"                 = "Participant:";
 "TherapeuticChoice.Row.ParticipantCategory"         = "Category:";
+"TherapeuticChoice.Row.ParticipantExerciseDuration" = "Exercise Duration:";
 "TherapeuticChoice.Row.SequenceIndex"               = "Sequence Number:";
 "TherapeuticChoice.Row.Launch"                      = "Launch";
 "TherapeuticChoice.SaveSuccessDialog.Title"         = "Save Success";

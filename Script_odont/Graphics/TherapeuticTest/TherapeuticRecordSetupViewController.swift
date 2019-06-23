@@ -12,12 +12,13 @@ class TherapeuticRecordSetupViewController: UITableViewController
 {
     public static let toTherapeuticTestBasic        = "TherapeuticRecordSetupToTherapeuticTestBasicSegueId"
     public static let toParticipantCategoryPicker   = "TherapeuticRecordSetupToParticipantCategoryPickerSegueId"
+    public static let toExerciseDurationPicker      = "TherapeuticRecordSetupToExerciseDurationPickerSegueId"
     public static let toSequencePicker              = "TherapeuticRecordSetupToSequencePickerSegueId"
     
     private static let detailCellId = "TherapeuticRecordSetupDetailCellReuseId"
     private static let basicCellId = "TherapeuticRecordSetupBasicCellReuseId"
     
-    enum RecordSection
+    fileprivate enum RecordSection
     {
         case participant
         case sequence
@@ -40,28 +41,13 @@ class TherapeuticRecordSetupViewController: UITableViewController
                 return nil
             }
         }
-        
-        var rows: [RecordRow] {
-            switch self
-            {
-            case .participant:
-                return [.participantName, .participantCategory]
-            case .sequence:
-                return [.sequenceIndex]
-            case .launch:
-                return [.launch]
-            case .resume:
-                return []
-            case .finished:
-                return []
-            }
-        }
     }
     
-    enum RecordRow
+    fileprivate enum RecordRow
     {
         case participantName
         case participantCategory
+        case participantExerciseDuration
         
         case sequenceIndex
         
@@ -70,17 +56,20 @@ class TherapeuticRecordSetupViewController: UITableViewController
         case resumeSession
     }
     
+    fileprivate typealias Content = [(section: RecordSection, rows: [RecordRow])]
+    
     var selectionMode = TherapeuticTestBasicViewController.SelectionMode.single
     
     fileprivate var participantName_: String? = "default name"//= nil
     fileprivate var participantCategory_: ParticipantCategory? = ParticipantCategory.student4//= nil
+    fileprivate var participantExerciseDuration_: Int? = nil
     fileprivate var sequenceIndex_: Int = 0
     fileprivate var sessions: [Bool: [TctSession]] = [:]
     
     fileprivate var participantNameDoneAction_: UIAlertAction? = nil
     
     fileprivate var sessionToResumeId_: Int? = nil
-    
+
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
     // -------------------------------------------------------------------------
@@ -89,6 +78,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
         super.viewDidLoad()
         
         loadSessions_(for: sequenceIndex_)
+        updateTableContent_()
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -146,6 +136,14 @@ class TherapeuticRecordSetupViewController: UITableViewController
             cell.detailTextLabel?.text = participantCategory_?.name ?? "Common.None".localized
             
             return cell
+        case .participantExerciseDuration:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TherapeuticRecordSetupViewController.detailCellId, for: indexPath)
+            
+            cell.accessoryType = .disclosureIndicator
+            cell.textLabel?.text = "TherapeuticChoice.Row.ParticipantExerciseDuration".localized
+            cell.detailTextLabel?.text = String(participantExerciseDuration_ ?? 0)
+            
+            return cell
             
         case .sequenceIndex:
             let cell = tableView.dequeueReusableCell(withIdentifier: TherapeuticRecordSetupViewController.detailCellId, for: indexPath)
@@ -194,6 +192,8 @@ class TherapeuticRecordSetupViewController: UITableViewController
             displayParticipantNameDialog_()
         case .participantCategory:
             performSegue(withIdentifier: TherapeuticRecordSetupViewController.toParticipantCategoryPicker, sender: self)
+        case .participantExerciseDuration:
+            performSegue(withIdentifier: TherapeuticRecordSetupViewController.toExerciseDurationPicker, sender: self)
         case .sequenceIndex:
             performSegue(withIdentifier: TherapeuticRecordSetupViewController.toSequencePicker, sender: self)
             
@@ -209,11 +209,25 @@ class TherapeuticRecordSetupViewController: UITableViewController
     // -------------------------------------------------------------------------
     // MARK: - TABLE CONTENT
     // -------------------------------------------------------------------------
-    fileprivate var tableContent_: [(RecordSection, [RecordRow])] {
-        var result = [(RecordSection, [RecordRow])]()
+    fileprivate var tableContent_ = Content()
+    
+    fileprivate func updateTableContent_()
+    {
+        var result = Content()
         
         // participant
-        result.append((.participant, [.participantName, .participantCategory]))
+        var participantRows: [RecordRow] = [.participantName, .participantCategory]
+        if let category = participantCategory_
+        {
+            switch category
+            {
+            case .teacher:
+                participantRows.append(.participantExerciseDuration)
+            case .intern, .student4, .student5, .student6:
+                break
+            }
+        }
+        result.append((.participant, participantRows))
         
         // sequence
         result.append((.sequence, [.sequenceIndex]))
@@ -228,14 +242,16 @@ class TherapeuticRecordSetupViewController: UITableViewController
             result.append((.resume, Array<RecordRow>(repeating: .resumeSession, count: incompleteSessions.count)))
         }
         
-        return result
+        tableContent_ = result
+        
+        tableView.reloadData()
     }
     
     fileprivate func indexPath_(for recordRow: RecordRow) -> IndexPath
     {
         for (sectionIndex, sectionContent) in tableContent_.enumerated()
         {
-            let rows = sectionContent.0.rows
+            let rows = sectionContent.1
             
             if let rowIndex = rows.index(of: recordRow)
             {
@@ -343,6 +359,17 @@ class TherapeuticRecordSetupViewController: UITableViewController
             target.currentCategory = participantCategory_
             target.delegate = self
         }
+        // exercise duration picker
+        else if segue.identifier == TherapeuticRecordSetupViewController.toExerciseDurationPicker,
+            let target = segue.destination as? ExerciseDurationViewController
+        {
+            target.delegate = self
+            if let duration = participantExerciseDuration_
+            {
+                target.exerciseDuration = duration
+            }
+        }
+        // sequence picker
         else if segue.identifier == TherapeuticRecordSetupViewController.toSequencePicker,
             let target = segue.destination as? SequencePickerViewController
         {
@@ -383,8 +410,18 @@ extension TherapeuticRecordSetupViewController: ParticipantCategoryPickerDelegat
     func participantCategoryPicker(_ participantCategoryPickerViewController: ParticipantCategoryPickerViewController, didPickCategory participantCategory: ParticipantCategory?)
     {
         participantCategory_ = participantCategory
-        
-        tableView.reloadRows(at: [indexPath_(for: .participantCategory), indexPath_(for: .launch)], with: .automatic)
+        updateTableContent_()
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - EXERCISE DURATION PICKER DELEGATE
+// -----------------------------------------------------------------------------
+extension TherapeuticRecordSetupViewController: ExerciseDurationPickerDelegate
+{
+    func exerciseDurationPickerViewController(_ exerciseDurationPickerViewController: ExerciseDurationViewController, didPickExerciseDuration exerciseDuration: Int)
+    {
+        participantExerciseDuration_ = exerciseDuration
     }
 }
 

@@ -19,7 +19,8 @@ class TherapeuticTestBasicViewController: UIViewController
         
         ])
     
-    public static let toVolume      = "TherapeuticTestBasicToVolumeSegueId"
+    public static let toVolume          = "TherapeuticTestBasicToVolumeSegueId"
+    public static let toCommentPicker   = "TherapeuticTestBasicToCommentPickerSegueId"
     
     public static let therapeuticLabelCellId = "TherapeuticLabelCellReuseId"
     
@@ -77,7 +78,7 @@ class TherapeuticTestBasicViewController: UIViewController
         "Composite",
         "Inlay / Onlay",
         "Veneerlay / Overlay",
-        "Couronne / endo-couronne",
+        "Couronne",
         "Couronne avec RCR",
     ]
     fileprivate var currentQuestionIndex_ = 0
@@ -87,7 +88,6 @@ class TherapeuticTestBasicViewController: UIViewController
     fileprivate var questionsSuffleIndexes_ = [Int]()
     fileprivate var userChoices_ = [[Int]]()
     fileprivate var comments_ = [String]()
-    fileprivate var commentTextField_: UITextField?
     fileprivate var scaleValues_: [Int] {
         switch selectionMode
         {
@@ -364,29 +364,7 @@ class TherapeuticTestBasicViewController: UIViewController
     
     @objc fileprivate func addComment_(_ sender: UIButton)
     {
-        let addCommentController = UIAlertController(title: "TherapeuticTest.AddComment.Title".localized, message: "TherapeuticTest.AddComment.Message".localized, preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "Common.Cancel".localized, style: .cancel, handler: nil)
-        
-        let okAction = UIAlertAction(title: "Common.Done".localized, style: .default, handler: {
-            (action: UIAlertAction) -> Void in
-            
-            self.comments_[self.currentQuestionIndex_] = self.commentTextField_?.text ?? ""
-            self.commentTextField_ = nil
-        })
-        
-        addCommentController.addAction(cancelAction)
-        addCommentController.addAction(okAction)
-        
-        addCommentController.addTextField(configurationHandler: {
-            (textField) -> Void in
-            
-            textField.placeholder = "TherapeuticTest.AddComment.TheComment".localized
-            textField.text = self.comments_[self.currentQuestionIndex_]
-            self.commentTextField_ = textField
-        })
-        
-        present(addCommentController, animated: true, completion: nil)
+        performSegue(withIdentifier: TherapeuticTestBasicViewController.toCommentPicker, sender: self)
     }
     
     @objc fileprivate func toothVolumeTouched(_ tapGestureRecognizer: UITapGestureRecognizer)
@@ -478,7 +456,8 @@ class TherapeuticTestBasicViewController: UIViewController
     fileprivate func updateWording_()
     {
         let questionIndex = TctQuestion.sequences[sequenceIndex][questionsSuffleIndexes_[currentQuestionIndex_]]
-        wordingLabel.text = "\(questionIndex + 1). " + currentQuestion_.wording
+        //wordingLabel.text = "\(questionIndex + 1). " + currentQuestion_.wording
+        wordingLabel.text = currentQuestion_.wording
     }
     
     fileprivate func updateToothScene_()
@@ -559,10 +538,18 @@ class TherapeuticTestBasicViewController: UIViewController
     // -------------------------------------------------------------------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        // TO VOLUME
         if segue.identifier == TherapeuticTestBasicViewController.toVolume,
             let target = (segue.destination as? UINavigationController)?.viewControllers.first as? VolumeViewController
         {
             target.scene = toothView.scene
+        }
+        // TO COMMENT PICKER
+        else if segue.identifier == TherapeuticTestBasicViewController.toCommentPicker,
+            let target = segue.destination as? CommentPickerViewController
+        {
+            target.comment  = comments_[currentQuestionIndex_]
+            target.delegate = self
         }
     }
 }
@@ -691,5 +678,20 @@ extension TherapeuticTestBasicViewController: TherapeuticChoiceDelegate
     func didSelectValue(at index: Int, for rowIndex: Int)
     {
         userChoices_[currentQuestionIndex_][rowIndex] = index;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// MARK: - COMMENT PICKER DELEGATE
+// -----------------------------------------------------------------------------
+extension TherapeuticTestBasicViewController: CommentPickerDelegate
+{
+    func commentPickerViewController(didCancel commentPickerViewController: CommentPickerViewController)
+    {
+    }
+    
+    func commentPickerViewController(_ commentPickerViewController: CommentPickerViewController, didPickComment comment: String)
+    {
+        self.comments_[currentQuestionIndex_] = comment
     }
 }
