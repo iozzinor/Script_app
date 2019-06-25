@@ -77,6 +77,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
     {
         super.viewDidLoad()
         
+        tableView.registerNibCell(TctResumeSessionCell.self)
         loadSessions_(for: sequenceIndex_)
         updateTableContent_()
     }
@@ -162,12 +163,13 @@ class TherapeuticRecordSetupViewController: UITableViewController
             return cell
             
         case .resumeSession:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TherapeuticRecordSetupViewController.detailCellId, for: indexPath)
+            let cell = tableView.dequeueReusableCell(for: indexPath) as TctResumeSessionCell
             
             let session = sessions_[false]![indexPath.row]
             cell.accessoryType = .disclosureIndicator
-            cell.textLabel?.text = Constants.datetimeString(for: session.date)
-            cell.detailTextLabel?.text = "\(session.sequenceIndex + 1)"
+            cell.sessionDateLabel.text = Constants.datetimeString(for: session.date)
+            cell.sessionNumberLabel.text = "\(session.sequenceIndex + 1)"
+            cell.sessionParticipantLabel.text = "\(session.participant.firstName.uppercased())"
             
             return cell
         }

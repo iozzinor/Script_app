@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TctResumeSessionCellReuseId" id="3u8-6e-7x1" customClass="TctResumeSessionCell" customModule="Script_odont" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3u8-6e-7x1" id="SMp-z6-dkt">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nXN-Ap-cbF">
+                        <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="129" translatesAutoresizingMaskIntoConstraints="NO" id="30o-1J-au2">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIb-HQ-H8c">
+                                        <rect key="frame" x="0.0" y="0.0" width="198.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1B-Pw-SIt">
+                                        <rect key="frame" x="327.5" y="0.0" width="46.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="n1B-Pw-SIt" firstAttribute="width" secondItem="30o-1J-au2" secondAttribute="width" multiplier="1:8" id="CZE-Fy-9lm"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sesssion Participant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5X-SW-mCB">
+                                <rect key="frame" x="0.0" y="20.5" width="374" height="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="30o-1J-au2" firstAttribute="leading" secondItem="nXN-Ap-cbF" secondAttribute="leading" id="Fg9-Ev-516"/>
+                            <constraint firstItem="x5X-SW-mCB" firstAttribute="leading" secondItem="nXN-Ap-cbF" secondAttribute="leading" id="v9O-Dv-K8H"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="nXN-Ap-cbF" secondAttribute="trailing" constant="20" symbolic="YES" id="UXC-g0-95d"/>
+                    <constraint firstItem="nXN-Ap-cbF" firstAttribute="leading" secondItem="SMp-z6-dkt" secondAttribute="leading" constant="20" symbolic="YES" id="ghb-WP-bZi"/>
+                    <constraint firstItem="nXN-Ap-cbF" firstAttribute="top" secondItem="SMp-z6-dkt" secondAttribute="top" id="m8n-C6-avQ"/>
+                    <constraint firstAttribute="bottom" secondItem="nXN-Ap-cbF" secondAttribute="bottom" id="ssq-50-yeV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="sessionDateLabel" destination="yIb-HQ-H8c" id="hmS-nB-zJa"/>
+                <outlet property="sessionNumberLabel" destination="n1B-Pw-SIt" id="zde-SQ-KRK"/>
+                <outlet property="sessionParticipantLabel" destination="x5X-SW-mCB" id="HhJ-8x-FQ7"/>
+            </connections>
+            <point key="canvasLocation" x="-207" y="20"/>
+        </tableViewCell>
+    </objects>
+</document>
