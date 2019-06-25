@@ -64,7 +64,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
     fileprivate var participantCategory_: ParticipantCategory? = ParticipantCategory.student4//= nil
     fileprivate var participantExerciseDuration_: Int? = nil
     fileprivate var sequenceIndex_: Int = 0
-    fileprivate var sessions: [Bool: [TctSession]] = [:]
+    fileprivate var sessions_: [Bool: [TctSession]] = [:]
     
     fileprivate var participantNameDoneAction_: UIAlertAction? = nil
     
@@ -89,7 +89,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
         
         // reload sessions
         loadSessions_(for: sequenceIndex_)
-        tableView.reloadData()
+        updateTableContent_()
         
         sessionToResumeId_ = nil
     }
@@ -164,10 +164,10 @@ class TherapeuticRecordSetupViewController: UITableViewController
         case .resumeSession:
             let cell = tableView.dequeueReusableCell(withIdentifier: TherapeuticRecordSetupViewController.detailCellId, for: indexPath)
             
-            let session = sessions[false]![indexPath.row]
+            let session = sessions_[false]![indexPath.row]
             cell.accessoryType = .disclosureIndicator
             cell.textLabel?.text = Constants.datetimeString(for: session.date)
-            cell.detailTextLabel?.text = "\(sequenceIndex_ + 1)"
+            cell.detailTextLabel?.text = "\(session.sequenceIndex + 1)"
             
             return cell
         }
@@ -198,7 +198,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
             performSegue(withIdentifier: TherapeuticRecordSetupViewController.toSequencePicker, sender: self)
             
         case .resumeSession:
-            let sessionToResume = sessions[false]![indexPath.row]
+            let sessionToResume = sessions_[false]![indexPath.row]
             sessionToResumeId_ = sessionToResume.id
             performSegue(withIdentifier: TherapeuticRecordSetupViewController.toTherapeuticTestBasic, sender: self)
         }
@@ -236,7 +236,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
         result.append((.launch, [.launch]))
         
         // incomplete
-        if let incompleteSessions = sessions[false],
+        if let incompleteSessions = sessions_[false],
             !incompleteSessions.isEmpty
         {
             result.append((.resume, Array<RecordRow>(repeating: .resumeSession, count: incompleteSessions.count)))
@@ -299,15 +299,15 @@ class TherapeuticRecordSetupViewController: UITableViewController
     fileprivate func loadSessions_(for sequenceIndex: Int)
     {
         // sessions dictionary key = whether the session is complete
-        sessions = [:]
-        sessions[true] = []
-        sessions[false] = []
+        sessions_ = [:]
+        sessions_[true] = []
+        sessions_[false] = []
         
-        let allSessions = TctSaver.getSessions(forSequenceIndex: sequenceIndex_)
+        let allSessions = TctSaver.getAllSession()
         for session in allSessions
         {
             let isSessionComplete = isSessionComplete_(session: session)
-            sessions[isSessionComplete]!.append(session)
+            sessions_[isSessionComplete]!.append(session)
         }
     }
     

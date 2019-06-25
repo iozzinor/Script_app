@@ -12,29 +12,31 @@ import Foundation
 struct TctSession
 {
     var id: Int
+    var sequenceIndex: Int
     var date: Date
     var participant: TctParticipant
     var answers: [[Int]]
     var comments: [String]
     
-    init(date: Date, participant: TctParticipant, answers: [[Int]])
+    init(sequenceIndex: Int, date: Date, participant: TctParticipant, answers: [[Int]])
     {
-        self.init(date: date, participant: participant, answers: answers, comments: [])
+        self.init(sequenceIndex: sequenceIndex, date: date, participant: participant, answers: answers, comments: [])
     }
     
-    init(date: Date, participant: TctParticipant, answers: [[Int]], comments: [String])
+    init(sequenceIndex: Int, date: Date, participant: TctParticipant, answers: [[Int]], comments: [String])
     {
-        self.init(id: -1, date: date, participant: participant, answers: answers, comments: comments)
+        self.init(id: -1, sequenceIndex: sequenceIndex, date: date, participant: participant, answers: answers, comments: comments)
     }
     
-    init(id: Int, date: Date, participant: TctParticipant, answers: [[Int]])
+    init(id: Int, sequenceIndex: Int, date: Date, participant: TctParticipant, answers: [[Int]])
     {
-        self.init(id: -1, date: date, participant: participant, answers: answers, comments: [])
+        self.init(id: -1, sequenceIndex: sequenceIndex, date: date, participant: participant, answers: answers, comments: [])
     }
     
-    init(id: Int, date: Date, participant: TctParticipant, answers: [[Int]], comments: [String])
+    init(id: Int, sequenceIndex: Int, date: Date, participant: TctParticipant, answers: [[Int]], comments: [String])
     {
         self.id = id
+        self.sequenceIndex = sequenceIndex
         self.date = date
         self.participant = participant
         self.answers = answers

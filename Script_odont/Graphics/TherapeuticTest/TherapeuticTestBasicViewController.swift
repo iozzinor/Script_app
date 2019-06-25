@@ -404,9 +404,9 @@ class TherapeuticTestBasicViewController: UIViewController
         switch participant.category
         {
         case .teacher:
-            session = TctSession(date: Date(), participant: participant, answers: answers, comments: comments)
+            session = TctSession(sequenceIndex: sequenceIndex, date: Date(), participant: participant, answers: answers, comments: comments)
         case .intern, .student4, .student5, .student6:
-            session = TctSession(date: Date(), participant: participant, answers: answers)
+            session = TctSession(sequenceIndex: sequenceIndex, date: Date(), participant: participant, answers: answers)
         }
         
         TctSaver.save(session: session, sequenceIndex: sequenceIndex)
@@ -456,7 +456,7 @@ class TherapeuticTestBasicViewController: UIViewController
     fileprivate func updateWording_()
     {
         let questionIndex = TctQuestion.sequences[sequenceIndex][questionsSuffleIndexes_[currentQuestionIndex_]]
-        //wordingLabel.text = "\(questionIndex + 1). " + currentQuestion_.wording
+        wordingLabel.text = "\(questionIndex + 1). " + currentQuestion_.wording
         wordingLabel.text = currentQuestion_.wording
     }
     
@@ -476,6 +476,12 @@ class TherapeuticTestBasicViewController: UIViewController
             let node = try SCNNode.load(stlFileUrl: volumeUrl)
             
             toothView.scene?.rootNode.addChildNode(node)
+            
+            // update the camera
+            let (minimum, maximum) = node.boundingBox
+            let maxLength = max(max(abs(maximum.x - minimum.x), abs(maximum.y - minimum.y)), abs(maximum.z - minimum.z))
+            toothView.defaultCameraController.pointOfView?.position = SCNVector3(0, 0, maxLength * 1.5)
+            toothView.defaultCameraController.pointOfView?.look(at: SCNVector3(0, 0, 0), up: SCNVector3(0, 1, 0), localFront: SCNVector3(0, 0, -1))
         }
         catch
         {

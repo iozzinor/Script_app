@@ -41,12 +41,12 @@ fileprivate func string_(for session: TctSession) -> String
     return result
 }
 
-fileprivate func session_(for string: String) -> TctSession
+fileprivate func session_(for string: String, sequenceIndex: Int) -> TctSession
 {
     let lines = string.split(separator: Character("\n"))
     guard lines.count > 3 else
     {
-        return TctSession(date: Date(), participant: TctParticipant(firstName: "", category: .student4), answers: [])
+        return TctSession(sequenceIndex: -1, date: Date(), participant: TctParticipant(firstName: "", category: .student4), answers: [])
     }
     let dateSeconds = Double(lines[0]) ?? 0.0
     let date = Date(timeIntervalSinceReferenceDate: dateSeconds)
@@ -56,7 +56,7 @@ fileprivate func session_(for string: String) -> TctSession
     
     guard let participantCategory = ParticipantCategory.category(for: participantCategoryName) else
     {
-        return TctSession(date: Date(), participant: TctParticipant(firstName: participantFirstName, category: .student4), answers: [])
+        return TctSession(sequenceIndex: -1, date: Date(), participant: TctParticipant(firstName: participantFirstName, category: .student4), answers: [])
     }
     
     var answers = [[Int]]()
@@ -77,9 +77,9 @@ fileprivate func session_(for string: String) -> TctSession
     
     if comments.count > 0
     {
-        return TctSession(date: date, participant: TctParticipant(firstName: participantFirstName, category: participantCategory), answers: answers, comments: comments)
+        return TctSession(sequenceIndex: sequenceIndex, date: date, participant: TctParticipant(firstName: participantFirstName, category: participantCategory), answers: answers, comments: comments)
     }
-    return TctSession(date: date, participant: TctParticipant(firstName: participantFirstName, category: participantCategory), answers: answers)
+    return TctSession(sequenceIndex: sequenceIndex, date: date, participant: TctParticipant(firstName: participantFirstName, category: participantCategory), answers: answers)
 }
 
 class TctSaver
@@ -112,6 +112,16 @@ class TctSaver
         FileManager.default.createFile(atPath: newFileUrl.path, contents: newFileContent, attributes: nil)
     }
     
+    public class func getAllSession() -> [TctSession]
+    {
+        var result = [TctSession]()
+        for i in 0..<TctQuestion.sequences.count
+        {
+            result.append(contentsOf: getSessions(forSequenceIndex: i))
+        }
+        return result
+    }
+    
     public class func getSessions(forSequenceIndex sequenceIndex: Int) -> [TctSession]
     {
         let sequenceUrl = url(forSequenceIndex: sequenceIndex)
@@ -138,7 +148,7 @@ class TctSaver
                 continue
             }
             
-            var newSession = session_(for: sessionContent)
+            var newSession = session_(for: sessionContent, sequenceIndex: sequenceIndex)
             if let sessionId = Int(sessionFile.replacingOccurrences(of: ".tct", with: ""))
             {
                 newSession.id = sessionId
@@ -178,7 +188,7 @@ class TctSaver
                 continue
             }
             
-            var newSession = session_(for: sessionContent)
+            var newSession = session_(for: sessionContent, sequenceIndex: sequenceIndex)
             if let sessionId = Int(sessionFile.replacingOccurrences(of: ".tct", with: ""))
             {
                 newSession.id = sessionId

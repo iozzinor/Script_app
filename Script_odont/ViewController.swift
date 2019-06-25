@@ -78,7 +78,9 @@ class ViewController: UICollectionViewController
     
     private static let topInset_: CGFloat   = 10
     private static let padding_: CGFloat    = 0.1
-    private static let itemsPerLine_        = 2
+    private static var itemsPerLine_: Int {
+        return Constants.isDeviceOrientationHorizontal ? 4 : 2
+    }
     
     private static let menuItemColors_: [UIColor] = [
         UIColor(red: 0.8117647058823529, green: 0.7254901960784313, blue: 0.9098039215686274, alpha: 1.0),

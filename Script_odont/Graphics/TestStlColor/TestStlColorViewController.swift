@@ -27,7 +27,7 @@ class TestStlColorViewController: UIViewController
         super.viewDidLoad()
         
         volumeUrls_ = Bundle.main.urls(forResourcesWithExtension: "stl", subdirectory: "TestColor") ?? []
-        print(volumeUrls_)
+        
         setup_()
     }
     
