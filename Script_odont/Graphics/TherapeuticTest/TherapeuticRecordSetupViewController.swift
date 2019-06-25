@@ -208,6 +208,27 @@ class TherapeuticRecordSetupViewController: UITableViewController
         tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let section = tableContent_[indexPath.section]
+        let row = section.1[indexPath.row]
+        
+        switch row
+        {
+        case .launch, .participantName, .participantCategory, .participantExerciseDuration, .sequenceIndex:
+            return nil
+            
+        case .resumeSession:
+            return UISwipeActionsConfiguration(actions: [UIContextualAction(style: .destructive, title: "Common.Delete".localized, handler: { (_, _, completion) in
+                
+                let session = self.sessions_[false]![indexPath.row]
+                
+                self.confirmSessionDeletion_(session: session, completion: completion)
+            })]
+            )
+        }
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - TABLE CONTENT
     // -------------------------------------------------------------------------
@@ -311,6 +332,20 @@ class TherapeuticRecordSetupViewController: UITableViewController
             let isSessionComplete = isSessionComplete_(session: session)
             sessions_[isSessionComplete]!.append(session)
         }
+        
+        // sort
+        let sessionSorter: (TctSession, TctSession) -> Bool = {
+            (a, b) -> Bool in
+            
+            if a.sequenceIndex == b.sequenceIndex
+            {
+                return a.id > b.id
+            }
+            return a.sequenceIndex < b.sequenceIndex
+        }
+        
+        sessions_[true]!.sort(by: sessionSorter)
+        sessions_[false]!.sort(by: sessionSorter)
     }
     
     fileprivate func isSessionComplete_(session: TctSession) -> Bool
@@ -334,6 +369,28 @@ class TherapeuticRecordSetupViewController: UITableViewController
             }
         }
         return true
+    }
+    
+    fileprivate func confirmSessionDeletion_(session: TctSession, completion: @escaping (Bool) -> Void)
+    {
+        let confirmController = UIAlertController(title: "TherapeuticChoice.SessionDeletionDialog.Title".localized, message: "TherapeuticChoice.SessionDeletionDialog.Message".localized, preferredStyle: .alert)
+        
+        let noAction = UIAlertAction(title: "Common.No".localized, style: .default, handler:  {
+            (_) -> Void in
+            completion(false)
+        })
+        let yesAction = UIAlertAction(title: "Common.Yes".localized, style: .destructive, handler: {
+            (_) -> Void in
+            
+            TctSaver.delete(for: session.sequenceIndex, id: session.id)
+            
+            completion(true)
+        })
+        
+        confirmController.addAction(noAction)
+        confirmController.addAction(yesAction)
+        
+        present(confirmController, animated: true, completion: nil)
     }
     
     // -------------------------------------------------------------------------

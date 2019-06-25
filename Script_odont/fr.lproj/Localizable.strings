@@ -18,6 +18,7 @@
 "Common.Previous"   = "Précédent";
 "Common.None"       = "Aucun";
 "Common.Done"       = "Ok";
+"Common.Delete"     = "Supprimer";
 
 /* MAIN */
 "Main.Menu.Title"                   = "Script App";
@@ -470,6 +471,8 @@
 "TherapeuticChoice.Row.Launch"                      = "Démarrer";
 "TherapeuticChoice.SaveSuccessDialog.Title"         = "Réussite sauvegarde";
 "TherapeuticChoice.SaveSuccessDialog.Message"       = "La session a bien été enregistrée !";
+"TherapeuticChoice.SessionDeletionDialog.Title"     = "Suppression session";
+"TherapeuticChoice.SessionDeletionDialog.Message"   = "Voulez-vous supprimer la session ?";
 
 /* TCT MANAGE */
 "TctManage.DeleteButton"    = "Tout supprimer";

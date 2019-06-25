@@ -84,6 +84,9 @@ fileprivate func session_(for string: String, sequenceIndex: Int) -> TctSession
 
 class TctSaver
 {
+    // -------------------------------------------------------------------------
+    // MARK: - SAVE
+    // -------------------------------------------------------------------------
     public class func save(session: TctSession, sequenceIndex: Int)
     {
         let sequenceUrl = TctSaver.url(forSequenceIndex: sequenceIndex)
@@ -112,6 +115,9 @@ class TctSaver
         FileManager.default.createFile(atPath: newFileUrl.path, contents: newFileContent, attributes: nil)
     }
     
+    // -------------------------------------------------------------------------
+    // MARK: - GET
+    // -------------------------------------------------------------------------
     public class func getAllSession() -> [TctSession]
     {
         var result = [TctSession]()
@@ -213,6 +219,9 @@ class TctSaver
         }
     }
     
+    // -------------------------------------------------------------------------
+    // MARK: - DELETE
+    // -------------------------------------------------------------------------
     public class func deleteAll()
     {
         let sessionFolders: [String]
@@ -232,6 +241,47 @@ class TctSaver
         }
     }
     
+    public class func delete(for sequenceIndex: Int, id: Int)
+    {
+        let sequenceUrl = url(forSequenceIndex: sequenceIndex)
+        let sessionUrl = sequenceUrl.appendingPathComponent("\(id).tct")
+        
+        guard FileManager.default.fileExists(atPath: sessionUrl.path) else
+        {
+            return
+        }
+        
+        do
+        {
+            // remove the session
+            try FileManager.default.removeItem(at: sessionUrl)
+            
+            // update otther sessions indexes
+            let sessionNumbers = try FileManager.default.contentsOfDirectory(atPath: sequenceUrl.path).map {
+                name -> Int in
+                
+                return Int(name.replacingOccurrences(of: ".tct", with: "")) ?? 0
+                }.filter {
+                $0 > id
+            }.sorted()
+            
+            for sessionNumber in sessionNumbers
+            {
+                let newSessionFile = sequenceUrl.appendingPathComponent("\(sessionNumber - 1).tct").path
+                let previousSessionFile = sequenceUrl.appendingPathComponent("\(sessionNumber).tct").path
+                
+                try FileManager.default.moveItem(atPath: previousSessionFile, toPath: newSessionFile)
+            }
+        }
+        catch
+        {
+            return
+        }
+    }
+    
+    // -------------------------------------------------------------------------
+    // MARK: - UTILS
+    // -------------------------------------------------------------------------
     fileprivate static let documentPath_: URL = {
        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!
     }()
