@@ -450,6 +450,12 @@
 "ToothRecognitionSelection.NavigationItem.Title" = "Sélectionnez la dent";
 
 /* THERAPEUTIC TEST */
+"TherapeuticTest.Choice.Composite"              = "Composite";
+"TherapeuticTest.Choice.InlayOnlay"             = "Inlay / Onlay";
+"TherapeuticTest.Choice.VeneerlayOverlay"       = "Veenerlay / Overlay";
+"TherapeuticTest.Choice.EndocrownLutedCrown"    = "Endocouronne / Couronne collée";
+"TherapeuticTest.Choice.CrrSealedCrown"         = "Couronne scellée avec RCR";
+
 "TherapeuticTest.AddCommentButton"      = "Ajouter commentaire";
 "TherapeuticTest.Finish"                = "Terminer";
 "TherapeuticTest.FinishDialog.Title"    = "Terminer";

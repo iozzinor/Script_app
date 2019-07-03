@@ -75,11 +75,11 @@ class TherapeuticTestBasicViewController: UIViewController
     fileprivate var sessionId_: Int? = nil
     
     fileprivate let therapeuticChoices_ = [
-        "Composite",
-        "Inlay / Onlay",
-        "Veneerlay / Overlay",
-        "Endocouronne / Couronne collée",
-        "Couronne scellée avec RCR"
+        "TherapeuticTest.Choice.Composite".localized,
+        "TherapeuticTest.Choice.InlayOnlay".localized,
+        "TherapeuticTest.Choice.VeneerlayOverlay".localized,
+        "TherapeuticTest.Choice.EndocrownLutedCrown".localized,
+        "TherapeuticTest.Choice.CrrSealedCrown".localized
     ]
     fileprivate var currentQuestionIndex_ = 0
     fileprivate var currentQuestion_: TctQuestion {
