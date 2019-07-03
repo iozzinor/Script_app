@@ -89,6 +89,8 @@
 		AC31E3A12235BCBA00A3B813 /* SctQuestionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A02235BCBA00A3B813 /* SctQuestionHeaderCell.xib */; };
 		AC31E3A32235BCC300A3B813 /* SctWordingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A22235BCC300A3B813 /* SctWordingCell.xib */; };
 		AC31E3A52235BE1E00A3B813 /* DrawingWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC31E3A42235BE1E00A3B813 /* DrawingWalkthrough.storyboard */; };
+		AC330A1422C2BB4900D755E8 /* TctResumeSessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC330A1322C2BB4900D755E8 /* TctResumeSessionCell.swift */; };
+		AC330A1622C2BB5400D755E8 /* TctResumeSessionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC330A1522C2BB5400D755E8 /* TctResumeSessionCell.xib */; };
 		AC34EDCA22652624001D593F /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34EDC922652624001D593F /* ConnectionStatus.swift */; };
 		AC367E0C22ABAE01004CD122 /* TctExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC367E0B22ABAE01004CD122 /* TctExportViewController.swift */; };
 		AC367E0E22ABB2B7004CD122 /* TctExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC367E0D22ABB2B7004CD122 /* TctExporter.swift */; };
@@ -614,6 +616,8 @@
 		AC31E3A02235BCBA00A3B813 /* SctQuestionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctQuestionHeaderCell.xib; sourceTree = "<group>"; };
 		AC31E3A22235BCC300A3B813 /* SctWordingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctWordingCell.xib; sourceTree = "<group>"; };
 		AC31E3A42235BE1E00A3B813 /* DrawingWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DrawingWalkthrough.storyboard; sourceTree = "<group>"; };
+		AC330A1322C2BB4900D755E8 /* TctResumeSessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctResumeSessionCell.swift; sourceTree = "<group>"; };
+		AC330A1522C2BB5400D755E8 /* TctResumeSessionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TctResumeSessionCell.xib; sourceTree = "<group>"; };
 		AC34EDC922652624001D593F /* ConnectionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatus.swift; sourceTree = "<group>"; };
 		AC367E0B22ABAE01004CD122 /* TctExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctExportViewController.swift; sourceTree = "<group>"; };
 		AC367E0D22ABB2B7004CD122 /* TctExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctExporter.swift; sourceTree = "<group>"; };
@@ -1457,6 +1461,8 @@
 				AC18B0EA228B376B00DFC878 /* TherapeuticChoiceCell.swift */,
 				ACE7DE59228B6F9F00CAEEF0 /* TherapeuticChoiceDelegate.swift */,
 				AC18B0EC228B378F00DFC878 /* TherapeuticChoiceCell.xib */,
+				AC330A1322C2BB4900D755E8 /* TctResumeSessionCell.swift */,
+				AC330A1522C2BB5400D755E8 /* TctResumeSessionCell.xib */,
 				AC47168A2298085500E426BA /* TherapeuticRecordSetupViewController.swift */,
 				ACCFB8EE22889DAC0007FEC8 /* TherapeuticTestBasicViewController.swift */,
 				AC47168C2298130000E426BA /* ParticipantCategoryPickerViewController.swift */,
@@ -1625,6 +1631,7 @@
 				AC31E39D2235BAC300A3B813 /* SctScaleCell.xib in Resources */,
 				ACE001992261C37000384CF8 /* antagonist.stl in Resources */,
 				ACA94D9222A3CD800022209F /* SequencePicker.storyboard in Resources */,
+				AC330A1622C2BB5400D755E8 /* TctResumeSessionCell.xib in Resources */,
 				AC372C5E223942C7009F1DAD /* SctPerformRateCell.xib in Resources */,
 				ACC83F92223EC3F80064BE6F /* MySctUnfinishedCell.xib in Resources */,
 				AC4904B4222B238B00BDEB4B /* Login.storyboard in Resources */,
@@ -1882,6 +1889,7 @@
 				AC9F23E022299945002D38E5 /* KeychainPasswordItem.swift in Sources */,
 				AC47168F2298130F00E426BA /* ParticipantCategoryPickerDelegate.swift in Sources */,
 				ACC81AC0223F0D43000990EA /* Period.swift in Sources */,
+				AC330A1422C2BB4900D755E8 /* TctResumeSessionCell.swift in Sources */,
 				ACDC49A622421D4A00B43534 /* Reachability.swift in Sources */,
 				ACC83F6E223D70C40064BE6F /* SctSearchCriterionPickerViewController.swift in Sources */,
 			);

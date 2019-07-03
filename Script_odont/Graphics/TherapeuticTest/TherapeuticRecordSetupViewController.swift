@@ -54,6 +54,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
         case launch
         
         case resumeSession
+        case finishedSession
     }
     
     fileprivate typealias Content = [(section: RecordSection, rows: [RecordRow])]
@@ -172,6 +173,17 @@ class TherapeuticRecordSetupViewController: UITableViewController
             cell.sessionParticipantLabel.text = "\(session.participant.firstName.uppercased())"
             
             return cell
+            
+        case .finishedSession:
+            let cell = tableView.dequeueReusableCell(for: indexPath) as TctResumeSessionCell
+            
+            let session = sessions_[true]![indexPath.row]
+            cell.accessoryType = .disclosureIndicator
+            cell.sessionDateLabel.text = Constants.datetimeString(for: session.date)
+            cell.sessionNumberLabel.text = "\(session.sequenceIndex + 1)"
+            cell.sessionParticipantLabel.text = "\(session.participant.firstName.uppercased())"
+            
+            return cell
         }
     }
     
@@ -203,6 +215,9 @@ class TherapeuticRecordSetupViewController: UITableViewController
             let sessionToResume = sessions_[false]![indexPath.row]
             sessionToResumeId_ = sessionToResume.id
             performSegue(withIdentifier: TherapeuticRecordSetupViewController.toTherapeuticTestBasic, sender: self)
+            
+        case .finishedSession:
+            break
         }
         
         tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
@@ -226,6 +241,9 @@ class TherapeuticRecordSetupViewController: UITableViewController
                 self.confirmSessionDeletion_(session: session, completion: completion)
             })]
             )
+            
+        case .finishedSession:
+            return nil
         }
     }
     
@@ -263,6 +281,13 @@ class TherapeuticRecordSetupViewController: UITableViewController
             !incompleteSessions.isEmpty
         {
             result.append((.resume, Array<RecordRow>(repeating: .resumeSession, count: incompleteSessions.count)))
+        }
+        
+        // finished
+        if let finishedSessions = sessions_[true],
+            !finishedSessions.isEmpty
+        {
+            result.append((.finished, Array<RecordRow>(repeating: .finishedSession, count: finishedSessions.count)))
         }
         
         tableContent_ = result

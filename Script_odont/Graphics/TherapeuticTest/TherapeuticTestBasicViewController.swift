@@ -78,8 +78,8 @@ class TherapeuticTestBasicViewController: UIViewController
         "Composite",
         "Inlay / Onlay",
         "Veneerlay / Overlay",
-        "Couronne",
-        "Couronne avec RCR",
+        "Endocouronne / Couronne collée",
+        "Couronne scellée avec RCR"
     ]
     fileprivate var currentQuestionIndex_ = 0
     fileprivate var currentQuestion_: TctQuestion {
@@ -106,8 +106,17 @@ class TherapeuticTestBasicViewController: UIViewController
     fileprivate var elapsedTime_: Double = 0.0
     fileprivate var previousDate_ = Date()
     
+    // -------------------------------------------------------------------------
+    // MARK: - DEVICE ORIENTATION
+    // -------------------------------------------------------------------------
     public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
+    }
+    
+    @objc fileprivate func deviceDidChangeOrientation_(_ newOrientation: UIInterfaceOrientation)
+    {
+        therapeuticLabelsView.reloadData()
+        therapeuticChoicesView.reloadData()
     }
     
     // -------------------------------------------------------------------------
@@ -139,12 +148,14 @@ class TherapeuticTestBasicViewController: UIViewController
     // -------------------------------------------------------------------------
     fileprivate func setup_()
     {
+        // navigation bar
         setupNavigationMenu_()
         setupNavigationButtons_()
         
         therapeuticChoicesView.reloadData()
         updateNavigationButtons_()
         
+        // views
         setupUserChoices_()
         setupScaleLabel_()
         setupAddCommentButton_()
@@ -153,7 +164,11 @@ class TherapeuticTestBasicViewController: UIViewController
         setupTherapeuticChoices_()
         updateWording_()
         
+        // session
         setupSession_()
+        
+        // device orientation notifier
+        NotificationCenter.default.addObserver(self, selector: #selector(TherapeuticTestBasicViewController.deviceDidChangeOrientation_), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     fileprivate func setupNavigationMenu_()
