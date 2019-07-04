@@ -65,7 +65,15 @@ struct Appearance
         struct Color
         {
             public static let `default` = UIColor.black
+            
+            /// Tint when selected.
             public static let selected = UIColor.blue.withAlphaComponent(0.3)
+            
+            /// Tint when correct answer.
+            public static let correct = UIColor.green.withAlphaComponent(0.3)
+            
+            /// Tint when wrong answer.
+            public static let wrong = UIColor.red.withAlphaComponent(0.3)
         }
     }
 }

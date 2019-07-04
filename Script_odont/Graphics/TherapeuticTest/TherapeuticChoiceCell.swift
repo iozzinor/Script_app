@@ -15,6 +15,10 @@ class TherapeuticChoiceCell: UITableViewCell
     fileprivate var rowIndex_ = -1
     fileprivate var scaleButtons_ = [UIButton]()
     fileprivate var selectedIndex_ = -1
+    fileprivate var correctAnswer_: Int? = nil
+    fileprivate var readOnly_: Bool {
+        return correctAnswer_ != nil
+    }
     
     var delegate: TherapeuticChoiceDelegate? = nil
     
@@ -28,9 +32,10 @@ class TherapeuticChoiceCell: UITableViewCell
         scaleButtons_.removeAll()
     }
     
-    func displayScales(scaleValues: [Int], selected: Int, rowIndex: Int)
+    func displayScales(scaleValues: [Int], selected: Int, rowIndex: Int, correctAnswer: Int? = nil)
     {
-        self.rowIndex_ = rowIndex
+        self.rowIndex_       = rowIndex
+        self.correctAnswer_  = correctAnswer
         if scaleButtons_.count != scaleValues.count
         {
             clearScaleButtons_()
@@ -52,6 +57,7 @@ class TherapeuticChoiceCell: UITableViewCell
             }
         }
         
+        // update selection
         for button in scaleButtons_
         {
             button.isSelected = false
@@ -61,10 +67,37 @@ class TherapeuticChoiceCell: UITableViewCell
             selectedIndex_ = selected
             scaleButtons_[selected].isSelected = true
         }
+        
+        // update tint color
+        if correctAnswer_ != nil
+        {
+            for i in 0..<scaleValues.count
+            {
+                // correct
+                if i == correctAnswer_!
+                {
+                    scaleButtons_[i].tintColor = Appearance.LikertScale.Color.correct
+                    scaleButtons_[i].isSelected = true
+                    
+                    // wrong
+                    if selected != i
+                    {
+                        scaleButtons_[selected].tintColor = Appearance.LikertScale.Color.wrong
+                    }
+                    break
+                }
+            }
+        }
     }
     
     @objc fileprivate func scaleSelected_(_ button: UIButton)
     {
+        // read only
+        if readOnly_
+        {
+            return
+        }
+        
         let newSelection = button.tag
         if newSelection == selectedIndex_
         {

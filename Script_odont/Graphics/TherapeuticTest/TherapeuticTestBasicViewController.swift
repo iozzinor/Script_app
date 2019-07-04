@@ -71,6 +71,21 @@ class TherapeuticTestBasicViewController: UIViewController
         }
     }
     
+    var correction = false {
+        didSet {
+            if isViewLoaded
+            {
+                therapeuticLabelsView.reloadData()
+                therapeuticChoicesView.reloadData()
+            }
+            
+            // try to load correction
+            tryToLoadCorrection_()
+        }
+    }
+    
+    fileprivate var correctAnswers_: [[Int]]? = nil
+    
     fileprivate var questions_: [TctQuestion] = []
     fileprivate var sessionId_: Int? = nil
     
@@ -141,6 +156,9 @@ class TherapeuticTestBasicViewController: UIViewController
         super.viewWillDisappear(animated)
         
         destroyTimer_()
+        
+        correction = false
+        correctAnswers_ = nil
     }
     
     // -------------------------------------------------------------------------
@@ -410,8 +428,8 @@ class TherapeuticTestBasicViewController: UIViewController
         var comments = Array<String>(repeating: "", count: questions_.count)
         for (i, index) in questionsSuffleIndexes_.enumerated()
         {
-            answers[i] = userChoices_[index]
-            comments[i] = comments_[index]
+            answers[index]  = userChoices_[i]
+            comments[index] = comments_[i]
         }
         
         // save the session
@@ -472,7 +490,7 @@ class TherapeuticTestBasicViewController: UIViewController
     {
         let questionIndex = TctQuestion.sequences[sequenceIndex][questionsSuffleIndexes_[currentQuestionIndex_]]
         wordingLabel.text = "\(questionIndex + 1). " + currentQuestion_.wording
-        wordingLabel.text = currentQuestion_.wording
+        //wordingLabel.text = currentQuestion_.wording
     }
     
     fileprivate func updateToothScene_()
@@ -552,6 +570,17 @@ class TherapeuticTestBasicViewController: UIViewController
     func loadSession(withId id: Int)
     {
         sessionId_ = id
+        
+        tryToLoadCorrection_()
+    }
+    
+    fileprivate func tryToLoadCorrection_()
+    {
+        guard let id = sessionId_, correction else
+        {
+            return
+        }
+        correctAnswers_ = TctSaver.getCorrection(forSequenceIndex: sequenceIndex, id: id)
     }
     
     // -------------------------------------------------------------------------
@@ -684,7 +713,15 @@ extension TherapeuticTestBasicViewController: UITableViewDataSource
             cell.isSelected = (indexPath.row == userChoices_[currentQuestionIndex_][0])
         case .scale:
             cell.delegate = self
-            cell.displayScales(scaleValues: scaleValues_, selected: userChoices_[currentQuestionIndex_][indexPath.row], rowIndex: indexPath.row)
+            if correction
+            {
+                let correctAnswer = correctAnswers_?[questionsSuffleIndexes_[currentQuestionIndex_]][indexPath.row]
+                cell.displayScales(scaleValues: scaleValues_, selected: userChoices_[currentQuestionIndex_][indexPath.row], rowIndex: indexPath.row, correctAnswer: correctAnswer)
+            }
+            else
+            {
+                cell.displayScales(scaleValues: scaleValues_, selected: userChoices_[currentQuestionIndex_][indexPath.row], rowIndex: indexPath.row)
+            }
         }
         
         return cell

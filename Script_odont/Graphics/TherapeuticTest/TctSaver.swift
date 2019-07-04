@@ -219,6 +219,29 @@ class TctSaver
         }
     }
     
+    public class func getCorrection(forSequenceIndex sequenceIndex: Int, id: Int) -> [[Int]]?
+    {
+        guard let session = getSession(for: sequenceIndex, id: id) else
+        {
+            return nil
+        }
+        
+        // TEMP : return random values
+        return session.answers.map {
+            (answers: [Int]) -> [Int] in
+            
+            return answers.map {
+                (answer: Int) -> Int in
+                
+                if Constants.random(min: 1, max: 10) < 3
+                {
+                    return (answer + Constants.random(min: 1, max: 3)) % 4
+                }
+                return answer
+            }
+        }
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - DELETE
     // -------------------------------------------------------------------------

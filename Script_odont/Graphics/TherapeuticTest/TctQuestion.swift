@@ -30,13 +30,13 @@ Un patient de 35 ans se présente avec une fracture de la cuspide vestibulaire s
 Un patient de 39 ans se présente suite à la perte de son ancien amalgame sur la dent numéro 15. Après avoir nettoyé la cavité, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
-Un patient de 54 ans se présente avec une carie importante sur la dent numéro 15 ayant nécessité la réalisation d’un traitement endodontique. Après avoir déposé la reconstitution pré endodontique, vous souhaitez reconstruire la perte tissulaire de ce patient.
+Un patient de 54 ans se présente avec une carie importante sur la dent numéro 15. Après réalisé l'éviction tissulaire, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
 Un patient de 31 ans se présente suite à la perte de son ancienne restauration sur la dent numéro 16 qui possède un traitement endodontique. Après avoir réalisé un premier nettoyage de la cavité, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
-Un patient de 39 ans se présente avec une lésion carieuse proximale sur la dent 16. Après avoir effectué l’ éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+Un patient de 39 ans se présente avec de nombreuses lésions carieuses sur la dent 16 sous une ancienne restauration. Après avoir effectué les évictions carieuses et le traitement endodontique, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
 Un patient de 39 ans se présente avec un inlay qui présente une infiltration et des début de lésion carieuses sur la dent . Après avoir déposé la restauration et effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
@@ -51,7 +51,7 @@ Un patient de 33 ans se présente avec une lésion carieuse sur la dent numéro 
 Un patient de 16 ans se présente avec une fracture d’un ancien amalgame de la dent numéro 16. Après avoir effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
-Un patient de 41 ans se présente avec une lésion carieuse en distal de la dent 16. Après avoir éffectué l’ éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+Un patient de 41 ans se présente avec une lésion carieuse en distal de la dent 16. Après avoir éffectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
 Un patient de 22 ans se présente avec une pulpite sur la dent numéro 16 ayant nécessité la réalisation d’un traitement endodontique. Après avoir déposé la reconstitution pré endodontique, vous souhaitez reconstruire la perte tissulaire de ce patient.
@@ -108,7 +108,7 @@ class TctQuestion
     }()
     public static let sequences: [[Int]] = [
         [1,    2,    3,    7,    8,     11,     15,     17,    18,    22],
-        [0,    5,    6,    7,    13,    15,     16,     18,    21,    23],
+        [0,    5,    6,    7,    8,     13,    15,     16,     18,    23],
         [0,    2,    5,    6,    7,     8,      15,     20,    21,    23],
         [0,    7,    8,    10,   12,    13,     17,     18,    21,    22],
         [0,    6,    7,    10,   13,    17,     18,     19,    22,    23],

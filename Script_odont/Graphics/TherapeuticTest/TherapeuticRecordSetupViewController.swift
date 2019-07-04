@@ -70,6 +70,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
     fileprivate var participantNameDoneAction_: UIAlertAction? = nil
     
     fileprivate var sessionToResumeId_: Int? = nil
+    fileprivate var correction_ = false
 
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -94,6 +95,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
         updateTableContent_()
         
         sessionToResumeId_ = nil
+        correction_ = false
     }
     
     // -------------------------------------------------------------------------
@@ -213,11 +215,16 @@ class TherapeuticRecordSetupViewController: UITableViewController
             
         case .resumeSession:
             let sessionToResume = sessions_[false]![indexPath.row]
+            sequenceIndex_ = sessionToResume.sequenceIndex
             sessionToResumeId_ = sessionToResume.id
             performSegue(withIdentifier: TherapeuticRecordSetupViewController.toTherapeuticTestBasic, sender: self)
             
         case .finishedSession:
-            break
+            let sessionToResume = sessions_[true]![indexPath.row]
+            sequenceIndex_ = sessionToResume.sequenceIndex
+            sessionToResumeId_ = sessionToResume.id
+            correction_ = true
+            performSegue(withIdentifier: TherapeuticRecordSetupViewController.toTherapeuticTestBasic, sender: self)
         }
         
         tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
@@ -234,17 +241,22 @@ class TherapeuticRecordSetupViewController: UITableViewController
             return nil
             
         case .resumeSession:
-            return UISwipeActionsConfiguration(actions: [UIContextualAction(style: .destructive, title: "Common.Delete".localized, handler: { (_, _, completion) in
-                
-                let session = self.sessions_[false]![indexPath.row]
-                
-                self.confirmSessionDeletion_(session: session, completion: completion)
-            })]
-            )
+            return getDeleteSwipeActionsConfiguration_(for: indexPath, isSessionComplete: false)
             
         case .finishedSession:
-            return nil
+            return getDeleteSwipeActionsConfiguration_(for: indexPath, isSessionComplete: true)
         }
+    }
+    
+    fileprivate func getDeleteSwipeActionsConfiguration_(for indexPath: IndexPath, isSessionComplete: Bool) -> UISwipeActionsConfiguration
+    {
+        return UISwipeActionsConfiguration(actions: [UIContextualAction(style: .destructive, title: "Common.Delete".localized, handler: { (_, _, completion) in
+            
+            let session = self.sessions_[isSessionComplete]![indexPath.row]
+            
+            self.confirmSessionDeletion_(session: session, completion: completion)
+        })]
+        )
     }
     
     // -------------------------------------------------------------------------
@@ -434,6 +446,9 @@ class TherapeuticRecordSetupViewController: UITableViewController
             if let sessionId = sessionToResumeId_
             {
                 target.loadSession(withId: sessionId)
+                
+                // correction
+                target.correction = correction_
             }
         }
         // participant category
