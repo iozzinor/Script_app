@@ -148,14 +148,20 @@ class TherapeuticTestBasicViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        createTimer_()
+        if !correction
+        {
+            createTimer_()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(animated)
         
-        destroyTimer_()
+        if !correction
+        {
+            destroyTimer_()
+        }
         
         correction = false
         correctAnswers_ = nil
@@ -192,17 +198,23 @@ class TherapeuticTestBasicViewController: UIViewController
     fileprivate func setupNavigationMenu_()
     {
         previousItem = UIBarButtonItem(title: "Common.Previous".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.previousQuestion_))
-        timeItem = UIBarButtonItem(title: "00:00", style: .plain, target: nil, action: nil)
+        if !correction
+        {
+            timeItem = UIBarButtonItem(title: "00:00", style: .plain, target: nil, action: nil)
+            timeItem.isEnabled = false
+        }
         nextItem = UIBarButtonItem(title: "Common.Next".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.nextQuestion_))
         doneItem = UIBarButtonItem(title: "TherapeuticTest.Finish".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.displayFinishDialog_))
         
         navigationItem.rightBarButtonItem = doneItem
         navigationItem.rightBarButtonItems?.append(nextItem)
-        navigationItem.rightBarButtonItems?.append(timeItem)
+        if !correction
+        {
+            navigationItem.rightBarButtonItems?.append(timeItem)
+        }
         navigationItem.rightBarButtonItems?.append(previousItem)
         
         updateNavigationButtons_()
-        timeItem.isEnabled = false
     }
     
     fileprivate func setupNavigationButtons_()
