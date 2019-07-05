@@ -252,6 +252,10 @@
 		ACBCF42522425993007CA02F /* AsynchronousTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF42422425993007CA02F /* AsynchronousTableViewController.swift */; };
 		ACBCF4272242CA18007CA02F /* ErrorDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF4262242CA18007CA02F /* ErrorDisplayer.swift */; };
 		ACBCF4292242D033007CA02F /* ErrorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF4282242D033007CA02F /* ErrorButtonView.swift */; };
+		ACC4DBEB22CFC5ED000FE971 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC4DBEA22CFC5ED000FE971 /* CommentsViewController.swift */; };
+		ACC4DBED22CFC6C9000FE971 /* TctComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC4DBEC22CFC6C9000FE971 /* TctComment.swift */; };
+		ACC4DBEF22CFC8FD000FE971 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC4DBEE22CFC8FD000FE971 /* CommentCell.swift */; };
+		ACC4DBF122CFC92F000FE971 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC4DBF022CFC92F000FE971 /* CommentCell.xib */; };
 		ACC52C3F223EE57E00B974BA /* CandidateStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC52C3E223EE57E00B974BA /* CandidateStatistics.swift */; };
 		ACC52C41223EEE6C00B974BA /* CandidateStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC52C40223EEE6C00B974BA /* CandidateStatisticsCell.swift */; };
 		ACC52C44223EF38200B974BA /* CandidateStatisticsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC52C46223EF38200B974BA /* CandidateStatisticsCell.xib */; };
@@ -746,6 +750,10 @@
 		ACBCF42422425993007CA02F /* AsynchronousTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousTableViewController.swift; sourceTree = "<group>"; };
 		ACBCF4262242CA18007CA02F /* ErrorDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDisplayer.swift; sourceTree = "<group>"; };
 		ACBCF4282242D033007CA02F /* ErrorButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorButtonView.swift; sourceTree = "<group>"; };
+		ACC4DBEA22CFC5ED000FE971 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		ACC4DBEC22CFC6C9000FE971 /* TctComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TctComment.swift; sourceTree = "<group>"; };
+		ACC4DBEE22CFC8FD000FE971 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		ACC4DBF022CFC92F000FE971 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		ACC52C3E223EE57E00B974BA /* CandidateStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateStatistics.swift; sourceTree = "<group>"; };
 		ACC52C40223EEE6C00B974BA /* CandidateStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateStatisticsCell.swift; sourceTree = "<group>"; };
 		ACC52C45223EF38200B974BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CandidateStatisticsCell.xib; sourceTree = "<group>"; };
@@ -1465,6 +1473,9 @@
 				AC330A1522C2BB5400D755E8 /* TctResumeSessionCell.xib */,
 				AC47168A2298085500E426BA /* TherapeuticRecordSetupViewController.swift */,
 				ACCFB8EE22889DAC0007FEC8 /* TherapeuticTestBasicViewController.swift */,
+				ACC4DBEA22CFC5ED000FE971 /* CommentsViewController.swift */,
+				ACC4DBEE22CFC8FD000FE971 /* CommentCell.swift */,
+				ACC4DBF022CFC92F000FE971 /* CommentCell.xib */,
 				AC47168C2298130000E426BA /* ParticipantCategoryPickerViewController.swift */,
 				AC47168E2298130F00E426BA /* ParticipantCategoryPickerDelegate.swift */,
 				AC4716902298136D00E426BA /* ParticipantCategory.swift */,
@@ -1483,6 +1494,7 @@
 				ACE0D021229B069300CD4760 /* TctSession.swift */,
 				ACE0D025229B089400CD4760 /* TctQuestion.swift */,
 				ACE0D023229B06AC00CD4760 /* TctParticipant.swift */,
+				ACC4DBEC22CFC6C9000FE971 /* TctComment.swift */,
 				ACF23613229B32B200E7060D /* TctSaver.swift */,
 			);
 			path = TherapeuticTest;
@@ -1654,6 +1666,7 @@
 				AC8062EE2294784100719F06 /* MenuHeader.xib in Resources */,
 				AC18B0ED228B378F00DFC878 /* TherapeuticChoiceCell.xib in Resources */,
 				AC8062EA22946FCA00719F06 /* MenuItemCell.xib in Resources */,
+				ACC4DBF122CFC92F000FE971 /* CommentCell.xib in Resources */,
 				ACD1B3AA223C43AD0065F07E /* SctLatestPeriodCell.xib in Resources */,
 				AC38BB83221EAA58008E829B /* Localizable.strings in Resources */,
 				AC31A039224B7A3900A3A461 /* Unlock.storyboard in Resources */,
@@ -1705,6 +1718,7 @@
 				AC9F23E52229D88E002D38E5 /* String+sha2.swift in Sources */,
 				AC8F5B7F2229676100FAEFC5 /* OtherViewController.swift in Sources */,
 				AC04340322493BEC00644B14 /* DeveloperViewController.swift in Sources */,
+				ACC4DBEF22CFC8FD000FE971 /* CommentCell.swift in Sources */,
 				AC38BB7C221E9C54008E829B /* WelcomeWalkthroughPageViewController.swift in Sources */,
 				AC31A034224ADC9E00A3A461 /* Host.swift in Sources */,
 				AC96DD6F224F516A00FFD529 /* SCNNode+utils.swift in Sources */,
@@ -1825,6 +1839,7 @@
 				AC53E36B2232B75200CA4437 /* UIView+utils.swift in Sources */,
 				AC53E37A2233AE3B00CA4437 /* MySctUnfinishedCell.swift in Sources */,
 				AC31A04B224B8CD200A3A461 /* SpecializedErrorButtonDelegateHandler.swift in Sources */,
+				ACC4DBEB22CFC5ED000FE971 /* CommentsViewController.swift in Sources */,
 				AC0D77D62228274D007F83D4 /* Appearance.swift in Sources */,
 				AC8F5B822229696000FAEFC5 /* LoginViewController.swift in Sources */,
 				AC4904CF222C5CC200BDEB4B /* QualificationTopicPickerViewController.swift in Sources */,
@@ -1862,6 +1877,7 @@
 				AC0D77C22225CD2B007F83D4 /* SctQuestion.swift in Sources */,
 				AC211F8A22BFF77C002A6BD3 /* ExerciseDurationPickerDelegate.swift in Sources */,
 				AC0434072249547600644B14 /* ResetViewController.swift in Sources */,
+				ACC4DBED22CFC6C9000FE971 /* TctComment.swift in Sources */,
 				AC9F23DE222996C4002D38E5 /* AuthenticationManager.swift in Sources */,
 				AC82731C222C93B90041AA0C /* RecoverPasswordViewController.swift in Sources */,
 				ACC81AC622403EB4000990EA /* ProgressCellDelegate.swift in Sources */,

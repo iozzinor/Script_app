@@ -242,6 +242,7 @@
                         <outlet property="wordingLabel" destination="gyH-D2-N68" id="dRX-ks-dA7"/>
                         <segue destination="WG4-3C-Kv3" kind="presentation" identifier="TherapeuticTestBasicToVolumeSegueId" id="erc-Sd-Pel"/>
                         <segue destination="J4W-Cp-Sg5" kind="presentation" identifier="TherapeuticTestBasicToCommentPickerSegueId" id="s16-qr-V9R"/>
+                        <segue destination="UqX-jX-YkU" kind="presentation" identifier="TherapeuticTestBasicToCommentsSegueId" modalTransitionStyle="flipHorizontal" id="64V-ze-IzU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h6f-hY-XR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -380,6 +381,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4w-ae-izW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1169.3661971830986" y="82.5"/>
+        </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="GEv-gT-090">
+            <objects>
+                <viewController id="UqX-jX-YkU" customClass="CommentsViewController" customModule="Script_odont" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DhF-gy-vs8">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahx-Er-vJd">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
+                                <items>
+                                    <navigationItem title="Comments" id="9YH-UC-bMX">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="N58-LZ-gvY">
+                                            <connections>
+                                                <action selector="done:" destination="UqX-jX-YkU" id="WeW-m3-dkN"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h8k-gl-6QJ">
+                                <rect key="frame" x="0.0" y="32" width="568" height="288"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LE3-Uc-N05" firstAttribute="bottom" secondItem="h8k-gl-6QJ" secondAttribute="bottom" id="6Fo-Fa-LBO"/>
+                            <constraint firstAttribute="trailing" secondItem="ahx-Er-vJd" secondAttribute="trailing" id="JFb-ej-yro"/>
+                            <constraint firstItem="h8k-gl-6QJ" firstAttribute="top" secondItem="ahx-Er-vJd" secondAttribute="bottom" id="Wx5-Iu-zV7"/>
+                            <constraint firstItem="h8k-gl-6QJ" firstAttribute="leading" secondItem="LE3-Uc-N05" secondAttribute="leading" id="guk-ee-DPx"/>
+                            <constraint firstItem="LE3-Uc-N05" firstAttribute="trailing" secondItem="h8k-gl-6QJ" secondAttribute="trailing" id="mOk-S9-lGo"/>
+                            <constraint firstItem="ahx-Er-vJd" firstAttribute="top" secondItem="LE3-Uc-N05" secondAttribute="top" id="nu1-X1-DF3"/>
+                            <constraint firstItem="ahx-Er-vJd" firstAttribute="leading" secondItem="LE3-Uc-N05" secondAttribute="leading" id="vBQ-Kw-Md7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LE3-Uc-N05"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="h8k-gl-6QJ" id="E41-8Q-lfn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WE8-Ih-0M1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1130" y="904"/>
         </scene>
     </scenes>
     <resources>

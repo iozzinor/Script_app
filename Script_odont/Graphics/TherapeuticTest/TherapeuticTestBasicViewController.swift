@@ -9,6 +9,17 @@
 import SceneKit
 import UIKit
 
+// TEMP
+fileprivate func getComments_() -> [TctComment]
+{
+    var result = [TctComment]()
+    
+    result.append(TctComment(authorLastName: "Tartanpion", authorFirstName: "Jean", date: Date(), text: "Test de commentaire."))
+    result.append(TctComment(authorLastName: "Dupont", authorFirstName: "Pierre", date: Date(), text: "Ceci est un autre commentaire qui met en évidence la qualité de l'affichage par la technologie SceneKit.\nCette dernière permet d'augmenter les performances et favorise le développement de nouvelles applications de par la facilité de création."))
+    
+    return result
+}
+
 class TherapeuticTestBasicViewController: UIViewController
 {
     public static let diagnosticScale = ChooseScale(graduations: [
@@ -21,6 +32,7 @@ class TherapeuticTestBasicViewController: UIViewController
     
     public static let toVolume          = "TherapeuticTestBasicToVolumeSegueId"
     public static let toCommentPicker   = "TherapeuticTestBasicToCommentPickerSegueId"
+    public static let toComments        = "TherapeuticTestBasicToCommentsSegueId"
     
     public static let therapeuticLabelCellId = "TherapeuticLabelCellReuseId"
     
@@ -45,6 +57,7 @@ class TherapeuticTestBasicViewController: UIViewController
     var timeItem: UIBarButtonItem!
     var nextItem: UIBarButtonItem!
     var doneItem: UIBarButtonItem!
+    var moreItem: UIBarButtonItem!
     var participant: TctParticipant! {
         didSet {
             if isViewLoaded
@@ -179,6 +192,9 @@ class TherapeuticTestBasicViewController: UIViewController
         therapeuticChoicesView.reloadData()
         updateNavigationButtons_()
         
+        // gesture recognizers
+        setupGestureRecognizers_()
+        
         // views
         setupUserChoices_()
         setupScaleLabel_()
@@ -198,21 +214,24 @@ class TherapeuticTestBasicViewController: UIViewController
     fileprivate func setupNavigationMenu_()
     {
         previousItem = UIBarButtonItem(title: "Common.Previous".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.previousQuestion_))
-        if !correction
-        {
-            timeItem = UIBarButtonItem(title: "00:00", style: .plain, target: nil, action: nil)
-            timeItem.isEnabled = false
-        }
+        timeItem = UIBarButtonItem(title: "00:00", style: .plain, target: nil, action: nil)
         nextItem = UIBarButtonItem(title: "Common.Next".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.nextQuestion_))
-        doneItem = UIBarButtonItem(title: "TherapeuticTest.Finish".localized, style: .plain, target: self, action: #selector(TherapeuticTestBasicViewController.displayFinishDialog_))
+        doneItem = UIBarButtonItem(title: "TherapeuticTest.Finish".localized, style: .done, target: self, action: #selector(TherapeuticTestBasicViewController.displayFinishDialog_))
+        moreItem = UIBarButtonItem(image: UIImage(named: "more_button", in: Bundle.main, compatibleWith: nil), style: .done, target: self, action: #selector(TherapeuticTestBasicViewController.displayMoreOptions_))
         
-        navigationItem.rightBarButtonItem = doneItem
-        navigationItem.rightBarButtonItems?.append(nextItem)
-        if !correction
+        if correction
         {
-            navigationItem.rightBarButtonItems?.append(timeItem)
+            navigationItem.rightBarButtonItem = moreItem
         }
+        else
+        {
+            navigationItem.rightBarButtonItem = doneItem
+        }
+        navigationItem.rightBarButtonItems?.append(nextItem)
+        navigationItem.rightBarButtonItems?.append(timeItem)
         navigationItem.rightBarButtonItems?.append(previousItem)
+        
+        timeItem.isEnabled = false
         
         updateNavigationButtons_()
     }
@@ -311,6 +330,13 @@ class TherapeuticTestBasicViewController: UIViewController
         therapeuticChoicesView.dataSource = self
     }
     
+    fileprivate func setupGestureRecognizers_()
+    {
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(TherapeuticTestBasicViewController.didSwipe_))
+        
+        view.addGestureRecognizer(swipeGesture)
+    }
+    
     fileprivate func setupUserChoices_()
     {
         let choicePossibilities: Int
@@ -340,6 +366,11 @@ class TherapeuticTestBasicViewController: UIViewController
         if let session = TctSaver.getSession(for: sequenceIndex, id: id),
             questionsSuffleIndexes_.count > 0
         {
+            // update time
+            elapsedTime_ = session.elapsedTime
+            updateTime_()
+            
+            // update choices
             for questionIndex in 0..<session.answers.count
             {
                 let shuffledIndex = questionsSuffleIndexes_[questionIndex]
@@ -387,6 +418,27 @@ class TherapeuticTestBasicViewController: UIViewController
     // -------------------------------------------------------------------------
     // MARK: - ACTIONS
     // -------------------------------------------------------------------------
+    @objc fileprivate func didSwipe_(gestureRecognizer: UISwipeGestureRecognizer)
+    {
+        switch gestureRecognizer.direction
+        {
+        case .left:
+            if currentQuestionIndex_ > 0
+            {
+                updateQuestionIndex_(currentQuestionIndex_ - 1)
+            }
+        case .right:
+            if currentQuestionIndex_ < questions_.count - 1
+            {
+                updateQuestionIndex_(currentQuestionIndex_ + 1)
+            }
+        case .up, .down:
+                break
+        default:
+            break
+        }
+    }
+    
     @IBAction func previousQuestion(_ button: UIButton)
     {
         updateQuestionIndex_(currentQuestionIndex_ - 1)
@@ -449,9 +501,9 @@ class TherapeuticTestBasicViewController: UIViewController
         switch participant.category
         {
         case .teacher:
-            session = TctSession(sequenceIndex: sequenceIndex, date: Date(), participant: participant, answers: answers, comments: comments)
+            session = TctSession(sequenceIndex: sequenceIndex, date: Date(), participant: participant, answers: answers, elapsedTime: elapsedTime_, comments: comments)
         case .intern, .student4, .student5, .student6:
-            session = TctSession(sequenceIndex: sequenceIndex, date: Date(), participant: participant, answers: answers)
+            session = TctSession(sequenceIndex: sequenceIndex, date: Date(), participant: participant, answers: answers, elapsedTime: elapsedTime_)
         }
         
         TctSaver.save(session: session, sequenceIndex: sequenceIndex)
@@ -477,6 +529,29 @@ class TherapeuticTestBasicViewController: UIViewController
     fileprivate func saveDialogClosed_()
     {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc fileprivate func displayMoreOptions_(_ sender: UIBarButtonItem)
+    {
+        let optionsAlertController = UIAlertController(title: "More", message: "Choose option", preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Common.Cancel".localized, style: .cancel, handler: nil)
+        
+        let commentsAction = UIAlertAction(title: "Display comments", style: .default, handler: {
+            (UIAlertAction) -> Void in
+            
+            self.displayComments_()
+        })
+        
+        optionsAlertController.addAction(cancelAction)
+        optionsAlertController.addAction(commentsAction)
+        
+        present(optionsAlertController, animated: true)
+    }
+    
+    fileprivate func displayComments_()
+    {
+        performSegue(withIdentifier: TherapeuticTestBasicViewController.toComments, sender: self)
     }
     
     // -------------------------------------------------------------------------
@@ -612,6 +687,12 @@ class TherapeuticTestBasicViewController: UIViewController
         {
             target.comment  = comments_[currentQuestionIndex_]
             target.delegate = self
+        }
+        // TO COMMENTS
+        else if segue.identifier == TherapeuticTestBasicViewController.toComments,
+            let target = segue.destination as? CommentsViewController
+        {
+            target.comments = getComments_()
         }
     }
 }

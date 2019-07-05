@@ -19,6 +19,9 @@ fileprivate func string_(for session: TctSession) -> String
     // participant category
     result += "\(session.participant.category.name)\n"
     
+    // elapsed time
+    result += "\(session.elapsedTime)\n"
+    
     let addComments = session.comments.count > 0
     
     // the answers and comments
@@ -44,7 +47,7 @@ fileprivate func string_(for session: TctSession) -> String
 fileprivate func session_(for string: String, sequenceIndex: Int) -> TctSession
 {
     let lines = string.split(separator: Character("\n"))
-    guard lines.count > 3 else
+    guard lines.count > 4 else
     {
         return TctSession(sequenceIndex: -1, date: Date(), participant: TctParticipant(firstName: "", category: .student4), answers: [])
     }
@@ -53,15 +56,17 @@ fileprivate func session_(for string: String, sequenceIndex: Int) -> TctSession
     
     let participantFirstName = String(lines[1])
     let participantCategoryName = String(lines[2])
+    let elapsedTimeString = String(lines[3])
     
-    guard let participantCategory = ParticipantCategory.category(for: participantCategoryName) else
+    guard let participantCategory = ParticipantCategory.category(for: participantCategoryName),
+        let elapsedTime = Double(elapsedTimeString) else
     {
         return TctSession(sequenceIndex: -1, date: Date(), participant: TctParticipant(firstName: participantFirstName, category: .student4), answers: [])
     }
     
     var answers = [[Int]]()
     var comments = [String]()
-    for i in 3..<lines.count
+    for i in 4..<lines.count
     {
         if lines[i].starts(with: "comment:")
         {
@@ -77,9 +82,9 @@ fileprivate func session_(for string: String, sequenceIndex: Int) -> TctSession
     
     if comments.count > 0
     {
-        return TctSession(sequenceIndex: sequenceIndex, date: date, participant: TctParticipant(firstName: participantFirstName, category: participantCategory), answers: answers, comments: comments)
+        return TctSession(sequenceIndex: sequenceIndex, date: date, participant: TctParticipant(firstName: participantFirstName, category: participantCategory), answers: answers, elapsedTime: elapsedTime, comments: comments)
     }
-    return TctSession(sequenceIndex: sequenceIndex, date: date, participant: TctParticipant(firstName: participantFirstName, category: participantCategory), answers: answers)
+    return TctSession(sequenceIndex: sequenceIndex, date: date, participant: TctParticipant(firstName: participantFirstName, category: participantCategory), answers: answers, elapsedTime: elapsedTime)
 }
 
 class TctSaver
