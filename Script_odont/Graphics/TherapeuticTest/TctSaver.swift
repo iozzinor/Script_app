@@ -56,7 +56,19 @@ fileprivate func session_(for string: String, sequenceIndex: Int) -> TctSession
     
     let participantFirstName = String(lines[1])
     let participantCategoryName = String(lines[2])
-    let elapsedTimeString = String(lines[3])
+    var elapsedTimeString = String(lines[3])
+    
+    // TEMP : problème de date dans le format à corriger
+    let linesToSkip: Int
+    if elapsedTimeString.contains(String("\t"))
+    {
+        linesToSkip = 3
+        elapsedTimeString = "120.000000"
+    }
+    else
+    {
+        linesToSkip = 4
+    }
     
     guard let participantCategory = ParticipantCategory.category(for: participantCategoryName),
         let elapsedTime = Double(elapsedTimeString) else
@@ -66,7 +78,7 @@ fileprivate func session_(for string: String, sequenceIndex: Int) -> TctSession
     
     var answers = [[Int]]()
     var comments = [String]()
-    for i in 4..<lines.count
+    for i in linesToSkip..<lines.count
     {
         if lines[i].starts(with: "comment:")
         {

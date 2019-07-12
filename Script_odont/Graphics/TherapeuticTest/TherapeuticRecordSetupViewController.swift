@@ -47,6 +47,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
     {
         case participantName
         case participantCategory
+        case participantAge
         case participantExerciseDuration
         
         case sequenceIndex
@@ -63,6 +64,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
     
     fileprivate var participantName_: String? = "default name"//= nil
     fileprivate var participantCategory_: ParticipantCategory? = ParticipantCategory.student4//= nil
+    fileprivate var participantAge_: Int? = nil
     fileprivate var participantExerciseDuration_: Int? = nil
     fileprivate var sequenceIndex_: Int = 0
     fileprivate var sessions_: [Bool: [TctSession]] = [:]
@@ -135,10 +137,18 @@ class TherapeuticRecordSetupViewController: UITableViewController
         case .participantCategory:
             let cell = tableView.dequeueReusableCell(withIdentifier: TherapeuticRecordSetupViewController.detailCellId, for: indexPath)
             
-            cell.accessoryType = .none
+            cell.accessoryType = .disclosureIndicator
             cell.textLabel?.text = "TherapeuticChoice.Row.ParticipantCategory".localized
             cell.detailTextLabel?.text = participantCategory_?.name ?? "Common.None".localized
             
+            return cell
+        case .participantAge:
+             let cell = tableView.dequeueReusableCell(withIdentifier: TherapeuticRecordSetupViewController.detailCellId, for: indexPath)
+             
+             cell.accessoryType = .disclosureIndicator
+             cell.textLabel?.text = "TherapeuticChoice.Row.ParticipantAge".localized
+             cell.detailTextLabel?.text = String(participantAge_ ?? 0)
+             
             return cell
         case .participantExerciseDuration:
             let cell = tableView.dequeueReusableCell(withIdentifier: TherapeuticRecordSetupViewController.detailCellId, for: indexPath)
@@ -208,6 +218,8 @@ class TherapeuticRecordSetupViewController: UITableViewController
             displayParticipantNameDialog_()
         case .participantCategory:
             performSegue(withIdentifier: TherapeuticRecordSetupViewController.toParticipantCategoryPicker, sender: self)
+        case .participantAge:
+            break
         case .participantExerciseDuration:
             performSegue(withIdentifier: TherapeuticRecordSetupViewController.toExerciseDurationPicker, sender: self)
         case .sequenceIndex:
@@ -237,7 +249,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
         
         switch row
         {
-        case .launch, .participantName, .participantCategory, .participantExerciseDuration, .sequenceIndex:
+        case .launch, .participantName, .participantCategory, .participantAge, .participantExerciseDuration, .sequenceIndex:
             return nil
             
         case .resumeSession:
@@ -277,7 +289,7 @@ class TherapeuticRecordSetupViewController: UITableViewController
             case .teacher:
                 participantRows.append(.participantExerciseDuration)
             case .intern, .student4, .student5, .student6:
-                break
+                participantRows.append(.participantAge)
             }
         }
         result.append((.participant, participantRows))

@@ -473,6 +473,7 @@
 "TherapeuticChoice.Row.Participant"                 = "Participant :";
 "TherapeuticChoice.Row.ParticipantCategory"         = "Categorie :";
 "TherapeuticChoice.Row.ParticipantExerciseDuration" = "Durée d'exercice:";
+"TherapeuticChoice.Row.ParticipantAge"              = "Âge :";
 "TherapeuticChoice.Row.SequenceIndex"               = "Numéro séquence :";
 "TherapeuticChoice.Row.Launch"                      = "Démarrer";
 "TherapeuticChoice.SaveSuccessDialog.Title"         = "Réussite sauvegarde";

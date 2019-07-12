@@ -472,6 +472,7 @@
 "TherapeuticChoice.Section.Finished"                = "Finished";
 "TherapeuticChoice.Row.Participant"                 = "Participant:";
 "TherapeuticChoice.Row.ParticipantCategory"         = "Category:";
+"TherapeuticChoice.Row.ParticipantAge"              = "Age:";
 "TherapeuticChoice.Row.ParticipantExerciseDuration" = "Exercise Duration:";
 "TherapeuticChoice.Row.SequenceIndex"               = "Sequence Number:";
 "TherapeuticChoice.Row.Launch"                      = "Launch";
