@@ -90,24 +90,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gwP-dX-d03">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="20" y="20" width="280" height="548"/>
                                 <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom de l'hôte (localhost)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hrd-w6-HdB">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="105.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Port de l'hôte (80)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hhd-DY-GfV">
+                                        <rect key="frame" x="0.0" y="110.5" width="280" height="105.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVU-6A-GUe">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="179.5"/>
+                                        <rect key="frame" x="0.0" y="221" width="280" height="106"/>
                                         <state key="normal" title="Default"/>
                                         <connections>
                                             <action selector="displaySessions:" destination="JXm-VP-vB6" eventType="touchUpInside" id="npp-Mt-DDl"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRV-Nc-R7d">
-                                        <rect key="frame" x="0.0" y="184.5" width="320" height="179"/>
+                                        <rect key="frame" x="0.0" y="332" width="280" height="105.5"/>
                                         <state key="normal" title="Panel"/>
                                         <connections>
                                             <action selector="displayPanel:" destination="JXm-VP-vB6" eventType="touchUpInside" id="pCW-kA-enS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1F-j1-2uf">
-                                        <rect key="frame" x="0.0" y="368.5" width="320" height="179.5"/>
+                                        <rect key="frame" x="0.0" y="442.5" width="280" height="105.5"/>
                                         <state key="normal" title="Respondents"/>
                                         <connections>
                                             <action selector="displayRespondents:" destination="JXm-VP-vB6" eventType="touchUpInside" id="knq-CJ-McV"/>
@@ -116,22 +128,26 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="l1F-j1-2uf" firstAttribute="leading" secondItem="PVU-6A-GUe" secondAttribute="leading" id="Csa-Tx-VcD"/>
+                                    <constraint firstItem="Hhd-DY-GfV" firstAttribute="leading" secondItem="gwP-dX-d03" secondAttribute="leading" id="LJh-tc-RJE"/>
                                     <constraint firstItem="WRV-Nc-R7d" firstAttribute="leading" secondItem="PVU-6A-GUe" secondAttribute="leading" id="MEa-mP-5S3"/>
                                     <constraint firstItem="PVU-6A-GUe" firstAttribute="leading" secondItem="gwP-dX-d03" secondAttribute="leading" id="ghP-KF-PXF"/>
+                                    <constraint firstItem="Hrd-w6-HdB" firstAttribute="leading" secondItem="gwP-dX-d03" secondAttribute="leading" id="nq9-20-WGh"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="gwP-dX-d03" firstAttribute="centerX" secondItem="kMH-xx-fpf" secondAttribute="centerX" id="3qn-Nu-3cp"/>
                             <constraint firstItem="gwP-dX-d03" firstAttribute="top" secondItem="Cho-aG-4sz" secondAttribute="top" id="60O-xQ-Zrs"/>
-                            <constraint firstItem="Cho-aG-4sz" firstAttribute="trailing" secondItem="gwP-dX-d03" secondAttribute="trailing" id="Tag-Ge-25n"/>
-                            <constraint firstItem="gwP-dX-d03" firstAttribute="leading" secondItem="Cho-aG-4sz" secondAttribute="leading" id="oee-ey-DNd"/>
+                            <constraint firstItem="gwP-dX-d03" firstAttribute="leading" secondItem="Cho-aG-4sz" secondAttribute="leading" constant="20" id="oee-ey-DNd"/>
                             <constraint firstItem="Cho-aG-4sz" firstAttribute="bottom" secondItem="gwP-dX-d03" secondAttribute="bottom" id="ydI-sC-tj2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cho-aG-4sz"/>
                     </view>
                     <connections>
                         <outlet property="defaultButton" destination="PVU-6A-GUe" id="qtw-G0-Oyr"/>
+                        <outlet property="hostNameField" destination="Hrd-w6-HdB" id="0VC-HK-yWQ"/>
+                        <outlet property="hostPortField" destination="Hhd-DY-GfV" id="7ip-Ku-5yh"/>
                         <outlet property="panelButton" destination="WRV-Nc-R7d" id="WeD-ch-UNu"/>
                         <outlet property="respondentsButton" destination="l1F-j1-2uf" id="Yqp-9R-CA0"/>
                     </connections>

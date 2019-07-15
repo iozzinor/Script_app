@@ -278,6 +278,48 @@ fileprivate func appendResponses_(categorySessions: [ParticipantCategory: [TctSe
     }
 }
 
+// -----------------------------------------------------------------------------
+// MARK: - DIFFUSER
+// -----------------------------------------------------------------------------
+fileprivate protocol Diffuser
+{
+    func diffuse(exportedTct: String)
+}
+
+fileprivate class ConsoleDiffuser: Diffuser
+{
+    func diffuse(exportedTct: String)
+    {
+        print(exportedTct)
+    }
+}
+
+fileprivate class HttpDiffuser: Diffuser
+{
+    var host = Host(name: "localhost", port: 80)
+    private var ephemeralSession_ = URLSession(configuration: .ephemeral)
+    
+    func diffuse(exportedTct: String)
+    {
+        guard let url = URL(string: "http://\(host.name):\(host.port)") else
+        {
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-urlencoded-form", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        
+        let postContent = "content=\(exportedTct)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryValueAllowed) ?? ""
+        request.httpBody = postContent.data(using: .utf8)
+        
+        let task = ephemeralSession_.dataTask(with: request) {
+            data, response, error -> Void in
+        }
+        task.resume()
+    }
+}
+
 class TctExportViewController: UIViewController
 {
     fileprivate static let alphabet_        = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -285,13 +327,20 @@ class TctExportViewController: UIViewController
     
     var currentSequenceIndex = 0
     
+    @IBOutlet weak var hostNameField: UITextField!
+    @IBOutlet weak var hostPortField: UITextField!
     @IBOutlet weak var defaultButton: UIButton!
     @IBOutlet weak var panelButton: UIButton!
     @IBOutlet weak var respondentsButton: UIButton!
     
-    fileprivate var defaultExporter_ = TctExporter(exporter: exportDefault_)
-    fileprivate var respondentsExporter_ = TctExporter(exporter: exportRespondent_)
-    fileprivate var panelExporter_ = TctExporter(exporter: exportPanel_)
+    fileprivate var defaultExporter_        = TctExporter(exporter: exportDefault_)
+    fileprivate var respondentsExporter_    = TctExporter(exporter: exportRespondent_)
+    fileprivate var panelExporter_          = TctExporter(exporter: exportPanel_)
+    
+    fileprivate var diffuser_: Diffuser!
+    fileprivate var httpDiffuser_: HttpDiffuser? {
+        return diffuser_ as? HttpDiffuser
+    }
     
     // -------------------------------------------------------------------------
     // MARK: - VIEW CYCLE
@@ -305,7 +354,17 @@ class TctExportViewController: UIViewController
     
     fileprivate func setup_()
     {
+        setupHostFields()
         setupButtons_()
+        setupTouchRecognizer_()
+        
+        diffuser_ = HttpDiffuser()
+    }
+    
+    fileprivate func setupHostFields()
+    {
+        hostNameField.delegate = self
+        hostPortField.delegate = self
     }
     
     fileprivate func setupButtons_()
@@ -315,22 +374,76 @@ class TctExportViewController: UIViewController
         respondentsButton.setTitle("TctExport.RespondentsButton".localized, for: .normal)
     }
     
+    fileprivate func setupTouchRecognizer_()
+    {
+        let touchRecognizer = UITapGestureRecognizer(target: self, action: #selector(TctExportViewController.dismissKeyboard_))
+        view.addGestureRecognizer(touchRecognizer)
+    }
+    
     // -------------------------------------------------------------------------
     // MARK: - ACTIONS
     // -------------------------------------------------------------------------
     @IBAction func displaySessions(_ sender: UIButton)
     {
-        print(defaultExporter_.export(sequenceIndex: currentSequenceIndex))
+        diffuser_.diffuse(exportedTct: defaultExporter_.export(sequenceIndex: currentSequenceIndex))
     }
     
     @IBAction func displayPanel(_ sender: UIButton)
     {
-        print(panelExporter_.export(sequenceIndex: currentSequenceIndex))
+        diffuser_.diffuse(exportedTct: panelExporter_.export(sequenceIndex: currentSequenceIndex))
     }
     
     @IBAction func displayRespondents(_ sender: UIButton)
     {
-        print(respondentsExporter_.export(sequenceIndex: currentSequenceIndex))
+        diffuser_.diffuse(exportedTct: respondentsExporter_.export(sequenceIndex: currentSequenceIndex))
+    }
+    
+    @objc fileprivate func dismissKeyboard_()
+    {
+        view.endEditing(true)
     }
 }
 
+// -----------------------------------------------------------------------------
+// MARK: - UI TEXT FIELD DELEGATE
+// -----------------------------------------------------------------------------
+extension TctExportViewController: UITextFieldDelegate
+{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        guard let currentString = textField.text else
+        {
+            return false
+        }
+        
+        let start = currentString.index(currentString.startIndex, offsetBy: range.location)
+        let end = currentString.index(currentString.startIndex, offsetBy: range.location + range.length)
+        
+        let newString = currentString.replacingCharacters(in: start..<end, with: string)
+        
+        if textField == self.hostNameField
+        {
+            httpDiffuser_?.host.name = newString
+            
+            return true
+        }
+        // host port field
+        else if textField == self.hostPortField
+        {
+            if newString.isEmpty
+            {
+                httpDiffuser_?.host.port = 80
+                return true
+            }
+            
+            if let newPort = Int(newString)
+            {
+                httpDiffuser_?.host.port = newPort
+                return true
+            }
+            return false
+        }
+        
+        return true
+    }
+}
