@@ -101,11 +101,14 @@ fileprivate func loadDefaultQuestions_() -> [TctQuestion]
     return result
 }
 
+/// A Tct question.
 class TctQuestion
 {
+    /// List of all questions.
     fileprivate static let allQuestions_: [TctQuestion] = {
         loadDefaultQuestions_()
     }()
+    /// Sequence questions indexes.
     public static let sequences: [[Int]] = [
         [1,    2,    3,    7,    8,     11,     15,     17,    18,    22],
         [0,    5,    6,    7,    8,     13,    15,     16,     18,    23],
@@ -119,6 +122,7 @@ class TctQuestion
         [2,    4,    5,    10,   12,    17,     18,     20,    21,    23]
     ]
     
+    /// - returns: The questions indexes for a given sequence.
     public static func questions(sequenceIndex: Int) -> [TctQuestion]
     {
         if sequenceIndex < 0 || sequenceIndex > TctQuestion.allQuestions_.count - 1

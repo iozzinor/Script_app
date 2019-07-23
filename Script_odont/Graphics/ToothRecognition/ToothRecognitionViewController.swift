@@ -12,8 +12,11 @@ import ToothCommon
 
 class ToothRecognitionViewController: UIViewController
 {
+    /// The segue identifier to the view controller allowing to select the tooth.
     static let toToothRecognitionSelection  = "ToothRecognitionToToothRecognitionSelectionSegueId"
+    /// The segue identifier to the view controller displaying the tooth in fullscreen.
     static let toVolume                     = "ToothRecognitionToVolumeSegueId"
+    /// The segue identifier to the view controller displaying the tooth anatomy reminder.
     static let toToothReminder              = "ToothRecognitionToToothReminderSegueId"
     
     @IBOutlet weak var monitoringLabel: UILabel!

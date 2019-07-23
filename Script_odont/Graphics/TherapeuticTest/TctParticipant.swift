@@ -8,9 +8,12 @@
 
 import Foundation
 
+/// A TCT participane.
 struct TctParticipant
 {
+    /// The participant first name.
     let firstName: String
+    /// The participant category.
     let category: ParticipantCategory
     
     /// The exercise duration in years.

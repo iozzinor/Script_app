@@ -99,6 +99,7 @@ fileprivate func session_(for string: String, sequenceIndex: Int) -> TctSession
     return TctSession(sequenceIndex: sequenceIndex, date: date, participant: TctParticipant(firstName: participantFirstName, category: participantCategory), answers: answers, elapsedTime: elapsedTime)
 }
 
+/// The TCT session saver.
 class TctSaver
 {
     // -------------------------------------------------------------------------
@@ -135,6 +136,7 @@ class TctSaver
     // -------------------------------------------------------------------------
     // MARK: - GET
     // -------------------------------------------------------------------------
+    /// - returns: The list of TCT sessions.
     public class func getAllSession() -> [TctSession]
     {
         var result = [TctSession]()
@@ -145,6 +147,7 @@ class TctSaver
         return result
     }
     
+    /// - returns: The list of TCT sessions in the sequence.
     public class func getSessions(forSequenceIndex sequenceIndex: Int) -> [TctSession]
     {
         let sequenceUrl = url(forSequenceIndex: sequenceIndex)
@@ -182,6 +185,7 @@ class TctSaver
         return result
     }
     
+    /// - returns: The TCT session with the `id` and `sequenceIndex` if found.
     public class func getSession(for sequenceIndex: Int, id: Int) -> TctSession?
     {
         let sequenceUrl = url(forSequenceIndex: sequenceIndex)
@@ -222,6 +226,7 @@ class TctSaver
         return nil
     }
     
+    /// - returns: The number of sessions in the sequence.
     public class func getSessionsCount(forSequenceIndex sequenceIndex: Int) -> Int
     {
         do
@@ -236,6 +241,7 @@ class TctSaver
         }
     }
     
+    /// - returns: A list of correct answers for the sequence.
     public class func getCorrection(forSequenceIndex sequenceIndex: Int, id: Int) -> [[Int]]?
     {
         guard let session = getSession(for: sequenceIndex, id: id) else
@@ -262,6 +268,7 @@ class TctSaver
     // -------------------------------------------------------------------------
     // MARK: - DELETE
     // -------------------------------------------------------------------------
+    /// Delete all sessions.
     public class func deleteAll()
     {
         let sessionFolders: [String]
@@ -281,6 +288,7 @@ class TctSaver
         }
     }
     
+    /// Delete a specific session.
     public class func delete(for sequenceIndex: Int, id: Int)
     {
         let sequenceUrl = url(forSequenceIndex: sequenceIndex)
