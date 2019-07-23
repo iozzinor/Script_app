@@ -24,6 +24,9 @@ fileprivate func character_(forDigit digit: Int) -> CChar
 
 extension String
 {
+    /// The hex representation of the current string.
+    ///
+    /// Letters are uppercased.
     var hex: String {
         var result = [CChar]()
         let cRepresentation = (cString(using: .utf8) ?? [])

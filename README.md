@@ -1,114 +1,62 @@
-# Script odont
+# Script App
 
-## Le language Swift
+## The Swift language
 
-Voir le chapitre 'A Swift Tour' du livre 'The Swift Programming Language' disponible sur l'AppStore gratuitement en version eBook,
-ou en version web sur le site 'swift.org'.
-### Caractéristiques principales
-- compilé
-- orienté objet
-- procédural
-- impératif
+Please check out the [Swift in a nutshell page](swift.md).
 
-### Facilitations syntaxiques
-Il n'est pas nécessaire de terminer une instruction par un point-virgule
-si celle-ci est unique dans sa ligne.
+## Projet composition
 
-Les parenthèses pour les conditions sont optionnelles.
-
-Il n'est pas nécessaire d'indiquer le type d'une variable si
-celui-ci peut être déduit.
-Exemple :
-```swift
-// 'dix' est une constante dont le type est Int
-let dix = 10
-```
-
-### Les instructions de contrôle de flux
-- boucles while, do-while et for
-- branchements if et switch
-- clause guard
-
-Le switch doit être exhaustif (avoir une clause `default` ou couvrir toutes les valeurs
-possibles d'une énumération).
-Une clause d'un switch doit comporter l'instruction fallthrough si plusieurs clauses peuvent
-être exécutées (il n'est pas nécessaire de cloturer une clause par un `break`, comme en C
-si on ne veut exécuter qu'une seule clause).
-
-La clause guard doit comprendre comme dernier instruction une instruction lui faisant 
-quitter sa zone (scope) comme  return (fonction) ou break (boucle).
-Elle permet de ne pas écrire `if !(<condition>)` : elle offre une meilleure compréhension
-de l'intention lors la lecture.
-
-### Classes et structures
-Les classes sont passées par référence ; les structure par valeur (souvent copiée si argument de fonctions).
-Déclaration d'une variable : 
-- var \<nom variable\> = \<valeur d'initialisation\>.
-- var \<nom variable\>: \<Type\>
-- var \<nom variable\>: \<Type\> = \<valeur d'initialisation\>.
-Déclaration d'une constante : 
-- let \<nom variable\> = \<valeur d'initialisation\>.
-- let \<nom variable\>: \<Type\>
-- let \<nom variable\>: \<Type\> = \<valeur d'initialisation\>.
-
-### Les fonctions
-Déclaration : func \<nom fonction\>([\<arguments\> ...]) [-> \<Type retour\>]
-
-### Les optionnels
-En adjoignant un point d'interrogation au type de la variable, elle devient optionnelle.
-Elle peut alors prendre n'importe quelle valeur de son type, ou bien celle `nil`.
-Elle est comparable à un pointeur en C ou C++ qui peut valoir `NULL` (pointer à l'adresse `0`),
-ou bien vers une instance d'une structure.
-```
-// La variable monEntier prendra la valeur de celle entierOptionnel
-// si celle-ci est définie ou prendra la valeur d'entier
-// si entierOptionnal vaut nil
-let monEntier = entierOptionnel ?? entier
-```
-
-## Composition du projet
-
-### Les languages de programmation utilisés
+### Programming languages
 
 - python 3
 - swift 4
-- scripts shell (certains script sont compliants POSIX, tandis que d'autres
- nécessitent bash)
+- shell scripts (some are POSIX compliant but most require bash)
 
-### Obtention des données des dents
+### Dental datum obtention
 
-Les données dentaires (images 2D vectorielles) ont été obtenus en dessinant ces dernières
-sur LibreOffice, puis en exportant les points via un script python qui utilise les macros.
-Les courbes sont des courbes quadratiques de Bezier : chacune d'entre elle contient
-les deux points d'extrémité et les deux points de contrôle.
-Ces fichiers se situent dans le dossier : Resources > ToothPosition.
-Ils sont binaires (texte brut dans les précédentes versions).
-Leur extension est '.tp'.
-Ils contiennent les positions des points pour les faces occlusale, vestibulaire et linguale/palatine.
-Ils comprennent également les positions des 6 points utilisés pour les sondages : vestibulaire, lingual/palatin, mésio- et disto-vestibulaire,
-ainsi que mésio- et disto-lingual.
+Dental datum (2d vectorial image) have been obtained by drawing it in LibreOffice, and exporting point coordinated,
+thanks to a python script.
+Obtained curves are quadratic Bezier ones.
+Each one contains 2 extremity points and 2 control points.
+These files are stored in the folder: Resources > ToothPosition.
+They contain binary datum (plain text in older versions).
+Their extension is '.tp'.
+They contain point positions for occlusal, buccal and lingual/palatine faces.
+They also indicate the positions of the 6 points used in chartings: buccal, lingual/palatine, mesio- and disto-buccal, and mesio and disto-lingual.
 
-### La structure du dossier principal : 'Script_odont'
+### Main folder structure: 'Script_odont'
 
-Les fichiers générés par XCode :
-- Assets.xcassets : géré automatiquement par XCode, il permet de stocker des fichiers de ressource
- utilisés par l'application. Lors de l'ajout de fichiers (ou d'ensembles de fichiers) par glissé-
- déposé ou par le menu contextuel, XCode ajoute un sous-dossier qui contient ces fichiers et celui
- Contents.json qui décrit le contenu de la ressource. Il est ensuite aisé d'obtenir ces ressources
- dans le code Swift (classe Bundle).
- Voir https://developer.apple.com/documentation.
-- \<code identification langue\>.lproj : contient les fichiers de traduction statiques (\*.strings)
- et ceux pouvant comprendre des règles de traduction, comme la gestion du pluriel (\*.stringsdict).
-- Base.lproj : comprend traductions des fichiers de création d'interface
+Some files are generated by XCode:
+- Assets.xcassets : it allows to store the resource files used by the application.
+ When files are added (drag and drop, or contextual menu), XCode adds a subfolder containing these files
+ and a 'Contents.json' file describing the resource composition. It make the access in the Swift code easier
+ (Bundle class).
+ See https://developer.apple.com/documentation.
+- \<language identification code\>.lproj : static translation files (\*.strings)
+and dynamic ones (they, for example, gather rule allowing to manage plurals) (\*.stringsdict).
+- Base.lproj : translations for view files
 
-Les fichiers ajoutés manuellement (nom non réservé contrairement aux précédents) :
-- Configuration : fichiers de configuration, selon le mode de déploiement. Il s'agit d'un dcitionnaire
- clé-valeur. Ce fichier est de type XML et sa structure est imposée par une DTD apple. Lors de la compilation, le
- fichier adéquat est copié, grâce à la phase Run Script (deuxième phase, que l'on peut trouver dans l'onglet
- Script_odont > Target > Script_odont > Build Phases).
-- Core : fichiers définissant des classes et structures manipulées par le programme (semblable au modèle).
-- Frameworks : contient les bibliothèques dynamiques. Celle ToothCommon est incluse dans l'application.
-- Graphics : ensemble des fichiers définissant les vues.
-- Network : classes permettant l'accès au réseau.
-- Resources : Autres resources qui seront incluses dans l'application.
-- Utils : utilitaires.
+Other have been manually added (their name is not reserved, on the contrary to previous ones) :
+- Configuration : configuration files that vary according to the deployment mode.
+ It consits of a key-value dictionary. This file is of type XML and its structure is constrained by an Apple DTD.
+ During the compilation phase, the relevant file is copied (Run Script phase, that might be found in the 
+ Script_odont > Target > Script_odont > Build Phases tab).
+- Core : files defining classes and structures manipulated by the program (comparable to the model).
+- Frameworks : contains dynamic libraries, such as the 'ToothCommon' one.
+- Graphics : set of files defining views.
+- Network : classes allowing network access.
+- Resources : other resources that will be included in the application.
+- Utils : utilities.
+
+## Main screen
+The main screen is a menu, which allows the user to choose a module.
+The following modules are available:
+- Tooth Recognition: the user trains to recoginze teeth by answering a series of questions.
+- Therapeutic Basic: the user should choose the best therapeutic solution for a given case.
+- Therapeutic Scale: the user should order therapeutic alternatives.
+- Tct Manager: allows to export the results from 'Therapeutic Scale'
+- Sct Browsing: browses among SCT tests.
+- My SCT: displays the list of answered SCTs and incomplete ones.
+- Settings: adjust the settings.
+- Other: displays the tutorials and the leaderboard.
+- Test STL Color: a test module to display 3D files with colors.

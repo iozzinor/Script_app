@@ -73,18 +73,22 @@ fileprivate enum Sha2
 
 extension String
 {
+    /// The digest of the current string using the SHA-224 hash algorithm.
     var sha224: String {
         return Sha2.sha224.digest(self)
     }
     
+    /// The digest of the current string using the SHA-256 hash algorithm.
     var sha256: String {
         return Sha2.sha256.digest(self)
     }
     
+    /// The digest of the current string using the SHA-384 hash algorithm.
     var sha384: String {
         return Sha2.sha384.digest(self)
     }
     
+    /// The digest of the current string using the SHA-512 hash algorithm.
     var sha512: String {
         return Sha2.sha512.digest(self)
     }

@@ -11,6 +11,7 @@ import CommonCrypto
 
 extension String
 {
+    /// The digest of the current string using the MDA5 hash algorithm.
     var md5: String {
         guard let data = self.data(using: .utf8) else
         {

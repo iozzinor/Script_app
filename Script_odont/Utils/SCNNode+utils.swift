@@ -12,15 +12,29 @@ import SceneKit
 // -----------------------------------------------------------------------------
 // MARK: - STL ERROR
 // -----------------------------------------------------------------------------
+/// STL load errors
 enum StlError: Error
 {
+    /// The file size is smaller than expected.
     case fileToSmall(size: Int)
+    
+    /// The file size does not match the expected one.
     case unexpectedFileSize(actual: Int, expected: Int)
+    
+    // Wrong triangles count.
     case trianglesCountMismatch(actual: Int, expected: Int)
 }
 
 extension SCNNode
 {
+    /// Load a node from an STL file.
+    ///
+    /// - parameter stlFileUrl: The file URL.
+    /// - parameter meshOnly: Whether the object is loaded with faces or meshes.
+    /// - parameter parseColors: Whether the triangles 2 byte attributes are used
+    /// to define the colors.
+    ///
+    /// - returns: The loaded node.
     static func load(stlFileUrl: URL, meshOnly: Bool = false, parseColors: Bool = false) throws -> SCNNode
     {
         let data = try Data(contentsOf: stlFileUrl, options: .alwaysMapped)
@@ -143,32 +157,43 @@ extension SCNNode
 // -----------------------------------------------------------------------------
 // MARK: - STRUCTURES
 // -----------------------------------------------------------------------------
+/// A triangle.
 private struct Triangle_
 {
+    /// The normal vector.
     var normal: SCNVector3
+    /// The first vector.
     var vertex1: SCNVector3
+    /// The second vector.
     var vertex2: SCNVector3
+    /// The third vertex.
     var vertex3: SCNVector3
+    /// The attributes.
     var attributes: UInt16
 }
 
 private extension SCNVector3
 {
+    /// Convert the vertex to binary representation.
     mutating func unsafeData() -> Data
     {
         return Data(buffer: UnsafeBufferPointer(start: &self, count: 1))
     }
     
+    /// Whether the vertex is null.
     var isNull: Bool
     {
         return x == 0 && y == 0 && z == 0
     }
     
+    /// The vertex length.
     var length: Float
     {
         return sqrt(x * x + y * y + z * z)
     }
     
+    /// Update the vertex to keep its direction and sens, but set its length to
+    /// `1`.
     mutating func normalize()
     {
         let currentLength = length
@@ -183,6 +208,10 @@ private extension SCNVector3
 
 private extension Data
 {
+    /// Convert a data interval to its value representation.
+    ///
+    /// - parameter start: The data interval start.
+    /// - parameter length: The data interval length.
     func scanValue<T>(start: Int, length: Int) -> T
     {
         return self.subdata(in: start..<start+length).withUnsafeBytes { $0.pointee }
@@ -192,6 +221,7 @@ private extension Data
 // -----------------------------------------------------------------------------
 // MARK: - FUNCTIONS
 // -----------------------------------------------------------------------------
+/// - returns: The vector passing by the two vertices.
 private func vector(_ vertex1: SCNVector3, _ vertex2: SCNVector3) -> SCNVector3
 {
     return SCNVector3(vertex2.x - vertex1.x, vertex2.y - vertex1.y, vertex2.z - vertex1.z)
@@ -207,6 +237,11 @@ private func computeNormal(_ v1: SCNVector3, _ v2: SCNVector3) -> SCNVector3
     return result
 }
 
+/// Find a normal vector to the triangle face.
+///
+/// - parameter triangle: The triangle for which the normal is computed.
+///
+/// - returns: The new normal vector.
 private func createNormal(triangle: Triangle_) -> SCNVector3
 {
     var normal = SCNVector3()
@@ -223,6 +258,11 @@ private func createNormal(triangle: Triangle_) -> SCNVector3
     return normal
 }
 
+/// Extract the color from the triangle attributes.
+///
+/// - parameter attributes: The STL triangle attributes.
+///
+/// - returns: The encoded color.
 private func colorFromAttributes(_ attributes: UInt16) -> UIColor
 {
     let red     = CGFloat(attributes >> 11) / 31.0
@@ -231,26 +271,9 @@ private func colorFromAttributes(_ attributes: UInt16) -> UIColor
     return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
 }
 
-
+/// Add colors attribytes to the SceneKit elements.
 private func generateColors(elements: inout [SCNGeometryElement], materials: inout [SCNMaterial], colors: [UIColor])
 {
-    /*print(colors.count)
-    print(3 * colors.count)
-    for (i, color) in colors.enumerated()
-    {
-        let triangleMaterial = SCNMaterial()
-        triangleMaterial.diffuse.contents = color
-        triangleMaterial.isDoubleSided = true // TEMP
-        
-        materials.append(triangleMaterial)
-        
-        var indexes: [UInt32] = []
-        indexes.append(UInt32(3 * i))
-        indexes.append(UInt32(3 * i + 1))
-        indexes.append(UInt32(3 * i + 2))
-        elements.append(SCNGeometryElement(indices: indexes, primitiveType: .triangles))
-    }*/
-    
     let sortedColors = getSortedColors(colors: colors)
     for (color, triangleIndexes) in sortedColors
     {
@@ -272,6 +295,7 @@ private func generateColors(elements: inout [SCNGeometryElement], materials: ino
     }
 }
 
+/// - returns: An dictionary of colors. The keys are the colors, and the values the indexes of the input colors.
 private func getSortedColors(colors: [UIColor]) -> [UIColor: [UInt32]]
 {
     let maximumColors = 65535
@@ -340,6 +364,12 @@ private func getSortedColors(colors: [UIColor]) -> [UIColor: [UInt32]]
     return result
 }
 
+/// Find the closest color.
+///
+/// - parameter colorChoices: list of colors, in which the result color is.
+/// - parameter color: The target color.
+///
+/// - returns: The color from the list that is the closest to `color`.
 private func findClosestColor(colorChoices: [UIColor], color: UIColor) -> UIColor
 {
     var result = UIColor.white
@@ -358,6 +388,10 @@ private func findClosestColor(colorChoices: [UIColor], color: UIColor) -> UIColo
     return result
 }
 
+/// - parameter a: The first color.
+/// - parameter b: The second color.
+///
+/// - returns: The color proximity: the lower, the closer the colors are.
 private func getColorProximity(_ a: UIColor, _ b: UIColor) -> CGFloat
 {
     var aRed: CGFloat   = 0.0

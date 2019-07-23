@@ -13,6 +13,9 @@ extension Array
     // -------------------------------------------------------------------------
     // JOIN
     // -------------------------------------------------------------------------
+    /// - parameter joiner: The string joining the arguments.
+    ///
+    /// - returns: A string formed by joining the current array content with the `joiner`.
     func join(_ joiner: String) -> String
     {
         var result = ""

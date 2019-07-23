@@ -13,6 +13,9 @@ extension UILabel
     // -------------------------------------------------------------------------
     // MARK: - SCT TYPE
     // -------------------------------------------------------------------------
+    /// Display a label with a rounded rectangle background.
+    ///
+    /// The color is defined according to the sct type.
     public func prepareToDisplay(type: SctType)
     {
         layer.cornerRadius = frame.height / 2.0
@@ -23,6 +26,8 @@ extension UILabel
     // -------------------------------------------------------------------------
     // MARK: - BUTTON STYLE
     // -------------------------------------------------------------------------
+    /// Adjust the background to display a round rectangle, whose
+    /// color varies according to whether it is enabled.
     public func prepareToDisplayRoundStyle(enabled: Bool = true)
     {
         textAlignment = .center

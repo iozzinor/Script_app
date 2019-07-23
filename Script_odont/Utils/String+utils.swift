@@ -13,11 +13,15 @@ extension String
     // -------------------------------------------------------------------------
     // LOCALIZATION
     // -------------------------------------------------------------------------
+    /// The localized string whose key is the current object.
+    ///
+    /// It is a convenience method that calls the `NSLocalizedString` one.
     var localized: String
     {
         return NSLocalizedString(self, comment: "")
     }
     
+    /// - returns: The localized string whose key is the current string.
     func localized(with comment: String) -> String
     {
         return NSLocalizedString(self, comment: comment)
@@ -26,6 +30,9 @@ extension String
     // -------------------------------------------------------------------------
     // JOIN
     // -------------------------------------------------------------------------
+    /// - parameter arguments: Arguments to join.
+    ///
+    /// - returns: A string, formed by joining the arguments with the current one.
     func join<T: CustomStringConvertible>(_ arguments: Array<T>) -> String
     {
         var result = ""

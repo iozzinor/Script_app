@@ -8,20 +8,34 @@
 
 import UIKit
 
+/// A view that act as a border.
 class BorderView: UIView
 {
+    /// The border positions.
     enum Position
     {
+        /// Top position.
         case top
+        
+        /// Bottom position.
         case bottom
+    
+        /// Right position.
         case right
+        
+        /// Left position.
         case left
         
+        /// An array of all the positions.
         static let all: [Position] = [.top, .bottom, .right, .left]
     }
 
+    /// The current position.
     var position = Position.top
     
+    /// Create a border.
+    ///
+    /// - parameter position: The view position.
     convenience init(position: Position)
     {
         self.init()

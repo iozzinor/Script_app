@@ -10,6 +10,7 @@ import Foundation
 
 extension CharacterSet
 {
+    /// Set of characters allowed in an URL query.
     static let urlQueryValueAllowed: CharacterSet = {
         
         let denied = ":#[]@!$&'()*+,;="

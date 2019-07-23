@@ -12,6 +12,9 @@ import ToothCommon
 /// Load tooth paths from the folder named "ToothPosition" in the main bundle.
 class TplBundle: ToothPositionLoader
 {
+    /// Load tooth position from the Bundle.
+    ///
+    /// - parameter tooth: The tooth for which position should be loaded.
     func loadToothPosition(forTooth tooth: Tooth) throws -> ToothPosition
     {
         // get the url

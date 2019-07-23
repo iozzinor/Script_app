@@ -13,6 +13,14 @@ extension UIView
     // -------------------------------------------------------------------------
     // MARK: - BORDER
     // -------------------------------------------------------------------------
+    /// Add a border to the current view.
+    ///
+    /// The border is a rectangular view, deriving from the UIView class.
+    /// It is added as a child to the current view.
+    ///
+    /// - parameter color: The border color.
+    /// - parameter lineWidth: The border width.
+    /// - parameter position: The border position.
     func addBorder(with color: UIColor, lineWidth: CGFloat, position: BorderView.Position)
     {
         let borderView = BorderView(position: position)
@@ -51,6 +59,11 @@ extension UIView
         addConstraints(borderConstraints)
     }
     
+    /// Add serveral borders to the current view.
+    ///
+    /// - parameter color: Borders color.
+    /// - parameter lineWidth: Borders width.
+    /// - parameter positions: Borders positions.
     func addBorders(with color: UIColor, lineWidth: CGFloat, positions: [BorderView.Position])
     {
         for position in positions
@@ -59,6 +72,9 @@ extension UIView
         }
     }
     
+    /// Remove borders for the given positions.
+    ///
+    /// - parameter positions: The positions for which borders will be removed.
     func removeBorders(_ positions: [BorderView.Position] = BorderView.Position.all)
     {
         guard !subviews.isEmpty else
@@ -78,24 +94,30 @@ extension UIView
         }
     }
     
+    /// Find a border with position `position`.
     fileprivate func findBorder_(for position: BorderView.Position) -> BorderView?
     {
         return subviews.map { $0 as? BorderView}.first(where: { $0 != nil && $0!.position == position}) ?? nil
     }
     
+    /// The top border if it exists.
     var topBorder: BorderView? {
         return findBorder_(for: .top)
     }
+    /// The bottom border if it exists.
     var bottomBorder: BorderView? {
         return findBorder_(for: .bottom)
     }
+    /// The right border if it exists.
     var rightBorder: BorderView? {
         return findBorder_(for: .right)
     }
+    /// The left border if it exists.
     var leftBorder: BorderView? {
         return findBorder_(for: .left)
     }
     
+    /// Borders of the current view.
     var borders: [BorderView] {
         var result = [BorderView]()
         for subview in subviews
@@ -111,6 +133,10 @@ extension UIView
     // -------------------------------------------------------------------------
     // MARK: - ADAPT
     // -------------------------------------------------------------------------
+    /// Add a subview to the current one.
+    ///
+    /// The new subview will have constraints to measure the same size as the
+    /// current one.
     func addSubviewAdjusting(_ subview: UIView)
     {
         func makeConstraint(first: UIView, second: UIView, attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint
@@ -131,6 +157,7 @@ extension UIView
         self.addConstraints([top, right, left, bottom])
     }
     
+    /// Adjust a subview that is alrready part of the current view hierarchy.
     func adjustSubview(_ subview: UIView)
     {
         guard subviews.contains(subview) else
@@ -143,6 +170,9 @@ extension UIView
     // -------------------------------------------------------------------------
     // MARK: - ERROR SHAKE
     // -------------------------------------------------------------------------
+    /// Make an error shake animation.
+    ///
+    /// The view translates from left to right back and forth for 1 second.
     func animateErrorShake()
     {
         self.transform = CGAffineTransform(translationX: 10, y: 0)

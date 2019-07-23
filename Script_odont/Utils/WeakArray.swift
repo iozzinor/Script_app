@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// An array of weak references.
 class WeakArray<T>: Sequence
 {
     struct Iterator: IteratorProtocol
@@ -32,8 +33,10 @@ class WeakArray<T>: Sequence
         }
     }
     
+    /// An array of the held object.
     fileprivate var objects_ = [WeakContainer<T>]()
     
+    /// Get the referred object at index `index`.
     subscript(index: Int) -> T?
     {
         get {
@@ -45,20 +48,30 @@ class WeakArray<T>: Sequence
         }
     }
     
+    /// Add a new object at the end of the array.
+    ///
+    /// - parameter t: The new object.
     func append(_ t: T?)
     {
         objects_.append(WeakContainer<T>(t: t))
     }
     
+    /// Remove the object at the given index.
+    ///
+    /// - parameter index: The index for the object to remove.
+    ///
+    /// - returns: The removed object.
     func remove(at index: Int) -> WeakContainer<T>
     {
         return objects_.remove(at: index)
     }
     
+    /// The number of held weak objects.
     var count: Int {
         return objects_.count
     }
     
+    /// - returns: An iterator over the weak objects.
     func makeIterator() -> Iterator
     {
         return Iterator(array: self)

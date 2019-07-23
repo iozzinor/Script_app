@@ -11,6 +11,7 @@ import UIKit
 /// Utils fonctions and constants.
 struct Constants
 {
+    /// The default number formatter.
     fileprivate static let numberFormatter_: NumberFormatter = ({
         let result = NumberFormatter()
         result.locale = Locale.current
@@ -225,6 +226,11 @@ struct Constants
     // -------------------------------------------------------------------------
     // MARK: - POW
     // -------------------------------------------------------------------------
+    /// Implementation of the quick pow algorithm.
+    /// Work with integers: therefore, if the exponent is lower than `0`,
+    /// then the result is `0`.
+    ///
+    /// - returns: `number` to the power `exponent`.
     static func pow(_ number: Int, _ exponent: Int) -> Int
     {
         if exponent < 0

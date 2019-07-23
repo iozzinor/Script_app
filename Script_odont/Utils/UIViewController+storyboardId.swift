@@ -10,6 +10,9 @@ import UIKit
 
 extension UIViewController
 {
+    /// The storyboad identifier associated to the view controller.
+    ///
+    /// The format is: `<current controller name>StoryboardId`.
     static var storyboardId: String {
         return String(describing: self) + "StoryboardId"
     }

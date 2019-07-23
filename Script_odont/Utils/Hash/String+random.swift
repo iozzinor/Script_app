@@ -11,6 +11,14 @@ import CommonCrypto
 
 extension String
 {
+    /// Generates a random string, whose length is `length`.
+    ///
+    /// As security matters, it generates the string using the `CCRandomGeneratedBytes`
+    /// function that can be used to generated cipher strings.
+    ///
+    /// - parameter length: The new string length.
+    ///
+    /// - returns: The random string.
     static func random(length: Int) -> String
     {
         if length < 1

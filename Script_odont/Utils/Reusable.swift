@@ -8,7 +8,9 @@
 
 import Foundation
 
+/// Characterize a class that might be reused.
 protocol Reusable: class
 {
+    /// The reuse identifier.
     static var reuseId: String { get }
 }

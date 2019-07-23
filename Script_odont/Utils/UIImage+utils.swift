@@ -10,6 +10,14 @@ import UIKit
 
 extension UIImage
 {
+    /// Create a new image from the current one.
+    ///
+    /// The current image serves as a mask:
+    /// it is replaced with the new color.
+    ///
+    /// - parameter color: The color to use to create the image.
+    ///
+    /// - returns: The new image.
     public func createImage(usingColor color: UIColor) -> UIImage
     {
         let imageFrame = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
