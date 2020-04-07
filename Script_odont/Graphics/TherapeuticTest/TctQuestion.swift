@@ -12,7 +12,7 @@ fileprivate func getQuestionWordings_() -> [String]
 {
     return [
         """
-Une patiente de 23 ans se présente avec une carie sous un amalgame de la dent numéro 15. Après avoir déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+Une patiente de 23 ans se présente avec une carie sous un amalgame de la dent numéro 15. Après avoir déposé la restauration et effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
 Un patient de 31 ans se présente avec une carie importante sur la dent numéro 16 ayant nécessité la réalisation d’un traitement endodontique. Après avoir déposé la reconstitution pré endodontique, vous souhaitez reconstruire la perte tissulaire de ce patient.
@@ -21,7 +21,7 @@ Un patient de 31 ans se présente avec une carie importante sur la dent numéro 
 Un patient de 44 ans se présente avec une lésion carieuse sur la dent 16. Après avoir effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
-Un patient de 20 ans se présente avec une carie sous un ancien composite de la dent numéro 16. Après avoir déposé la restauration et effectuer l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
+Un patient de 20 ans se présente avec une carie sous un ancien composite de la dent numéro 16. Après avoir déposé la restauration et effectué l’éviction carieuse, vous souhaitez reconstruire la perte tissulaire de ce patient.
 """,
         """
 Un patient de 35 ans se présente avec une fracture de la cuspide vestibulaire sur de la dent numéro 15. Vous souhaitez reconstruire la perte tissulaire de ce patient.

@@ -23,10 +23,10 @@ fileprivate func getComments_() -> [TctComment]
 class TherapeuticTestBasicViewController: UIViewController
 {
     public static let diagnosticScale = ChooseScale(graduations: [
-            ChooseScale.Graduation(title: "Fortement contre-indiqué", code: -2),
-            ChooseScale.Graduation(title: "Pas indiqué", code: -1),
-            ChooseScale.Graduation(title: "Indiqué", code: 1),
-            ChooseScale.Graduation(title: "Le plus indiquée", code: 2)
+            ChooseScale.Graduation(title: "Fortement contre-indiquée", code: -2),
+            ChooseScale.Graduation(title: "Pas indiquée", code: -1),
+            ChooseScale.Graduation(title: "Indiquée", code: 1),
+            ChooseScale.Graduation(title: "La plus indiquée", code: 2)
         
         ])
     

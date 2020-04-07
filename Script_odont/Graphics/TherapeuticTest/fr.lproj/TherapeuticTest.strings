@@ -1,0 +1,54 @@
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "3oy-oL-tqB"; */
+"3oy-oL-tqB.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7Vi-LB-cKr"; */
+"7Vi-LB-cKr.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "Comments"; ObjectID = "9YH-UC-bMX"; */
+"9YH-UC-bMX.title" = "Comments";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "9py-kt-rCR"; */
+"9py-kt-rCR.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "ESq-dm-UwU"; */
+"ESq-dm-UwU.title" = "Done";
+
+/* Class = "UILabel"; text = "Et que vous trouvez"; ObjectID = "G34-Ee-HHW"; */
+"G34-Ee-HHW.text" = "Et que vous trouvez";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "JvI-zz-Ds9"; */
+"JvI-zz-Ds9.text" = "Detail";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "OvA-yd-AOQ"; */
+"OvA-yd-AOQ.title" = "Cancel";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "SWZ-BP-Xxt"; */
+"SWZ-BP-Xxt.text" = "Title";
+
+/* Class = "UILabel"; text = "Years"; ObjectID = "ZWu-Un-6EW"; */
+"ZWu-Un-6EW.text" = "Years";
+
+/* Class = "UINavigationItem"; title = "Add Comment"; ObjectID = "gdi-hN-mjz"; */
+"gdi-hN-mjz.title" = "Ajouter commentaire";
+
+/* Class = "UILabel"; text = "Wording"; ObjectID = "gyH-D2-N68"; */
+"gyH-D2-N68.text" = "Wording";
+
+/* Class = "UILabel"; text = "La thérapeutique devient"; ObjectID = "hyP-ZJ-Y5z"; */
+"hyP-ZJ-Y5z.text" = "La thérapeutique devient";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ivd-2f-Dq6"; */
+"ivd-2f-Dq6.text" = "Title";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "rmm-p2-i4E"; */
+"rmm-p2-i4E.text" = "Title";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "rxy-R1-AZT"; */
+"rxy-R1-AZT.text" = "Label";
+
+/* Class = "UILabel"; text = "Si vous pensiez"; ObjectID = "wCl-Fm-9QY"; */
+"wCl-Fm-9QY.text" = "Si vous pensiez";
+
+/* Class = "UIButton"; normalTitle = "Add Comment"; ObjectID = "z1w-yq-J7H"; */
+"z1w-yq-J7H.normalTitle" = "Add Comment";

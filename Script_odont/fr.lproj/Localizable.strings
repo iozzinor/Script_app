@@ -43,10 +43,10 @@
 "Sct.Type.Diagnostic.One"          = "L'hypothèse devient plus probable";
 "Sct.Type.Diagnostic.Two"          = "Il ne peut s'agir pratiquement que de cette hypothèse";
 
-"Sct.Type.Therapeutic.NegativeTwo"  = "Fortement contre-indiqué";
-"Sct.Type.Therapeutic.NegativeOne"  = "Moins indiqué";
+"Sct.Type.Therapeutic.NegativeTwo"  = "Fortement contre-indiquée";
+"Sct.Type.Therapeutic.NegativeOne"  = "Moins indiquée";
 "Sct.Type.Therapeutic.Zero"         = "Ni indiqué ni contre-indiqué";
-"Sct.Type.Therapeutic.One"          = "Indiqué";
+"Sct.Type.Therapeutic.One"          = "Indiquée";
 "Sct.Type.Therapeutic.Two"          = "Indispensable";
 
 "Sct.Type.Prognostic.NegativeTwo"  = "";

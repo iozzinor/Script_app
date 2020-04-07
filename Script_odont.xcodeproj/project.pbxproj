@@ -249,6 +249,7 @@
 		ACAEEB472284B8C600A9AA2E /* ToothReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAEEB462284B8C600A9AA2E /* ToothReminderViewController.swift */; };
 		ACAEEB492284BE4700A9AA2E /* mesial_14.png in Copy Files - Tooth Reminder */ = {isa = PBXBuildFile; fileRef = ACAEEB442284B84100A9AA2E /* mesial_14.png */; };
 		ACB8C8A822351AE000C7F77C /* SctFinished.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8C8A722351AE000C7F77C /* SctFinished.swift */; };
+		ACBA692F2416AC4F00F1E0C4 /* TherapeuticTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBA69312416AC4F00F1E0C4 /* TherapeuticTest.storyboard */; };
 		ACBCF42522425993007CA02F /* AsynchronousTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF42422425993007CA02F /* AsynchronousTableViewController.swift */; };
 		ACBCF4272242CA18007CA02F /* ErrorDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF4262242CA18007CA02F /* ErrorDisplayer.swift */; };
 		ACBCF4292242D033007CA02F /* ErrorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCF4282242D033007CA02F /* ErrorButtonView.swift */; };
@@ -290,7 +291,6 @@
 		ACC83F92223EC3F80064BE6F /* MySctUnfinishedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC83F91223EC3F80064BE6F /* MySctUnfinishedCell.xib */; };
 		ACC83F94223EC4870064BE6F /* MySctFinishedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC83F93223EC4870064BE6F /* MySctFinishedCell.xib */; };
 		ACC83F96223EC83D0064BE6F /* SctsFinishedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC83F95223EC83D0064BE6F /* SctsFinishedListViewController.swift */; };
-		ACCFB8ED22889D570007FEC8 /* TherapeuticTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACCFB8EC22889D570007FEC8 /* TherapeuticTest.storyboard */; };
 		ACCFB8EF22889DAC0007FEC8 /* TherapeuticTestBasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFB8EE22889DAC0007FEC8 /* TherapeuticTestBasicViewController.swift */; };
 		ACD1B39C223BD5590065F07E /* SctScoreDiagramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */; };
 		ACD1B39E223BD5640065F07E /* SctScoreDiagramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */; };
@@ -747,6 +747,8 @@
 		ACAEEB442284B84100A9AA2E /* mesial_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mesial_14.png; sourceTree = "<group>"; };
 		ACAEEB462284B8C600A9AA2E /* ToothReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToothReminderViewController.swift; sourceTree = "<group>"; };
 		ACB8C8A722351AE000C7F77C /* SctFinished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctFinished.swift; sourceTree = "<group>"; };
+		ACBA69302416AC4F00F1E0C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TherapeuticTest.storyboard; sourceTree = "<group>"; };
+		ACBA69332416AC5500F1E0C4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TherapeuticTest.strings; sourceTree = "<group>"; };
 		ACBCF42422425993007CA02F /* AsynchronousTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousTableViewController.swift; sourceTree = "<group>"; };
 		ACBCF4262242CA18007CA02F /* ErrorDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDisplayer.swift; sourceTree = "<group>"; };
 		ACBCF4282242D033007CA02F /* ErrorButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorButtonView.swift; sourceTree = "<group>"; };
@@ -791,7 +793,6 @@
 		ACC83F91223EC3F80064BE6F /* MySctUnfinishedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySctUnfinishedCell.xib; sourceTree = "<group>"; };
 		ACC83F93223EC4870064BE6F /* MySctFinishedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySctFinishedCell.xib; sourceTree = "<group>"; };
 		ACC83F95223EC83D0064BE6F /* SctsFinishedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctsFinishedListViewController.swift; sourceTree = "<group>"; };
-		ACCFB8EC22889D570007FEC8 /* TherapeuticTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TherapeuticTest.storyboard; sourceTree = "<group>"; };
 		ACCFB8EE22889DAC0007FEC8 /* TherapeuticTestBasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TherapeuticTestBasicViewController.swift; sourceTree = "<group>"; };
 		ACD1B39B223BD5590065F07E /* SctScoreDiagramCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SctScoreDiagramCell.swift; sourceTree = "<group>"; };
 		ACD1B39D223BD5640065F07E /* SctScoreDiagramCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SctScoreDiagramCell.xib; sourceTree = "<group>"; };
@@ -1483,7 +1484,7 @@
 				AC211F8522BFE794002A6BD3 /* CommentPickerDelegate.swift */,
 				AC211F8722BFF6F6002A6BD3 /* ExerciseDurationPickerViewController.swift */,
 				AC211F8922BFF77C002A6BD3 /* ExerciseDurationPickerDelegate.swift */,
-				ACCFB8EC22889D570007FEC8 /* TherapeuticTest.storyboard */,
+				ACBA69312416AC4F00F1E0C4 /* TherapeuticTest.storyboard */,
 				AC6164BF22A2B468009B7C58 /* SequencePickerViewController.swift */,
 				AC6164C122A2B666009B7C58 /* SequencePickerDelegate.swift */,
 				ACA94D9122A3CD800022209F /* SequencePicker.storyboard */,
@@ -1633,7 +1634,7 @@
 				AC372C5F223942C7009F1DAD /* SctRateCell.xib in Resources */,
 				AC82731E222C96EB0041AA0C /* SecurityQuestionCell.xib in Resources */,
 				AC31E3942235B7B400A3B813 /* Other.storyboard in Resources */,
-				ACCFB8ED22889D570007FEC8 /* TherapeuticTest.storyboard in Resources */,
+				ACBA692F2416AC4F00F1E0C4 /* TherapeuticTest.storyboard in Resources */,
 				AC0E4EA02236E144003996AF /* SctTypeWalkthrough.storyboard in Resources */,
 				AC06D484226390E7003BA7C7 /* ToothRecognition.storyboard in Resources */,
 				AC0E4E9A2236C6CC003996AF /* DrawingExampleWalkthrough.storyboard in Resources */,
@@ -1976,6 +1977,15 @@
 			name = SctHorizontal.storyboard;
 			sourceTree = "<group>";
 		};
+		ACBA69312416AC4F00F1E0C4 /* TherapeuticTest.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACBA69302416AC4F00F1E0C4 /* Base */,
+				ACBA69332416AC5500F1E0C4 /* fr */,
+			);
+			name = TherapeuticTest.storyboard;
+			sourceTree = "<group>";
+		};
 		ACC52C46223EF38200B974BA /* CandidateStatisticsCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2136,7 +2146,7 @@
 					"$(PROJECT_DIR)/Script_odont/Frameworks",
 				);
 				INFOPLIST_FILE = Script_odont/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2160,7 +2170,7 @@
 					"$(PROJECT_DIR)/Script_odont/Frameworks",
 				);
 				INFOPLIST_FILE = Script_odont/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
