@@ -1,4 +1,4 @@
 framework module ToothCommon {
-  header "ToothCommon-Swift.h"
-  requires objc
+    header "ToothCommon-Swift.h"
+    requires objc
 }

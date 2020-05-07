@@ -456,6 +456,11 @@
 "TherapeuticTest.Choice.EndocrownLutedCrown"    = "Endocouronne / Couronne collée";
 "TherapeuticTest.Choice.CrrSealedCrown"         = "Couronne scellée avec RCR";
 
+"TherapeuticTest.FourPointLikertScale.StronglyContraindicated" = "Fortement contre-indiquée";
+"TherapeuticTest.FourPointLikertScale.NotIndicated"            = "Pas indiquée";
+"TherapeuticTest.FourPointLikertScale.Indicated"               = "Indiquée";
+"TherapeuticTest.FourPointLikertScale.TheMostIndicated"        = "La plus indiquée";
+
 "TherapeuticTest.AddCommentButton"      = "Ajouter commentaire";
 "TherapeuticTest.Finish"                = "Terminer";
 "TherapeuticTest.FinishDialog.Title"    = "Terminer";

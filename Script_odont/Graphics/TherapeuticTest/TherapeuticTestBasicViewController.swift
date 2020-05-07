@@ -23,10 +23,10 @@ fileprivate func getComments_() -> [TctComment]
 class TherapeuticTestBasicViewController: UIViewController
 {
     public static let diagnosticScale = ChooseScale(graduations: [
-            ChooseScale.Graduation(title: "Fortement contre-indiquée", code: -2),
-            ChooseScale.Graduation(title: "Pas indiquée", code: -1),
-            ChooseScale.Graduation(title: "Indiquée", code: 1),
-            ChooseScale.Graduation(title: "La plus indiquée", code: 2)
+        ChooseScale.Graduation(title: "TherapeuticTest.FourPointLikertScale.StronglyContraindicated".localized, code: -2),
+        ChooseScale.Graduation(title: "TherapeuticTest.FourPointLikertScale.NotIndicated".localized, code: -1),
+            ChooseScale.Graduation(title: "TherapeuticTest.FourPointLikertScale.Indicated".localized, code: 1),
+            ChooseScale.Graduation(title: "TherapeuticTest.FourPointLikertScale.TheMostIndicated".localized, code: 2)
         
         ])
     
@@ -127,7 +127,7 @@ class TherapeuticTestBasicViewController: UIViewController
     }
     fileprivate var stlToothUrl_: URL? {
         let currentFileName = questions_[questionsSuffleIndexes_[currentQuestionIndex_]].volumeFileName
-        return Bundle.main.url(forResource: currentFileName, withExtension: "stl", subdirectory: "TherapeuticChoiceTraining")
+        return Bundle.main.url(forResource: "1", withExtension: "stl", subdirectory: "TherapeuticChoiceTraining")
     }
     fileprivate var timer_: Timer? = nil
     fileprivate var elapsedSeconds_ = 0

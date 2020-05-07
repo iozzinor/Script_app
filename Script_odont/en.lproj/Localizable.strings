@@ -47,7 +47,7 @@
 "Sct.Type.Therapeutic.NegativeOne"  = "Less indicated";
 "Sct.Type.Therapeutic.Zero"         = "Nor indicated nor contraindicated";
 "Sct.Type.Therapeutic.One"          = "Indicated";
-"Sct.Type.Therapeutic.Two"          = "Neede";
+"Sct.Type.Therapeutic.Two"          = "Needed";
 
 "Sct.Type.Prognostic.NegativeTwo"  = "";
 "Sct.Type.Prognostic.NegativeOne"  = "";
@@ -242,9 +242,9 @@
 "DrawingWalkthrough.Description.LikertScale"    = "The last column holds the impact of the new data.";
 
 "DrawingWalkthrough.Drawing.Wording"        = "Wording";
-"DrawingWalkthrough.Drawing.Think"          = "You thought...";
-"DrawingWalkthrough.Drawing.Find"           = "You find...";
-"DrawingWalkthrough.Drawing.LikertIndex"    = "Likert index";
+"DrawingWalkthrough.Drawing.Think"          = "If you were thinking...";
+"DrawingWalkthrough.Drawing.Find"           = "... and you see...";
+"DrawingWalkthrough.Drawing.LikertIndex"    = "Four-point Likert scale";
 
 /* SCT BROWSING */
 "SctBrowsingSection.SeeAll" = "See All";
@@ -456,13 +456,18 @@
 "TherapeuticTest.Choice.EndocrownLutedCrown"    = "Endocrown / Luted Crown";
 "TherapeuticTest.Choice.CrrSealedCrown"         = "Sealed crown with CRR";
 
+"TherapeuticTest.FourPointLikertScale.StronglyContraindicated" = "Strongly contraindicated";
+"TherapeuticTest.FourPointLikertScale.NotIndicated"            = "Not indicated";
+"TherapeuticTest.FourPointLikertScale.Indicated"               = "Indicated";
+"TherapeuticTest.FourPointLikertScale.TheMostIndicated"        = "Highly indicated";
+
 "TherapeuticTest.AddCommentButton"      = "Add Comment";
 "TherapeuticTest.Finish"                = "Finish";
 "TherapeuticTest.FinishDialog.Title"    = "Finish";
 "TherapeuticTest.FinishDialog.Message"  = "Do you want to end the session ?";
 
 /* THERAPEUTIC CHOICE */
-"TherapeuticChoice.NavigationItem.Title"            = "Therapeutic Choice";
+"TherapeuticChoice.NavigationItem.Title"            = "Therapeutic Choices";
 "TherapeuticChoice.ParticipantDialog.Title"         = "Define Participant Name";
 "TherapeuticChoice.ParticipantDialog.Placeholder"   = "Participant Name...";
 "TherapeuticChoice.ParticipantDialog.Message"       = "Please enter the participant name.";
