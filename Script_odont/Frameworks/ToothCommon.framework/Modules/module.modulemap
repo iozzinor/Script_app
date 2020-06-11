@@ -1,4 +1,0 @@
-framework module ToothCommon {
-    header "ToothCommon-Swift.h"
-    requires objc
-}

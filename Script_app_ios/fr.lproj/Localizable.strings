@@ -1,0 +1,485 @@
+/* 
+  Localized.strings
+  Script_odont
+
+  Created by Régis Iozzino on 21/02/2019.
+  Copyright © 2019 Régis Iozzino. All rights reserved.
+*/
+
+/* INFO PLIST */
+"NSFaceIDUsageDescription" = "FaceId / TouchId est requis pour permetre de déverouiller l'application.";
+
+/* COMMON */
+"Common.Ok"         = "Ok";
+"Common.Cancel"     = "Annuler";
+"Common.Yes"        = "Oui";
+"Common.No"         = "Non";
+"Common.Next"       = "Suivant";
+"Common.Previous"   = "Précédent";
+"Common.None"       = "Aucun";
+"Common.Done"       = "Ok";
+"Common.Delete"     = "Supprimer";
+
+/* MAIN */
+"Main.Menu.Title"                   = "Script App";
+"Main.Menu.Item.TherapeuticBasic"   = "Meilleur choix thérapeutique";
+"Main.Menu.Item.TherapeuticScale"   = "Choix thérapeutiques";
+"Main.Menu.Item.TctManage"          = "Gestion choix thérapeutiques";
+"Main.Menu.Item.SctBrowsing"        = "Navigation TCS";
+"Main.Menu.Item.MySct"              = "Mes TCS";
+"Main.Menu.Item.Other"              = "Autres";
+
+/* SCT TYPE */
+"Sct.Type.Diagnostic" = "Diagnostique";
+"Sct.Type.Therapeutic" = "Thérapeutique";
+"Sct.Type.Prognostic" = "Pronostique";
+
+"Sct.Type.Diagnostic.NegativeTwo"  = "L'hypothèse est pratiquement éliminée";
+"Sct.Type.Diagnostic.NegativeOne"  = "L'hypothèse devient moins probable";
+"Sct.Type.Diagnostic.Zero"         = "L'information n'a aucun effet sur l'hypothèse";
+"Sct.Type.Diagnostic.One"          = "L'hypothèse devient plus probable";
+"Sct.Type.Diagnostic.Two"          = "Il ne peut s'agir pratiquement que de cette hypothèse";
+
+"Sct.Type.Therapeutic.NegativeTwo"  = "Fortement contre-indiquée";
+"Sct.Type.Therapeutic.NegativeOne"  = "Moins indiquée";
+"Sct.Type.Therapeutic.Zero"         = "Ni indiqué ni contre-indiqué";
+"Sct.Type.Therapeutic.One"          = "Indiquée";
+"Sct.Type.Therapeutic.Two"          = "Indispensable";
+
+"Sct.Type.Prognostic.NegativeTwo"  = "";
+"Sct.Type.Prognostic.NegativeOne"  = "";
+"Sct.Type.Prognostic.Zero"         = "";
+"Sct.Type.Prognostic.One"          = "";
+"Sct.Type.Prognostic.Two"          = "";
+
+/* QUALIFICATION */
+"Qualification.Name.Student"    = "Etudiant";
+"Qualification.Name.Teacher"    = "Enseignant";
+"Qualification.Name.Expert"     = "Expert";
+
+/* QUALIFICATION TOPIC */
+"QualificationTopic.Name.Surgery"               = "Chirurgie";
+"QualificationTopic.Name.Endodontics"           = "Endodontie";
+"QualificationTopic.Name.Prosthodontics"        = "Prothèse";
+"QualificationTopic.Name.PediatricDentistry"    = "Pédodontologie";
+"QualificationTopic.Name.Periodontics"          = "Parodontologie";
+
+"SecurityQuestion.Content.ChildhoodCity"        = "Dans quelle ville avez-vous grandi ?";
+"SecurityQuestion.Content.ParentMeetingCity"    = "Dans quelle ville se sont rencontrés vos parents ?";
+"SecurityQuestion.Content.ChildhoodStreet"      = "Quel est le nom de la rue dans laquelle vous avez grandi ?";
+"SecurityQuestion.Content.FirstPet"             = "Comment s'appelait votre premier animal ?";
+"SecurityQuestion.Content.FavoriteBand"         = "Quel est votre groupe de musique préféré ?";
+"SecurityQuestion.Content.FavoriteSong"         = "Quel est votre chanson préférée ?";
+"SecurityQuestion.Content.FavoriteMovie"        = "Quel est votre film préféré ?";
+"SecurityQuestion.Content.DreamJob"             = "Quel est le métier de vos rêves ?";
+
+/* PERIOD */
+"Period.Day.Name.Short"     = "J";
+"Period.Week.Name.Short"    = "S";
+"Period.Month.Name.Short"   = "M";
+"Period.Year.Name.Short"    = "A";
+
+"Period.Day.Name"     = "Jour";
+"Period.Week.Name"    = "Semaine";
+"Period.Month.Name"   = "Mois";
+"Period.Year.Name"    = "Année";
+
+"Period.Day.Name.Latest"     = "Aujourd'hui";
+"Period.Week.Name.Latest"    = "Cette semaine";
+"Period.Month.Name.Latest"   = "Ce mois";
+"Period.Year.Name.Latest"    = "Cette année";
+
+/* SCT QUESTION HEADER CELL */
+"SctQuestionHeaderCell.Hypothesis" = "Hypothèse";
+"SctQuestionHeaderCell.NewData"    = "Nouvelle donnée";
+"SctQuestionHeaderCell.Impact"     = "Impact";
+
+/* SCT DETAIL */
+"SctDetail.Title"                 = "TCS %d";
+"SctDetail.Section.General"       = "Général";
+"SctDetail.Section.LastSession"   = "Dernière session";
+"SctDetail.Section.Rate"          = "Vote";
+"SctDetail.Section.Results"       = "Résultats";
+"SctDetail.Section.Duration"      = "Durées";
+"SctDetail.Section.Popularity"    = "Popularité";
+
+"SctDetail.TableCell.AuthorLastName"              = "Nom auteur:";
+"SctDetail.TableCell.AuthorFirstName"             = "Prénom auteur:";
+"SctDetail.TableCell.MeanScore"                   = "Score moyen :";
+"SctDetail.TableCell.QuestionsCount"              = "Nombre de questions :";
+"SctDetail.TableCell.EstimatedDuration"           = "Estimée :";
+"SctDetail.TableCell.MeanDuration"                = "Moyenne :";
+"SctDetail.TableCell.MeanVotes"                   = "Moyenne des votes :";
+"SctDetail.TableCell.LaunchesCount"               = "Nombre de lancements :";
+"SctDetail.TableCell.MeanCompletionPercentage"    = "Complétion moyenne :";
+
+"SctDetail.TableCell.LastDate"                    = "Date :";
+"SctDetail.TableCell.ActualDuration"              = "Durée :";
+"SctDetail.TableCell.AnsweredQuestionsCount"      = "Questions répondues :";
+
+"SctDetail.TableCell.MyVote"                      = "Mon vote :";
+"SctDetail.TableCell.PerformVote"                 = "Voter";
+"SctDetail.TableCell.RemoveVote"                  = "Supprimer vote";
+"SctDetail.TableCell.CompletionDate"              = "Date fin :";
+"SctDetail.TableCell.CompletionDuration"          = "Durée finale :";
+"SctDetail.TableCell.CompletionScore"             = "Score final :";
+
+"SctDetail.TableCell.Resume"                      = "Reprendre";
+"SctDetail.TableCell.Launch"                      = "Lancer";
+
+"SctDetail.TableCell.Detail.Score"                    = "%@ / %d";
+"SctDetail.TableCell.Detail.AnsweredQuestionsCount"   = "%d / %d";
+"SctDetail.TableCell.Detail.MeanCompletionPerentage"  = "%@%%";
+
+/* LOGIN */
+"Login.Error.AlertTitle"              = "Authentification";
+"Login.Error.AuthenticationFailed"    = "L'authentification a échoué.";
+"Login.Error.BiometryNotEnrolled"     = "La reconnaissance biométrique n'est pas activée.";
+"Login.Error.BiometryNotAvailable"    = "La reconnaissance biométrique n'est pas disponible.";
+"Login.Error.BiometryLocked"          = "La reconnaissance biométrique est verrouillée.";
+"Login.Error.BiometryNotConfigured"   = "La reconnaissance n'est sûrement pas enclenchée.";
+
+/* SIGNIN */
+"Signin.Section.Title.Account"              = "Compte";
+"Signin.Section.Title.Qualifications"       = "Compétences";
+"Signin.Section.Title.Qualification"        = "Compétence %@";
+"Signin.Section.Title.PersonalData"         = "Informations personnelles";
+"Signin.Section.Title.SecurityQuestions"    = "Questions de sécurité";
+
+"Signin.Form.Label.Username"                = "Utilisateur :";
+"Signin.Form.Label.Password"                = "Mot de passe :";
+"Signin.Form.Label.PasswordVerification"    = "Vérification :";
+"Signin.Form.Label.Qualification"           = "Compétence %@";
+"Signin.Form.Label.NewQualification"        = "Nouvelle compétence";
+"Signin.Form.Label.NewQualificationTopic"   = "Nouveau thème de compétence";
+"Signin.Form.Label.MailAddress"             = "Adresse mail :";
+"Signin.Form.Label.PhoneNumber"             = "Téléphone :";
+"Signin.Form.Label.Age"                     = "Age :";
+"Signin.Form.Label.Address"                 = "Adresse:";
+"Signin.Form.Label.NewSecurityQuestion"     = "Nouvelle question de sécurité";
+"Signin.Form.Label.Submit"                  = "Soumettre";
+"Signin.Form.TextField.Required"            = "Nécessaire";
+"Signin.Form.TextField.Optional"            = "Facultatif";
+
+/* SECURITY QUESTION PICKER */
+"SecurityQuestionPicker.Label.None" = "Aucune";
+
+/* QUALIFICATION TOPIC PICKER */
+"QualificationTopicPicker.NoTopicsRemaining" = "Pas de thématique à ajouter.";
+
+/* RECOVER PASSWORD */
+"RecoverPassword.Header.AccountInformation" = "Information compte";
+"RecoverPassword.Header.SecurityQuestions"  = "Questions de sécurité";
+"RecoverPassword.UserIdentifier.Label"      = "Identifiant utilisateur:";
+"RecoverPassword.UserIdentifier.TextField"  = "Nom d'utilisateur ou adressse mail";
+
+"RecoverPassword.Action.Recover"            = "Récupérer";
+
+/* AUTHENTICATION */
+"Authentication.Biometry.FaceId.Name"   = "Face ID";
+"Authentication.Biometry.TouchId.Name"  = "Touch ID";
+"Authentication.Reason"                 = "Utilisez %@ pour déverrouiller votre compte.";
+
+/* UNLOCK */
+"Unlock.DeleteAll.Inform.Title"             = "Récupération";
+"Unlock.DeleteAll.Inform.Message"           = "Vous pouvez réinitaliser le mot de passe, en réinitialisant l'application. Voulez-vous continuer ?";
+"Unlock.DeleteAll.Confirm.Title"            = "Tout supprimer";
+"Unlock.DeleteAll.Confirm.Message"          = "Vous êtes sur le point de tout supprimer. Voulez-vous poursuivre ?";
+"Unlock.DeleteAll.DoubleConfirm.Title"      = "Dernier avertissement";
+"Unlock.DeleteAll.DoubleConfirm.Message"    = "Les données seront perdues de manière irréversible. Voulez-vous vraiment supprimer l'ensemble des données ?";
+"Unlock.DeleteAll.Success.Title"            = "Suppression totale";
+"Unlock.DeleteAll.Success.Message"          = "L'application a été réinitialisée avec succès.";
+
+/* PASSPHRASE */
+"Passphrase.Name.SixDigitCode" = "Code à six chiffres";
+"Passphrase.Name.AlphaNumeric" = "Mot de passe alphanumérique";
+
+"Passphrase.Options"                = "Options code";
+"Passphrase.Title.Creation"         = "Création code";
+"Passphrase.Title.Modification"     = "Modification code";
+"Passphrase.Instruction.New"        = "Entrez le nouveau code.";
+"Passphrase.Instruction.Previous"   = "Entrez le code précédant.";
+"Passphrase.Instruction.Confirm"    = "Confirmez le code.";
+
+"Passphrase.Options.Choose.Title"   = "Options code";
+"Passphrase.Options.Choose.Message" = "Choisissez un type de code.";
+
+/* WELCOME WALKTHROUGH */
+"WelcomeWalkthrough.SkipButton.Title.Skip" = "Passer";
+"WelcomeWalkthrough.SkipButton.Title.Done" = "Compris !";
+
+"WelcomeWalkthrough.Section.Title.Sct"          = "Mais au fait, qu'est-ce qu'un TCS ?";
+"WelcomeWalkthrough.Section.Title.Uncertainty"  = "Principle";
+
+"WelcomeWalkthrough.Section.Description.Welcome"      = "Bienvenue sur SCT-app, l'application pour faire des Tests de Concordance de Script !";
+"WelcomeWalkthrough.Section.Description.Sct"          = "Les TCS sont des outils standardisés qui permettent d'évaluer le raisonnement et les capacités à prendre des décisions dans des cas complexes, ou en sitation d'incertitude.";
+"WelcomeWalkthrough.Section.Description.Uncertainty"  = "Situtation d'incertitude";
+
+/* WELCOME WALKTHROUGH EXAMPLE */
+"WelcomeWalkthroughExample.Label.Title.Scenario"        = "Un scenario";
+"WelcomeWalkthroughExample.Label.Title.Hypothesis"      = "Une hypothèse";
+"WelcomeWalkthroughExample.Label.Title.Information"     = "Une information";
+"WelcomeWalkthroughExample.Label.Title.Impact"          = "L'impact de l'information sur l'hypothèse";
+"WelcomeWalkthroughExample.Label.Title.SelectImpact"    = "Selectionnez l'impact";
+
+"WelcomeWalkthroughExample.Label.Description.Scenario"    = "Vous vous apprêtez à partir en voiture. Il neige. Votre voiture est garée dans la rue. Elle ne démarre pas.";
+"WelcomeWalkthroughExample.Label.Description.Hypothesis"  = "Votre réservoir est vide.";
+"WelcomeWalkthroughExample.Label.Description.Information" = "Vous avez roulé la veille avec le témoin de réserve du réservoir.";
+
+"WelcomeWalkthroughExample.ImpactButton.Title" = "%d : %@";
+
+"WelcomeWalkthroughExample.Success.Title"   = "Premier TCS";
+"WelcomeWalkthroughExample.Success.Message" = "Bravo ! Vous venez de répondre à votre premier TCS sur TCS-App !";
+
+/* DRAWING WALKTHROUGH */
+"DrawingWalkthrough.Description.Drawing"        = "Un TCS est classiquement représenté sous la forme d'une vignette.";
+"DrawingWalkthrough.Description.Wording"        = "Le cas du patient est décrit dans la première rangée.";
+"DrawingWalkthrough.Description.Hypothesis"     = "Les hypothèses sont rangées dans la première colonne.";
+"DrawingWalkthrough.Description.NewData"        = "Les nouvelles informations sont alignées dans la deuxième colonne.";
+"DrawingWalkthrough.Description.LikertScale"    = "La dernière colonne contient les impacts de ces données sur les hypothèses.";
+
+"DrawingWalkthrough.Drawing.Wording"        = "Enoncé.";
+"DrawingWalkthrough.Drawing.Think"          = "Vous pensiez...";
+"DrawingWalkthrough.Drawing.Find"           = "Vous trouvez...";
+"DrawingWalkthrough.Drawing.LikertIndex"    = "Indice de Likert";
+
+/* SCT BROWSING */
+"SctBrowsingSection.SeeAll" = "Voir tout";
+
+"SctBrowsing.NewSct.Time" = "Il y a %@.";
+"SctBrowsing.Search.Title"  = "Ce n'est pas suffisant ? Recherchez !";
+
+"ScrBrowsing.Section.New.Title"             = "Nouveaux";
+"ScrBrowsing.Section.Top.Title"             = "Tendance";
+"ScrBrowsing.Section.Personnalized.Title"   = "Pour vous";
+"ScrBrowsing.Section.Topics.Title"          = "Thèmes";
+"ScrBrowsing.Section.Search.Title"          = "Recherche";
+
+"ScrBrowsing.Section.New.Description"             = "Les derniers TCS.";
+"ScrBrowsing.Section.Top.Description"             = "Les meilleurs TCS.";
+"ScrBrowsing.Section.Personnalized.Description"   = "Une liste de TCS créée spécialement pour vous.";
+"ScrBrowsing.Section.Topics.Description"          = "Les TCS par thème.";
+
+/* SCTS LIST */
+"SctsList.Category.Today.Name"          = "Les TCS du jour";
+"SctsList.Category.LastWeek.Name"       = "Les TCS de la semaine";
+"SctsList.Category.LastMonth.Name"      = "Les TCS du mois";
+"SctsList.Category.Top.Name"            = "Les meilleurs TCS";
+"SctsList.Category.Personnalized.Name"  = "Sélection de TCS pour vous";
+
+"SctsList.NoScts" = "Pas de TCS à afficher.";
+
+/* SCT SEARCH */
+"SctSearch.Criterion.Topics.Name"           = "Thèmes";
+"SctSearch.Criterion.ReleaseDate.Name"      = "Date de publication";
+"SctSearch.Criterion.QuestionsCount.Name"   = "Nombre de questions";
+"SctSearch.Criterion.Duration.Name"         = "Durée";
+
+"SctSearch.AddCriterion.Title"              = "Ajouter critère";
+"SctSearch.PickQualificationTopics.Title"   = "Choisir les thèmes";
+"SctSearch.PerformSearch.Title"             = "Rechercher";
+
+"SctSearch.DurationPicker.Minimum" = "Minimum :";
+"SctSearch.DurationPicker.Maximum" = "Maximum :";
+"SctSearch.DurationPicker.Minimum.Date" = "Depuis le :";
+"SctSearch.DurationPicker.Maximum.Date" = "Jusqu'au :";
+"SctSearch.DurationPicker.Minimum.QuestionsCount" = "Questions minimum :";
+"SctSearch.DurationPicker.Maximum.QuestionsCount" = "Questions maximum :";
+
+"SctSearchCriterionPicker.NavigationItem.Title" = "Choix nouveau critère";
+
+"SctSearch.SearchAllAlert.Title"    = "Afficher tout";
+"SctSearch.SearchAllAlert.Message"  = "Aucun critère de recherche n'a été mentionné. Voulez-vous afficher l'ensemble des TCS ?";
+
+/* SCT SEARCH RESULT */
+"SctSearchResult.Section.Summary.Title" = "Résumé recherche";
+"SctSearchResult.Section.Results.Title" = "Résultats";
+"SctSearchResult.AllScts"               = "Tous les TCS.";
+"SctSearchResult.NoScts"                = "Pas de TCS trouvé.";
+
+/* SCT EXAM */
+"SctExam.Horizontal.RotateLabel.Title" = "Merci de tourner l'appareil (ou votre tête)";
+
+"SctExam.Horizontal.Title.Information"      = "Informations";
+"SctExam.Horizontal.Progress"               = "%d sur %d";
+"SctExam.Submission.Error.AlertTitle"       = "Erreur de soumission";
+"SctExam.Submission.Error.InsufficientTime" = "La session doit avoir été lancé un minimum de %f secondes. Il s'est écoulé %f secondes pour le moment.";
+"SctExam.Submission.Error.InsufficientAnswers" = "Seulement %d réponses ont été apportées. Il faut au moins avoir répondu à %d TCS pour soumettre la session.";
+"SctExam.Horizontal.Options.Title"      = "Options";
+"SctExam.Horizontal.Options.Message"    = "Choisissez une option.";
+"SctExam.Horizontal.Options.GoTo"       = "Aller à";
+
+"GoToSct.SctIndex" = "Tcs %d";
+
+/* MY SCT*/
+"MySct.Section.Unfinished"  = "Non finis";
+"MySct.Section.Finished"    = "Finis";
+"MySct.Section.Progress"    = "Ma progression";
+
+"MySct.Section.Unfinished.Description"  = "Les TCS commencés et à terminer.";
+"MySct.Section.Finished.Description"    = "Les TCS que vous avez terminés.";
+
+"MySct.Progress.Title" = "Voir ma progression";
+
+/* SCTS UNFINISHED LIST */
+"SctsUnfinishedList.NavigationItem.Title" = "TCS entamés";
+
+/* SCTS FINISHED LIST */
+"SctsFinishedList.NavigationItem.Title" = "TCS terminés";
+
+/* PROGRESS CELL */
+"ProgressCell.Period.Today"           = "Aujourd'hui";
+"ProgressCell.Period.WeekFormat"      = "%@ - %@";
+"ProgressCell.Period.MonthFormat"     = "MMMM YYYY";
+
+/* MY PROGRESS */
+"MyProgress.Section.Data.Title"             = "Scores TCS (pourcentages)";
+"MyProgress.NavigationItem.Title"           = "Ma progression";
+"MyProgress.Data.Count.Title"               = "Nombre de résulats :";
+"MyProgress.Data.MeanScore.Title"           = "Score moyen :";
+"MyProgress.Data.AnsweredScts.Title"        = "Nombre de TCS passés :";
+"MyProgress.NoProgression"                  = "Pas de progression.";
+"MyProgress.Explanation"                    = "Les scores sont affichés en pourcentage du score maximal possible.";
+
+"MyProgress.OrdinatesAxis.Legend"   = "%d%%";
+"MyProgress.OrdinatesAxis.Title" = "Scores (pourcentage)";
+
+/* VOLUME VIEW CONTROLLER */
+"Volume.ToggleMeshButton.Title.Display" = "Afficher maillage";
+"Volume.ToggleMeshButton.Title.Hide"    = "Masquer maillage";
+
+/* CONSTANTS */
+"Constants.Duration.String.Format.Short" = "%02dM:%02dS";
+
+/* ABOUT VIEW CONTROLLER */
+"About.NavigationItem.Title" = "A propos";
+
+"About.Row.ApplicationVersion"  = "Version de l'application :";
+"About.Row.ApplicationBuild"    = "Compilation de l'application :";
+
+/* DEVELOPER VIEW CONTROLLER */
+"Developer.NavigationItem.Title" = "Développeur";
+
+"Developer.Section.Server.Title" = "Serveur";
+
+"Developer.Row.ServerName" = "Nom :";
+"Developer.Row.ServerPort" = "Port :";
+
+"Developer.ServerName.Alert.Title"              = "Nouveau nom serveur";
+"Developer.ServerName.Alert.Message"            = "Saisissez le nouveau nom du serveur.";
+"Developer.ServerName.TextField.Placeholder"    = "Le nouveau nom du serveur...";
+"Developer.ServerPort.Alert.Title"              = "Nouveau port serveur";
+"Developer.ServerPort.Alert.Message"            = "Saisissez le nouveau port du serveur.";
+"Developer.ServerPort.TextField.Placeholder"    = "Le nouveau port du serveur...";
+
+/* OTHER VIEW CONTROLLER */
+"OtherViewController.NavigationItem.Title" = "Autres";
+
+"OtherViewController.Tutorials"         = "Tutoriels";
+"OtherViewController.Leaderboard"       = "Classement";
+
+/* WALKTHROUGHS VIEW CONTROLLER */
+"Walkthroughs.Show.Welcome" = "Bienvenue...";
+"Walkthroughs.Show.Drawing" = "Vignette...";
+"Walkthroughs.Show.DrawingExample" = "Exemple de vignette...";
+"Walkthroughs.Show.SctType" = "Thème TCS...";
+
+/* LEADERBOARD */
+"Leaderboard.Section.TopTen.Title"  = "Top dix";
+"Leaderboard.Section.User.Title"    = "Mon classement";
+
+"Leaderboard.NavigationItem.Title" = "Classement";
+
+"Leaderboard.User.NotRanked"        = "Vous n'êtes actuellement pas classé.";
+"Leaderboard.User.Rank"             = "Classement :";
+"Leaderboard.User.AnsweredSctExams" = "Nombre d'examens passés :";
+"Leaderboard.User.MeanScore"        = "Score moyen :";
+
+/* PERIOD LEADERBOARD */
+"PeriodLeaderboard.NavigationItemTitle.Day"     = "Classement du jour";
+"PeriodLeaderboard.NavigationItemTitle.Week"    = "Classement de la semaine";
+"PeriodLeaderboard.NavigationItemTitle.Month"   = "Classement du mois";
+"PeriodLeaderboard.NavigationItemTitle.Year"    = "Classement de l'année";
+
+/* TOOTH RECOGNITION */
+"ToothRecognition.NavigationItem.Title" = "Identifiez la dent";
+"ToothRecognition.FirstQuestion"        = "Première question.";
+"ToothRecognition.Select"               = "Choisir la dent";
+"ToothRecognition.Monitoring"           = "%d justes sur %d";
+
+/* TOOTH RECOGNITION SELECTION */
+"ToothRecognitionSelection.NavigationItem.Title" = "Sélectionnez la dent";
+
+/* THERAPEUTIC TEST */
+"TherapeuticTest.Choice.Composite"              = "Composite";
+"TherapeuticTest.Choice.InlayOnlay"             = "Inlay / Onlay";
+"TherapeuticTest.Choice.VeneerlayOverlay"       = "Veenerlay / Overlay";
+"TherapeuticTest.Choice.EndocrownLutedCrown"    = "Endocouronne / Couronne collée";
+"TherapeuticTest.Choice.CrrSealedCrown"         = "Couronne scellée avec RCR";
+
+"TherapeuticTest.FourPointLikertScale.StronglyContraindicated" = "Fortement contre-indiquée";
+"TherapeuticTest.FourPointLikertScale.NotIndicated"            = "Pas indiquée";
+"TherapeuticTest.FourPointLikertScale.Indicated"               = "Indiquée";
+"TherapeuticTest.FourPointLikertScale.TheMostIndicated"        = "La plus indiquée";
+
+"TherapeuticTest.AddCommentButton"      = "Ajouter commentaire";
+"TherapeuticTest.Finish"                = "Terminer";
+"TherapeuticTest.FinishDialog.Title"    = "Terminer";
+"TherapeuticTest.FinishDialog.Message"  = "Voulez-vous terminer la session ?";
+
+/* THERAPEUTIC CHOICE */
+"TherapeuticChoice.NavigationItem.Title"            = "Choix Thérapeutique";
+"TherapeuticChoice.ParticipantDialog.Title"         = "Nom du participant";
+"TherapeuticChoice.ParticipantDialog.Placeholder"   = "Nom du participant...";
+"TherapeuticChoice.ParticipantDialog.Message"       = "Veuillez entrer le nom du participant.";
+"TherapeuticChoice.Section.Participant"             = "Participant";
+"TherapeuticChoice.Section.Sequence"                = "Séquence";
+"TherapeuticChoice.Section.Resume"                  = "Reprendre";
+"TherapeuticChoice.Section.Finished"                = "Terminés";
+"TherapeuticChoice.Row.Participant"                 = "Participant :";
+"TherapeuticChoice.Row.ParticipantCategory"         = "Categorie :";
+"TherapeuticChoice.Row.ParticipantExerciseDuration" = "Durée d'exercice:";
+"TherapeuticChoice.Row.ParticipantAge"              = "Âge :";
+"TherapeuticChoice.Row.SequenceIndex"               = "Numéro séquence :";
+"TherapeuticChoice.Row.Launch"                      = "Démarrer";
+"TherapeuticChoice.SaveSuccessDialog.Title"         = "Réussite sauvegarde";
+"TherapeuticChoice.SaveSuccessDialog.Message"       = "La session a bien été enregistrée !";
+"TherapeuticChoice.SessionDeletionDialog.Title"     = "Suppression session";
+"TherapeuticChoice.SessionDeletionDialog.Message"   = "Voulez-vous supprimer la session ?";
+
+/* TCT MANAGE */
+"TctManage.DeleteButton"    = "Tout supprimer";
+"TctManage.ExportButton"    = "Exporter";
+"TctManage.SessionsCount"   = "%d session(s)";
+
+/* TCT EXPORT */
+"TctExport.DefaultButton"       = "Défaut";
+"TctExport.PanelButton"         = "Panel";
+"TctExport.RespondentsButton"   = "Etudiants";
+
+/* PARTICIPANT CATEGORY */
+"ParticipantCategory.Name.Four"     = "4ème année";
+"ParticipantCategory.Name.Five"     = "5ème année";
+"ParticipantCategory.Name.Six"      = "6ème année";
+"ParticipantCategory.Name.Intern"   = "Interne";
+"ParticipantCategory.Name.Teacher"  = "Enseignant";
+
+/* PARTICIPANT CATEGORY PICKER */
+"ParticipantCategoryPicker.NavigationItem.Title" = "Choix catégorie participant";
+
+/* Sequence PICKER */
+"SequencePicker.NavigationItem.Title" = "Choix séquence";
+
+/* NETWORK ERROR */
+"NetworkError.NotReachable.LocalizedDescription"    = "Votre appareil n'est pas connecté à internet.";
+"NetworkError.NotReachable.FixTip"                  = "Activez le Wifi ou les données cellulaires.";
+"NetworkError.Airplane.LocalizedDescription"        = "Le mode avion est activé.";
+"NetworkError.Airplane.FixTip"                      = "Désactivez le mode avion.";
+
+/* FETCH ERROR */
+"NetworkingService.ConnectionError.NoAccountLinked.LocalizedDescription"     = "Pas de compte associé.";
+"NetworkingService.ConnectionError.NoAccountLinked.FixTip"                   = "Associer un compte.";
+"NetworkingService.ConnectionError.AccountNotActivated.LocalizedDescription" = "Le compte n'a pas encore été activé.";
+"NetworkingService.ConnectionError.AccountNotActivated.FixTip"               = "Afficher les mails.";
+"NetworkingService.ConnectionError.WrongCredentials.LocalizedDescription"    = "Votre compte n'est plus associé à l'appareil.";
+"NetworkingService.ConnectionError.WrongCredentials.FixTip"                  = "Réassocier le compte.";
