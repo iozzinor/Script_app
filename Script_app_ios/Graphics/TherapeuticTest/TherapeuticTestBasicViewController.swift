@@ -127,7 +127,7 @@ class TherapeuticTestBasicViewController: UIViewController
     }
     fileprivate var stlToothUrl_: URL? {
         let currentFileName = questions_[questionsSuffleIndexes_[currentQuestionIndex_]].volumeFileName
-        return Bundle.main.url(forResource: "1", withExtension: "stl", subdirectory: "TherapeuticChoiceTraining")
+        return Bundle.main.url(forResource: currentFileName, withExtension: "stl", subdirectory: "TherapeuticChoiceTraining")
     }
     fileprivate var timer_: Timer? = nil
     fileprivate var elapsedSeconds_ = 0

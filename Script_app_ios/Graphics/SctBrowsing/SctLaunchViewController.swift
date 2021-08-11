@@ -129,7 +129,7 @@ extension SctLaunchViewController: SctDetailViewDataSource
         
         var result = 0
         return result
-        //return launchInformation.sct.totalItemsCount
+        //return launchInformation.sct.totalItemsCount // TEMP
     }
     
     var unfinished: SctUnfinished? {
